@@ -40,7 +40,21 @@ jobs:
 
       - name: Fontes automáticas
         if: github.event_name != 'push'
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
         run: node tools/sincronizar.mjs
+
+      - name: Completar sinopses, capas, episódios e notas (TMDB / IMDb)
+        if: github.event_name != 'push'
+        continue-on-error: true
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          node tools/completar.mjs --limite 150
+          # aos domingos, atualiza as notas do IMDb de tudo (o plano grátis do OMDb aceita 1000 por dia)
+          if [ "$(date +%u)" = "7" ]; then node tools/completar.mjs --notas --limite 800; fi
 
       - name: Testar links (os mais antigos primeiro)
         if: github.event_name != 'push'
