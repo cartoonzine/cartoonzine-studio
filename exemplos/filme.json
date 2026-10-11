@@ -1,0 +1,9 @@
+{
+  "nome": "Nome do Filme ou Desenho Avulso",
+  "links": ["https://exemplo.com/filme.mp4", "https://espelho.exemplo.com/filme.mp4"],
+  "ano": 1940,
+  "capa": "https://exemplo.com/capa.jpg",
+  "descricao": "Sinopse.",
+  "generos": ["Comédia"],
+  "destaque": true
+}

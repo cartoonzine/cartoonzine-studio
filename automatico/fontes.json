@@ -1,0 +1,37 @@
+{
+  "_comentario": "Fontes automáticas: o GitHub Actions puxa estas listas todo dia e coloca em conteudo/. Ligue uma fonte trocando \"ativo\" para true. Itens manuais nunca são apagados; para proteger um item automático de mudanças, coloque \"_travado\": true dentro dele.",
+  "_tipos": {
+    "m3u": "lista M3U (url)",
+    "texto": "arquivo de texto com links, 'Nome | link' ou mensagens do @CZStreamBot (url)",
+    "archive": "itens do Internet Archive (ids: [\"identificador\", ...])",
+    "archive-busca": "busca no Internet Archive (busca: consulta da API, limite: quantos itens)"
+  },
+  "fontes": [
+    {
+      "nome": "iptv-org Brasil",
+      "ativo": false,
+      "colecao": "canais",
+      "tipo": "m3u",
+      "url": "https://iptv-org.github.io/iptv/countries/br.m3u",
+      "padroes": { "pais": "BR", "idioma": "Português", "categoria": "TV Aberta" },
+      "removerSumidos": true
+    },
+    {
+      "nome": "iptv-org Portugal",
+      "ativo": false,
+      "colecao": "canais",
+      "tipo": "m3u",
+      "url": "https://iptv-org.github.io/iptv/countries/pt.m3u",
+      "padroes": { "pais": "PT", "idioma": "Português", "categoria": "TV Aberta" },
+      "removerSumidos": true
+    },
+    {
+      "nome": "Desenhos clássicos (Internet Archive)",
+      "ativo": false,
+      "colecao": "cartoons",
+      "tipo": "archive-busca",
+      "busca": "collection:classic_cartoons AND mediatype:movies",
+      "limite": 40
+    }
+  ]
+}

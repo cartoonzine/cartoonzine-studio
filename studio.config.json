@@ -1,0 +1,116 @@
+{
+  "_comentario": "Configuração do Cartoonzine Studio. Cada coleção vira um DB publicado em dist/ e uma fonte no sources.json do cartoonzine-cloud. Para criar uma coleção nova, copie um bloco de 'colecoes', troque id/nome/categoria e escolha um 'tipo' (video, canal24h, canal, radio, jogo). O painel monta o formulário sozinho.",
+
+  "projeto": "Cartoonzine Studio",
+
+  "publicacao": {
+    "_comentario": "Onde os DBs gerados ficam públicos. Os links abaixo entram no sources.json do cartoonzine-cloud e nunca mudam.",
+    "repo": "cartoonzine/cartoonzine-studio",
+    "branch": "main",
+    "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/"
+  },
+
+  "colecoes": [
+    {
+      "id": "cartoons",
+      "nome": "Cartoons",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "icone": "🎨",
+      "fonteCloud": { "nome": "Cartoons VOD", "tipo": "vod_json", "prefixoId": "VOD_CRT", "targetCategory": "Cartoons" }
+    },
+    {
+      "id": "animes",
+      "nome": "Animes",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "icone": "🍥",
+      "fonteCloud": { "nome": "Animes", "tipo": "vod_json", "prefixoId": "LIV_ANI", "targetCategory": "Animes" }
+    },
+    {
+      "id": "desenhos-24h",
+      "nome": "Desenhos 24 Horas",
+      "tipo": "canal24h",
+      "app": "cartoonzine",
+      "icone": "📺",
+      "fonteCloud": { "nome": "Desenhos 24 Horas", "tipo": "vod_m3u", "prefixoId": "LIV_KID", "targetCategory": "Desenhos 24 Horas", "agruparSeries": false }
+    },
+    {
+      "id": "filmes",
+      "nome": "Filmes",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "icone": "🎬",
+      "fonteCloud": { "nome": "Filmes (Studio)", "tipo": "vod_json", "prefixoId": "VOD_STU", "targetCategory": "Filmes" }
+    },
+    {
+      "id": "series",
+      "nome": "Séries",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "icone": "🎞️",
+      "fonteCloud": { "nome": "Séries", "tipo": "vod_json", "prefixoId": "VOD_SER", "targetCategory": "Séries" }
+    },
+    {
+      "id": "radios",
+      "nome": "Rádios",
+      "tipo": "radio",
+      "app": "cartoonzine",
+      "icone": "📻",
+      "fonteCloud": { "nome": "Rádios FM/Web (Links Diretos)", "tipo": "radio", "targetCategory": "Rádios" }
+    },
+    {
+      "id": "canais",
+      "nome": "Canais (TVzine)",
+      "tipo": "canal",
+      "app": "tvzine",
+      "icone": "📡",
+      "subpasta": "pais",
+      "fonteCloud": { "nome": "TVzine - Canais (Studio)", "tipo": "tvzine_worker", "prefixoId": "TV" }
+    },
+    {
+      "id": "jogos",
+      "nome": "Jogos Retrô",
+      "tipo": "jogo",
+      "app": "cartoonzine/emulator",
+      "icone": "🕹️",
+      "subpasta": "console",
+      "fonteCloudPorConsole": true
+    }
+  ],
+
+  "categoriasCanais": [
+    "TV Aberta", "Notícias", "Esportes", "Infantil", "Filmes e Séries", "Documentários",
+    "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"
+  ],
+
+  "consoles": [
+    { "id": "arcade",       "nome": "Arcade",            "prefixoId": "ARC" },
+    { "id": "nes",          "nome": "Nintendo (NES)",    "prefixoId": "NES" },
+    { "id": "snes",         "nome": "Super Nintendo",    "prefixoId": "SNE" },
+    { "id": "n64",          "nome": "Nintendo 64",       "prefixoId": "N64" },
+    { "id": "nds",          "nome": "Nintendo DS",       "prefixoId": "NDS" },
+    { "id": "gbc",          "nome": "Game Boy Color",    "prefixoId": "GBC" },
+    { "id": "gba",          "nome": "Game Boy Advance",  "prefixoId": "GBA" },
+    { "id": "megadrive",    "nome": "Mega Drive",        "prefixoId": "MD"  },
+    { "id": "mastersystem", "nome": "Master System",     "prefixoId": "MS"  },
+    { "id": "gamegear",     "nome": "Game Gear",         "prefixoId": "GG"  },
+    { "id": "segacd",       "nome": "Sega CD",           "prefixoId": "SCD" },
+    { "id": "sega32x",      "nome": "Sega 32X",          "prefixoId": "32X" },
+    { "id": "saturn",       "nome": "Sega Saturn",       "prefixoId": "SAT" },
+    { "id": "atari2600",    "nome": "Atari 2600",        "prefixoId": "A26" },
+    { "id": "pcengine",     "nome": "PC Engine",         "prefixoId": "PCE" },
+    { "id": "pcenginecd",   "nome": "PC Engine CD",      "prefixoId": "PCD" },
+    { "id": "ngp",          "nome": "Neo Geo Pocket",    "prefixoId": "NGP" },
+    { "id": "neogeocd",     "nome": "Neo Geo CD",        "prefixoId": "NGC" },
+    { "id": "neogeo",       "nome": "Neo Geo",           "prefixoId": "NEO" },
+    { "id": "msx",          "nome": "MSX",               "prefixoId": "MSX" },
+    { "id": "odyssey2",     "nome": "Odyssey 2",         "prefixoId": "ODY" },
+    { "id": "colecovision", "nome": "ColecoVision",      "prefixoId": "COL" },
+    { "id": "amiga",        "nome": "Amiga",             "prefixoId": "AMI" },
+    { "id": "msdos",        "nome": "MS-DOS",            "prefixoId": "DOS" },
+    { "id": "flash",        "nome": "Flash Player",      "prefixoId": "FLA" },
+    { "id": "ps1",          "nome": "PlayStation 1",     "prefixoId": "PS1" },
+    { "id": "3do",          "nome": "3DO",               "prefixoId": "3DO" }
+  ]
+}

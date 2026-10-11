@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cartoonzine Studio</title>
+  <meta name="description" content="Painel para adicionar cartoons, animes, filmes, séries, canais, rádios e jogos ao Cartoonzine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="painel.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">CARTOONZINE <span>STUDIO</span></div>
+    <span class="chip" id="status">desconectado</span>
+    <div class="espaco"></div>
+    <button class="btn fantasma mini" id="btn-publicacao" hidden>Links<span class="longo">&nbsp;publicados</span></button>
+    <button class="btn fantasma mini" id="btn-sair" hidden>Sair</button>
+  </header>
+  <main id="raiz"><p class="carregando" style="text-align:center">Carregando…</p></main>
+  <div id="aviso" class="aviso" role="status" aria-live="polite" hidden></div>
+
+  <script src="../core/studio-core.js"></script>
+  <script src="painel.js"></script>
+</body>
+</html>

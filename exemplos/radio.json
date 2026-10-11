@@ -1,0 +1,10 @@
+{
+  "nome": "Nome da Rádio",
+  "links": ["https://exemplo.com/stream.mp3"],
+  "pais": "BR",
+  "cidade": "São Paulo",
+  "idioma": "Português",
+  "generos": ["Pop", "Rock"],
+  "logo": "https://exemplo.com/logo.png",
+  "site": "https://exemplo.com"
+}

@@ -1,0 +1,92 @@
+{
+  "geradoEm": "2026-10-11T02:37:01.203Z",
+  "colecoes": [
+    {
+      "colecao": "cartoons",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": []
+    },
+    {
+      "colecao": "animes",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": []
+    },
+    {
+      "colecao": "desenhos-24h",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": []
+    },
+    {
+      "colecao": "filmes",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": []
+    },
+    {
+      "colecao": "series",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": []
+    },
+    {
+      "colecao": "radios",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": [],
+      "porPais": {}
+    },
+    {
+      "colecao": "canais",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": [],
+      "porPais": {}
+    },
+    {
+      "colecao": "jogos",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": [],
+      "porConsole": {
+        "arcade": 0,
+        "nes": 0,
+        "snes": 0,
+        "n64": 0,
+        "nds": 0,
+        "gbc": 0,
+        "gba": 0,
+        "megadrive": 0,
+        "mastersystem": 0,
+        "gamegear": 0,
+        "segacd": 0,
+        "sega32x": 0,
+        "saturn": 0,
+        "atari2600": 0,
+        "pcengine": 0,
+        "pcenginecd": 0,
+        "ngp": 0,
+        "neogeocd": 0,
+        "neogeo": 0,
+        "msx": 0,
+        "odyssey2": 0,
+        "colecovision": 0,
+        "amiga": 0,
+        "msdos": 0,
+        "flash": 0,
+        "ps1": 0,
+        "3do": 0
+      }
+    }
+  ]
+}

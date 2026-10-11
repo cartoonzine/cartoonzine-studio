@@ -1,0 +1,157 @@
+{
+  "projeto": "Cartoonzine Studio",
+  "versaoStudio": "1.0.0",
+  "geradoEm": "2026-10-11T02:37:01.203Z",
+  "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
+  "colecoes": [
+    {
+      "id": "cartoons",
+      "nome": "Cartoons",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/cartoons.json"
+      ]
+    },
+    {
+      "id": "animes",
+      "nome": "Animes",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/animes.json"
+      ]
+    },
+    {
+      "id": "desenhos-24h",
+      "nome": "Desenhos 24 Horas",
+      "tipo": "canal24h",
+      "app": "cartoonzine",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/desenhos-24h.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/desenhos-24h.m3u"
+      ]
+    },
+    {
+      "id": "filmes",
+      "nome": "Filmes",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/filmes.json"
+      ]
+    },
+    {
+      "id": "series",
+      "nome": "Séries",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/series.json"
+      ]
+    },
+    {
+      "id": "radios",
+      "nome": "Rádios",
+      "tipo": "radio",
+      "app": "cartoonzine",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/radios.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/radios.m3u"
+      ],
+      "porPais": {}
+    },
+    {
+      "id": "canais",
+      "nome": "Canais (TVzine)",
+      "tipo": "canal",
+      "app": "tvzine",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.m3u"
+      ],
+      "porPais": {}
+    },
+    {
+      "id": "jogos",
+      "nome": "Jogos Retrô",
+      "tipo": "jogo",
+      "app": "cartoonzine/emulator",
+      "publicados": 0,
+      "comErro": 0,
+      "arquivos": [
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/arcade.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/nes.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/snes.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/n64.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/nds.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/gbc.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/gba.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/megadrive.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/mastersystem.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/gamegear.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/segacd.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/sega32x.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/saturn.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/atari2600.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/pcengine.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/pcenginecd.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/ngp.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/neogeocd.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/neogeo.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/msx.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/odyssey2.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/colecovision.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/amiga.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/msdos.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/flash.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/ps1.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/3do.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos.json"
+      ],
+      "porConsole": {
+        "arcade": 0,
+        "nes": 0,
+        "snes": 0,
+        "n64": 0,
+        "nds": 0,
+        "gbc": 0,
+        "gba": 0,
+        "megadrive": 0,
+        "mastersystem": 0,
+        "gamegear": 0,
+        "segacd": 0,
+        "sega32x": 0,
+        "saturn": 0,
+        "atari2600": 0,
+        "pcengine": 0,
+        "pcenginecd": 0,
+        "ngp": 0,
+        "neogeocd": 0,
+        "neogeo": 0,
+        "msx": 0,
+        "odyssey2": 0,
+        "colecovision": 0,
+        "amiga": 0,
+        "msdos": 0,
+        "flash": 0,
+        "ps1": 0,
+        "3do": 0
+      }
+    }
+  ]
+}

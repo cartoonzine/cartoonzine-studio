@@ -1,0 +1,300 @@
+[
+  {
+    "_colecao": "cartoons",
+    "nome": "Cartoons VOD",
+    "tipo": "vod_json",
+    "prefixoId": "VOD_CRT",
+    "targetCategory": "Cartoons",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/cartoons.json"
+  },
+  {
+    "_colecao": "animes",
+    "nome": "Animes",
+    "tipo": "vod_json",
+    "prefixoId": "LIV_ANI",
+    "targetCategory": "Animes",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/animes.json"
+  },
+  {
+    "_colecao": "desenhos-24h",
+    "nome": "Desenhos 24 Horas",
+    "tipo": "vod_m3u",
+    "prefixoId": "LIV_KID",
+    "targetCategory": "Desenhos 24 Horas",
+    "agruparSeries": false,
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/desenhos-24h.m3u"
+  },
+  {
+    "_colecao": "filmes",
+    "nome": "Filmes (Studio)",
+    "tipo": "vod_json",
+    "prefixoId": "VOD_STU",
+    "targetCategory": "Filmes",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/filmes.json"
+  },
+  {
+    "_colecao": "series",
+    "nome": "Séries",
+    "tipo": "vod_json",
+    "prefixoId": "VOD_SER",
+    "targetCategory": "Séries",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/series.json"
+  },
+  {
+    "_colecao": "radios",
+    "nome": "Rádios FM/Web (Links Diretos)",
+    "tipo": "radio",
+    "targetCategory": "Rádios",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/radios.json"
+  },
+  {
+    "_colecao": "canais",
+    "nome": "TVzine - Canais (Studio)",
+    "tipo": "tvzine_worker",
+    "prefixoId": "TV",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Arcade",
+    "tipo": "emulator_json",
+    "prefixoId": "ARC",
+    "console": "arcade",
+    "targetCategory": "Arcade",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/arcade.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Nintendo (NES)",
+    "tipo": "emulator_json",
+    "prefixoId": "NES",
+    "console": "nes",
+    "targetCategory": "Nintendo (NES)",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/nes.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Super Nintendo",
+    "tipo": "emulator_json",
+    "prefixoId": "SNE",
+    "console": "snes",
+    "targetCategory": "Super Nintendo",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/snes.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Nintendo 64",
+    "tipo": "emulator_json",
+    "prefixoId": "N64",
+    "console": "n64",
+    "targetCategory": "Nintendo 64",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/n64.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Nintendo DS",
+    "tipo": "emulator_json",
+    "prefixoId": "NDS",
+    "console": "nds",
+    "targetCategory": "Nintendo DS",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/nds.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Game Boy Color",
+    "tipo": "emulator_json",
+    "prefixoId": "GBC",
+    "console": "gbc",
+    "targetCategory": "Game Boy Color",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/gbc.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Game Boy Advance",
+    "tipo": "emulator_json",
+    "prefixoId": "GBA",
+    "console": "gba",
+    "targetCategory": "Game Boy Advance",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/gba.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Mega Drive",
+    "tipo": "emulator_json",
+    "prefixoId": "MD",
+    "console": "megadrive",
+    "targetCategory": "Mega Drive",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/megadrive.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Master System",
+    "tipo": "emulator_json",
+    "prefixoId": "MS",
+    "console": "mastersystem",
+    "targetCategory": "Master System",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/mastersystem.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Game Gear",
+    "tipo": "emulator_json",
+    "prefixoId": "GG",
+    "console": "gamegear",
+    "targetCategory": "Game Gear",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/gamegear.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Sega CD",
+    "tipo": "emulator_json",
+    "prefixoId": "SCD",
+    "console": "segacd",
+    "targetCategory": "Sega CD",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/segacd.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Sega 32X",
+    "tipo": "emulator_json",
+    "prefixoId": "32X",
+    "console": "sega32x",
+    "targetCategory": "Sega 32X",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/sega32x.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Sega Saturn",
+    "tipo": "emulator_json",
+    "prefixoId": "SAT",
+    "console": "saturn",
+    "targetCategory": "Sega Saturn",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/saturn.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Atari 2600",
+    "tipo": "emulator_json",
+    "prefixoId": "A26",
+    "console": "atari2600",
+    "targetCategory": "Atari 2600",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/atari2600.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "PC Engine",
+    "tipo": "emulator_json",
+    "prefixoId": "PCE",
+    "console": "pcengine",
+    "targetCategory": "PC Engine",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/pcengine.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "PC Engine CD",
+    "tipo": "emulator_json",
+    "prefixoId": "PCD",
+    "console": "pcenginecd",
+    "targetCategory": "PC Engine CD",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/pcenginecd.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Neo Geo Pocket",
+    "tipo": "emulator_json",
+    "prefixoId": "NGP",
+    "console": "ngp",
+    "targetCategory": "Neo Geo Pocket",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/ngp.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Neo Geo CD",
+    "tipo": "emulator_json",
+    "prefixoId": "NGC",
+    "console": "neogeocd",
+    "targetCategory": "Neo Geo CD",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/neogeocd.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Neo Geo",
+    "tipo": "emulator_json",
+    "prefixoId": "NEO",
+    "console": "neogeo",
+    "targetCategory": "Neo Geo",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/neogeo.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "MSX",
+    "tipo": "emulator_json",
+    "prefixoId": "MSX",
+    "console": "msx",
+    "targetCategory": "MSX",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/msx.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Odyssey 2",
+    "tipo": "emulator_json",
+    "prefixoId": "ODY",
+    "console": "odyssey2",
+    "targetCategory": "Odyssey 2",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/odyssey2.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "ColecoVision",
+    "tipo": "emulator_json",
+    "prefixoId": "COL",
+    "console": "colecovision",
+    "targetCategory": "ColecoVision",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/colecovision.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Amiga",
+    "tipo": "emulator_json",
+    "prefixoId": "AMI",
+    "console": "amiga",
+    "targetCategory": "Amiga",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/amiga.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "MS-DOS",
+    "tipo": "emulator_json",
+    "prefixoId": "DOS",
+    "console": "msdos",
+    "targetCategory": "MS-DOS",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/msdos.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "Flash Player",
+    "tipo": "emulator_json",
+    "prefixoId": "FLA",
+    "console": "flash",
+    "targetCategory": "Flash Player",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/flash.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "PlayStation 1",
+    "tipo": "emulator_json",
+    "prefixoId": "PS1",
+    "console": "ps1",
+    "targetCategory": "PlayStation 1",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/ps1.json"
+  },
+  {
+    "_colecao": "jogos",
+    "nome": "3DO",
+    "tipo": "emulator_json",
+    "prefixoId": "3DO",
+    "console": "3do",
+    "targetCategory": "3DO",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/3do.json"
+  }
+]

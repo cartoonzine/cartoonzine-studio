@@ -1,0 +1,18 @@
+{
+  "nome": "Nome da Série",
+  "ano": 1983,
+  "capa": "https://exemplo.com/capa-vertical.jpg",
+  "banner": "https://exemplo.com/banner-horizontal.jpg",
+  "descricao": "Sinopse da série.",
+  "generos": ["Aventura", "Fantasia"],
+  "audio": "Dublado",
+  "temporadas": [
+    {
+      "numero": 1,
+      "episodios": [
+        { "numero": 1, "titulo": "Título do episódio", "links": ["https://exemplo.com/s01e01.mp4", "https://espelho.exemplo.com/s01e01.mp4"] },
+        { "numero": 2, "links": ["https://exemplo.com/s01e02.mp4"] }
+      ]
+    }
+  ]
+}

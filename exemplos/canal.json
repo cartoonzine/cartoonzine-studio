@@ -1,0 +1,9 @@
+{
+  "nome": "Nome do Canal",
+  "links": ["https://exemplo.com/canal/index.m3u8"],
+  "pais": "BR",
+  "idioma": "Português",
+  "categoria": "Infantil",
+  "logo": "https://exemplo.com/logo.png",
+  "tvgId": "NomeDoCanal.br"
+}

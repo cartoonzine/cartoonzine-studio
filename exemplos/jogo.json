@@ -1,0 +1,9 @@
+{
+  "nome": "Nome do Jogo",
+  "console": "megadrive",
+  "links": ["https://exemplo.com/rom.zip"],
+  "ano": 1992,
+  "capa": "https://exemplo.com/capa.jpg",
+  "generos": ["Plataforma"],
+  "jogadores": 2
+}
