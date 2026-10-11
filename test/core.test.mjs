@@ -161,3 +161,108 @@ test('categoria em inglês vira a do TVzine', () => {
     assert.equal(C.traduzirCategoria('Undefined'), undefined);
     assert.equal(C.traduzirCategoria('Anime'), 'Anime');
 });
+
+// ---------- TMDB / IMDb (respostas simuladas) ----------
+function fetchFalso(rotas, log = []) {
+    return async (url, init = {}) => {
+        log.push({ url, auth: init.headers && init.headers.Authorization });
+        const u = new URL(url);
+        const chave = u.hostname + u.pathname + (u.searchParams.get('language') ? '|' + u.searchParams.get('language') : '');
+        const achou = Object.entries(rotas).find(([k]) => chave.startsWith(k) || chave === k);
+        if (!achou) return { ok: false, status: 404, json: async () => ({}) };
+        const corpo = typeof achou[1] === 'function' ? achou[1](u) : achou[1];
+        return { ok: true, status: 200, json: async () => corpo };
+    };
+}
+const TOKEN_V4 = 'eyJ' + 'x'.repeat(60);
+
+test('links do TMDB/IMDb colados viram referência, não vídeo', () => {
+    const e = C.lerTextoColado(`https://www.themoviedb.org/tv/230050-alguma-serie/season/2/episode/1
+https://cdn.exemplo.com/Serie%20X%20S02E01.mp4
+https://cdn.exemplo.com/Serie%20X%20S02E02.mp4
+
+Filme Y | https://www.imdb.com/title/tt28313387/ | https://cdn.exemplo.com/y.mp4`);
+    assert.equal(e.length, 3);
+    assert.equal(e[0].tmdb, 'tv/230050');
+    assert.equal(e[1].tmdb, 'tv/230050');
+    assert.equal(e[2].imdb, 'tt28313387');
+    assert.equal(e[2].nome, 'Filme Y');
+    assert.deepEqual(e[2].links, ['https://cdn.exemplo.com/y.mp4']);
+    const itens = C.agruparEntradas(e);
+    assert.equal(itens[0].tmdb, 'tv/230050');
+    const n = C.normalizarItem({ nome: 'Z', links: ['https://www.imdb.com/title/tt0111161/', 'https://v.exemplo.com/z.mp4'] }, col('filmes'));
+    assert.equal(n.imdb, 'tt0111161');
+    assert.deepEqual(n.links, ['https://v.exemplo.com/z.mp4']);
+});
+
+test('TMDB: série pelo ID do IMDb, sinopse pt-BR e episódios', async () => {
+    const log = [];
+    const f = fetchFalso({
+        'api.themoviedb.org/3/find/tt28313387': { tv_results: [{ id: 230050 }], movie_results: [] },
+        'api.themoviedb.org/3/tv/230050/season/2': { episodes: [
+            { episode_number: 1, name: 'O Retorno', overview: 'Sinopse do ep 1', still_path: '/ep1.jpg' },
+            { episode_number: 2, name: 'Episódio 2', overview: '', still_path: null }] },
+        'api.themoviedb.org/3/tv/230050': { name: 'Série X', overview: 'Sinopse em português', poster_path: '/p.jpg', backdrop_path: '/b.jpg',
+            first_air_date: '2023-05-01', genres: [{ name: 'Animação' }], external_ids: { imdb_id: 'tt28313387' } },
+    }, log);
+    const item = { nome: 'serie x', imdb: 'tt28313387', descricao: 'minha sinopse', temporadas: [{ numero: 2, episodios: [{ numero: 1, links: ['https://a.b/1.mp4'] }, { numero: 2, links: ['https://a.b/2.mp4'] }] }] };
+    const r = await C.completarItem(item, { tmdb: TOKEN_V4, fetchFn: f });
+    assert.equal(r.item.descricao, 'minha sinopse', 'não sobrescreve o que já existe');
+    assert.equal(r.item.capa, 'https://image.tmdb.org/t/p/w500/p.jpg');
+    assert.equal(r.item.ano, 2023);
+    assert.equal(r.item.tmdb, 'tv/230050');
+    const [e1, e2] = r.item.temporadas[0].episodios;
+    assert.equal(e1.titulo, 'O Retorno');
+    assert.equal(e1.capa, 'https://image.tmdb.org/t/p/w300/ep1.jpg');
+    assert.equal(e2.titulo, undefined, 'ignora o título genérico "Episódio 2"');
+    assert.ok(log.every(l => l.auth === 'Bearer ' + TOKEN_V4), 'token longo vai no cabeçalho');
+    assert.ok(r.achados[0].includes('Série X'));
+});
+
+test('TMDB: filme pelo nome + ano, chave curta vai como api_key; nota do IMDb pelo OMDb', async () => {
+    const log = [];
+    const f = fetchFalso({
+        'api.themoviedb.org/3/search/movie': u => ({ results: u.searchParams.get('year') === '1922' ? [{ id: 653 }] : [] }),
+        'api.themoviedb.org/3/movie/653|pt-BR': { title: 'Nosferatu', overview: '', poster_path: '/n.jpg', release_date: '1922-03-04', genres: [{ name: 'Terror' }], imdb_id: 'tt0013442' },
+        'api.themoviedb.org/3/movie/653|en-US': { overview: 'English overview' },
+        'www.omdbapi.com/': { Response: 'True', imdbRating: '7.8', imdbVotes: '112,345' }
+    }, log);
+    const r = await C.completarItem({ nome: 'Nosferatu', ano: 1922, links: ['https://v.exemplo.com/n.mp4'] }, { tmdb: 'a'.repeat(32), omdb: 'k123', fetchFn: f });
+    assert.equal(r.item.descricao, 'English overview', 'sem sinopse em pt-BR usa a em inglês');
+    assert.equal(r.item.imdb, 'tt0013442');
+    assert.equal(r.item.notaImdb, 7.8);
+    assert.equal(r.item.votosImdb, 112345);
+    assert.ok(r.avisos.some(a => /confira/.test(a)), 'avisa que foi achado pelo nome');
+    assert.ok(log.some(l => l.url.includes('api_key=' + 'a'.repeat(32))));
+    const nuvem = C.paraCloud(C.normalizarItem(r.item, col('filmes')), col('filmes'), 'filmes/nosferatu');
+    assert.equal(nuvem.imdbRating, 7.8);
+    assert.equal(nuvem.imdbId, 'tt0013442');
+});
+
+test('TMDB: chave errada vira aviso, não quebra', async () => {
+    const f = async () => ({ ok: false, status: 401, json: async () => ({}) });
+    const r = await C.completarItem({ nome: 'X', links: ['https://a.b/x.mp4'] }, { tmdb: 'errada', fetchFn: f });
+    assert.equal(r.item.nome, 'X');
+    assert.ok(r.avisos.some(a => /inválida/.test(a)));
+});
+
+test('canais: uma lista por país + índice para o seletor do TVzine', () => {
+    const r = C.compilarColecao(col('canais'), [
+        { caminho: 'conteudo/canais/br/a.json', item: { nome: 'A', links: ['https://s.exemplo.com/a.m3u8'], pais: 'BR', idioma: 'Português', categoria: 'Notícias' } },
+        { caminho: 'conteudo/canais/br/b.json', item: { nome: 'B', links: ['https://s.exemplo.com/b.m3u8'], pais: 'BR', categoria: 'Infantil' } },
+        { caminho: 'conteudo/canais/jp/c.json', item: { nome: 'C', links: ['https://s.exemplo.com/c.m3u8'], pais: 'JP', idioma: 'Japonês', categoria: 'Infantil' } }
+    ], config);
+    const idx = JSON.parse(r.arquivos['canais/paises.json']).paises;
+    assert.deepEqual(idx.map(p => p.codigo), ['BR', 'JP']);
+    assert.equal(idx[0].bandeira, '🇧🇷');
+    assert.equal(idx[0].total, 2);
+    assert.deepEqual(idx[0].categorias, { 'Notícias': 1, 'Infantil': 1 });
+    assert.equal(idx[1].json, config.publicacao.baseUrl + 'canais/pais/jp.json');
+    assert.equal(JSON.parse(r.arquivos['canais/pais/br.json']).channels.length, 2);
+    assert.ok(r.arquivos['canais/pais/jp.m3u'].includes('tvg-country="JP"'));
+});
+
+test('nome do TMDB corrige acentos, mas não troca um nome diferente que você escolheu', () => {
+    assert.equal(C.aplicarDadosExternos({ nome: 'Serie X' }, { nome: 'Série X' }).nome, 'Série X');
+    assert.equal(C.aplicarDadosExternos({ nome: 'Meu Nome' }, { nome: 'Série X' }).nome, 'Meu Nome');
+});

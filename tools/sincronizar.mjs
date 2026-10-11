@@ -37,7 +37,7 @@ export async function sincronizar({ raiz = RAIZ, log = console.log, so } = {}) {
             }
             const antes = new Set(lerColecao(colecao, raiz).entradas.filter(e => e.item._origem === origem && !e.item._travado).map(e => e.caminho));
             const { resultado, falhas } = await importarTexto(colecao, texto, {
-                args: Object.assign({}, f.padroes || {}, { wiki: !!f.wiki }), raiz, origem, config,
+                args: Object.assign({}, f.padroes || {}, { dados: !!(f.dados || f.wiki) }), raiz, origem, config,
                 log: () => {}, filtroNome: n => !travados.has(Core.normText(n))
             });
             const vistos = new Set(resultado.map(r => r.caminho));

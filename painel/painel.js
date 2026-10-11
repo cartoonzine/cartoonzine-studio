@@ -145,9 +145,69 @@
     }
 
     /** Wikipedia/Internet Archive: no modo local passa pelo servidor (evita bloqueio de CORS). */
-    function fetchExterno(url) {
-        if (estado.repo && estado.repo.usaProxy) return fetch('/api/proxy?url=' + encodeURIComponent(url));
-        return fetch(url);
+    function fetchExterno(url, init) {
+        // TMDB e OMDb aceitam o navegador direto; archive.org/Wikipedia passam pelo servidor local quando ele existe
+        if (estado.repo && estado.repo.usaProxy && /^https:\/\/([^/]*\.)?(archive\.org|wikipedia\.org)\//.test(url)) {
+            return fetch('/api/proxy?url=' + encodeURIComponent(url));
+        }
+        return fetch(url, init);
+    }
+
+    // ==================================================================
+    // Chaves do TMDB e do OMDb (ficam só neste navegador)
+    // ==================================================================
+    function chaves() { return guardar.ler('czs-chaves') || {}; }
+
+    function mostrarChaves() {
+        const ch = chaves();
+        const fundo = document.createElement('div');
+        fundo.className = 'fundo-modal';
+        fundo.innerHTML = `
+          <div class="gaveta" role="dialog" aria-modal="true" aria-labelledby="ch-t" style="max-width:640px">
+            <h2 id="ch-t">Chaves de busca</h2>
+            <p class="dica">Ficam guardadas só neste navegador. Sem elas o Studio usa a Wikipedia.</p>
+            <div class="painel" style="margin-top:14px">
+              <label class="rot" for="ch-tmdb">TMDB — sinopse em português, capas e episódios</label>
+              <input class="campo" id="ch-tmdb" type="password" autocomplete="off" placeholder="Token de leitura da API (eyJ…) ou Chave da API" value="${esc(ch.tmdb || '')}">
+              <div class="dica">Grátis: crie uma conta em <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener">themoviedb.org → Configurações → API</a> e copie o "Token de leitura da API".</div>
+              <label class="rot" for="ch-omdb" style="margin-top:14px">OMDb — nota do IMDb</label>
+              <input class="campo" id="ch-omdb" type="password" autocomplete="off" placeholder="Chave do OMDb" value="${esc(ch.omdb || '')}">
+              <div class="dica">Grátis: peça em <a href="https://www.omdbapi.com/apikey.aspx" target="_blank" rel="noopener">omdbapi.com/apikey.aspx</a> (plano FREE) e confirme pelo e-mail.</div>
+            </div>
+            <div class="caixa-erros" id="ch-msg"></div>
+            <div class="linha-acoes">
+              <button class="btn principal" id="ch-salvar">Salvar e testar</button>
+              <button class="btn fantasma" id="ch-fechar">Fechar</button>
+            </div>
+          </div>`;
+        document.body.appendChild(fundo);
+        const fechar = () => fundo.remove();
+        $('#ch-fechar', fundo).onclick = fechar;
+        fundo.addEventListener('mousedown', ev => { if (ev.target === fundo) fechar(); });
+        $('#ch-salvar', fundo).onclick = async () => {
+            const b = $('#ch-salvar', fundo);
+            const novo = { tmdb: $('#ch-tmdb', fundo).value.trim(), omdb: $('#ch-omdb', fundo).value.trim() };
+            guardar.gravar('czs-chaves', novo);
+            b.disabled = true; b.textContent = 'Testando…';
+            const res = [];
+            try {
+                if (novo.tmdb) {
+                    const r = await C.completarItem({ nome: 'Popeye', links: ['https://exemplo.com/x.mp4'] }, { tmdb: novo.tmdb, fetchFn: fetchExterno });
+                    res.push(r.achados.length ? '✅ TMDB funcionando (' + r.achados[0] + ')' : '❌ TMDB: ' + (r.avisos[0] || 'não respondeu'));
+                }
+                if (novo.omdb) {
+                    const n = await C.buscarNotaIMDb('tt0111161', novo.omdb, fetchExterno).then(x => x, e => ({ erro: e.message }));
+                    res.push(n && n.notaImdb ? '✅ OMDb funcionando (nota de teste: ' + n.notaImdb + ')' : '❌ OMDb: ' + ((n && n.erro) || 'sem resposta — confirmou a chave pelo e-mail?'));
+                }
+            } catch (e) { res.push('❌ ' + e.message); }
+            b.disabled = false; b.textContent = 'Salvar e testar';
+            const box = $('#ch-msg', fundo);
+            box.style.borderColor = res.every(x => x.startsWith('✅')) ? 'rgba(46,230,166,.45)' : '';
+            box.style.background = res.every(x => x.startsWith('✅')) ? 'rgba(46,230,166,.08)' : '';
+            box.style.color = res.every(x => x.startsWith('✅')) ? 'var(--texto)' : '';
+            box.innerHTML = res.length ? res.map(esc).join('<br>') : 'Chaves apagadas deste navegador.';
+            if (estado.aba === 'rapido') desenharArea();
+        };
     }
 
     // ==================================================================
@@ -167,6 +227,7 @@
         $('#status').className = 'chip ok';
         $('#btn-sair').hidden = repo.modo === 'local';
         $('#btn-publicacao').hidden = false;
+        $('#btn-chaves').hidden = false;
         await recarregarIndice();
         desenharApp();
     }
@@ -287,7 +348,7 @@
           ${!total ? `<div class="vazio"><b>Nada aqui ainda</b>Use <b style="display:inline">⚡ Adicionar rápido</b> para colar vários links de uma vez, ou <b style="display:inline">+ Novo</b> para preencher um formulário.</div>` : ''}
           ${total && !itens.length ? `<div class="vazio">Nada encontrado para "${esc(estado.busca)}".</div>` : ''}
           <div class="grade">${itens.slice(0, MAX).map(i => {
-              const meta = [i.ano, i.eps ? i.eps + ' ep.' : '', i.console ? consoles.get(i.console) || i.console : '', i.pais, i.categoria].filter(Boolean).join(' · ');
+              const meta = [i.nota ? '⭐ ' + i.nota : '', i.ano, i.eps ? i.eps + ' ep.' : '', i.console ? consoles.get(i.console) || i.console : '', i.pais, i.categoria].filter(Boolean).join(' · ');
               return `<button class="card ${largo ? 'largo' : ''}" data-caminho="${esc(i.caminho)}">
                 ${i.rascunho ? '<span class="selo rasc">rascunho</span>' : ''}${i.auto ? '<span class="selo auto">auto</span>' : ''}
                 <div class="img">${i.capa ? `<img src="${esc(i.capa)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</div>
@@ -470,7 +531,7 @@
             </form>
             <div class="linha-acoes">
               <button class="btn principal" id="ed-salvar">Salvar</button>
-              <button class="btn" id="ed-auto" title="Busca sinopse, capa e ano na Wikipedia; importa vídeos de links do archive.org">✨ Preencher automaticamente</button>
+              <button class="btn" id="ed-auto" title="Busca sinopse, capas, episódios e nota (TMDB/IMDb; sem chave usa a Wikipedia) e importa vídeos de links do archive.org">✨ Preencher automaticamente</button>
               <button class="btn fantasma" id="ed-rasc">Salvar como rascunho</button>
               <div class="espaco"></div>
               ${caminho ? '<button class="btn perigo" id="ed-excluir">Excluir</button>' : ''}
@@ -484,10 +545,13 @@
         const boxT = $('#temporadas-box', fundo);
         if (boxT) lerTemps = editorTemporadas(boxT, item.temporadas);
         const lerItem = () => {
-            const novo = lerCampos(form, tipo.campos);
+            // começa do item como está (guarda nota do IMDb, fonte, _origem…) e troca o que o formulário mostra
+            const novo = Object.assign({}, item);
+            delete novo._rascunho;
+            for (const c of tipo.campos) delete novo[c.k];
+            Object.assign(novo, lerCampos(form, tipo.campos));
             const t = lerTemps();
             if (t && t.length) novo.temporadas = t;
-            for (const k of Object.keys(item)) if (k.startsWith('_') && k !== '_rascunho') novo[k] = item[k];
             return C.normalizarItem(novo, col);
         };
         const atualizarJson = () => {
@@ -549,9 +613,11 @@
                     if (!atual.nome) atual.nome = doArchive.nome;
                     achados.push('Internet Archive: ' + (C.contarEpisodios(atual) ? C.contarEpisodios(atual) + ' episódios' : '1 vídeo'));
                 }
-                if (atual.nome && col.tipo !== 'canal' && col.tipo !== 'radio') {
-                    const w = await C.buscarWikipedia(atual.nome, fetchExterno);
-                    if (w) { atual = C.mesclarSemSobrescrever(atual, w); achados.push('Wikipedia: ' + w.tituloWikipedia); }
+                let avisosAuto = [];
+                if (atual.nome && col.tipo === 'video') {
+                    const ch = chaves();
+                    const r = await C.completarItem(atual, { tmdb: ch.tmdb, omdb: ch.omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: col.tipo });
+                    atual = r.item; achados.push(...r.achados); avisosAuto = r.avisos;
                 }
                 delete atual.archive;
                 item = Object.assign({}, item, atual);
@@ -560,7 +626,8 @@
                     (avancados.length ? `<details class="avancado cheio"><summary>Opções avançadas</summary><div class="form" style="margin-top:12px">${avancados.map(c => campoHtml(c, item[c.k])).join('')}</div></details>` : '');
                 const nb = $('#temporadas-box', fundo);
                 if (nb) lerTemps = editorTemporadas(nb, item.temporadas);
-                aviso(achados.length ? 'Preenchido: ' + achados.join(' · ') + '. Confira antes de salvar.' : 'Não achei nada novo para este nome.', achados.length ? 'ok' : '');
+                const extra = avisosAuto.length ? ' ⚠ ' + avisosAuto.join(' ') : '';
+                aviso((achados.length ? 'Preenchido: ' + achados.join(' · ') + '. Confira antes de salvar.' : 'Não achei nada novo para este nome.') + extra, achados.length ? 'ok' : (avisosAuto.length ? 'ruim' : ''));
             } catch (e) { aviso('Não deu para buscar: ' + e.message, 'ruim'); }
             b.disabled = false; b.textContent = '✨ Preencher automaticamente';
         };
@@ -596,8 +663,8 @@
     function desenharRapido() {
         const col = colecaoAtual();
         const tipo = C.TIPOS[col.tipo];
-        const chaves = { video: ['audio'], canal: ['pais', 'idioma', 'categoria'], radio: ['pais', 'idioma', 'cidade'], jogo: ['console'], canal24h: [] }[col.tipo] || [];
-        const padroes = tipo.campos.filter(c => chaves.includes(c.k));
+        const camposPadrao = { video: ['audio'], canal: ['pais', 'idioma', 'categoria'], radio: ['pais', 'idioma', 'cidade'], jogo: ['console'], canal24h: [] }[col.tipo] || [];
+        const padroes = tipo.campos.filter(c => camposPadrao.includes(c.k));
         const salvos = guardar.ler('czs-padroes-' + col.id) || {};
         $('#conteudo-aba').innerHTML = `
           <div class="painel rapido">
@@ -611,7 +678,7 @@ https://archive.org/details/algum_desenho
             ${padroes.length ? `<div class="padroes">${padroes.map(c => campoHtml(Object.assign({}, c, { obrigatorio: false }), salvos[c.k], 'r')).join('')}</div>
               <div class="dica">Esses valores valem para todos os itens colados que não trouxerem o seu próprio.</div>` : ''}
             <div class="linha-acoes">
-              <label class="check"><input type="checkbox" id="r-wiki" ${salvos._wiki && col.tipo !== 'canal' && col.tipo !== 'radio' ? 'checked' : ''} ${col.tipo === 'canal' || col.tipo === 'radio' ? 'disabled' : ''}> Buscar sinopse e capa na Wikipedia</label>
+              ${col.tipo === 'video' ? `<label class="check"><input type="checkbox" id="r-wiki" ${salvos._wiki ? 'checked' : ''}> Buscar sinopse, capas e episódios ${chaves().tmdb ? '(TMDB' + (chaves().omdb ? ' + nota IMDb' : '') + ')' : '(Wikipedia — <a href="#" id="r-chaves">ponha a chave do TMDB</a> para mais)'}</label>` : '<input type="checkbox" id="r-wiki" hidden>'}
               <div class="espaco"></div>
               <button class="btn principal" id="r-analisar">Analisar</button>
             </div>
@@ -619,6 +686,8 @@ https://archive.org/details/algum_desenho
           <div id="r-previa"></div>`;
         $('#r-texto').addEventListener('input', e => { rapido.texto = e.target.value; });
         $('#r-analisar').addEventListener('click', () => analisarRapido(col, padroes));
+        const linkChaves = $('#r-chaves');
+        if (linkChaves) linkChaves.addEventListener('click', ev => { ev.preventDefault(); mostrarChaves(); });
         if (rapido.previa && rapido.previa.col === col.id) desenharPrevia(col);
     }
 
@@ -647,9 +716,11 @@ https://archive.org/details/algum_desenho
                     delete it.archive;
                 } catch (e) { avisos.push('archive.org: ' + e.message); }
             }
-            if (wiki && it.nome) {
-                try { const w = await C.buscarWikipedia(it.nome, fetchExterno); if (w) it = C.mesclarSemSobrescrever(it, w); }
-                catch (e) { avisos.push('Wikipedia: ' + e.message); }
+            // com link do TMDB/IMDb colado, busca sempre; sem link, só se a caixinha estiver marcada
+            if (col.tipo === 'video' && it.nome && (wiki || it.tmdb || it.imdb)) {
+                const ch = chaves();
+                const r = await C.completarItem(it, { tmdb: ch.tmdb, omdb: ch.omdb, wiki, fetchFn: fetchExterno, tipoColecao: col.tipo });
+                it = r.item; avisos.push(...r.avisos);
             }
             const normal = C.normalizarItem(it, col);
             const { erros } = C.validarItem(normal, col, estado.config);
@@ -777,11 +848,12 @@ https://archive.org/details/algum_desenho
     // Início
     // ==================================================================
     $('#btn-publicacao').addEventListener('click', mostrarPublicacao);
+    $('#btn-chaves').addEventListener('click', mostrarChaves);
     $('#btn-sair').addEventListener('click', () => {
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true;
         telaConectar();
     });
 

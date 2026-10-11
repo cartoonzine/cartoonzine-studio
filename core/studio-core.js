@@ -22,7 +22,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : typeof self !== 'undefined' ? self : this, function () {
     'use strict';
 
-    const VERSAO = '1.0.0';
+    const VERSAO = '1.1.0';
 
     // ------------------------------------------------------------------
     // Texto
@@ -256,10 +256,18 @@
         }
         const vistos = new Set(entradas.flatMap(e => e.links || []));
         let textoAnterior = '';
+        // Link do TMDB/IMDb sozinho numa linha vale para os links das linhas seguintes (até uma linha vazia)
+        let refPendente = null, refLinha = null;
         for (const linhaBruta of t.split(/\r?\n/)) {
             const linha = linhaBruta.replace(/[`*>]+/g, ' ').trim();
-            if (!linha) continue;
-            const urls = (linha.match(RE_URL) || []).map(limparLink).filter(linkValido);
+            if (!linha) { refPendente = null; continue; }
+            let urls = (linha.match(RE_URL) || []).map(limparLink).filter(linkValido);
+            const refs = {};
+            urls = urls.filter(u => { const r = refDoLink(u); if (r) { Object.assign(refs, r); return false; } return true; });
+            const tt = /(?:^|[\s|])(tt\d{6,10})(?:$|[\s|])/i.exec(linha);
+            if (tt && !refs.imdb) refs.imdb = tt[1].toLowerCase();
+            refLinha = Object.keys(refs).length ? refs : null;
+            if (refLinha && !urls.length) { refPendente = refLinha; continue; }
 
             if (!urls.length) {
                 // Texto puro: pode ser o nome do arquivo que vem antes do link (ex.: mensagem do bot)
@@ -270,8 +278,8 @@
             // "Nome | link | capa"
             if (linha.includes('|')) {
                 const partes = linha.split('|').map(s => s.trim());
-                const nome = partes.find(p => p && !linkValido(limparLink(p)));
-                const linksLinha = partes.map(limparLink).filter(linkValido);
+                const nome = partes.find(p => p && !linkValido(limparLink(p)) && !/^tt\d{6,10}$/i.test(p));
+                const linksLinha = partes.map(limparLink).filter(u => linkValido(u) && !refDoLink(u));
                 const principais = linksLinha.filter(u => !/\.(jpe?g|png|webp|gif)(\?|$)/i.test(u));
                 const capa = linksLinha.find(u => /\.(jpe?g|png|webp|gif)(\?|$)/i.test(u));
                 adicionar(nome, principais, capa);
@@ -301,6 +309,7 @@
             const e = Object.assign({}, info, { links });
             if (capa) e.capa = capa;
             if (archive && !RE_EXT_VIDEO.test(links[0])) e.archive = archive;
+            Object.assign(e, refPendente || {}, refLinha || {});
             entradas.push(limparVazios(e));
         }
     }
@@ -318,7 +327,7 @@
             if (e.serie && opts.series !== false) {
                 const k = normText(e.serie);
                 if (!series.has(k)) {
-                    const item = limparVazios({ nome: e.serie, ano: e.ano, capa: e.capa, audio: e.audio });
+                    const item = limparVazios({ nome: e.serie, ano: e.ano, capa: e.capa, audio: e.audio, tmdb: e.tmdb, imdb: e.imdb });
                     item.temporadas = [];
                     series.set(k, item);
                     itens.push(item);
@@ -336,7 +345,7 @@
                 const item = limparVazios({
                     nome: e.nome, links: e.links, capa: e.capa, ano: e.ano, audio: e.audio,
                     logo: e.logo, categoria: e.grupo, tvgId: e.tvgId, pais: e.pais, idioma: e.idioma,
-                    headers: e.headers, archive: e.archive
+                    headers: e.headers, archive: e.archive, tmdb: e.tmdb, imdb: e.imdb
                 });
                 itens.push(item);
             }
@@ -452,6 +461,205 @@
     }
 
     // ------------------------------------------------------------------
+    // TMDB (sinopse em português, capas, episódios) e IMDb (ID e nota)
+    // ------------------------------------------------------------------
+    /** Link do TMDB/IMDb -> {tmdb:"tv/123"} | {imdb:"tt123"} | null */
+    function refDoLink(u) {
+        let m = /themoviedb\.org\/(movie|tv)\/(\d+)/i.exec(String(u || ''));
+        if (m) return { tmdb: m[1].toLowerCase() + '/' + m[2] };
+        m = /imdb\.com\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?title\/(tt\d{5,10})/i.exec(String(u || ''));
+        if (m) return { imdb: m[1].toLowerCase() };
+        return null;
+    }
+    function normTmdb(v) {
+        if (!v) return undefined;
+        const r = refDoLink(v);
+        if (r && r.tmdb) return r.tmdb;
+        const m = /^(movie|tv|filme|serie|série)\s*[\/:]\s*(\d+)$/i.exec(String(v).trim());
+        if (m) return (/^(movie|filme)$/i.test(m[1]) ? 'movie' : 'tv') + '/' + m[2];
+        return undefined;
+    }
+    function normImdb(v) {
+        const m = /(tt\d{5,10})/i.exec(String(v || ''));
+        return m ? m[1].toLowerCase() : undefined;
+    }
+
+    const TMDB_IMG = 'https://image.tmdb.org/t/p/';
+
+    /** Aceita o "Token de leitura da API" (longo, v4) ou a "Chave da API" (32 letras, v3). */
+    function clienteTMDB(chave, fetchFn) {
+        const f = fetchFn || fetch;
+        const bearer = String(chave || '').length > 40;
+        return async (rota, params = {}) => {
+            const q = new URLSearchParams(params);
+            if (!bearer) q.set('api_key', chave);
+            const r = await f('https://api.themoviedb.org/3' + rota + '?' + q.toString(), {
+                headers: bearer ? { Authorization: 'Bearer ' + chave, accept: 'application/json' } : { accept: 'application/json' }
+            });
+            if (r.status === 401) throw new Error('Chave do TMDB inválida');
+            if (r.status === 404) return null;
+            if (r.status === 429) throw new Error('TMDB pediu para ir mais devagar (limite de pedidos); tente de novo em instantes');
+            if (!r.ok) throw new Error('TMDB respondeu ' + r.status);
+            return r.json();
+        };
+    }
+
+    /**
+     * Acha a obra no TMDB (pelo link/ID do TMDB, pelo ID do IMDb ou pelo nome+ano)
+     * e devolve os dados em português. Para séries com temporadas, também traz
+     * título, sinopse e imagem de cada episódio já cadastrado (temporadasMeta).
+     */
+    async function buscarTMDB(item, chave, fetchFn, opts = {}) {
+        const api = clienteTMDB(chave, fetchFn);
+        const lang = opts.idioma || 'pt-BR';
+        const temEps = Array.isArray(item.temporadas) && item.temporadas.length;
+        let ref = normTmdb(item.tmdb);
+        let porBusca = false;
+        const imdb = normImdb(item.imdb);
+        if (!ref && imdb) {
+            const f = await api('/find/' + imdb, { external_source: 'imdb_id', language: lang });
+            const tv = f && f.tv_results && f.tv_results[0];
+            const mv = f && f.movie_results && f.movie_results[0];
+            if (tv && (temEps || !mv)) ref = 'tv/' + tv.id;
+            else if (mv) ref = 'movie/' + mv.id;
+            else if (tv) ref = 'tv/' + tv.id;
+        }
+        if (!ref && item.nome) {
+            const tipos = opts.preferir ? [opts.preferir] : temEps ? ['tv', 'movie'] : ['movie', 'tv'];
+            for (const t of tipos) {
+                const p = { query: item.nome, language: lang, include_adult: 'false' };
+                if (item.ano) p[t === 'tv' ? 'first_air_date_year' : 'year'] = item.ano;
+                let r = await api('/search/' + t, p);
+                let hit = r && r.results && r.results[0];
+                if (!hit && item.ano) {
+                    delete p.year; delete p.first_air_date_year;
+                    r = await api('/search/' + t, p);
+                    hit = r && r.results && r.results[0];
+                }
+                if (hit) { ref = t + '/' + hit.id; porBusca = true; break; }
+            }
+        }
+        if (!ref) return null;
+        const [tipo, id] = ref.split('/');
+        const d = await api('/' + ref, { language: lang, append_to_response: 'external_ids' });
+        if (!d) return null;
+        let sinopse = d.overview;
+        if (!sinopse) { const en = await api('/' + ref, { language: 'en-US' }); sinopse = en && en.overview; }
+        const data = d.release_date || d.first_air_date || '';
+        const out = limparVazios({
+            tituloTMDB: d.title || d.name,
+            nome: d.title || d.name,
+            descricao: sinopse || undefined,
+            capa: d.poster_path ? TMDB_IMG + 'w500' + d.poster_path : undefined,
+            banner: d.backdrop_path ? TMDB_IMG + 'w1280' + d.backdrop_path : undefined,
+            ano: /^\d{4}/.test(data) ? parseInt(data, 10) : undefined,
+            generos: (d.genres || []).map(g => g.name).filter(Boolean),
+            tmdb: ref,
+            imdb: normImdb(d.imdb_id || (d.external_ids && d.external_ids.imdb_id)) || imdb,
+            porBusca: porBusca || undefined
+        });
+        if (tipo === 'tv' && temEps && opts.episodios !== false) {
+            out.temporadasMeta = [];
+            for (const t of item.temporadas) {
+                const s = await api(`/tv/${id}/season/${t.numero}`, { language: lang });
+                if (!s || !Array.isArray(s.episodes)) continue;
+                const porNum = new Map(s.episodes.map(e => [e.episode_number, e]));
+                out.temporadasMeta.push({
+                    numero: t.numero,
+                    episodios: (t.episodios || []).map(e => {
+                        const x = porNum.get(e.numero);
+                        if (!x) return { numero: e.numero };
+                        const titulo = x.name && !/^(epis[oó]dio|episode)\s*\d+$/i.test(x.name.trim()) ? x.name : undefined;
+                        return limparVazios({
+                            numero: e.numero, titulo,
+                            descricao: x.overview || undefined,
+                            capa: x.still_path ? TMDB_IMG + 'w300' + x.still_path : undefined
+                        });
+                    })
+                });
+            }
+        }
+        return out;
+    }
+
+    /** Nota do IMDb pelo OMDb (chave grátis em omdbapi.com). */
+    async function buscarNotaIMDb(imdb, chave, fetchFn) {
+        const f = fetchFn || fetch;
+        const id = normImdb(imdb);
+        if (!id) return null;
+        const r = await f('https://www.omdbapi.com/?i=' + id + '&apikey=' + encodeURIComponent(chave));
+        if (r.status === 401) throw new Error('Chave do OMDb inválida');
+        if (!r.ok) throw new Error('OMDb respondeu ' + r.status);
+        const j = await r.json();
+        if (j.Response === 'False') {
+            if (/api key|limit/i.test(j.Error || '')) throw new Error('OMDb: ' + j.Error);
+            return null;
+        }
+        const nota = parseFloat(j.imdbRating);
+        if (!Number.isFinite(nota)) return null;
+        return limparVazios({ notaImdb: nota, votosImdb: parseInt(String(j.imdbVotes || '').replace(/\D/g, ''), 10) || undefined });
+    }
+
+    /** Coloca no item o que veio de fora, sem apagar o que você escreveu (a nota sempre atualiza). */
+    function aplicarDadosExternos(item, achado) {
+        if (!achado) return item;
+        const { temporadasMeta, tituloTMDB, porBusca, nome, notaImdb, votosImdb, ...resto } = achado;
+        const out = mesclarSemSobrescrever(item, resto);
+        // mesmo nome escrito diferente ("Serie X" x "Série X"): fica a grafia oficial, com acentos
+        if (!out.nome || (nome && normText(out.nome) === normText(nome))) out.nome = nome || out.nome;
+        if (notaImdb !== undefined) { out.notaImdb = notaImdb; if (votosImdb) out.votosImdb = votosImdb; }
+        if (temporadasMeta && Array.isArray(out.temporadas)) {
+            out.temporadas = out.temporadas.map(t => {
+                const tm = temporadasMeta.find(x => x.numero === t.numero);
+                if (!tm) return t;
+                return Object.assign({}, t, {
+                    episodios: t.episodios.map(e => {
+                        const em = tm.episodios.find(x => x.numero === e.numero);
+                        return em ? mesclarSemSobrescrever(e, em) : e;
+                    })
+                });
+            });
+        }
+        return out;
+    }
+
+    /**
+     * Completa um item com tudo que der: TMDB (se tiver chave; senão Wikipedia
+     * quando pedido) e nota do IMDb (se tiver chave do OMDb).
+     * Devolve { item, achados: ["TMDB: ...", ...], avisos: [...] }.
+     */
+    async function completarItem(item, { tmdb, omdb, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
+        let out = Object.assign({}, item);
+        const achados = [], avisos = [];
+        if (tipoColecao !== 'video') return { item: out, achados, avisos };
+        if (tmdb) {
+            try {
+                const a = await buscarTMDB(out, tmdb, fetchFn);
+                if (a) {
+                    out = aplicarDadosExternos(out, a);
+                    const eps = (a.temporadasMeta || []).reduce((n, t) => n + t.episodios.filter(e => e.titulo || e.descricao || e.capa).length, 0);
+                    achados.push('TMDB: ' + a.tituloTMDB + (eps ? ` (${eps} episódios)` : ''));
+                    if (a.porBusca) avisos.push('Achado pelo nome no TMDB — confira se é a obra certa (ou cole o link do TMDB/IMDb).');
+                } else avisos.push('Não achei no TMDB.');
+            } catch (e) { avisos.push(e.message); }
+        }
+        if (!tmdb && wiki && (!out.descricao || !out.capa)) {
+            try {
+                const w = await buscarWikipedia(out.nome, fetchFn);
+                if (w) { out = mesclarSemSobrescrever(out, w); achados.push('Wikipedia: ' + w.tituloWikipedia); }
+            } catch (e) { avisos.push('Wikipedia: ' + e.message); }
+        }
+        delete out.tituloWikipedia;
+        if (omdb && out.imdb) {
+            try {
+                const n = await buscarNotaIMDb(out.imdb, omdb, fetchFn);
+                if (n) { out = aplicarDadosExternos(out, n); achados.push('IMDb: ⭐ ' + n.notaImdb); }
+            } catch (e) { avisos.push(e.message); }
+        }
+        return { item: out, achados, avisos };
+    }
+
+    // ------------------------------------------------------------------
     // Países e idiomas (canais e rádios)
     // ------------------------------------------------------------------
     const PAISES = {
@@ -468,6 +676,12 @@
     };
     const IDIOMAS = ['Português', 'Inglês', 'Espanhol', 'Francês', 'Italiano', 'Alemão', 'Japonês', 'Coreano',
         'Chinês', 'Russo', 'Árabe', 'Hindi', 'Holandês', 'Turco', 'Polonês', 'Multilíngue'];
+
+    /** "BR" -> 🇧🇷 (países sem bandeira, como INT, ficam com 🌐) */
+    function bandeira(cc) {
+        if (!/^[A-Z]{2}$/.test(cc || '')) return '🌐';
+        return String.fromCodePoint(...[...cc].map(c => 0x1F1E6 + c.charCodeAt(0) - 65));
+    }
 
     /** "Brasil", "br", "BRA", "brasil" -> "BR". Desconhecido -> o próprio texto em maiúsculas. */
     function codigoPais(v) {
@@ -515,6 +729,8 @@
             rotulo: 'Filme, desenho ou série',
             campos: [
                 { k: 'nome', rotulo: 'Nome', tipo: 'texto', obrigatorio: true },
+                { k: 'tmdb', rotulo: 'TMDB', tipo: 'texto', dica: 'cole o link do TMDB (ex.: themoviedb.org/tv/1234) ou deixe vazio' },
+                { k: 'imdb', rotulo: 'IMDb', tipo: 'texto', dica: 'cole o link ou o código tt… do IMDb' },
                 { k: 'links', rotulo: 'Link do vídeo (filme/desenho avulso)', tipo: 'links', dica: '1º link = principal; os outros viram reserva. Série? Deixe vazio e use as temporadas.' },
                 ...CAMPOS_COMUNS_MIDIA,
                 { k: 'audio', rotulo: 'Áudio', tipo: 'escolha', opcoes: ['', 'Dublado', 'Legendado', 'Dual Áudio', 'Original'] },
@@ -591,6 +807,15 @@
         const out = {};
         out.nome = String(b.nome || b.titulo || b.title || b.name || '').trim();
         out.links = unicos(lista(b.links || b.link || b.url || b.urls || b.rom).map(limparLink));
+        // link do TMDB/IMDb colado no campo de vídeo vira referência
+        out.links = out.links.filter(u => { const r = refDoLink(u); if (r) { Object.assign(b, Object.assign({}, r, b.tmdb ? { tmdb: b.tmdb } : {}, b.imdb ? { imdb: b.imdb } : {})); return false; } return true; });
+        const tm = normTmdb(b.tmdb), im = normImdb(b.imdb);
+        if (tm) out.tmdb = tm;
+        if (im) out.imdb = im;
+        const nota = parseFloat(b.notaImdb);
+        if (Number.isFinite(nota)) out.notaImdb = nota;
+        const votos = parseInt(b.votosImdb, 10);
+        if (Number.isFinite(votos)) out.votosImdb = votos;
         for (const k of ['capa', 'banner', 'logo', 'site', 'fonte']) if (b[k]) out[k] = String(b[k]).trim();
         if (!out.capa && (b.thumb || b.poster)) out.capa = String(b.thumb || b.poster).trim();
         const desc = b.descricao || b.sinopse || b.desc;
@@ -708,7 +933,8 @@
         switch (colecao.tipo) {
             case 'video': {
                 const o = Object.assign(base, {
-                    thumb: item.capa, bannerThumb: item.banner, audio: item.audio
+                    thumb: item.capa, bannerThumb: item.banner, audio: item.audio,
+                    imdbId: item.imdb, tmdbId: item.tmdb, imdbRating: item.notaImdb, imdbVotes: item.votosImdb
                 });
                 if (item.temporadas && item.temporadas.length) {
                     o.seasons = item.temporadas.map(t => ({
@@ -839,10 +1065,24 @@
                 porPais.get(p).push(r);
             }
             rel.porPais = {};
-            for (const [p, lst] of porPais) {
-                arquivos[`${colecao.id}/pais/${p.toLowerCase()}.m3u`] = gerarM3U(lst, colecao.tipo === 'radio' ? { grupo: colecao.nome } : null);
+            const indicePaises = [];
+            for (const [p, lst] of [...porPais.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))) {
+                const cc = p.toLowerCase();
+                arquivos[`${colecao.id}/pais/${cc}.m3u`] = gerarM3U(lst, colecao.tipo === 'radio' ? { grupo: colecao.nome } : null);
+                arquivos[`${colecao.id}/pais/${cc}.json`] = JSON.stringify({ pais: p, nome: PAISES[p] || p, [chaveLista]: lst }, null, 1);
                 rel.porPais[p] = lst.length;
+                const cats = {};
+                for (const r of lst) if (r.group) cats[r.group] = (cats[r.group] || 0) + 1;
+                indicePaises.push(limparVazios({
+                    codigo: p, nome: PAISES[p] || p, bandeira: bandeira(p), total: lst.length,
+                    idiomas: unicos(lst.map(r => r.language)),
+                    categorias: Object.keys(cats).length ? cats : undefined,
+                    json: base + `${colecao.id}/pais/${cc}.json`,
+                    m3u: base + `${colecao.id}/pais/${cc}.m3u`
+                }));
             }
+            // Índice para o seletor de países do app (TVzine / rádio): um item por país com os links das listas
+            arquivos[`${colecao.id}/paises.json`] = JSON.stringify({ colecao: colecao.id, paises: indicePaises }, null, 1);
         }
 
         if (colecao.fonteCloud) {
@@ -908,6 +1148,7 @@
             nome: item.nome || item.titulo || item.title,
             capa: item.capa || item.logo,
             ano: item.ano,
+            nota: item.notaImdb,
             eps: contarEpisodios(item) || undefined,
             pais: item.pais, console: item.console, categoria: item.categoria,
             rascunho: item._rascunho ? true : undefined,
@@ -926,7 +1167,8 @@
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
         itemDoArchive, importarArchive, buscarWikipedia,
-        codigoPais, traduzirCategoria, normalizarItem, validarItem, limparVazios,
+        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, aplicarDadosExternos, completarItem,
+        codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever
     };

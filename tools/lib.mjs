@@ -107,8 +107,18 @@ export async function baixarTexto(url, { timeoutMs = 30000 } = {}) {
     } finally { clearTimeout(t); }
 }
 
-/** Completa itens com Wikipedia/Internet Archive. Erros de rede não param nada. */
-export async function enriquecer(item, { wiki = false, log = () => {} } = {}) {
+/** Chaves do TMDB/OMDb: variáveis de ambiente (no GitHub, os "secrets" TMDB_TOKEN e OMDB_KEY). */
+export function chavesExternas() {
+    return { tmdb: process.env.TMDB_TOKEN || process.env.TMDB_API_KEY || '', omdb: process.env.OMDB_KEY || '' };
+}
+
+/**
+ * Completa um item: importa do Internet Archive (se for um link de lá) e busca
+ * sinopse/capas/episódios (TMDB, ou Wikipedia sem chave) + nota do IMDb.
+ * Com link/código do TMDB ou IMDb no item, busca sempre; sem, só com dados=true.
+ * Erros de rede não param nada.
+ */
+export async function enriquecer(item, { wiki = false, dados = wiki, log = () => {}, tipoColecao = 'video' } = {}) {
     let out = item;
     if (out.archive && !(out.links || []).length && !(out.temporadas || []).length) {
         try {
@@ -120,18 +130,19 @@ export async function enriquecer(item, { wiki = false, log = () => {} } = {}) {
             log(`  ↳ Internet Archive: ${Core.contarEpisodios(out) || 1} vídeo(s)`);
         } catch (e) { log('  ⚠ Internet Archive: ' + e.message); }
     }
-    if (wiki && (!out.descricao || !out.capa)) {
-        try {
-            const w = await Core.buscarWikipedia(out.nome);
-            if (w) { out = Core.mesclarSemSobrescrever(out, w); log(`  ↳ Wikipedia: ${w.tituloWikipedia}`); }
-        } catch (e) { log('  ⚠ Wikipedia: ' + e.message); }
+    if (tipoColecao === 'video' && (dados || out.tmdb || out.imdb)) {
+        const ch = chavesExternas();
+        const r = await Core.completarItem(out, { tmdb: ch.tmdb, omdb: ch.omdb, wiki: dados, tipoColecao });
+        out = r.item;
+        r.achados.forEach(a => log('  ↳ ' + a));
+        r.avisos.forEach(a => log('  ⚠ ' + a));
     }
     return out;
 }
 
 export function aplicarPadroes(item, args) {
     const out = Object.assign({}, item);
-    for (const k of ['pais', 'idioma', 'categoria', 'console', 'audio', 'cidade', 'capa', 'banner', 'logo', 'descricao', 'ano', 'generos', 'jogadores', 'core', 'tvgId']) {
+    for (const k of ['pais', 'idioma', 'categoria', 'console', 'audio', 'cidade', 'capa', 'banner', 'logo', 'descricao', 'ano', 'generos', 'jogadores', 'core', 'tvgId', 'tmdb', 'imdb']) {
         if (args[k] !== undefined && args[k] !== true && (out[k] === undefined || out[k] === '')) out[k] = args[k];
     }
     if (args.destaque) out.destaque = true;
@@ -153,7 +164,7 @@ export async function importarTexto(colecao, texto, { args = {}, raiz = RAIZ, or
         if (colecao.tipo !== 'video') { delete item.audio; }
         if (origem) item._origem = origem;
         log(`• ${item.nome}`);
-        item = await enriquecer(item, { wiki: !!args.wiki, log });
+        item = await enriquecer(item, { dados: !!(args.wiki || args.dados), log, tipoColecao: colecao.tipo });
         const normal = Core.normalizarItem(item, colecao);
         const { erros } = Core.validarItem(normal, colecao, config);
         if (erros.length) { falhas.push({ nome: normal.nome, erros }); log('  ✗ ' + erros.join('; ')); continue; }

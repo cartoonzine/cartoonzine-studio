@@ -25,8 +25,11 @@ que o [cartoonzine-cloud](https://github.com/cartoonzine/cartoonzine-cloud) já 
   `Temporada 2 Episódio 7`. Episódio novo de uma série que já existe entra na temporada certa.
 - **Junta em vez de duplicar**: mesmo nome = mesmo item. Link repetido vira **link reserva**
   (o player tenta o próximo quando um cai). Nada que você escreveu é apagado.
-- **Preenche sozinho**: sinopse, capa e ano pela Wikipedia; todos os vídeos de um item do
-  Internet Archive viram filme ou série com um clique.
+- **Preenche sozinho pelo TMDB**: sinopse em português, capa, banner, ano, gêneros e, nas séries,
+  título, sinopse e imagem de **cada episódio**. Cole o link do TMDB ou do IMDb para acertar a obra
+  exata; sem link, ele procura pelo nome. Sem chave do TMDB, usa a Wikipedia.
+- **Nota do IMDb** (⭐ 8,4) pelo OMDb, atualizada toda semana.
+- **Internet Archive**: todos os vídeos de um item viram filme ou série com um clique.
 - **Limpa o nome**: tira `720p`, `WEB-DL`, `x264`, `[grupo]`, detecta `Dublado/Legendado` e o ano.
 - **Traduz categorias** de listas em inglês (iptv-org, Pluto TV): `News` → Notícias, `Kids` → Infantil…
 - **Valida antes de publicar**: item com erro fica de fora e aparece em `dist/relatorio.json`;
@@ -62,6 +65,36 @@ que o [cartoonzine-cloud](https://github.com/cartoonzine/cartoonzine-cloud) já 
 
 ---
 
+## TMDB, IMDb e nota (opcional, recomendado)
+
+O Studio funciona sem chave nenhuma (usa a Wikipedia), mas com elas fica muito melhor.
+
+| Chave | Para quê | Onde pegar (grátis) |
+|---|---|---|
+| **TMDB** | sinopse pt-BR, capas, banner, episódios | themoviedb.org → crie a conta → *Configurações → API* → copie o **Token de leitura da API** |
+| **OMDb** | nota do IMDb | omdbapi.com/apikey.aspx → plano *FREE* → confirme pelo e-mail |
+
+**No painel:** botão **🔑 Chaves** no topo → cole as duas → *Salvar e testar*. Ficam só no seu navegador.
+
+**No robô** (para itens do modo automático e para completar o que ficou faltando todo dia):
+*Settings → Secrets and variables → Actions → New repository secret* → crie `TMDB_TOKEN` e `OMDB_KEY`.
+
+Como usar:
+- Cole o link do TMDB (`themoviedb.org/tv/230050`) ou do IMDb (`imdb.com/title/tt28313387`) sozinho
+  numa linha, antes dos links dos episódios, na adição rápida. Vale para os links seguintes até
+  uma linha vazia. Ou na mesma linha: `Nome | link do IMDb | link do vídeo`.
+- No formulário, há os campos **TMDB** e **IMDb**. Preencha um e clique em **✨ Preencher automaticamente**.
+- O que você escreveu nunca é trocado; só o que está vazio é preenchido. A exceção é a nota, que se atualiza.
+- Achou pelo nome e não pelo link? O painel avisa para conferir se é a obra certa.
+
+> Os termos do TMDB pedem um crédito no app, por exemplo na tela "Sobre": *"Este produto usa a API
+> do TMDB, mas não é endossado nem certificado pelo TMDB."* O uso grátis é para projetos não comerciais.
+
+No app, cada filme/série chega com `imdbRating`, `imdbVotes`, `imdbId` e `tmdbId`, e cada episódio
+com `desc` (sinopse) e `thumb` (imagem do episódio).
+
+---
+
 ## Três jeitos de adicionar conteúdo
 
 ### 1. Painel (o mais fácil)
@@ -90,13 +123,16 @@ node tools/add.mjs cartoons "Caverna do Dragão S01E03" https://…/ep3.mp4     
 node tools/add.mjs canais "TV Cultura" https://…/cultura.m3u8 --pais BR --categoria Educativo
 node tools/add.mjs radios "Rádio X" https://…/stream --pais BR --cidade "São Paulo"
 node tools/add.mjs jogos "Sonic" https://…/sonic.zip --console megadrive
-node tools/add.mjs filmes "Nosferatu" https://archive.org/details/<id> --wiki     # importa do archive
+node tools/add.mjs filmes "Nosferatu" https://archive.org/details/<id> --dados    # importa do archive
+node tools/add.mjs animes "Série X S02E01" https://…/ep1.mp4 --tmdb https://www.themoviedb.org/tv/230050
+node tools/add.mjs filmes "Filme Y" https://…/y.mp4 --imdb tt28313387
 
 # muitos de uma vez
 node tools/importar.mjs canais lista.m3u --pais BR --idioma Português
-node tools/importar.mjs animes links.txt --wiki
+node tools/importar.mjs animes links.txt --dados   # --dados: sinopse/capas pelo nome
 node tools/importar.mjs cartoons - --simular      # cole no terminal, Ctrl+D; --simular não salva
 
+node tools/completar.mjs                          # completa o que está sem sinopse/capa/episódios
 node tools/build.mjs                              # gera dist/ (o GitHub faz isso sozinho)
 ```
 
@@ -117,10 +153,25 @@ Dá para editar até pelo site do GitHub: o robô publica sozinho a cada commit.
 | 🎬 Filmes | `conteudo/filmes/` | Cartoonzine | `filmes.json` |
 | 🎞️ Séries | `conteudo/series/` | Cartoonzine | `series.json` |
 | 📻 Rádios | `conteudo/radios/` | Rádio | `radios.json`, `radios.m3u`, `radios/pais/<pais>.m3u` |
-| 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/pais/<pais>.m3u` |
+| 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/paises.json`, `canais/pais/<pais>.json` e `.m3u` |
 | 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles) |
 
 Os `.m3u` por país também funcionam direto em qualquer player IPTV (VLC, TiviMate…).
+
+### Canais por país (seletor do TVzine)
+
+`canais/paises.json` é o índice para o seletor de países: um item por país com bandeira, nome,
+total de canais, idiomas, quantos canais por categoria e os links da lista daquele país:
+
+```json
+{ "codigo": "BR", "nome": "Brasil", "bandeira": "🇧🇷", "total": 120,
+  "idiomas": ["Português"], "categorias": { "Notícias": 18, "Infantil": 9 },
+  "json": "…/dist/canais/pais/br.json", "m3u": "…/dist/canais/pais/br.m3u" }
+```
+
+O TVzine pode abrir esse índice, mostrar os países e carregar só a lista do país escolhido
+(`canais/pais/br.json`, com os canais em `channels`). Pelo cartoonzine-cloud, cada canal também chega
+com `country` (`BR`), `countryName` (`Brasil`) e `language`.
 
 ### Criar uma coleção nova
 
@@ -179,5 +230,7 @@ test/                   testes (node --test test/*.test.mjs)
 - **Um item não foi publicado.** Ele tem erro: está em `dist/relatorio.json` com o motivo.
 - **Links do @CZStreamBot** dependem do bot estar no ar no Render. Se o bot cair, o link para de
   funcionar. Para conteúdo fixo, prefira links permanentes (archive.org, seu servidor).
+- **TMDB achou a obra errada.** Cole o link certo do TMDB ou IMDb no campo do item e clique em
+  **✨ Preencher automaticamente** de novo. Para refazer do zero, apague a sinopse e as capas antes.
 - **Episódios com link reserva**: o cloud de hoje usa só o 1º link de cada episódio; os outros ficam
   guardados em `reservas` para quando o player suportar.

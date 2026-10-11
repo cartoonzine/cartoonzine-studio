@@ -7,10 +7,15 @@
  *   node tools/add.mjs canais "TV Cultura" https://.../cultura.m3u8 --pais BR --categoria Educativo
  *   node tools/add.mjs radios "Rádio X" https://.../stream --pais BR --cidade "São Paulo"
  *   node tools/add.mjs jogos "Sonic" https://.../sonic.zip --console megadrive
- *   node tools/add.mjs filmes "Nosferatu" https://archive.org/details/nosferatu --wiki
+ *   node tools/add.mjs filmes "Nosferatu" https://archive.org/details/nosferatu --dados
+ *   node tools/add.mjs animes "Série X S02E01" https://.../ep1.mp4 --tmdb https://www.themoviedb.org/tv/230050
+ *   node tools/add.mjs filmes "Filme Y" https://.../y.mp4 --imdb tt28313387
  *
  * Opções: --ano --capa --banner --logo --descricao --generos "A, B" --audio Dublado
- *         --pais --idioma --categoria --cidade --console --destaque --wiki (busca sinopse/capa)
+ *         --pais --idioma --categoria --cidade --console --destaque
+ *         --tmdb <link>  --imdb <link ou tt…>   (busca dados dessa obra exata)
+ *         --dados        busca sinopse/capas/episódios pelo nome (TMDB com a chave; senão Wikipedia)
+ *   Chaves: variáveis TMDB_TOKEN e OMDB_KEY (no GitHub: Settings → Secrets → Actions).
  */
 import { Core, lerConfig, acharColecao, salvarItem, lerArgs, enriquecer, aplicarPadroes } from './lib.mjs';
 
@@ -34,7 +39,7 @@ if (info.serie && colecao.tipo === 'video') {
     if (archive) item.archive = archive;
 }
 item = aplicarPadroes(Core.limparVazios(item), args);
-item = await enriquecer(item, { wiki: !!args.wiki, log: console.log });
+item = await enriquecer(item, { dados: !!(args.wiki || args.dados), log: console.log, tipoColecao: colecao.tipo });
 
 const normal = Core.normalizarItem(item, colecao);
 const { erros, avisos } = Core.validarItem(normal, colecao, config);

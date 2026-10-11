@@ -4,7 +4,8 @@
  *
  *   node tools/importar.mjs canais lista.m3u --pais BR
  *   node tools/importar.mjs canais https://iptv-org.github.io/iptv/countries/br.m3u --categoria "TV Aberta"
- *   node tools/importar.mjs cartoons links.txt --wiki         (um link por linha, ou "Nome | link | capa")
+ *   node tools/importar.mjs cartoons links.txt --dados        (um link por linha, ou "Nome | link | capa"; --dados busca sinopse/capas)
+ *   node tools/importar.mjs animes eps.txt --tmdb https://www.themoviedb.org/tv/230050   (todos os links são dessa série)
  *   node tools/importar.mjs cartoons https://archive.org/details/popeye_classics
  *   node tools/importar.mjs animes -                          (lê do teclado / pipe; cole as mensagens do @CZStreamBot)
  *
@@ -18,7 +19,7 @@ import { Core, lerConfig, acharColecao, lerArgs, baixarTexto, importarTexto } fr
 const args = lerArgs(process.argv.slice(2));
 const [colId, fonte] = args._;
 if (!colId || !fonte) {
-    console.log('Uso: node tools/importar.mjs <colecao> <arquivo | link | -> [--pais BR --categoria X --console nes --wiki --simular]');
+    console.log('Uso: node tools/importar.mjs <colecao> <arquivo | link | -> [--pais BR --categoria X --console nes --dados --tmdb <link> --simular]');
     process.exit(1);
 }
 const config = lerConfig();
