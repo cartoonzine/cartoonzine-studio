@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
-  "versaoStudio": "1.0.0",
-  "geradoEm": "2026-10-11T12:49:20.921Z",
+  "versaoStudio": "1.1.0",
+  "geradoEm": "2026-10-11T16:19:41.979Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -69,7 +69,8 @@
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/radios.json",
-        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/radios.m3u"
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/radios.m3u",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/radios/paises.json"
       ],
       "porPais": {}
     },
@@ -82,7 +83,8 @@
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.json",
-        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.m3u"
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.m3u",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais/paises.json"
       ],
       "porPais": {}
     },
