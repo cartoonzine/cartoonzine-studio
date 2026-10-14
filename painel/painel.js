@@ -147,7 +147,7 @@
     /** Wikipedia/Internet Archive: no modo local passa pelo servidor (evita bloqueio de CORS). */
     function fetchExterno(url, init) {
         // TMDB e OMDb aceitam o navegador direto; archive.org/Wikipedia passam pelo servidor local quando ele existe
-        if (estado.repo && estado.repo.usaProxy && /^https:\/\/([^/]*\.)?(archive\.org|wikipedia\.org)\//.test(url)) {
+        if (estado.repo && estado.repo.usaProxy && /^https:\/\/([^/]*\.)?(archive\.org|wikipedia\.org|screenscraper\.fr)\//.test(url)) {
             return fetch('/api/proxy?url=' + encodeURIComponent(url));
         }
         return fetch(url, init);
@@ -176,6 +176,14 @@
               <label class="rot" for="ch-steamgrid" style="margin-top:14px">SteamGridDB — logos dos jogos retrô</label>
               <input class="campo" id="ch-steamgrid" type="password" autocomplete="off" placeholder="Chave da API do SteamGridDB" value="${esc(ch.steamgrid || '')}">
               <div class="dica">Grátis: em <a href="https://www.steamgriddb.com/profile/preferences/api" target="_blank" rel="noopener">steamgriddb.com → Preferences → API</a>. Usada para baixar o logo dos jogos automaticamente.</div>
+              <label class="rot" style="margin-top:14px">ScreenScraper — logo "wheel" + vídeo snap dos jogos</label>
+              <div class="dica" style="margin-bottom:8px">Login = seu usuário/senha do site. Dev ID / Dev password: peça no <a href="https://www.screenscraper.fr/forum.php" target="_blank" rel="noopener">fórum do ScreenScraper</a> (apps gratuitos). <a href="https://www.screenscraper.fr/webapi2.php" target="_blank" rel="noopener">doc da API</a>.</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                <input class="campo" id="ch-ss-dev" type="text" autocomplete="off" placeholder="Dev ID" value="${esc((ch.screenscraper && ch.screenscraper.dev) || '')}">
+                <input class="campo" id="ch-ss-devpass" type="password" autocomplete="off" placeholder="Dev password" value="${esc((ch.screenscraper && ch.screenscraper.devSenha) || '')}">
+                <input class="campo" id="ch-ss-user" type="text" autocomplete="off" placeholder="Usuário (ssid)" value="${esc((ch.screenscraper && ch.screenscraper.user) || '')}">
+                <input class="campo" id="ch-ss-pass" type="password" autocomplete="off" placeholder="Senha (sspassword)" value="${esc((ch.screenscraper && ch.screenscraper.senha) || '')}">
+              </div>
             </div>
             <div class="caixa-erros" id="ch-msg"></div>
             <div class="linha-acoes">
@@ -189,7 +197,8 @@
         fundo.addEventListener('mousedown', ev => { if (ev.target === fundo) fechar(); });
         $('#ch-salvar', fundo).onclick = async () => {
             const b = $('#ch-salvar', fundo);
-            const novo = { tmdb: $('#ch-tmdb', fundo).value.trim(), omdb: $('#ch-omdb', fundo).value.trim(), steamgrid: $('#ch-steamgrid', fundo).value.trim() };
+            const ss = { dev: $('#ch-ss-dev', fundo).value.trim(), devSenha: $('#ch-ss-devpass', fundo).value.trim(), user: $('#ch-ss-user', fundo).value.trim(), senha: $('#ch-ss-pass', fundo).value.trim() };
+            const novo = { tmdb: $('#ch-tmdb', fundo).value.trim(), omdb: $('#ch-omdb', fundo).value.trim(), steamgrid: $('#ch-steamgrid', fundo).value.trim(), screenscraper: ss };
             guardar.gravar('czs-chaves', novo);
             b.disabled = true; b.textContent = 'Testando…';
             const res = [];
@@ -207,6 +216,12 @@
                     if (url && typeof url === 'string') res.push('✅ SteamGridDB funcionando (logo de teste encontrado)');
                     else if (url && url.erro) res.push('❌ SteamGridDB: ' + url.erro);
                     else res.push('❌ SteamGridDB: respondeu, mas sem logo no teste');
+                }
+                if (ss.dev) {
+                    const r = await C.buscarScreenScraper('Sonic The Hedgehog', ss, fetchExterno).then(x => x, e => ({ erro: e.message }));
+                    if (r && r.erro) res.push('❌ ScreenScraper: ' + r.erro);
+                    else if (r && (r.logo || r.video)) res.push('✅ ScreenScraper funcionando (' + [r.logo ? 'logo' : '', r.video ? 'vídeo' : ''].filter(Boolean).join(' + ') + ')');
+                    else res.push('❌ ScreenScraper: respondeu, mas sem mídia no teste');
                 }
             } catch (e) { res.push('❌ ' + e.message); }
             b.disabled = false; b.textContent = 'Salvar e testar';
@@ -625,7 +640,7 @@
                 let avisosAuto = [];
                 if (atual.nome && (col.tipo === 'video' || col.tipo === 'jogo')) {
                     const ch = chaves();
-                    const r = await C.completarItem(atual, { tmdb: ch.tmdb, omdb: ch.omdb, steamgrid: ch.steamgrid, wiki: true, fetchFn: fetchExterno, tipoColecao: col.tipo });
+                    const r = await C.completarItem(atual, { tmdb: ch.tmdb, omdb: ch.omdb, steamgrid: ch.steamgrid, screenscraper: ch.screenscraper, wiki: true, fetchFn: fetchExterno, tipoColecao: col.tipo });
                     atual = r.item; achados.push(...r.achados); avisosAuto = r.avisos;
                 }
                 delete atual.archive;
@@ -730,8 +745,8 @@ https://archive.org/details/algum_desenho
                 const ch = chaves();
                 const r = await C.completarItem(it, { tmdb: ch.tmdb, omdb: ch.omdb, wiki, fetchFn: fetchExterno, tipoColecao: col.tipo });
                 it = r.item; avisos.push(...r.avisos);
-            } else if (col.tipo === 'jogo' && it.nome && chaves().steamgrid && !it.logo) {
-                const r = await C.completarItem(it, { steamgrid: chaves().steamgrid, fetchFn: fetchExterno, tipoColecao: 'jogo' });
+            } else if (col.tipo === 'jogo' && it.nome && (chaves().steamgrid || (chaves().screenscraper && chaves().screenscraper.dev)) && (!it.logo || !it.video)) {
+                const r = await C.completarItem(it, { steamgrid: chaves().steamgrid, screenscraper: chaves().screenscraper, fetchFn: fetchExterno, tipoColecao: 'jogo' });
                 it = r.item; avisos.push(...r.avisos);
             }
             const normal = C.normalizarItem(it, col);
