@@ -628,9 +628,38 @@
      * quando pedido) e nota do IMDb (se tiver chave do OMDb).
      * Devolve { item, achados: ["TMDB: ...", ...], avisos: [...] }.
      */
-    async function completarItem(item, { tmdb, omdb, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
+    /** Logo (PNG transparente) de um JOGO pelo SteamGridDB. Devolve '' quando não acha. */
+    async function buscarLogoSteamGrid(nome, chave, fetchFn) {
+        if (!nome || !chave) return '';
+        const f = fetchFn || ((...a) => fetch(...a));
+        const h = { headers: { Authorization: 'Bearer ' + String(chave).trim() } };
+        const base = 'https://www.steamgriddb.com/api/v2';
+        const rb = await f(base + '/search/autocomplete/' + encodeURIComponent(nome), h);
+        if (rb.status === 401 || rb.status === 403) throw new Error('chave recusada (' + rb.status + ')');
+        if (!rb.ok) throw new Error('busca HTTP ' + rb.status);
+        const jb = await rb.json();
+        const id = jb && jb.data && jb.data[0] && jb.data[0].id;
+        if (!id) return '';
+        const rl = await f(base + '/logos/game/' + id, h);
+        if (!rl.ok) throw new Error('logos HTTP ' + rl.status);
+        const jl = await rl.json();
+        return (jl && jl.data && jl.data[0] && jl.data[0].url) || '';
+    }
+
+    async function completarItem(item, { tmdb, omdb, steamgrid, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
         let out = Object.assign({}, item);
         const achados = [], avisos = [];
+        // JOGOS: logo automático pelo SteamGridDB (não mexe em logo já preenchido à mão)
+        if (tipoColecao === 'jogo') {
+            if (steamgrid && !out.logo) {
+                try {
+                    const url = await buscarLogoSteamGrid(out.nome, steamgrid, fetchFn);
+                    if (url) { out.logo = url; achados.push('SteamGridDB: logo'); }
+                    else avisos.push('SteamGridDB: logo não encontrado para "' + (out.nome || '') + '".');
+                } catch (e) { avisos.push('SteamGridDB: ' + e.message); }
+            }
+            return { item: out, achados, avisos };
+        }
         if (tipoColecao !== 'video') return { item: out, achados, avisos };
         if (tmdb) {
             try {
@@ -1167,7 +1196,7 @@
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
         itemDoArchive, importarArchive, buscarWikipedia,
-        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, aplicarDadosExternos, completarItem,
+        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever

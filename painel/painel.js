@@ -173,6 +173,9 @@
               <label class="rot" for="ch-omdb" style="margin-top:14px">OMDb — nota do IMDb</label>
               <input class="campo" id="ch-omdb" type="password" autocomplete="off" placeholder="Chave do OMDb" value="${esc(ch.omdb || '')}">
               <div class="dica">Grátis: peça em <a href="https://www.omdbapi.com/apikey.aspx" target="_blank" rel="noopener">omdbapi.com/apikey.aspx</a> (plano FREE) e confirme pelo e-mail.</div>
+              <label class="rot" for="ch-steamgrid" style="margin-top:14px">SteamGridDB — logos dos jogos retrô</label>
+              <input class="campo" id="ch-steamgrid" type="password" autocomplete="off" placeholder="Chave da API do SteamGridDB" value="${esc(ch.steamgrid || '')}">
+              <div class="dica">Grátis: em <a href="https://www.steamgriddb.com/profile/preferences/api" target="_blank" rel="noopener">steamgriddb.com → Preferences → API</a>. Usada para baixar o logo dos jogos automaticamente.</div>
             </div>
             <div class="caixa-erros" id="ch-msg"></div>
             <div class="linha-acoes">
@@ -186,7 +189,7 @@
         fundo.addEventListener('mousedown', ev => { if (ev.target === fundo) fechar(); });
         $('#ch-salvar', fundo).onclick = async () => {
             const b = $('#ch-salvar', fundo);
-            const novo = { tmdb: $('#ch-tmdb', fundo).value.trim(), omdb: $('#ch-omdb', fundo).value.trim() };
+            const novo = { tmdb: $('#ch-tmdb', fundo).value.trim(), omdb: $('#ch-omdb', fundo).value.trim(), steamgrid: $('#ch-steamgrid', fundo).value.trim() };
             guardar.gravar('czs-chaves', novo);
             b.disabled = true; b.textContent = 'Testando…';
             const res = [];
@@ -198,6 +201,12 @@
                 if (novo.omdb) {
                     const n = await C.buscarNotaIMDb('tt0111161', novo.omdb, fetchExterno).then(x => x, e => ({ erro: e.message }));
                     res.push(n && n.notaImdb ? '✅ OMDb funcionando (nota de teste: ' + n.notaImdb + ')' : '❌ OMDb: ' + ((n && n.erro) || 'sem resposta — confirmou a chave pelo e-mail?'));
+                }
+                if (novo.steamgrid) {
+                    const url = await C.buscarLogoSteamGrid('Sonic the Hedgehog', novo.steamgrid, fetchExterno).then(x => x, e => ({ erro: e.message }));
+                    if (url && typeof url === 'string') res.push('✅ SteamGridDB funcionando (logo de teste encontrado)');
+                    else if (url && url.erro) res.push('❌ SteamGridDB: ' + url.erro);
+                    else res.push('❌ SteamGridDB: respondeu, mas sem logo no teste');
                 }
             } catch (e) { res.push('❌ ' + e.message); }
             b.disabled = false; b.textContent = 'Salvar e testar';
@@ -614,9 +623,9 @@
                     achados.push('Internet Archive: ' + (C.contarEpisodios(atual) ? C.contarEpisodios(atual) + ' episódios' : '1 vídeo'));
                 }
                 let avisosAuto = [];
-                if (atual.nome && col.tipo === 'video') {
+                if (atual.nome && (col.tipo === 'video' || col.tipo === 'jogo')) {
                     const ch = chaves();
-                    const r = await C.completarItem(atual, { tmdb: ch.tmdb, omdb: ch.omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: col.tipo });
+                    const r = await C.completarItem(atual, { tmdb: ch.tmdb, omdb: ch.omdb, steamgrid: ch.steamgrid, wiki: true, fetchFn: fetchExterno, tipoColecao: col.tipo });
                     atual = r.item; achados.push(...r.achados); avisosAuto = r.avisos;
                 }
                 delete atual.archive;
@@ -720,6 +729,9 @@ https://archive.org/details/algum_desenho
             if (col.tipo === 'video' && it.nome && (wiki || it.tmdb || it.imdb)) {
                 const ch = chaves();
                 const r = await C.completarItem(it, { tmdb: ch.tmdb, omdb: ch.omdb, wiki, fetchFn: fetchExterno, tipoColecao: col.tipo });
+                it = r.item; avisos.push(...r.avisos);
+            } else if (col.tipo === 'jogo' && it.nome && chaves().steamgrid && !it.logo) {
+                const r = await C.completarItem(it, { steamgrid: chaves().steamgrid, fetchFn: fetchExterno, tipoColecao: 'jogo' });
                 it = r.item; avisos.push(...r.avisos);
             }
             const normal = C.normalizarItem(it, col);
