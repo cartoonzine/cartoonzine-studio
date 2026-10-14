@@ -628,9 +628,64 @@
      * quando pedido) e nota do IMDb (se tiver chave do OMDb).
      * Devolve { item, achados: ["TMDB: ...", ...], avisos: [...] }.
      */
-    async function completarItem(item, { tmdb, omdb, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
+    /** Logo (PNG transparente) de um JOGO pelo SteamGridDB. Devolve '' quando não acha. */
+    async function buscarLogoSteamGrid(nome, chave, fetchFn) {
+        if (!nome || !chave) return '';
+        const f = fetchFn || ((...a) => fetch(...a));
+        const h = { headers: { Authorization: 'Bearer ' + String(chave).trim() } };
+        const base = 'https://www.steamgriddb.com/api/v2';
+        const rb = await f(base + '/search/autocomplete/' + encodeURIComponent(nome), h);
+        if (rb.status === 401 || rb.status === 403) throw new Error('chave recusada (' + rb.status + ')');
+        if (!rb.ok) throw new Error('busca HTTP ' + rb.status);
+        const jb = await rb.json();
+        const id = jb && jb.data && jb.data[0] && jb.data[0].id;
+        if (!id) return '';
+        const rl = await f(base + '/logos/game/' + id, h);
+        if (!rl.ok) throw new Error('logos HTTP ' + rl.status);
+        const jl = await rl.json();
+        return (jl && jl.data && jl.data[0] && jl.data[0].url) || '';
+    }
+
+    /** ScreenScraper (jeuInfos): logo "wheel" + vídeo snap do jogo. Precisa das credenciais de dev + login. */
+    async function buscarScreenScraper(nome, ss, fetchFn) {
+        if (!nome || !ss || !ss.dev) return {};
+        const f = fetchFn || ((...a) => fetch(...a));
+        const p = new URLSearchParams({
+            devid: ss.dev, devpassword: ss.devSenha || '', softname: ss.softname || 'cartoonzine',
+            output: 'json', ssid: ss.user || '', sspassword: ss.senha || '', romnom: nome
+        });
+        const r = await f('https://www.screenscraper.fr/api2/jeuInfos.php?' + p.toString());
+        if (r.status === 401 || r.status === 403 || r.status === 430) throw new Error('credenciais recusadas (' + r.status + ')');
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        let j; try { j = await r.json(); } catch (e) { throw new Error('resposta inválida (confira as credenciais)'); }
+        const medias = (j && j.response && j.response.jeu && j.response.jeu.medias) || [];
+        const achar = (re) => { const m = medias.find(x => re.test(x.type || '') && /(wor|eu|us|ss)/i.test(x.region || 'wor')) || medias.find(x => re.test(x.type || '')); return (m && (m.url || '')) || ''; };
+        return { logo: achar(/wheel|logo/i), video: achar(/video/i), capa: achar(/box-2D|box2d|mixrbv|ss$/i) };
+    }
+
+    async function completarItem(item, { tmdb, omdb, steamgrid, screenscraper, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
         let out = Object.assign({}, item);
         const achados = [], avisos = [];
+        // JOGOS: logo (SteamGridDB) + logo/vídeo snap (ScreenScraper). Nunca sobrescreve o que você pôs à mão.
+        if (tipoColecao === 'jogo') {
+            if (steamgrid && !out.logo) {
+                try {
+                    const url = await buscarLogoSteamGrid(out.nome, steamgrid, fetchFn);
+                    if (url) { out.logo = url; achados.push('SteamGridDB: logo'); }
+                    else avisos.push('SteamGridDB: logo não encontrado para "' + (out.nome || '') + '".');
+                } catch (e) { avisos.push('SteamGridDB: ' + e.message); }
+            }
+            if (screenscraper && screenscraper.dev && (!out.logo || !out.video)) {
+                try {
+                    const ss = await buscarScreenScraper(out.nome, screenscraper, fetchFn);
+                    if (ss.logo && !out.logo) { out.logo = ss.logo; achados.push('ScreenScraper: logo'); }
+                    if (ss.video && !out.video) { out.video = ss.video; achados.push('ScreenScraper: vídeo'); }
+                    if (ss.capa && !out.capa) { out.capa = ss.capa; }
+                    if (!ss.logo && !ss.video && !out.logo) avisos.push('ScreenScraper: nada encontrado para "' + (out.nome || '') + '".');
+                } catch (e) { avisos.push('ScreenScraper: ' + e.message); }
+            }
+            return { item: out, achados, avisos };
+        }
         if (tipoColecao !== 'video') return { item: out, achados, avisos };
         if (tmdb) {
             try {
@@ -784,6 +839,7 @@
                 { k: 'links', rotulo: 'Link da ROM', tipo: 'links', obrigatorio: true },
                 ...CAMPOS_COMUNS_MIDIA,
                 { k: 'jogadores', rotulo: 'Jogadores', tipo: 'numero' },
+                { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
                 { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console' }
             ]
         }
@@ -816,7 +872,7 @@
         if (Number.isFinite(nota)) out.notaImdb = nota;
         const votos = parseInt(b.votosImdb, 10);
         if (Number.isFinite(votos)) out.votosImdb = votos;
-        for (const k of ['capa', 'banner', 'logo', 'site', 'fonte']) if (b[k]) out[k] = String(b[k]).trim();
+        for (const k of ['capa', 'banner', 'logo', 'video', 'site', 'fonte']) if (b[k]) out[k] = String(b[k]).trim();
         if (!out.capa && (b.thumb || b.poster)) out.capa = String(b.thumb || b.poster).trim();
         const desc = b.descricao || b.sinopse || b.desc;
         if (desc) out.descricao = String(desc).trim();
@@ -971,6 +1027,7 @@
             case 'jogo':
                 return limparVazios(Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
+                    logo: item.logo, video: item.video, preview: item.video,   // logo + vídeo snap (ScreenScraper) para o banner
                     console: item.console, players: item.jogadores, core: item.core
                 }));
             default:
@@ -1167,7 +1224,7 @@
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
         itemDoArchive, importarArchive, buscarWikipedia,
-        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, aplicarDadosExternos, completarItem,
+        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever
