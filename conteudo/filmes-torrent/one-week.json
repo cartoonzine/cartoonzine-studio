@@ -1,0 +1,22 @@
+{
+  "nome": "One Week",
+  "links": [
+    "https://archive.org/download/OneWeek/OneWeek_archive.torrent",
+    "https://archive.org/download/OneWeek/One_Week_512kb.mp4"
+  ],
+  "tmdb": "movie/23282",
+  "imdb": "tt0011541",
+  "notaImdb": 8.1,
+  "votosImdb": 9535,
+  "capa": "https://archive.org/services/img/OneWeek",
+  "banner": "https://image.tmdb.org/t/p/w1280/fgKoKVw0f2X2ajilfoyra3LFrwo.jpg",
+  "fonte": "https://archive.org/details/OneWeek",
+  "descricao": "Buster and Sybil exit a chapel as newlyweds. Among the gifts is a portable house you easily put together in one week",
+  "ano": 1920,
+  "generos": [
+    "Silent",
+    "Comedy",
+    "Buster Keaton"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

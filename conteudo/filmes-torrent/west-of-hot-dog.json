@@ -1,0 +1,22 @@
+{
+  "nome": "West of Hot Dog",
+  "links": [
+    "https://archive.org/download/westofhotdog/westofhotdog_archive.torrent",
+    "https://archive.org/download/westofhotdog/WestOfHotDog.mp4"
+  ],
+  "tmdb": "movie/107294",
+  "imdb": "tt0015477",
+  "notaImdb": 5.6,
+  "votosImdb": 305,
+  "capa": "https://archive.org/services/img/westofhotdog",
+  "banner": "https://image.tmdb.org/t/p/w1280/xJX2H9RwzCThVksWgrIxGRTFpDh.jpg",
+  "fonte": "https://archive.org/details/westofhotdog",
+  "descricao": "Silent western starring Stan Laurel before he teamed up with Oliver Hardy.\n\nNote: This movie can only be viewed properly using the VLC player. You can download it for free here: http://www.videolan.org/.",
+  "ano": 1924,
+  "generos": [
+    "Stan Laurel",
+    "western",
+    "comedy"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "iron mask",
+  "links": [
+    "https://archive.org/download/iron_mask/iron_mask_archive.torrent",
+    "https://archive.org/download/iron_mask/iron_mask_256kb.mp4"
+  ],
+  "tmdb": "movie/79761",
+  "imdb": "tt0020030",
+  "notaImdb": 7,
+  "votosImdb": 1587,
+  "capa": "https://archive.org/services/img/iron_mask",
+  "banner": "https://image.tmdb.org/t/p/w1280/l6dxdIQMsqTzKlWBCVk3AdB7Dv5.jpg",
+  "fonte": "https://archive.org/details/iron_mask",
+  "descricao": "A swashbuckling Alexandre Dumas adventure featuring Douglas Fairbanks.\nYou can find more information regarding this film on its IMDb page.",
+  "ano": 1929,
+  "generos": [
+    "adventure",
+    "romance"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

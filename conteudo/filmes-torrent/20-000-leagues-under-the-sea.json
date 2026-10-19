@@ -1,0 +1,21 @@
+{
+  "nome": "20,000 Leagues Under the Sea",
+  "links": [
+    "https://archive.org/download/20000LeaguesUndertheSea/20000LeaguesUndertheSea_archive.torrent",
+    "https://archive.org/download/20000LeaguesUndertheSea/20000_Leagues_Under_the_Sea_512kb.mp4"
+  ],
+  "tmdb": "movie/30266",
+  "imdb": "tt0006333",
+  "notaImdb": 6.1,
+  "votosImdb": 2294,
+  "capa": "https://archive.org/services/img/20000LeaguesUndertheSea",
+  "banner": "https://image.tmdb.org/t/p/w1280/hneezj5OLYwjtZ3Efj3j4nCgiEG.jpg",
+  "fonte": "https://archive.org/details/20000LeaguesUndertheSea",
+  "descricao": "The Universal Film Manufacturing Company was not known in the silent era as premier producer of motion pictures. \nYet, in 1916 they produced a film that could not be made effectively without expensive special effects and special photography. \nThe novel had previously been made as short films in 1907 by Georges MÃÂ©liÃÂ¨s and in 1913 by French company ÃÂclair.) \nMarshalling the expertise underwater experts Ernest and George Williamson, Universal financed the extensive production which would require location photography, large sets, exotic costumes, sailing ships, and a full-size navigable mock-up of the surfaced submarine Nautilus.",
+  "ano": 1916,
+  "generos": [
+    "Silent",
+    "Drama"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

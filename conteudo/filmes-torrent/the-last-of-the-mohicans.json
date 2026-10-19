@@ -1,0 +1,22 @@
+{
+  "nome": "The Last of the Mohicans",
+  "links": [
+    "https://archive.org/download/PublicdomainTheLastoftheMohicans/PublicdomainTheLastoftheMohicans_archive.torrent",
+    "https://archive.org/download/PublicdomainTheLastoftheMohicans/Last_of_the_Mohicans.mp4"
+  ],
+  "tmdb": "movie/71065",
+  "imdb": "tt0011387",
+  "notaImdb": 6.7,
+  "votosImdb": 1472,
+  "capa": "https://archive.org/services/img/PublicdomainTheLastoftheMohicans",
+  "banner": "https://image.tmdb.org/t/p/w1280/tmlQiAYNdYmyGBZfcWIKhmwbBA7.jpg",
+  "fonte": "https://archive.org/details/PublicdomainTheLastoftheMohicans",
+  "descricao": "Adaptation of James Fenimore Cooper novel about the American frontier during the French and Indian War.",
+  "ano": 1920,
+  "generos": [
+    "Aventura",
+    "Drama",
+    "História"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

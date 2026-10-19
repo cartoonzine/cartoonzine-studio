@@ -1,0 +1,23 @@
+{
+  "nome": "The General",
+  "links": [
+    "https://archive.org/download/TheGeneral/TheGeneral_archive.torrent",
+    "https://archive.org/download/TheGeneral/The_General_512kb.mp4"
+  ],
+  "tmdb": "movie/961",
+  "imdb": "tt0017925",
+  "notaImdb": 8.1,
+  "votosImdb": 106379,
+  "capa": "https://archive.org/services/img/TheGeneral",
+  "banner": "https://image.tmdb.org/t/p/w1280/mzox4HbcV9W42MH2dB1QsdDVGo3.jpg",
+  "fonte": "https://archive.org/details/TheGeneral",
+  "descricao": "Union solders have stolen The General, a Confederate train manned by Johnnie Gray, who was unable to enlist in the Confederate army because he is needed as an engineer. \nThe Union plans to use the train to supply its soldiers in a sneak attack against the Confederates. \nBut now it's up to Gray and his love, Annabelle Lee, to reclaim The General, recross enemy lines, and warn the Confederates.\n\nThe General based on a real incident during the American Civil War when a posse of northern soldiers hijacked a confederate train and a lone southern engineer found himself fighting the lot of them alone.",
+  "ano": 1927,
+  "generos": [
+    "Silent",
+    "Comedy",
+    "Romance",
+    "War"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

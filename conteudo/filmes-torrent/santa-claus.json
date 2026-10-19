@@ -1,0 +1,21 @@
+{
+  "nome": "Santa Claus",
+  "links": [
+    "https://archive.org/download/silent-santa-claus/silent-santa-claus_archive.torrent",
+    "https://archive.org/download/silent-santa-claus/Santa%20Claus.mp4"
+  ],
+  "tmdb": "movie/67466",
+  "imdb": "tt0236708",
+  "notaImdb": 6.5,
+  "votosImdb": 223,
+  "capa": "https://archive.org/services/img/silent-santa-claus",
+  "fonte": "https://archive.org/details/silent-santa-claus",
+  "descricao": "Two children sneak out of their bedroom on the night of December 24th, so they can ask Santa Claus what he does the rest of the year. Santa tells the children about his life in the Land of Winter, and about how he keeps an eye on all the children in the world.",
+  "ano": 1925,
+  "generos": [
+    "Fantasia",
+    "Família"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
+  "_completadoEm": "2026-10-19"
+}

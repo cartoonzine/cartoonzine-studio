@@ -1,0 +1,23 @@
+{
+  "nome": "Frankenstein",
+  "links": [
+    "https://archive.org/download/FrankensteinfullMovie/FrankensteinfullMovie_archive.torrent",
+    "https://archive.org/download/FrankensteinfullMovie/Frankenstein1910.mp4"
+  ],
+  "tmdb": "movie/2929",
+  "imdb": "tt0001223",
+  "notaImdb": 6.4,
+  "votosImdb": 5451,
+  "capa": "https://archive.org/services/img/FrankensteinfullMovie",
+  "banner": "https://image.tmdb.org/t/p/w1280/vqZEHv2KxjyVXjbtMhIDIZ6xoLf.jpg",
+  "fonte": "https://archive.org/details/FrankensteinfullMovie",
+  "descricao": "This is Edison's COMPLETE 1910 silent Frankenstein film.",
+  "ano": 1910,
+  "generos": [
+    "Edison",
+    "Silent",
+    "Horror",
+    "Frankenstein"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

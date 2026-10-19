@@ -1,0 +1,22 @@
+{
+  "nome": "last of the mohicans",
+  "links": [
+    "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_1920_archive.torrent",
+    "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_silent.mp4"
+  ],
+  "tmdb": "movie/71065",
+  "imdb": "tt0011387",
+  "notaImdb": 6.7,
+  "votosImdb": 1472,
+  "capa": "https://archive.org/services/img/last_of_the_mohicans_1920",
+  "banner": "https://image.tmdb.org/t/p/w1280/tmlQiAYNdYmyGBZfcWIKhmwbBA7.jpg",
+  "fonte": "https://archive.org/details/last_of_the_mohicans_1920",
+  "descricao": "First film adaptation from the James Fenimore Cooper novel of the same name. This film also features one of Boris Karloff's earliest film appearances in a small uncredited role as a Native American.",
+  "ano": 1920,
+  "generos": [
+    "Adventure",
+    "Drama",
+    "Silent"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

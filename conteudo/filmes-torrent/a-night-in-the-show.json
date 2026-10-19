@@ -1,0 +1,22 @@
+{
+  "nome": "A Night in the Show",
+  "links": [
+    "https://archive.org/download/ANightintheShow/ANightintheShow_archive.torrent",
+    "https://archive.org/download/ANightintheShow/A_Night_in_the_Show_512kb.mp4"
+  ],
+  "tmdb": "movie/53412",
+  "imdb": "tt0005812",
+  "notaImdb": 6.4,
+  "votosImdb": 2446,
+  "capa": "https://archive.org/services/img/ANightintheShow",
+  "banner": "https://image.tmdb.org/t/p/w1280/n5oOMwzemLd81OARilBWDh2XR9A.jpg",
+  "fonte": "https://archive.org/details/ANightintheShow",
+  "descricao": "Charlie plays two roles as two spectators at a music-hall show. It has a few good laughs and also provides an interesting look at old-fashioned theater entertainment.",
+  "ano": 1915,
+  "generos": [
+    "Silent",
+    "Comedy",
+    "Charles Chaplin"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

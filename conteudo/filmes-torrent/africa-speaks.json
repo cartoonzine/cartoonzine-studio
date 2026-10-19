@@ -1,0 +1,21 @@
+{
+  "nome": "africa speaks",
+  "links": [
+    "https://archive.org/download/africa_speaks/africa_speaks_archive.torrent",
+    "https://archive.org/download/africa_speaks/africa_speaks.mp4"
+  ],
+  "tmdb": "movie/166611",
+  "imdb": "tt0174450",
+  "notaImdb": 5.1,
+  "votosImdb": 143,
+  "capa": "https://archive.org/services/img/africa_speaks",
+  "banner": "https://image.tmdb.org/t/p/w1280/wdgPNKPez9b37cyETmqaP64eN8O.jpg",
+  "fonte": "https://archive.org/details/africa_speaks",
+  "descricao": "You can find more information regarding this film on its IMDb page.",
+  "ano": 1930,
+  "generos": [
+    "adventure",
+    "documentary"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

@@ -1,0 +1,21 @@
+{
+  "nome": "Dr. Jekyll and Mr. Hyde",
+  "links": [
+    "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_archive.torrent",
+    "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_512kb.mp4"
+  ],
+  "tmdb": "movie/3016",
+  "imdb": "tt0011130",
+  "notaImdb": 6.9,
+  "votosImdb": 6744,
+  "capa": "https://archive.org/services/img/DrJekyllandMrHyde",
+  "banner": "https://image.tmdb.org/t/p/w1280/tQRHrssevbysfmDG9FbA86qesCH.jpg",
+  "fonte": "https://archive.org/details/DrJekyllandMrHyde",
+  "descricao": "John Barrymore stars in the renowned silent adaptation of the Robert Louis Stevenson classic about a Victorian scientist who turns himself into a murderous abomination.",
+  "ano": 1920,
+  "generos": [
+    "John Barrymore monster Victorian horror",
+    "pdmovies"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

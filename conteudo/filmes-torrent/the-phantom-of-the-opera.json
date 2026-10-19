@@ -1,0 +1,23 @@
+{
+  "nome": "The Phantom of the Opera",
+  "links": [
+    "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent",
+    "https://archive.org/download/ThePhantomoftheOpera/Phantom_of_the_Opera_512kb.mp4"
+  ],
+  "tmdb": "movie/964",
+  "imdb": "tt0016220",
+  "notaImdb": 7.5,
+  "votosImdb": 22519,
+  "capa": "https://archive.org/services/img/ThePhantomoftheOpera",
+  "banner": "https://image.tmdb.org/t/p/w1280/6FSs7jMimg1PBYdhZtPNQhtKtEc.jpg",
+  "fonte": "https://archive.org/details/ThePhantomoftheOpera",
+  "descricao": "At the Opera of Paris, a mysterious phantom threatens a famous lyric singer, Carlotta and thus forces her to give up her role (Marguerite in Faust) for unknown Christine Daae. \nChristine meets this phantom (a masked man) in the catacombs, where he lives.",
+  "ano": 1925,
+  "generos": [
+    "silent",
+    "drama",
+    "horror",
+    "pdmovies"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

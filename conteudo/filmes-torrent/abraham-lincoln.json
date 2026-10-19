@@ -1,0 +1,20 @@
+{
+  "nome": "Abraham Lincoln",
+  "links": [
+    "https://archive.org/download/abraham_lincoln/abraham_lincoln_archive.torrent",
+    "https://archive.org/download/abraham_lincoln/abraham_lincoln.mp4"
+  ],
+  "tmdb": "movie/130816",
+  "imdb": "tt0020620",
+  "notaImdb": 5.6,
+  "votosImdb": 1747,
+  "capa": "https://archive.org/services/img/abraham_lincoln",
+  "banner": "https://image.tmdb.org/t/p/w1280/uhPHNGd4PHMoXnhda2s0zm2ddDy.jpg",
+  "fonte": "https://archive.org/details/abraham_lincoln",
+  "descricao": "A biography of the beloved United States president by D. W. Griffith.\n\nYou can find more information regarding this film on its IMDb page.",
+  "ano": 1930,
+  "generos": [
+    "pdmovies"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "Bronenosets Potyomkin (Battleship Potemkin)",
+  "links": [
+    "https://archive.org/download/BattleshipPotemkin/BattleshipPotemkin_archive.torrent",
+    "https://archive.org/download/BattleshipPotemkin/Battleship_Potemkin_512kb.mp4"
+  ],
+  "tmdb": "movie/643",
+  "imdb": "tt0015648",
+  "notaImdb": 7.9,
+  "votosImdb": 65711,
+  "capa": "https://archive.org/services/img/BattleshipPotemkin",
+  "banner": "https://image.tmdb.org/t/p/w1280/3RH61Z7BP3f215936PJBEG2qQrT.jpg",
+  "fonte": "https://archive.org/details/BattleshipPotemkin",
+  "descricao": "Considered one of the most important films in the history of silent pictures, as well as possibly Eisenstein's greatest work, Battleship Potemkin brought Eisenstein's theories of cinema art to the world in a powerful showcase; \nhis emphasis on montage, his stress of intellectual contact, and his treatment of the mass instead of the individual as the protagonist. \nThe film tells the story of the mutiny on the Russian ship Prince Potemkin during the 1905 uprising.",
+  "ano": 1925,
+  "generos": [
+    "Silent",
+    "Drama",
+    "History",
+    "War"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

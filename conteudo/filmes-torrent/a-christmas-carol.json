@@ -1,0 +1,23 @@
+{
+  "nome": "A Christmas Carol",
+  "links": [
+    "https://archive.org/download/AChristmasCarol/AChristmasCarol_archive.torrent",
+    "https://archive.org/download/AChristmasCarol/AChristmasCarol.mp4"
+  ],
+  "tmdb": "movie/84270",
+  "imdb": "tt0001544",
+  "notaImdb": 6,
+  "votosImdb": 965,
+  "capa": "https://archive.org/services/img/AChristmasCarol",
+  "banner": "https://image.tmdb.org/t/p/w1280/aGdmJZjoaY4Q6CShloN25CFLVVw.jpg",
+  "fonte": "https://archive.org/details/AChristmasCarol",
+  "descricao": "Originally released Christmas 1910, this Edison production features Charles Ogle (Frankenstein) as Bob Cratchet.\n\nRemastered, retitled, tinted and new soundtrack added in 2010.",
+  "ano": 1910,
+  "generos": [
+    "1910",
+    "Silent",
+    "Charles Dickens",
+    "Christmas"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

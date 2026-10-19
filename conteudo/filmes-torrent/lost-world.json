@@ -1,0 +1,21 @@
+{
+  "nome": "lost world",
+  "links": [
+    "https://archive.org/download/lost_world/lost_world_archive.torrent",
+    "https://archive.org/download/lost_world/lost_world.mp4"
+  ],
+  "tmdb": "movie/2981",
+  "imdb": "tt0016039",
+  "notaImdb": 7,
+  "votosImdb": 6707,
+  "capa": "https://archive.org/services/img/lost_world",
+  "banner": "https://image.tmdb.org/t/p/w1280/mdNae6nOlJ7iKxFgsWSAgxU9shS.jpg",
+  "fonte": "https://archive.org/details/lost_world",
+  "descricao": "The first film adaptation of Sir Arthur Conan Doyle's classic novel about a land where prehistoric creatures still roam.You can find more information regarding this film on its IMDb page.",
+  "ano": 1925,
+  "generos": [
+    "adventure",
+    "fantasy"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}
