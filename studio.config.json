@@ -41,8 +41,11 @@
       "tipo": "canal24h",
       "app": "cartoonzine",
       "icone": "▶️",
-      "_comentario": "Canais de desenhos do YouTube (aba YouToon do Desenhos 24H). Link: youtube.com/channel/UC…/live (live 24h), youtube.com/channel/UC… (vídeos do canal), playlist ou vídeo. O campo Idioma escolhe a lista (Português, Espanhol, Inglês, Português (Portugal)).",
-      "fonteCloud": { "nome": "YouToon (Studio)", "tipo": "vod_json", "categoryType": "live", "prefixoId": "YTN_BR", "targetCategory": "Desenhos 24H" }
+      "_comentario": "Canais de desenhos do YouTube (aba YouToon do Desenhos 24H). Link: youtube.com/channel/UC…/live (live 24h), youtube.com/channel/UC… (vídeos do canal), playlist ou vídeo. Uma lista por idioma (veja idiomasYouToon): cada canal fica em conteudo/youtoon/<idioma>/ e cada idioma vira um arquivo e uma fonte no cloud. Sem idioma = Português.",
+      "subpasta": "idioma",
+      "padroes": { "idioma": "Português" },
+      "listasPorIdioma": "idiomasYouToon",
+      "fonteCloud": { "nome": "YouToon", "tipo": "vod_json", "categoryType": "live", "prefixoId": "YTN_BR", "targetCategory": "Desenhos 24H" }
     },
     {
       "id": "filmes",
@@ -88,6 +91,14 @@
       "fonteCloud": { "nome": "TVzine - Canais (Studio)", "tipo": "tvzine_worker", "prefixoId": "TV" }
     },
     {
+      "id": "bookzine",
+      "nome": "Bookzine",
+      "tipo": "livro",
+      "app": "cartoonzine (view em construção)",
+      "icone": "📚",
+      "_comentario": "Livraria: livros, bíblias antigas, gibis, revistas e outros, em PDF, EPUB, CBZ/CBR, MOBI, DjVu, TXT. Publica bookzine.json e bookzine/indice.json. Ainda SEM fonteCloud de propósito: o app não tem a view; quando ela existir, acrescente aqui \"fonteCloud\": { \"nome\": \"Bookzine\", \"tipo\": \"vod_json\", \"prefixoId\": \"BOOK\", \"targetCategory\": \"Bookzine\", \"destino\": \"livros\" } e rode tools/ligar-cloud.mjs."
+    },
+    {
       "id": "jogos",
       "nome": "Jogos Retrô",
       "tipo": "jogo",
@@ -96,6 +107,18 @@
       "subpasta": "console",
       "fonteCloudPorConsole": true
     }
+  ],
+
+  "idiomasYouToon": [
+    { "nome": "Português",            "codigo": "pt-BR", "prefixoId": "YTN_BR" },
+    { "nome": "Espanhol",             "codigo": "es",    "prefixoId": "YTN_ES" },
+    { "nome": "Inglês",               "codigo": "en",    "prefixoId": "YTN_EN" },
+    { "nome": "Português (Portugal)", "codigo": "pt-PT", "prefixoId": "YTN_PT" }
+  ],
+
+  "categoriasLivros": [
+    "Livros", "Clássicos da Literatura", "Bíblias e Textos Sagrados", "Gibis e HQs", "Mangás", "Revistas",
+    "Infantil", "Poesia", "Contos e Fábulas", "História", "Ciência", "Religião", "Biografias", "Didáticos", "Outros"
   ],
 
   "categoriasCanais": [

@@ -38,6 +38,26 @@
       "removerSumidos": true
     },
     {
+      "nome": "Bookzine · Clássicos em português (Projeto Gutenberg)",
+      "ativo": false,
+      "colecao": "bookzine",
+      "tipo": "archive-busca",
+      "busca": "collection:gutenberg AND language:(Portuguese OR por)",
+      "ordem": "downloads desc",
+      "limite": 50,
+      "padroes": { "categoria": "Clássicos da Literatura", "idioma": "Português" }
+    },
+    {
+      "nome": "Bookzine · Bíblias antigas (Internet Archive)",
+      "ativo": false,
+      "colecao": "bookzine",
+      "tipo": "archive-busca",
+      "busca": "mediatype:texts AND title:(biblia OR \"holy bible\" OR \"sagrada escritura\" OR \"sainte bible\") AND year:[1450 TO 1928]",
+      "ordem": "downloads desc",
+      "limite": 30,
+      "padroes": { "categoria": "Bíblias e Textos Sagrados" }
+    },
+    {
       "nome": "Desenhos clássicos (Internet Archive)",
       "ativo": false,
       "colecao": "cartoons",

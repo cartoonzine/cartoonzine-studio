@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-19T15:22:48.563Z",
+  "geradoEm": "2026-10-19T15:43:55.569Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -27,7 +27,13 @@
       "total": 1,
       "publicados": 1,
       "erros": [],
-      "avisos": []
+      "avisos": [],
+      "porIdioma": {
+        "pt-BR": 1,
+        "es": 0,
+        "en": 0,
+        "pt-PT": 0
+      }
     },
     {
       "colecao": "filmes",
@@ -65,6 +71,13 @@
       "erros": [],
       "avisos": [],
       "porPais": {}
+    },
+    {
+      "colecao": "bookzine",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": []
     },
     {
       "colecao": "jogos",

@@ -49,7 +49,7 @@ export function acharPorNome(colecao, item, raiz = RAIZ) {
     for (const e of lerColecao(colecao, raiz).entradas) {
         if (Core.normText(e.item.nome) !== alvo) continue;
         // canais/jogos: "Discovery" do BR e dos EUA são itens diferentes
-        if (sub && String(Core.normalizarItem(e.item, colecao)[sub] || '') !== String(item[sub] || '')) continue;
+        if (sub && String(Core.valorSubpasta(colecao, Core.normalizarItem(e.item, colecao))) !== String(Core.valorSubpasta(colecao, item))) continue;
         return e;
     }
     return null;
@@ -119,15 +119,16 @@ export function chavesExternas() {
  * Erros de rede não param nada.
  */
 export async function enriquecer(item, { wiki = false, dados = wiki, log = () => {}, tipoColecao = 'video', torrent = false } = {}) {
+    const livro = tipoColecao === 'livro';
     let out = item;
     if (out.archive && !(out.links || []).length && !(out.temporadas || []).length) {
         try {
-            const doArchive = await Core.importarArchive(out.archive, undefined, { torrent });
+            const doArchive = await Core.importarArchive(out.archive, undefined, { torrent, livro });
             const nomeManual = out.nome && out.nome !== out.archive ? out.nome : null;
             out = Core.mesclarItem(doArchive, Object.assign({}, out, { nome: nomeManual || doArchive.nome }));
             out.nome = nomeManual || doArchive.nome;
             delete out.archive;
-            log(`  ↳ Internet Archive: ${Core.contarEpisodios(out) || 1} vídeo(s)`);
+            log(livro ? `  ↳ Internet Archive: ${(out.links || []).length} arquivo(s) de leitura` : `  ↳ Internet Archive: ${Core.contarEpisodios(out) || 1} vídeo(s)`);
         } catch (e) { log('  ⚠ Internet Archive: ' + e.message); }
     }
     if (tipoColecao === 'video' && (dados || out.tmdb || out.imdb)) {
@@ -142,7 +143,7 @@ export async function enriquecer(item, { wiki = false, dados = wiki, log = () =>
 
 export function aplicarPadroes(item, args) {
     const out = Object.assign({}, item);
-    for (const k of ['pais', 'idioma', 'categoria', 'console', 'audio', 'cidade', 'capa', 'banner', 'logo', 'descricao', 'ano', 'generos', 'jogadores', 'core', 'tvgId', 'tmdb', 'imdb']) {
+    for (const k of ['pais', 'idioma', 'categoria', 'console', 'audio', 'cidade', 'capa', 'banner', 'logo', 'descricao', 'ano', 'generos', 'jogadores', 'core', 'tvgId', 'tmdb', 'imdb', 'formato', 'autor', 'serie', 'editora']) {
         if (args[k] !== undefined && args[k] !== true && (out[k] === undefined || out[k] === '')) out[k] = args[k];
     }
     if (args.destaque) out.destaque = true;
