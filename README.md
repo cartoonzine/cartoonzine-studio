@@ -179,8 +179,10 @@ O ID do canal (`UC…`): no YouTube, *Mais sobre este canal → Compartilhar can
 Coleção com `"torrent": true` no `studio.config.json`. Aceita links `magnet:` e `.torrent`. Link do
 Internet Archive (`archive.org/details/…`) vira o **.torrent oficial do item** (com os servidores do
 archive embutidos, então baixa rápido mesmo sem ninguém compartilhando) e o vídeo direto fica de
-reserva. A fonte automática *Filmes em domínio público (Internet Archive · torrent)* puxa 60 filmes
-marcados como domínio público por dia.
+reserva. A fonte automática *Filmes em domínio público (Internet Archive · torrent)* puxa os 60 filmes mais
+baixados **lançados até 1930** (pela idade, já são domínio público; a marcação de licença feita por
+quem envia ao archive não é confiável). Numa fonte `archive-busca`, `"ordem": "downloads desc"` ordena
+o resultado.
 
 ### Canais por país (seletor do TVzine)
 
