@@ -125,7 +125,7 @@
      */
     function analisarNome(bruto) {
         let s = String(bruto || '').trim();
-        s = s.replace(/\.(mp4|mkv|avi|mov|webm|m4v|ogv|mpeg|mpg|ts|m3u8|mp3|aac|ogg|zip|7z|rar|nes|smc|sfc|md|gen|bin|iso|cue|chd|gba|gbc|gb|n64|z64|nds|pce|sms|gg)$/i, '');
+        s = s.replace(/\.(pdf|epub|mobi|azw3|cbz|cbr|cb7|djvu|mp4|mkv|avi|mov|webm|m4v|ogv|mpeg|mpg|ts|m3u8|mp3|aac|ogg|zip|7z|rar|nes|smc|sfc|md|gen|bin|iso|cue|chd|gba|gbc|gb|n64|z64|nds|pce|sms|gg)$/i, '');
         if (!/\s/.test(s) && /[._]/.test(s)) s = s.replace(/[._]+/g, ' ');
         else s = s.replace(/_+/g, ' ');
 
@@ -376,6 +376,7 @@
      * .torrent oficial do Internet Archive (o vídeo direto fica de reserva).
      */
     function itemDoArchive(meta, id, opts = {}) {
+        if (opts.livro) return livroDoArchive(meta, id);
         const md = (meta && meta.metadata) || {};
         id = id || md.identifier;
         const arquivos = ((meta && meta.files) || []).filter(f => f && RE_ARCHIVE_VIDEO.test(f.name || ''));
@@ -434,6 +435,59 @@
         item.temporadas = Array.from(temps.entries()).sort((a, b) => a[0] - b[0])
             .map(([numero, episodios]) => ({ numero, episodios: episodios.sort((a, b) => a.numero - b.numero) }));
         return item;
+    }
+
+    // Livros (Bookzine): o melhor arquivo de leitura do item + um formato diferente de reserva
+    const FORMATOS_LIVRO = [
+        { f: 'PDF', re: /\.pdf$/i },
+        { f: 'EPUB', re: /\.epub$/i },
+        { f: 'CBZ', re: /\.cbz$/i }, { f: 'CBR', re: /\.cbr$/i }, { f: 'CB7', re: /\.cb7$/i },
+        { f: 'DjVu', re: /\.djvu$/i },
+        { f: 'MOBI', re: /\.mobi$/i }, { f: 'AZW3', re: /\.azw3$/i },
+        { f: 'TXT', re: /\.txt$/i }
+    ];
+    function formatoDoLink(u) {
+        const n = String(u || '').split(/[?#]/)[0];
+        const achado = FORMATOS_LIVRO.find(x => x.re.test(n));
+        return achado ? achado.f : (/\.html?$/i.test(n) ? 'HTML' : undefined);
+    }
+    const IDIOMA_ARCHIVE = { por: 'Português', portuguese: 'Português', 'português': 'Português', pt: 'Português',
+        spa: 'Espanhol', spanish: 'Espanhol', 'español': 'Espanhol', es: 'Espanhol', eng: 'Inglês', english: 'Inglês', en: 'Inglês',
+        fre: 'Francês', fra: 'Francês', french: 'Francês', ita: 'Italiano', italian: 'Italiano', ger: 'Alemão', deu: 'Alemão', german: 'Alemão',
+        lat: 'Latim', latin: 'Latim', grc: 'Grego', gre: 'Grego', greek: 'Grego', heb: 'Hebraico', hebrew: 'Hebraico', jpn: 'Japonês', japanese: 'Japonês' };
+
+    function livroDoArchive(meta, id) {
+        const md = (meta && meta.metadata) || {};
+        id = id || md.identifier;
+        const primeiro = v => (Array.isArray(v) ? v[0] : v);
+        // fora: metadados, textos de OCR (_djvu.txt), versões só preto e branco quando há outra
+        const arquivos = ((meta && meta.files) || []).map(f => f && f.name).filter(n => n && !/(_meta\.txt|_djvu\.txt|_djvu\.xml|_files\.xml|_meta\.xml)$/i.test(n));
+        const link = n => 'https://archive.org/download/' + encodeURIComponent(id) + '/' + n.split('/').map(encodeURIComponent).join('/');
+        const escolhidos = [];
+        for (const { re } of FORMATOS_LIVRO) {
+            const doFormato = arquivos.filter(n => re.test(n)).sort((a, b) =>
+                (/_bw\.pdf$/i.test(a) ? 1 : 0) - (/_bw\.pdf$/i.test(b) ? 1 : 0) ||          // colorido antes do preto e branco
+                (/-images\.epub$/i.test(b) ? 1 : 0) - (/-images\.epub$/i.test(a) ? 1 : 0) ||  // EPUB com imagens antes
+                a.length - b.length);
+            if (doFormato[0]) escolhidos.push(link(doFormato[0]));
+            if (escolhidos.length >= 2) break;
+        }
+        const titulo = limparHtml(primeiro(md.title)) || id;
+        const mAno = /(1[4-9]\d{2}|20\d{2})/.exec(String(primeiro(md.year) || primeiro(md.date) || ''));
+        const generos = lista(md.subject).slice(0, 4);
+        const lingua = String(primeiro(md.language) || '').trim().toLowerCase();
+        return limparVazios({
+            nome: titulo,
+            autor: limparHtml(lista(md.creator).join(', ')) || undefined,
+            editora: limparHtml(primeiro(md.publisher)) || undefined,
+            descricao: limparHtml(primeiro(md.description)).slice(0, 1500) || undefined,
+            ano: mAno ? parseInt(mAno[1], 10) : undefined,
+            idioma: IDIOMA_ARCHIVE[lingua] || undefined,
+            capa: 'https://archive.org/services/img/' + encodeURIComponent(id),
+            generos: generos.length ? generos : undefined,
+            links: escolhidos.length ? escolhidos : undefined,
+            fonte: 'https://archive.org/details/' + id
+        });
     }
 
     async function importarArchive(idOuLink, fetchFn, opts) {
@@ -742,7 +796,7 @@
         PR: 'Porto Rico', CR: 'Costa Rica', PA: 'Panamá', GT: 'Guatemala', INT: 'Internacional'
     };
     const IDIOMAS = ['Português', 'Português (Portugal)', 'Inglês', 'Espanhol', 'Francês', 'Italiano', 'Alemão', 'Japonês', 'Coreano',
-        'Chinês', 'Russo', 'Árabe', 'Hindi', 'Holandês', 'Turco', 'Polonês', 'Multilíngue'];
+        'Chinês', 'Russo', 'Árabe', 'Hindi', 'Holandês', 'Turco', 'Polonês', 'Latim', 'Grego', 'Hebraico', 'Multilíngue'];
 
     /** "BR" -> 🇧🇷 (países sem bandeira, como INT, ficam com 🌐) */
     function bandeira(cc) {
@@ -844,6 +898,23 @@
                 { k: 'site', rotulo: 'Site', tipo: 'url' }
             ]
         },
+        livro: {
+            rotulo: 'Livro, gibi ou revista',
+            campos: [
+                { k: 'nome', rotulo: 'Título', tipo: 'texto', obrigatorio: true },
+                { k: 'autor', rotulo: 'Autor(es)', tipo: 'texto' },
+                { k: 'links', rotulo: 'Arquivo para ler', tipo: 'links', obrigatorio: true, dica: 'PDF, EPUB, CBZ/CBR (gibis), MOBI, DjVu, TXT… 1º = principal; os outros viram reserva. Link do archive.org importa sozinho.' },
+                { k: 'categoria', rotulo: 'Estante', tipo: 'escolha', opcoesDe: 'categoriasLivros', livre: true },
+                { k: 'formato', rotulo: 'Formato', tipo: 'escolha', opcoes: ['', 'PDF', 'EPUB', 'CBZ', 'CBR', 'CB7', 'MOBI', 'AZW3', 'DjVu', 'TXT', 'HTML'], dica: 'vazio = descobre pela extensão do link' },
+                { k: 'idioma', rotulo: 'Idioma', tipo: 'escolha', opcoesDe: 'idiomas' },
+                { k: 'serie', rotulo: 'Coleção / série', tipo: 'texto', dica: 'ex.: Turma da Mônica, Tex, Bíblia de Almeida' },
+                { k: 'volume', rotulo: 'Número / volume', tipo: 'numero' },
+                { k: 'editora', rotulo: 'Editora', tipo: 'texto' },
+                { k: 'paginas', rotulo: 'Páginas', tipo: 'numero' },
+                ...CAMPOS_COMUNS_MIDIA,
+                { k: 'destaque', rotulo: 'Destaque', tipo: 'bool' }
+            ]
+        },
         jogo: {
             rotulo: 'Jogo retrô',
             campos: [
@@ -893,7 +964,7 @@
         if (ano) out.ano = ano;
         const gen = lista(b.generos || b.genero || b.genre || b.estilos);
         if (gen.length) out.generos = gen;
-        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive']) {
+        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie']) {
             if (b[k] !== undefined && b[k] !== '') out[k] = String(b[k]).trim();
         }
         if (b.pais) out.pais = codigoPais(b.pais);
@@ -901,6 +972,7 @@
         if (b.console) out.console = String(b.console).trim().toLowerCase();
         const jog = inteiro(b.jogadores);
         if (jog) out.jogadores = jog;
+        for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
         if (b.destaque === true || b.destaque === 'true' || b.destaque === 'sim') out.destaque = true;
         if (b.headers && typeof b.headers === 'object') {
             if (b.headers['User-Agent'] && !out.userAgent) out.userAgent = b.headers['User-Agent'];
@@ -961,10 +1033,17 @@
     // Caminhos dos arquivos de conteúdo
     // ------------------------------------------------------------------
     /** conteudo/<colecao>/[<subpasta>/]<slug>.json */
+    /** Valor da subpasta do item (ou o padrão da coleção, ex.: YouToon sem idioma = Português). */
+    function valorSubpasta(colecao, item) {
+        const sub = colecao && colecao.subpasta;
+        if (!sub) return '';
+        return (item && item[sub]) || (colecao.padroes && colecao.padroes[sub]) || '';
+    }
+
     function caminhoItem(colecao, item, slug) {
         let pasta = 'conteudo/' + colecao.id;
         if (colecao.subpasta) {
-            const v = item[colecao.subpasta];
+            const v = valorSubpasta(colecao, item);
             pasta += '/' + (v ? slugify(v) : 'outros');
         }
         return pasta + '/' + (slug || slugify(item.nome)) + '.json';
@@ -1021,7 +1100,15 @@
                 return limparVazios(o);
             }
             case 'canal24h':
-                return limparVazios(Object.assign(base, { url, mirrors: espelhos, logo: item.logo, idioma: item.idioma, group: colecao.fonteCloud && colecao.fonteCloud.targetCategory }));
+                return limparVazios(Object.assign(base, { url, mirrors: espelhos, logo: item.logo, idioma: item.idioma || (colecao.padroes && colecao.padroes.idioma), group: colecao.fonteCloud && colecao.fonteCloud.targetCategory }));
+            case 'livro':
+                return limparVazios(Object.assign(base, {
+                    url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
+                    author: item.autor, publisher: item.editora, pages: item.paginas,
+                    format: item.formato || formatoDoLink(url), language: item.idioma,
+                    category: item.categoria || 'Livros', series: item.serie, volume: item.volume,
+                    categoryType: 'livro'
+                }));
             case 'canal': {
                 const headers = {};
                 if (item.userAgent) headers['User-Agent'] = item.userAgent;
@@ -1124,6 +1211,36 @@
         const chaveLista = { canal: 'channels', canal24h: 'channels', radio: 'items' }[colecao.tipo] || 'items';
         arquivos[`${colecao.id}.json`] = JSON.stringify({ colecao: colecao.id, nome: colecao.nome, [chaveLista]: regs }, null, 1);
 
+        // Uma lista por idioma (YouToon): youtoon/pt-br.json, youtoon/es.json… e uma fonte do cloud para cada uma.
+        // Cada lista é publicada mesmo vazia, para a fonte do cloud nunca dar 404.
+        if (colecao.listasPorIdioma) {
+            const idiomas = config[colecao.listasPorIdioma] || [];
+            const padrao = (colecao.padroes && colecao.padroes.idioma) || '';
+            const deQual = r => idiomas.find(l => normText(l.nome) === normText(r.idioma || padrao) || normText(l.codigo) === normText(r.idioma || ''));
+            for (const r of regs) if (!deQual(r)) rel.avisos.push({ caminho: 'conteudo/' + colecao.id + '/' + r.studio, msg: 'idioma "' + (r.idioma || '?') + '" não tem lista (veja "' + colecao.listasPorIdioma + '" no studio.config.json)' });
+            rel.porIdioma = {};
+            const indice = [];
+            for (const l of idiomas) {
+                const arq = `${colecao.id}/${slugify(l.codigo)}.json`;
+                const lst = regs.filter(r => deQual(r) === l).map(r => Object.assign({}, r, { idioma: l.codigo }));
+                arquivos[arq] = JSON.stringify({ colecao: colecao.id, idioma: l.codigo, nome: l.nome, [chaveLista]: lst }, null, 1);
+                rel.porIdioma[l.codigo] = lst.length;
+                indice.push({ codigo: l.codigo, nome: l.nome, total: lst.length, json: base + arq });
+                if (colecao.fonteCloud) fontes.push(fonte(Object.assign({}, colecao.fonteCloud, {
+                    nome: colecao.fonteCloud.nome + ' · ' + l.nome, idioma: l.codigo, prefixoId: l.prefixoId || colecao.fonteCloud.prefixoId
+                }), arq));
+            }
+            arquivos[`${colecao.id}/idiomas.json`] = JSON.stringify({ colecao: colecao.id, idiomas: indice }, null, 1);
+            return { arquivos, fontes, relatorio: rel };
+        }
+
+        // Bookzine: índice das estantes, formatos e idiomas (para a view montar os filtros sem baixar tudo)
+        if (colecao.tipo === 'livro') {
+            const conta = (k) => { const o = {}; for (const r of regs) if (r[k]) o[r[k]] = (o[r[k]] || 0) + 1; return o; };
+            arquivos[`${colecao.id}/indice.json`] = JSON.stringify({ colecao: colecao.id, total: regs.length,
+                estantes: conta('category'), formatos: conta('format'), idiomas: conta('language') }, null, 1);
+        }
+
         if (colecao.tipo === 'canal' || colecao.tipo === 'canal24h' || colecao.tipo === 'radio') {
             arquivos[`${colecao.id}.m3u`] = gerarM3U(regs, colecao.tipo === 'radio' ? { grupo: colecao.nome } : null);
         }
@@ -1170,6 +1287,7 @@
         if (nome === 'idiomas') return IDIOMAS.map(v => ({ v, r: v }));
         if (nome === 'consoles') return (config.consoles || []).map(c => ({ v: c.id, r: c.nome }));
         if (nome === 'categoriasCanais') return (config.categoriasCanais || []).map(v => ({ v, r: v }));
+        if (nome === 'categoriasLivros') return (config.categoriasLivros || []).map(v => ({ v, r: v }));
         return [];
     }
 
@@ -1236,7 +1354,7 @@
         slugify, normText, semAcento, limparHtml, lista,
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
-        itemDoArchive, importarArchive, buscarWikipedia,
+        itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
         refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,

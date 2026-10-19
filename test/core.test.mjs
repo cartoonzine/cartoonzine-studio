@@ -288,13 +288,53 @@ test('Internet Archive em coleção torrent: vira UM filme com o .torrent oficia
     assert.deepEqual(v.erros, []);
 });
 
-test('YouToon: idioma vai para o app e a fonte é JSON ao vivo no Desenhos 24H', () => {
+test('YouToon: uma lista e uma fonte do cloud por idioma (sem idioma = Português)', () => {
     const yt = config.colecoes.find(c => c.id === 'youtoon');
-    const r = C.compilarColecao(yt, [{ caminho: 'conteudo/youtoon/bluey-24h.json', item: { nome: 'Bluey 24H', links: ['https://www.youtube.com/embed/OBe-ehVPKKk'], idioma: 'Espanhol', generos: ['Pré-escolar'] } }], config);
-    const j = JSON.parse(r.arquivos['youtoon.json']);
-    assert.equal(j.channels[0].idioma, 'Espanhol');
-    assert.equal(j.channels[0].group, 'Desenhos 24H');
-    assert.equal(r.fontes[0].tipo, 'vod_json');
-    assert.equal(r.fontes[0].categoryType, 'live');
-    assert.match(r.fontes[0].url, /youtoon\.json$/);
+    const r = C.compilarColecao(yt, [
+        { caminho: 'conteudo/youtoon/portugues/bluey-24h.json', item: { nome: 'Bluey 24H', links: ['https://www.youtube.com/embed/OBe-ehVPKKk'], generos: ['Pré-escolar'] } },
+        { caminho: 'conteudo/youtoon/espanhol/caricaturas.json', item: { nome: 'Caricaturas', links: ['https://www.youtube.com/channel/UCabcdefghijklmnopqrstuv/live'], idioma: 'Espanhol' } },
+        { caminho: 'conteudo/youtoon/frances/x.json', item: { nome: 'Dessins', links: ['https://www.youtube.com/watch?v=abcdefghijk'], idioma: 'Francês' } }
+    ], config);
+    const pt = JSON.parse(r.arquivos['youtoon/pt-br.json']), es = JSON.parse(r.arquivos['youtoon/es.json']);
+    assert.equal(pt.channels.length, 1); assert.equal(pt.channels[0].idioma, 'pt-BR');
+    assert.equal(es.channels.length, 1); assert.equal(es.channels[0].idioma, 'es');
+    assert.equal(JSON.parse(r.arquivos['youtoon/en.json']).channels.length, 0);       // publicada mesmo vazia
+    assert.equal(JSON.parse(r.arquivos['youtoon/pt-pt.json']).channels.length, 0);
+    assert.equal(r.fontes.length, 4);
+    const fes = r.fontes.find(f => f.idioma === 'es');
+    assert.equal(fes.prefixoId, 'YTN_ES'); assert.equal(fes.categoryType, 'live'); assert.equal(fes.targetCategory, 'Desenhos 24H');
+    assert.match(fes.url, /youtoon\/es\.json$/);
+    assert.ok(r.relatorio.avisos.some(a => /Francês/.test(a.msg)));                   // idioma sem lista avisa
+    assert.equal(JSON.parse(r.arquivos['youtoon/idiomas.json']).idiomas.length, 4);
+    assert.equal(C.caminhoItem(yt, { nome: 'Bluey 24H' }), 'conteudo/youtoon/portugues/bluey-24h.json');
+});
+
+test('Bookzine: livro com formato pela extensão, estante e índice', () => {
+    const bz = config.colecoes.find(c => c.id === 'bookzine');
+    const r = C.compilarColecao(bz, [
+        { caminho: 'conteudo/bookzine/dom-casmurro.json', item: { nome: 'Dom Casmurro', autor: 'Machado de Assis', links: ['https://x.org/dom.epub'], categoria: 'Clássicos da Literatura', idioma: 'Português', paginas: '256' } },
+        { caminho: 'conteudo/bookzine/tex-1.json', item: { nome: 'Tex 1', links: ['https://x.org/tex1.cbz', 'https://x.org/tex1.pdf'], serie: 'Tex', volume: 1 } }
+    ], config);
+    const j = JSON.parse(r.arquivos['bookzine.json']);
+    const dom = j.items.find(i => i.title === 'Dom Casmurro'), tex = j.items.find(i => i.title === 'Tex 1');
+    assert.equal(dom.format, 'EPUB'); assert.equal(dom.author, 'Machado de Assis'); assert.equal(dom.pages, 256); assert.equal(dom.categoryType, 'livro');
+    assert.equal(tex.format, 'CBZ'); assert.equal(tex.series, 'Tex'); assert.equal(tex.volume, 1); assert.equal(tex.category, 'Livros');
+    assert.deepEqual(tex.mirrors, ['https://x.org/tex1.pdf']);
+    assert.deepEqual(r.fontes, []);                                                    // fora do cloud até a view existir
+    const ind = JSON.parse(r.arquivos['bookzine/indice.json']);
+    assert.equal(ind.formatos.EPUB, 1); assert.equal(ind.estantes['Clássicos da Literatura'], 1);
+    assert.equal(C.normalizarItem({ nome: 'Tex 1.cbz' }, bz).nome, 'Tex 1.cbz');      // o nome digitado não é mexido
+    assert.equal(C.analisarNome('Tex 001.cbz').nome, 'Tex 001');
+});
+
+test('Internet Archive em coleção de livros: melhor arquivo de leitura + reserva', () => {
+    const biblia = C.itemDoArchive({
+        metadata: { identifier: 'biblia1569', title: 'Biblia de Casiodoro de Reina 1569', creator: 'Casiodoro de Reina', date: '1569', language: 'spa' },
+        files: [{ name: 'Biblia 1569.djvu' }, { name: 'Biblia 1569.epub' }, { name: 'Biblia 1569.pdf' }, { name: 'Biblia 1569_djvu.txt' }, { name: 'Biblia 1569_jp2.zip' }]
+    }, 'biblia1569', { livro: true });
+    assert.match(biblia.links[0], /Biblia%201569\.pdf$/); assert.match(biblia.links[1], /\.epub$/);
+    assert.equal(biblia.idioma, 'Espanhol'); assert.equal(biblia.ano, 1569); assert.equal(biblia.autor, 'Casiodoro de Reina');
+    const gut = C.itemDoArchive({ metadata: { identifier: 'g1', title: 'O Crime do Padre Amaro', language: 'Portuguese' },
+        files: [{ name: '31971-8.txt' }, { name: 'pg31971.epub' }, { name: 'pg31971-images.epub' }, { name: 'pg31971.txt_meta.txt' }] }, 'g1', { livro: true });
+    assert.match(gut.links[0], /pg31971-images\.epub$/); assert.match(gut.links[1], /\.txt$/); assert.equal(gut.idioma, 'Português');
 });

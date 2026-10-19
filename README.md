@@ -150,10 +150,11 @@ Dá para editar até pelo site do GitHub: o robô publica sozinho a cada commit.
 | 🎨 Cartoons | `conteudo/cartoons/` | Cartoonzine | `cartoons.json` |
 | 🍥 Animes | `conteudo/animes/` | Cartoonzine | `animes.json` |
 | 📺 Desenhos 24 Horas | `conteudo/desenhos-24h/` | Cartoonzine | `desenhos-24h.m3u` + `.json` |
-| ▶️ YouToon | `conteudo/youtoon/` | Cartoonzine (aba YouToon do Desenhos 24H) | `youtoon.json` |
+| ▶️ YouToon | `conteudo/youtoon/<idioma>/` | Cartoonzine (aba YouToon do Desenhos 24H) | `youtoon/<idioma>.json` (pt-br, es, en, pt-pt) + `youtoon/idiomas.json` |
 | 🎬 Filmes | `conteudo/filmes/` | Cartoonzine | `filmes.json` |
 | 🧲 Filmes (torrent) | `conteudo/filmes-torrent/` | Cartoonzine (Ultra Player, torrent) | `filmes-torrent.json` |
 | 🎞️ Séries | `conteudo/series/` | Cartoonzine | `series.json` |
+| 📚 Bookzine | `conteudo/bookzine/` | Cartoonzine (view em construção) | `bookzine.json` + `bookzine/indice.json` |
 | 📻 Rádios | `conteudo/radios/` | Rádio | `radios.json`, `radios.m3u`, `radios/pais/<pais>.m3u` |
 | 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/paises.json`, `canais/pais/<pais>.json` e `.m3u` |
 | 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles) |
@@ -162,8 +163,12 @@ Os `.m3u` por país também funcionam direto em qualquer player IPTV (VLC, TiviM
 
 ### ▶️ YouToon (canais de desenhos do YouTube)
 
-Cada canal é um item com o link do YouTube e o **Idioma** (cada idioma tem a própria lista na aba
-YouToon do Desenhos 24H; vazio = Português). Links aceitos:
+Cada canal é um item com o link do YouTube e o **Idioma**. Cada idioma tem a **própria lista**: o canal
+fica em `conteudo/youtoon/<idioma>/` (`portugues/`, `espanhol/`, `ingles/`, `portugues-portugal/`), vira o
+arquivo `dist/youtoon/<código>.json` e uma fonte no cloud (`YouToon · Português`, `YouToon · Espanhol`…).
+Sem idioma = Português. Os idiomas ficam em `idiomasYouToon` no `studio.config.json`: para abrir uma lista
+nova (ex.: Francês), acrescente uma linha com `nome`, `codigo` e `prefixoId` e rode `tools/ligar-cloud.mjs`.
+Links aceitos:
 
 | Link | No app |
 |---|---|
@@ -183,6 +188,20 @@ reserva. A fonte automática *Filmes em domínio público (Internet Archive · t
 baixados **lançados até 1930** (pela idade, já são domínio público; a marcação de licença feita por
 quem envia ao archive não é confiável). Numa fonte `archive-busca`, `"ordem": "downloads desc"` ordena
 o resultado.
+
+### 📚 Bookzine (livraria)
+
+Livros, bíblias antigas, gibis, revistas, mangás… em **PDF, EPUB, CBZ/CBR, MOBI, DjVu ou TXT**. Cada livro tem
+título, autor, **estante** (`categoriasLivros` no `studio.config.json`: Clássicos da Literatura, Bíblias e
+Textos Sagrados, Gibis e HQs, Revistas…), formato (sai sozinho pela extensão do link), idioma, coleção/série
+e número (ex.: *Tex* nº 1), editora e páginas. Link do Internet Archive importa sozinho: escolhe o melhor
+arquivo de leitura (PDF › EPUB › CBZ/CBR › DjVu › MOBI › TXT) e guarda outro formato de reserva, com autor,
+ano, idioma e capa.
+
+Publica `bookzine.json` e `bookzine/indice.json` (quantos livros por estante, formato e idioma). Fica **fora
+do cartoonzine-cloud** até a view existir; o `_comentario` da coleção no `studio.config.json` tem a fonte
+pronta para colar. Em `automatico/fontes.json` há duas fontes desligadas: clássicos em português do Projeto
+Gutenberg e bíblias antigas do Internet Archive.
 
 ### Canais por país (seletor do TVzine)
 

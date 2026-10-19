@@ -631,11 +631,11 @@
                 const arch = (atual.links || []).map(C.idDoArchive).find(Boolean) || atual.archive;
                 const achados = [];
                 if (arch) {
-                    const doArchive = await C.importarArchive(arch, fetchExterno, { torrent: !!col.torrent });
+                    const doArchive = await C.importarArchive(arch, fetchExterno, { torrent: !!col.torrent, livro: col.tipo === 'livro' });
                     const linksSemArchive = (atual.links || []).filter(u => !C.idDoArchive(u) || /\.(mp4|mkv|webm|ogv)$/i.test(u));
                     atual = C.mesclarItem(Object.assign({}, atual, { links: linksSemArchive }), doArchive);
                     if (!atual.nome) atual.nome = doArchive.nome;
-                    achados.push('Internet Archive: ' + (C.contarEpisodios(atual) ? C.contarEpisodios(atual) + ' episódios' : '1 vídeo'));
+                    achados.push('Internet Archive: ' + (col.tipo === 'livro' ? (atual.links || []).length + ' arquivo(s) de leitura' : C.contarEpisodios(atual) ? C.contarEpisodios(atual) + ' episódios' : '1 vídeo'));
                 }
                 let avisosAuto = [];
                 if (atual.nome && (col.tipo === 'video' || col.tipo === 'jogo')) {
@@ -687,7 +687,7 @@
     function desenharRapido() {
         const col = colecaoAtual();
         const tipo = C.TIPOS[col.tipo];
-        const camposPadrao = { video: ['audio'], canal: ['pais', 'idioma', 'categoria'], radio: ['pais', 'idioma', 'cidade'], jogo: ['console'], canal24h: [] }[col.tipo] || [];
+        const camposPadrao = { video: ['audio'], canal: ['pais', 'idioma', 'categoria'], radio: ['pais', 'idioma', 'cidade'], jogo: ['console'], canal24h: ['idioma'], livro: ['categoria', 'idioma', 'formato'] }[col.tipo] || [];
         const padroes = tipo.campos.filter(c => camposPadrao.includes(c.k));
         const salvos = guardar.ler('czs-padroes-' + col.id) || {};
         $('#conteudo-aba').innerHTML = `
@@ -734,7 +734,7 @@ https://archive.org/details/algum_desenho
             const avisos = [];
             if (it.archive && !(it.links || []).length) {
                 try {
-                    const a = await C.importarArchive(it.archive, fetchExterno, { torrent: !!col.torrent });
+                    const a = await C.importarArchive(it.archive, fetchExterno, { torrent: !!col.torrent, livro: col.tipo === 'livro' });
                     const nomeManual = it.nome !== it.archive ? it.nome : null;
                     it = C.mesclarItem(a, Object.assign({}, it, { nome: nomeManual || a.nome }));
                     delete it.archive;
@@ -763,7 +763,7 @@ https://archive.org/details/algum_desenho
         const alvo = C.normText(item.nome);
         const sub = col.subpasta;
         return estado.indice.find(i => i.caminho.startsWith('conteudo/' + col.id + '/') && C.normText(i.nome) === alvo &&
-            (!sub || i.caminho.split('/')[2] === C.slugify(item[sub] || 'outros'))) || null;
+            (!sub || i.caminho.split('/')[2] === C.slugify(C.valorSubpasta(col, item) || 'outros'))) || null;
     }
 
     function desenharPrevia(col) {
@@ -772,7 +772,9 @@ https://archive.org/details/algum_desenho
         const resumo = l => {
             const eps = C.contarEpisodios(l.item);
             if (eps) return `série · ${l.item.temporadas.length} temp. · ${eps} ep.`;
-            return { video: 'filme/avulso', canal: [l.item.pais, l.item.categoria].filter(Boolean).join(' · ') || 'canal', radio: l.item.pais || 'rádio', jogo: l.item.console || 'jogo', canal24h: 'canal 24h' }[col.tipo];
+            return { video: 'filme/avulso', canal: [l.item.pais, l.item.categoria].filter(Boolean).join(' · ') || 'canal', radio: l.item.pais || 'rádio', jogo: l.item.console || 'jogo',
+                canal24h: col.subpasta === 'idioma' ? 'canal · ' + (C.valorSubpasta(col, l.item) || '—') : 'canal 24h',
+                livro: [l.item.categoria, l.item.formato || C.formatoDoLink((l.item.links || [])[0]), l.item.idioma].filter(Boolean).join(' · ') || 'livro' }[col.tipo];
         };
         $('#r-previa').innerHTML = `
           <div class="painel" style="margin-top:16px">
@@ -848,7 +850,10 @@ https://archive.org/details/algum_desenho
         const fundo = document.createElement('div');
         fundo.className = 'fundo-modal';
         const linhas = cfg.colecoes.map(c => {
-            const arqs = c.tipo === 'jogo' ? [`${c.id}.json`, `${c.id}/<console>.json`] : [`${c.id}.json`].concat(['canal', 'canal24h', 'radio'].includes(c.tipo) ? [`${c.id}.m3u`] : []);
+            const arqs = c.tipo === 'jogo' ? [`${c.id}.json`, `${c.id}/<console>.json`]
+                : c.listasPorIdioma ? [`${c.id}.json`, `${c.id}/idiomas.json`].concat((cfg[c.listasPorIdioma] || []).map(l => `${c.id}/${C.slugify(l.codigo)}.json`))
+                : c.tipo === 'livro' ? [`${c.id}.json`, `${c.id}/indice.json`]
+                : [`${c.id}.json`].concat(['canal', 'canal24h', 'radio'].includes(c.tipo) ? [`${c.id}.m3u`] : []);
             return `<tr><td>${esc(c.icone || '')} ${esc(c.nome)}</td><td>${arqs.map(a => a.includes('<') ? `<code>${esc(base + a)}</code>` : `<a href="${esc(base + a)}" target="_blank" rel="noopener">${esc(a)}</a>`).join('<br>')}</td></tr>`;
         }).join('');
         fundo.innerHTML = `
