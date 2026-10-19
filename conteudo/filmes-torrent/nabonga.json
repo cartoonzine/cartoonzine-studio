@@ -1,0 +1,20 @@
+{
+  "nome": "Nabonga",
+  "links": [
+    "https://archive.org/download/nabonga/nabonga_archive.torrent",
+    "https://archive.org/download/nabonga/nabonga.mp4"
+  ],
+  "tmdb": "movie/7268",
+  "imdb": "tt0037115",
+  "notaImdb": 4.2,
+  "votosImdb": 656,
+  "capa": "https://archive.org/services/img/nabonga",
+  "banner": "https://image.tmdb.org/t/p/w1280/7vg1pZjDlUxTnsGi5AsVswx04Ek.jpg",
+  "fonte": "https://archive.org/details/nabonga",
+  "descricao": "You can find more information regarding this film on its IMDb page.",
+  "ano": 1944,
+  "generos": [
+    "Adventure"
+  ],
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+}

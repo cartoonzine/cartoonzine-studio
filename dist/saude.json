@@ -1,5 +1,433 @@
 {
- "links": {},
- "atualizadoEm": "2026-10-19T13:13:51.011Z",
+ "links": {
+  "https://www.youtube.com/embed/OBe-ehVPKKk": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:48.302Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/bluey-24h.json"
+  },
+  "https://archive.org/download/midnight-frolics-1938/midnight-frolics-1938_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:48.486Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/midnight-frolics.json"
+  },
+  "https://archive.org/download/dipwad2_zoho_4041/dipwad2_zoho_4041_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:48.578Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/dipwad2-zoho-4041.json"
+  },
+  "https://archive.org/download/midnight_phantom/midnight_phantom_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:48.806Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/midnight-phantom.json"
+  },
+  "https://archive.org/download/mr.-imperium-1951/mr.-imperium-1951_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:48.901Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/mr-imperium-1951.json"
+  },
+  "https://archive.org/download/medicine-show-1933/medicine-show-1933_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:48.915Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/medicine-show.json"
+  },
+  "https://archive.org/download/mr.-wong-in-chinatown-1939_202507/mr.-wong-in-chinatown-1939_202507_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.009Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/mr-wong-in-chinatown-1939-202507.json"
+  },
+  "https://archive.org/download/murder_on_lenox_ave1941/murder_on_lenox_ave1941_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.027Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/murder-on-lenox-ave1941.json"
+  },
+  "https://archive.org/download/momotaro-no-umiwashi-1943/momotaro-no-umiwashi-1943_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.065Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/momotaro-no-umiwashi.json"
+  },
+  "https://archive.org/download/pudovkinmat/pudovkinmat_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.085Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/la-madre-mat-1926.json"
+  },
+  "https://archive.org/download/mr_reckless/mr_reckless_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.179Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/mr-reckless.json"
+  },
+  "https://archive.org/download/nells-yells-1939/nells-yells-1939_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.186Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/nell-s-yells.json"
+  },
+  "https://archive.org/download/nabonga/nabonga_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.210Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/nabonga.json"
+  },
+  "https://archive.org/download/nix-on-hypnotricks-1941/nix-on-hypnotricks-1941_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.215Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/nix-on-hypnotricks.json"
+  },
+  "https://archive.org/download/lucky-dog-1956/lucky-dog-1956_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.230Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/lucky-dog.json"
+  },
+  "https://archive.org/download/noah-knew-his-ark-1930/noah-knew-his-ark-1930_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.268Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/noah-knew-his-ark.json"
+  },
+  "https://archive.org/download/MaybeIllComeHomeintheSpring/MaybeIllComeHomeintheSpring_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.286Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/maybe-i-ll-come-home-in-the-spring.json"
+  },
+  "https://archive.org/download/quevadis/quevadis_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.332Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/quevadis.json"
+  },
+  "https://archive.org/download/not-ghoulty-1959/not-ghoulty-1959_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.417Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/not-ghoulty.json"
+  },
+  "https://archive.org/download/penny-serenade-1941/penny-serenade-1941_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.543Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/penny-serenade.json"
+  },
+  "https://archive.org/download/OurHospitality_29/OurHospitality_29_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.564Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/ourhospitality-29.json"
+  },
+  "https://archive.org/download/redskin-blues-1932/redskin-blues-1932_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.714Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/redskin-blues.json"
+  },
+  "https://archive.org/download/rog56_mail_208/rog56_mail_208_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.766Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-208.json"
+  },
+  "https://archive.org/download/rockstar-2011/rockstar-2011_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.858Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rockstar.json"
+  },
+  "https://archive.org/download/pete-hothead-1952/pete-hothead-1952_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.900Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/pete-hothead.json"
+  },
+  "https://archive.org/download/rog56_mail_614/rog56_mail_614_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.903Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-614.json"
+  },
+  "https://archive.org/download/rog56_mail_922/rog56_mail_922_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.910Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-922.json"
+  },
+  "https://archive.org/download/rog56_mail_3008/rog56_mail_3008_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.917Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-3008.json"
+  },
+  "https://archive.org/download/rog56_mail_313/rog56_mail_313_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:49.995Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-313.json"
+  },
+  "https://archive.org/download/rog56_mail_619B/rog56_mail_619B_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.023Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-619b.json"
+  },
+  "https://archive.org/download/rog56_mail_927/rog56_mail_927_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.110Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-927.json"
+  },
+  "https://archive.org/download/rog56_mail_219/rog56_mail_219_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.231Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog56-mail-219.json"
+  },
+  "https://archive.org/download/rog561b_netzero_2125/rog561b_netzero_2125_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.237Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog561b-netzero-2125.json"
+  },
+  "https://archive.org/download/rog561b_netzero_213_201604/rog561b_netzero_213_201604_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.260Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog561b-netzero-213-201604.json"
+  },
+  "https://archive.org/download/lastmanonearth-1964/lastmanonearth-1964_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.401Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/last-man-on-earth-hd.json"
+  },
+  "https://archive.org/download/rog561b_netzero_5083/rog561b_netzero_5083_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.404Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog561b-netzero-5083.json"
+  },
+  "https://archive.org/download/rog561b_netzero_2081/rog561b_netzero_2081_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.492Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog561b-netzero.json"
+  },
+  "https://archive.org/download/rough_riding_ranger/rough_riding_ranger_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.521Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rough-riding-ranger.json"
+  },
+  "https://archive.org/download/rog561b_netzero_310/rog561b_netzero_310_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.527Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog561b-netzero-310.json"
+  },
+  "https://archive.org/download/rog561b_netzero_116/rog561b_netzero_116_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.537Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog561b-netzero-116.json"
+  },
+  "https://archive.org/download/rog561b_netzero_317/rog561b_netzero_317_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.642Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/rog561b-netzero-317.json"
+  },
+  "https://archive.org/download/runaway-blackie-1933/runaway-blackie-1933_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.660Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/runaway-blackie.json"
+  },
+  "https://archive.org/download/nurse-mates-1940/nurse-mates-1940_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:50.713Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/nurse-mates.json"
+  },
+  "https://archive.org/download/sabaka_ipod/sabaka_ipod_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.150Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/sabaka-ipod.json"
+  },
+  "https://archive.org/download/safety-last-final_202506/safety-last-final_202506_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.186Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/safety-last-final-202506.json"
+  },
+  "https://archive.org/download/romance_on_the_run/romance_on_the_run_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.220Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/romance-on-the-run.json"
+  },
+  "https://archive.org/download/scary-crows-1937/scary-crows-1937_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.306Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/scary-crows.json"
+  },
+  "https://archive.org/download/ScaryNightAtTheBijudoubleFeature/ScaryNightAtTheBijudoubleFeature_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.374Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/scary-night-at-the-bijou-double-feature.json"
+  },
+  "https://archive.org/download/the-golem-how-he-came-into-the-world-1920/the-golem-how-he-came-into-the-world-1920_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.386Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/the-golem-how-he-came-into-the-world.json"
+  },
+  "https://archive.org/download/school-boy-dreams-1940/school-boy-dreams-1940_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.402Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/school-boy-dreams.json"
+  },
+  "https://archive.org/download/the-cleaning-day-1937/the-cleaning-day-1937_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.421Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/the-cleaning-day.json"
+  },
+  "https://archive.org/download/tin-pan-alley-cat-1960/tin-pan-alley-cat-1960_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.468Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/tin-pan-alley-cat.json"
+  },
+  "https://archive.org/download/shadows-over-shanghai-1938/shadows-over-shanghai-1938_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.521Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/shadows-over-shanghai.json"
+  },
+  "https://archive.org/download/tombstone-canyon-1932/tombstone-canyon-1932_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.521Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/tombstone-canyon.json"
+  },
+  "https://archive.org/download/san-pietro-1945/san-pietro-1945_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.523Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/san-pietro.json"
+  },
+  "https://archive.org/download/toonerville-trolley-1936/toonerville-trolley-1936_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.545Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/toonerville-trolley.json"
+  },
+  "https://archive.org/download/ThePhantomOfTheOpera_364/ThePhantomOfTheOpera_364_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.587Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/thephantomoftheopera-364.json"
+  },
+  "https://archive.org/download/yodeling-yokels-1931/yodeling-yokels-1931_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.783Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/yodeling-yokels.json"
+  },
+  "https://archive.org/download/UnknownWorld/UnknownWorld_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:51.949Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/unknown-world.json"
+  },
+  "https://archive.org/download/the-sleeping-tiger-1954_202507/the-sleeping-tiger-1954_202507_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:52.161Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/the-sleeping-tiger-1954-202507.json"
+  },
+  "https://archive.org/download/she-beast-1966/she-beast-1966_archive.torrent": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-19T15:19:52.313Z",
+   "falhas": 0,
+   "caminho": "conteudo/filmes-torrent/she-beast.json"
+  }
+ },
+ "atualizadoEm": "2026-10-19T15:19:52.313Z",
  "mortos": []
 }
