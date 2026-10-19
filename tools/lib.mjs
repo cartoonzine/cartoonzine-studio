@@ -118,11 +118,11 @@ export function chavesExternas() {
  * Com link/código do TMDB ou IMDb no item, busca sempre; sem, só com dados=true.
  * Erros de rede não param nada.
  */
-export async function enriquecer(item, { wiki = false, dados = wiki, log = () => {}, tipoColecao = 'video' } = {}) {
+export async function enriquecer(item, { wiki = false, dados = wiki, log = () => {}, tipoColecao = 'video', torrent = false } = {}) {
     let out = item;
     if (out.archive && !(out.links || []).length && !(out.temporadas || []).length) {
         try {
-            const doArchive = await Core.importarArchive(out.archive);
+            const doArchive = await Core.importarArchive(out.archive, undefined, { torrent });
             const nomeManual = out.nome && out.nome !== out.archive ? out.nome : null;
             out = Core.mesclarItem(doArchive, Object.assign({}, out, { nome: nomeManual || doArchive.nome }));
             out.nome = nomeManual || doArchive.nome;
@@ -164,7 +164,7 @@ export async function importarTexto(colecao, texto, { args = {}, raiz = RAIZ, or
         if (colecao.tipo !== 'video') { delete item.audio; }
         if (origem) item._origem = origem;
         log(`• ${item.nome}`);
-        item = await enriquecer(item, { dados: !!(args.wiki || args.dados), log, tipoColecao: colecao.tipo });
+        item = await enriquecer(item, { dados: !!(args.wiki || args.dados), log, tipoColecao: colecao.tipo, torrent: !!colecao.torrent });
         const normal = Core.normalizarItem(item, colecao);
         const { erros } = Core.validarItem(normal, colecao, config);
         if (erros.length) { falhas.push({ nome: normal.nome, erros }); log('  ✗ ' + erros.join('; ')); continue; }

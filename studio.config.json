@@ -33,7 +33,16 @@
       "tipo": "canal24h",
       "app": "cartoonzine",
       "icone": "📺",
-      "fonteCloud": { "nome": "Desenhos 24 Horas", "tipo": "vod_m3u", "prefixoId": "LIV_KID", "targetCategory": "Desenhos 24 Horas", "agruparSeries": false }
+      "fonteCloud": { "nome": "Desenhos 24 Horas", "tipo": "vod_m3u", "prefixoId": "LIV_KID", "targetCategory": "Desenhos 24H", "agruparSeries": false }
+    },
+    {
+      "id": "youtoon",
+      "nome": "YouToon",
+      "tipo": "canal24h",
+      "app": "cartoonzine",
+      "icone": "▶️",
+      "_comentario": "Canais de desenhos do YouTube (aba YouToon do Desenhos 24H). Link: youtube.com/channel/UC…/live (live 24h), youtube.com/channel/UC… (vídeos do canal), playlist ou vídeo. O campo Idioma escolhe a lista (Português, Espanhol, Inglês, Português (Portugal)).",
+      "fonteCloud": { "nome": "YouToon (Studio)", "tipo": "vod_json", "categoryType": "live", "prefixoId": "YTN_BR", "targetCategory": "Desenhos 24H" }
     },
     {
       "id": "filmes",
@@ -42,6 +51,16 @@
       "app": "cartoonzine",
       "icone": "🎬",
       "fonteCloud": { "nome": "Filmes (Studio)", "tipo": "vod_json", "prefixoId": "VOD_STU", "targetCategory": "Filmes" }
+    },
+    {
+      "id": "filmes-torrent",
+      "nome": "Filmes",
+      "tipo": "video",
+      "app": "cartoonzine",
+      "icone": "🧲",
+      "torrent": true,
+      "_comentario": "Filmes por torrent (magnet ou .torrent) para o Ultra Player. Links do Internet Archive viram o .torrent oficial do item, com o vídeo direto de reserva.",
+      "fonteCloud": { "nome": "Filmes Torrent (Studio)", "tipo": "vod_json", "prefixoId": "VOD_TOR", "targetCategory": "Filmes" }
     },
     {
       "id": "series",

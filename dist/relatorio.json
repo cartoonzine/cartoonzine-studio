@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-19T13:13:51.091Z",
+  "geradoEm": "2026-10-19T15:17:12.533Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -23,7 +23,21 @@
       "avisos": []
     },
     {
+      "colecao": "youtoon",
+      "total": 1,
+      "publicados": 1,
+      "erros": [],
+      "avisos": []
+    },
+    {
       "colecao": "filmes",
+      "total": 0,
+      "publicados": 0,
+      "erros": [],
+      "avisos": []
+    },
+    {
+      "colecao": "filmes-torrent",
       "total": 0,
       "publicados": 0,
       "erros": [],
