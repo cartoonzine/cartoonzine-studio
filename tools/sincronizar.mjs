@@ -26,7 +26,7 @@ export async function sincronizar({ raiz = RAIZ, log = console.log, so } = {}) {
         try {
             let texto;
             if (f.tipo === 'archive') texto = [].concat(f.ids || f.id).map(id => 'https://archive.org/details/' + id).join('\n');
-            else if (f.tipo === 'archive-busca') texto = await buscarNoArchive(f.busca, f.limite || 50);
+            else if (f.tipo === 'archive-busca') texto = await buscarNoArchive(f.busca, f.limite || 50, f.ordem);
             else texto = await baixarTexto(f.url);
 
             // itens travados não podem ser tocados: tira do caminho antes de importar
@@ -57,8 +57,10 @@ export async function sincronizar({ raiz = RAIZ, log = console.log, so } = {}) {
 }
 
 /** Busca na API do Internet Archive e devolve um link por item achado. */
-async function buscarNoArchive(busca, limite) {
-    const url = 'https://archive.org/advancedsearch.php?fl[]=identifier&rows=' + limite + '&output=json&q=' + encodeURIComponent(busca);
+async function buscarNoArchive(busca, limite, ordem) {
+    // "ordem" (ex.: "downloads desc") deixa o resultado estável: sem ela o archive devolve em ordem variável
+    const url = 'https://archive.org/advancedsearch.php?fl[]=identifier&rows=' + limite + '&output=json' +
+        (ordem ? '&sort[]=' + encodeURIComponent(ordem) : '') + '&q=' + encodeURIComponent(busca);
     const j = JSON.parse(await baixarTexto(url));
     return (j.response?.docs || []).map(d => 'https://archive.org/details/' + d.identifier).join('\n');
 }

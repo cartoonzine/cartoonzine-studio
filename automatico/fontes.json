@@ -27,12 +27,15 @@
     },
     {
       "nome": "Filmes em domínio público (Internet Archive · torrent)",
+      "_comentario": "Só filmes lançados até 1930: pela idade, já são domínio público (a marcação de licença do archive é feita por quem envia e erra). Os mais baixados primeiro. Ao mudar o ano limite, troque também o fim de year:[1890 TO 1930].",
       "ativo": true,
       "colecao": "filmes-torrent",
       "tipo": "archive-busca",
-      "busca": "collection:feature_films AND mediatype:movies AND licenseurl:*publicdomain*",
+      "busca": "collection:feature_films AND mediatype:movies AND year:[1890 TO 1930]",
+      "ordem": "downloads desc",
       "limite": 60,
-      "dados": true
+      "dados": true,
+      "removerSumidos": true
     },
     {
       "nome": "Desenhos clássicos (Internet Archive)",
