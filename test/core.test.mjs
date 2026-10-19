@@ -266,3 +266,35 @@ test('nome do TMDB corrige acentos, mas não troca um nome diferente que você e
     assert.equal(C.aplicarDadosExternos({ nome: 'Serie X' }, { nome: 'Série X' }).nome, 'Série X');
     assert.equal(C.aplicarDadosExternos({ nome: 'Meu Nome' }, { nome: 'Série X' }).nome, 'Meu Nome');
 });
+
+test('Internet Archive em coleção torrent: vira UM filme com o .torrent oficial e o vídeo de reserva', () => {
+    const meta = {
+        metadata: { identifier: 'golem-1920', title: 'The Golem (1920)', year: '1920' },
+        files: [
+            { name: 'The Golem (1920).mkv' }, { name: 'The Golem (1920).mp4' },
+            { name: 'golem-1920_archive.torrent', format: 'Archive BitTorrent' }, { name: 'parte2.mp4' }
+        ]
+    };
+    const item = C.itemDoArchive(meta, 'golem-1920', { torrent: true });
+    assert.equal(item.temporadas, undefined);
+    assert.equal(item.links[0], 'https://archive.org/download/golem-1920/golem-1920_archive.torrent');
+    assert.match(item.links[1], /\.mp4$/);
+    // sem torrent no item: continua como antes
+    const sem = C.itemDoArchive({ metadata: { identifier: 'x' }, files: [{ name: 'a.mp4' }] }, 'x', { torrent: true });
+    assert.equal(sem.links[0], 'https://archive.org/download/x/a.mp4');
+    // magnet é link válido na coleção de filmes torrent
+    const tor = config.colecoes.find(c => c.id === 'filmes-torrent');
+    const v = C.validarItem(C.normalizarItem({ nome: 'Nosferatu', links: ['magnet:?xt=urn:btih:abc&dn=Nosferatu'] }, tor), tor, config);
+    assert.deepEqual(v.erros, []);
+});
+
+test('YouToon: idioma vai para o app e a fonte é JSON ao vivo no Desenhos 24H', () => {
+    const yt = config.colecoes.find(c => c.id === 'youtoon');
+    const r = C.compilarColecao(yt, [{ caminho: 'conteudo/youtoon/bluey-24h.json', item: { nome: 'Bluey 24H', links: ['https://www.youtube.com/embed/OBe-ehVPKKk'], idioma: 'Espanhol', generos: ['Pré-escolar'] } }], config);
+    const j = JSON.parse(r.arquivos['youtoon.json']);
+    assert.equal(j.channels[0].idioma, 'Espanhol');
+    assert.equal(j.channels[0].group, 'Desenhos 24H');
+    assert.equal(r.fontes[0].tipo, 'vod_json');
+    assert.equal(r.fontes[0].categoryType, 'live');
+    assert.match(r.fontes[0].url, /youtoon\.json$/);
+});

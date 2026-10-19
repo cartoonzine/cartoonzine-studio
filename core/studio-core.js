@@ -342,8 +342,11 @@
                     temp.episodios.push(limparVazios({ numero: e.episodio, titulo: e.tituloEpisodio, links: e.links.slice() }));
                 }
             } else {
+                // link de PÁGINA do Internet Archive (archive.org/details/…) não é vídeo: sai da lista para o
+                // importador do archive trocar pelos vídeos de verdade (antes ele ficava e a importação nem rodava)
+                const links = e.archive ? e.links.filter(u => !idDoArchive(u) || RE_EXT_VIDEO.test(u)) : e.links;
                 const item = limparVazios({
-                    nome: e.nome, links: e.links, capa: e.capa, ano: e.ano, audio: e.audio,
+                    nome: e.nome, links, capa: e.capa, ano: e.ano, audio: e.audio,
                     logo: e.logo, categoria: e.grupo, tvgId: e.tvgId, pais: e.pais, idioma: e.idioma,
                     headers: e.headers, archive: e.archive, tmdb: e.tmdb, imdb: e.imdb
                 });
@@ -369,8 +372,10 @@
      * Converte a resposta de https://archive.org/metadata/<id> em um item.
      * 1 vídeo = filme; vários = série (temporada/episódio pelo nome do arquivo,
      * ou em ordem alfabética como temporada 1).
+     * opts.torrent (coleção com "torrent": true): o item vira UM filme cujo link principal é o
+     * .torrent oficial do Internet Archive (o vídeo direto fica de reserva).
      */
-    function itemDoArchive(meta, id) {
+    function itemDoArchive(meta, id, opts = {}) {
         const md = (meta && meta.metadata) || {};
         id = id || md.identifier;
         const arquivos = ((meta && meta.files) || []).filter(f => f && RE_ARCHIVE_VIDEO.test(f.name || ''));
@@ -398,6 +403,13 @@
             generos: generos.length ? generos : undefined,
             fonte: 'https://archive.org/details/' + id
         });
+        if (opts.torrent) {
+            const tor = ((meta && meta.files) || []).find(f => f && /_archive\.torrent$/i.test(f.name || ''));
+            if (tor) {
+                item.links = [link(tor.name)].concat(videos[0] ? [link(videos[0].name)] : []);
+                return item;
+            }
+        }
         if (videos.length <= 1) {
             if (videos[0]) item.links = [link(videos[0].name)];
             return item;
@@ -424,14 +436,14 @@
         return item;
     }
 
-    async function importarArchive(idOuLink, fetchFn) {
+    async function importarArchive(idOuLink, fetchFn, opts) {
         const id = idDoArchive(idOuLink) || String(idOuLink).trim();
         const f = fetchFn || (typeof fetch === 'function' ? fetch : null);
         const r = await f('https://archive.org/metadata/' + encodeURIComponent(id));
         if (!r.ok) throw new Error('Internet Archive respondeu ' + r.status + ' para ' + id);
         const meta = await r.json();
         if (!meta || !meta.metadata) throw new Error('Item "' + id + '" não existe no Internet Archive');
-        return itemDoArchive(meta, id);
+        return itemDoArchive(meta, id, opts);
     }
 
     // ------------------------------------------------------------------
@@ -729,7 +741,7 @@
         SA: 'Arábia Saudita', AE: 'Emirados Árabes', IL: 'Israel', CU: 'Cuba', DO: 'República Dominicana',
         PR: 'Porto Rico', CR: 'Costa Rica', PA: 'Panamá', GT: 'Guatemala', INT: 'Internacional'
     };
-    const IDIOMAS = ['Português', 'Inglês', 'Espanhol', 'Francês', 'Italiano', 'Alemão', 'Japonês', 'Coreano',
+    const IDIOMAS = ['Português', 'Português (Portugal)', 'Inglês', 'Espanhol', 'Francês', 'Italiano', 'Alemão', 'Japonês', 'Coreano',
         'Chinês', 'Russo', 'Árabe', 'Hindi', 'Holandês', 'Turco', 'Polonês', 'Multilíngue'];
 
     /** "BR" -> 🇧🇷 (países sem bandeira, como INT, ficam com 🌐) */
@@ -801,6 +813,7 @@
                 { k: 'logo', rotulo: 'Logo', tipo: 'url', imagem: true },
                 { k: 'descricao', rotulo: 'Descrição', tipo: 'textarea' },
                 { k: 'generos', rotulo: 'Gêneros', tipo: 'lista' },
+                { k: 'idioma', rotulo: 'Idioma (lista do app)', tipo: 'escolha', opcoesDe: 'idiomas', dica: 'cada idioma tem a própria lista no Desenhos 24H; vazio = Português' },
                 { k: 'destaque', rotulo: 'Destaque', tipo: 'bool' }
             ]
         },
@@ -1008,7 +1021,7 @@
                 return limparVazios(o);
             }
             case 'canal24h':
-                return limparVazios(Object.assign(base, { url, mirrors: espelhos, logo: item.logo, group: colecao.fonteCloud && colecao.fonteCloud.targetCategory }));
+                return limparVazios(Object.assign(base, { url, mirrors: espelhos, logo: item.logo, idioma: item.idioma, group: colecao.fonteCloud && colecao.fonteCloud.targetCategory }));
             case 'canal': {
                 const headers = {};
                 if (item.userAgent) headers['User-Agent'] = item.userAgent;

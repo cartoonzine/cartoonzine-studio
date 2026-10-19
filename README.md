@@ -150,13 +150,37 @@ Dá para editar até pelo site do GitHub: o robô publica sozinho a cada commit.
 | 🎨 Cartoons | `conteudo/cartoons/` | Cartoonzine | `cartoons.json` |
 | 🍥 Animes | `conteudo/animes/` | Cartoonzine | `animes.json` |
 | 📺 Desenhos 24 Horas | `conteudo/desenhos-24h/` | Cartoonzine | `desenhos-24h.m3u` + `.json` |
+| ▶️ YouToon | `conteudo/youtoon/` | Cartoonzine (aba YouToon do Desenhos 24H) | `youtoon.json` |
 | 🎬 Filmes | `conteudo/filmes/` | Cartoonzine | `filmes.json` |
+| 🧲 Filmes (torrent) | `conteudo/filmes-torrent/` | Cartoonzine (Ultra Player, torrent) | `filmes-torrent.json` |
 | 🎞️ Séries | `conteudo/series/` | Cartoonzine | `series.json` |
 | 📻 Rádios | `conteudo/radios/` | Rádio | `radios.json`, `radios.m3u`, `radios/pais/<pais>.m3u` |
 | 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/paises.json`, `canais/pais/<pais>.json` e `.m3u` |
 | 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles) |
 
 Os `.m3u` por país também funcionam direto em qualquer player IPTV (VLC, TiviMate…).
+
+### ▶️ YouToon (canais de desenhos do YouTube)
+
+Cada canal é um item com o link do YouTube e o **Idioma** (cada idioma tem a própria lista na aba
+YouToon do Desenhos 24H; vazio = Português). Links aceitos:
+
+| Link | No app |
+|---|---|
+| `youtube.com/channel/UC…/live` | a live 24h do canal (acompanha sozinho quando a live muda) |
+| `youtube.com/channel/UC…` | os vídeos do canal sem parar, em ordem aleatória |
+| `youtube.com/playlist?list=…` | a playlist sem parar |
+| `youtube.com/watch?v=…` ou `/embed/…` | um vídeo (com "24H" ou "ao vivo" no nome, entra em "Ao vivo 24H") |
+
+O ID do canal (`UC…`): no YouTube, *Mais sobre este canal → Compartilhar canal → Copiar ID do canal*.
+
+### 🧲 Filmes (torrent)
+
+Coleção com `"torrent": true` no `studio.config.json`. Aceita links `magnet:` e `.torrent`. Link do
+Internet Archive (`archive.org/details/…`) vira o **.torrent oficial do item** (com os servidores do
+archive embutidos, então baixa rápido mesmo sem ninguém compartilhando) e o vídeo direto fica de
+reserva. A fonte automática *Filmes em domínio público (Internet Archive · torrent)* puxa 60 filmes
+marcados como domínio público por dia.
 
 ### Canais por país (seletor do TVzine)
 

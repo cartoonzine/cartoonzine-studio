@@ -20,9 +20,18 @@
     "nome": "Desenhos 24 Horas",
     "tipo": "vod_m3u",
     "prefixoId": "LIV_KID",
-    "targetCategory": "Desenhos 24 Horas",
+    "targetCategory": "Desenhos 24H",
     "agruparSeries": false,
     "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/desenhos-24h.m3u"
+  },
+  {
+    "_colecao": "youtoon",
+    "nome": "YouToon (Studio)",
+    "tipo": "vod_json",
+    "categoryType": "live",
+    "prefixoId": "YTN_BR",
+    "targetCategory": "Desenhos 24H",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/youtoon.json"
   },
   {
     "_colecao": "filmes",
@@ -31,6 +40,14 @@
     "prefixoId": "VOD_STU",
     "targetCategory": "Filmes",
     "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/filmes.json"
+  },
+  {
+    "_colecao": "filmes-torrent",
+    "nome": "Filmes Torrent (Studio)",
+    "tipo": "vod_json",
+    "prefixoId": "VOD_TOR",
+    "targetCategory": "Filmes",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/filmes-torrent.json"
   },
   {
     "_colecao": "series",

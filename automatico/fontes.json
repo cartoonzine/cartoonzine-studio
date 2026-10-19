@@ -26,6 +26,15 @@
       "removerSumidos": true
     },
     {
+      "nome": "Filmes em domínio público (Internet Archive · torrent)",
+      "ativo": true,
+      "colecao": "filmes-torrent",
+      "tipo": "archive-busca",
+      "busca": "collection:feature_films AND mediatype:movies AND licenseurl:*publicdomain*",
+      "limite": 60,
+      "dados": true
+    },
+    {
       "nome": "Desenhos clássicos (Internet Archive)",
       "ativo": false,
       "colecao": "cartoons",

@@ -631,7 +631,7 @@
                 const arch = (atual.links || []).map(C.idDoArchive).find(Boolean) || atual.archive;
                 const achados = [];
                 if (arch) {
-                    const doArchive = await C.importarArchive(arch, fetchExterno);
+                    const doArchive = await C.importarArchive(arch, fetchExterno, { torrent: !!col.torrent });
                     const linksSemArchive = (atual.links || []).filter(u => !C.idDoArchive(u) || /\.(mp4|mkv|webm|ogv)$/i.test(u));
                     atual = C.mesclarItem(Object.assign({}, atual, { links: linksSemArchive }), doArchive);
                     if (!atual.nome) atual.nome = doArchive.nome;
@@ -734,7 +734,7 @@ https://archive.org/details/algum_desenho
             const avisos = [];
             if (it.archive && !(it.links || []).length) {
                 try {
-                    const a = await C.importarArchive(it.archive, fetchExterno);
+                    const a = await C.importarArchive(it.archive, fetchExterno, { torrent: !!col.torrent });
                     const nomeManual = it.nome !== it.archive ? it.nome : null;
                     it = C.mesclarItem(a, Object.assign({}, it, { nome: nomeManual || a.nome }));
                     delete it.archive;
