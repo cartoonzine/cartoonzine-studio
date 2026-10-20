@@ -2,5 +2,12 @@
   "nome": "AO VIVO 🔴 OUTRA SEMANA NO CARTOON",
   "links": [
     "https://www.youtube.com/embed/R__oFJgWDqg"
-  ]
+  ],
+  "logo": "https://www.youtube.com/watch?v=R__oFJgWDqg&pp=ygUbY2FuYWlzIGRlIGRlc2VuaG9zIDI0IGhvcmFz",
+  "generos": [
+    "Silent",
+    "Comedy",
+    "Buster Keaton"
+  ],
+  "idioma": "Português"
 }
