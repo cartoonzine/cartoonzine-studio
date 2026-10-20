@@ -4,8 +4,14 @@
  "channels": [
   {
    "title": "AO VIVO 🔴 OUTRA SEMANA NO CARTOON",
+   "genre": [
+    "Silent",
+    "Comedy",
+    "Buster Keaton"
+   ],
    "studio": "youtoon/ao-vivo-outra-semana-no-cartoon",
    "url": "https://www.youtube.com/embed/R__oFJgWDqg",
+   "logo": "https://www.youtube.com/watch?v=R__oFJgWDqg&pp=ygUbY2FuYWlzIGRlIGRlc2VuaG9zIDI0IGhvcmFz",
    "idioma": "Português",
    "group": "Desenhos 24H"
   },
