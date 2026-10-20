@@ -3,18 +3,6 @@
  "nome": "YouToon",
  "channels": [
   {
-   "title": "Scooby-Doo 24H",
-   "genre": [
-    "Ação"
-   ],
-   "destaque": true,
-   "studio": "youtoon/portugues/ao-vivo-scooby-doo-episodios-completos",
-   "url": "https://www.youtube.com/embed/bOzBHA7ksUo",
-   "logo": "https://i.ytimg.com/vi/bOzBHA7ksUo/hqdefault.jpg",
-   "idioma": "Português",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "Bluey 24H",
    "desc": "Episódios completos de Bluey, ao vivo 24 horas.",
    "genre": [
@@ -48,6 +36,17 @@
    "studio": "youtoon/ao-vivo-outra-semana-no-cartoon",
    "url": "https://www.youtube.com/embed/R__oFJgWDqg",
    "logo": "https://i.ytimg.com/vi/R__oFJgWDqg/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Scooby-Doo 24H",
+   "genre": [
+    "Ação"
+   ],
+   "studio": "youtoon/portugues/ao-vivo-scooby-doo-episodios-completos",
+   "url": "https://www.youtube.com/embed/bOzBHA7ksUo",
+   "logo": "https://i.ytimg.com/vi/bOzBHA7ksUo/hqdefault.jpg",
    "idioma": "Português",
    "group": "Desenhos 24H"
   }
