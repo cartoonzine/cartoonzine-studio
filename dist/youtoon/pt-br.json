@@ -28,19 +28,6 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "AO VIVO 🔴 OUTRA SEMANA NO CARTOON",
-   "genre": [
-    "Silent",
-    "Comedy",
-    "Buster Keaton"
-   ],
-   "studio": "youtoon/ao-vivo-outra-semana-no-cartoon",
-   "url": "https://www.youtube.com/embed/R__oFJgWDqg",
-   "logo": "https://i.ytimg.com/vi/R__oFJgWDqg/hqdefault.jpg",
-   "idioma": "pt-BR",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "Bluey 24H",
    "desc": "Episódios completos de Bluey, ao vivo 24 horas.",
    "genre": [
@@ -49,6 +36,19 @@
    "studio": "youtoon/portugues/bluey-24h",
    "url": "https://www.youtube.com/embed/OBe-ehVPKKk",
    "logo": "https://i.ytimg.com/vi/OBe-ehVPKKk/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "OUTRA SEMANA NO CARTOON 24H",
+   "genre": [
+    "Silent",
+    "Comedy",
+    "Buster Keaton"
+   ],
+   "studio": "youtoon/ao-vivo-outra-semana-no-cartoon",
+   "url": "https://www.youtube.com/embed/R__oFJgWDqg",
+   "logo": "https://i.ytimg.com/vi/R__oFJgWDqg/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   }
