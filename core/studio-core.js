@@ -837,6 +837,15 @@
     // Campos de cada tipo (o painel desenha o formulário a partir daqui)
     // ------------------------------------------------------------------
     // tipos de campo: texto, textarea, numero, links, url, lista, escolha, bool, temporadas
+    // Aparência no banner da home (Vitrine). Só valem quando o item é destaque.
+    const SKINS_BANNER = ['cinema', 'arcade', 'poster', 'vintage'];
+    const FX_BANNER = ['none', 'crt', 'vhs', 'scan', 'cinema', 'neon', 'bw'];
+    const CAMPOS_BANNER = [
+        { k: 'bannerLogo', rotulo: 'Logo no banner (PNG)', tipo: 'url', imagem: true, avancado: true, dica: 'logo do título, de preferência PNG transparente; vazio = busca sozinho ou mostra o nome' },
+        { k: 'bannerVideo', rotulo: 'Vídeo da prévia no banner', tipo: 'url', avancado: true, dica: 'trailer/trecho que toca por cima do banner; vazio = usa o próprio vídeo' },
+        { k: 'bannerSkin', rotulo: 'Skin no banner', tipo: 'escolha', opcoes: ['', ...SKINS_BANNER], avancado: true, dica: 'vazio = a escolhida no aparelho (Daileon Dashboard)' },
+        { k: 'bannerFx', rotulo: 'Efeito no banner', tipo: 'escolha', opcoes: ['', ...FX_BANNER], avancado: true, dica: 'vazio = o escolhido no aparelho' }
+    ];
     const CAMPOS_COMUNS_MIDIA = [
         { k: 'capa', rotulo: 'Capa (imagem vertical)', tipo: 'url', imagem: true },
         { k: 'banner', rotulo: 'Banner (imagem horizontal)', tipo: 'url', imagem: true },
@@ -856,7 +865,8 @@
                 ...CAMPOS_COMUNS_MIDIA,
                 { k: 'audio', rotulo: 'Áudio', tipo: 'escolha', opcoes: ['', 'Dublado', 'Legendado', 'Dual Áudio', 'Original'] },
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
-                { k: 'temporadas', rotulo: 'Temporadas e episódios', tipo: 'temporadas' }
+                { k: 'temporadas', rotulo: 'Temporadas e episódios', tipo: 'temporadas' },
+                ...CAMPOS_BANNER
             ]
         },
         canal24h: {
@@ -868,7 +878,9 @@
                 { k: 'descricao', rotulo: 'Descrição', tipo: 'textarea' },
                 { k: 'generos', rotulo: 'Gêneros', tipo: 'lista' },
                 { k: 'idioma', rotulo: 'Idioma (lista do app)', tipo: 'escolha', opcoesDe: 'idiomas', dica: 'cada idioma tem a própria lista no Desenhos 24H; vazio = Português' },
-                { k: 'destaque', rotulo: 'Destaque', tipo: 'bool' }
+                { k: 'destaque', rotulo: 'Destaque', tipo: 'bool' },
+                { k: 'banner', rotulo: 'Banner (imagem horizontal)', tipo: 'url', imagem: true, avancado: true, dica: 'imagem larga para o banner da home' },
+                ...CAMPOS_BANNER
             ]
         },
         canal: {
@@ -925,7 +937,8 @@
                 { k: 'jogadores', rotulo: 'Jogadores', tipo: 'numero' },
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
-                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console' }
+                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console' },
+                ...CAMPOS_BANNER
             ]
         }
     };
@@ -975,6 +988,9 @@
         if (jog) out.jogadores = jog;
         for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
         if (b.destaque === true || b.destaque === 'true' || b.destaque === 'sim') out.destaque = true;
+        for (const k of ['bannerLogo', 'bannerVideo']) if (b[k]) out[k] = String(b[k]).trim();
+        if (SKINS_BANNER.includes(b.bannerSkin)) out.bannerSkin = b.bannerSkin;
+        if (FX_BANNER.includes(b.bannerFx)) out.bannerFx = b.bannerFx;
         // posição no banner da home (Vitrine): só vale para quem é destaque
         const ordem = inteiro(b.destaqueOrdem);
         if (out.destaque && ordem) out.destaqueOrdem = ordem;
@@ -1013,7 +1029,7 @@
         if (colecao.tipo === 'video' && temEps && (item.links || []).length) avisos.push('Tem link de filme E temporadas: o app mostra como série e o link avulso fica de fora');
         if (colecao.tipo === 'video' && !temEps && !(item.links || []).length) erros.push('Coloque o link do vídeo ou adicione temporadas/episódios');
         for (const u of item.links || []) if (!linkValido(u)) erros.push('Link inválido: ' + u);
-        for (const k of ['capa', 'banner', 'logo', 'site']) if (item[k] && !linkValido(item[k])) avisos.push(k + ' não parece um link: ' + item[k]);
+        for (const k of ['capa', 'banner', 'logo', 'site', 'bannerLogo', 'bannerVideo']) if (item[k] && !linkValido(item[k])) avisos.push(k + ' não parece um link: ' + item[k]);
         if (temEps) {
             for (const t of item.temporadas) {
                 const nums = new Set();
@@ -1081,6 +1097,8 @@
             genre: item.generos,
             destaque: item.destaque || undefined,
             destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
+            bannerlogo: item.bannerLogo, preview: item.bannerVideo,
+            bannerSkin: item.bannerSkin, bannerFx: item.bannerFx,
             studio: chave
         };
         switch (colecao.tipo) {
@@ -1105,7 +1123,7 @@
                 return limparVazios(o);
             }
             case 'canal24h':
-                return limparVazios(Object.assign(base, { url, mirrors: espelhos, logo: item.logo, idioma: item.idioma || (colecao.padroes && colecao.padroes.idioma), group: colecao.fonteCloud && colecao.fonteCloud.targetCategory }));
+                return limparVazios(Object.assign(base, { url, mirrors: espelhos, logo: item.logo, bannerThumb: item.banner, idioma: item.idioma || (colecao.padroes && colecao.padroes.idioma), group: colecao.fonteCloud && colecao.fonteCloud.targetCategory }));
             case 'livro':
                 return limparVazios(Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
@@ -1132,7 +1150,7 @@
             case 'jogo':
                 return limparVazios(Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
-                    logo: item.logo, video: item.video, preview: item.video,   // logo + vídeo snap (ScreenScraper) para o banner
+                    logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
                     console: item.console, players: item.jogadores, core: item.core
                 }));
             default:

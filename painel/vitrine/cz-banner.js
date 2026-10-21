@@ -156,8 +156,15 @@
 
         // logo PNG (CZLogo: TMDB/jogos) → bannerlogo → texto. ALTURA grande (proporção do banner antigo).
         var logoEl = raiz.querySelector('#czb-logo');
-        if (window.CZLogo && window.CZLogo.aplicar) window.CZLogo.aplicar(logoEl, it, { alt: tituloTxt, ao: 'left', altura: 'clamp(120px,19vh,200px)', largura: 'min(82%,660px)' });
-        else if (it.bannerlogo || it.logo) logoEl.innerHTML = '<img class="czb-logoimg" src="' + esc(it.bannerlogo || it.logo) + '" alt="' + esc(tituloTxt) + '">';
+        // logo escolhido à mão (Vitrine do Studio: "bannerlogo") vence a busca automática do CZLogo
+        if (it.bannerlogo) {
+            var imLogo = document.createElement('img');
+            imLogo.className = 'czb-logoimg'; imLogo.alt = tituloTxt; imLogo.src = it.bannerlogo;
+            imLogo.onerror = function () { logoEl.innerHTML = '<h1 class="czb-wm">' + esc(tituloTxt) + '</h1>'; };   // link quebrado: volta ao nome
+            logoEl.innerHTML = ''; logoEl.appendChild(imLogo);
+        }
+        else if (window.CZLogo && window.CZLogo.aplicar) window.CZLogo.aplicar(logoEl, it, { alt: tituloTxt, ao: 'left', altura: 'clamp(120px,19vh,200px)', largura: 'min(82%,660px)' });
+        else if (it.logo) logoEl.innerHTML = '<img class="czb-logoimg" src="' + esc(it.logo) + '" alt="' + esc(tituloTxt) + '">';
 
         // dados de cinema (IMDb/TMDB/OMDb) — preenchem a nota ★ na linha limpa, via CZInfo (só filmes/séries)
         if (!isGame && window.CZInfo && window.CZInfo.ficha) {
