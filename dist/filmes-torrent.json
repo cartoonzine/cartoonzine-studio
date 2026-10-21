@@ -71,26 +71,94 @@
    ]
   },
   {
-   "title": "last of the mohicans",
-   "desc": "First film adaptation from the James Fenimore Cooper novel of the same name. This film also features one of Boris Karloff's earliest film appearances in a small uncredited role as a Native American.",
+   "title": "lost world",
+   "desc": "The first film adaptation of Sir Arthur Conan Doyle's classic novel about a land where prehistoric creatures still roam.You can find more information regarding this film on its IMDb page.",
+   "year": 1925,
+   "genre": [
+    "adventure",
+    "fantasy"
+   ],
+   "destaque": true,
+   "destaqueOrdem": 6,
+   "studio": "filmes-torrent/lost-world",
+   "thumb": "https://archive.org/services/img/lost_world",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/mdNae6nOlJ7iKxFgsWSAgxU9shS.jpg",
+   "imdbId": "tt0016039",
+   "tmdbId": "movie/2981",
+   "imdbRating": 7,
+   "imdbVotes": 6707,
+   "url": "https://archive.org/download/lost_world/lost_world_archive.torrent",
+   "mirrors": [
+    "https://archive.org/download/lost_world/lost_world.mp4"
+   ]
+  },
+  {
+   "title": "Mark of Zorro",
+   "desc": "Mark of Zorro was the transition between Douglas Fairbanks' early career as a brash all-American hero and the lavish 1920s costume adventures.",
    "year": 1920,
    "genre": [
-    "Adventure",
-    "Drama",
-    "Silent"
+    "western",
+    "silent"
+   ],
+   "destaque": true,
+   "destaqueOrdem": 7,
+   "studio": "filmes-torrent/mark-of-zorro",
+   "thumb": "https://archive.org/services/img/markofzorro-1920",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/oNEY4mX0C9bO1KaVWYf9kTsq9oS.jpg",
+   "imdbId": "tt0011439",
+   "tmdbId": "movie/42657",
+   "imdbRating": 7.1,
+   "imdbVotes": 2866,
+   "url": "https://archive.org/download/markofzorro-1920/markofzorro-1920_archive.torrent",
+   "mirrors": [
+    "https://archive.org/download/markofzorro-1920/markofzorro.mp4"
+   ]
+  },
+  {
+   "title": "One Week",
+   "desc": "Buster and Sybil exit a chapel as newlyweds. Among the gifts is a portable house you easily put together in one week",
+   "year": 1920,
+   "genre": [
+    "Silent",
+    "Comedy",
+    "Buster Keaton"
    ],
    "destaque": true,
    "destaqueOrdem": 4,
-   "studio": "filmes-torrent/last-of-the-mohicans",
-   "thumb": "https://archive.org/services/img/last_of_the_mohicans_1920",
-   "bannerThumb": "https://image.tmdb.org/t/p/w1280/tmlQiAYNdYmyGBZfcWIKhmwbBA7.jpg",
-   "imdbId": "tt0011387",
-   "tmdbId": "movie/71065",
-   "imdbRating": 6.7,
-   "imdbVotes": 1472,
-   "url": "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_1920_archive.torrent",
+   "studio": "filmes-torrent/one-week",
+   "thumb": "https://archive.org/services/img/OneWeek",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/fgKoKVw0f2X2ajilfoyra3LFrwo.jpg",
+   "imdbId": "tt0011541",
+   "tmdbId": "movie/23282",
+   "imdbRating": 8.1,
+   "imdbVotes": 9535,
+   "url": "https://archive.org/download/OneWeek/OneWeek_archive.torrent",
    "mirrors": [
-    "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_silent.mp4"
+    "https://archive.org/download/OneWeek/One_Week_512kb.mp4"
+   ]
+  },
+  {
+   "title": "The Phantom of the Opera",
+   "desc": "At the Opera of Paris, a mysterious phantom threatens a famous lyric singer, Carlotta and thus forces her to give up her role (Marguerite in Faust) for unknown Christine Daae. \nChristine meets this phantom (a masked man) in the catacombs, where he lives.",
+   "year": 1925,
+   "genre": [
+    "silent",
+    "drama",
+    "horror",
+    "pdmovies"
+   ],
+   "destaque": true,
+   "destaqueOrdem": 5,
+   "studio": "filmes-torrent/the-phantom-of-the-opera",
+   "thumb": "https://archive.org/services/img/ThePhantomoftheOpera",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/6FSs7jMimg1PBYdhZtPNQhtKtEc.jpg",
+   "imdbId": "tt0016220",
+   "tmdbId": "movie/964",
+   "imdbRating": 7.5,
+   "imdbVotes": 22519,
+   "url": "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent",
+   "mirrors": [
+    "https://archive.org/download/ThePhantomoftheOpera/Phantom_of_the_Opera_512kb.mp4"
    ]
   },
   {
@@ -689,43 +757,24 @@
    ]
   },
   {
-   "title": "lost world",
-   "desc": "The first film adaptation of Sir Arthur Conan Doyle's classic novel about a land where prehistoric creatures still roam.You can find more information regarding this film on its IMDb page.",
-   "year": 1925,
-   "genre": [
-    "adventure",
-    "fantasy"
-   ],
-   "studio": "filmes-torrent/lost-world",
-   "thumb": "https://archive.org/services/img/lost_world",
-   "bannerThumb": "https://image.tmdb.org/t/p/w1280/mdNae6nOlJ7iKxFgsWSAgxU9shS.jpg",
-   "imdbId": "tt0016039",
-   "tmdbId": "movie/2981",
-   "imdbRating": 7,
-   "imdbVotes": 6707,
-   "url": "https://archive.org/download/lost_world/lost_world_archive.torrent",
-   "mirrors": [
-    "https://archive.org/download/lost_world/lost_world.mp4"
-   ]
-  },
-  {
-   "title": "Mark of Zorro",
-   "desc": "Mark of Zorro was the transition between Douglas Fairbanks' early career as a brash all-American hero and the lavish 1920s costume adventures.",
+   "title": "last of the mohicans",
+   "desc": "First film adaptation from the James Fenimore Cooper novel of the same name. This film also features one of Boris Karloff's earliest film appearances in a small uncredited role as a Native American.",
    "year": 1920,
    "genre": [
-    "western",
-    "silent"
+    "Adventure",
+    "Drama",
+    "Silent"
    ],
-   "studio": "filmes-torrent/mark-of-zorro",
-   "thumb": "https://archive.org/services/img/markofzorro-1920",
-   "bannerThumb": "https://image.tmdb.org/t/p/w1280/oNEY4mX0C9bO1KaVWYf9kTsq9oS.jpg",
-   "imdbId": "tt0011439",
-   "tmdbId": "movie/42657",
-   "imdbRating": 7.1,
-   "imdbVotes": 2866,
-   "url": "https://archive.org/download/markofzorro-1920/markofzorro-1920_archive.torrent",
+   "studio": "filmes-torrent/last-of-the-mohicans",
+   "thumb": "https://archive.org/services/img/last_of_the_mohicans_1920",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/tmlQiAYNdYmyGBZfcWIKhmwbBA7.jpg",
+   "imdbId": "tt0011387",
+   "tmdbId": "movie/71065",
+   "imdbRating": 6.7,
+   "imdbVotes": 1472,
+   "url": "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_1920_archive.torrent",
    "mirrors": [
-    "https://archive.org/download/markofzorro-1920/markofzorro.mp4"
+    "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_silent.mp4"
    ]
   },
   {
@@ -740,27 +789,6 @@
    "url": "https://archive.org/download/Nosferatu_DVD_quality/Nosferatu_DVD_quality_archive.torrent",
    "mirrors": [
     "https://archive.org/download/Nosferatu_DVD_quality/nosferatu-1of5_512kb.mp4"
-   ]
-  },
-  {
-   "title": "One Week",
-   "desc": "Buster and Sybil exit a chapel as newlyweds. Among the gifts is a portable house you easily put together in one week",
-   "year": 1920,
-   "genre": [
-    "Silent",
-    "Comedy",
-    "Buster Keaton"
-   ],
-   "studio": "filmes-torrent/one-week",
-   "thumb": "https://archive.org/services/img/OneWeek",
-   "bannerThumb": "https://image.tmdb.org/t/p/w1280/fgKoKVw0f2X2ajilfoyra3LFrwo.jpg",
-   "imdbId": "tt0011541",
-   "tmdbId": "movie/23282",
-   "imdbRating": 8.1,
-   "imdbVotes": 9535,
-   "url": "https://archive.org/download/OneWeek/OneWeek_archive.torrent",
-   "mirrors": [
-    "https://archive.org/download/OneWeek/One_Week_512kb.mp4"
    ]
   },
   {
@@ -935,28 +963,6 @@
    "url": "https://archive.org/download/PublicdomainTheLastoftheMohicans/PublicdomainTheLastoftheMohicans_archive.torrent",
    "mirrors": [
     "https://archive.org/download/PublicdomainTheLastoftheMohicans/Last_of_the_Mohicans.mp4"
-   ]
-  },
-  {
-   "title": "The Phantom of the Opera",
-   "desc": "At the Opera of Paris, a mysterious phantom threatens a famous lyric singer, Carlotta and thus forces her to give up her role (Marguerite in Faust) for unknown Christine Daae. \nChristine meets this phantom (a masked man) in the catacombs, where he lives.",
-   "year": 1925,
-   "genre": [
-    "silent",
-    "drama",
-    "horror",
-    "pdmovies"
-   ],
-   "studio": "filmes-torrent/the-phantom-of-the-opera",
-   "thumb": "https://archive.org/services/img/ThePhantomoftheOpera",
-   "bannerThumb": "https://image.tmdb.org/t/p/w1280/6FSs7jMimg1PBYdhZtPNQhtKtEc.jpg",
-   "imdbId": "tt0016220",
-   "tmdbId": "movie/964",
-   "imdbRating": 7.5,
-   "imdbVotes": 22519,
-   "url": "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent",
-   "mirrors": [
-    "https://archive.org/download/ThePhantomoftheOpera/Phantom_of_the_Opera_512kb.mp4"
    ]
   },
   {
