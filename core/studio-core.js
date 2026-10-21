@@ -923,6 +923,7 @@
                 { k: 'links', rotulo: 'Link da ROM', tipo: 'links', obrigatorio: true },
                 ...CAMPOS_COMUNS_MIDIA,
                 { k: 'jogadores', rotulo: 'Jogadores', tipo: 'numero' },
+                { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
                 { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console' }
             ]
@@ -974,6 +975,9 @@
         if (jog) out.jogadores = jog;
         for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
         if (b.destaque === true || b.destaque === 'true' || b.destaque === 'sim') out.destaque = true;
+        // posição no banner da home (Vitrine): só vale para quem é destaque
+        const ordem = inteiro(b.destaqueOrdem);
+        if (out.destaque && ordem) out.destaqueOrdem = ordem;
         if (b.headers && typeof b.headers === 'object') {
             if (b.headers['User-Agent'] && !out.userAgent) out.userAgent = b.headers['User-Agent'];
             if (b.headers['Referer'] && !out.referer) out.referer = b.headers['Referer'];
@@ -1076,6 +1080,7 @@
             year: item.ano,
             genre: item.generos,
             destaque: item.destaque || undefined,
+            destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
             studio: chave
         };
         switch (colecao.tipo) {
@@ -1335,7 +1340,10 @@
             caminho,
             nome: item.nome || item.titulo || item.title,
             capa: item.capa || item.logo,
+            banner: item.banner,
             ano: item.ano,
+            destaque: item.destaque ? true : undefined,
+            destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
             nota: item.notaImdb,
             eps: contarEpisodios(item) || undefined,
             pais: item.pais, console: item.console, categoria: item.categoria,
