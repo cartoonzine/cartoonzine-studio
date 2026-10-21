@@ -338,3 +338,19 @@ test('Internet Archive em coleção de livros: melhor arquivo de leitura + reser
         files: [{ name: '31971-8.txt' }, { name: 'pg31971.epub' }, { name: 'pg31971-images.epub' }, { name: 'pg31971.txt_meta.txt' }] }, 'g1', { livro: true });
     assert.match(gut.links[0], /pg31971-images\.epub$/); assert.match(gut.links[1], /\.txt$/); assert.equal(gut.idioma, 'Português');
 });
+
+test('Vitrine: destaqueOrdem só com destaque, vai para o cloud e para o índice do painel', () => {
+    const filmes = col('filmes');
+    const it = C.normalizarItem({ nome: 'O Garoto', links: ['https://exemplo.com/kid.mp4'], destaque: true, destaqueOrdem: '2', banner: 'https://exemplo.com/b.jpg' }, filmes);
+    assert.equal(it.destaqueOrdem, 2);
+    const semDestaque = C.normalizarItem({ nome: 'X', links: ['https://exemplo.com/x.mp4'], destaqueOrdem: 3 }, filmes);
+    assert.equal(semDestaque.destaqueOrdem, undefined);
+    const cloud = C.paraCloud(it, filmes, 'filmes/o-garoto');
+    assert.equal(cloud.destaque, true);
+    assert.equal(cloud.destaqueOrdem, 2);
+    const r = C.resumoItem('conteudo/filmes/o-garoto.json', it);
+    assert.deepEqual([r.destaque, r.destaqueOrdem, r.banner], [true, 2, 'https://exemplo.com/b.jpg']);
+    assert.equal(C.resumoItem('conteudo/filmes/x.json', semDestaque).destaque, undefined);
+    // jogo também pode ir para o banner pelo formulário
+    assert.ok(C.TIPOS.jogo.campos.some(c => c.k === 'destaque'));
+});

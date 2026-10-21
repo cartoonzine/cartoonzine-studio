@@ -237,7 +237,7 @@
     // ==================================================================
     // Estado
     // ==================================================================
-    const estado = { repo: null, config: null, indice: [], col: null, aba: 'itens', busca: '' };
+    const estado = { repo: null, config: null, indice: [], col: null, aba: 'itens', busca: '', tela: 'colecoes' };
 
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
@@ -252,6 +252,8 @@
         $('#btn-sair').hidden = repo.modo === 'local';
         $('#btn-publicacao').hidden = false;
         $('#btn-chaves').hidden = false;
+        $('#btn-vitrine').hidden = false;
+        estado.tela = location.hash === '#vitrine' ? 'vitrine' : 'colecoes';
         await recarregarIndice();
         desenharApp();
     }
@@ -319,7 +321,7 @@
           <nav class="lateral" aria-label="Coleções">
             <h2>Coleções</h2>
             ${cfg.colecoes.map(c => `
-              <button class="colecao ${c.id === estado.col ? 'ativa' : ''}" data-col="${esc(c.id)}">
+              <button class="colecao ${c.id === estado.col && estado.tela === 'colecoes' ? 'ativa' : ''}" data-col="${esc(c.id)}">
                 <span class="ic" aria-hidden="true">${esc(c.icone || '•')}</span>
                 <span class="nm">${esc(c.nome)}</span>
                 <span class="ct">${itensDaColecao(c.id).length}</span>
@@ -328,10 +330,13 @@
           <section class="principal-area" id="area"></section>
         </div>`;
         $$('.colecao').forEach(b => b.addEventListener('click', () => {
+            if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
             estado.col = b.dataset.col; estado.busca = ''; guardar.gravar('czs-col', estado.col);
+            if (estado.tela === 'vitrine') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
             desenharApp();
         }));
-        desenharArea();
+        $('#btn-vitrine').classList.toggle('ativo', estado.tela === 'vitrine');
+        if (estado.tela === 'vitrine') desenharVitrine(); else desenharArea();
     }
 
     function desenharArea() {
@@ -680,6 +685,197 @@
     }
 
     // ==================================================================
+    // 🎬 Vitrine — o banner da home do Cartoonzine
+    //   Lista os itens com destaque (de todas as coleções que vão para o banner),
+    //   deixa ordenar, tirar e adicionar, e publica tudo num commit só.
+    //   A ordem desta lista vira o "destaqueOrdem" (1, 2, 3…) de cada item.
+    // ==================================================================
+    const TIPOS_VITRINE = ['video', 'jogo', 'canal24h'];        // o que o app mostra no banner (DB.videos + DB.games)
+    const vit = { lista: null, base: null, busca: '', col: '', soBanner: false, focar: null };
+
+    const colDoCaminho = c => estado.config.colecoes.find(x => x.id === String(c).split('/')[1]);
+    const colsVitrine = () => estado.config.colecoes.filter(c => TIPOS_VITRINE.includes(c.tipo));
+    const naVitrine = i => { const c = colDoCaminho(i.caminho); return !!c && TIPOS_VITRINE.includes(c.tipo); };
+    const ordemVitrine = (a, b) => (a.destaqueOrdem || 1e9) - (b.destaqueOrdem || 1e9) || String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true });
+
+    function lerVitrineDoIndice() {
+        const dest = estado.indice.filter(i => i.destaque && naVitrine(i)).sort(ordemVitrine);
+        vit.lista = dest.map(i => i.caminho);
+        vit.base = new Map(dest.map(i => [i.caminho, i.destaqueOrdem || null]));
+    }
+    /** O que mudou em relação ao que está publicado: [{caminho, ordem|null}] (null = sai do banner) */
+    function mudancasVitrine() {
+        if (!vit.lista) return [];
+        const out = [];
+        vit.lista.forEach((c, i) => { if (!vit.base.has(c) || vit.base.get(c) !== i + 1) out.push({ caminho: c, ordem: i + 1 }); });
+        for (const c of vit.base.keys()) if (!vit.lista.includes(c)) out.push({ caminho: c, ordem: null });
+        return out;
+    }
+    function sairDaVitrineOk() {
+        const n = mudancasVitrine().length;
+        if (!n || confirm(`A Vitrine tem ${n} mudança(s) não publicada(s). Sair mesmo assim?`)) { vit.lista = null; return true; }
+        return false;
+    }
+
+    function desenharVitrine() {
+        // sem mudanças pendentes, a lista sempre espelha o que está salvo (ex.: depois de editar um item)
+        if (!vit.lista || !mudancasVitrine().length) lerVitrineDoIndice();
+        const porCaminho = new Map(estado.indice.map(i => [i.caminho, i]));
+        const pend = mudancasVitrine().length;
+        const cols = colsVitrine();
+        const linha = (c, i) => {
+            const it = porCaminho.get(c) || { caminho: c, nome: c.split('/').pop().replace(/\.json$/, '') };
+            const col = colDoCaminho(c) || {};
+            const img = it.banner || it.capa;
+            const meta = [esc(col.icone || '') + ' ' + esc(col.nome || ''), it.ano, it.console].filter(Boolean).join(' · ');
+            return `<li class="vit-linha" draggable="true" data-caminho="${esc(c)}" data-i="${i}">
+                <span class="vit-pega" aria-hidden="true">⋮⋮</span>
+                <span class="vit-pos">${String(i + 1).padStart(2, '0')}</span>
+                <span class="vit-img">${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</span>
+                <span class="vit-txt"><b>${esc(it.nome)}</b><small>${meta}${!it.banner ? ' · <span class="vit-alerta">sem imagem de banner</span>' : ''}${!vit.base.has(c) ? ' · <span class="vit-novo">novo</span>' : ''}</small></span>
+                <span class="vit-acoes">
+                  <button type="button" class="btn mini fantasma" data-editar="${esc(c)}" title="Editar o item (imagem do banner, sinopse…)">✎</button>
+                  <button type="button" class="btn mini" data-sobe="${i}" ${i === 0 ? 'disabled' : ''} title="Subir" aria-label="Subir ${esc(it.nome)}">↑</button>
+                  <button type="button" class="btn mini" data-desce="${i}" ${i === vit.lista.length - 1 ? 'disabled' : ''} title="Descer" aria-label="Descer ${esc(it.nome)}">↓</button>
+                  <button type="button" class="btn mini perigo" data-tirar="${esc(c)}" title="Tirar do banner" aria-label="Tirar ${esc(it.nome)} do banner">✕</button>
+                </span>
+              </li>`;
+        };
+        $('#area').innerHTML = `
+          <div class="cab">
+            <div>
+              <h1>🎬 Vitrine</h1>
+              <div class="sub">Banner da home do Cartoonzine · ${vit.lista.length} ${vit.lista.length === 1 ? 'destaque' : 'destaques'} · a ordem desta lista é a ordem do carrossel</div>
+            </div>
+            <div class="espaco"></div>
+            ${pend ? `<span class="chip vit-pend">${pend} ${pend === 1 ? 'mudança' : 'mudanças'} para publicar</span>
+              <button class="btn fantasma" id="vit-desfazer">Desfazer</button>` : ''}
+            <button class="btn principal" id="vit-publicar" ${pend ? '' : 'disabled'}>Publicar vitrine</button>
+          </div>
+          <section class="painel vit-bloco">
+            <h2 class="vit-h">No banner agora</h2>
+            ${vit.lista.length ? `<ol class="vit-lista">${vit.lista.map(linha).join('')}</ol>`
+              : `<div class="vazio" style="margin-top:6px"><b>Nenhum item do Studio no banner</b>Marque itens na busca abaixo para colocá-los no banner.</div>`}
+            <p class="dica" style="margin:12px 0 0">Arraste ou use ↑ ↓ para mudar a ordem. Destaques escritos à mão no DB legacy (no seu PC) não aparecem aqui, mas continuam no banner.</p>
+          </section>
+          <section class="painel vit-bloco">
+            <h2 class="vit-h">Adicionar ao banner</h2>
+            <div class="vit-filtros">
+              <input class="busca campo" id="vit-busca" type="search" placeholder="Buscar filme, desenho, série, jogo…" value="${esc(vit.busca)}" aria-label="Buscar itens">
+              <select class="campo" id="vit-col" aria-label="Coleção">
+                <option value="">Todas as coleções</option>
+                ${cols.map(c => `<option value="${esc(c.id)}" ${vit.col === c.id ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}
+              </select>
+              <label class="check"><input type="checkbox" id="vit-sobanner" ${vit.soBanner ? 'checked' : ''}> só com imagem de banner</label>
+            </div>
+            <div id="vit-resultados"></div>
+          </section>`;
+        desenharResultadosVitrine();
+
+        // ---- ações da lista ----
+        const mover = (de, para) => {
+            if (para < 0 || para >= vit.lista.length || de === para) return;
+            const [c] = vit.lista.splice(de, 1);
+            vit.lista.splice(para, 0, c);
+        };
+        $$('[data-sobe]').forEach(b => b.onclick = () => { const i = +b.dataset.sobe; mover(i, i - 1); vit.focar = `[data-sobe="${i - 1}"]`; desenharVitrine(); });
+        $$('[data-desce]').forEach(b => b.onclick = () => { const i = +b.dataset.desce; mover(i, i + 1); vit.focar = `[data-desce="${i + 1}"]`; desenharVitrine(); });
+        $$('[data-tirar]').forEach(b => b.onclick = () => { vit.lista = vit.lista.filter(c => c !== b.dataset.tirar); desenharVitrine(); });
+        $$('[data-editar]').forEach(b => b.onclick = () => {
+            const col = colDoCaminho(b.dataset.editar);
+            if (!col) return;
+            estado.col = col.id;
+            abrirEditor(b.dataset.editar);
+        });
+        // arrastar e soltar
+        let arrastando = null;
+        $$('.vit-linha').forEach(li => {
+            li.addEventListener('dragstart', ev => { arrastando = +li.dataset.i; li.classList.add('arrastando'); ev.dataTransfer.effectAllowed = 'move'; try { ev.dataTransfer.setData('text/plain', li.dataset.caminho); } catch (e) { /* */ } });
+            li.addEventListener('dragend', () => { li.classList.remove('arrastando'); $$('.vit-linha.alvo').forEach(x => x.classList.remove('alvo')); });
+            li.addEventListener('dragover', ev => { if (arrastando === null) return; ev.preventDefault(); $$('.vit-linha.alvo').forEach(x => x.classList.remove('alvo')); li.classList.add('alvo'); });
+            li.addEventListener('drop', ev => { ev.preventDefault(); if (arrastando === null) return; mover(arrastando, +li.dataset.i); arrastando = null; desenharVitrine(); });
+        });
+        // ---- topo ----
+        const desf = $('#vit-desfazer');
+        if (desf) desf.onclick = () => { lerVitrineDoIndice(); desenharVitrine(); };
+        $('#vit-publicar').onclick = publicarVitrine;
+        // ---- busca ----
+        const busca = $('#vit-busca');
+        busca.addEventListener('input', () => { vit.busca = busca.value; desenharResultadosVitrine(); });
+        $('#vit-col').onchange = e => { vit.col = e.target.value; desenharResultadosVitrine(); };
+        $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; desenharResultadosVitrine(); };
+        if (vit.focar) {
+            // a seta do topo/fim fica desligada: o foco vai para a outra seta da mesma linha
+            let f = $(vit.focar);
+            if (f && f.disabled) f = f.closest('.vit-linha')?.querySelector('[data-sobe]:not(:disabled), [data-desce]:not(:disabled)');
+            if (f) f.focus();
+            vit.focar = null;
+        }
+    }
+
+    function desenharResultadosVitrine() {
+        const box = $('#vit-resultados');
+        if (!box) return;
+        const alvo = C.normText(vit.busca);
+        const MAX = 60;
+        const achados = estado.indice
+            .filter(i => naVitrine(i) && !i.rascunho)
+            .filter(i => !vit.col || colDoCaminho(i.caminho).id === vit.col)
+            .filter(i => !vit.soBanner || i.banner)
+            .filter(i => !alvo || C.normText(i.nome).includes(alvo) || C.normText(i.caminho).includes(alvo))
+            .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
+        const naLista = new Set(vit.lista);
+        box.innerHTML = !achados.length ? `<div class="vazio" style="margin-top:12px">Nada encontrado${vit.busca ? ' para "' + esc(vit.busca) + '"' : ''}.</div>` : `
+          <div class="grade vit-grade">${achados.slice(0, MAX).map(i => {
+              const col = colDoCaminho(i.caminho) || {};
+              const img = i.banner || i.capa;
+              const on = naLista.has(i.caminho);
+              return `<button type="button" class="card largo vit-card ${on ? 'on' : ''}" data-alternar="${esc(i.caminho)}" aria-pressed="${on}" title="${on ? 'Tirar do banner' : 'Colocar no banner'}">
+                <span class="vit-marca" aria-hidden="true">${on ? '✓' : ''}</span>
+                <div class="img">${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</div>
+                <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc([col.nome, i.ano].filter(Boolean).join(' · '))}${!i.banner ? ' · sem banner' : ''}</div></div>
+              </button>`;
+          }).join('')}</div>
+          ${achados.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${achados.length}. Refine a busca para achar o resto.</p>` : ''}`;
+        $$('[data-alternar]', box).forEach(b => b.onclick = () => {
+            const c = b.dataset.alternar;
+            if (vit.lista.includes(c)) vit.lista = vit.lista.filter(x => x !== c); else vit.lista.push(c);
+            vit.focar = `[data-alternar="${CSS.escape(c)}"]`;
+            desenharVitrine();
+        });
+    }
+
+    async function publicarVitrine() {
+        const muds = mudancasVitrine();
+        if (!muds.length) return;
+        const botao = $('#vit-publicar');
+        botao.disabled = true; botao.textContent = 'Preparando…';
+        let mudancas;
+        try {
+            // muda SÓ o destaque/ordem de cada arquivo; o resto do item fica exatamente como estava
+            mudancas = await Promise.all(muds.map(async m => {
+                const bruto = await estado.repo.ler(m.caminho);
+                const novo = Object.assign({}, bruto);
+                if (m.ordem) { novo.destaque = true; novo.destaqueOrdem = m.ordem; }
+                else { delete novo.destaque; delete novo.destaqueOrdem; }
+                return { caminho: m.caminho, conteudo: C.serializar(novo) };
+            }));
+        } catch (e) {
+            aviso('Não consegui ler os itens: ' + e.message, 'ruim');
+            botao.disabled = false; botao.textContent = 'Publicar vitrine';
+            return;
+        }
+        botao.textContent = 'Publicar vitrine';
+        const antes = vit.lista.slice(), fica = antes.length;
+        try {
+            vit.lista = null;                                         // depois de salvar, a lista volta a espelhar o índice
+            await gravar(mudancas, `Studio: vitrine do banner (${fica} ${fica === 1 ? 'destaque' : 'destaques'}, ${mudancas.length} ${mudancas.length === 1 ? 'item alterado' : 'itens alterados'})`, botao);
+        } catch (e) {
+            vit.lista = antes;                                        // não salvou: a lista montada continua na tela
+        }
+    }
+
+    // ==================================================================
     // Adição rápida
     // ==================================================================
     const rapido = { texto: '', previa: null };
@@ -881,11 +1077,23 @@ https://archive.org/details/algum_desenho
     // ==================================================================
     $('#btn-publicacao').addEventListener('click', mostrarPublicacao);
     $('#btn-chaves').addEventListener('click', mostrarChaves);
+    // 🎬 Vitrine: endereço próprio (…/painel/#vitrine), dá para favoritar e abrir direto
+    $('#btn-vitrine').addEventListener('click', () => { if (location.hash !== '#vitrine') location.hash = 'vitrine'; });
+    window.addEventListener('hashchange', () => {
+        if (!estado.repo) return;
+        const quer = location.hash === '#vitrine' ? 'vitrine' : 'colecoes';
+        if (quer === estado.tela) return;
+        if (estado.tela === 'vitrine' && !sairDaVitrineOk()) { history.replaceState(null, '', '#vitrine'); return; }
+        estado.tela = quer;
+        desenharApp();
+    });
+    window.addEventListener('beforeunload', ev => { if (estado.tela === 'vitrine' && mudancasVitrine().length) { ev.preventDefault(); ev.returnValue = ''; } });
     $('#btn-sair').addEventListener('click', () => {
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true;
+        vit.lista = null;
         telaConectar();
     });
 
