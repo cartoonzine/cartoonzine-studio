@@ -248,3 +248,19 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
   .vit-pos { grid-area: pos; } .vit-img { grid-area: img; } .vit-txt { grid-area: txt; }
   .vit-acoes { grid-area: acoes; justify-content: flex-end; }
 }
+
+/* ---------- Vitrine: prévia do banner (TV 1920×1080 reduzida) ---------- */
+.vit-previa-topo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 12px; }
+.vit-previa-topo .vit-h { margin: 0; }
+.vit-contador { margin-left: 8px; color: var(--verde); font-family: Orbitron, Inter, sans-serif; letter-spacing: .08em; }
+.vit-controles { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.campo.mini { width: auto; padding: 4px 8px; min-height: 30px; font-size: 13px; }
+.check.mini { font-size: 13px; gap: 6px; }
+.check.mini input { width: 15px; height: 15px; }
+.vit-tela { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 10px; background: #000;
+  border: 1px solid var(--borda); box-shadow: 0 18px 50px rgba(0, 0, 0, .55), 0 0 0 1px rgba(46, 139, 255, .08); }
+.vit-tela iframe { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; border: 0; transform-origin: 0 0; pointer-events: auto; }
+.vit-tela-vazia { position: absolute; inset: 0; display: grid; place-items: center; color: var(--suave); font-size: 14px; text-align: center; padding: 20px; }
+.vit-linha { cursor: pointer; }
+.vit-linha.no-ar { border-color: rgba(46, 139, 255, .65); background: linear-gradient(90deg, rgba(46, 139, 255, .12), var(--fundo-2) 60%); }
+.vit-linha.no-ar .vit-pos { color: var(--azul); }
