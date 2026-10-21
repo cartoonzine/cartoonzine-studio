@@ -735,6 +735,7 @@
         $('#area').innerHTML = `
           <div id="vit-raiz">
             <div class="cab" id="vit-cab"></div>
+            <div class="vit-duo">
             <section class="painel vit-bloco vit-previa-bloco">
               <div class="vit-previa-topo">
                 <h2 class="vit-h">Prévia do banner <span class="vit-contador" id="vit-contador"></span></h2>
@@ -754,11 +755,12 @@
               </div>
               <p class="dica" style="margin:10px 0 0" ${vit.prev.mostrar ? '' : 'hidden'} id="vp-dica">É o banner de verdade do app, numa TV Full HD. Skin, efeito e vídeo aqui só mudam a prévia — no app eles ficam no Daileon Dashboard de cada aparelho. Clique numa linha da lista para ver aquele destaque.</p>
             </section>
-            <section class="painel vit-bloco">
+            <section class="painel vit-bloco vit-lista-bloco">
               <h2 class="vit-h">No banner agora</h2>
-              <div id="vit-lista-box"></div>
-              <p class="dica" style="margin:12px 0 0">Arraste ou use ↑ ↓ para mudar a ordem. Destaques escritos à mão no DB legacy (no seu PC) não aparecem aqui, mas continuam no banner.</p>
+              <div class="vit-rolagem" id="vit-lista-box"></div>
+              <p class="dica vit-lista-dica">Arraste ou use ↑ ↓ para mudar a ordem. Destaques escritos à mão no DB legacy (no seu PC) não aparecem aqui, mas continuam no banner.</p>
             </section>
+            </div>
             <section class="painel vit-bloco">
               <h2 class="vit-h">Adicionar ao banner</h2>
               <div class="vit-filtros">
@@ -1024,6 +1026,9 @@
         if (vit.aberto !== c) return;
         vit.focar = '#aj-banner';
         desenharVitrine();
+        // a lista rola por dentro: traz a linha aberta para o topo da coluna
+        const caixa = $('#vit-lista-box'), li = $(`.vit-linha[data-caminho="${CSS.escape(c)}"]`);
+        if (caixa && li) caixa.scrollTop = li.offsetTop - 6;      // a caixa é "position: relative": offsetTop já é dentro dela
     }
 
     function desenharResultadosVitrine() {
