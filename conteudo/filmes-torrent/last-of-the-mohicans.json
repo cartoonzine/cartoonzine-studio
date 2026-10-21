@@ -18,5 +18,7 @@
     "Drama",
     "Silent"
   ],
-  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)"
+  "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
+  "destaque": true,
+  "destaqueOrdem": 4
 }
