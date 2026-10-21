@@ -667,6 +667,7 @@
         if (botao) { botao.disabled = true; botao.textContent = 'Salvando…'; }
         try {
             const msg = await estado.repo.salvar(mudancas, mensagem);
+            mudancas.forEach(m => vit.cache.delete(m.caminho));        // prévia da Vitrine relê o que mudou
             // índice: o local/demo é recalculado; no GitHub atualiza na hora com o que acabou de ir
             if (estado.repo.modo === 'github') {
                 for (const m of mudancas) {
@@ -689,9 +690,14 @@
     //   Lista os itens com destaque (de todas as coleções que vão para o banner),
     //   deixa ordenar, tirar e adicionar, e publica tudo num commit só.
     //   A ordem desta lista vira o "destaqueOrdem" (1, 2, 3…) de cada item.
+    //   PRÉVIA: o banner de verdade do app (painel/vitrine/cz-banner.js) numa "TV" 1920×1080.
     // ==================================================================
     const TIPOS_VITRINE = ['video', 'jogo', 'canal24h'];        // o que o app mostra no banner (DB.videos + DB.games)
-    const vit = { lista: null, base: null, busca: '', col: '', soBanner: false, focar: null };
+    const vit = {
+        lista: null, base: null, busca: '', col: '', soBanner: false, focar: null,
+        cache: new Map(),                                         // caminho -> item (arquivo) já lido, para a prévia
+        prev: { mostrar: guardar.ler('czs-vit-previa') !== false, auto: true, idx: 0, token: 0, timer: null }
+    };
 
     const colDoCaminho = c => estado.config.colecoes.find(x => x.id === String(c).split('/')[1]);
     const colsVitrine = () => estado.config.colecoes.filter(c => TIPOS_VITRINE.includes(c.tipo));
@@ -717,18 +723,83 @@
         return false;
     }
 
+    // ---------- esqueleto (montado uma vez; a prévia não recarrega a cada mudança) ----------
+    function montarVitrine() {
+        const cols = colsVitrine();
+        $('#area').innerHTML = `
+          <div id="vit-raiz">
+            <div class="cab" id="vit-cab"></div>
+            <section class="painel vit-bloco vit-previa-bloco">
+              <div class="vit-previa-topo">
+                <h2 class="vit-h">Prévia do banner <span class="vit-contador" id="vit-contador"></span></h2>
+                <div class="espaco"></div>
+                <div class="vit-controles" id="vit-controles" ${vit.prev.mostrar ? '' : 'hidden'}>
+                  <button type="button" class="btn mini" id="vp-ant" title="Destaque anterior" aria-label="Destaque anterior">◀</button>
+                  <button type="button" class="btn mini" id="vp-auto" title="Pausar/continuar a troca automática">${vit.prev.auto ? '⏸ Pausar' : '▶ Rodar'}</button>
+                  <button type="button" class="btn mini" id="vp-prox" title="Próximo destaque" aria-label="Próximo destaque">▶</button>
+                  <select class="campo mini" id="vp-skin" aria-label="Skin do banner" title="Skin do banner (no app: Daileon Dashboard)"></select>
+                  <select class="campo mini" id="vp-fx" aria-label="Efeito de imagem" title="Efeito de imagem"></select>
+                  <label class="check mini"><input type="checkbox" id="vp-video"> prévia em vídeo</label>
+                </div>
+                <button type="button" class="btn mini fantasma" id="vp-mostrar">${vit.prev.mostrar ? 'Esconder prévia' : 'Mostrar prévia'}</button>
+              </div>
+              <div class="vit-tela" id="vit-tela" ${vit.prev.mostrar ? '' : 'hidden'}>
+                <div class="vit-tela-vazia" id="vit-tela-vazia" hidden>O banner está vazio. Marque itens na busca abaixo.</div>
+              </div>
+              <p class="dica" style="margin:10px 0 0" ${vit.prev.mostrar ? '' : 'hidden'} id="vp-dica">É o banner de verdade do app, numa TV Full HD. Skin, efeito e vídeo aqui só mudam a prévia — no app eles ficam no Daileon Dashboard de cada aparelho. Clique numa linha da lista para ver aquele destaque.</p>
+            </section>
+            <section class="painel vit-bloco">
+              <h2 class="vit-h">No banner agora</h2>
+              <div id="vit-lista-box"></div>
+              <p class="dica" style="margin:12px 0 0">Arraste ou use ↑ ↓ para mudar a ordem. Destaques escritos à mão no DB legacy (no seu PC) não aparecem aqui, mas continuam no banner.</p>
+            </section>
+            <section class="painel vit-bloco">
+              <h2 class="vit-h">Adicionar ao banner</h2>
+              <div class="vit-filtros">
+                <input class="busca campo" id="vit-busca" type="search" placeholder="Buscar filme, desenho, série, jogo…" value="${esc(vit.busca)}" aria-label="Buscar itens">
+                <select class="campo" id="vit-col" aria-label="Coleção">
+                  <option value="">Todas as coleções</option>
+                  ${cols.map(c => `<option value="${esc(c.id)}" ${vit.col === c.id ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}
+                </select>
+                <label class="check"><input type="checkbox" id="vit-sobanner" ${vit.soBanner ? 'checked' : ''}> só com imagem de banner</label>
+              </div>
+              <div id="vit-resultados"></div>
+            </section>
+          </div>`;
+        const busca = $('#vit-busca');
+        busca.addEventListener('input', () => { vit.busca = busca.value; desenharResultadosVitrine(); });
+        $('#vit-col').onchange = e => { vit.col = e.target.value; desenharResultadosVitrine(); };
+        $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; desenharResultadosVitrine(); };
+        $('#vp-mostrar').onclick = () => {
+            vit.prev.mostrar = !vit.prev.mostrar; guardar.gravar('czs-vit-previa', vit.prev.mostrar);
+            ['#vit-tela', '#vit-controles', '#vp-dica'].forEach(s => { $(s).hidden = !vit.prev.mostrar; });
+            $('#vp-mostrar').textContent = vit.prev.mostrar ? 'Esconder prévia' : 'Mostrar prévia';
+            if (vit.prev.mostrar) criarTelaPrevia(); else removerTelaPrevia();
+        };
+        if (vit.prev.mostrar) criarTelaPrevia();
+    }
+
     function desenharVitrine() {
         // sem mudanças pendentes, a lista sempre espelha o que está salvo (ex.: depois de editar um item)
         if (!vit.lista || !mudancasVitrine().length) lerVitrineDoIndice();
+        if (!$('#vit-raiz')) montarVitrine();
         const porCaminho = new Map(estado.indice.map(i => [i.caminho, i]));
         const pend = mudancasVitrine().length;
-        const cols = colsVitrine();
+        $('#vit-cab').innerHTML = `
+            <div>
+              <h1>🎬 Vitrine</h1>
+              <div class="sub">Banner da home do Cartoonzine · ${vit.lista.length} ${vit.lista.length === 1 ? 'destaque' : 'destaques'} · a ordem desta lista é a ordem do carrossel</div>
+            </div>
+            <div class="espaco"></div>
+            ${pend ? `<span class="chip vit-pend">${pend} ${pend === 1 ? 'mudança' : 'mudanças'} para publicar</span>
+              <button class="btn fantasma" id="vit-desfazer">Desfazer</button>` : ''}
+            <button class="btn principal" id="vit-publicar" ${pend ? '' : 'disabled'}>Publicar vitrine</button>`;
         const linha = (c, i) => {
             const it = porCaminho.get(c) || { caminho: c, nome: c.split('/').pop().replace(/\.json$/, '') };
             const col = colDoCaminho(c) || {};
             const img = it.banner || it.capa;
             const meta = [esc(col.icone || '') + ' ' + esc(col.nome || ''), it.ano, it.console].filter(Boolean).join(' · ');
-            return `<li class="vit-linha" draggable="true" data-caminho="${esc(c)}" data-i="${i}">
+            return `<li class="vit-linha ${i === vit.prev.idx && vit.prev.mostrar ? 'no-ar' : ''}" draggable="true" data-caminho="${esc(c)}" data-i="${i}" title="Clique para ver na prévia">
                 <span class="vit-pega" aria-hidden="true">⋮⋮</span>
                 <span class="vit-pos">${String(i + 1).padStart(2, '0')}</span>
                 <span class="vit-img">${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</span>
@@ -741,35 +812,8 @@
                 </span>
               </li>`;
         };
-        $('#area').innerHTML = `
-          <div class="cab">
-            <div>
-              <h1>🎬 Vitrine</h1>
-              <div class="sub">Banner da home do Cartoonzine · ${vit.lista.length} ${vit.lista.length === 1 ? 'destaque' : 'destaques'} · a ordem desta lista é a ordem do carrossel</div>
-            </div>
-            <div class="espaco"></div>
-            ${pend ? `<span class="chip vit-pend">${pend} ${pend === 1 ? 'mudança' : 'mudanças'} para publicar</span>
-              <button class="btn fantasma" id="vit-desfazer">Desfazer</button>` : ''}
-            <button class="btn principal" id="vit-publicar" ${pend ? '' : 'disabled'}>Publicar vitrine</button>
-          </div>
-          <section class="painel vit-bloco">
-            <h2 class="vit-h">No banner agora</h2>
-            ${vit.lista.length ? `<ol class="vit-lista">${vit.lista.map(linha).join('')}</ol>`
-              : `<div class="vazio" style="margin-top:6px"><b>Nenhum item do Studio no banner</b>Marque itens na busca abaixo para colocá-los no banner.</div>`}
-            <p class="dica" style="margin:12px 0 0">Arraste ou use ↑ ↓ para mudar a ordem. Destaques escritos à mão no DB legacy (no seu PC) não aparecem aqui, mas continuam no banner.</p>
-          </section>
-          <section class="painel vit-bloco">
-            <h2 class="vit-h">Adicionar ao banner</h2>
-            <div class="vit-filtros">
-              <input class="busca campo" id="vit-busca" type="search" placeholder="Buscar filme, desenho, série, jogo…" value="${esc(vit.busca)}" aria-label="Buscar itens">
-              <select class="campo" id="vit-col" aria-label="Coleção">
-                <option value="">Todas as coleções</option>
-                ${cols.map(c => `<option value="${esc(c.id)}" ${vit.col === c.id ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}
-              </select>
-              <label class="check"><input type="checkbox" id="vit-sobanner" ${vit.soBanner ? 'checked' : ''}> só com imagem de banner</label>
-            </div>
-            <div id="vit-resultados"></div>
-          </section>`;
+        $('#vit-lista-box').innerHTML = vit.lista.length ? `<ol class="vit-lista">${vit.lista.map(linha).join('')}</ol>`
+            : `<div class="vazio" style="margin-top:6px"><b>Nenhum item do Studio no banner</b>Marque itens na busca abaixo para colocá-los no banner.</div>`;
         desenharResultadosVitrine();
 
         // ---- ações da lista ----
@@ -777,16 +821,23 @@
             if (para < 0 || para >= vit.lista.length || de === para) return;
             const [c] = vit.lista.splice(de, 1);
             vit.lista.splice(para, 0, c);
+            if (vit.prev.idx === de) vit.prev.idx = para;            // a prévia acompanha o item que se mexeu
         };
-        $$('[data-sobe]').forEach(b => b.onclick = () => { const i = +b.dataset.sobe; mover(i, i - 1); vit.focar = `[data-sobe="${i - 1}"]`; desenharVitrine(); });
-        $$('[data-desce]').forEach(b => b.onclick = () => { const i = +b.dataset.desce; mover(i, i + 1); vit.focar = `[data-desce="${i + 1}"]`; desenharVitrine(); });
-        $$('[data-tirar]').forEach(b => b.onclick = () => { vit.lista = vit.lista.filter(c => c !== b.dataset.tirar); desenharVitrine(); });
-        $$('[data-editar]').forEach(b => b.onclick = () => {
+        $$('[data-sobe]').forEach(b => b.onclick = ev => { ev.stopPropagation(); const i = +b.dataset.sobe; mover(i, i - 1); vit.focar = `[data-sobe="${i - 1}"]`; desenharVitrine(); });
+        $$('[data-desce]').forEach(b => b.onclick = ev => { ev.stopPropagation(); const i = +b.dataset.desce; mover(i, i + 1); vit.focar = `[data-desce="${i + 1}"]`; desenharVitrine(); });
+        $$('[data-tirar]').forEach(b => b.onclick = ev => { ev.stopPropagation(); vit.lista = vit.lista.filter(c => c !== b.dataset.tirar); desenharVitrine(); });
+        $$('[data-editar]').forEach(b => b.onclick = ev => {
+            ev.stopPropagation();
             const col = colDoCaminho(b.dataset.editar);
             if (!col) return;
             estado.col = col.id;
             abrirEditor(b.dataset.editar);
         });
+        $$('.vit-linha').forEach(li => li.addEventListener('click', ev => {
+            if (ev.target.closest('button')) return;
+            vit.prev.idx = +li.dataset.i;
+            irNaPrevia(vit.prev.idx);
+        }));
         // arrastar e soltar
         let arrastando = null;
         $$('.vit-linha').forEach(li => {
@@ -799,11 +850,6 @@
         const desf = $('#vit-desfazer');
         if (desf) desf.onclick = () => { lerVitrineDoIndice(); desenharVitrine(); };
         $('#vit-publicar').onclick = publicarVitrine;
-        // ---- busca ----
-        const busca = $('#vit-busca');
-        busca.addEventListener('input', () => { vit.busca = busca.value; desenharResultadosVitrine(); });
-        $('#vit-col').onchange = e => { vit.col = e.target.value; desenharResultadosVitrine(); };
-        $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; desenharResultadosVitrine(); };
         if (vit.focar) {
             // a seta do topo/fim fica desligada: o foco vai para a outra seta da mesma linha
             let f = $(vit.focar);
@@ -811,6 +857,7 @@
             if (f) f.focus();
             vit.focar = null;
         }
+        agendarPrevia();
     }
 
     function desenharResultadosVitrine() {
@@ -839,7 +886,8 @@
           ${achados.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${achados.length}. Refine a busca para achar o resto.</p>` : ''}`;
         $$('[data-alternar]', box).forEach(b => b.onclick = () => {
             const c = b.dataset.alternar;
-            if (vit.lista.includes(c)) vit.lista = vit.lista.filter(x => x !== c); else vit.lista.push(c);
+            if (vit.lista.includes(c)) vit.lista = vit.lista.filter(x => x !== c);
+            else { vit.lista.push(c); vit.prev.idx = vit.lista.length - 1; }   // o novo aparece na prévia
             vit.focar = `[data-alternar="${CSS.escape(c)}"]`;
             desenharVitrine();
         });
@@ -873,6 +921,132 @@
         } catch (e) {
             vit.lista = antes;                                        // não salvou: a lista montada continua na tela
         }
+    }
+
+    // ---------- PRÉVIA: o banner do app numa TV 1920×1080 ----------
+    const SKINS_PREVIA = { auto: 'Skin: automática', cinema: 'Skin: Cinema', arcade: 'Skin: Arcade CRT', poster: 'Skin: Pôster', vintage: 'Skin: Vintage CRT' };
+    const FX_PREVIA = { auto: 'Efeito: automático', none: 'Efeito: nenhum', crt: 'Efeito: CRT', vhs: 'Efeito: VHS', scan: 'Efeito: Scanlines', cinema: 'Efeito: Cinema', neon: 'Efeito: Neon', bw: 'Efeito: P&B' };
+
+    /** Item do Studio -> o formato que o app recebe do cloud (o mesmo que o banner lê) */
+    function itemParaApp(caminho, bruto, i) {
+        const col = colDoCaminho(caminho);
+        const it = C.normalizarItem(bruto, col);
+        const chave = caminho.replace(/^conteudo\//, '').replace(/\.json$/, '');
+        const o = C.paraCloud(it, col, chave);
+        const genero = Array.isArray(o.genre) ? o.genre.slice(0, 2).join(' · ') : o.genre;
+        return Object.assign({}, o, {
+            id: 'studio:' + chave, slug: chave,
+            cat: col.nome, genre: genero,
+            thumb: o.thumb || o.logo,
+            nota: o.imdbRating,
+            categoryType: col.tipo === 'canal24h' ? 'live' : o.categoryType,
+            destaque: true, destaqueOrdem: i + 1,
+            _jogo: col.tipo === 'jogo'
+        });
+    }
+    async function itensParaPrevia() {
+        const lista = vit.lista.slice();
+        const lidos = await Promise.all(lista.map(async c => {
+            if (!vit.cache.has(c)) vit.cache.set(c, estado.repo.ler(c).catch(() => null));
+            return vit.cache.get(c);
+        }));
+        return lista.map((c, i) => (lidos[i] ? itemParaApp(c, lidos[i], i) : null)).filter(Boolean);
+    }
+
+    function criarTelaPrevia() {
+        const tela = $('#vit-tela');
+        if (!tela || $('#vit-frame')) return;
+        const banner = new URL('vitrine/cz-banner.js', location.href).href;
+        const f = document.createElement('iframe');
+        f.id = 'vit-frame'; f.title = 'Prévia do banner da home';
+        f.setAttribute('tabindex', '-1');
+        f.srcdoc = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+          <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500;700;800;900&family=Saira+Condensed:ital,wght@1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+          <style>
+            html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000;color:#fff}
+            .nav{position:fixed;top:0;left:0;right:0;height:80px;z-index:50;display:flex;align-items:center;gap:56px;padding:0 40px;
+                 background:rgba(0,0,0,.8);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.1);font-family:Saira,system-ui,sans-serif}
+            .nav b{font:900 italic 26px Saira,system-ui,sans-serif;letter-spacing:-.02em;text-transform:uppercase}.nav b span{color:#00C2D1}
+            .nav i{font-style:normal;font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#9CA3AF}
+            .nav .z{display:flex;gap:28px}
+          </style></head><body>
+          <div class="nav" aria-hidden="true"><b>CARTOON<span>ZINE</span></b><div class="z"><i>Cartoons</i><i>Animes</i><i>Desenhos 24H</i><i>Filmes</i><i>Séries</i><i>Games</i><i>IPTV</i><i>Rádio</i></div></div>
+          <div id="app"></div>
+          <script>
+            window.state = {}; window.DB = { videos: [], games: [] };
+            window.setView = function (v, id) { try { parent.__czsVitrineBotao && parent.__czsVitrineBotao(v, id); } catch (e) {} };
+          <\/script>
+          <script src="${esc(banner)}"><\/script>
+          <script>
+            document.getElementById('app').innerHTML = CZBanner.html();
+            window.addEventListener('cz:banner:change', function (e) { try { parent.__czsVitrineMudou && parent.__czsVitrineMudou(e.detail); } catch (x) {} });
+            try { parent.__czsVitrinePronta && parent.__czsVitrinePronta(); } catch (x) {}
+          <\/script></body></html>`;
+        tela.appendChild(f);
+        // escala a TV de 1920 px para a largura do painel
+        const escalar = () => { const w = tela.clientWidth; if (w) f.style.transform = `scale(${w / 1920})`; };
+        escalar();
+        if (window.ResizeObserver) { vit.prev.ro = new ResizeObserver(escalar); vit.prev.ro.observe(tela); }
+        montarControlesPrevia();
+    }
+    function removerTelaPrevia() {
+        const f = $('#vit-frame');
+        if (f) { try { f.contentWindow.CZBanner.parar(); } catch (e) { /* */ } f.remove(); }
+        if (vit.prev.ro) { vit.prev.ro.disconnect(); vit.prev.ro = null; }
+        $$('.vit-linha.no-ar').forEach(l => l.classList.remove('no-ar'));
+    }
+    const bannerDaPrevia = () => { try { const f = $('#vit-frame'); return f && f.contentWindow && f.contentWindow.CZBanner; } catch (e) { return null; } };
+
+    function montarControlesPrevia() {
+        // a skin/efeito/vídeo da prévia ficam guardados neste navegador (não vão para o app)
+        const cfg = Object.assign({ skin: 'auto', fx: 'auto', preview: true }, guardar.ler('cz_banner_cfg') || {});
+        $('#vp-skin').innerHTML = Object.entries(SKINS_PREVIA).map(([k, n]) => `<option value="${k}" ${cfg.skin === k ? 'selected' : ''}>${n}</option>`).join('');
+        $('#vp-fx').innerHTML = Object.entries(FX_PREVIA).map(([k, n]) => `<option value="${k}" ${cfg.fx === k ? 'selected' : ''}>${n}</option>`).join('');
+        $('#vp-video').checked = cfg.preview !== false;
+        const mudar = patch => { const b = bannerDaPrevia(); if (b) b.setConfig(patch); };
+        $('#vp-skin').onchange = e => mudar({ skin: e.target.value });
+        $('#vp-fx').onchange = e => mudar({ fx: e.target.value });
+        $('#vp-video').onchange = e => mudar({ preview: e.target.checked });
+        $('#vp-ant').onclick = () => { const b = bannerDaPrevia(); if (b) b.anterior(); };
+        $('#vp-prox').onclick = () => { const b = bannerDaPrevia(); if (b) b.proximo(); };
+        $('#vp-auto').onclick = () => {
+            vit.prev.auto = !vit.prev.auto;
+            const b = bannerDaPrevia(); if (b) b.auto(vit.prev.auto);
+            $('#vp-auto').textContent = vit.prev.auto ? '⏸ Pausar' : '▶ Rodar';
+        };
+    }
+
+    // ganchos chamados de dentro da TV da prévia
+    window.__czsVitrinePronta = () => agendarPrevia(0);
+    window.__czsVitrineMudou = d => {
+        if (!d) return;
+        vit.prev.idx = d.index;
+        const cont = $('#vit-contador'); if (cont) cont.textContent = d.total ? `${String(d.index + 1).padStart(2, '0')} / ${String(d.total).padStart(2, '0')}` : '';
+        $$('.vit-linha').forEach(l => l.classList.toggle('no-ar', +l.dataset.i === d.index));
+    };
+    window.__czsVitrineBotao = (view, id) => aviso(`No app, este botão abre o ${view === 'emulator' ? 'emulador' : 'player'} (${id}). Aqui é só a prévia.`);
+
+    function irNaPrevia(i) { const b = bannerDaPrevia(); if (b && b.total()) b.ir(i); }
+
+    /** Atualiza a prévia com a lista atual (espera um instante para juntar cliques seguidos) */
+    function agendarPrevia(ms = 250) {
+        clearTimeout(vit.prev.timer);
+        vit.prev.timer = setTimeout(atualizarPrevia, ms);
+    }
+    async function atualizarPrevia() {
+        const b = bannerDaPrevia(), f = $('#vit-frame');
+        if (!b || !f || !vit.lista) return;
+        const token = ++vit.prev.token;
+        const itens = await itensParaPrevia();
+        if (token !== vit.prev.token || !$('#vit-frame')) return;      // a lista mudou no meio do caminho
+        const w = f.contentWindow;
+        w.DB = { videos: itens.filter(x => !x._jogo), games: itens.filter(x => x._jogo) };
+        $('#vit-tela-vazia').hidden = !!itens.length;
+        f.style.visibility = itens.length ? '' : 'hidden';
+        w.state.bannerIndex = Math.min(vit.prev.idx, Math.max(0, itens.length - 1));
+        b.iniciar();
+        if (!vit.prev.auto) b.auto(false);
+        if (!itens.length) window.__czsVitrineMudou({ index: 0, total: 0 });
     }
 
     // ==================================================================
