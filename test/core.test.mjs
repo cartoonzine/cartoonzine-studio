@@ -354,3 +354,24 @@ test('Vitrine: destaqueOrdem só com destaque, vai para o cloud e para o índice
     // jogo também pode ir para o banner pelo formulário
     assert.ok(C.TIPOS.jogo.campos.some(c => c.k === 'destaque'));
 });
+
+test('Vitrine: aparência no banner (logo, vídeo, skin, efeito) vai para o app com os nomes que o banner lê', () => {
+    const filmes = col('filmes');
+    const it = C.normalizarItem({ nome: 'O Garoto', links: ['https://exemplo.com/kid.mp4'], destaque: true,
+        bannerLogo: ' https://exemplo.com/logo.png ', bannerVideo: 'https://exemplo.com/trailer.mp4', bannerSkin: 'vintage', bannerFx: 'crt' }, filmes);
+    assert.deepEqual([it.bannerLogo, it.bannerSkin, it.bannerFx], ['https://exemplo.com/logo.png', 'vintage', 'crt']);
+    const o = C.paraCloud(it, filmes, 'filmes/o-garoto');
+    assert.deepEqual([o.bannerlogo, o.preview, o.bannerSkin, o.bannerFx], ['https://exemplo.com/logo.png', 'https://exemplo.com/trailer.mp4', 'vintage', 'crt']);
+    // valores inválidos não passam
+    const ruim = C.normalizarItem({ nome: 'X', links: ['https://exemplo.com/x.mp4'], bannerSkin: 'disco', bannerFx: 'glitter' }, filmes);
+    assert.equal(ruim.bannerSkin, undefined); assert.equal(ruim.bannerFx, undefined);
+    // jogo: o vídeo escolhido para o banner vence o snap do ScreenScraper
+    const jogo = C.normalizarItem({ nome: 'Sonic', console: 'megadrive', links: ['https://exemplo.com/s.md'], video: 'https://exemplo.com/snap.mp4', bannerVideo: 'https://exemplo.com/trailer.mp4' }, col('jogos'));
+    assert.equal(C.paraCloud(jogo, col('jogos'), 'jogos/sonic').preview, 'https://exemplo.com/trailer.mp4');
+    assert.equal(C.paraCloud(Object.assign({}, jogo, { bannerVideo: undefined }), col('jogos'), 'jogos/sonic').preview, 'https://exemplo.com/snap.mp4');
+    // canal 24h ganha imagem de banner e os ajustes
+    const c24 = C.normalizarItem({ nome: 'Bluey 24H', links: ['https://www.youtube.com/embed/abc'], banner: 'https://exemplo.com/b.jpg', bannerSkin: 'poster' }, col('youtoon'));
+    const oc = C.paraCloud(c24, col('youtoon'), 'youtoon/bluey');
+    assert.deepEqual([oc.bannerThumb, oc.bannerSkin], ['https://exemplo.com/b.jpg', 'poster']);
+    for (const t of ['video', 'jogo', 'canal24h']) assert.ok(C.TIPOS[t].campos.some(c => c.k === 'bannerSkin'), t);
+});
