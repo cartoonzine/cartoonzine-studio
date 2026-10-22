@@ -3,7 +3,7 @@
   "https://www.youtube.com/embed/OBe-ehVPKKk": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.578Z",
+   "em": "2026-10-22T11:52:07.994Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/bluey-24h.json"
   },
@@ -430,445 +430,445 @@
   "https://archive.org/download/CC_1914_02_07_KidsAutoRaceAtVenice/CC_1914_02_07_KidsAutoRaceAtVenice_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.088Z",
+   "em": "2026-10-22T11:52:07.864Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-02-07-kidsautoraceatvenice.json"
   },
   "https://archive.org/download/AChristmasCarol/AChristmasCarol_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.808Z",
+   "em": "2026-10-22T11:52:07.924Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/a-christmas-carol.json"
   },
   "https://archive.org/download/CC_1914_06_11_TheKnockout/CC_1914_06_11_TheKnockout_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.877Z",
+   "em": "2026-10-22T11:52:14.644Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-06-11-theknockout.json"
   },
   "https://archive.org/download/africa_speaks/africa_speaks_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.133Z",
+   "em": "2026-10-22T11:52:08.196Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/africa-speaks.json"
   },
   "https://archive.org/download/abraham_lincoln/abraham_lincoln_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.116Z",
+   "em": "2026-10-22T11:52:07.699Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/abraham-lincoln.json"
   },
   "https://archive.org/download/2000_leagues_under_the_sea_ipod/2000_leagues_under_the_sea_ipod_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.899Z",
+   "em": "2026-10-22T11:52:09.231Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/2000-leagues-under-the-sea-ipod.json"
   },
   "https://archive.org/download/Cops1922/Cops1922_archive.torrent": {
-   "ok": true,
-   "status": 200,
-   "em": "2026-10-21T11:48:43.874Z",
-   "falhas": 0,
+   "ok": false,
+   "status": "tempo esgotado",
+   "em": "2026-10-22T11:52:18.967Z",
+   "falhas": 1,
    "caminho": "conteudo/filmes-torrent/buster-keaton-s-cops.json"
   },
   "https://archive.org/download/ANightintheShow/ANightintheShow_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.876Z",
+   "em": "2026-10-22T11:52:08.050Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/a-night-in-the-show.json"
   },
   "https://archive.org/download/20000LeaguesUndertheSea/20000LeaguesUndertheSea_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.057Z",
+   "em": "2026-10-22T11:52:08.211Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/20-000-leagues-under-the-sea.json"
   },
   "https://archive.org/download/silent-baden-verboten-aka-bathing-forbidden/silent-baden-verboten-aka-bathing-forbidden_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.997Z",
+   "em": "2026-10-22T11:52:08.212Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/baden-verboten-aka-bathing-forbidden.json"
   },
   "https://archive.org/download/CC_1914_02_02_MakingALiving/CC_1914_02_02_MakingALiving_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.077Z",
+   "em": "2026-10-22T11:52:08.231Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-02-02-makingaliving.json"
   },
   "https://archive.org/download/BattleshipPotemkin/BattleshipPotemkin_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.991Z",
+   "em": "2026-10-22T11:52:08.233Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/bronenosets-potyomkin-battleship-potemkin.json"
   },
   "https://archive.org/download/AliceInWonderland1915_503/AliceInWonderland1915_503_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.969Z",
+   "em": "2026-10-22T11:52:07.936Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/aliceinwonderland1915-503.json"
   },
   "https://archive.org/download/CC_1914_08_13_CharliesRecreation/CC_1914_08_13_CharliesRecreation_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.424Z",
+   "em": "2026-10-22T11:52:09.359Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-08-13-charliesrecreation.json"
   },
   "https://archive.org/download/CC_1915_12_18_ABurlesqueOnCarmen/CC_1915_12_18_ABurlesqueOnCarmen_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.002Z",
+   "em": "2026-10-22T11:52:08.020Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1915-12-18-aburlesqueoncarmen.json"
   },
   "https://archive.org/download/CC_1914_11_14_TilliesPuncturedRomance/CC_1914_11_14_TilliesPuncturedRomance_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.870Z",
+   "em": "2026-10-22T11:52:07.978Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-11-14-tilliespuncturedromance.json"
   },
   "https://archive.org/download/CC_1914_02_09_MabelsStrangePredicament/CC_1914_02_09_MabelsStrangePredicament_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.684Z",
+   "em": "2026-10-22T11:52:09.056Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-02-09-mabelsstrangepredicament.json"
   },
   "https://archive.org/download/CC_1916_05_15_TheFloorwalker/CC_1916_05_15_TheFloorwalker_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.663Z",
+   "em": "2026-10-22T11:52:08.965Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-05-15-thefloorwalker.json"
   },
   "https://archive.org/download/CC_1914_12_05_AFairExchange/CC_1914_12_05_AFairExchange_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.157Z",
+   "em": "2026-10-22T11:52:08.285Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-12-05-afairexchange.json"
   },
   "https://archive.org/download/CC_1916_12_04_TheRink/CC_1916_12_04_TheRink_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.593Z",
+   "em": "2026-10-22T11:52:08.677Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-12-04-therink.json"
   },
   "https://archive.org/download/CC_1914_08_31_TheGoodforNothing/CC_1914_08_31_TheGoodforNothing_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.790Z",
+   "em": "2026-10-22T11:52:09.148Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-08-31-thegoodfornothing.json"
   },
   "https://archive.org/download/CC_1916_08_07_One_A_M/CC_1916_08_07_One_A_M_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.906Z",
+   "em": "2026-10-22T11:52:09.108Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-08-07-one-a-m.json"
   },
   "https://archive.org/download/CC_1916_05_27_Police/CC_1916_05_27_Police_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.830Z",
+   "em": "2026-10-22T11:52:09.113Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-05-27-police.json"
   },
   "https://archive.org/download/CC_1916_10_02_ThePawnshop/CC_1916_10_02_ThePawnshop_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.755Z",
+   "em": "2026-10-22T11:52:08.929Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-10-02-thepawnshop.json"
   },
   "https://archive.org/download/CC_1915_10_04_CharlieShanghaied/CC_1915_10_04_CharlieShanghaied_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.006Z",
+   "em": "2026-10-22T11:52:11.426Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1915-10-04-charlieshanghaied.json"
   },
   "https://archive.org/download/CC_1917_10_22_TheAdventurer/CC_1917_10_22_TheAdventurer_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.004Z",
+   "em": "2026-10-22T11:52:09.150Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1917-10-22-theadventurer.json"
   },
   "https://archive.org/download/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.000Z",
+   "em": "2026-10-22T11:52:09.178Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cockeyed-gems-from-the-memory-of-a-nutty-cameraman.json"
   },
   "https://archive.org/download/CC_1916_09_04_TheCount/CC_1916_09_04_TheCount_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.935Z",
+   "em": "2026-10-22T11:52:09.280Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-09-04-thecount.json"
   },
   "https://archive.org/download/CC_1917_06_17_TheImmigrant/CC_1917_06_17_TheImmigrant_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.410Z",
+   "em": "2026-10-22T11:52:08.499Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1917-06-17-theimmigrant.json"
   },
   "https://archive.org/download/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:44.884Z",
+   "em": "2026-10-22T11:52:08.623Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/das-kabinett-des-doktor-caligari-the-cabinet-of-dr-caligari.json"
   },
   "https://archive.org/download/Intolerance/Intolerance_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.033Z",
+   "em": "2026-10-22T11:52:09.669Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/intolerance.json"
   },
   "https://archive.org/download/ChelovekskinoapparatomManWithAMovieCamera/ChelovekskinoapparatomManWithAMovieCamera_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.020Z",
+   "em": "2026-10-22T11:52:09.378Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/chelovek-s-kinoapparatom-man-with-a-movie-camera.json"
   },
   "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.484Z",
+   "em": "2026-10-22T11:52:10.153Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/dr-jekyll-and-mr-hyde.json"
   },
   "https://archive.org/download/dw_griffith_birth_of_a_nation/dw_griffith_birth_of_a_nation_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.367Z",
+   "em": "2026-10-22T11:52:09.944Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/dw-griffith-birth-of-a-nation.json"
   },
   "https://archive.org/download/iron_mask/iron_mask_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.370Z",
+   "em": "2026-10-22T11:52:09.854Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/iron-mask.json"
   },
   "https://archive.org/download/silent-jugendspiele-aka-games-of-youth/silent-jugendspiele-aka-games-of-youth_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.986Z",
+   "em": "2026-10-22T11:52:10.936Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/jugendspiele-aka-games-of-youth.json"
   },
   "https://archive.org/download/silent-episodes-in-the-life-of-a-gin-bottle/silent-episodes-in-the-life-of-a-gin-bottle_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.280Z",
+   "em": "2026-10-22T11:52:09.958Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/episodes-in-the-life-of-a-gin-bottle.json"
   },
   "https://archive.org/download/FrankensteinfullMovie/FrankensteinfullMovie_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.495Z",
+   "em": "2026-10-22T11:52:10.062Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/frankenstein.json"
   },
   "https://archive.org/download/Haxan_tinted_and_subtitled/Haxan_tinted_and_subtitled_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.735Z",
+   "em": "2026-10-22T11:52:10.180Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/haxan-tinted-and-subtitled.json"
   },
   "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_1920_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.729Z",
+   "em": "2026-10-22T11:52:09.900Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/last-of-the-mohicans.json"
   },
   "https://archive.org/download/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770_archive.torrent": {
-   "ok": true,
-   "status": 200,
-   "em": "2026-10-21T11:48:44.676Z",
-   "falhas": 0,
+   "ok": false,
+   "status": 500,
+   "em": "2026-10-22T11:52:12.613Z",
+   "falhas": 1,
    "caminho": "conteudo/filmes-torrent/ptp-the-ten-commandments-cecil-b-demille-mkv-180770.json"
   },
   "https://archive.org/download/OneWeek/OneWeek_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.849Z",
+   "em": "2026-10-22T11:52:11.202Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/one-week.json"
   },
   "https://archive.org/download/markofzorro-1920/markofzorro-1920_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.766Z",
+   "em": "2026-10-22T11:52:10.245Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/mark-of-zorro.json"
   },
   "https://archive.org/download/silent-santa-claus/silent-santa-claus_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.712Z",
+   "em": "2026-10-22T11:52:11.644Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/santa-claus.json"
   },
   "https://archive.org/download/Nosferatu_DVD_quality/Nosferatu_DVD_quality_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.586Z",
+   "em": "2026-10-22T11:52:11.211Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/nosferatu-dvd-quality.json"
   },
   "https://archive.org/download/The_General_Buster_Keaton/The_General_Buster_Keaton_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.743Z",
+   "em": "2026-10-22T11:52:10.068Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-general-buster-keaton.json"
   },
   "https://archive.org/download/FairbanksRobinHood1922/FairbanksRobinHood1922_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.779Z",
+   "em": "2026-10-22T11:52:10.321Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/robin-hood.json"
   },
   "https://archive.org/download/steamboat_bill_ipod/steamboat_bill_ipod_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.617Z",
+   "em": "2026-10-22T11:52:11.196Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/steamboat-bill-ipod.json"
   },
   "https://archive.org/download/TheGeneral/TheGeneral_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.830Z",
+   "em": "2026-10-22T11:52:10.162Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-general.json"
   },
   "https://archive.org/download/TheGreatTrainRobbery_555/TheGreatTrainRobbery_555_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.947Z",
+   "em": "2026-10-22T11:52:11.256Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/thegreattrainrobbery-555.json"
   },
   "https://archive.org/download/The_Wonderful_Wizard_of_Oz/The_Wonderful_Wizard_of_Oz_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.407Z",
+   "em": "2026-10-22T11:52:10.095Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-wonderful-wizard-of-oz.json"
   },
   "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.616Z",
+   "em": "2026-10-22T11:52:11.380Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-phantom-of-the-opera.json"
   },
   "https://archive.org/download/TarzanoftheApes1918AndyDivx/TarzanoftheApes1918AndyDivx_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.253Z",
+   "em": "2026-10-22T11:52:10.779Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/tarzan-of-the-apes.json"
   },
   "https://archive.org/download/TheGoat/TheGoat_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.151Z",
+   "em": "2026-10-22T11:52:11.128Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-goat.json"
   },
   "https://archive.org/download/TheGolem_893/TheGolem_893_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:45.857Z",
+   "em": "2026-10-22T11:52:10.766Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/thegolem-893.json"
   },
   "https://archive.org/download/westofhotdog/westofhotdog_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.059Z",
+   "em": "2026-10-22T11:52:10.637Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/west-of-hot-dog.json"
   },
   "https://archive.org/download/PublicdomainTheLastoftheMohicans/PublicdomainTheLastoftheMohicans_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.104Z",
+   "em": "2026-10-22T11:52:10.965Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-last-of-the-mohicans.json"
   },
   "https://archive.org/download/lost_world/lost_world_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.241Z",
+   "em": "2026-10-22T11:52:10.987Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/lost-world.json"
   },
   "https://archive.org/download/ThiefOfBagdad1924/ThiefOfBagdad1924_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:46.385Z",
+   "em": "2026-10-22T11:52:11.242Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/thief-of-bagdad.json"
   },
   "https://www.youtube.com/embed/R__oFJgWDqg": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.050Z",
+   "em": "2026-10-22T11:52:07.142Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/ao-vivo-outra-semana-no-cartoon.json"
   },
   "https://www.youtube.com/embed/GZdfevPm53c": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.084Z",
+   "em": "2026-10-22T11:52:07.130Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/johnny-test-sem-parar-episodios-completo.json"
   },
   "https://www.youtube.com/embed/bOzBHA7ksUo": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.036Z",
+   "em": "2026-10-22T11:52:07.138Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/ao-vivo-scooby-doo-episodios-completos.json"
   },
   "https://www.youtube.com/playlist?list=PLxipbaEq-Ivl77KVYG4Qaucuh66L70uBc": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-21T11:48:43.486Z",
+   "em": "2026-10-22T11:52:07.464Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/cocomelon-em-portugues-musicas-infantis.json"
   }
  },
- "atualizadoEm": "2026-10-21T11:48:46.712Z",
+ "atualizadoEm": "2026-10-22T11:52:18.967Z",
  "mortos": []
 }
