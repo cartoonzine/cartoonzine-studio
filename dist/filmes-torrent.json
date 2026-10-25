@@ -138,6 +138,29 @@
    ]
   },
   {
+   "title": "The Goat",
+   "desc": "Dumb luck sets some policemen on his trail -- after a series of innovative escapes, he gets mistaken for a murderer with a price on his head, which means the people that aren't chasing him are fleeing from him.",
+   "year": 1921,
+   "genre": [
+    "Silent",
+    "Comedy",
+    "Buster Keaton"
+   ],
+   "destaque": true,
+   "destaqueOrdem": 8,
+   "studio": "filmes-torrent/the-goat",
+   "thumb": "https://archive.org/services/img/TheGoat",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/eziqblxAI8YNrMCVmCZml6Daibv.jpg",
+   "imdbId": "tt0012224",
+   "tmdbId": "movie/51360",
+   "imdbRating": 7.7,
+   "imdbVotes": 5655,
+   "url": "https://archive.org/download/TheGoat/TheGoat_archive.torrent",
+   "mirrors": [
+    "https://archive.org/download/TheGoat/The_Goat_512kb.mp4"
+   ]
+  },
+  {
    "title": "The Phantom of the Opera",
    "desc": "At the Opera of Paris, a mysterious phantom threatens a famous lyric singer, Carlotta and thus forces her to give up her role (Marguerite in Faust) for unknown Christine Daae. \nChristine meets this phantom (a masked man) in the catacombs, where he lives.",
    "year": 1925,
@@ -159,6 +182,29 @@
    "url": "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ThePhantomoftheOpera/Phantom_of_the_Opera_512kb.mp4"
+   ]
+  },
+  {
+   "title": "West of Hot Dog",
+   "desc": "Silent western starring Stan Laurel before he teamed up with Oliver Hardy.\n\nNote: This movie can only be viewed properly using the VLC player. You can download it for free here: http://www.videolan.org/.",
+   "year": 1924,
+   "genre": [
+    "Stan Laurel",
+    "western",
+    "comedy"
+   ],
+   "destaque": true,
+   "destaqueOrdem": 9,
+   "studio": "filmes-torrent/west-of-hot-dog",
+   "thumb": "https://archive.org/services/img/westofhotdog",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/xJX2H9RwzCThVksWgrIxGRTFpDh.jpg",
+   "imdbId": "tt0015477",
+   "tmdbId": "movie/107294",
+   "imdbRating": 5.6,
+   "imdbVotes": 305,
+   "url": "https://archive.org/download/westofhotdog/westofhotdog_archive.torrent",
+   "mirrors": [
+    "https://archive.org/download/westofhotdog/WestOfHotDog.mp4"
    ]
   },
   {
@@ -924,27 +970,6 @@
    ]
   },
   {
-   "title": "The Goat",
-   "desc": "Dumb luck sets some policemen on his trail -- after a series of innovative escapes, he gets mistaken for a murderer with a price on his head, which means the people that aren't chasing him are fleeing from him.",
-   "year": 1921,
-   "genre": [
-    "Silent",
-    "Comedy",
-    "Buster Keaton"
-   ],
-   "studio": "filmes-torrent/the-goat",
-   "thumb": "https://archive.org/services/img/TheGoat",
-   "bannerThumb": "https://image.tmdb.org/t/p/w1280/eziqblxAI8YNrMCVmCZml6Daibv.jpg",
-   "imdbId": "tt0012224",
-   "tmdbId": "movie/51360",
-   "imdbRating": 7.7,
-   "imdbVotes": 5655,
-   "url": "https://archive.org/download/TheGoat/TheGoat_archive.torrent",
-   "mirrors": [
-    "https://archive.org/download/TheGoat/The_Goat_512kb.mp4"
-   ]
-  },
-  {
    "title": "The Last of the Mohicans",
    "desc": "Adaptation of James Fenimore Cooper novel about the American frontier during the French and Indian War.",
    "year": 1920,
@@ -1040,27 +1065,6 @@
    "url": "https://archive.org/download/ThiefOfBagdad1924/ThiefOfBagdad1924_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ThiefOfBagdad1924/ThiefofBagdad1924_512kb.mp4"
-   ]
-  },
-  {
-   "title": "West of Hot Dog",
-   "desc": "Silent western starring Stan Laurel before he teamed up with Oliver Hardy.\n\nNote: This movie can only be viewed properly using the VLC player. You can download it for free here: http://www.videolan.org/.",
-   "year": 1924,
-   "genre": [
-    "Stan Laurel",
-    "western",
-    "comedy"
-   ],
-   "studio": "filmes-torrent/west-of-hot-dog",
-   "thumb": "https://archive.org/services/img/westofhotdog",
-   "bannerThumb": "https://image.tmdb.org/t/p/w1280/xJX2H9RwzCThVksWgrIxGRTFpDh.jpg",
-   "imdbId": "tt0015477",
-   "tmdbId": "movie/107294",
-   "imdbRating": 5.6,
-   "imdbVotes": 305,
-   "url": "https://archive.org/download/westofhotdog/westofhotdog_archive.torrent",
-   "mirrors": [
-    "https://archive.org/download/westofhotdog/WestOfHotDog.mp4"
    ]
   }
  ]
