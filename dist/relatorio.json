@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-28T19:21:29.782Z",
+  "geradoEm": "2026-10-28T20:58:25.828Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -24,10 +24,15 @@
     },
     {
       "colecao": "youtoon",
-      "total": 665,
+      "total": 666,
       "publicados": 665,
       "erros": [],
-      "avisos": [],
+      "avisos": [
+        {
+          "caminho": "conteudo/youtoon/portugues/hora-de-aventura-brasil.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        }
+      ],
       "porIdioma": {
         "pt-BR": 64,
         "es": 73,
