@@ -14,7 +14,7 @@ on:
       - "core/**"
       - "tools/**"
   schedule:
-    - cron: "17 6 * * *"        # 03:17 em Brasília
+    - cron: "17 8 * * *"        # 05:17 em Brasília (depois que a cota do YouTube zera, à meia-noite do Pacífico)
   workflow_dispatch:
 
 permissions:

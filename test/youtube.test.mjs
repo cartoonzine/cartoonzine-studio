@@ -255,3 +255,11 @@ test('localizado ponta a ponta: descobre com limite de buscas, guarda no cache e
     assert.ok(!lerColecao(colecao, raiz).entradas.some(e => e.item.nome === 'Zig e Sharko Brasil'));
     fs.rmSync(raiz, { recursive: true, force: true });
 });
+
+test('localizado: palavra inteira, nome enfeitado e canal em inglês dos EUA ficam de fora', () => {
+    const c = (o) => Object.assign({ id: 'UC' + 'x'.repeat(22), customUrl: '', descricao: '', idioma: '', pais: '', inscritos: 1e7, videos: 500 }, o);
+    assert.equal(escolherLocalizado({ nome: 'GONZO' }, [c({ titulo: 'GONZOK', pais: 'MX' })], 'Espanhol'), null);
+    assert.equal(escolherLocalizado({ nome: 'GLITCH' }, [c({ titulo: '°•Løl._.Glitch•°', pais: 'BR' })], 'Português'), null);
+    assert.equal(escolherLocalizado({ nome: 'Pokemon' }, [c({ titulo: 'The Official Pokémon YouTube channel', pais: 'US' })], 'Espanhol'), null);
+    assert.equal(escolherLocalizado({ nome: 'Pokemon' }, [c({ titulo: 'Pokémon en español', pais: 'US' })], 'Espanhol').titulo, 'Pokémon en español');
+});

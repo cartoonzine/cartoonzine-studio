@@ -272,12 +272,13 @@ export function escolherLocalizado(original, candidatos, alvo, { minInscritos = 
         if (!c || c.id === idOriginal) continue;
         const texto = Core.normText(`${c.titulo} ${c.customUrl}`);
         const textoLongo = `${c.titulo} ${c.customUrl} ${String(c.descricao).slice(0, 400)}`;
-        if (!chaves.some(k => texto.includes(k))) continue;                         // não é o mesmo desenho
+        if (!chaves.some(k => new RegExp('(^|[^a-z0-9])' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z0-9])').test(texto))) continue;   // não é o mesmo desenho (palavra inteira: "gonzo" ≠ "gonzok")
+        if (/[°•★☆♡♥✿❤]|\._\./.test(c.titulo)) continue;                          // nome enfeitado = canal de fã
         if (NAO_OFICIAL.test(c.titulo) || NAO_OFICIAL.test(c.customUrl)) continue;  // fã, reação, brinquedos…
         const lang = idiomaDoYouTube(c.idioma, c.pais);
         const sinalNome = A.sinal.test(textoLongo);
         // idioma: o canal declara, o país bate ou o nome/descrição diz
-        let idiomaOk = lang === alvo || sinalNome || (alvo === 'Português' && c.pais === 'BR') || (alvo === 'Espanhol' && /^(MX|ES|AR|CO|CL|PE|US)$/.test(c.pais)) || (alvo === 'Português (Portugal)' && c.pais === 'PT');
+        let idiomaOk = lang === alvo || sinalNome || (alvo === 'Português' && c.pais === 'BR') || (alvo === 'Espanhol' && /^(MX|ES|AR|CO|CL|PE|VE|EC|UY|GT|CR|BO|PY|DO|PA|SV|HN|NI|PR)$/.test(c.pais)) || (alvo === 'Português (Portugal)' && c.pais === 'PT');
         if (alvo === 'Português' && (c.pais === 'PT' || /portugal/i.test(c.titulo))) idiomaOk = false;
         if (alvo === 'Português (Portugal)' && !(c.pais === 'PT' || /portugal/i.test(textoLongo))) idiomaOk = false;
         if (lang && lang !== alvo && !sinalNome) idiomaOk = false;                 // declara outro idioma
