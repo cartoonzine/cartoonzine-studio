@@ -27,6 +27,18 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Huntik Secrets and Seekers · Huntik Secrets & Seekers - PORTUGUÊS - Temporada 1",
+   "desc": "Playlist de Huntik Secrets and Seekers · 17 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/huntik-secrets-and-seekers-huntik-secrets-e-seekers-portugues-temporada-1",
+   "url": "https://www.youtube.com/playlist?list=PLMJ7MP-KT1l50ej3MmdAZAXBsHrEeIppJ",
+   "logo": "https://i.ytimg.com/vi/bLuLNYO0oAs/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Johnny Test 24H",
    "genre": [
     "Ação",
@@ -35,6 +47,42 @@
    "studio": "youtoon/portugues/johnny-test-sem-parar-episodios-completo",
    "url": "https://www.youtube.com/embed/GZdfevPm53c",
    "logo": "https://i.ytimg.com/vi/GZdfevPm53c/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "LEGO · LEGO City: A Ascensão do Dragão | Temporadas completas | Em português | LEGO",
+   "desc": "Playlist de LEGO · 80 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/lego-lego-city-a-ascensao-do-dragao-temporadas-completas-em-portugues-lego",
+   "url": "https://www.youtube.com/playlist?list=PLS7mrbvb1XR0",
+   "logo": "https://i.ytimg.com/img/no_thumbnail.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "LEGO · LEGO City: Sem Limites | Temporadas completas | Em português | LEGO",
+   "desc": "Playlist de LEGO · 34 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/lego-lego-city-sem-limites-temporadas-completas-em-portugues-lego",
+   "url": "https://www.youtube.com/playlist?list=PLZaCjEcpVDDM",
+   "logo": "https://i.ytimg.com/vi/4WNPF3r5xWY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "LEGO · LEGO Friends: Heartlake the Musical | Português (Brasil) | LEGO",
+   "desc": "Playlist de LEGO · 9 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/lego-lego-friends-heartlake-the-musical-portugues-brasil-lego",
+   "url": "https://www.youtube.com/playlist?list=PLcIDMZENmRPw",
+   "logo": "https://i.ytimg.com/vi/4wmiBHhP1p8/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -59,6 +107,19 @@
    "studio": "youtoon/portugues/ao-vivo-scooby-doo-episodios-completos",
    "url": "https://www.youtube.com/embed/bOzBHA7ksUo",
    "logo": "https://i.ytimg.com/vi/bOzBHA7ksUo/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "TMS ANIME · Sonic X | Episódios Completos | PT-BR",
+   "desc": "Playlist de TMS ANIME · 60 vídeos",
+   "genre": [
+    "Anime",
+    "Clássicos"
+   ],
+   "studio": "youtoon/portugues/tms-anime-sonic-x-episodios-completos-pt-br",
+   "url": "https://www.youtube.com/playlist?list=PLj2Ugc-vxcWEsrn8tQSgP8dOLYtKAEMUp",
+   "logo": "https://i.ytimg.com/vi/aNXnJ8FV3WE/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   }

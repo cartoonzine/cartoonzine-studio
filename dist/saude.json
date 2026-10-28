@@ -430,452 +430,4127 @@
   "https://archive.org/download/CC_1914_02_07_KidsAutoRaceAtVenice/CC_1914_02_07_KidsAutoRaceAtVenice_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.675Z",
+   "em": "2026-10-28T18:13:29.483Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-02-07-kidsautoraceatvenice.json"
   },
   "https://archive.org/download/AChristmasCarol/AChristmasCarol_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.678Z",
+   "em": "2026-10-28T18:13:28.012Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/a-christmas-carol.json"
   },
   "https://archive.org/download/CC_1914_06_11_TheKnockout/CC_1914_06_11_TheKnockout_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:34.037Z",
+   "em": "2026-10-28T18:13:34.481Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-06-11-theknockout.json"
   },
   "https://archive.org/download/africa_speaks/africa_speaks_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.645Z",
+   "em": "2026-10-28T18:13:28.414Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/africa-speaks.json"
   },
   "https://archive.org/download/abraham_lincoln/abraham_lincoln_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:37.410Z",
+   "em": "2026-10-28T18:13:40.586Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/abraham-lincoln.json"
   },
   "https://archive.org/download/2000_leagues_under_the_sea_ipod/2000_leagues_under_the_sea_ipod_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.168Z",
+   "em": "2026-10-28T18:13:37.280Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/2000-leagues-under-the-sea-ipod.json"
   },
   "https://archive.org/download/Cops1922/Cops1922_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.931Z",
+   "em": "2026-10-28T18:13:30.286Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/buster-keaton-s-cops.json"
   },
   "https://archive.org/download/ANightintheShow/ANightintheShow_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.953Z",
+   "em": "2026-10-28T18:13:28.286Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/a-night-in-the-show.json"
   },
   "https://archive.org/download/20000LeaguesUndertheSea/20000LeaguesUndertheSea_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.765Z",
+   "em": "2026-10-28T18:13:28.479Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/20-000-leagues-under-the-sea.json"
   },
   "https://archive.org/download/silent-baden-verboten-aka-bathing-forbidden/silent-baden-verboten-aka-bathing-forbidden_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.449Z",
+   "em": "2026-10-28T18:13:28.035Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/baden-verboten-aka-bathing-forbidden.json"
   },
   "https://archive.org/download/CC_1914_02_02_MakingALiving/CC_1914_02_02_MakingALiving_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.809Z",
+   "em": "2026-10-28T18:13:31.689Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-02-02-makingaliving.json"
   },
   "https://archive.org/download/BattleshipPotemkin/BattleshipPotemkin_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.288Z",
+   "em": "2026-10-28T18:13:27.459Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/bronenosets-potyomkin-battleship-potemkin.json"
   },
   "https://archive.org/download/AliceInWonderland1915_503/AliceInWonderland1915_503_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.595Z",
+   "em": "2026-10-28T18:13:28.132Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/aliceinwonderland1915-503.json"
   },
   "https://archive.org/download/CC_1914_08_13_CharliesRecreation/CC_1914_08_13_CharliesRecreation_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.434Z",
+   "em": "2026-10-28T18:13:31.797Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-08-13-charliesrecreation.json"
   },
   "https://archive.org/download/CC_1915_12_18_ABurlesqueOnCarmen/CC_1915_12_18_ABurlesqueOnCarmen_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.646Z",
+   "em": "2026-10-28T18:13:29.324Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1915-12-18-aburlesqueoncarmen.json"
   },
   "https://archive.org/download/CC_1914_11_14_TilliesPuncturedRomance/CC_1914_11_14_TilliesPuncturedRomance_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.430Z",
+   "em": "2026-10-28T18:13:27.926Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-11-14-tilliespuncturedromance.json"
   },
   "https://archive.org/download/CC_1914_02_09_MabelsStrangePredicament/CC_1914_02_09_MabelsStrangePredicament_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.662Z",
+   "em": "2026-10-28T18:13:30.368Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-02-09-mabelsstrangepredicament.json"
   },
   "https://archive.org/download/CC_1916_05_15_TheFloorwalker/CC_1916_05_15_TheFloorwalker_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.094Z",
+   "em": "2026-10-28T18:13:28.065Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-05-15-thefloorwalker.json"
   },
   "https://archive.org/download/CC_1914_12_05_AFairExchange/CC_1914_12_05_AFairExchange_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.560Z",
+   "em": "2026-10-28T18:13:28.764Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-12-05-afairexchange.json"
   },
   "https://archive.org/download/CC_1916_12_04_TheRink/CC_1916_12_04_TheRink_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.279Z",
+   "em": "2026-10-28T18:13:29.001Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-12-04-therink.json"
   },
   "https://archive.org/download/CC_1914_08_31_TheGoodforNothing/CC_1914_08_31_TheGoodforNothing_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.490Z",
+   "em": "2026-10-28T18:13:34.550Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1914-08-31-thegoodfornothing.json"
   },
   "https://archive.org/download/CC_1916_08_07_One_A_M/CC_1916_08_07_One_A_M_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.420Z",
+   "em": "2026-10-28T18:13:29.471Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-08-07-one-a-m.json"
   },
   "https://archive.org/download/CC_1916_05_27_Police/CC_1916_05_27_Police_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.367Z",
+   "em": "2026-10-28T18:13:29.423Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-05-27-police.json"
   },
   "https://archive.org/download/CC_1916_10_02_ThePawnshop/CC_1916_10_02_ThePawnshop_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.229Z",
+   "em": "2026-10-28T18:13:29.510Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-10-02-thepawnshop.json"
   },
   "https://archive.org/download/CC_1915_10_04_CharlieShanghaied/CC_1915_10_04_CharlieShanghaied_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.078Z",
+   "em": "2026-10-28T18:13:30.768Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1915-10-04-charlieshanghaied.json"
   },
   "https://archive.org/download/CC_1917_10_22_TheAdventurer/CC_1917_10_22_TheAdventurer_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.245Z",
+   "em": "2026-10-28T18:13:28.720Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1917-10-22-theadventurer.json"
   },
   "https://archive.org/download/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.413Z",
+   "em": "2026-10-28T18:13:29.084Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cockeyed-gems-from-the-memory-of-a-nutty-cameraman.json"
   },
   "https://archive.org/download/CC_1916_09_04_TheCount/CC_1916_09_04_TheCount_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.340Z",
+   "em": "2026-10-28T18:13:29.158Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1916-09-04-thecount.json"
   },
   "https://archive.org/download/CC_1917_06_17_TheImmigrant/CC_1917_06_17_TheImmigrant_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.425Z",
+   "em": "2026-10-28T18:13:28.457Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/cc-1917-06-17-theimmigrant.json"
   },
   "https://archive.org/download/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.413Z",
+   "em": "2026-10-28T18:13:27.431Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/das-kabinett-des-doktor-caligari-the-cabinet-of-dr-caligari.json"
   },
   "https://archive.org/download/Intolerance/Intolerance_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.158Z",
+   "em": "2026-10-28T18:13:31.640Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/intolerance.json"
   },
   "https://archive.org/download/ChelovekskinoapparatomManWithAMovieCamera/ChelovekskinoapparatomManWithAMovieCamera_archive.torrent": {
-   "ok": true,
-   "status": 200,
-   "em": "2026-10-28T12:54:33.526Z",
-   "falhas": 0,
+   "ok": false,
+   "status": 500,
+   "em": "2026-10-28T18:13:37.938Z",
+   "falhas": 1,
    "caminho": "conteudo/filmes-torrent/chelovek-s-kinoapparatom-man-with-a-movie-camera.json"
   },
   "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.299Z",
+   "em": "2026-10-28T18:13:30.658Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/dr-jekyll-and-mr-hyde.json"
   },
   "https://archive.org/download/dw_griffith_birth_of_a_nation/dw_griffith_birth_of_a_nation_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.479Z",
+   "em": "2026-10-28T18:13:29.935Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/dw-griffith-birth-of-a-nation.json"
   },
   "https://archive.org/download/iron_mask/iron_mask_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.165Z",
+   "em": "2026-10-28T18:13:29.543Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/iron-mask.json"
   },
   "https://archive.org/download/silent-jugendspiele-aka-games-of-youth/silent-jugendspiele-aka-games-of-youth_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.579Z",
+   "em": "2026-10-28T18:13:29.715Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/jugendspiele-aka-games-of-youth.json"
   },
   "https://archive.org/download/silent-episodes-in-the-life-of-a-gin-bottle/silent-episodes-in-the-life-of-a-gin-bottle_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.408Z",
+   "em": "2026-10-28T18:13:29.506Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/episodes-in-the-life-of-a-gin-bottle.json"
   },
   "https://archive.org/download/FrankensteinfullMovie/FrankensteinfullMovie_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.520Z",
+   "em": "2026-10-28T18:13:31.095Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/frankenstein.json"
   },
   "https://archive.org/download/Haxan_tinted_and_subtitled/Haxan_tinted_and_subtitled_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.363Z",
+   "em": "2026-10-28T18:13:31.685Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/haxan-tinted-and-subtitled.json"
   },
   "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_1920_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.745Z",
+   "em": "2026-10-28T18:13:30.311Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/last-of-the-mohicans.json"
   },
   "https://archive.org/download/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.755Z",
+   "em": "2026-10-28T18:13:34.685Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/ptp-the-ten-commandments-cecil-b-demille-mkv-180770.json"
   },
   "https://archive.org/download/OneWeek/OneWeek_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:34.034Z",
+   "em": "2026-10-28T18:13:32.582Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/one-week.json"
   },
   "https://archive.org/download/markofzorro-1920/markofzorro-1920_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.080Z",
+   "em": "2026-10-28T18:13:30.732Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/mark-of-zorro.json"
   },
   "https://archive.org/download/silent-santa-claus/silent-santa-claus_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:34.161Z",
+   "em": "2026-10-28T18:13:32.980Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/santa-claus.json"
   },
   "https://archive.org/download/Nosferatu_DVD_quality/Nosferatu_DVD_quality_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.424Z",
+   "em": "2026-10-28T18:13:32.488Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/nosferatu-dvd-quality.json"
   },
   "https://archive.org/download/The_General_Buster_Keaton/The_General_Buster_Keaton_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.855Z",
+   "em": "2026-10-28T18:13:27.681Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-general-buster-keaton.json"
   },
   "https://archive.org/download/FairbanksRobinHood1922/FairbanksRobinHood1922_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.419Z",
+   "em": "2026-10-28T18:13:32.332Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/robin-hood.json"
   },
   "https://archive.org/download/steamboat_bill_ipod/steamboat_bill_ipod_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.745Z",
+   "em": "2026-10-28T18:13:31.830Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/steamboat-bill-ipod.json"
   },
   "https://archive.org/download/TheGeneral/TheGeneral_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.637Z",
+   "em": "2026-10-28T18:13:30.228Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-general.json"
   },
   "https://archive.org/download/TheGreatTrainRobbery_555/TheGreatTrainRobbery_555_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.301Z",
+   "em": "2026-10-28T18:13:35.557Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/thegreattrainrobbery-555.json"
   },
   "https://archive.org/download/The_Wonderful_Wizard_of_Oz/The_Wonderful_Wizard_of_Oz_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.287Z",
+   "em": "2026-10-28T18:13:31.835Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-wonderful-wizard-of-oz.json"
   },
   "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.721Z",
+   "em": "2026-10-28T18:13:31.826Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-phantom-of-the-opera.json"
   },
   "https://archive.org/download/TarzanoftheApes1918AndyDivx/TarzanoftheApes1918AndyDivx_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.267Z",
+   "em": "2026-10-28T18:13:30.642Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/tarzan-of-the-apes.json"
   },
   "https://archive.org/download/TheGoat/TheGoat_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:34.032Z",
+   "em": "2026-10-28T18:13:33.302Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-goat.json"
   },
   "https://archive.org/download/TheGolem_893/TheGolem_893_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.701Z",
+   "em": "2026-10-28T18:13:30.493Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/thegolem-893.json"
   },
   "https://archive.org/download/westofhotdog/westofhotdog_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.471Z",
+   "em": "2026-10-28T18:13:29.818Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/west-of-hot-dog.json"
   },
   "https://archive.org/download/PublicdomainTheLastoftheMohicans/PublicdomainTheLastoftheMohicans_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.313Z",
+   "em": "2026-10-28T18:13:30.472Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/the-last-of-the-mohicans.json"
   },
   "https://archive.org/download/lost_world/lost_world_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:32.252Z",
+   "em": "2026-10-28T18:13:29.216Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/lost-world.json"
   },
   "https://archive.org/download/ThiefOfBagdad1924/ThiefOfBagdad1924_archive.torrent": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:33.970Z",
+   "em": "2026-10-28T18:13:31.859Z",
    "falhas": 0,
    "caminho": "conteudo/filmes-torrent/thief-of-bagdad.json"
   },
   "https://www.youtube.com/embed/R__oFJgWDqg": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:30.721Z",
+   "em": "2026-10-28T18:13:26.700Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/ao-vivo-outra-semana-no-cartoon.json"
   },
   "https://www.youtube.com/embed/GZdfevPm53c": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:30.717Z",
+   "em": "2026-10-28T18:13:26.691Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/johnny-test-sem-parar-episodios-completo.json"
   },
   "https://www.youtube.com/embed/bOzBHA7ksUo": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:30.714Z",
+   "em": "2026-10-28T18:13:26.665Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/ao-vivo-scooby-doo-episodios-completos.json"
   },
   "https://www.youtube.com/playlist?list=PLxipbaEq-Ivl77KVYG4Qaucuh66L70uBc": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.090Z",
+   "em": "2026-10-28T18:13:27.009Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/cocomelon-em-portugues-musicas-infantis.json"
   },
   "https://www.youtube.com/channel/UCxTmdyNdj-s9t79UjVdLT_g/live": {
    "ok": true,
    "status": 200,
-   "em": "2026-10-28T12:54:31.223Z",
+   "em": "2026-10-28T18:13:27.460Z",
    "falhas": 0,
    "caminho": "conteudo/youtoon/portugues/bluey-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLOrwzljVHjQE": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.743Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/espanhol/lego-lego-friends-heartlake-the-musical-espanol-lego.json"
+  },
+  "https://www.youtube.com/playlist?list=PLaPdvQfpZ1dM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.756Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/espanhol/lego-lego-friends-heartlake-the-musical-espanol-america-latina-lego.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZi9kmcgOoWkLHByYvqd9K4GSuIQthCQy": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.838Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/espanhol/popeye-and-friends-official-en-espanol-all-new-popeye.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSW2D61TnopQh0UN4Xqi1wNFfF1wHliQg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.849Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/alphablocks-alphablocks-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNRIpq3d76AyFKo1ne2HTWof_oGKwDGqM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.858Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/adventure-time-adventure-time-mega-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNRIpq3d76AyBhIhqBWAZ8H9qtisMWALY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.883Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/adventure-time-every-episode-ever-adventure-time.json"
+  },
+  "https://www.youtube.com/playlist?list=PL00oPXoojX5vYln_ENY954Gqrty4xGrrb": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.895Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/espanhol/pj-masks-official-pj-masks-espanol-latino.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoLuTO-srY1gFdzCO3Is53ZvVUV6HN9e-": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.923Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/espanhol/jelly-jamm-jelly-jamm-temporada-1-en-espanol-serie-infantil.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSW2D61TnopSmx9lQvqibS7cH75WcUjeE": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.944Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/alphablocks-halloween-learning-october.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSW2D61TnopQYHWipQ6XIcv7PmaJTvR1t": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.957Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/alphablocks-cosy-phonics-november-alphablocks.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSW2D61TnopSCJi3duwPLDmymtOioQ2O5": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.978Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/alphablocks-alphablocks-winter-wonderland-december.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNRIpq3d76AwBf-Y-AViBRtYuFqG8VcWy": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:14.983Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/adventure-time-finn-the-human-adventure-time.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSW2D61TnopREw6RNuCoMz19la8dNQYwD": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.021Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/alphablocks-summer-fun.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNRIpq3d76AzQ-kyDf34xx1nK5ZIBYxPi": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.031Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/adventure-time-new-videos-adventure-time.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNRIpq3d76AzTpp5tWxN_TVEXcHJ6YTPc": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.072Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/adventure-time-jake-the-dog-adventure-time.json"
+  },
+  "https://www.youtube.com/playlist?list=PLTR8zrKWyBqheTrptgPYIOVnsZY3Wgq9j": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.113Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/angry-birds-angry-birds-best-drawing-painting-and-art-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLTR8zrKWyBqiPJ9CAXSjAHsacIJcZjZmU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.116Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/angry-birds-angry-birds-bubble-trouble-all-episodes-e-compilations.json"
+  },
+  "https://www.youtube.com/channel/UC_qs3c0ehDvZkbiEbOj6Drg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.137Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/alphablocks.json"
+  },
+  "https://www.youtube.com/playlist?list=PLTR8zrKWyBqiQviWCHLo5dZ259rS-V4x_": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.157Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/angry-birds-angry-birds-slingshot-stories-all-episodes-e-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLTR8zrKWyBqhdJYxA4RNeN6LY70qRJvJl": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.193Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/angry-birds-everything-mystery-island.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWbJi3I_7VZq8ke4R_cjX1zJPTQFfuNKR": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.196Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/avatar-the-last-airbender-aang-s-favorite-adventures-w-katara-sokka-e-appa.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWbJi3I_7VZrghY-oAF3WTYgUIhbaPKf-": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.217Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/avatar-the-last-airbender-fire-avatar-the-last-airbender.json"
+  },
+  "https://www.youtube.com/playlist?list=PLTR8zrKWyBqgAfHnd6d7DiutDTBozEwzF": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.226Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/angry-birds-angry-birds-makerspace-all-seasons-all-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCFuU-5B1eKAWaTeLUu3JuyA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.233Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/adventure-time.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWbJi3I_7VZovjhJTbDzZxRGPemx-UU-s": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.287Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/avatar-the-last-airbender-best-moments-from-avatar-the-last-airbender.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWbJi3I_7VZqTFBo4XBMXxc6Ymm92VmVM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.300Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/avatar-the-last-airbender-new-avatar-the-last-airbender-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PL5BsRl9zFaeT8QrRhlAkCRic9pI-0xAUT": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.304Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/barbie-barbie-full-specials-e-movies.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWbJi3I_7VZpM15avavfEtGsdO-WW_rHm": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.314Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/avatar-the-last-airbender-30-minutes-1-hour-2-hours-of-avatar-the-last-airbender.json"
+  },
+  "https://www.youtube.com/playlist?list=PL5BsRl9zFaeTysSUjRTGmOJmlQ5lJz7jM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.397Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/barbie-barbie-mysteries-the-great-horse-chase-available-now-on-netflix.json"
+  },
+  "https://www.youtube.com/playlist?list=PL5BsRl9zFaeQ_B5qb3hx37DQi2CBxzssh": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.399Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/barbie-barbie-doll-adventures-complete-series.json"
+  },
+  "https://www.youtube.com/playlist?list=PL5BsRl9zFaeS7mrvL7NUb9qVago7w_a1a": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.401Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/barbie-barbie-dreamhouse-adventures-new-season-episodes-special-e-music-videos-b.json"
+  },
+  "https://www.youtube.com/playlist?list=PLEy0MtsV5_rQS6aQIa6F4Dk731oczsXAq": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.464Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ben-10-ben-10-2016-reboot-best-moments.json"
+  },
+  "https://www.youtube.com/channel/UCFuU-5B1eKAWaTeLUu3JuyA/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.543Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/adventure-time-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLEy0MtsV5_rTRKEVes09xxaGAGvGTA-L5": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.564Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ben-10-ben-10-best-moments.json"
+  },
+  "https://www.youtube.com/playlist?list=PLEy0MtsV5_rRHsa-mVSSRi65aIa1xjgur": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.574Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ben-10-ben-10-season-2.json"
+  },
+  "https://www.youtube.com/channel/UC5UxQbRoUOSlDfE6PXpIz0g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.580Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/avatar-the-last-airbender.json"
+  },
+  "https://www.youtube.com/playlist?list=PLBek5yY8n664": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.595Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/barbie-barbie-music-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLEy0MtsV5_rSwkbOm0LfA4agyS-L0Awoh": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.617Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ben-10-ben-10-summer-clips.json"
+  },
+  "https://www.youtube.com/channel/UCoWgc1mqe-bcfb_lem7EyOg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.654Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ben-10.json"
+  },
+  "https://www.youtube.com/channel/UCYC2wjLop-S6Ld4raeoUVNA/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.669Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/angry-birds-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLzgk_uTg08P9Y8gF2c5S6P0nkB_KtzyYI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.686Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/blippi-educational-videos-for-kids-blippi-marathon-all-day-adventure-fun-e-learn.json"
+  },
+  "https://www.youtube.com/playlist?list=PLEy0MtsV5_rQ1CcaXKHGI1k8PN3bSWV32": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.694Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ben-10-ben-10-new-videos.json"
+  },
+  "https://www.youtube.com/channel/UCadtap8RYMNy8w4K9lXhzpQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.700Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/barbie.json"
+  },
+  "https://www.youtube.com/playlist?list=PLzgk_uTg08P8O5OrSYkHMBgbTg77feyrK": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.745Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/blippi-educational-videos-for-kids-blippi-playtime-adventures.json"
+  },
+  "https://www.youtube.com/channel/UCYC2wjLop-S6Ld4raeoUVNA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.803Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/angry-birds.json"
+  },
+  "https://www.youtube.com/playlist?list=PLzgk_uTg08P-kiImiCZwdPry9e7_PJLNQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.812Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/blippi-educational-videos-for-kids-blippi-vehicle-adventures.json"
+  },
+  "https://www.youtube.com/playlist?list=PLzgk_uTg08P9Vp43AyOI-NBNocoIyOJ9C": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.837Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/blippi-educational-videos-for-kids-blippi-vehicle-collection-learn-planes-trains.json"
+  },
+  "https://www.youtube.com/playlist?list=PLzgk_uTg08P-2LCpM-FK-_Mhb7anv2fBY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.840Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/blippi-educational-videos-for-kids-brand-new-blippi-educational-videos-for-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJRBd5RNL15Gd0qgqWxYMvGmmGohKaAHx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.956Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoon-network-uk-the-amazing-world-of-gumball-best-of-darwin-cartoon-network-u.json"
+  },
+  "https://www.youtube.com/channel/UCoWgc1mqe-bcfb_lem7EyOg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.978Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ben-10-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLOwq_qVMX6upb-T8vfcQxUTrFrIcLgssC": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:15.990Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/bushiroad-official-channel-xd-unlimited.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJRBd5RNL15EpsZCKZw2cs6c-JlhK_8dY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.011Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoon-network-uk-the-amazing-world-of-gumball-best-of-gumball-cartoon-network.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJRBd5RNL15Glr4kLbMH5mhl00RxCKzeO": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.033Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoon-network-uk-teen-titans-go-best-of-beast-boy-cartoon-network-uk.json"
+  },
+  "https://www.youtube.com/playlist?list=PLOwq_qVMX6uoa_xVDPRmRyTb62dyDw_sh": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.047Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/bushiroad-official-channel.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJRBd5RNL15Fg8Btm8P1bgTD49fgZHVvj": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.058Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoon-network-uk-teen-titans-go-best-of-robin-cartoon-network-uk.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJRBd5RNL15HaTTuUWaOuCjcDzcdK6rcJ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.097Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoon-network-uk-the-heroic-quest-of-the-valiant-prince-ivandoe-cartoon-networ.json"
+  },
+  "https://www.youtube.com/channel/UC5PYHgAzJ1wLEidB58SK6Xw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.106Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/blippi-educational-videos-for-kids.json"
+  },
+  "https://www.youtube.com/channel/UC5PYHgAzJ1wLEidB58SK6Xw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.138Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/blippi-educational-videos-for-kids-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLrLGpom16Pw6nsu4YRbf8CC9XZVsSNWRH": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.207Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoonito-batwheels-on-cartoonito-uk.json"
+  },
+  "https://www.youtube.com/playlist?list=PLrLGpom16Pw5DSXoD0VzTFmN5h-hLQ7fJ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.217Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoonito-batwheels-cartoonito.json"
+  },
+  "https://www.youtube.com/playlist?list=PLrLGpom16Pw4_DRk4MGil_sG5BdjXRGGj": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.244Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoonito-bugs-bunny-builders-cartoonito-uk.json"
+  },
+  "https://www.youtube.com/playlist?list=PLx0R0acGEDjI1272Cd4w34FskzhoNkxB_": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.248Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/clifford-the-big-red-dog-classic-scholastic-clifford-the-big-red-dog-best-moment.json"
+  },
+  "https://www.youtube.com/channel/UCGydrkfIhUDNCotYQI8TJhA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.270Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoon-network-uk.json"
+  },
+  "https://www.youtube.com/playlist?list=PLx0R0acGEDjKjuP1sHVLB-b8cGW5thVtv": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.308Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/clifford-the-big-red-dog-classic-scholastic-puppy-days-best-moments.json"
+  },
+  "https://www.youtube.com/playlist?list=PLrLGpom16Pw4FVGvwgkI5cdlFaSDN7l2d": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.312Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoonito-curious-george-cartoonito-uk.json"
+  },
+  "https://www.youtube.com/playlist?list=PLx0R0acGEDjI2wcGE4ClKlQgIx2EbLx51": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.323Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/clifford-the-big-red-dog-classic-scholastic-mega-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLrLGpom16Pw7JYOgTcj25hcYurNnNzUz4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.353Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoonito-bugs-bunny-builders-cartoonito.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDdlwI0EwS7STWSaP5w52vfk0if0-yA8r": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.363Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/code-lyoko-english-official-code-lyoko-english-episode-26-to-30.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDdlwI0EwS7Sb-uFKNeyVwr7fnVwaYeIT": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.399Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/code-lyoko-english-official-code-lyoko-english-episode-31-to-35.json"
+  },
+  "https://www.youtube.com/playlist?list=PLx0R0acGEDjICQ3A9aldLgRf-PDPWZkv6": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.428Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/clifford-the-big-red-dog-classic-scholastic-puppy-days-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDdlwI0EwS7RVjt1HRq7MJi0pl1VDE7co": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.431Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/code-lyoko-english-official-code-lyoko-soundtracks.json"
+  },
+  "https://www.youtube.com/playlist?list=PLx0R0acGEDjLjD1v0huLSyDufw7IDACLs": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.441Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/clifford-the-big-red-dog-classic-scholastic-clifford-classic-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDdlwI0EwS7TxpYYeVuahs8bQ4i07WoA0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.446Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/code-lyoko-english-official-code-lyoko-english-episode-36-to-50.json"
+  },
+  "https://www.youtube.com/channel/UCrFslqncMIdjD2WfB6pAcEg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.456Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoonito.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDdlwI0EwS7TpHbfjMCjvm62n9WA-3Z-l": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.501Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/code-lyoko-english-official-code-lyoko-english-all-episodes-01-to-95-xana-awaken.json"
+  },
+  "https://www.youtube.com/channel/UCGydrkfIhUDNCotYQI8TJhA/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.556Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoon-network-uk-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLnBTl2VtIwRm1o0HguXokzt2dm8RiIu80": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.557Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/curious-george-full-episode-compilations-curious-george.json"
+  },
+  "https://www.youtube.com/channel/UCn9zTBZVl6lu72s-6fXttZg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.578Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/code-lyoko-english-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLnBTl2VtIwRmlCyBJKDFkD6C4nM4mk1zL": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.657Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/curious-george-curious-george-gets-into-some-trouble.json"
+  },
+  "https://www.youtube.com/channel/UCqu9w7Mw14mAUQMzcyV3D4A": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.686Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/clifford-the-big-red-dog-classic-scholastic.json"
+  },
+  "https://www.youtube.com/playlist?list=PLnBTl2VtIwRk44fO4ZXsRxxOeW03AKzCl": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.719Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/curious-george-curious-george-compilation.json"
+  },
+  "https://www.youtube.com/channel/UCu7IDy0y-ZA0qaG51wrQY6w": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.800Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/curious-george.json"
+  },
+  "https://www.youtube.com/playlist?list=PLiv1IUQDVSNI9jCOgYgjG9P_dmThetIi9": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.805Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-animation-phineas-and-ferb-and-hamster-e-gretel.json"
+  },
+  "https://www.youtube.com/playlist?list=PLnBTl2VtIwRmpm-RRSVWhhaHf4UQg01Dz": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.806Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/curious-george-curious-george-official-all-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLiv1IUQDVSNL0MoYAggcnEJk0_zSGiiBd": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.807Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-animation-dragon-striker-new-show-disney-xd.json"
+  },
+  "https://www.youtube.com/channel/UCrFslqncMIdjD2WfB6pAcEg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.810Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/cartoonito-24h.json"
+  },
+  "https://www.youtube.com/channel/UCqu9w7Mw14mAUQMzcyV3D4A/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.813Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/clifford-the-big-red-dog-classic-scholastic-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLiv1IUQDVSNKfN6G8_9k4GCd1rS_Fie3L": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.820Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-animation-kiff-music.json"
+  },
+  "https://www.youtube.com/playlist?list=PLnBTl2VtIwRkT3AHYqm11eQ81E0xmaqF_": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.824Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/curious-george-the-best-of-curious-george.json"
+  },
+  "https://www.youtube.com/playlist?list=PLiv1IUQDVSNJVnAPrekpyc39isaJSzi1J": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.867Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-animation-perry-the-platypus-phineas-and-ferb.json"
+  },
+  "https://www.youtube.com/playlist?list=PLg6R6yXKSLYByVjH3NYIo9Yp477y0BzKw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.947Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-celebrate-black-stories-with-disney-channel.json"
+  },
+  "https://www.youtube.com/playlist?list=PLg6R6yXKSLYApceSfqTsmZj9kkfrQu0P6": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.965Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-electric-bloom.json"
+  },
+  "https://www.youtube.com/playlist?list=PLiv1IUQDVSNKmSv4O0bjmTor2poU75YZG": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.978Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-animation-throwback-disney-channel-full-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCw7SNYrYei7F5ttQO3o-rpA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:16.998Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-animation.json"
+  },
+  "https://www.youtube.com/playlist?list=PLg6R6yXKSLYDY0yMFw36XjhK5mBZWlW9t": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.027Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-hannah-montana-disney-channel.json"
+  },
+  "https://www.youtube.com/playlist?list=PLg6R6yXKSLYDkNNgAVInKkeVFtiO-vf0j": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.086Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-disney-xd-anime.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2m1vjiMH_hOCLfO_F-Cwv2jlbP0XNSWe": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.131Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-jr-mickey-mouse-clubhouse.json"
+  },
+  "https://www.youtube.com/playlist?list=PLg6R6yXKSLYDtvFxUeGrzrWQ0nz-bwKMK": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.146Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-wizards-beyond-waverly-place.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2m1vjiMH_hNi9B22esC_D2lXvicyhAwP": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.153Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-jr-disney-jr-pirates.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2m1vjiMH_hMLTuM_CBxo3nir28x5cNZc": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.206Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-jr-iron-man-and-his-awesome-friends-disney-jr-x-marvel-hq.json"
+  },
+  "https://www.youtube.com/playlist?list=PLv042z7GzQ6s1CQxaplZ6pjGGHNxvZzEs": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.211Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-kids-tis-the-season-holiday-disney-and-winter-magic.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2m1vjiMH_hP5-XmVCqzyFW_ZlkJ1n9gi": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.227Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-jr-disney-jr-super-heroes.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2m1vjiMH_hPjapGImqmlPF5aMMvcriYZ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.232Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-jr-best-of-pixar-cars-on-disney-jr.json"
+  },
+  "https://www.youtube.com/playlist?list=PLv042z7GzQ6tHFQpVykNBcxe5tUne-XX7": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.238Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-kids-test-your-disney-character-knowledge.json"
+  },
+  "https://www.youtube.com/playlist?list=PLv042z7GzQ6sH6JIciLwC2ub0evV2F2SX": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.247Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-kids-challenge-accepted.json"
+  },
+  "https://www.youtube.com/channel/UCktaw9L-f65LzUUdjmCFkbQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.248Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel.json"
+  },
+  "https://www.youtube.com/channel/UCktaw9L-f65LzUUdjmCFkbQ/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.263Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-channel-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLv042z7GzQ6swqmFpNNvzhxAh9V-kg8UE": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.269Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-kids-the-magic-in-our-imagination-magic-fairytales-and-adventure.json"
+  },
+  "https://www.youtube.com/channel/UCNcdbMyA59zE-Vk668bKWOg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.369Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-jr.json"
+  },
+  "https://www.youtube.com/playlist?list=PLv042z7GzQ6uUtv9egK5YMrjZsAFCGavc": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.383Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-kids-girl-power.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJmDk3QJqTWFHPBT3sUS3jcgIu3jQiv5t": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.428Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dora-e-friends-animated-nickelodeon-dora-series.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJmDk3QJqTWGc56wrb50zOZTiT3w9So2X": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.463Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dora-e-friends-animal-rescues-e-adventures-with-dora-dora-e-friends.json"
+  },
+  "https://www.youtube.com/channel/UC7Gf2tZ8coTX2ckTPgn62iQ/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.500Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-kids-24h.json"
+  },
+  "https://www.youtube.com/channel/UC7Gf2tZ8coTX2ckTPgn62iQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.534Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/disney-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJmDk3QJqTWHmatODbDpAPf1sPX55le1J": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.572Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dora-e-friends-learn-spanish-w-dora-dora-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJmDk3QJqTWEUGpt9Qad0HpfogoZBUhMA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.592Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dora-e-friends-best-of-boots-dora-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJmDk3QJqTWF-SzA-qKTlK_uqIqYzz1Rx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.597Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dora-e-friends-what-s-new-with-dora-dora-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCTU_O_kKDZn-zsCq5tp1A3-vAQ9H4D7R": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.628Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dreamworks-madagascar-madagascar-new-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCTU_O_kKDZkhHtU-IwOkA2dIHrQf_yBy": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.661Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dreamworks-madagascar-all-hail-king-julien-madagascar.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCTU_O_kKDZmutlN8jXQTt7-Q7WF4S0nI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.662Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dreamworks-madagascar-madagascar-all-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCTU_O_kKDZmXDg_GnO88SLsV_dk-kGwv": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.716Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dreamworks-madagascar-madagascar-a-little-wild.json"
+  },
+  "https://www.youtube.com/playlist?list=PLLEkwhBfpPFjEAMqcvS0rff-DhdgNmbUS": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.725Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/funky-cops-english-official-funcky-cops-english-eps-01-to-05.json"
+  },
+  "https://www.youtube.com/channel/UCkvPyGW-gsYucCK37UR0q2g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.740Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dora-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLlrJthtVrvla7XBXkfO2HcTULuZJaUEv0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.742Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ever-after-high-chapter-3-ever-after-high-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCTU_O_kKDZnsb_B-vSzZubU3ZhtZddGw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.748Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dreamworks-madagascar-penguins-of-madagascar-clips.json"
+  },
+  "https://www.youtube.com/channel/UCl6Sc_rNW7INU9kovV5SuAA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.805Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dreamworks-madagascar.json"
+  },
+  "https://www.youtube.com/playlist?list=PLbmQFnN-6rM6p_-Or7U4Dtt1a9j_FWneU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.827Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/garfield-e-friends-garfield-s-guide-how-to-score-snacks-garfield-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLbmQFnN-6rM7-SoasLp77KqyvEJlG9UjN": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.834Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/garfield-e-friends-a-fun-food-frenzy-garfield-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLbmQFnN-6rM7J_z0VxeovNR9NHeehaF4B": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.859Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/garfield-e-friends-quickies-garfield-e-friends.json"
+  },
+  "https://www.youtube.com/channel/UC-gF-Wg_sZZe2M8g8DaGkqw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.871Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/funky-cops-english-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLlrJthtVrvlYteL7pLbYZ_d-KxI4UMjOT": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.884Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ever-after-high-all-videos-ever-after-high-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLbmQFnN-6rM6o6Gqz7XzjQFx02jJDSFK5": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.891Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/garfield-e-friends-season-3-full-episodes-garfield-and-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLlrJthtVrvlbTII7CIIY93Uwj_8jIoOGX": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.897Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ever-after-high-new-videos-ever-after-high-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLlrJthtVrvla7NnrHgPl04oUjT-Hk36rB": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.947Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ever-after-high-most-recent-uploads.json"
+  },
+  "https://www.youtube.com/channel/UCkvPyGW-gsYucCK37UR0q2g/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:17.980Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/dora-e-friends-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLHovnlOusNLgIn9LATBdH6-DTniWfazYI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.024Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/glitch-murder-drones-extras.json"
+  },
+  "https://www.youtube.com/playlist?list=PLHovnlOusNLj_bSwvpE3ycI4iHuJDRCps": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.032Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/glitch-meta-runner.json"
+  },
+  "https://www.youtube.com/playlist?list=PLlrJthtVrvlY1CyY2zuZwJc7Xv635P65m": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.033Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ever-after-high-new-episodes-ever-after-high-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLHovnlOusNLizJlHuhZ3E8DxbFogOUC8c": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.036Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/glitch-sunset-paradise.json"
+  },
+  "https://www.youtube.com/channel/UCkSEmKioDTzMU-h3ebEvAkA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.044Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/ever-after-high.json"
+  },
+  "https://www.youtube.com/playlist?list=PLMDGujplXPMbaiBVtf_maXUuelareq5Pw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.056Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gawayn-gawayn-season-1-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLbmQFnN-6rM4JLL-90LdeUeo88Byv52eM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.067Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/garfield-e-friends-top-cat-clips-garfield-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLHovnlOusNLiVNtW9iRdFImnKYHEgkdI1": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.079Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/glitch-the-amazing-digital-circus-extras.json"
+  },
+  "https://www.youtube.com/channel/UCBmgiPm4j50Z9zNTsUmb9Xw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.085Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/garfield-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLMDGujplXPMZcNVXJzAwkO6PuB2L1qBis": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.093Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gawayn-gawayn-hd-full-episode-mix.json"
+  },
+  "https://www.youtube.com/channel/UCljshdCurp7dUF1EQg5HdDQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.104Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gawayn.json"
+  },
+  "https://www.youtube.com/playlist?list=PLGpoKWN7Bq4g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.160Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gundaminfo-en-dub-ver-mobile-suit-gundam-seed.json"
+  },
+  "https://www.youtube.com/playlist?list=PLMDGujplXPMaiEgzGOZ2ERm2v1_sDf4ZJ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.163Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gawayn-gawayn-season-1-compilations.json"
+  },
+  "https://www.youtube.com/channel/UCn_FAXem2-e3HQvmK-mOH4g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.215Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/glitch.json"
+  },
+  "https://www.youtube.com/channel/UCBmgiPm4j50Z9zNTsUmb9Xw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.258Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/garfield-e-friends-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLU5KGt6g4OkGmudCbm1zBslGXePfdrkFO": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.259Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/h2o-just-add-water-mako-mermaids-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLU5KGt6g4OkFAUB_RwQ7Mgjg_O3W8A4Wf": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.314Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/h2o-just-add-water-season-1-h2o-just-add-water.json"
+  },
+  "https://www.youtube.com/playlist?list=PLU5KGt6g4OkHBiYvNwW33-gA6vYKVij2R": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.316Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/h2o-just-add-water-season-3-h2o-just-add-water.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJV1h9xQ7Hx8pn1GZDnTi2svSYS2wfglI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.332Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gundaminfo-seed-eclipse.json"
+  },
+  "https://www.youtube.com/playlist?list=PLU5KGt6g4OkEM8cdz1xeRrZs2PQM76jw6": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.333Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/h2o-just-add-water-h2o-just-add-water-complete-series-full-episodes-s1-s2-s3.json"
+  },
+  "https://www.youtube.com/playlist?list=PLAKqAsKfNksU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.370Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gundaminfo-seedgp2026.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJV1h9xQ7Hx-ZAQ6nEwg4m1-6cBP2iOHn": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.433Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gundaminfo-pickup.json"
+  },
+  "https://www.youtube.com/channel/UCejtUitnpnf8Be-v5NuDSLw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.441Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gundaminfo.json"
+  },
+  "https://www.youtube.com/playlist?list=PLU5KGt6g4OkGSPhm4WT-9a4wf9wegk6ma": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.467Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/h2o-just-add-water-h2o-specials-h2o-just-add-water.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJV1h9xQ7Hx-W8NFF1pEfWIehimgoQ5QO": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.477Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/gundaminfo-gunpla-figure.json"
+  },
+  "https://www.youtube.com/playlist?list=PLMJ7MP-KT1l5XJ277eWAnT3TnTAY1kWkM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.502Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/huntik-secrets-and-seekers-huntik-secrets-e-seekers-english-season-1.json"
+  },
+  "https://www.youtube.com/playlist?list=PLMJ7MP-KT1l6zCDNbfRsfjFGLfaR2vyBg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.515Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/huntik-secrets-and-seekers-huntik-secrets-e-seekers-english-season-2.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2CsdBO5-McgSFJXns-nHXtyUrcyeuwMV": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.518Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/horrid-henry-horrid-henry-best-bits-episodes-compilations-cartoons-for-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2CsdBO5-McihsuiZANFM4GDTEA9t8aTd": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.581Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/horrid-henry-horrid-henry-best-of-margaret.json"
+  },
+  "https://www.youtube.com/channel/UCVIVA48Td4JUKj1yBIy_mCg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.609Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/h2o-just-add-water.json"
+  },
+  "https://www.youtube.com/playlist?list=PLMJ7MP-KT1l5agzzHr5SDAUIThvJfbtLx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.617Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/huntik-secrets-and-seekers-huntik-secrets-e-seekers-nederlands-seizoen-1.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2CsdBO5-MchMfOEL81Zx0PnH9RC4Y5R6": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.627Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/horrid-henry-best-of-horrid-henry.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2CsdBO5-Mciz3U-oPK6Zt_CIyepdvBIe": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.653Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/horrid-henry-horrid-henry-cartoons-for-kids.json"
+  },
+  "https://www.youtube.com/channel/UCXJXseIMvqSp9-YMTgnlG6w": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.681Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/horrid-henry.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDg7FjaC1Jx_RV18I_XZ2xHRXLg_kdiB_": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.698Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/inspector-gadget-classic-inspector-gadget.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2CsdBO5-MchnfnIcx_Zs8-qxHxT2uMzz": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.737Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/horrid-henry-horrid-henry-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLhGamQZtJ7K-XKg7sUOhGUKIISa6oM0xR": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.778Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/it-s-anime-powered-by-remow-limited-time-streaming-marathon.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDg7FjaC1Jx-sjix_dRMt7Uc0dW7hxy3I": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.782Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/inspector-gadget-inspector-gadget.json"
+  },
+  "https://www.youtube.com/playlist?list=PLhGamQZtJ7K8Okdu0yZIpu3-NhHcuwkbg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.792Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/it-s-anime-powered-by-remow-witch-hat-atelier.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDg7FjaC1Jx9tx-xmqN9Me4C-cLpEOwmZ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.807Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/inspector-gadget-inspector-gadget-2-0-brand-new-series.json"
+  },
+  "https://www.youtube.com/playlist?list=PLhGamQZtJ7K9mMjRssNXvXirOiYbE8P3s": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.808Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/it-s-anime-powered-by-remow-tonbo.json"
+  },
+  "https://www.youtube.com/playlist?list=PLhGamQZtJ7K8YgHGXIBnvJfeyNtJRU_ms": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.853Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/it-s-anime-powered-by-remow-winter-2026-anime-high-school-kimengumi-north-americ.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDg7FjaC1Jx9tmLJ-tSxn2KvoWl5dFQoI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.856Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/inspector-gadget-inspector-gadget-new-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLDg7FjaC1Jx9mFfwswQJRf5Be4I3hAlVR": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.862Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/inspector-gadget-inspector-gadget-all-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoLuTO-srY1hA2timDbZhGdiCB7mDW-uj": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.901Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/jelly-jamm-clips-musicales-de-jelly-jamm-musica-de-guille-milkyway.json"
+  },
+  "https://www.youtube.com/channel/UCncnGlytuCSd59fk5_75prQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.931Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/huntik-secrets-and-seekers.json"
+  },
+  "https://www.youtube.com/playlist?list=PLhGamQZtJ7K84MV38NGoaosPPF44pVnxk": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.946Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/it-s-anime-powered-by-remow-yakitate-japan.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoLuTO-srY1jO4D7SYg1EDgeojnm6eg-0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.947Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/jelly-jamm-jelly-jamm-season-2-episodio-completo.json"
+  },
+  "https://www.youtube.com/channel/UCI-lg_sDdzBtYKVpebqasIA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.954Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/inspector-gadget.json"
+  },
+  "https://www.youtube.com/playlist?list=PL80398684173B6D4B": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:18.983Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/jelly-jamm-jelly-jamm-episodes-in-english.json"
+  },
+  "https://www.youtube.com/playlist?list=PLwHTNWVGhkSa-dgy1r3RjZ_skyu3V9z-R": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.032Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/johnny-test-johnny-test-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoLuTO-srY1j9wMCtVaXEnyyB8jV7oL8A": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.038Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/jelly-jamm-jelly-jamm-season-1-episodio-completo.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2_gOHoRCa3ungGZLSLYteWr8TIDJ7vMJ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.039Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/kaeloo-english-kaeloo-new-saison.json"
+  },
+  "https://www.youtube.com/playlist?list=PLwHTNWVGhkSYx4WnwMPWt3kMgJHrPGaHX": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.052Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/johnny-test-johnny-test-full-english-episodes-season-5.json"
+  },
+  "https://www.youtube.com/playlist?list=PLwHTNWVGhkSZCGSRZqYLaylct5_K2FvvJ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.111Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/johnny-test-johnny-test-full-episodes-most-popular-videos.json"
+  },
+  "https://www.youtube.com/channel/UCsj_CYajUSQ2ca8bYCMan9g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.122Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/it-s-anime-powered-by-remow.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2_gOHoRCa3ulmm8xC4sERxS1SlDqt-8a": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.127Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/kaeloo-english-kaeloo-best-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2_gOHoRCa3vEMUyvc8fFk_5mt-0zYw3k": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.129Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/kaeloo-english-kaeloo-fun-gets-serious-here.json"
+  },
+  "https://www.youtube.com/playlist?list=PLxyDPFsnfrbn0eRzCAfr4kVcy0fObfcGS": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.138Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/lackadaisy-lackachats.json"
+  },
+  "https://www.youtube.com/playlist?list=PLxyDPFsnfrbl1sCoZrgD_-7OQYA9h9o9h": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.186Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/lackadaisy-lackadaisy-animation.json"
+  },
+  "https://www.youtube.com/channel/UCx1LWcAd9dNhMz8GPT_qwbg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.187Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/jelly-jamm.json"
+  },
+  "https://www.youtube.com/playlist?list=PLxyDPFsnfrbkOMnqCK6aAb_ISNkZIpU1j": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.211Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/lackadaisy-shop-talk.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2_gOHoRCa3sznbqJVh2kQUkbWkSdh4Ex": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.221Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/kaeloo-english-kaeloo-season-5-best-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCPgBrAYSc-7t8utHTVsIZUA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.238Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/kaeloo-english.json"
+  },
+  "https://www.youtube.com/channel/UCqdgeIot-FbCtOpTfGSEftA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.239Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/johnny-test.json"
+  },
+  "https://www.youtube.com/playlist?list=PLxyDPFsnfrblCoYnRGNo6F6NSUSWs_X2z": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.252Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/lackadaisy-art-streams.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWeMoUuxZkmOezrxBE_GP4eJD37p4l8eM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.266Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/martin-mystery-martin-mystere-saison-3.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWeMoUuxZkmMtip4K3t4csbG-v5PCRfcF": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.274Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/martin-mystery-martin-mystere-saison-2.json"
+  },
+  "https://www.youtube.com/playlist?list=PLwHTNWVGhkSadepPhY9DgKnkxaQrst239": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.288Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/johnny-test-johnny-test-full-episodes-new-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLxyDPFsnfrbnBBPKojoyFBPphJsXCjjUe": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.291Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/lackadaisy-lackadaisy-live-streams.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWeMoUuxZkmOEG0o3faU2K5DP3OhFZIMg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.358Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/martin-mystery-martin-mystery-season-2.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWeMoUuxZkmMPak3MBxIhvxIaYBM2nJIl": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.371Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/martin-mystery-martin-mystere-saison-1.json"
+  },
+  "https://www.youtube.com/playlist?list=PLWeMoUuxZkmPbOUt5s-ICL_Ua2ysbIu7k": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.391Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/martin-mystery-martin-mystery-season-1.json"
+  },
+  "https://www.youtube.com/channel/UCHpyAufyq1-igTlgA9XjbcQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.437Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/lackadaisy.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNw_hEO5pK1rtEaKo3UEXueCZ3ODbnjap": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.509Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/marvel-h-q-marvel-s-avengers-assemble-full-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCUnRaNn03gkEmseKy-SqsEg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.518Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/martin-mystery.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNw_hEO5pK1ru3xsFKaLzfIoE4TD1YIWm": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.529Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/marvel-h-q-most-amazing-marvel-moments.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNw_hEO5pK1ovGllglrwKRewSetHIjmFb": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.581Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/marvel-h-q-what-s-new-on-marvel-hq.json"
+  },
+  "https://www.youtube.com/playlist?list=PLd_Veup5fbrM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.620Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/marvel-h-q-your-friendly-neighborhood-spider-man.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNw_hEO5pK1oEn8bNIuTjehnUSCrw223r": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.628Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/marvel-h-q-celebrate-black-marvel-hero-stories-wakanda-e-beyond.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCdn0Ilg0F9R5h6TcK-t5j9r4F1SyuC0_": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.681Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/me-too-granny-murray-s-best-bits-me-too.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-yqdhzdKqQS0ntBPeCoHyCWduPy5VM39": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.717Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/masha-and-the-bear-tadaboom-english-music-channel.json"
+  },
+  "https://www.youtube.com/channel/UCxwitsUVNzwS5XBSC5UQV8Q": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.735Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/marvel-h-q.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZvwkUfczmRyNfbR2xBOtTH_8gdQXNAtI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.781Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minimighty-kids-official-the-minimighty-kids-episode-01-to-15.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCdn0Ilg0F9R7d6PaTDVT31RNhQkLSCQU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.791Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/me-too-best-of-me-too.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-yqdhzdKqQQ3Ad6-v0Pb76taFKmIrz43": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.813Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/masha-and-the-bear-what-s-new.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-yqdhzdKqQQ_PVD-HU4Xb_jdQYgI9kXh": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.818Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/masha-and-the-bear-adventures-in-the-world-of-masha-and-the-bear.json"
+  },
+  "https://www.youtube.com/playlist?list=PL7eLsxQrsg-7483yYVLKY87zUuPjYKPxU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.876Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minuscule-minuscule-mandibles-from-far-away-the-feature-film-minuscule-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCdn0Ilg0F9TUgd3OPNy8czuNsip-xpnT": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.879Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/me-too-me-too-hours-of-fun-stayhome-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCdn0Ilg0F9Q2xjTQfy-X9-oUvW8i_0JI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.895Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/me-too-granny-murray-s-house-me-too-full-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCu59yAFE8fM0sVNTipR4edw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.907Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/masha-and-the-bear.json"
+  },
+  "https://www.youtube.com/playlist?list=PL7eLsxQrsg-4DNH682TNzgSlCXEeJ3IsX": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.942Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minuscule-minuscule-the-collections-minuscule-official.json"
+  },
+  "https://www.youtube.com/channel/UCpkf3pJd5vWReZwIWY2W7ag": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.957Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minimighty-kids-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCdn0Ilg0F9SKg0T2AYbfpeZKUW40vAZ0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.965Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/me-too-watch-the-latest-from-me-too.json"
+  },
+  "https://www.youtube.com/playlist?list=PL7eLsxQrsg-5jIKSw8SX26bQ1e-n_b5o8": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.983Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minuscule-minuscule-valley-of-the-lost-ants-the-feature-film-minuscule-official.json"
+  },
+  "https://www.youtube.com/channel/UCL6BSu5pBpGq2K5XxSgsMlA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:19.989Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/me-too.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-yqdhzdKqQRm_e7tj6aBVGdMvP5-SPDC": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.002Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/masha-and-the-bear-discover-the-world-of-masha-and-the-bear.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-yqdhzdKqQSptimDQJWjkOi62O57db0g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.077Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/masha-and-the-bear-welcome-to-the-world-of-masha-and-the-bear.json"
+  },
+  "https://www.youtube.com/channel/UCu59yAFE8fM0sVNTipR4edw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.136Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/masha-and-the-bear-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PL7eLsxQrsg-5XomfLKJsXuPg9qSYcG30a": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.138Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minuscule-minuscule-the-animated-series-season-1-minuscule-official.json"
+  },
+  "https://www.youtube.com/channel/UCOOi7JtIMDaYsaUjDBSTSIQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.183Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minuscule.json"
+  },
+  "https://www.youtube.com/playlist?list=PL7eLsxQrsg-69_M01yj2OHYtCaM9N3ypx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.245Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/minuscule-minuscule-the-animated-series-season-2-minuscule-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLuhrB_7OzeSym8nHYTPpTrYL1I-SoNgWl": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.251Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/miraculous-ladybug-miraculous-season-1.json"
+  },
+  "https://www.youtube.com/playlist?list=PLGp1OwCbYKoU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.262Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/monster-high-all-cave-tales-cave-club.json"
+  },
+  "https://www.youtube.com/playlist?list=PLVoHZN1Juz9A": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.279Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/monster-high-enchantimals-stop-motion.json"
+  },
+  "https://www.youtube.com/playlist?list=PLfbrBjoUFlg4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.335Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/monster-high-tales-from-everwilde-enchantimals.json"
+  },
+  "https://www.youtube.com/playlist?list=PLuhrB_7OzeSzmAyaIiE6dRcV_c_IXytLn": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.345Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/miraculous-ladybug-miraculous-season-3.json"
+  },
+  "https://www.youtube.com/playlist?list=PLuhrB_7OzeSyu-adzDg6dTZAiLJy9Om6Y": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.352Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/miraculous-ladybug-miraculous-season-5.json"
+  },
+  "https://www.youtube.com/playlist?list=PLuhrB_7OzeSyiKril9h33c5QQ3JPVBC_t": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.358Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/miraculous-ladybug-miraculous-season-6.json"
+  },
+  "https://www.youtube.com/playlist?list=PLC0fs1j-DioQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.459Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/monster-high-all-new-videos-enchantimals.json"
+  },
+  "https://www.youtube.com/channel/UCMoWQ_lvBWARyM7r1B3ZIIg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.463Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/monster-high.json"
+  },
+  "https://www.youtube.com/channel/UCWjVfZ3VnyUwBEOkuOlaU3g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.491Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/miraculous-ladybug.json"
+  },
+  "https://www.youtube.com/playlist?list=PLuhrB_7OzeSxU9mdYc7-ZObAWZDHbAt4v": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.540Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/miraculous-ladybug-miraculous-season-4.json"
+  },
+  "https://www.youtube.com/playlist?list=PLC1EDzqtkrh-RiOZfMF-mI188Vh4M7Q8K": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.600Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/mr-bean-compilations-mr-bean.json"
+  },
+  "https://www.youtube.com/playlist?list=PLC1EDzqtkrh9Um40N668S9a2zUi9lxOqp": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.603Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/mr-bean-best-of-mr-bean-animated-mr-bean.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUnS6VWqJBaYIgCHNK1Ka74-QUb3o39rT": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.631Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/my-little-pony-official-channel-my-little-pony-a-new-generation-new-g5-movie.json"
+  },
+  "https://www.youtube.com/playlist?list=PLC1EDzqtkrh-2F4nbMOEeEkfTWyXW6T0x": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.633Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/mr-bean-mr-bean-the-animated-series-season-2-mr-bean.json"
+  },
+  "https://www.youtube.com/playlist?list=PLQlnTldJs0ZTqIjlu8Uxdk739Z6bm8_m8": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.666Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/national-geographic-kids-30-seconds-of-baby-animals.json"
+  },
+  "https://www.youtube.com/playlist?list=PLC1EDzqtkrh9xuwtjUoZq8zja2uX7j21n": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.668Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/mr-bean-best-of-mr-bean-live-action-mr-bean.json"
+  },
+  "https://www.youtube.com/playlist?list=PLC1EDzqtkrh8IWwCVEPxcQ1SkMH1mBlA6": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.716Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/mr-bean-mr-bean-the-animated-series-season-1-mr-bean.json"
+  },
+  "https://www.youtube.com/playlist?list=PLQlnTldJs0ZSncS2Sp815WbQxuPr76092": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.722Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/national-geographic-kids-celebrate-america-at-250-nat-geo-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUnS6VWqJBaZqq_emLdwdCwU7O7RDEyxW": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.737Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/my-little-pony-official-channel-my-little-pony-tell-your-tale-full-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCkAGrHCLFmlK3H2kd6isipg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.750Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/mr-bean.json"
+  },
+  "https://www.youtube.com/playlist?list=PLB8Dp6nf-fok": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.760Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/monster-high-harvest-hills-enchantimals.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUnS6VWqJBaZ3KWydKxTT3YliYDVZISvB": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.777Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/my-little-pony-official-channel-my-little-pony-tell-your-tale.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUnS6VWqJBabxZiK1PO70G7bHKlCfXTtp": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.779Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/my-little-pony-official-channel-my-little-pony-make-your-mark.json"
+  },
+  "https://www.youtube.com/playlist?list=PLCTlX3B4y8I4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.802Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/national-geographic-kids-whoa-factor-nat-geo-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLQlnTldJs0ZTrKCZDZbE_NKH73FrZr4Sc": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.807Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/national-geographic-kids-kids-react-nat-geo-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUnS6VWqJBabU2lWsJ-F-ULyYn4yW8tMB": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.863Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/my-little-pony-official-channel-recent-uploads-my-little-pony-official-full-epis.json"
+  },
+  "https://www.youtube.com/playlist?list=PLQlnTldJs0ZRzzCYXqv-4yJZUnklZj4t3": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.895Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/national-geographic-kids-nat-geo-kids-full-episode-compilations.json"
+  },
+  "https://www.youtube.com/channel/UC9qgVkKRZUXcgHdf35Z-8dw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.951Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/my-little-pony-official-channel-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PL3qHjxSSl7AHs9n0EUptgM7SFGJB-1GtR": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:20.970Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nick-jr-nick-jr-mindfulness-e-mental-health-with-paw-patrol-and-more.json"
+  },
+  "https://www.youtube.com/playlist?list=PL3qHjxSSl7AG2x8EZNX5nx8B8BlzycJeo": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.000Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nick-jr-blaze-en-de-monsterwielen.json"
+  },
+  "https://www.youtube.com/playlist?list=PL3qHjxSSl7AGZWTAYx8c55_T6zXON6RZa": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.023Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nick-jr-blaze-and-the-monster-machines-on-nick-jr.json"
+  },
+  "https://www.youtube.com/channel/UC9qgVkKRZUXcgHdf35Z-8dw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.070Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/my-little-pony-official-channel.json"
+  },
+  "https://www.youtube.com/playlist?list=PL3qHjxSSl7AEGjWYx3xQMoXv2020-W-pu": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.074Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nick-jr-30-minute-e-1-hour-compilations-w-paw-patrol-blaze-and-the-monster-machi.json"
+  },
+  "https://www.youtube.com/channel/UCXVCgDuD_QCkI7gTKU7-tpg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.091Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/national-geographic-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL3qHjxSSl7AGSWzWiFDwQ9HaND8VrQ3LQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.144Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nick-jr-psi-patrol.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUQR09yEYrP3N5ALL59ETnMVhEQMwVN_c": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.145Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nicktoons-rock-paper-scissors-on-nickelodeon-mon-thurs-5-30-4-30c-nicktoons.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUQR09yEYrP2Er9Et0Od21xc5mM0WqHJ9": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.158Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nicktoons-new-from-nicktoons.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUQR09yEYrP2x3cZEYrb2Yfsvi-LyzPsT": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.223Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nicktoons-nickelodeon-s-halloween-spook-tacular-31-nights-of-frights.json"
+  },
+  "https://www.youtube.com/playlist?list=PL9swKX1PviEqpJgWu9DzINYclNC-rzOiF": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.226Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/numberblocks-numberblocks-season-4-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUQR09yEYrP0hxz_Jl32_bu_B5K3_Z6NC": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.242Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nicktoons-spongebob-squarepants-nicktoons.json"
+  },
+  "https://www.youtube.com/playlist?list=PL9swKX1PviErIx7d1gwxb320fSVOv01N1": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.243Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/numberblocks-fun-maths-in-april.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUQR09yEYrP1eSrkn6llrXXS-WkdGrgzB": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.276Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nicktoons-the-loud-house-nicktoons.json"
+  },
+  "https://www.youtube.com/playlist?list=PL9swKX1PviErV5UKYedc69ITUoipMhr9M": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.285Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/numberblocks-numberblocks-season-8-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PL9swKX1PviErNxVO7hwpbTQpc6JEOipRN": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.287Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/numberblocks-numberblocks-course-level-2-orange-numbers-up-to-10.json"
+  },
+  "https://www.youtube.com/channel/UCUe6ZpY6TJ0no8jI4l2iLxw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.311Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nick-jr.json"
+  },
+  "https://www.youtube.com/playlist?list=PL9swKX1PviEruaholwotM1lOcNCQuweCl": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.315Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/numberblocks-numberblocks-season-3-full-episodes.json"
+  },
+  "https://www.youtube.com/channel/UC74bcC7aGRNz4KoRpJsJNEw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.385Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nicktoons.json"
+  },
+  "https://www.youtube.com/channel/UCUe6ZpY6TJ0no8jI4l2iLxw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.433Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nick-jr-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLmWU9RxLvEIk17OwaNFtsLxmF3-dn2Hvk": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.438Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oddbods-meet-baby-oddbods.json"
+  },
+  "https://www.youtube.com/playlist?list=PLmWU9RxLvEIlVXYeCClEQak-xb-fA77yH": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.466Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oddbods-newt.json"
+  },
+  "https://www.youtube.com/channel/UC74bcC7aGRNz4KoRpJsJNEw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.469Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/nicktoons-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLLnj-61LKXSGzqc6AITKFA7yDi22xTrV4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.529Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/official-yu-gi-oh-yu-gi-oh-5d-s-season-2-full-episodes-english.json"
+  },
+  "https://www.youtube.com/channel/UCPlwvN0w4qFSP1FllALB92w": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.533Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/numberblocks.json"
+  },
+  "https://www.youtube.com/playlist?list=PLmWU9RxLvEIldS4_atQ6gG3PWgnFNPqNv": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.541Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oddbods-oddbods-full-episode-mix.json"
+  },
+  "https://www.youtube.com/playlist?list=PLLnj-61LKXSFVXhsf75jVfefNr-ptdwnv": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.613Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/official-yu-gi-oh-moments-every-fan-remembers-yu-gi-oh.json"
+  },
+  "https://www.youtube.com/playlist?list=PLLnj-61LKXSFHP51q_svlZbFnZBeVbCoY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.618Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/official-yu-gi-oh-yu-gi-oh-5d-s-season-1-english.json"
+  },
+  "https://www.youtube.com/playlist?list=PLLnj-61LKXSGd_Rp1QAV-6tToKzv8So-c": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.633Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/official-yu-gi-oh-yu-gi-oh-gx-season-2-english.json"
+  },
+  "https://www.youtube.com/playlist?list=PLmWU9RxLvEIl8MigoZEIOFnL1b7OAa7Gf": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.635Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oddbods-oddbods-million-view-legends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLmWU9RxLvEImdJnG9r4rs40e0BRf_0Ibb": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.643Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oddbods-oddbods-mega-mix-madness.json"
+  },
+  "https://www.youtube.com/channel/UCtlth0w7_mYqpHPViMhQ99Q": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.649Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oddbods.json"
+  },
+  "https://www.youtube.com/playlist?list=PLLnj-61LKXSEWsXtAXZAu5UkK_s8K2dxg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.676Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/official-yu-gi-oh-legendary-duelists.json"
+  },
+  "https://www.youtube.com/channel/UCPlwvN0w4qFSP1FllALB92w/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.802Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/numberblocks-24h.json"
+  },
+  "https://www.youtube.com/channel/UCtlth0w7_mYqpHPViMhQ99Q/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.819Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oddbods-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-d4D7FQaDKOWkqlWDfVxcPADRDouloCZ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.872Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oggy-and-the-cockroaches-oggy-season-5.json"
+  },
+  "https://www.youtube.com/channel/UCZuVXrpKTUn_KEzRQgFgMWg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.892Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/official-yu-gi-oh.json"
+  },
+  "https://www.youtube.com/playlist?list=PLa8HWWMcQEGTP7KnUIXoIL01wkRt6K-7p": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.939Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pbs-kids-ready-jet-go-pbs-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-d4D7FQaDKNUwmTCqr3Sob-RciVrujHy": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.958Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oggy-and-the-cockroaches-oggy-season-4.json"
+  },
+  "https://www.youtube.com/playlist?list=PLa8HWWMcQEGTvVi5IkHY526u1YMqM0w7m": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.978Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pbs-kids-daniel-tiger-s-neighborhood-pbs-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-d4D7FQaDKP5SbsedlgY8xsXQEDYOPEx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.984Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oggy-and-the-cockroaches-oggy-season-6-e-7.json"
+  },
+  "https://www.youtube.com/playlist?list=PLa8HWWMcQEGSUxm35JGtBF9wN5rbQCCAU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.989Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pbs-kids-lyla-in-the-loop-streaming-free-on-pbs-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-d4D7FQaDKMKmZD-nmHpdnbO7YZRipC6": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:21.999Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oggy-and-the-cockroaches-oggy-e-the-cockroaches-top-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLa8HWWMcQEGQvD9aUlZ5n95jgp9D1z9FE": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.049Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pbs-kids-gameplay-pbs-kids-apps-e-games.json"
+  },
+  "https://www.youtube.com/channel/UCNEKMkg_DG8eAyR1BNWsSvw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.100Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oggy-and-the-cockroaches.json"
+  },
+  "https://www.youtube.com/playlist?list=PL-d4D7FQaDKOhkiNePZ1_Mr2coVf8umB2": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.108Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oggy-and-the-cockroaches-seasons-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PL00oPXoojX5t2Nh6iOlqeE1oOOkVIX8SH": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.185Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pj-masks-official-new-from-pj-masks-hq.json"
+  },
+  "https://www.youtube.com/playlist?list=PLa8HWWMcQEGQGJpeBCGd5Oeaxqibti5Cm": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.203Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pbs-kids-xavier-riddle-e-the-secret-museum-pbs-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL00oPXoojX5sPX8FGsGKFkSNz32FuKutM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.212Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pj-masks-official-pj-masks-full-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCZuVXrpKTUn_KEzRQgFgMWg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.223Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/official-yu-gi-oh-24h.json"
+  },
+  "https://www.youtube.com/channel/UCrNnk0wFBnCS1awGjq_ijGQ/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.254Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pbs-kids-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFEgnf4tmQe8kGKYQCa_iuLKBPHf9P59U": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.276Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/peppa-pig-peppa-pig-tales-2025-season-3-brand-new-tales-every-week.json"
+  },
+  "https://www.youtube.com/playlist?list=PL00oPXoojX5tGdKD0KLxJCAcNLldMEb5X": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.281Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pj-masks-official-singalong-with-the-pj-masks.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFEgnf4tmQe-7OzNcUCaJFg734iX8Haht": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.294Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/peppa-pig-peppa-pig-tales-season-2-tales-best-cartoon-collection-available-now.json"
+  },
+  "https://www.youtube.com/channel/UCNEKMkg_DG8eAyR1BNWsSvw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.301Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/oggy-and-the-cockroaches-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFEgnf4tmQe8H-ZV_OQ2UwuYZRLZAUoQq": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.308Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/peppa-pig-peppa-pig-best-cartoon-collection-kids-videos-and-cartoons.json"
+  },
+  "https://www.youtube.com/channel/UCrNnk0wFBnCS1awGjq_ijGQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.374Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pbs-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFEgnf4tmQe-rMpBCNbV8IT1x9x90V-uR": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.415Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/peppa-pig-peppa-pig-tales-season-1-tales-best-cartoon-collection.json"
+  },
+  "https://www.youtube.com/channel/UCAOtE1V7Ots4DjM8JLlrYgg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.420Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/peppa-pig.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFEgnf4tmQe_KZhnbBCXONH6H8OWIYwfj": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.431Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/peppa-pig-peppa-pig-tales-all-videos-new-videos-weekly.json"
+  },
+  "https://www.youtube.com/channel/UCAOtE1V7Ots4DjM8JLlrYgg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.475Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/peppa-pig-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PL00oPXoojX5tfqY1mZJjAZU5pZXn__C8p": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.496Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pj-masks-official-welcome-to-the-pj-masks-hq-channel.json"
+  },
+  "https://www.youtube.com/channel/UCkxZnty-G5LQOYpPYygUoUQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.507Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pj-masks-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRcHmntfmJ8DU1LS6ExXHGTdzvpHDdVqn": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.510Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pokemon-pokemon-gold-e-silver-seasons-3-5.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZi9kmcgOoWmD8CRP_ED3CKAYKh2mV0nq": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.570Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/popeye-and-friends-official-popeye-and-son-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLarmIGx21XFw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.571Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pokemon-pokemon-diamond-e-pearl-seasons-10-13.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZi9kmcgOoWmOwvu0bfMbydr7D90wEzAD": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.579Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/popeye-and-friends-official-all-new-popeye-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRcHmntfmJ8B5eUO9b-J_fSWF5tPjnSWB": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.633Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pokemon-pokemon-the-beginning-seasons-1-2.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRcHmntfmJ8AOHGOH7140F3UAntAqK6P9": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.650Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pokemon-pokemon-ruby-e-sapphire-seasons-6-9.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZi9kmcgOoWnTRGNtwK8GdhmGKHE8WVJC": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.717Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/popeye-and-friends-official-classic-popeye-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PL_bCk9PzKMDN5IzF9YOM9VHRQ3XeTf7-k": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.756Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/puppy-in-my-pocket-adventures-in-pocketville-series.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRhk5vHcVeVY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.760Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/power-rangers-kids-mighty-morphin-minute-s002-mighty-morphin-power-rangers-re-ig.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZi9kmcgOoWl5Izf05Pj_WTCWlkr0jyN2": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.764Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/popeye-and-friends-official-brand-new-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRcHmntfmJ8BNpfON92grhkv6WxuqF5vD": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.765Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pokemon-pokemon.json"
+  },
+  "https://www.youtube.com/playlist?list=PL_bCk9PzKMDNeAVGpsB5-oG-VcDksT5sx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.788Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/puppy-in-my-pocket-puppy-in-my-pocket-webisodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLPZ3EGbzCVQIM34e44YDXuXD1sA_6iEQE": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.793Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/power-rangers-kids-power-rangers-beast-morphers-power-rangers-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLPZ3EGbzCVQKAWBDsoFVytZfbgXsokTFw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.797Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/power-rangers-kids-power-rangers-dino-fury-brand-new-power-rangers-kids.json"
+  },
+  "https://www.youtube.com/channel/UCqvXAiNyn8pd9SVPclWfJTg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.801Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/popeye-and-friends-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLPZ3EGbzCVQJ39ugszPPxq8kSzyFxW_NM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.808Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/power-rangers-kids-dinosaur-fun-power-rangers-dino-fury-and-dino-charge-power-ra.json"
+  },
+  "https://www.youtube.com/channel/UC8wrbl5viYtQmRUgdFdf4ew/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.918Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pokemon-24h.json"
+  },
+  "https://www.youtube.com/channel/UC8wrbl5viYtQmRUgdFdf4ew": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.925Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/pokemon.json"
+  },
+  "https://www.youtube.com/playlist?list=PL_bCk9PzKMDNBjv-x0ltmIlgU0sNm5XX0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.932Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/puppy-in-my-pocket-reviews-jungle-in-my-pocket.json"
+  },
+  "https://www.youtube.com/playlist?list=PLPZ3EGbzCVQJSHD_vkNtmcZbGy_iYkWvE": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.937Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/power-rangers-kids-new-uploads-power-rangers-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL_bCk9PzKMDOV3WggHC74_Nu7DODGcxuK": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.942Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/puppy-in-my-pocket-reviews-kitty-in-my-pocket.json"
+  },
+  "https://www.youtube.com/playlist?list=PL_bCk9PzKMDMAD4WnrJgSocOwB5X-uLU5": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.959Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/puppy-in-my-pocket-reviews-playsets.json"
+  },
+  "https://www.youtube.com/playlist?list=PLGsVaqfVidOy0VCWzceQo9dr3CMaxkUdo": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:22.992Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/robotboy-robotboy-official-full-episodes-season-1.json"
+  },
+  "https://www.youtube.com/playlist?list=PLGsVaqfVidOwKdxkIkmJhyHWqrynazT78": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.023Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/robotboy-robotboy-official-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLGsVaqfVidOxeK00ezszxETZxOXsjQHJr": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.031Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/robotboy-robotboy-official-full-episodes-season-2.json"
+  },
+  "https://www.youtube.com/channel/UCbIm2iqwql8bFqkO2bHv7Mw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.036Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/power-rangers-kids.json"
+  },
+  "https://www.youtube.com/channel/UCqvXAiNyn8pd9SVPclWfJTg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.054Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/popeye-and-friends-official-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8TioFHubWFuwMMr5Cgr0-gyZBq5ZbZHU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.091Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/sesame-street-dress-up-and-dance-with-sesame-street-and-emma-memma.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8TioFHubWFvN2XpC8cPgBqLn0ArxGrmu": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.106Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/sesame-street-celebrating-the-gift-of-giggles.json"
+  },
+  "https://www.youtube.com/channel/UC3EvIaCx863uhG7ZCUeYvRw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.120Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/robotboy.json"
+  },
+  "https://www.youtube.com/playlist?list=PLGsVaqfVidOwSyVJFq7Qs0F5-sZhZac47": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.175Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/robotboy-robotboy-season-1-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUlnvCyZAcjo": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.182Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/shaun-the-sheep-official-shaun-the-sheep-season-1-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8TioFHubWFtsj3Ryfhi8BqT7gk8OhDST": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.185Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/sesame-street-emotional-well-being-for-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8TioFHubWFvrpM9-Ozd1BurgIQesYzL0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.187Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/sesame-street-elmo-and-friends-on-youtube.json"
+  },
+  "https://www.youtube.com/channel/UCzEMHqvZt4i9dDHFnVGtb5A": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.192Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/puppy-in-my-pocket.json"
+  },
+  "https://www.youtube.com/playlist?list=PLGsVaqfVidOymbXmwVGU92yrjh305XQtG": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.205Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/robotboy-robotboy-season-2-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLUvMyC6oBhdA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.306Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/shaun-the-sheep-official-shaun-the-sheep.json"
+  },
+  "https://www.youtube.com/playlist?list=PL75WpgEj_KA1i0WUvRc1Zn7WIm5YmeOIB": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.314Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/shaun-the-sheep-official-learning-time-with-timmy.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8TioFHubWFv8GavWs33WyQ-iNs8QsF1e": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.348Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/sesame-street-sesame-street-babies.json"
+  },
+  "https://www.youtube.com/channel/UCS7H8U-n5mINVJjJsaRtGHg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.369Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/shaun-the-sheep-official.json"
+  },
+  "https://www.youtube.com/channel/UCoookXUzPciGrEZEXmh4Jjg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.386Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/sesame-street.json"
+  },
+  "https://www.youtube.com/playlist?list=PL75WpgEj_KA2_JJHuKArzW1Y2BSdV9X3J": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.434Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/shaun-the-sheep-official-shaun-the-sheep-special-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLagyxbJHFyL1Igjazusffxzzy04ruwfFU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.465Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/simon-s-cat-simon-s-cat-loves.json"
+  },
+  "https://www.youtube.com/playlist?list=PLagyxbJHFyL3Q-wZ9M_G6GK2xUsCQn1V3": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.469Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/simon-s-cat-caturday-film-club.json"
+  },
+  "https://www.youtube.com/playlist?list=PLagyxbJHFyL11iTef4c6ALIDsD--nXkel": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.487Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/simon-s-cat-black-and-white-classics.json"
+  },
+  "https://www.youtube.com/playlist?list=PLagyxbJHFyL0X2obmssjdABSByaZC0CYg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.548Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/simon-s-cat-simon-s-cat-i-all-b-e-w-episodes-oldest-latest.json"
+  },
+  "https://www.youtube.com/playlist?list=PLagyxbJHFyL1SnXZkUUBQocF8y3kkNu-h": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.560Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/simon-s-cat-films-in-4k.json"
+  },
+  "https://www.youtube.com/playlist?list=PLeI3nAzzHI46lVDoapu4cweaelX-4lMML": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.596Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/space-goofs-animals.json"
+  },
+  "https://www.youtube.com/playlist?list=PL75WpgEj_KA3oqoVMIM4sb5nMmy0wnkhQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.598Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/shaun-the-sheep-official-shaun-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2sEcUXfSvpPuxlIHF3ObpjTBMnmZq3LY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.602Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/slugterra-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLeI3nAzzHI45UHMSaD1mCZbumADFNvya-": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.604Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/space-goofs-roleplay.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2sEcUXfSvpNAGgVN7XcetiOXuRDOfihu": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.634Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/slugterra-slugterra-season-1-full-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCS7H8U-n5mINVJjJsaRtGHg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.639Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/shaun-the-sheep-official-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLeI3nAzzHI44wARO9Xug2W1itCAl8lI6C": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.653Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/space-goofs-travel-2.json"
+  },
+  "https://www.youtube.com/playlist?list=PLeI3nAzzHI45ELK-VpopDO8jnuZKGb3aS": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.685Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/space-goofs-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2sEcUXfSvpOlPe6U2cCIbUXvG5fq0JFG": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.706Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/slugterra-slugterra-slugisodes.json"
+  },
+  "https://www.youtube.com/channel/UCmUvq3hhUttgMM5Mq-Vk-nA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.710Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/slugterra.json"
+  },
+  "https://www.youtube.com/playlist?list=PLeI3nAzzHI46GKEYevj29ZO8S4OVH1AR1": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.714Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/space-goofs-travel.json"
+  },
+  "https://www.youtube.com/channel/UCoookXUzPciGrEZEXmh4Jjg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.717Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/sesame-street-24h.json"
+  },
+  "https://www.youtube.com/channel/UCH6vXjt-BA7QHl0KnfL-7RQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.727Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/simon-s-cat.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2sEcUXfSvpNOO9h-iMPqD3sVgaxgqHjd": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.756Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/slugterra-slugterra-all-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PL2sEcUXfSvpOkhP969jdP4SgsZDC7qHY8": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.766Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/slugterra-slugterra-new-videos.json"
+  },
+  "https://www.youtube.com/playlist?list=PLM1j2JqVBQfkbYtOsXH3vnBcO_TXD5Vtr": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.957Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spongebob-squarepants-official-best-of-the-krusty-krab-spongebob.json"
+  },
+  "https://www.youtube.com/channel/UCx27Pkk8plpiosF14qXq-VA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.966Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spongebob-squarepants-official.json"
+  },
+  "https://www.youtube.com/channel/UC31hiLXXl5rpYX7WcRImHFw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:23.975Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/space-goofs.json"
+  },
+  "https://www.youtube.com/playlist?list=PLM1j2JqVBQfneP1sowXOz_G3y9DHnnnv8": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.015Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spongebob-squarepants-official-spongebob-squarepants-mega-marathon-10-minute-car.json"
+  },
+  "https://www.youtube.com/playlist?list=PLM1j2JqVBQfkjSUEdAeDh_PT6gfJXkJl6": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.028Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spongebob-squarepants-official-new-videos-every-day.json"
+  },
+  "https://www.youtube.com/playlist?list=PLM1j2JqVBQfnkzGJfQa_qTdcZ_7oqFh6n": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.056Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spongebob-squarepants-official-every-time-ever-spongebob.json"
+  },
+  "https://www.youtube.com/playlist?list=PLXsbMnnbPpLUYMYgMQ703Tlr8R3OZ5vEa": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.068Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/star-wars-kids-galaxy-of-adventures.json"
+  },
+  "https://www.youtube.com/playlist?list=PLjFmi1u8peSqGgfHOtdf2-ks1bEl6wqme": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.086Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spookiz-spookiz-dance-playlist.json"
+  },
+  "https://www.youtube.com/playlist?list=PLjFmi1u8peSp0r5vQzRE5eJ5pCq8HHhTR": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.111Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spookiz-funny-spookiz-videos-cartoons-for-children.json"
+  },
+  "https://www.youtube.com/playlist?list=PLjFmi1u8peSqfuNF_6MNZAtEoE7iyVOwF": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.178Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spookiz-spookiz-for-everyone.json"
+  },
+  "https://www.youtube.com/channel/UCx27Pkk8plpiosF14qXq-VA/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.198Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spongebob-squarepants-official-24h.json"
+  },
+  "https://www.youtube.com/channel/UCGRODP7wtTU_uyNZmu9cb7g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.204Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spookiz.json"
+  },
+  "https://www.youtube.com/playlist?list=PLjFmi1u8peSpu1V39AgsWH-AbWaDVv7_0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.218Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spookiz-spookiz-and-friends-cartoons-for-children.json"
+  },
+  "https://www.youtube.com/playlist?list=PLjFmi1u8peSo3fM4TTzsLVWqcpGlGFdmP": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.230Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spookiz-monsterific-livestreams.json"
+  },
+  "https://www.youtube.com/playlist?list=PLM1j2JqVBQfnB8vhiXl_TjO0szciKQGfY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.281Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spongebob-squarepants-official-full-scenes-spongebob.json"
+  },
+  "https://www.youtube.com/playlist?list=PLVQUOsVTOwe5xLnZWnor5NKtl_b3B_K0o": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.294Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/studio100-kids-legend-of-enyo-studio100-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLXsbMnnbPpLUI5GtdoEG8mvWzvMXQ7A3W": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.300Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/star-wars-kids-star-wars-rebels.json"
+  },
+  "https://www.youtube.com/playlist?list=PLXsbMnnbPpLUHa6hfNLs0VNhURnw1Mpgt": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.354Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/star-wars-kids-what-s-new-on-star-wars-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLXsbMnnbPpLXTn_DfBC3dYG5tAqJtCmXr": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.377Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/star-wars-kids-lego-star-wars.json"
+  },
+  "https://www.youtube.com/playlist?list=PLXsbMnnbPpLXTvDoVLLZSO1nxkgDfXge8": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.381Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/star-wars-kids-star-wars-the-clone-wars.json"
+  },
+  "https://www.youtube.com/playlist?list=PLVQUOsVTOwe6phPZLX0Himzj4vwdkW6zx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.407Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/studio100-kids-f-t-p-d-fairy-tale-police-department-studio100-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLVQUOsVTOwe5LgaRjA7VVsbdAk9ODgcgt": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.465Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/studio100-kids-master-raindrop-studio100-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLdkj6XH8GYPQaRzIeNqA7niUpxdVN35AI": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.469Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/super-simple-songs-big-big-animals-playlist.json"
+  },
+  "https://www.youtube.com/playlist?list=PLdkj6XH8GYPTEJCzRd3U1IVKGBFQmNbqg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.483Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/super-simple-songs-back-to-school.json"
+  },
+  "https://www.youtube.com/channel/UCDe7m0POuwkL1gwnQ-FVhMw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.529Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/star-wars-kids.json"
+  },
+  "https://www.youtube.com/channel/UCGRODP7wtTU_uyNZmu9cb7g/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.531Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/spookiz-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLdkj6XH8GYPRVXJMJHV97AFO_XkpqfBPn": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.543Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/super-simple-songs-super-simple-christmas.json"
+  },
+  "https://www.youtube.com/playlist?list=PLVQUOsVTOwe6HHuLCmtOlB1xGmKu4Ywa7": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.545Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/studio100-kids-tashi-studio100-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLVQUOsVTOwe4zA6jSTw3WCgqrh1KbvC8Z": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.594Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/studio100-kids-the-woodlies-studio100-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLdkj6XH8GYPS6ArBvqavheM_7d705YD-s": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.596Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/super-simple-songs-teacher-s-essentials.json"
+  },
+  "https://www.youtube.com/playlist?list=PLdkj6XH8GYPQz3X-f_4ohr8j9jJZo4RTA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.622Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/super-simple-songs-super-simple-compilations.json"
+  },
+  "https://www.youtube.com/channel/UC1A_mmQ-iL_CQoh8hiiGGzw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.626Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/studio100-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLvKIk5gSo73CfQVRHN4hdTYBQwAuPMugC": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.664Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-backyardigans-the-backyardigans-all-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRbRtVFuU-cfxXfyN-2hU1Qbxwyltc0Mn": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.666Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-berenstain-bears-berenstain-bears-vol-6.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRbRtVFuU-ccP-FRFel6DhTWSa11xo9qU": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.684Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-berenstain-bears-the-berenstain-bears-season-2.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRbRtVFuU-cepSK-G952pBXU2rF5MBk-V": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.685Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-berenstain-bears-the-berenstain-bears-all-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRbRtVFuU-cdUErq1cgDCTe5Mk5Xd3ul-": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.693Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-berenstain-bears-the-berenstain-bears-season-1.json"
+  },
+  "https://www.youtube.com/playlist?list=PLvKIk5gSo73Dy0dTIPzD5-99y8nEVG-dF": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.701Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-backyardigans-backyardigans-30-minute-1-hour-e-90-minute-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLRbRtVFuU-ccYcY4LIfugF--FegxEaC66": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.718Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-berenstain-bears-the-berenstain-bears-season-3.json"
+  },
+  "https://www.youtube.com/playlist?list=PLvKIk5gSo73DZ77pVqj6-ViyWf7bO6zfV": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.719Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-backyardigans-boogie-e-sing-to-every-song-with-the-backyardigans.json"
+  },
+  "https://www.youtube.com/playlist?list=PLvKIk5gSo73CNKdp6je58cXDtYya_URju": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.733Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-backyardigans-new-backyardigans-videos-w-pablo-uniqua-tyrone-tasha-e-austin.json"
+  },
+  "https://www.youtube.com/playlist?list=PL12fFLTrB72sKSKITfRrAagM6PEOBdVRG": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.795Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-cramp-twins-episodes-30-39-the-cramp-twins.json"
+  },
+  "https://www.youtube.com/playlist?list=PL12fFLTrB72uQg08IiwHfzfys3xli_cE4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.805Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-cramp-twins-episodes-1-9-the-cramp-twins.json"
+  },
+  "https://www.youtube.com/channel/UCGtFbbGApG0s_8mMuJd-zKg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.808Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-berenstain-bears.json"
+  },
+  "https://www.youtube.com/playlist?list=PLvKIk5gSo73A6t6JvGWfZs3-SSyr1WYq4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.817Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-backyardigans-new-releases-of-the-backyardigans.json"
+  },
+  "https://www.youtube.com/playlist?list=PL12fFLTrB72uggU3KIjVLR5UpNs1hx8VV": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.819Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-cramp-twins-episodes-40-52-the-cramp-twins.json"
+  },
+  "https://www.youtube.com/playlist?list=PL12fFLTrB72s1OmCxwcRpw5FoX63ytDFO": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.824Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-cramp-twins-a-gorcs-ikrek.json"
+  },
+  "https://www.youtube.com/playlist?list=PL12fFLTrB72st8vuJ-r5XIg3HmVYmk520": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.837Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-cramp-twins-episodes-20-29-the-cramp-twins.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsesTVY-7pZOLibLHHlm6kVMr9y-y0072": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.860Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-fairly-oddparents-the-fairly-oddparents-throwback-specials.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsesTVY-7pZM_FOluA-bcVs8at7z4q1Mp": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.862Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-fairly-oddparents-the-fairly-oddparents-all-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsesTVY-7pZMmFFV6kKWFWS82z3sDorFb": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.863Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-fairly-oddparents-the-fairly-oddparents-throwback-thursday-tbt.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsesTVY-7pZN5oQAuK0lhwzfDqd4kqCxE": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.874Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-fairly-oddparents-the-fairly-oddparents-compilations.json"
+  },
+  "https://www.youtube.com/channel/UCLsooMJoIpl_7ux2jvdPB-Q": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.899Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/super-simple-songs.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsesTVY-7pZP9IlIHCZHHp2bubSiP2W4v": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.911Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-fairly-oddparents-the-fairly-oddparents-season-5.json"
+  },
+  "https://www.youtube.com/channel/UCQysPY0wlXD7HZ-Zc5bn0qg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.941Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-cramp-twins.json"
+  },
+  "https://www.youtube.com/channel/UCLsooMJoIpl_7ux2jvdPB-Q/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:24.954Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/super-simple-songs-24h.json"
+  },
+  "https://www.youtube.com/channel/UC2LYNC9syE8B1yu0cy_5E6Q": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.018Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-backyardigans.json"
+  },
+  "https://www.youtube.com/playlist?list=PLgrisE0MOLgTq-Y37VZJ_Sle8py1eb2yC": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.066Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-loud-house-5-minute-episodes-loud-house-e-the-casagrandes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZAaMYTty68gzLsN5gXr552Mkm0mj_gMh": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.125Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-zelfs-the-zelfs-cartoons.json"
+  },
+  "https://www.youtube.com/playlist?list=PLgrisE0MOLgRW8SC6SNJ3dEbLVq3bSXf-": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.158Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-loud-house-newest-clips-the-casagrandes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLgrisE0MOLgTKWCurv281OnCHdZu_557t": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.163Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-loud-house-loud-house-middle-children-luan-lynn-lincoln-e-lucy.json"
+  },
+  "https://www.youtube.com/channel/UCA8OH52te7LLg_O9T7lZFEA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.180Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-fairly-oddparents.json"
+  },
+  "https://www.youtube.com/playlist?list=PLgrisE0MOLgQCGdsdV-zn1JNcIbBlqylo": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.197Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-loud-house-newest-clips-the-loud-house.json"
+  },
+  "https://www.youtube.com/playlist?list=PLaE8D0PEpUTsvI468qe4MrymoY5BTIQTB": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.201Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-smurfs-the-smurfs.json"
+  },
+  "https://www.youtube.com/playlist?list=PLaE8D0PEpUTsHJgJnVTPX8DQ7akdmnZ_X": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.207Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-smurfs-more-smurfs.json"
+  },
+  "https://www.youtube.com/playlist?list=PLaE8D0PEpUTvaUS7kUvfQ5fLGSZtB8c57": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.208Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-smurfs-the-smurfs-3d-new-tv-series.json"
+  },
+  "https://www.youtube.com/playlist?list=PLgrisE0MOLgRBNWk2cbO035kQ0hHA11HC": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.243Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-loud-house-loud-house-e-casagrandes-mega-marathon-10-minute-cartoons.json"
+  },
+  "https://www.youtube.com/channel/UClPzMXh4d5baHqR_tSeiagw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.262Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-loud-house.json"
+  },
+  "https://www.youtube.com/channel/UC_hvVJBDbmKwUDnc0uqFjkw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.294Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-zelfs.json"
+  },
+  "https://www.youtube.com/playlist?list=PLaE8D0PEpUTuLCRtvUmQqtPvWzUn__Ysz": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.338Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-smurfs-smurfs-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLj2Ugc-vxcWF1jbguZWDUd0bBeHFDvrvM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.467Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/tms-anime-undead-unluck.json"
+  },
+  "https://www.youtube.com/playlist?list=PLEa49PDRtX3c": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.475Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/thomas-e-friends-sodor-play-alongs-thomas-e-friends-uk.json"
+  },
+  "https://www.youtube.com/playlist?list=PLj2Ugc-vxcWG_zTnv_Bzlo_T9tG2xDmzD": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.489Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/tms-anime-the-gutsy-frog-english-sub-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFeAunDoYmmY": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.506Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/thomas-e-friends-thomas-e-friends-cartoons-classic-marathon.json"
+  },
+  "https://www.youtube.com/playlist?list=PLj2Ugc-vxcWFC7iTS0QAWfFQpH6JCNsKi": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.517Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/tms-anime-dr-stone.json"
+  },
+  "https://www.youtube.com/channel/UCeY4C8Sbx8B4bIyREPSvORQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.528Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-smurfs.json"
+  },
+  "https://www.youtube.com/playlist?list=PLj2Ugc-vxcWG2SneAvEuaonjAcsJ_XEz5": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.529Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/tms-anime-tms-anime-music-official-opening-e-ending-themes.json"
+  },
+  "https://www.youtube.com/channel/UCeY4C8Sbx8B4bIyREPSvORQ/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.532Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-smurfs-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLHfTOx6tqby4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.553Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/thomas-e-friends-thomas-and-friends-best-train-moments-full-length-marathon.json"
+  },
+  "https://www.youtube.com/playlist?list=PLaE8D0PEpUTtHl3NzB3VfscnmW68cZC58": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.560Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/the-smurfs-smurfs-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLemrZJFBn0uM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.563Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/thomas-e-friends-best-of-thomas-the-tank-engine-cartoons-for-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZPAiKOWHnZ0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.577Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/thomas-e-friends-thomas-e-friends-full-episodes-classic-thomas-e-friends-uk.json"
+  },
+  "https://www.youtube.com/channel/UC0qrcKuayvbMtPj-WXNFylA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.615Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/thomas-e-friends.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSD4QfyS1DxUCU4xIbXcUIUukRWsppu-S": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.653Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wallace-e-gromit-new-on-wallace-e-gromit.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSD4QfyS1DxXVYgPkEajIjBak1UkPSpjx": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.712Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wallace-e-gromit-wallace-e-gromit-s-cracking-contraptions.json"
+  },
+  "https://www.youtube.com/channel/UC0qrcKuayvbMtPj-WXNFylA/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.786Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/thomas-e-friends-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSD4QfyS1DxVoDe3-MSZFJbFgGSCwjiAN": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.809Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wallace-e-gromit-wallace-e-gromit-vengeance-most-fowl.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFP5pUyg4YtCGic6zgTaYOCUUUyrLuEig": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.824Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/totally-spies-totally-spies.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFP5pUyg4YtCFkEzFyhKbFs2KL_8SxVFM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.826Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/totally-spies-totally-spies-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLAGOc_cYvhG8": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.918Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wb-kids-gokko-wb-kids.json"
+  },
+  "https://www.youtube.com/channel/UCzGf0DdUJVrsbcWL3e_tK1Q": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.922Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/tms-anime.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJYf0JdTApCorYkUK6RSQyYDKqMiMgXEG": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.927Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wb-kids-bugs-bunny-builders-construction-videos-for-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFP5pUyg4YtDFQT0Y4MbEpkT5wqed0e78": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.931Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/totally-spies-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJYf0JdTApCqSeh0ZQNQDeR-Qc461ZUs4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.943Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wb-kids-the-tom-and-jerry-show-wb-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLSD4QfyS1DxU76IIaGvfYnjIabiNEX5_v": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.951Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wallace-e-gromit-wallace-e-gromit-special-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLFP5pUyg4YtCsTyTd75X7jjiozOuuG-hW": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.966Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/totally-spies-totally-spies-clips.json"
+  },
+  "https://www.youtube.com/channel/UCXYGUeekJCrBpM32yaJpjRw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:25.980Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wallace-e-gromit.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJYf0JdTApCr67q5AR5gwC6DMUaPSbzxM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.041Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wb-kids-tom-e-jerry-gokko-wb-kids.json"
+  },
+  "https://www.youtube.com/channel/UCeuCusk31pZdvI8ap69A2DA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.043Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/totally-spies.json"
+  },
+  "https://www.youtube.com/playlist?list=PLJYf0JdTApCrYlnk1kM5FtykpNhx5lCRf": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.044Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wb-kids-kids-hits-wb-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLP4H73sp9PL8-M1tsNdgJ_8eXVbS-tUYJ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.110Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wild-kratts-activate-creature-powers-creature-power-transformations-wild-kratts.json"
+  },
+  "https://www.youtube.com/playlist?list=PLP4H73sp9PL_U8Furdl9r50ZeK63O4YMK": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.167Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wild-kratts-wild-kratts-happy-holidays.json"
+  },
+  "https://www.youtube.com/playlist?list=PLP4H73sp9PL-Z0GkskcNOAyG0Z40bXuOR": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.203Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wild-kratts-animals-in-nature-most-amazing-moments-around-the-world-wild-kratts.json"
+  },
+  "https://www.youtube.com/playlist?list=PLP4H73sp9PL9HF7Vi5PQG21QOYVP2-QYl": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.221Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wild-kratts-wild-kratts-nature-and-wild-life.json"
+  },
+  "https://www.youtube.com/playlist?list=PLP4H73sp9PL-YecfZTuoqtq-JnDSaGWPs": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.222Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wild-kratts-wild-kratts-wildlife-adventures.json"
+  },
+  "https://www.youtube.com/playlist?list=PLNcNJN3A60QA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.271Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wildbrain-kids-happy-halloween-2026-wildbrain-kids.json"
+  },
+  "https://www.youtube.com/channel/UCxEmDFo1yUbbxjEb9RjitVA": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.281Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wild-kratts.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsAw17dHB5T5sop0iqW6B34hx-9T__B_o": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.300Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wildbrain-kids-grizzy-e-the-lemmings-wildbrain-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsAw17dHB5T4GjU2gplATkOrJdC439Wkg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.348Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wildbrain-kids-paw-patrol-wildbrain-kids.json"
+  },
+  "https://www.youtube.com/channel/UC9trsD1jCTXXtN3xIOIU8gg": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.351Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wb-kids.json"
+  },
+  "https://www.youtube.com/channel/UC9trsD1jCTXXtN3xIOIU8gg/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.435Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wb-kids-24h.json"
+  },
+  "https://www.youtube.com/channel/UCbmWOFTbZoDLWqG1rvFnJ0g": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.441Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wildbrain-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8emVvNIujHgAeF70LWPWAz58si9N1_ni": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.449Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/winx-club-official-winx-club-full-episodes-compilation.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8emVvNIujHjyeeZw4zpFAPBOht8SdyZN": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.451Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/winx-club-official-all-winx-club-transformations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsAw17dHB5T4ySm-qwFNqFI3svsuBtb3i": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.456Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wildbrain-kids-holiday-family-favourites-brought-to-you-by-walmart-wildbrain-kid.json"
+  },
+  "https://www.youtube.com/channel/UCxEmDFo1yUbbxjEb9RjitVA/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.490Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wild-kratts-24h.json"
+  },
+  "https://www.youtube.com/playlist?list=PLsAw17dHB5T4MoVrhFV0t4wg0GunANxOs": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.509Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/wildbrain-kids-peppa-pig-wildbrain-kids.json"
+  },
+  "https://www.youtube.com/playlist?list=PLE23yZyV4Ipk": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.556Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/winx-club-official-winx-songs-universe-all-songs.json"
+  },
+  "https://www.youtube.com/playlist?list=PLe-CT24LVVw4": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.559Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/winx-club-official-winx-club.json"
+  },
+  "https://www.youtube.com/playlist?list=PL8emVvNIujHj0AybqgFulIwXBPrVQvfOc": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.601Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/winx-club-official-winx-club-the-magic-is-back-part-2-is-now-streaming-on-netfli.json"
+  },
+  "https://www.youtube.com/playlist?list=PLMJ7MP-KT1l50ej3MmdAZAXBsHrEeIppJ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.631Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/portugues/huntik-secrets-and-seekers-huntik-secrets-e-seekers-portugues-temporada-1.json"
+  },
+  "https://www.youtube.com/playlist?list=PLZaCjEcpVDDM": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.633Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/portugues/lego-lego-city-sem-limites-temporadas-completas-em-portugues-lego.json"
+  },
+  "https://www.youtube.com/playlist?list=PLcIDMZENmRPw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.699Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/portugues/lego-lego-friends-heartlake-the-musical-portugues-brasil-lego.json"
+  },
+  "https://www.youtube.com/playlist?list=PLS7mrbvb1XR0": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.722Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/portugues/lego-lego-city-a-ascensao-do-dragao-temporadas-completas-em-portugues-lego.json"
+  },
+  "https://www.youtube.com/channel/UCNq_98Jas6jHzbkPaI08cXQ": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.733Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/winx-club-official.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoHcF3gNx3yyouLyEx3AT6ILJVj7A5vLr": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.734Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/zig-e-sharko-new-zig-e-sharko-season-3.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoHcF3gNx3yylR_-88OX512hvtgw_85v7": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.777Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/zig-e-sharko-zig-e-sharko-full-episodes.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoHcF3gNx3ywNCujQqG5DeK6-RupEr_Pz": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.799Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/zig-e-sharko-zig-e-sharko-compilations.json"
+  },
+  "https://www.youtube.com/playlist?list=PLj2Ugc-vxcWEsrn8tQSgP8dOLYtKAEMUp": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.817Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/portugues/tms-anime-sonic-x-episodios-completos-pt-br.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoHcF3gNx3yzPovTasnu7jn7I2oGNrjoT": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.824Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/zig-e-sharko-zig-e-sharko-season-2-new.json"
+  },
+  "https://www.youtube.com/playlist?list=PLoHcF3gNx3yyNCnx0TiEK0eLFiDy31y7G": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.852Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/zig-e-sharko-zig-e-sharko-top-episodes.json"
+  },
+  "https://www.youtube.com/channel/UCcKJJuOe2tOqgrKw0Gks-sw": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.888Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/zig-e-sharko.json"
+  },
+  "https://www.youtube.com/channel/UCcKJJuOe2tOqgrKw0Gks-sw/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:26.965Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/zig-e-sharko-24h.json"
+  },
+  "https://www.youtube.com/channel/UCNq_98Jas6jHzbkPaI08cXQ/live": {
+   "ok": true,
+   "status": 200,
+   "em": "2026-10-28T18:13:27.002Z",
+   "falhas": 0,
+   "caminho": "conteudo/youtoon/ingles/winx-club-official-24h.json"
   }
  },
- "atualizadoEm": "2026-10-28T12:54:37.410Z",
+ "atualizadoEm": "2026-10-28T18:13:40.586Z",
  "mortos": []
 }

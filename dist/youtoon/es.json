@@ -2,5 +2,66 @@
  "colecao": "youtoon",
  "idioma": "es",
  "nome": "Espanhol",
- "channels": []
+ "channels": [
+  {
+   "title": "Jelly Jamm · Jelly Jamm. Temporada 1 en español. Serie infantil",
+   "desc": "Playlist de Jelly Jamm · 58 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/jelly-jamm-jelly-jamm-temporada-1-en-espanol-serie-infantil",
+   "url": "https://www.youtube.com/playlist?list=PLoLuTO-srY1gFdzCO3Is53ZvVUV6HN9e-",
+   "logo": "https://i.ytimg.com/vi/Gr_kOeHpBoM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "LEGO · LEGO Friends: Heartlake the Musical | Español (América Latina) | LEGO",
+   "desc": "Playlist de LEGO · 8 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/lego-lego-friends-heartlake-the-musical-espanol-america-latina-lego",
+   "url": "https://www.youtube.com/playlist?list=PLaPdvQfpZ1dM",
+   "logo": "https://i.ytimg.com/vi/WgprwX4stWw/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "LEGO · LEGO Friends: Heartlake the Musical | Español | LEGO",
+   "desc": "Playlist de LEGO · 8 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/lego-lego-friends-heartlake-the-musical-espanol-lego",
+   "url": "https://www.youtube.com/playlist?list=PLOrwzljVHjQE",
+   "logo": "https://i.ytimg.com/vi/OGBji5cxxyQ/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "PJ Masks Official · PJ Masks Español Latino",
+   "desc": "Playlist de PJ Masks Official · 24 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/pj-masks-official-pj-masks-espanol-latino",
+   "url": "https://www.youtube.com/playlist?list=PL00oPXoojX5vYln_ENY954Gqrty4xGrrb",
+   "logo": "https://i.ytimg.com/vi/JtYwtkiFOxY/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Popeye And Friends Official · En Español: All-New Popeye",
+   "desc": "Playlist de Popeye And Friends Official · 21 vídeos",
+   "genre": [
+    "Clássicos"
+   ],
+   "studio": "youtoon/espanhol/popeye-and-friends-official-en-espanol-all-new-popeye",
+   "url": "https://www.youtube.com/playlist?list=PLZi9kmcgOoWkLHByYvqd9K4GSuIQthCQy",
+   "logo": "https://i.ytimg.com/vi/7ySnq1i_HM0/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  }
+ ]
 }
