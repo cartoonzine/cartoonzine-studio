@@ -1,12 +1,13 @@
 {
   "nome": "Bluey 24H",
   "links": [
-    "https://www.youtube.com/@blueyportuguesbrasil-canal/playlists"
+    "https://www.youtube.com/channel/UCxTmdyNdj-s9t79UjVdLT_g/live"
   ],
   "logo": "https://i.ytimg.com/vi/OBe-ehVPKKk/hqdefault.jpg",
   "descricao": "Episódios completos de Bluey, ao vivo 24 horas.",
   "generos": [
     "Pré-escolar"
   ],
-  "idioma": "Português"
+  "idioma": "Português",
+  "_rascunho": true
 }
