@@ -43,6 +43,7 @@ jobs:
         env:
           TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: node tools/sincronizar.mjs
 
       - name: Completar sinopses, capas, episódios e notas (TMDB / IMDb)

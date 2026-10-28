@@ -4,7 +4,8 @@
     "m3u": "lista M3U (url)",
     "texto": "arquivo de texto com links, 'Nome | link' ou mensagens do @CZStreamBot (url)",
     "archive": "itens do Internet Archive (ids: [\"identificador\", ...])",
-    "archive-busca": "busca no Internet Archive (busca: consulta da API, limite: quantos itens)"
+    "archive-busca": "busca no Internet Archive (busca: consulta da API, limite: quantos itens)",
+    "youtube-lista": "lista de canais do YouTube em Markdown ([**Nome**](link) (nota)) → YouToon: live do canal, episódios sem parar e playlists. Precisa do secret YOUTUBE_API_KEY (url, secoes, soCompletos, maxPlaylists, minVideosPlaylist, excluir, canais)"
   },
   "fontes": [
     {
@@ -64,6 +65,28 @@
       "tipo": "archive-busca",
       "busca": "collection:classic_cartoons AND mediatype:movies",
       "limite": 40
+    },
+    {
+      "nome": "YouTube oficial · Free-Official-Youtube-Content",
+      "_comentario": "Canais OFICIAIS de desenho, anime e infantil da lista github.com/SuperAB123/Free-Official-Youtube-Content. Só os que a lista descreve com episódios completos; o idioma vem do próprio canal (PT-BR, ES, EN, PT-PT). Para ajustar um canal: \"canais\": { \"Nome na lista\": { \"generos\": [\"Comédia\"], \"idioma\": \"Português\", \"maxPlaylists\": 3, \"ignorar\": true, \"forcar\": true } }",
+      "ativo": true,
+      "colecao": "youtoon",
+      "tipo": "youtube-lista",
+      "url": "https://raw.githubusercontent.com/SuperAB123/Free-Official-Youtube-Content/main/README.md",
+      "secoes": ["Anime", "Cartoons", "Kids Media"],
+      "soCompletos": true,
+      "maxPlaylists": 5,
+      "minVideosPlaylist": 5,
+      "excluir": ["Adult Swim", "Aqua Teen", "Family Guy", "Rick and Morty", "Cyanide", "Vivziepop", "Mondo Media", "The Simpsons"],
+      "canais": {
+        "Pokemon": { "forcar": true, "generos": ["Anime", "Aventura"] },
+        "Johnny Test": { "forcar": true, "generos": ["Comédia", "Ficção Científica"] },
+        "Popeye And Friends Official": { "forcar": true, "generos": ["Clássicos"] },
+        "Mr. Bean": { "forcar": true, "generos": ["Comédia"] },
+        "Super Simple Songs": { "forcar": true, "generos": ["Musicais", "Pré-escolar"] },
+        "The Berenstain Bears": { "forcar": true, "generos": ["Infantil"] }
+      },
+      "removerSumidos": true
     }
   ]
 }

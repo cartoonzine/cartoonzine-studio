@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { Core, RAIZ, lerConfig, acharColecao, lerArgs, lerColecao, baixarTexto, importarTexto } from './lib.mjs';
+import { sincronizarYouTube } from './youtube.mjs';
 
 export async function sincronizar({ raiz = RAIZ, log = console.log, so } = {}) {
     const config = lerConfig(raiz);
@@ -24,6 +25,12 @@ export async function sincronizar({ raiz = RAIZ, log = console.log, so } = {}) {
         const origem = 'auto:' + f.nome;
         log(`\n▶ ${f.nome} → ${colecao.nome}`);
         try {
+            // lista de canais do YouTube → itens do YouToon (live / episódios / playlists), pela YouTube API
+            if (f.tipo === 'youtube-lista') {
+                const r = await sincronizarYouTube(f, colecao, { raiz, origem, log });
+                resumo.push(Object.assign({ fonte: f.nome }, r));
+                continue;
+            }
             let texto;
             if (f.tipo === 'archive') texto = [].concat(f.ids || f.id).map(id => 'https://archive.org/details/' + id).join('\n');
             else if (f.tipo === 'archive-busca') texto = await buscarNoArchive(f.busca, f.limite || 50, f.ordem);
