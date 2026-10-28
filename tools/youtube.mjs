@@ -125,7 +125,18 @@ export function criarApi(chave, { fetchImpl = fetch, base = 'https://www.googlea
         }
         throw ultimo;
     };
-    const CAMPOS = 'snippet,contentDetails,brandingSettings';
+    const CAMPOS = 'snippet,contentDetails,brandingSettings,statistics';
+    const dadosDe = (c) => {
+        const sn = c.snippet || {}, br = (c.brandingSettings && c.brandingSettings.channel) || {};
+        const th = sn.thumbnails || {};
+        return {
+            id: c.id, titulo: sn.title || '', descricao: sn.description || '', customUrl: sn.customUrl || '',
+            logo: (th.high || th.medium || th.default || {}).url || '',
+            idioma: sn.defaultLanguage || br.defaultLanguage || '', pais: sn.country || br.country || '',
+            inscritos: +((c.statistics && c.statistics.subscriberCount) || 0), videos: +((c.statistics && c.statistics.videoCount) || 0),
+            uploads: (c.contentDetails && c.contentDetails.relatedPlaylists && c.contentDetails.relatedPlaylists.uploads) || ''
+        };
+    };
     return {
         unidades: () => unidades,
         /** link do canal (UC…, @nome, /user/, /c/ ou nome solto) → dados do canal ou null */
@@ -140,15 +151,16 @@ export function criarApi(chave, { fetchImpl = fetch, base = 'https://www.googlea
                 if (!j.items || !j.items.length) j = await chamar('channels', { part: CAMPOS, forUsername: m[1] });
             }
             const c = j && j.items && j.items[0];
-            if (!c) return null;
-            const sn = c.snippet || {}, br = (c.brandingSettings && c.brandingSettings.channel) || {};
-            const th = sn.thumbnails || {};
-            return {
-                id: c.id, titulo: sn.title || '', descricao: sn.description || '',
-                logo: (th.high || th.medium || th.default || {}).url || '',
-                idioma: sn.defaultLanguage || br.defaultLanguage || '', pais: sn.country || br.country || '',
-                uploads: (c.contentDetails && c.contentDetails.relatedPlaylists && c.contentDetails.relatedPlaylists.uploads) || ''
-            };
+            return c ? dadosDe(c) : null;
+        },
+        /** busca CANAIS pelo nome (custa 100 unidades) → dados dos canais achados (+1 unidade) */
+        async buscarCanais(q, { idioma, regiao, max = 10 } = {}) {
+            const j = await chamar('search', Object.assign({ part: 'snippet', type: 'channel', q, maxResults: max },
+                idioma ? { relevanceLanguage: idioma } : {}, regiao ? { regionCode: regiao } : {}), 100);
+            const ids = (j.items || []).map(i => (i.id && i.id.channelId) || (i.snippet && i.snippet.channelId)).filter(Boolean);
+            if (!ids.length) return [];
+            const d = await chamar('channels', { part: CAMPOS, id: ids.join(','), maxResults: 50 });
+            return (d.items || []).map(dadosDe);
         },
         /** lives acontecendo agora entre os 50 vídeos mais recentes do canal */
         async aoVivo(uploads) {
@@ -209,6 +221,150 @@ export function itensDoCanal(c, dados, { lives = [], playlists = [] } = {}, f = 
     return itens;
 }
 
+// ---------------------------------------------------------------- VERSÕES LOCALIZADAS (PT-BR, ES, PT-PT)
+// Para cada desenho da lista em inglês, o Studio procura o canal OFICIAL do mesmo desenho em outro idioma
+// (ex.: "Peppa Pig" → "Peppa Pig em Português Brasil", "Peppa Pig en Español"). A busca custa 100 unidades
+// da cota, então o resultado fica guardado em automatico/youtoon-localizados.json (feito uma vez; os
+// "não achou" são procurados de novo depois de 60 dias) e a descoberta é dividida em vários dias.
+// Você pode corrigir esse arquivo: "ignorar": true tira um canal; "id": "UC…" com "manual": true fixa outro.
+export const ALVOS_LOCAIS = {
+    'Português': { busca: 'em português', idioma: 'pt', regiao: 'BR', sinal: /portugu[eê]s|brasil|\bbr\b|dublad/i },
+    'Espanhol': { busca: 'en español', idioma: 'es', regiao: 'MX', sinal: /espa[nñ]ol|latino|castellano|latinoam/i },
+    'Português (Portugal)': { busca: 'Portugal português', idioma: 'pt', regiao: 'PT', sinal: /portugal|\bpt-?pt\b/i }
+};
+// nomes traduzidos dos desenhos (o canal localizado nem sempre usa o nome em inglês)
+const TRADUCOES = {
+    'spongebob': ['bob esponja'], 'smurfs': ['smurfs', 'pitufos', 'estrumpfes'], 'thomas': ['thomas e seus amigos', 'thomas y sus amigos', 'thomas e amigos', 'thomas'],
+    'shaun the sheep': ['shaun', 'oveja shaun', 'ovelha'], 'sesame street': ['sésamo', 'sesamo'], 'adventure time': ['hora de aventura'],
+    'curious george': ['curioso', 'jorge el curioso', 'george'], 'wild kratts': ['kratts', 'kratt'], 'fairly oddparents': ['padrinhos mágicos', 'padrinos mágicos'],
+    'totally spies': ['totally spies', 'espiãs', 'espías'], 'masha': ['masha'], 'oggy': ['oggy'], 'zig': ['zig'], 'loud house': ['loud'],
+    'pokemon': ['pokémon', 'pokemon'], 'yu-gi-oh': ['yu-gi-oh', 'yugioh'], 'my little pony': ['my little pony'], 'winx': ['winx'],
+    'peppa': ['peppa'], 'pj masks': ['pj masks'], 'dora': ['dora'], 'barbie': ['barbie'], 'lego': ['lego'], 'garfield': ['garfield'],
+    'popeye': ['popeye'], 'ben 10': ['ben 10'], 'mr bean': ['mr bean', 'mr. bean'], 'miraculous': ['miraculous', 'ladybug'],
+    'super simple': ['super simple'], 'numberblocks': ['numberblocks'], 'alphablocks': ['alphablocks'], 'blippi': ['blippi'],
+    'transformers': ['transformers'], 'power rangers': ['power rangers'], 'angry birds': ['angry birds'], 'oddbods': ['oddbods'],
+    'cartoon network': ['cartoon network'], 'disney': ['disney'], 'nick jr': ['nick jr'], 'nicktoons': ['nicktoons', 'nickelodeon'],
+    'cartoonito': ['cartoonito'], 'pbs kids': ['pbs kids'], 'wb kids': ['wb kids', 'warner'], 'clifford': ['clifford'],
+    'inspector gadget': ['inspetor bugiganga', 'inspector gadget'], 'simon': ["simon's cat", 'simon'], 'gormiti': ['gormiti']
+};
+const FRACAS = new Set(['little', 'network', 'house', 'time', 'world', 'club', 'adventures', 'super', 'magic', 'mighty', 'space', 'studio', 'animation']);
+const PALAVRAS_VAZIAS = new Set(['the', 'and', 'official', 'oficial', 'officiel', 'channel', 'canal', 'tv', 'kids', 'for', 'of', 'en', 'em', 'de', 'do', 'da', 'english', 'uk', 'usa', 'us', 'classic', 'scholastic', 'videos', 'educational', 'show', 'series', 'cartoon', 'cartoons', 'friends', 'big', 'red', 'dog']);
+/** Palavras que identificam o desenho no nome do canal localizado */
+export function chavesDoDesenho(nome) {
+    const base = Core.normText(String(nome).split(/\s[-–|:]\s|\//)[0]).replace(/[!.'’]/g, '').replace(/&/g, ' ');
+    const chaves = new Set();
+    for (const [k, nomes] of Object.entries(TRADUCOES)) if (base.includes(Core.normText(k))) nomes.forEach(n => chaves.add(Core.normText(n)));
+    const traduzido = chaves.size > 0;
+    const fortes = base.replace(/\bcartoon network\b/, 'cartoonnetwork').split(/\s+/).filter(w => w.length >= 3 && !PALAVRAS_VAZIAS.has(w)).map(w => w === 'cartoonnetwork' ? 'cartoon network' : w);
+    if (fortes.length >= 2) chaves.add(fortes.slice(0, 2).join(' '));     // "peppa pig", "zig sharko"…
+    else if (fortes.length === 1 && (fortes[0].length >= 4 || fortes[0].includes(' '))) chaves.add(fortes[0]);
+    // uma palavra solta só vale se for bem própria do desenho (não "little", "network", "house"…)
+    if (!traduzido && fortes[0] && fortes[0].length >= 5 && !FRACAS.has(fortes[0])) chaves.add(fortes[0]);
+    return [...chaves].filter(Boolean);
+}
+const NAO_OFICIAL = /\bfan\b|fandub|fanmade|react|reacci|rea[cç][aã]o|toys?\b|brinquedo|juguete|unbox|asmr|gameplay|\bjogos?\b|\bjuegos?\b|mods?\b|minecraft|roblox|edits?\b|memes?\b|compilad[oa]s? por|tribute|tributo|cover\b|karaok/i;
+/** Escolhe, entre os canais achados na busca, o oficial do desenho no idioma pedido (ou null) */
+export function escolherLocalizado(original, candidatos, alvo, { minInscritos = 50000, idOriginal } = {}) {
+    const A = ALVOS_LOCAIS[alvo];
+    const chaves = chavesDoDesenho(original.nome);
+    let melhor = null;
+    for (const c of candidatos) {
+        if (!c || c.id === idOriginal) continue;
+        const texto = Core.normText(`${c.titulo} ${c.customUrl}`);
+        const textoLongo = `${c.titulo} ${c.customUrl} ${String(c.descricao).slice(0, 400)}`;
+        if (!chaves.some(k => texto.includes(k))) continue;                         // não é o mesmo desenho
+        if (NAO_OFICIAL.test(c.titulo) || NAO_OFICIAL.test(c.customUrl)) continue;  // fã, reação, brinquedos…
+        const lang = idiomaDoYouTube(c.idioma, c.pais);
+        const sinalNome = A.sinal.test(textoLongo);
+        // idioma: o canal declara, o país bate ou o nome/descrição diz
+        let idiomaOk = lang === alvo || sinalNome || (alvo === 'Português' && c.pais === 'BR') || (alvo === 'Espanhol' && /^(MX|ES|AR|CO|CL|PE|US)$/.test(c.pais)) || (alvo === 'Português (Portugal)' && c.pais === 'PT');
+        if (alvo === 'Português' && (c.pais === 'PT' || /portugal/i.test(c.titulo))) idiomaOk = false;
+        if (alvo === 'Português (Portugal)' && !(c.pais === 'PT' || /portugal/i.test(textoLongo))) idiomaOk = false;
+        if (lang && lang !== alvo && !sinalNome) idiomaOk = false;                 // declara outro idioma
+        if (!idiomaOk) continue;
+        const piso = alvo === 'Português (Portugal)' ? Math.min(minInscritos, 10000) : minInscritos;
+        if (c.inscritos < piso || c.videos < 10) continue;
+        const pontos = Math.log10(c.inscritos + 1) + (/oficial|official|officiel/i.test(textoLongo) ? 1.5 : 0) + (lang === alvo ? 1 : 0) + (sinalNome ? 0.5 : 0);
+        if (!melhor || pontos > melhor.pontos) melhor = Object.assign({ pontos }, c);
+    }
+    return melhor;
+}
+/** Tira do nome do canal localizado os penduricalhos ("- Canal Oficial", "| Official"…) */
+export function nomeLimpo(t) {
+    return String(t || '').replace(/\s*[-–|·]\s*(canal )?(oficial|official)( channel| canal)?\s*$/i, '').replace(/\s*\((canal )?(oficial|official)\)\s*$/i, '').trim() || String(t || '').trim();
+}
+
+const DIA = 864e5;
+/** Descobre (com limite de buscas por dia) e sincroniza os canais localizados. Guarda o achado no cache. */
+async function localizar({ f, originais, api, raiz, log, salvar, ehCota, canaisComFalha }) {
+    const L = f.localizar || {};
+    const alvos = (L.idiomas && L.idiomas.length ? L.idiomas : Object.keys(ALVOS_LOCAIS)).filter(a => ALVOS_LOCAIS[a]);
+    const arq = path.join(raiz, 'automatico', L.arquivo || 'youtoon-localizados.json');
+    let cache = { _comentario: '', canais: {} };
+    try { cache = JSON.parse(fs.readFileSync(arq, 'utf8')); if (!cache.canais) cache.canais = {}; } catch (e) { /* primeira vez */ }
+    cache._comentario = 'Canais oficiais localizados que o Studio achou para cada desenho da lista (YouTube). Para tirar um: "ignorar": true. Para trocar: coloque "id": "UC…" e "manual": true. "nada": ainda não achou (procura de novo depois de 60 dias).';
+    const antes = JSON.stringify(cache);
+    let buscas = 0, canais = 0, parouCota = false;
+    const limite = L.buscasPorDia ?? 60, hoje = new Date().toISOString().slice(0, 10);
+    // 1) descobrir o que falta (cada busca = 100 unidades da cota)
+    fora: for (const { c, dados } of originais) {
+        const idiomaOriginal = idiomaDoYouTube(dados.idioma, dados.pais) || 'Inglês';
+        for (const alvo of alvos) {
+            if (alvo === idiomaOriginal) continue;
+            const reg = (cache.canais[c.nome] = cache.canais[c.nome] || {});
+            const e = reg[alvo];
+            if (e && (e.id || e.ignorar || (e.nada && Date.now() - Date.parse(e.checadoEm || 0) < 60 * DIA))) continue;
+            if (buscas >= limite) break fora;
+            const A = ALVOS_LOCAIS[alvo];
+            const nucleo = String(c.nome).split(/\s[-–|:]\s|\//)[0].replace(/\b(official|oficial)\b/ig, '').replace(/\s+/g, ' ').trim();
+            try {
+                buscas++;
+                const achados = await api.buscarCanais(`${nucleo} ${A.busca}`, { idioma: A.idioma, regiao: A.regiao });
+                const ok = escolherLocalizado(c, achados, alvo, { minInscritos: L.minInscritos ?? 50000, idOriginal: dados.id });
+                reg[alvo] = ok ? { id: ok.id, titulo: ok.titulo, inscritos: ok.inscritos, pais: ok.pais || undefined, achadoEm: hoje } : { nada: true, checadoEm: hoje };
+                log(`  🔎 ${c.nome} [${alvo}] → ${ok ? ok.titulo + ' (' + ok.inscritos.toLocaleString('pt-BR') + ' inscritos)' : 'nenhum canal oficial'}`);
+            } catch (e) {
+                log(`  ✗ busca ${c.nome} [${alvo}]: ${e.message}`);
+                if (ehCota(e)) { parouCota = true; break fora; }
+            }
+        }
+    }
+    if (JSON.stringify(cache) !== antes) {
+        const ordenado = { _comentario: cache._comentario, canais: Object.fromEntries(Object.keys(cache.canais).sort((a, b) => a.localeCompare(b)).map(k => [k, cache.canais[k]])) };
+        fs.writeFileSync(arq, JSON.stringify(ordenado, null, 2) + '\n');
+    }
+    // 2) sincronizar os canais localizados já conhecidos (live / episódios / playlists, como os originais)
+    if (!parouCota) {
+        const usados = new Set(originais.map(o => o.dados.id));
+        for (const { c } of originais) {
+            const reg = cache.canais[c.nome] || {};
+            const ajusteOrig = (f.canais || {})[c.nome] || {};
+            for (const alvo of alvos) {
+                const e = reg[alvo];
+                if (!e || !e.id || e.ignorar || usados.has(e.id)) continue;
+                usados.add(e.id);
+                const c2 = { nome: nomeLimpo(e.titulo) || c.nome, nota: c.nota, secao: c.secao, url: `https://www.youtube.com/channel/${e.id}` };
+                try {
+                    const dados = await api.canal(c2.url);
+                    if (!dados) { canaisComFalha.add(c2.url); continue; }
+                    const [lives, playlists] = await Promise.all([api.aoVivo(dados.uploads), api.playlists(dados.id)]);
+                    const f2 = Object.assign({}, f, { canais: { [c2.nome]: { idioma: alvo, generos: generosDe(c, ajusteOrig), maxPlaylists: ajusteOrig.maxPlaylists } } });
+                    const itens = itensDoCanal(c2, dados, { lives, playlists }, f2);
+                    if (!itens.length) continue;
+                    canais++;
+                    salvar(itens);
+                    log(`  • ${c2.nome} [${alvo}] → ${itens.length} item(ns)${lives.length ? ' · AO VIVO' : ''}`);
+                } catch (err) {
+                    canaisComFalha.add(c2.url);
+                    log(`  ✗ ${c2.nome}: ${err.message}`);
+                    if (ehCota(err)) { parouCota = true; return { canais, buscas, parouCota }; }
+                }
+            }
+        }
+    }
+    return { canais, buscas, parouCota };
+}
+
 // ---------------------------------------------------------------- sincronização (chamada por tools/sincronizar.mjs)
 export async function sincronizarYouTube(f, colecao, { raiz = RAIZ, origem, log = console.log, chave = process.env.YOUTUBE_API_KEY, fetchImpl, baseApi, texto } = {}) {
     if (!chave) {
@@ -224,6 +380,20 @@ export async function sincronizarYouTube(f, colecao, { raiz = RAIZ, origem, log 
     const intocaveis = new Set(existentes.filter(e => e.item._travado || !e.item._origem || e.item._origem !== origem)
         .map(e => Core.normText(e.item.nome) + '|' + Core.normText(e.item.idioma || '')));
     let parouCota = false;
+    const ehCota = (e) => /quota|keyInvalid|API_KEY|forbidden|accessNotConfigured|dailyLimit/i.test(e.razao || e.message);
+    const salvar = (itens) => {
+        for (const it of itens) {
+            if (intocaveis.has(Core.normText(it.nome) + '|' + Core.normText(it.idioma || ''))) continue;
+            it._origem = origem;
+            const normal = Core.normalizarItem(it, colecao);
+            const { erros } = Core.validarItem(normal, colecao);
+            if (erros.length) { conta.erros++; log(`  ✗ ${it.nome}: ${erros.join('; ')}`); continue; }
+            const r = salvarItem(colecao, normal, { raiz, substituir: true });
+            vistos.add(r.caminho);
+            if (r.acao === 'criado') conta.criados++; else if (r.acao === 'atualizado') conta.atualizados++;
+        }
+    };
+    const originais = [];          // canais da lista que deram certo hoje (base para achar as versões localizadas)
     for (const c of lista) {
         const cl = classificarCanal(c, f);
         if (!cl.entra) { conta.fora++; continue; }
@@ -232,28 +402,27 @@ export async function sincronizarYouTube(f, colecao, { raiz = RAIZ, origem, log 
             const dados = await api.canal(c.url);
             if (!dados) { log(`  ✗ ${c.nome}: canal não encontrado (${c.url})`); conta.erros++; canaisComFalha.add(c.url); continue; }
             const [lives, playlists] = await Promise.all([api.aoVivo(dados.uploads), api.playlists(dados.id)]);
+            originais.push({ c, dados });
             const itens = itensDoCanal(c, dados, { lives, playlists }, f);
             if (!itens.length) { conta.fora++; continue; }
             conta.canais++;
-            for (const it of itens) {
-                if (intocaveis.has(Core.normText(it.nome) + '|' + Core.normText(it.idioma || ''))) continue;
-                it._origem = origem;
-                const normal = Core.normalizarItem(it, colecao);
-                const { erros } = Core.validarItem(normal, colecao);
-                if (erros.length) { conta.erros++; log(`  ✗ ${it.nome}: ${erros.join('; ')}`); continue; }
-                const r = salvarItem(colecao, normal, { raiz, substituir: true });
-                vistos.add(r.caminho);
-                if (r.acao === 'criado') conta.criados++; else if (r.acao === 'atualizado') conta.atualizados++;
-            }
+            salvar(itens);
             log(`  • ${c.nome} → ${itens.length} item(ns)${lives.length ? ' · AO VIVO' : ''}`);
         } catch (e) {
             conta.erros++; canaisComFalha.add(c.url);
             log(`  ✗ ${c.nome}: ${e.message}`);
-            if (/quota|keyInvalid|API_KEY|forbidden|accessNotConfigured/i.test(e.razao || e.message)) {
+            if (ehCota(e)) {
                 parouCota = true;
                 log('  ⚠ a API do YouTube recusou (cota/chave): os canais que faltam ficam como estavam até amanhã.');
             }
         }
+    }
+
+    // 🌎 versões localizadas (PT-BR, ES, PT-PT) dos mesmos desenhos
+    if (f.localizar && !parouCota) {
+        const r = await localizar({ f, originais, api, raiz, log, salvar, ehCota, canaisComFalha });
+        conta.localizados = r.canais; conta.buscas = r.buscas;
+        if (r.parouCota) parouCota = true;
     }
     // tira o que saiu da fonte (live que acabou, playlist apagada…) — nunca de canal que falhou hoje
     if (f.removerSumidos && !parouCota) {
@@ -263,6 +432,7 @@ export async function sincronizarYouTube(f, colecao, { raiz = RAIZ, origem, log 
             fs.rmSync(path.join(raiz, e.caminho)); conta.removidos++;
         }
     }
+    if (f.localizar) log(`  🌎 versões localizadas: ${conta.localizados || 0} canais · ${conta.buscas || 0} buscas hoje`);
     log(`  ✅ ${conta.canais} canais · ${conta.criados} novos · 🔄 ${conta.atualizados} atualizados · ✗ ${conta.erros} com erro · 🗑 ${conta.removidos} removidos · ${conta.fora} fora do filtro · cota usada: ~${api.unidades()} unidades`);
     return conta;
 }

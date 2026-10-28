@@ -86,6 +86,12 @@
         "Super Simple Songs": { "forcar": true, "generos": ["Musicais", "Pré-escolar"] },
         "The Berenstain Bears": { "forcar": true, "generos": ["Infantil"] }
       },
+      "localizar": {
+        "_comentario": "Procura o canal OFICIAL de cada desenho em português, espanhol e português de Portugal (busca do YouTube: 100 unidades da cota cada). O que achar fica em automatico/youtoon-localizados.json; a descoberta é dividida em dias pelo limite de buscas.",
+        "idiomas": ["Português", "Espanhol", "Português (Portugal)"],
+        "buscasPorDia": 60,
+        "minInscritos": 50000
+      },
       "removerSumidos": true
     }
   ]

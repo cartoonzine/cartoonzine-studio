@@ -133,6 +133,7 @@ function raizTemporaria() {
     const raiz = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-yt-'));
     fs.copyFileSync(path.join(RAIZ, 'studio.config.json'), path.join(raiz, 'studio.config.json'));
     fs.mkdirSync(path.join(raiz, 'conteudo', 'youtoon', 'ingles'), { recursive: true });
+    fs.mkdirSync(path.join(raiz, 'automatico'), { recursive: true });
     // item feito à mão com o mesmo nome de um automático: nunca pode ser sobrescrito
     fs.writeFileSync(path.join(raiz, 'conteudo', 'youtoon', 'ingles', 'oggy-manual.json'), JSON.stringify({ nome: 'Official Yu-Gi-Oh!', links: ['https://www.youtube.com/embed/abcdefghijk'], idioma: 'Inglês' }));
     return raiz;
@@ -172,5 +173,85 @@ test('sincroniza, tira a live que acabou e não apaga nada quando a API falha', 
     const r4 = await sincronizarYouTube(f, colecao, { raiz, origem, log, chave: '', texto: LISTA });
     assert.equal(r4.pulada, true);
     assert.deepEqual(itens(), depois2);
+    fs.rmSync(raiz, { recursive: true, force: true });
+});
+
+// ---------------------------------------------------------------- versões localizadas
+import { escolherLocalizado, chavesDoDesenho, nomeLimpo } from '../tools/youtube.mjs';
+
+test('localizado: acha o canal oficial certo e recusa fã, brinquedo, idioma errado e canal pequeno', () => {
+    const orig = { nome: 'Peppa Pig', nota: 'Clips and full episodes' };
+    const c = (o) => Object.assign({ id: 'UC' + Math.random().toString(36).slice(2).padEnd(22, 'x').slice(0, 22), titulo: '', customUrl: '', descricao: '', idioma: '', pais: '', inscritos: 0, videos: 500 }, o);
+    const cand = [
+        c({ titulo: 'Peppa Pig Toys Brasil', pais: 'BR', inscritos: 9e6 }),                              // brinquedos
+        c({ titulo: 'Peppa Pig Fan Dublagens', pais: 'BR', inscritos: 2e6 }),                           // fã
+        c({ titulo: 'Peppa Pig em Português Brasil - Canal Oficial', idioma: 'pt-BR', pais: 'BR', inscritos: 8e6 }),
+        c({ titulo: 'Peppa Pig Português Portugal', idioma: 'pt-PT', pais: 'PT', inscritos: 4e5 }),
+        c({ titulo: 'Peppa Pig en Español - Canal Oficial', idioma: 'es-419', pais: 'MX', inscritos: 6e6 }),
+        c({ titulo: 'Peppa Pig Clube', pais: 'BR', inscritos: 3000 })                                  // pequeno
+    ];
+    assert.equal(escolherLocalizado(orig, cand, 'Português').titulo, 'Peppa Pig em Português Brasil - Canal Oficial');
+    assert.equal(escolherLocalizado(orig, cand, 'Espanhol').titulo, 'Peppa Pig en Español - Canal Oficial');
+    assert.equal(escolherLocalizado(orig, cand, 'Português (Portugal)').titulo, 'Peppa Pig Português Portugal');
+    // outro desenho com o mesmo idioma não serve
+    assert.equal(escolherLocalizado(orig, [c({ titulo: 'Masha e o Urso', idioma: 'pt', pais: 'BR', inscritos: 9e6 })], 'Português'), null);
+    // nome traduzido: SpongeBob → Bob Esponja
+    assert.ok(chavesDoDesenho('SpongeBob SquarePants Official').includes('bob esponja'));
+    assert.equal(escolherLocalizado({ nome: 'SpongeBob SquarePants Official' }, [c({ titulo: 'Bob Esponja em Português', pais: 'BR', inscritos: 3e6 })], 'Português').titulo, 'Bob Esponja em Português');
+    assert.equal(nomeLimpo('Peppa Pig em Português Brasil - Canal Oficial'), 'Peppa Pig em Português Brasil');
+});
+
+test('localizado ponta a ponta: descobre com limite de buscas, guarda no cache e sincroniza', async () => {
+    const raiz = raizTemporaria();
+    const colecao = acharColecao(lerConfig(raiz), 'youtoon');
+    const LISTA2 = '### Cartoons\n[**Oggy and the Cockroaches**](https://www.youtube.com/@oggy) (full episodes)\n[**Zig & Sharko**](https://www.youtube.com/@ZigandSharko) (Full episodes)\n';
+    const orig = { '@oggy': 'UCoggyoggyoggyoggyoggyo', '@ZigandSharko': 'UCzigzigzigzigzigzigzigz' };
+    const loc = {
+        'oggy and the cockroaches em português': [{ id: 'UCoggyptbrptbrptbrptbrpt', title: 'Oggy e as Baratas - Oficial', lang: 'pt-BR', pais: 'BR', subs: 2e6 }],
+        'oggy and the cockroaches en español': [{ id: 'UCoggyesesesesesesesesex', title: 'Oggy y las Cucarachas', lang: 'es', pais: 'ES', subs: 1e6 }],
+        'zig & sharko em português': [{ id: 'UCzigptbrptbrptbrptbrptb', title: 'Zig e Sharko Brasil', lang: '', pais: 'BR', subs: 9e5 }]
+    };
+    const todos = {};
+    Object.entries(orig).forEach(([h, id]) => { todos[id] = { id, title: h.slice(1), lang: 'en', pais: 'FR', subs: 1e7 }; });
+    Object.values(loc).flat().forEach(x => { todos[x.id] = x; });
+    const estado = { buscas: 0 };
+    const resp = (j) => ({ ok: true, status: 200, json: async () => j });
+    const item = (c) => ({ id: c.id, snippet: { title: c.title, defaultLanguage: c.lang, country: c.pais, thumbnails: {} }, statistics: { subscriberCount: String(c.subs), videoCount: '300' }, contentDetails: { relatedPlaylists: { uploads: 'UU' + c.id.slice(2) } } });
+    const fake = async (url) => {
+        const u = new URL(url), p = Object.fromEntries(u.searchParams), rota = u.pathname.split('/').pop();
+        if (rota === 'channels') {
+            if (p.forHandle) { const id = orig[p.forHandle]; return resp({ items: id ? [item(todos[id])] : [] }); }
+            return resp({ items: p.id.split(',').map(id => todos[id]).filter(Boolean).map(item) });
+        }
+        if (rota === 'search') { estado.buscas++; const ach = loc[p.q.toLowerCase()] || []; return resp({ items: ach.map(x => ({ id: { channelId: x.id } })) }); }
+        if (rota === 'playlistItems') return resp({ items: [] });
+        if (rota === 'playlists') return resp({ items: [] });
+        return resp({ items: [] });
+    };
+    const f = { nome: 'loc', tipo: 'youtube-lista', secoes: ['Cartoons'], removerSumidos: true,
+        localizar: { idiomas: ['Português', 'Espanhol', 'Português (Portugal)'], buscasPorDia: 4, minInscritos: 50000 } };
+    const args = { raiz, origem: 'auto:loc', log: () => {}, chave: 'x', texto: LISTA2, fetchImpl: fake, baseApi: 'https://api.test/youtube/v3/' };
+    const r1 = await sincronizarYouTube(f, colecao, args);
+    assert.equal(estado.buscas, 4, 'respeita o limite de buscas do dia');
+    const cache1 = JSON.parse(fs.readFileSync(path.join(raiz, 'automatico', 'youtoon-localizados.json'), 'utf8'));
+    assert.equal(cache1.canais['Oggy and the Cockroaches']['Português'].id, 'UCoggyptbrptbrptbrptbrpt');
+    assert.equal(cache1.canais['Oggy and the Cockroaches']['Espanhol'].id, 'UCoggyesesesesesesesesex');
+    assert.equal(cache1.canais['Oggy and the Cockroaches']['Português (Portugal)'].nada, true);
+    assert.equal(r1.localizados, 3);
+    // dia seguinte: só busca o que faltou (Zig ES e PT-PT), não repete as já feitas
+    estado.buscas = 0;
+    const r2 = await sincronizarYouTube(f, colecao, args);
+    assert.equal(estado.buscas, 2);
+    assert.equal(r2.localizados, 3);
+    const nomes = lerColecao(colecao, raiz).entradas.map(e => [e.item.nome, e.item.idioma]);
+    assert.ok(nomes.some(([n, i]) => n === 'Oggy e as Baratas' && i === 'Português'));
+    assert.ok(nomes.some(([n, i]) => n === 'Oggy y las Cucarachas' && i === 'Espanhol'));
+    assert.ok(nomes.some(([n, i]) => n === 'Zig e Sharko Brasil' && i === 'Português'));
+    // você marcou "ignorar" num localizado: ele some na próxima sincronização
+    const cache2 = JSON.parse(fs.readFileSync(path.join(raiz, 'automatico', 'youtoon-localizados.json'), 'utf8'));
+    cache2.canais['Zig & Sharko']['Português'].ignorar = true;
+    fs.writeFileSync(path.join(raiz, 'automatico', 'youtoon-localizados.json'), JSON.stringify(cache2));
+    await sincronizarYouTube(f, colecao, args);
+    assert.ok(!lerColecao(colecao, raiz).entradas.some(e => e.item.nome === 'Zig e Sharko Brasil'));
     fs.rmSync(raiz, { recursive: true, force: true });
 });
