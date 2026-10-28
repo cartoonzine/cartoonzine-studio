@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-28T05:41:23.861Z",
+  "geradoEm": "2026-10-28T06:41:31.087Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -25,11 +25,16 @@
     {
       "colecao": "youtoon",
       "total": 5,
-      "publicados": 5,
+      "publicados": 4,
       "erros": [],
-      "avisos": [],
+      "avisos": [
+        {
+          "caminho": "conteudo/youtoon/portugues/bluey-24h.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        }
+      ],
       "porIdioma": {
-        "pt-BR": 5,
+        "pt-BR": 4,
         "es": 0,
         "en": 0,
         "pt-PT": 0

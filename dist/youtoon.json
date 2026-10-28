@@ -3,18 +3,6 @@
  "nome": "YouToon",
  "channels": [
   {
-   "title": "Bluey 24H",
-   "desc": "Episódios completos de Bluey, ao vivo 24 horas.",
-   "genre": [
-    "Pré-escolar"
-   ],
-   "studio": "youtoon/portugues/bluey-24h",
-   "url": "https://www.youtube.com/@blueyportuguesbrasil-canal/playlists",
-   "logo": "https://i.ytimg.com/vi/OBe-ehVPKKk/hqdefault.jpg",
-   "idioma": "Português",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "CoComelon em Português - Músicas Infantis - Playlist",
    "genre": [
     "Pré-escolar"
