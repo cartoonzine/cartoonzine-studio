@@ -2,5 +2,162 @@
  "colecao": "youtoon",
  "idioma": "pt-PT",
  "nome": "Português (Portugal)",
- "channels": []
+ "channels": [
+  {
+   "title": "Cartoon Network Portugal",
+   "desc": "Canal oficial de Cartoon Network Portugal no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoon-network-portugal",
+   "url": "https://www.youtube.com/channel/UCC6wGz6GgAPuEs8vO_dRwVA",
+   "logo": "https://yt3.ggpht.com/AvvX90rGxt0T4ysLo68QAh-F9WWbaSsOI6etaPL7q3eyutfnuaDJYFrRfsd9yoy2ITDCWM2q3g=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoon Network Portugal · Ben 10",
+   "desc": "Playlist de Cartoon Network Portugal · 108 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoon-network-portugal-ben-10",
+   "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yRPs85SF1dW2GLbhQCLrbaac",
+   "logo": "https://i.ytimg.com/vi/EXe_NAlkiIg/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoon Network Portugal · Jellystone",
+   "desc": "Playlist de Cartoon Network Portugal · 96 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoon-network-portugal-jellystone",
+   "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yRPJutqgv5Z_D64zTX59-MCb",
+   "logo": "https://i.ytimg.com/vi/PIxbVi9S7qA/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoon Network Portugal · O Mundo de Craig",
+   "desc": "Playlist de Cartoon Network Portugal · 189 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoon-network-portugal-o-mundo-de-craig",
+   "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yRNRhVs-M4kI-Js3nPAcxPBC",
+   "logo": "https://i.ytimg.com/vi/22tRRzHOo_E/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoon Network Portugal · Tom e Jerry",
+   "desc": "Playlist de Cartoon Network Portugal · 276 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoon-network-portugal-tom-e-jerry",
+   "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yRMf4BjoVp8MXHQMT2wb6miC",
+   "logo": "https://i.ytimg.com/vi/DH31kFdxyVQ/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoon Network Portugal · Webisódios",
+   "desc": "Playlist de Cartoon Network Portugal · 234 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoon-network-portugal-webisodios",
+   "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yROXniOyG8BIZRFTHpGEUSOe",
+   "logo": "https://i.ytimg.com/vi/St-yT2YXKhI/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Disney Channel PT",
+   "desc": "Canal oficial de Disney Channel PT no YouTube: episódios sem parar.",
+   "genre": [
+    "Musicais",
+    "Aventura",
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/disney-channel-pt",
+   "url": "https://www.youtube.com/channel/UC-9l7xPrNNdFsZ4I2LlehKw",
+   "logo": "https://yt3.ggpht.com/AqtPqxpBcpArBwSa1Kcg2t_8pAXVAWsVKYwDkvfkH-AfcWC8V7UCl-PgANhatJdbyCNTlFn7=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Disney Channel PT · Kiff",
+   "desc": "Playlist de Disney Channel PT · 110 vídeos",
+   "genre": [
+    "Musicais",
+    "Aventura",
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/disney-channel-pt-kiff",
+   "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuzl26bGFQ_6ucDYYvom_jLc",
+   "logo": "https://i.ytimg.com/vi/GCsEZMN60-w/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Disney Channel PT · Miraculous - As Aventuras de Ladybug",
+   "desc": "Playlist de Disney Channel PT · 287 vídeos",
+   "genre": [
+    "Musicais",
+    "Aventura",
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/disney-channel-pt-miraculous-as-aventuras-de-ladybug",
+   "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuyVoeOg6gS_tXbwupPETFrl",
+   "logo": "https://i.ytimg.com/vi/x9db4aPr4PI/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Disney Channel PT · Os Descendentes",
+   "desc": "Playlist de Disney Channel PT · 170 vídeos",
+   "genre": [
+    "Musicais",
+    "Aventura",
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/disney-channel-pt-os-descendentes",
+   "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuyFDtng77Jfgj5Yzf-Q0qgi",
+   "logo": "https://i.ytimg.com/vi/d70sMt9UZm8/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Disney Channel PT · Os Green na Cidade Grande",
+   "desc": "Playlist de Disney Channel PT · 249 vídeos",
+   "genre": [
+    "Musicais",
+    "Aventura",
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/disney-channel-pt-os-green-na-cidade-grande",
+   "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuxl-wU-Q8yhfsmxf2H2G60X",
+   "logo": "https://i.ytimg.com/vi/a1nI-Qj_QN8/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Disney Channel PT · Phineas e Ferb",
+   "desc": "Playlist de Disney Channel PT · 131 vídeos",
+   "genre": [
+    "Musicais",
+    "Aventura",
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/disney-channel-pt-phineas-e-ferb",
+   "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuwPRPkb-fq3QKw5sLmaB3Yh",
+   "logo": "https://i.ytimg.com/vi/ooYaNr_o35o/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  }
+ ]
 }

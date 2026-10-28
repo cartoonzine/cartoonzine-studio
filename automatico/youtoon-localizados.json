@@ -1,0 +1,351 @@
+{
+  "_comentario": "Canais oficiais localizados que o Studio achou para cada desenho da lista (YouTube). Para tirar um: \"ignorar\": true. Para trocar: coloque \"id\": \"UC…\" e \"manual\": true. \"nada\": ainda não achou (procura de novo depois de 60 dias).",
+  "canais": {
+    "Adventure Time": {
+      "Português": {
+        "id": "UCMHZYGeVSKFoN0b5nIBv0jQ",
+        "titulo": "Hora de Aventura Brasil - Adventure Time",
+        "inscritos": 620000,
+        "pais": "BR",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCHW5uBSFBxilq2UhdPKdF5Q",
+        "titulo": "Hora de Aventura LA - Adventure Time",
+        "inscritos": 883000,
+        "pais": "MX",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Angry Birds": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Ani-One Asia": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Avatar: The Last Airbender": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCN_u5w69V9wUZYG8WeJWuNg",
+        "titulo": "Avatar Legends",
+        "inscritos": 3400000,
+        "pais": "US",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Ben 10": {
+      "Português": {
+        "id": "UCL2n7VnndYlbq6wiz6bxl0Q",
+        "titulo": "Ben 10 Brasil",
+        "inscritos": 3050000,
+        "pais": "BR",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UC9rtBBtXsxtpltOH9-bmwbA",
+        "titulo": "Ben 10 LA",
+        "inscritos": 3320000,
+        "pais": "MX",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Bushiroad Official Channel": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Cartoon Network UK": {
+      "Português": {
+        "id": "UC1toK6UDXwreacdepXYcyqA",
+        "titulo": "Cartoon Network Brasil",
+        "inscritos": 7750000,
+        "pais": "BR",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCQySZQ6rrgJXRuonMwIIGMA",
+        "titulo": "Cartoon Network LA",
+        "inscritos": 11000000,
+        "pais": "MX",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "id": "UCC6wGz6GgAPuEs8vO_dRwVA",
+        "titulo": "Cartoon Network Portugal",
+        "inscritos": 589000,
+        "pais": "PT",
+        "achadoEm": "2026-10-28"
+      }
+    },
+    "Code Lyoko English Official": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Disney Channel Animation": {
+      "Português": {
+        "id": "UCunkR_ekffRWZppVa1E6tIA",
+        "titulo": "Disney Jr. Brasil",
+        "inscritos": 12300000,
+        "pais": "BR",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCq3zaHCaZtb3TtNwwz0PK2w",
+        "titulo": "Disney Jr. Latinoamérica",
+        "inscritos": 31300000,
+        "pais": "AR",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "id": "UC-9l7xPrNNdFsZ4I2LlehKw",
+        "titulo": "Disney Channel PT",
+        "inscritos": 1670000,
+        "pais": "PT",
+        "achadoEm": "2026-10-28"
+      }
+    },
+    "DreamWorks Madagascar": {
+      "Português": {
+        "id": "UC0Hm-5-4bj5CNPRt9nIm0zg",
+        "titulo": "DreamWorks Madagascar em Português",
+        "inscritos": 970000,
+        "pais": "BR",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UC0_ON9Dw6lAhsDPMKE8AukQ",
+        "titulo": "DreamWorks Madagascar en Español",
+        "inscritos": 2090000,
+        "pais": "MX",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Funky Cops English Official": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Garfield & Friends": {
+      "Português": {
+        "id": "UCIwgv9s7NkpNc1UxuRQjP-g",
+        "titulo": "THE GARFIELD SHOW BRASIL OFICIAL",
+        "inscritos": 691000,
+        "pais": "BR",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCUBu4C9C6B0wT0wCs3QbZLQ",
+        "titulo": "GARFIELD SHOW ESPAÑOL LATINO - CANAL OFICIAL",
+        "inscritos": 1170000,
+        "pais": "AR",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Gawayn": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "GLITCH": {
+      "Português": {
+        "id": "UCe2b0ioQ08WuaoM1nQOpULQ",
+        "titulo": "°•Løl._.Glitch•°",
+        "inscritos": 290000,
+        "pais": "BR",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "GONZO": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UC8hiDnhwE7ieY1atgDE_yUg",
+        "titulo": "GONZOK",
+        "inscritos": 38900000,
+        "pais": "MX",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Gundaminfo": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Huntik Secrets and Seekers": {},
+    "It's Anime powered by REMOW": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Official Yu-Gi-Oh!": {
+      "Português": {
+        "id": "UCq65WhHnriCpr08rjupaG9w",
+        "titulo": "Yu-Gi-Oh! Português Brasileiro Oficial",
+        "inscritos": 355000,
+        "pais": "US",
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCNRxWnRbaspGUlVQYvHf8gQ",
+        "titulo": "Yu-Gi-Oh! Español Oficial",
+        "inscritos": 443000,
+        "pais": "US",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "Pokemon": {
+      "Português": {
+        "id": "UCuo1V_VlMUOTjy89D1FDVDw",
+        "titulo": "O Canal Oficial da Pokémon em Português",
+        "inscritos": 339000,
+        "achadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCFctpiB_Hnlk3ejWfHqSm6Q",
+        "titulo": "The Official Pokémon YouTube channel",
+        "inscritos": 7220000,
+        "pais": "US",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    },
+    "TMS ANIME": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "id": "UCQNS2WJVOY7fkv2hDJtaw2Q",
+        "titulo": "TMS Anime Latino",
+        "inscritos": 1600000,
+        "pais": "US",
+        "achadoEm": "2026-10-28"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-28"
+      }
+    }
+  }
+}
