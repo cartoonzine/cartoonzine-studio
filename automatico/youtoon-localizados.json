@@ -57,6 +57,10 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
       }
     },
     "Ben 10": {
@@ -229,6 +233,10 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      },
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
       }
     },
     "GONZO": {
@@ -239,6 +247,10 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
       }
     },
     "Gundaminfo": {
@@ -255,7 +267,34 @@
         "checadoEm": "2026-10-28"
       }
     },
-    "Huntik Secrets and Seekers": {},
+    "Huntik Secrets and Seekers": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Inspector Gadget": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
     "It's Anime powered by REMOW": {
       "Português": {
         "nada": true,
@@ -268,6 +307,173 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      }
+    },
+    "Johnny Test": {
+      "Português": {
+        "id": "UC8mqi-vNSE5qL4-lCE7zc6g",
+        "titulo": "Johnny Test Português - WildBrain",
+        "inscritos": 1070000,
+        "pais": "GB",
+        "achadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Kaeloo English": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "LACKADAISY": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Martin Mystery": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Marvel H.Q.": {
+      "Português": {
+        "id": "UC7szgpLo06fj4886ydVsVDg",
+        "titulo": "Marvel HQ Brasil",
+        "inscritos": 1730000,
+        "pais": "BR",
+        "achadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "id": "UCrQXnPc5QSr4Ibu4JhY5KlQ",
+        "titulo": "Marvel HQ LA",
+        "inscritos": 4220000,
+        "pais": "AR",
+        "achadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Minimighty Kids Official": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Minuscule": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Miraculous Ladybug": {
+      "Português": {
+        "id": "UCBDEu1tO_K4CpfHJqo6jxmQ",
+        "titulo": "MIRACULOUS - As Aventuras de Ladybug",
+        "inscritos": 4310000,
+        "pais": "BR",
+        "achadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "id": "UClO_ni5PslPD9LsfZiyfcyA",
+        "titulo": "MIRACULOUS - Las Aventuras de Ladybug",
+        "inscritos": 14400000,
+        "pais": "MX",
+        "achadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Nicktoons": {
+      "Português": {
+        "id": "UCMryAHWeLf3TxDyDxSWs4AQ",
+        "titulo": "Nickelodeon em Português",
+        "inscritos": 9690000,
+        "pais": "BR",
+        "achadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "id": "UCNeq3Obf4zOv5rhORI8Vz5g",
+        "titulo": "Nickelodeon en Español",
+        "inscritos": 11700000,
+        "pais": "MX",
+        "achadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Oddbods": {
+      "Português": {
+        "id": "UC_w1BVttp1X2wDJsm-xbnCA",
+        "titulo": "Oddbods Brasil",
+        "inscritos": 3790000,
+        "pais": "BR",
+        "achadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "id": "UCzYqgnjnhnN78k_8h6s3vxg",
+        "titulo": "Oddbods Español",
+        "inscritos": 4410000,
+        "pais": "MX",
+        "achadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
       }
     },
     "Official Yu-Gi-Oh!": {
@@ -290,6 +496,20 @@
         "checadoEm": "2026-10-28"
       }
     },
+    "Oggy and the Cockroaches": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
     "Pokemon": {
       "Português": {
         "id": "UCuo1V_VlMUOTjy89D1FDVDw",
@@ -300,6 +520,102 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Popeye And Friends Official": {
+      "Português": {
+        "id": "UCwOJvK0DtllVM-zC5zCKtkw",
+        "titulo": "Popeye e Amigos - Português",
+        "inscritos": 59200,
+        "pais": "BR",
+        "achadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "id": "UCEFiNNJBrgLL3Lw_mUvp9Ew",
+        "titulo": "Popeye y Amigos - Español",
+        "inscritos": 154000,
+        "pais": "US",
+        "achadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Robotboy": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Shaun the Sheep Official": {
+      "Português": {
+        "id": "UCZNV4_htB8Vw5oKogme3G_A",
+        "titulo": "Shaun, o Carneiro [Shaun the Sheep]",
+        "inscritos": 510000,
+        "pais": "BR",
+        "achadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "id": "UCQ3h_JrL6nQnF7oNY6t7zIw",
+        "titulo": "La Oveja Shaun",
+        "inscritos": 3140000,
+        "pais": "ES",
+        "achadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Simon's Cat": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Slugterra": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      }
+    },
+    "Space Goofs": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-29"
       }
     },
     "TMS ANIME": {

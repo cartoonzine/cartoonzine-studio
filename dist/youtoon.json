@@ -3,54 +3,6 @@
  "nome": "YouToon",
  "channels": [
   {
-   "title": "°•Løl._.Glitch•°",
-   "desc": "Canal oficial de °•Løl._.Glitch•° no YouTube: episódios sem parar.",
-   "genre": [
-    "Comédia"
-   ],
-   "studio": "youtoon/portugues/l-l-glitch",
-   "url": "https://www.youtube.com/channel/UCe2b0ioQ08WuaoM1nQOpULQ",
-   "logo": "https://yt3.ggpht.com/Avytifk75-x1WIRs6BsbHVMZkYfVX04rggbPckkQBTKwCUAQQfsMe0cKo1AX_k9BX1mmAc0f=s800-c-k-c0x00ffffff-no-rj",
-   "idioma": "Português",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "°•Løl._.Glitch•° · 🎬 AFTON FAMILY: After The Fire",
-   "desc": "Playlist de °•Løl._.Glitch•° · 13 vídeos",
-   "genre": [
-    "Comédia"
-   ],
-   "studio": "youtoon/ingles/l-l-glitch-afton-family-after-the-fire",
-   "url": "https://www.youtube.com/playlist?list=PLYSJdqlhXr98",
-   "logo": "https://i.ytimg.com/vi/hjYK5KKqXLo/hqdefault.jpg",
-   "idioma": "Inglês",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "°•Løl._.Glitch•° · Especiais - [ORIGINAIS] 💜🎉🎊",
-   "desc": "Playlist de °•Løl._.Glitch•° · 6 vídeos",
-   "genre": [
-    "Comédia"
-   ],
-   "studio": "youtoon/portugues/l-l-glitch-especiais-originais",
-   "url": "https://www.youtube.com/playlist?list=PLS_TE-eusVL5jfDR0Rp647C7fiyNw0HqE",
-   "logo": "https://i.ytimg.com/vi/mT3sNHo0M74/hqdefault.jpg",
-   "idioma": "Português",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "°•Løl._.Glitch•° · Memes - Minha AU 😼✨",
-   "desc": "Playlist de °•Løl._.Glitch•° · 16 vídeos",
-   "genre": [
-    "Comédia"
-   ],
-   "studio": "youtoon/portugues/l-l-glitch-memes-minha-au",
-   "url": "https://www.youtube.com/playlist?list=PLS_TE-eusVL45WVFhpzlv9E0KHU4fATuC",
-   "logo": "https://i.ytimg.com/vi/CzGM9Q4pfvY/hqdefault.jpg",
-   "idioma": "Português",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "Adventure Time",
    "desc": "Canal oficial de Adventure Time no YouTube: episódios sem parar.",
    "genre": [
@@ -288,90 +240,6 @@
    "url": "https://www.youtube.com/channel/UCYC2wjLop-S6Ld4raeoUVNA/live",
    "logo": "https://i.ytimg.com/vi/SLhWYVtfCO4/hqdefault.jpg?v=6ad9eaa3",
    "idioma": "Inglês",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Avatar Legends",
-   "desc": "Canal oficial de Avatar Legends no YouTube: episódios sem parar.",
-   "genre": [
-    "Heróis e Ação"
-   ],
-   "studio": "youtoon/espanhol/avatar-legends",
-   "url": "https://www.youtube.com/channel/UCN_u5w69V9wUZYG8WeJWuNg",
-   "logo": "https://yt3.ggpht.com/5chqRMChpQtvDUdzwOxtn3griX4a6VArXZeUkjdKZBmRXn6iCYKd8k5oBFcuqwQbsql0gk8sN4A=s800-c-k-c0x00ffffff-no-rj",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Avatar Legends · Avatar: Braving the Elements Podcast 🎧 | Clips and Episodes",
-   "desc": "Playlist de Avatar Legends · 367 vídeos",
-   "genre": [
-    "Heróis e Ação"
-   ],
-   "studio": "youtoon/espanhol/avatar-legends-avatar-braving-the-elements-podcast-clips-and-episodes",
-   "url": "https://www.youtube.com/playlist?list=PL0uuU7hMyKdVZlj2ylvFhAWvct4hc7iR1",
-   "logo": "https://i.ytimg.com/vi/pRL_01VpLwg/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Avatar Legends · Best of Avatar: The Last Airbender! ⬇️",
-   "desc": "Playlist de Avatar Legends · 379 vídeos",
-   "genre": [
-    "Heróis e Ação"
-   ],
-   "studio": "youtoon/espanhol/avatar-legends-best-of-avatar-the-last-airbender",
-   "url": "https://www.youtube.com/playlist?list=PL0uuU7hMyKdWuO1a8e4ml7w49-PuRcW0r",
-   "logo": "https://i.ytimg.com/vi/0iRXd4tvuWU/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Avatar Legends · Best of Korra! 🌊",
-   "desc": "Playlist de Avatar Legends · 84 vídeos",
-   "genre": [
-    "Heróis e Ação"
-   ],
-   "studio": "youtoon/espanhol/avatar-legends-best-of-korra",
-   "url": "https://www.youtube.com/playlist?list=PL0uuU7hMyKdWNzevB2jAOr5SP5HKmqCdE",
-   "logo": "https://i.ytimg.com/vi/mr-1YvLJpDw/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Avatar Legends · Best of Toph! ⛰",
-   "desc": "Playlist de Avatar Legends · 93 vídeos",
-   "genre": [
-    "Heróis e Ação"
-   ],
-   "studio": "youtoon/espanhol/avatar-legends-best-of-toph",
-   "url": "https://www.youtube.com/playlist?list=PL0uuU7hMyKdUcLJTkqXAXjSOxVi2mMJ-_",
-   "logo": "https://i.ytimg.com/vi/Lgnd_xGPnEg/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Avatar Legends · Best of Zuko! 🔥",
-   "desc": "Playlist de Avatar Legends · 88 vídeos",
-   "genre": [
-    "Heróis e Ação"
-   ],
-   "studio": "youtoon/espanhol/avatar-legends-best-of-zuko",
-   "url": "https://www.youtube.com/playlist?list=PL0uuU7hMyKdWO4Hsmr4ZERd9kBdR4vajI",
-   "logo": "https://i.ytimg.com/vi/rRe4kiKN-d8/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Avatar Legends 24H",
-   "desc": "🔴 LIVE: Catch Up For Avatar: Seven Havens",
-   "genre": [
-    "Heróis e Ação"
-   ],
-   "studio": "youtoon/espanhol/avatar-legends-24h",
-   "url": "https://www.youtube.com/channel/UCN_u5w69V9wUZYG8WeJWuNg/live",
-   "logo": "https://i.ytimg.com/vi/zqNulCSIkOM/hqdefault.jpg?v=6ad6b11d",
-   "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
   {
@@ -805,7 +673,7 @@
    ],
    "studio": "youtoon/ingles/blippi-educational-videos-for-kids-blippi-marathon-all-day-adventure-fun-e-learn",
    "url": "https://www.youtube.com/playlist?list=PLzgk_uTg08P9Y8gF2c5S6P0nkB_KtzyYI",
-   "logo": "https://i.ytimg.com/vi/v27vRTZEx54/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/9gA-oXmW11A/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -959,7 +827,7 @@
   },
   {
    "title": "Cartoon Network Brasil · URSINHOS EM CURSO | CARTOON NETWORK",
-   "desc": "Playlist de Cartoon Network Brasil · 122 vídeos",
+   "desc": "Playlist de Cartoon Network Brasil · 123 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -1486,7 +1354,7 @@
   },
   {
    "title": "Curious George · Curious George Compilation",
-   "desc": "Playlist de Curious George · 1093 vídeos",
+   "desc": "Playlist de Curious George · 1094 vídeos",
    "genre": [
     "Pré-escolar"
    ],
@@ -1510,13 +1378,13 @@
   },
   {
    "title": "Curious George · Curious George Official | All Videos",
-   "desc": "Playlist de Curious George · 1215 vídeos",
+   "desc": "Playlist de Curious George · 1218 vídeos",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/curious-george-curious-george-official-all-videos",
    "url": "https://www.youtube.com/playlist?list=PLnBTl2VtIwRmpm-RRSVWhhaHf4UQg01Dz",
-   "logo": "https://i.ytimg.com/vi/G0qMmOX5yIU/hqdefault.jpg?v=6ac370d4",
+   "logo": "https://i.ytimg.com/vi/Pg4bxzEKgsE/hqdefault.jpg?v=6ae362d4",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -1834,7 +1702,7 @@
   },
   {
    "title": "Disney Jr. · Disney Jr. Super Heroes!",
-   "desc": "Playlist de Disney Jr. · 301 vídeos",
+   "desc": "Playlist de Disney Jr. · 302 vídeos",
    "genre": [
     "Pré-escolar"
    ],
@@ -1846,25 +1714,25 @@
   },
   {
    "title": "Disney Jr. · Iron Man and his Awesome Friends | Disney Jr x Marvel HQ",
-   "desc": "Playlist de Disney Jr. · 169 vídeos",
+   "desc": "Playlist de Disney Jr. · 170 vídeos",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/disney-jr-iron-man-and-his-awesome-friends-disney-jr-x-marvel-hq",
    "url": "https://www.youtube.com/playlist?list=PL2m1vjiMH_hMLTuM_CBxo3nir28x5cNZc",
-   "logo": "https://i.ytimg.com/vi/iJHXUlKG_SQ/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/RMfnfOuErP4/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
   {
    "title": "Disney Jr. · Mickey Mouse Clubhouse+ 🐭🏠",
-   "desc": "Playlist de Disney Jr. · 201 vídeos",
+   "desc": "Playlist de Disney Jr. · 202 vídeos",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/disney-jr-mickey-mouse-clubhouse",
    "url": "https://www.youtube.com/playlist?list=PL2m1vjiMH_hOCLfO_F-Cwv2jlbP0XNSWe",
-   "logo": "https://i.ytimg.com/vi/9uAemvL5cs0/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/FsiwC4JMDyc/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -1912,7 +1780,7 @@
   },
   {
    "title": "Disney Jr. Brasil · Homem de Ferro e seus Amigos Incríveis",
-   "desc": "Playlist de Disney Jr. Brasil · 36 vídeos",
+   "desc": "Playlist de Disney Jr. Brasil · 37 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -1940,7 +1808,7 @@
   },
   {
    "title": "Disney Jr. Brasil · Spidey e Seus Amigos Espetaculares 🕷️",
-   "desc": "Playlist de Disney Jr. Brasil · 46 vídeos",
+   "desc": "Playlist de Disney Jr. Brasil · 47 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -2182,13 +2050,13 @@
   },
   {
    "title": "Dora & Friends · What’s New with Dora! | Dora & Friends",
-   "desc": "Playlist de Dora & Friends · 850 vídeos",
+   "desc": "Playlist de Dora & Friends · 851 vídeos",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/dora-e-friends-what-s-new-with-dora-dora-e-friends",
    "url": "https://www.youtube.com/playlist?list=PLJmDk3QJqTWF-SzA-qKTlK_uqIqYzz1Rx",
-   "logo": "https://i.ytimg.com/vi/iKAQ7GiWyjo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/OBbhlZCua6s/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -2589,18 +2457,6 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "Garfield & Friends 24H",
-   "desc": "🔴 LIVE | Garfield & Friends 🎃 Happy Halloween 👻 Holiday Specials & More! 🐱",
-   "genre": [
-    "Clássicos"
-   ],
-   "studio": "youtoon/ingles/garfield-e-friends-24h",
-   "url": "https://www.youtube.com/channel/UCBmgiPm4j50Z9zNTsUmb9Xw/live",
-   "logo": "https://i.ytimg.com/vi/npPNS7vwJMc/hqdefault.jpg?v=6adfacf8",
-   "idioma": "Inglês",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "GARFIELD SHOW ESPAÑOL LATINO",
    "desc": "Canal oficial de GARFIELD SHOW ESPAÑOL LATINO no YouTube: episódios sem parar.",
    "genre": [
@@ -2778,78 +2634,6 @@
    "url": "https://www.youtube.com/playlist?list=PLHovnlOusNLiVNtW9iRdFImnKYHEgkdI1",
    "logo": "https://i.ytimg.com/vi/ZX9bSKucR1o/hqdefault.jpg",
    "idioma": "Inglês",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "GONZOK",
-   "desc": "Canal oficial de GONZOK no YouTube: episódios sem parar.",
-   "genre": [
-    "Anime"
-   ],
-   "studio": "youtoon/espanhol/gonzok",
-   "url": "https://www.youtube.com/channel/UC8hiDnhwE7ieY1atgDE_yUg",
-   "logo": "https://yt3.ggpht.com/C0lL8bOPpFMbHKmnBdnhRiounnINUrAdF4m4lY9CHFU3EzcaNqXU9MTrQaWvM-unObn14Eiz=s800-c-k-c0x00ffffff-no-rj",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "GONZOK · 4ta Temporada",
-   "desc": "Playlist de GONZOK · 81 vídeos",
-   "genre": [
-    "Anime"
-   ],
-   "studio": "youtoon/espanhol/gonzok-4ta-temporada",
-   "url": "https://www.youtube.com/playlist?list=PLiTTdI8-psN5733-gX8Nxb6qdx78UqxjC",
-   "logo": "https://i.ytimg.com/vi/cP5INyOD5tw/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "GONZOK · 5ta Temporada",
-   "desc": "Playlist de GONZOK · 113 vídeos",
-   "genre": [
-    "Anime"
-   ],
-   "studio": "youtoon/espanhol/gonzok-5ta-temporada",
-   "url": "https://www.youtube.com/playlist?list=PLiTTdI8-psN7VWPUcHgkx5lVxA8uZ2Cj9",
-   "logo": "https://i.ytimg.com/vi/0VGcRpo8UK8/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "GONZOK · 6ta Temporada",
-   "desc": "Playlist de GONZOK · 139 vídeos",
-   "genre": [
-    "Anime"
-   ],
-   "studio": "youtoon/espanhol/gonzok-6ta-temporada",
-   "url": "https://www.youtube.com/playlist?list=PLiTTdI8-psN7AHPiDzvjMi2fF7Ag1Q9Qq",
-   "logo": "https://i.ytimg.com/vi/MkDg6TanpZk/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "GONZOK · Sketches",
-   "desc": "Playlist de GONZOK · 111 vídeos",
-   "genre": [
-    "Anime"
-   ],
-   "studio": "youtoon/espanhol/gonzok-sketches",
-   "url": "https://www.youtube.com/playlist?list=PLiTTdI8-psN5kO_BeQEtzXXN-QuYeI7R-",
-   "logo": "https://i.ytimg.com/vi/3zIprVAV6ug/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "GONZOK · Vlogs",
-   "desc": "Playlist de GONZOK · 174 vídeos",
-   "genre": [
-    "Anime"
-   ],
-   "studio": "youtoon/espanhol/gonzok-vlogs",
-   "url": "https://www.youtube.com/playlist?list=PLiTTdI8-psN52swh3P9R04eYITYA4vEFS",
-   "logo": "https://i.ytimg.com/vi/s-LaZxubV8E/hqdefault.jpg",
-   "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
   {
@@ -3590,6 +3374,84 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Johnny Test Português - WildBrain",
+   "desc": "Canal oficial de Johnny Test Português - WildBrain no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia",
+    "Ficção Científica"
+   ],
+   "studio": "youtoon/portugues/johnny-test-portugues-wildbrain",
+   "url": "https://www.youtube.com/channel/UC8mqi-vNSE5qL4-lCE7zc6g",
+   "logo": "https://yt3.ggpht.com/Qa1f8x-ao3UaW_Zwwp7LKFrWmMWv70V59eK423UqnN1gk4DiUL88s49zy-lI5-T-5HqvfT6d=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Johnny Test Português - WildBrain · Esquadrão Dino em Português!",
+   "desc": "Playlist de Johnny Test Português - WildBrain · 22 vídeos",
+   "genre": [
+    "Comédia",
+    "Ficção Científica"
+   ],
+   "studio": "youtoon/portugues/johnny-test-portugues-wildbrain-esquadrao-dino-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLI5F2B8muZet66i0-z98TiLKgKhaCkFyM",
+   "logo": "https://i.ytimg.com/vi/7EyeUGjcRRI/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Johnny Test Português - WildBrain · Johnny Test | 1 Hora",
+   "desc": "Playlist de Johnny Test Português - WildBrain · 14 vídeos",
+   "genre": [
+    "Comédia",
+    "Ficção Científica"
+   ],
+   "studio": "youtoon/portugues/johnny-test-portugues-wildbrain-johnny-test-1-hora",
+   "url": "https://www.youtube.com/playlist?list=PLI5F2B8muZeuxI88ZYbL_zFvlB2duv_Po",
+   "logo": "https://i.ytimg.com/vi/klKgJoK68S4/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Johnny Test Português - WildBrain · Johnny Test em Português!",
+   "desc": "Playlist de Johnny Test Português - WildBrain · 604 vídeos",
+   "genre": [
+    "Comédia",
+    "Ficção Científica"
+   ],
+   "studio": "youtoon/portugues/johnny-test-portugues-wildbrain-johnny-test-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLI5F2B8muZescKO_MHRQU8_I5KtlZboZe",
+   "logo": "https://i.ytimg.com/vi/IWuMg0J76c8/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Johnny Test Português - WildBrain · Johnny Test: Novos Vídeos!",
+   "desc": "Playlist de Johnny Test Português - WildBrain · 583 vídeos",
+   "genre": [
+    "Comédia",
+    "Ficção Científica"
+   ],
+   "studio": "youtoon/portugues/johnny-test-portugues-wildbrain-johnny-test-novos-videos",
+   "url": "https://www.youtube.com/playlist?list=PLI5F2B8muZeu3wKqsXkQCA68bCN1Rgeh-",
+   "logo": "https://i.ytimg.com/vi/UKfkFdDs8As/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Johnny Test Português - WildBrain · Johnny Test: Vídeos Populares!",
+   "desc": "Playlist de Johnny Test Português - WildBrain · 80 vídeos",
+   "genre": [
+    "Comédia",
+    "Ficção Científica"
+   ],
+   "studio": "youtoon/portugues/johnny-test-portugues-wildbrain-johnny-test-videos-populares",
+   "url": "https://www.youtube.com/playlist?list=PLI5F2B8muZet_OS4tSBBv355UeuF_0foC",
+   "logo": "https://i.ytimg.com/vi/4O8pDqsZrSQ/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Kaeloo English",
    "desc": "Canal oficial de Kaeloo English no YouTube: episódios sem parar.",
    "genre": [
@@ -3647,6 +3509,78 @@
    "url": "https://www.youtube.com/playlist?list=PL2_gOHoRCa3vEMUyvc8fFk_5mt-0zYw3k",
    "logo": "https://i.ytimg.com/vi/6QhWbnp2-yY/hqdefault.jpg",
    "idioma": "Inglês",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "La Oveja Shaun",
+   "desc": "Canal oficial de La Oveja Shaun no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/la-oveja-shaun",
+   "url": "https://www.youtube.com/channel/UCQ3h_JrL6nQnF7oNY6t7zIw",
+   "logo": "https://yt3.ggpht.com/hvuz3PnPQWVGcNgi9UbdIHe1rFZdPRuc7nR0ckivxcmzT804mI-8l_fB1tvDA6kRaBEkO7qQsA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "La Oveja Shaun · Compilaciones Español - La Oveja Shaun",
+   "desc": "Playlist de La Oveja Shaun · 74 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/la-oveja-shaun-compilaciones-espanol-la-oveja-shaun",
+   "url": "https://www.youtube.com/playlist?list=PLcrjTP4MwHAMMtYhPy83KT-B0E21XWEfl",
+   "logo": "https://i.ytimg.com/vi/QhYeiaN2LtM/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "La Oveja Shaun · Escenas Especiales Para Niños | La Oveja Shaun",
+   "desc": "Playlist de La Oveja Shaun · 141 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/la-oveja-shaun-escenas-especiales-para-ninos-la-oveja-shaun",
+   "url": "https://www.youtube.com/playlist?list=PLcrjTP4MwHANe37UjiR_H27sUf4sskA0o",
+   "logo": "https://i.ytimg.com/vi/nY97BxqQzLQ/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "La Oveja Shaun · Temporada 1 - La Oveja Shaun",
+   "desc": "Playlist de La Oveja Shaun · 79 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/la-oveja-shaun-temporada-1-la-oveja-shaun",
+   "url": "https://www.youtube.com/playlist?list=PLcrjTP4MwHAMKo2bzczg4vae4fJXA6A10",
+   "logo": "https://i.ytimg.com/vi/PUQf5Ab39pk/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "La Oveja Shaun · Temporada 2 - La Oveja Shaun",
+   "desc": "Playlist de La Oveja Shaun · 67 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/la-oveja-shaun-temporada-2-la-oveja-shaun",
+   "url": "https://www.youtube.com/playlist?list=PLcrjTP4MwHAM_GGSNyZyhMa_sPdfaM9Hk",
+   "logo": "https://i.ytimg.com/vi/QhYeiaN2LtM/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "La Oveja Shaun · Temporada 4 - La Oveja Shaun",
+   "desc": "Playlist de La Oveja Shaun · 58 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/la-oveja-shaun-temporada-4-la-oveja-shaun",
+   "url": "https://www.youtube.com/playlist?list=PLcrjTP4MwHANuYa0cJwO7NQTkWQsUpB8j",
+   "logo": "https://i.ytimg.com/vi/x66Qh5cvV3Q/hqdefault.jpg",
+   "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
   {
@@ -3903,7 +3837,7 @@
   },
   {
    "title": "Marvel H.Q. · What's New On Marvel HQ! 💥",
-   "desc": "Playlist de Marvel H.Q. · 784 vídeos",
+   "desc": "Playlist de Marvel H.Q. · 783 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
@@ -3923,6 +3857,150 @@
    "url": "https://www.youtube.com/playlist?list=PLd_Veup5fbrM",
    "logo": "https://i.ytimg.com/vi/7bw5yiaMwv8/hqdefault.jpg",
    "idioma": "Inglês",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ Brasil",
+   "desc": "Canal oficial de Marvel HQ Brasil no YouTube: episódios sem parar.",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/marvel-hq-brasil",
+   "url": "https://www.youtube.com/channel/UC7szgpLo06fj4886ydVsVDg",
+   "logo": "https://yt3.ggpht.com/CibgD9hd6CtolxK3cZgTg_nFPsMXXM393OKq2aCV71gT3UC_ms6uGnXdI8XZdaDFOMd0R_MCjQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ Brasil · CONHEÇA OS HERÓIS DA MARVEL",
+   "desc": "Playlist de Marvel HQ Brasil · 40 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/marvel-hq-brasil-conheca-os-herois-da-marvel",
+   "url": "https://www.youtube.com/playlist?list=PLorhXIKJan9E7ZAwkZhp88UXeerID2ff2",
+   "logo": "https://i.ytimg.com/img/no_thumbnail.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ Brasil · Força Mech",
+   "desc": "Playlist de Marvel HQ Brasil · 64 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/marvel-hq-brasil-forca-mech",
+   "url": "https://www.youtube.com/playlist?list=PLorhXIKJan9G88MH49p5cwFFDL2GEF10D",
+   "logo": "https://i.ytimg.com/vi/m_TO7WKAagk/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ Brasil · Marvel Rising",
+   "desc": "Playlist de Marvel HQ Brasil · 22 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/marvel-hq-brasil-marvel-rising",
+   "url": "https://www.youtube.com/playlist?list=PLorhXIKJan9HI57lD_IGvTCE8Z7iQV7ot",
+   "logo": "https://i.ytimg.com/vi/2MjBizqu9dU/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ Brasil · Marvel Super-Heróis vs.Vilões",
+   "desc": "Playlist de Marvel HQ Brasil · 41 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/marvel-hq-brasil-marvel-super-herois-vs-viloes",
+   "url": "https://www.youtube.com/playlist?list=PLorhXIKJan9Fan_rzFZpiFvOdYvKBpIxk",
+   "logo": "https://i.ytimg.com/vi/Uh7ih8-yBm8/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ Brasil · Spidey e seus amigos espetaculares",
+   "desc": "Playlist de Marvel HQ Brasil · 84 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/portugues/marvel-hq-brasil-spidey-e-seus-amigos-espetaculares",
+   "url": "https://www.youtube.com/playlist?list=PLorhXIKJan9HX3k-1ICpWNZQDMhzDNuhm",
+   "logo": "https://i.ytimg.com/vi/DizhDlcwJZk/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ LA",
+   "desc": "Canal oficial de Marvel HQ LA no YouTube: episódios sem parar.",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/marvel-hq-la",
+   "url": "https://www.youtube.com/channel/UCrQXnPc5QSr4Ibu4JhY5KlQ",
+   "logo": "https://yt3.ggpht.com/NWDjipipHAc70WCNgWIqYwuB1oZ2WZceHkla9keKrVEMMoRY-1foyv8bR5izsx2V-Gg8cx5ASQs=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ LA · Avengers Unidos 🦾",
+   "desc": "Playlist de Marvel HQ LA · 43 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/marvel-hq-la-avengers-unidos",
+   "url": "https://www.youtube.com/playlist?list=PLCqPoEhJGCXeWu370b9VUxf9TJom1NKmm",
+   "logo": "https://i.ytimg.com/vi/pr-OOsQouA8/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ LA · Avengers: Más Allá de los Más Poderosos del Planeta 😱🔥",
+   "desc": "Playlist de Marvel HQ LA · 20 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/marvel-hq-la-avengers-mas-alla-de-los-mas-poderosos-del-planeta",
+   "url": "https://www.youtube.com/playlist?list=PLCqPoEhJGCXcR7RWROInXbCeRhLzVMRb7",
+   "logo": "https://i.ytimg.com/vi/h8Xo8we7ops/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ LA · Iron Man y sus Increíbles Amigos 🤝",
+   "desc": "Playlist de Marvel HQ LA · 23 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/marvel-hq-la-iron-man-y-sus-increibles-amigos",
+   "url": "https://www.youtube.com/playlist?list=PLCqPoEhJGCXfTtpvDCy-NbIOHGwkrJgFA",
+   "logo": "https://i.ytimg.com/vi/qhHZnb6HeEs/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ LA · LEGO Marvel Avengers",
+   "desc": "Playlist de Marvel HQ LA · 37 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/marvel-hq-la-lego-marvel-avengers",
+   "url": "https://www.youtube.com/playlist?list=PLCqPoEhJGCXdLEVobditJfM6GOmP8Acn4",
+   "logo": "https://i.ytimg.com/vi/-Rx0ROQPlS8/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Marvel HQ LA · Lo mejor de \"Los Vengadores\" 📺🎬",
+   "desc": "Playlist de Marvel HQ LA · 38 vídeos",
+   "genre": [
+    "Heróis e Ação"
+   ],
+   "studio": "youtoon/espanhol/marvel-hq-la-lo-mejor-de-los-vengadores",
+   "url": "https://www.youtube.com/playlist?list=PLCqPoEhJGCXffRmLth8bYtB8aAL6i6Wct",
+   "logo": "https://i.ytimg.com/vi/EomKZvxYrwQ/hqdefault.jpg",
+   "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
   {
@@ -3993,19 +4071,19 @@
    ],
    "studio": "youtoon/ingles/masha-and-the-bear-what-s-new",
    "url": "https://www.youtube.com/playlist?list=PL-yqdhzdKqQQ3Ad6-v0Pb76taFKmIrz43",
-   "logo": "https://i.ytimg.com/vi/v-py_9DVL-U/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/WMkJWoN1g-A/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
   {
    "title": "Masha and The Bear 24H",
-   "desc": "🔴 LIVE STREAM 🎬 Masha and the Bear 👧🐻 Season 1: All episodes 🍁🐺",
+   "desc": "🔴 LIVE STREAM 🎬 Masha and the Bear 💃🕺 Season of Glory! 👑🎭",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/ingles/masha-and-the-bear-24h",
    "url": "https://www.youtube.com/channel/UCu59yAFE8fM0sVNTipR4edw/live",
-   "logo": "https://i.ytimg.com/vi/qEyolYQeLWs/hqdefault.jpg?v=6ae0ebd1",
+   "logo": "https://i.ytimg.com/vi/slWohyYLWXw/hqdefault.jpg?v=6ae1d3db",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -4155,7 +4233,7 @@
   },
   {
    "title": "Minuscule · 🐞 Minuscule: The Animated Series | Season 1 | Minuscule Official",
-   "desc": "Playlist de Minuscule · 194 vídeos",
+   "desc": "Playlist de Minuscule · 195 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -4167,7 +4245,7 @@
   },
   {
    "title": "Minuscule · 🪲 Minuscule: The Animated Series | Season 2 | Minuscule Official",
-   "desc": "Playlist de Minuscule · 261 vídeos",
+   "desc": "Playlist de Minuscule · 263 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -4175,6 +4253,150 @@
    "url": "https://www.youtube.com/playlist?list=PL7eLsxQrsg-69_M01yj2OHYtCaM9N3ypx",
    "logo": "https://i.ytimg.com/vi/lRIjs0pt3GY/hqdefault.jpg",
    "idioma": "Inglês",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - As Aventuras de Ladybug",
+   "desc": "Canal oficial de MIRACULOUS - As Aventuras de Ladybug no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug",
+   "url": "https://www.youtube.com/channel/UCBDEu1tO_K4CpfHJqo6jxmQ",
+   "logo": "https://yt3.ggpht.com/_m7yfcKb9Flt5tw2RqLmEASH-WtUtQozOcxMNrPQF85PTyFnMCinyv4IVrMaGkHZR_BUQFUazw=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - As Aventuras de Ladybug · 🇧🇷 Miraculous - As Aventuras de Ladybug 🐞 Português BRASIL 🇧🇷",
+   "desc": "Playlist de MIRACULOUS - As Aventuras de Ladybug · 613 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug-miraculous-as-aventuras-de-ladybug-portugues-2",
+   "url": "https://www.youtube.com/playlist?list=PLuoFsz_AsLn0th8H80jj58ExF2re4gv8d",
+   "logo": "https://i.ytimg.com/vi/qs513uRQAgQ/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - As Aventuras de Ladybug · 🇵🇹 Miraculous - As Aventuras de Ladybug 🐞 Português 🇵🇹",
+   "desc": "Playlist de MIRACULOUS - As Aventuras de Ladybug · 1070 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug-miraculous-as-aventuras-de-ladybug-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLuoFsz_AsLn02tlCwqFQrHJjTKgutKwhk",
+   "logo": "https://i.ytimg.com/vi/OoHmvux0904/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - As Aventuras de Ladybug · 🐞 Miraculous | Novas compilações 🐞",
+   "desc": "Playlist de MIRACULOUS - As Aventuras de Ladybug · 375 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug-miraculous-novas-compilacoes",
+   "url": "https://www.youtube.com/playlist?list=PLuoFsz_AsLn3rOOUoAm2DUxC39vgNPJ5z",
+   "logo": "https://i.ytimg.com/vi/B_uCNHvw_r0/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - As Aventuras de Ladybug · 🐞 MIRACULOUS | SEGUNDA TEMPORADA 🐞",
+   "desc": "Playlist de MIRACULOUS - As Aventuras de Ladybug · 220 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug-miraculous-segunda-temporada",
+   "url": "https://www.youtube.com/playlist?list=PLuoFsz_AsLn19e2CS981C8VO6RaGyKrrh",
+   "logo": "https://i.ytimg.com/vi/Nx6-dbjWybc/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - As Aventuras de Ladybug · 😈 Miraculous | Akumatized 🐞",
+   "desc": "Playlist de MIRACULOUS - As Aventuras de Ladybug · 221 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug-miraculous-akumatized",
+   "url": "https://www.youtube.com/playlist?list=PLuoFsz_AsLn07PV2dm2jvIw7Swp_Rpnae",
+   "logo": "https://i.ytimg.com/vi/ss3hO7wOPT8/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - Las Aventuras de Ladybug",
+   "desc": "Canal oficial de MIRACULOUS - Las Aventuras de Ladybug no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/miraculous-las-aventuras-de-ladybug",
+   "url": "https://www.youtube.com/channel/UClO_ni5PslPD9LsfZiyfcyA",
+   "logo": "https://yt3.ggpht.com/KEBA7Wd3QSBQtddzw8NcODC2YXLxVseDRGQK149SFj2PtVo2ima-iNr9wSPLfa8ya4zi2VsUPg=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - Las Aventuras de Ladybug · ▶ MIRACULOUS 🐞 Episodios Completos",
+   "desc": "Playlist de MIRACULOUS - Las Aventuras de Ladybug · 296 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/miraculous-las-aventuras-de-ladybug-miraculous-episodios-completos",
+   "url": "https://www.youtube.com/playlist?list=PLDbFdl6Puid4EOvStPvDUJiB88Md8l9Y4",
+   "logo": "https://i.ytimg.com/vi/tmGwynm93eU/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - Las Aventuras de Ladybug · 🐞 MIRACULOUS - Las Aventuras de Ladybug 🐞",
+   "desc": "Playlist de MIRACULOUS - Las Aventuras de Ladybug · 1766 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/miraculous-las-aventuras-de-ladybug-miraculous-las-aventuras-de-ladybug",
+   "url": "https://www.youtube.com/playlist?list=PLDbFdl6Puid7iPH3n5HfkKlcCXEISc3JW",
+   "logo": "https://i.ytimg.com/vi/cljJ14dr0Xw/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - Las Aventuras de Ladybug · 🐞 MIRACULOUS | Nuevas compilaciónes 🐞",
+   "desc": "Playlist de MIRACULOUS - Las Aventuras de Ladybug · 362 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/miraculous-las-aventuras-de-ladybug-miraculous-nuevas-compilaciones",
+   "url": "https://www.youtube.com/playlist?list=PLDbFdl6Puid5VD7s-k0Mnyr-VUSOcyFTi",
+   "logo": "https://i.ytimg.com/vi/kCOWAjZ96x8/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - Las Aventuras de Ladybug · 🐞 MIRACULOUS | TERCERA TEMPORADA 🐞",
+   "desc": "Playlist de MIRACULOUS - Las Aventuras de Ladybug · 250 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/miraculous-las-aventuras-de-ladybug-miraculous-tercera-temporada",
+   "url": "https://www.youtube.com/playlist?list=PLDbFdl6Puid6rVyNshejVuuiQbEbc9-xc",
+   "logo": "https://i.ytimg.com/vi/2EDRFSgYD4I/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "MIRACULOUS - Las Aventuras de Ladybug · 😈 MIRACULOUS | Akumatizado 🐞",
+   "desc": "Playlist de MIRACULOUS - Las Aventuras de Ladybug · 246 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/miraculous-las-aventuras-de-ladybug-miraculous-akumatizado",
+   "url": "https://www.youtube.com/playlist?list=PLDbFdl6Puid4P8V-LVXLBRyaUHx1pHH4Y",
+   "logo": "https://i.ytimg.com/vi/2EDRFSgYD4I/hqdefault.jpg",
+   "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
   {
@@ -4341,13 +4563,13 @@
    ],
    "studio": "youtoon/ingles/mr-bean-best-of-mr-bean-animated-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh9Um40N668S9a2zUi9lxOqp",
-   "logo": "https://i.ytimg.com/vi/ezsQ3l0XYHU/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/_ZSVUshr1mM/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
   {
    "title": "Mr. Bean · Best of Mr Bean Live Action 😂 | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 928 vídeos",
+   "desc": "Playlist de Mr. Bean · 929 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -4359,7 +4581,7 @@
   },
   {
    "title": "Mr. Bean · Compilations | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 420 vídeos",
+   "desc": "Playlist de Mr. Bean · 421 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -4389,7 +4611,7 @@
    ],
    "studio": "youtoon/ingles/mr-bean-mr-bean-the-animated-series-season-2-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh-2F4nbMOEeEkfTWyXW6T0x",
-   "logo": "https://i.ytimg.com/vi/JOdoMfcAu5g/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/_ZSVUshr1mM/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -4467,13 +4689,13 @@
   },
   {
    "title": "My Little Pony - Official Channel 24H",
-   "desc": "🔴 Cozy Sleepover with Equestria Girls LIVE ❤️🔮 ALL MOVIES MARATHON 🎥 Full Movies Children's Cartoon",
+   "desc": "🔴 Spooky Halloween Girls' Night 🎃 with Equestria Girls LIVE ❤️🔮 ALL DAY MARATHON 🕷️",
    "genre": [
     "Fantasia e Magia"
    ],
    "studio": "youtoon/ingles/my-little-pony-official-channel-24h",
    "url": "https://www.youtube.com/channel/UC9qgVkKRZUXcgHdf35Z-8dw/live",
-   "logo": "https://i.ytimg.com/vi/BSySwiJJw_8/hqdefault.jpg?v=6ae247f7",
+   "logo": "https://i.ytimg.com/vi/rdVcv4AV7VE/hqdefault.jpg?v=6ae35fc8",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -4634,6 +4856,150 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Nickelodeon em Português",
+   "desc": "Canal oficial de Nickelodeon em Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/nickelodeon-em-portugues",
+   "url": "https://www.youtube.com/channel/UCMryAHWeLf3TxDyDxSWs4AQ",
+   "logo": "https://yt3.ggpht.com/oMU9EoOcAe0J79jtuVLWXW2rPgUG0goCO6pKEa49eshyE6SftaMsdgPzVBsmf_2NU4GYWIldtw=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon em Português · Avatar: The Last Airbender | Brasil | Nickelodeon em Português",
+   "desc": "Playlist de Nickelodeon em Português · 84 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/nickelodeon-em-portugues-avatar-the-last-airbender-brasil-nickelodeon-em-portugu",
+   "url": "https://www.youtube.com/playlist?list=PLoQ2lJzy0SnwBDHkyWTdfHEKUihPocZGX",
+   "logo": "https://i.ytimg.com/vi/CXdumJpEvd4/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon em Português · Club 57 | Brasil | Nickelodeon em Português",
+   "desc": "Playlist de Nickelodeon em Português · 66 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/nickelodeon-em-portugues-club-57-brasil-nickelodeon-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLoQ2lJzy0SnyI2bIoS4ZdwtN0WiJ2Kd4G",
+   "logo": "https://i.ytimg.com/vi/G056d6lG5mQ/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon em Português · Força Danger | Brasil | Nickelodeon em Português",
+   "desc": "Playlist de Nickelodeon em Português · 67 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/nickelodeon-em-portugues-forca-danger-brasil-nickelodeon-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLoQ2lJzy0SnwqYROx3MLsgRp8ej3MF31p",
+   "logo": "https://i.ytimg.com/vi/9hnrlkKS28U/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon em Português · Kids' Choice Awards | Brasil | Nickelodeon em Português",
+   "desc": "Playlist de Nickelodeon em Português · 81 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/nickelodeon-em-portugues-kids-choice-awards-brasil-nickelodeon-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLoQ2lJzy0SnwT2hxtjX5xriaHvKoevvsG",
+   "logo": "https://i.ytimg.com/vi/eF184NmjA_0/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon em Português · TMNT | Nickelodeon em Português",
+   "desc": "Playlist de Nickelodeon em Português · 271 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/nickelodeon-em-portugues-tmnt-nickelodeon-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLoQ2lJzy0SnwijCzi0KQ7ACvDRQfuBfNI",
+   "logo": "https://i.ytimg.com/vi/MU9ZFs_h8Mk/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon en Español",
+   "desc": "Canal oficial de Nickelodeon en Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/nickelodeon-en-espanol",
+   "url": "https://www.youtube.com/channel/UCNeq3Obf4zOv5rhORI8Vz5g",
+   "logo": "https://yt3.ggpht.com/TkRcvDMDc-jWlHshfP4EhMRHmCrtd8m07AJU8sB6aEOv4Sz7ejJAYs9a8X8qO0HWpUjxra6XcQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon en Español · Avatar: la Leyenda de Aang | Latinoamérica | Nickelodeon en Español",
+   "desc": "Playlist de Nickelodeon en Español · 127 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/nickelodeon-en-espanol-avatar-la-leyenda-de-aang-latinoamerica-nickelodeon-en-es",
+   "url": "https://www.youtube.com/playlist?list=PLSspY6TXFNPRKEaAi231F7085KQC9d9Jx",
+   "logo": "https://i.ytimg.com/vi/SZU_yEV5byc/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon en Español · Bob Esponja | Nickelodeon en Español",
+   "desc": "Playlist de Nickelodeon en Español · 550 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/nickelodeon-en-espanol-bob-esponja-nickelodeon-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLSspY6TXFNPRfFZ0GFFgrlxddl0T3nljv",
+   "logo": "https://i.ytimg.com/vi/razvI6JEDoI/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon en Español · Kampamento Koral | Nickelodeon en Español",
+   "desc": "Playlist de Nickelodeon en Español · 63 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/nickelodeon-en-espanol-kampamento-koral-nickelodeon-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLSspY6TXFNPSnCnGN18-rknEIFWkrMO1F",
+   "logo": "https://i.ytimg.com/vi/4Aas5qocetA/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon en Español · The Casagrandes | Latinoamérica | Nickelodeon en Español",
+   "desc": "Playlist de Nickelodeon en Español · 61 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/nickelodeon-en-espanol-the-casagrandes-latinoamerica-nickelodeon-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLSspY6TXFNPRKq7a2JdYqs8OluiiwPGr5",
+   "logo": "https://i.ytimg.com/vi/IJ0oHgXbfdM/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nickelodeon en Español · Trendy By Nick",
+   "desc": "Playlist de Nickelodeon en Español · 118 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/nickelodeon-en-espanol-trendy-by-nick",
+   "url": "https://www.youtube.com/playlist?list=PLSspY6TXFNPSgTNFhYutuu7DLBQ7tOmpH",
+   "logo": "https://i.ytimg.com/vi/75vKRqKB0x4/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Nicktoons",
    "desc": "Canal oficial de Nicktoons no YouTube: episódios sem parar.",
    "genre": [
@@ -4647,13 +5013,13 @@
   },
   {
    "title": "Nicktoons · NEW From Nicktoons! 🚀",
-   "desc": "Playlist de Nicktoons · 1179 vídeos",
+   "desc": "Playlist de Nicktoons · 1180 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/nicktoons-new-from-nicktoons",
    "url": "https://www.youtube.com/playlist?list=PLUQR09yEYrP2Er9Et0Od21xc5mM0WqHJ9",
-   "logo": "https://i.ytimg.com/vi/lK868lPLkTc/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/yHLwtti-zx8/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -4683,13 +5049,13 @@
   },
   {
    "title": "Nicktoons · SpongeBob SquarePants 🧽 | Nicktoons",
-   "desc": "Playlist de Nicktoons · 457 vídeos",
+   "desc": "Playlist de Nicktoons · 458 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/nicktoons-spongebob-squarepants-nicktoons",
    "url": "https://www.youtube.com/playlist?list=PLUQR09yEYrP0hxz_Jl32_bu_B5K3_Z6NC",
-   "logo": "https://i.ytimg.com/vi/CTvysvjiRsA/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/yHLwtti-zx8/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -4964,6 +5330,162 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Oddbods Brasil",
+   "desc": "Canal oficial de Oddbods Brasil no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/oddbods-brasil",
+   "url": "https://www.youtube.com/channel/UC_w1BVttp1X2wDJsm-xbnCA",
+   "logo": "https://yt3.ggpht.com/FtgxspP0T_rGG_yTAMVihMWJXEzS2rxwabDfbrUG_alMCzfmuks_HxNTVcpNTtPQPJe0kNpz=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Brasil · ⚽ ESPORTE!!! 🏀 | Oddbods Brasil | Desenhos Animados Engraçados | Dublado em Português",
+   "desc": "Playlist de Oddbods Brasil · 443 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/oddbods-brasil-esporte-oddbods-brasil-desenhos-animados-engracados-dublado-em-po",
+   "url": "https://www.youtube.com/playlist?list=PLxoUzwQguz5CvuJSmewMdE13sWzV-4j62",
+   "logo": "https://i.ytimg.com/vi/QrII7T4_OXs/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Brasil · 📺 TODAS AS COMPILAÇÕES 📺 | Oddbods Brasil | Desenhos Animados Engraçados | Dublado em Português",
+   "desc": "Playlist de Oddbods Brasil · 684 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/oddbods-brasil-todas-as-compilacoes-oddbods-brasil-desenhos-animados-engracados",
+   "url": "https://www.youtube.com/playlist?list=PLxoUzwQguz5AE9U6o5hVwKJuGn1tVXuvv",
+   "logo": "https://i.ytimg.com/vi/V1hmX9Ll4Y4/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Brasil · 📺 TODOS OS EPISÓDIOS! 📺 | Oddbods Brasil | Desenhos Animados Engraçados | Dublado em Português",
+   "desc": "Playlist de Oddbods Brasil · 478 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/oddbods-brasil-todos-os-episodios-oddbods-brasil-desenhos-animados-engracados-du",
+   "url": "https://www.youtube.com/playlist?list=PLxoUzwQguz5AfDB1tcYCdEsPhuOewtSsk",
+   "logo": "https://i.ytimg.com/vi/Fx32MKWr8Ec/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Brasil · 🧪 CIÊNCIA!!! 🩺 | Oddbods Brasil | Desenhos Animados Engraçados | Dublado em Português",
+   "desc": "Playlist de Oddbods Brasil · 390 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/oddbods-brasil-ciencia-oddbods-brasil-desenhos-animados-engracados-dublado-em-po",
+   "url": "https://www.youtube.com/playlist?list=PLxoUzwQguz5D87_B8T-2in-7oURuj969R",
+   "logo": "https://i.ytimg.com/vi/sy_SHXZjr-I/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Brasil · O MELHOR DE ODDBODS BRASIL! 🤩 | Compilações de Desenhos Animados Engraçados para Crianças | DIVERSÃO S",
+   "desc": "Playlist de Oddbods Brasil · 220 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/oddbods-brasil-o-melhor-de-oddbods-brasil-compilacoes-de-desenhos-animados-engra",
+   "url": "https://www.youtube.com/playlist?list=PLxoUzwQguz5CR_Og2F3FI-iqSn9_r3UZx",
+   "logo": "https://i.ytimg.com/vi/3qoLABeukuU/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Brasil 24H",
+   "desc": "🔴 MARATONA Oddbods! 📺 Os Melhores Momentos e Episódios! 🤪",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/oddbods-brasil-24h",
+   "url": "https://www.youtube.com/channel/UC_w1BVttp1X2wDJsm-xbnCA/live",
+   "logo": "https://i.ytimg.com/vi/hMGUBeXUN5k/hqdefault.jpg?v=6ae0865e",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Español",
+   "desc": "Canal oficial de Oddbods Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/oddbods-espanol",
+   "url": "https://www.youtube.com/channel/UCzYqgnjnhnN78k_8h6s3vxg",
+   "logo": "https://yt3.ggpht.com/QDwKtgpzNB6CcB9AQsxyzW3G7KMNFDz201LFOAv26zuJ0J8DpU0javkKr5uJaPXNPEkBVBGsYTo=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Español · FUSE",
+   "desc": "Playlist de Oddbods Español · 82 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/oddbods-espanol-fuse",
+   "url": "https://www.youtube.com/playlist?list=PLP7X5ycpylZgQVGFuG1h-UXfUvk1Uge5L",
+   "logo": "https://i.ytimg.com/vi/SXzcZWZub5A/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Español · JEFF",
+   "desc": "Playlist de Oddbods Español · 60 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/oddbods-espanol-jeff",
+   "url": "https://www.youtube.com/playlist?list=PLP7X5ycpylZjElVBNxCx-suLpMcm_an7y",
+   "logo": "https://i.ytimg.com/vi/PcaKjn4BSCo/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Español · Lo Mejor de Oddbods",
+   "desc": "Playlist de Oddbods Español · 311 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/oddbods-espanol-lo-mejor-de-oddbods",
+   "url": "https://www.youtube.com/playlist?list=PLP7X5ycpylZhKPAbPrpYcdQ5y7AQ6zjpE",
+   "logo": "https://i.ytimg.com/vi/UXVZn7F9W18/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Español · NEWT",
+   "desc": "Playlist de Oddbods Español · 58 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/oddbods-espanol-newt",
+   "url": "https://www.youtube.com/playlist?list=PLP7X5ycpylZgQjXtLYURNqfUSCXdKPJsm",
+   "logo": "https://i.ytimg.com/vi/qlo6fu9mS-w/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Oddbods Español · Oddbods y Antiks | Videos Graciosos para Niños",
+   "desc": "Playlist de Oddbods Español · 767 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/oddbods-espanol-oddbods-y-antiks-videos-graciosos-para-ninos",
+   "url": "https://www.youtube.com/playlist?list=PLP7X5ycpylZiDWKqRorRJKDdUh73PzFsm",
+   "logo": "https://i.ytimg.com/vi/bScPCfAyP3A/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Official Yu-Gi-Oh!",
    "desc": "Canal oficial de Official Yu-Gi-Oh! no YouTube: episódios sem parar.",
    "genre": [
@@ -5103,7 +5625,7 @@
    ],
    "studio": "youtoon/ingles/oggy-and-the-cockroaches-oggy-e-the-cockroaches-top-videos",
    "url": "https://www.youtube.com/playlist?list=PL-d4D7FQaDKMKmZD-nmHpdnbO7YZRipC6",
-   "logo": "https://i.ytimg.com/vi/jHwdMFW4kO0/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/LwQt3LTSXyU/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -5121,13 +5643,13 @@
   },
   {
    "title": "Oggy and the Cockroaches 24H",
-   "desc": "OGGY AND THE COCKROACHES 🔴 LIVE ALL SEASONS STREAMING NOW | Best collection for kids | ALL EPISODES",
+   "desc": "OGGY 🔴 LIVE All episodes | Your Daily Cartoon Break!",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/oggy-and-the-cockroaches-24h",
    "url": "https://www.youtube.com/channel/UCNEKMkg_DG8eAyR1BNWsSvw/live",
-   "logo": "https://i.ytimg.com/vi/pxmIY1oPW6w/hqdefault.jpg?v=6ad79a7c",
+   "logo": "https://i.ytimg.com/vi/4YymLOXPcnA/hqdefault.jpg?v=1a",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -5308,7 +5830,7 @@
    ],
    "studio": "youtoon/ingles/peppa-pig-24h",
    "url": "https://www.youtube.com/channel/UCAOtE1V7Ots4DjM8JLlrYgg/live",
-   "logo": "https://i.ytimg.com/vi/SWoR38V5GhI/hqdefault.jpg?v=6ae23b8d",
+   "logo": "https://i.ytimg.com/vi/W7ufnca4KSQ/hqdefault.jpg?v=6ae31ebe",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -5560,6 +6082,54 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Popeye e Amigos - Português",
+   "desc": "Canal oficial de Popeye e Amigos - Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Clássicos"
+   ],
+   "studio": "youtoon/portugues/popeye-e-amigos-portugues",
+   "url": "https://www.youtube.com/channel/UCwOJvK0DtllVM-zC5zCKtkw",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_mAWBnriF92mh1sUgVwweRpc3PzdnYyCwlR3mk6kypeag=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Popeye e Amigos - Português · Novos Videos! | Popeye e Amigos",
+   "desc": "Playlist de Popeye e Amigos - Português · 46 vídeos",
+   "genre": [
+    "Clássicos"
+   ],
+   "studio": "youtoon/portugues/popeye-e-amigos-portugues-novos-videos-popeye-e-amigos",
+   "url": "https://www.youtube.com/playlist?list=PLASeQdm54ucGPyXzw2qwBtwlN1py2ZWiz",
+   "logo": "https://i.ytimg.com/vi/6D8FwnbOzFA/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Popeye y Amigos - Español",
+   "desc": "Canal oficial de Popeye y Amigos - Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Clássicos"
+   ],
+   "studio": "youtoon/espanhol/popeye-y-amigos-espanol",
+   "url": "https://www.youtube.com/channel/UCEFiNNJBrgLL3Lw_mUvp9Ew",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_mfSbd_A2pQa17TcPmEh6tqXZvyCINnKal9rLE4aw0fmQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Popeye y Amigos - Español · Nuevos videos! | Popeye y Amigos - Español",
+   "desc": "Playlist de Popeye y Amigos - Español · 78 vídeos",
+   "genre": [
+    "Clássicos"
+   ],
+   "studio": "youtoon/espanhol/popeye-y-amigos-espanol-nuevos-videos-popeye-y-amigos-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLSPo9j5aXR_4gFJ2jem2kv5QszzDxE4As",
+   "logo": "https://i.ytimg.com/vi/1hcyh5rHGBg/hqdefault.jpg",
+   "idioma": "Espanhol",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Power Rangers Kids",
    "desc": "Canal oficial de Power Rangers Kids no YouTube: episódios sem parar.",
    "genre": [
@@ -5591,7 +6161,7 @@
    ],
    "studio": "youtoon/ingles/power-rangers-kids-mighty-morphin-minute-s002-mighty-morphin-power-rangers-re-ig",
    "url": "https://www.youtube.com/playlist?list=PLRhk5vHcVeVY",
-   "logo": "https://i.ytimg.com/vi/G1AwX40d2_0/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/VArWaULnZD0/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -5962,6 +6532,90 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Shaun, o Carneiro [Shaun the Sheep]",
+   "desc": "Canal oficial de Shaun, o Carneiro [Shaun the Sheep] no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/shaun-o-carneiro-shaun-the-sheep",
+   "url": "https://www.youtube.com/channel/UCZNV4_htB8Vw5oKogme3G_A",
+   "logo": "https://yt3.ggpht.com/ewkdy76iFpfKNdwXQV8pChbZLag8xgWhIEKYhew_K4AokuKeGRDrj_UXSaW4a6PW0C1bZhlhUA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Shaun, o Carneiro [Shaun the Sheep] · Shaun, o Carneiro Cenas Especiais (Special Scenes)",
+   "desc": "Playlist de Shaun, o Carneiro [Shaun the Sheep] · 299 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/shaun-o-carneiro-shaun-the-sheep-shaun-o-carneiro-cenas-especiais-special-scenes",
+   "url": "https://www.youtube.com/playlist?list=PLE2V1cKKUiKWkb_TgXOWTv83Qg52iH0c0",
+   "logo": "https://i.ytimg.com/vi/W06-Uwa8sPk/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Shaun, o Carneiro [Shaun the Sheep] · Shaun, o Carneiro Temporada 1 Todos os Episódios",
+   "desc": "Playlist de Shaun, o Carneiro [Shaun the Sheep] · 26 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/shaun-o-carneiro-shaun-the-sheep-shaun-o-carneiro-temporada-1-todos-os-episodios",
+   "url": "https://www.youtube.com/playlist?list=PLWvIkdCgfrQg",
+   "logo": "https://i.ytimg.com/vi/QiPn6Gdn5pI/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Shaun, o Carneiro [Shaun the Sheep] · Shaun, o Carneiro Todas As Temporadas (All Seasons)",
+   "desc": "Playlist de Shaun, o Carneiro [Shaun the Sheep] · 155 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/shaun-o-carneiro-shaun-the-sheep-shaun-o-carneiro-todas-as-temporadas-all-season",
+   "url": "https://www.youtube.com/playlist?list=PLERd3Tb3SFhI",
+   "logo": "https://i.ytimg.com/vi/Gq0YyXNUols/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Shaun, o Carneiro [Shaun the Sheep] · Temporada 1 | Shaun, o Carneiro [Shaun the Sheep]",
+   "desc": "Playlist de Shaun, o Carneiro [Shaun the Sheep] · 45 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/shaun-o-carneiro-shaun-the-sheep-temporada-1-shaun-o-carneiro-shaun-the-sheep",
+   "url": "https://www.youtube.com/playlist?list=PLE2V1cKKUiKUEmLadiLWTcAffER06cK3N",
+   "logo": "https://i.ytimg.com/vi/Gq0YyXNUols/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Shaun, o Carneiro [Shaun the Sheep] · Todas as Séries | Shaun, o Carneiro [Shaun the Sheep]",
+   "desc": "Playlist de Shaun, o Carneiro [Shaun the Sheep] · 70 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/shaun-o-carneiro-shaun-the-sheep-todas-as-series-shaun-o-carneiro-shaun-the-shee",
+   "url": "https://www.youtube.com/playlist?list=PLE2V1cKKUiKXOZWoWhZe5ZiLLR3j0FXou",
+   "logo": "https://i.ytimg.com/vi/3yWqptrZ_x0/hqdefault.jpg",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Shaun, o Carneiro [Shaun the Sheep] 24H",
+   "desc": "Shaun, o Carneiro 24/7 LIVE STREAM 🐑 |⭐️Desenhos Animados Infantis⭐️ #shaunthesheep #livestream",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/shaun-o-carneiro-shaun-the-sheep-24h",
+   "url": "https://www.youtube.com/channel/UCZNV4_htB8Vw5oKogme3G_A/live",
+   "logo": "https://i.ytimg.com/vi/f51AZNKjOkQ/hqdefault.jpg?v=6ae0d985",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Simon's Cat",
    "desc": "Canal oficial de Simon's Cat no YouTube: episódios sem parar.",
    "genre": [
@@ -6227,13 +6881,13 @@
   },
   {
    "title": "SpongeBob SquarePants Official · New Videos Every Day!",
-   "desc": "Playlist de SpongeBob SquarePants Official · 1386 vídeos",
+   "desc": "Playlist de SpongeBob SquarePants Official · 1387 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/spongebob-squarepants-official-new-videos-every-day",
    "url": "https://www.youtube.com/playlist?list=PLM1j2JqVBQfkjSUEdAeDh_PT6gfJXkJl6",
-   "logo": "https://i.ytimg.com/vi/ZLk0MaaO1XU/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/XUAh7CLmJ-g/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -6329,7 +6983,7 @@
    ],
    "studio": "youtoon/ingles/spookiz-spookiz-for-everyone",
    "url": "https://www.youtube.com/playlist?list=PLjFmi1u8peSqfuNF_6MNZAtEoE7iyVOwF",
-   "logo": "https://i.ytimg.com/vi/KLad_NtzwVI/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/ICBNGE04Qr0/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -6407,13 +7061,13 @@
   },
   {
    "title": "Star Wars Kids · What's New on Star Wars Kids! ⭐🌌✨",
-   "desc": "Playlist de Star Wars Kids · 518 vídeos",
+   "desc": "Playlist de Star Wars Kids · 519 vídeos",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/ingles/star-wars-kids-what-s-new-on-star-wars-kids",
    "url": "https://www.youtube.com/playlist?list=PLXsbMnnbPpLUHa6hfNLs0VNhURnw1Mpgt",
-   "logo": "https://i.ytimg.com/vi/r-4r1-aIM7U/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/Nyw4X096o68/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -6564,19 +7218,6 @@
    "studio": "youtoon/ingles/super-simple-songs-teacher-s-essentials",
    "url": "https://www.youtube.com/playlist?list=PLdkj6XH8GYPS6ArBvqavheM_7d705YD-s",
    "logo": "https://i.ytimg.com/vi/uBweptmCYZg/hqdefault.jpg",
-   "idioma": "Inglês",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Super Simple Songs 24H",
-   "desc": "🔴 Trick or Treat With Super Simple Live! 🎃 | Best Halloween Kids Songs | Super Simple Songs",
-   "genre": [
-    "Musicais",
-    "Pré-escolar"
-   ],
-   "studio": "youtoon/ingles/super-simple-songs-24h",
-   "url": "https://www.youtube.com/channel/UCLsooMJoIpl_7ux2jvdPB-Q/live",
-   "logo": "https://i.ytimg.com/vi/6afOZPs7tUE/hqdefault.jpg?v=6ae1fb5a",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -7002,92 +7643,14 @@
   },
   {
    "title": "The Loud House · Newest Clips | The Loud House",
-   "desc": "Playlist de The Loud House · 964 vídeos",
+   "desc": "Playlist de The Loud House · 965 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/the-loud-house-newest-clips-the-loud-house",
    "url": "https://www.youtube.com/playlist?list=PLgrisE0MOLgQCGdsdV-zn1JNcIbBlqylo",
-   "logo": "https://i.ytimg.com/vi/Gjvemrb4tTQ/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/u3g5kYAKBVk/hqdefault.jpg",
    "idioma": "Inglês",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "The Official Pokémon YouTube channel",
-   "desc": "Canal oficial de The Official Pokémon YouTube channel no YouTube: episódios sem parar.",
-   "genre": [
-    "Anime",
-    "Aventura"
-   ],
-   "studio": "youtoon/espanhol/the-official-pokemon-youtube-channel",
-   "url": "https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q",
-   "logo": "https://yt3.ggpht.com/6NqAAp2Zy4mYP3-jqE6kuTn5kDkBHw0Rcd448pcufEEC6r_FLmrLc32yL0nmFIYLIG_iziWOIw=s800-c-k-c0x00ffffff-no-rj",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "The Official Pokémon YouTube channel · 2026 Season Event Livestreams",
-   "desc": "Playlist de The Official Pokémon YouTube channel · 143 vídeos",
-   "genre": [
-    "Anime",
-    "Aventura"
-   ],
-   "studio": "youtoon/espanhol/the-official-pokemon-youtube-channel-2026-season-event-livestreams",
-   "url": "https://www.youtube.com/playlist?list=PLQWzKIaERirwepgIJ5fK8SB3x0-nhqBv9",
-   "logo": "https://i.ytimg.com/vi/684x7LsgozY/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "The Official Pokémon YouTube channel · Beyond the Pokédex",
-   "desc": "Playlist de The Official Pokémon YouTube channel · 43 vídeos",
-   "genre": [
-    "Anime",
-    "Aventura"
-   ],
-   "studio": "youtoon/espanhol/the-official-pokemon-youtube-channel-beyond-the-pokedex",
-   "url": "https://www.youtube.com/playlist?list=PLQWzKIaERiry_z8QRCLMutrN-KIs61EmS",
-   "logo": "https://i.ytimg.com/vi/KYQvAm0v7YU/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "The Official Pokémon YouTube channel · Pokémon Horizons 🌅",
-   "desc": "Playlist de The Official Pokémon YouTube channel · 209 vídeos",
-   "genre": [
-    "Anime",
-    "Aventura"
-   ],
-   "studio": "youtoon/espanhol/the-official-pokemon-youtube-channel-pokemon-horizons",
-   "url": "https://www.youtube.com/playlist?list=PLQWzKIaERirxCR8iFD5pA2MapjJOUIwre",
-   "logo": "https://i.ytimg.com/vi/GukByg2fceQ/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "The Official Pokémon YouTube channel · Pokémon TCG Pocket",
-   "desc": "Playlist de The Official Pokémon YouTube channel · 33 vídeos",
-   "genre": [
-    "Anime",
-    "Aventura"
-   ],
-   "studio": "youtoon/espanhol/the-official-pokemon-youtube-channel-pokemon-tcg-pocket",
-   "url": "https://www.youtube.com/playlist?list=PLQWzKIaERiryD2NuMop03iqRFzwI0iASB",
-   "logo": "https://i.ytimg.com/vi/mMJzv4wmJvU/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "The Official Pokémon YouTube channel · Watch More Pokémon!",
-   "desc": "Playlist de The Official Pokémon YouTube channel · 57 vídeos",
-   "genre": [
-    "Anime",
-    "Aventura"
-   ],
-   "studio": "youtoon/espanhol/the-official-pokemon-youtube-channel-watch-more-pokemon",
-   "url": "https://www.youtube.com/playlist?list=PLQWzKIaERirxcI7k02lWADcBagKTOII-z",
-   "logo": "https://i.ytimg.com/vi/P0cXpOnfX6I/hqdefault.jpg",
-   "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
   {
@@ -7746,7 +8309,7 @@
    ],
    "studio": "youtoon/ingles/wildbrain-kids-happy-halloween-2026-wildbrain-kids",
    "url": "https://www.youtube.com/playlist?list=PLNcNJN3A60QA",
-   "logo": "https://i.ytimg.com/vi/_XjDNvzPBoc/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/LfWdpZPlAWE/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -8070,7 +8633,7 @@
    ],
    "studio": "youtoon/ingles/zig-e-sharko-zig-e-sharko-full-episodes",
    "url": "https://www.youtube.com/playlist?list=PLoHcF3gNx3yylR_-88OX512hvtgw_85v7",
-   "logo": "https://i.ytimg.com/vi/0mz1FJwciIo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/hRHD6WhlFBw/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -8088,13 +8651,13 @@
   },
   {
    "title": "Zig & Sharko 24H",
-   "desc": "NEW ZIG & SHARKO 🔴 LIVE CARTOON | ALL SEASON & EPISODES | Collection for kids HD",
+   "desc": "Zig & Sharko | YOUR CARTOON BREAK! 🔴 LIVE | Seasons 1-4 & All Episodes",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/zig-e-sharko-24h",
    "url": "https://www.youtube.com/channel/UCcKJJuOe2tOqgrKw0Gks-sw/live",
-   "logo": "https://i.ytimg.com/vi/hWDQZeOraxs/hqdefault.jpg?v=6ad79684",
+   "logo": "https://i.ytimg.com/vi/YvHAmGvwKzI/hqdefault.jpg?v=6ae34327",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   }
