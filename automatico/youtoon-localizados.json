@@ -21,6 +21,20 @@
         "checadoEm": "2026-10-28"
       }
     },
+    "Alphablocks": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
     "Angry Birds": {
       "Português": {
         "nada": true,
@@ -63,6 +77,29 @@
         "checadoEm": "2026-10-29"
       }
     },
+    "Barbie": {
+      "Português": {
+        "id": "UC_h9AO8TltqcMoe2UgropOg",
+        "titulo": "Barbie Português",
+        "inscritos": 2830000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UC5Ice380QDQ4q26uzDx-ACg",
+        "titulo": "Barbie Latinoamérica",
+        "inscritos": 2980000,
+        "pais": "MX",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "id": "UCUZF6mH8rraTuRKuvxTlQtw",
+        "titulo": "Barbie songs",
+        "inscritos": 10300,
+        "pais": "PT",
+        "achadoEm": "2026-10-30"
+      }
+    },
     "Ben 10": {
       "Português": {
         "id": "UCL2n7VnndYlbq6wiz6bxl0Q",
@@ -81,6 +118,26 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      }
+    },
+    "Blippi - Educational Videos for Kids": {
+      "Português": {
+        "id": "UCiciNcI9sVSqn3YsGmG3PQQ",
+        "titulo": "Blippi em Português",
+        "inscritos": 4580000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UC4YImPQT-_0kCh5joATwyhw",
+        "titulo": "Blippi en Español",
+        "inscritos": 19700000,
+        "pais": "MX",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
       }
     },
     "Bushiroad Official Channel": {
@@ -120,6 +177,37 @@
         "achadoEm": "2026-10-28"
       }
     },
+    "Cartoonito": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "id": "UCxikJwnErvIlf_l6MD9IcAA",
+        "titulo": "Cartoonito Portugal",
+        "inscritos": 1370000,
+        "pais": "PT",
+        "achadoEm": "2026-10-30"
+      }
+    },
+    "Clifford the Big Red Dog Classic-Scholastic": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
     "Code Lyoko English Official": {
       "Português": {
         "nada": true,
@@ -132,6 +220,52 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      }
+    },
+    "Curious George": {
+      "Português": {
+        "id": "UCg3VS8afaNzH4EWJmMcdqMg",
+        "titulo": "George o Curioso em Português",
+        "inscritos": 3960000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCWpnUMsmO7UXquKw5f-suFQ",
+        "titulo": "Jorge el Curioso en Español",
+        "inscritos": 11600000,
+        "pais": "MX",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "id": "UC_pwWfMxWwz2J_oiCd3sqow",
+        "titulo": "George o Curioso Português Portugal",
+        "inscritos": 139000,
+        "pais": "PT",
+        "achadoEm": "2026-10-30"
+      }
+    },
+    "Disney Channel": {
+      "Português": {
+        "id": "UCunkR_ekffRWZppVa1E6tIA",
+        "titulo": "Disney Jr. Brasil",
+        "inscritos": 12300000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCq3zaHCaZtb3TtNwwz0PK2w",
+        "titulo": "Disney Jr. Latinoamérica",
+        "inscritos": 31300000,
+        "pais": "AR",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "id": "UC-9l7xPrNNdFsZ4I2LlehKw",
+        "titulo": "Disney Channel PT",
+        "inscritos": 1670000,
+        "pais": "PT",
+        "achadoEm": "2026-10-30"
       }
     },
     "Disney Channel Animation": {
@@ -157,6 +291,66 @@
         "achadoEm": "2026-10-28"
       }
     },
+    "Disney Jr.": {
+      "Português": {
+        "id": "UCunkR_ekffRWZppVa1E6tIA",
+        "titulo": "Disney Jr. Brasil",
+        "inscritos": 12300000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCq3zaHCaZtb3TtNwwz0PK2w",
+        "titulo": "Disney Jr. Latinoamérica",
+        "inscritos": 31300000,
+        "pais": "AR",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "id": "UC-9l7xPrNNdFsZ4I2LlehKw",
+        "titulo": "Disney Channel PT",
+        "inscritos": 1670000,
+        "pais": "PT",
+        "achadoEm": "2026-10-30"
+      }
+    },
+    "Disney Kids": {
+      "Português": {
+        "id": "UCunkR_ekffRWZppVa1E6tIA",
+        "titulo": "Disney Jr. Brasil",
+        "inscritos": 12300000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCq3zaHCaZtb3TtNwwz0PK2w",
+        "titulo": "Disney Jr. Latinoamérica",
+        "inscritos": 31300000,
+        "pais": "AR",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "id": "UC-9l7xPrNNdFsZ4I2LlehKw",
+        "titulo": "Disney Channel PT",
+        "inscritos": 1670000,
+        "pais": "PT",
+        "achadoEm": "2026-10-30"
+      }
+    },
+    "Dora & Friends": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
     "DreamWorks Madagascar": {
       "Português": {
         "id": "UC0Hm-5-4bj5CNPRt9nIm0zg",
@@ -175,6 +369,22 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      }
+    },
+    "Ever After High": {
+      "Português": {
+        "id": "UCnHXS4lGVKeDv61TxSCYsqQ",
+        "titulo": "Ever After High Português",
+        "inscritos": 486000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCD6udhPSuGwhKuRauTdBjnw",
+        "titulo": "Ever After High Latinoamérica",
+        "inscritos": 521000,
+        "pais": "MX",
+        "achadoEm": "2026-10-30"
       }
     },
     "Funky Cops English Official": {
@@ -616,6 +826,89 @@
       "Espanhol": {
         "nada": true,
         "checadoEm": "2026-10-29"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "SpongeBob SquarePants Official": {
+      "Português": {
+        "id": "UCx68_7D0FoZSu_u0z7Qc8sQ",
+        "titulo": "Bob Esponja em Português",
+        "inscritos": 9090000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCMfYMB69Y1B-SlGKm1Tdb0Q",
+        "titulo": "Bob Esponja en Español",
+        "inscritos": 10700000,
+        "pais": "MX",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "The Cramp Twins": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "The Fairly OddParents": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "The Loud House": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "The Smurfs": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCenlP5URcdwcuXPQ8I9aOZw",
+        "titulo": "Los Pitufos – Español Latino",
+        "inscritos": 1880000,
+        "pais": "ES",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
       }
     },
     "TMS ANIME": {
@@ -633,6 +926,77 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      }
+    },
+    "Totally Spies!": {
+      "Português": {
+        "id": "UCOWV_p9dvygdp_kGXNb0Z5g",
+        "titulo": "Três Espiãs Demais em português Brasil",
+        "inscritos": 591000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCPKJ7VUetpOmRVT7J6Cx87Q",
+        "titulo": "Tres Espías Sin Límite - Totally Spies",
+        "inscritos": 81200,
+        "pais": "ES",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "Wallace & Gromit": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "WB Kids": {
+      "Português": {
+        "id": "UCCb3DX0GO9f0EFizD5PT7bQ",
+        "titulo": "WB Kids Brasil",
+        "inscritos": 5760000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "id": "UCtW5GPO_DZon6zVAuinvwxA",
+        "titulo": "WB Kids Latino",
+        "inscritos": 8140000,
+        "pais": "MX",
+        "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      }
+    },
+    "Zig & Sharko": {
+      "Português": {
+        "id": "UCe5peH6-BCaP0IovMHwtF3w",
+        "titulo": "Zig e Sharko",
+        "inscritos": 7500000,
+        "pais": "BR",
+        "achadoEm": "2026-10-30"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-30"
       }
     }
   }

@@ -4,6 +4,78 @@
  "nome": "Português (Portugal)",
  "channels": [
   {
+   "title": "Barbie songs",
+   "desc": "Canal oficial de Barbie songs no YouTube: episódios sem parar.",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/barbie-songs",
+   "url": "https://www.youtube.com/channel/UCUZF6mH8rraTuRKuvxTlQtw",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_mGMNZd9SVWyxHfewpovRDzvWv5GafQuXrxTzw1MxphjA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie songs · Barbie e as 12 Bailarinas Pt pt / Pt eu",
+   "desc": "Playlist de Barbie songs · 12 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/barbie-songs-barbie-e-as-12-bailarinas-pt-pt-pt-eu",
+   "url": "https://www.youtube.com/playlist?list=PLVOffnt0VOzBRpr_Hc85e0jjqKF-EKs7d",
+   "logo": "https://i.ytimg.com/vi/8tNXvS3bj1Y/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie songs · Barbie e o Castelo de Diamante",
+   "desc": "Playlist de Barbie songs · 12 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/barbie-songs-barbie-e-o-castelo-de-diamante",
+   "url": "https://www.youtube.com/playlist?list=PLVOffnt0VOzBlDNHYGedDAnM0VJpORYMV",
+   "logo": "https://i.ytimg.com/vi/nW3TrdMox8c/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie songs · Barbie Princesa da Ilha",
+   "desc": "Playlist de Barbie songs · 12 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/barbie-songs-barbie-princesa-da-ilha",
+   "url": "https://www.youtube.com/playlist?list=PLVOffnt0VOzD6X4NdzwZZkW9-JbIMnzm2",
+   "logo": "https://i.ytimg.com/vi/zye8PTkX7r4/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie songs · Barbie Rock N' Royals ou Princesa RockStar",
+   "desc": "Playlist de Barbie songs · 13 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/barbie-songs-barbie-rock-n-royals-ou-princesa-rockstar",
+   "url": "https://www.youtube.com/playlist?list=PLVOffnt0VOzCaltbqpoNeKi_ECTX9MVe1",
+   "logo": "https://i.ytimg.com/vi/v92HPeKgP2E/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie songs · Princesa e a Aldeã em Pt pt / Pt eu",
+   "desc": "Playlist de Barbie songs · 11 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues-portugal/barbie-songs-princesa-e-a-aldea-em-pt-pt-pt-eu",
+   "url": "https://www.youtube.com/playlist?list=PLVOffnt0VOzCzodk8PNfiz9A8G3cAKzhy",
+   "logo": "https://i.ytimg.com/vi/YaL4uvBnFDg/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Cartoon Network Portugal",
    "desc": "Canal oficial de Cartoon Network Portugal no YouTube: episódios sem parar.",
    "genre": [
@@ -59,7 +131,7 @@
    ],
    "studio": "youtoon/portugues-portugal/cartoon-network-portugal-tom-e-jerry",
    "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yRMf4BjoVp8MXHQMT2wb6miC",
-   "logo": "https://i.ytimg.com/vi/DH31kFdxyVQ/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/OhOJtHTdtPo/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -72,6 +144,78 @@
    "studio": "youtoon/portugues-portugal/cartoon-network-portugal-webisodios",
    "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yROXniOyG8BIZRFTHpGEUSOe",
    "logo": "https://i.ytimg.com/vi/St-yT2YXKhI/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoonito Portugal",
+   "desc": "Canal oficial de Cartoonito Portugal no YouTube: episódios sem parar.",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoonito-portugal",
+   "url": "https://www.youtube.com/channel/UCxikJwnErvIlf_l6MD9IcAA",
+   "logo": "https://yt3.ggpht.com/mB6UeExpBG3V2niMLpa1xD4I6iG2G8o3Vbu_z2Z7JXU_uYBKKe1sPMZDOslluRGZb2USTmu-uKw=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoonito Portugal · Batwheels 🦇🏎️",
+   "desc": "Playlist de Cartoonito Portugal · 277 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoonito-portugal-batwheels",
+   "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQnU0v7dQiOMM3pmTS60Hbrm",
+   "logo": "https://i.ytimg.com/vi/9jcMqm9U8qQ/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoonito Portugal · Ben 10",
+   "desc": "Playlist de Cartoonito Portugal · 99 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoonito-portugal-ben-10",
+   "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQkUN2oamyiLaRhSsO9uGmau",
+   "logo": "https://i.ytimg.com/vi/q9qDrmtLsNg/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoonito Portugal · Bugs Bunny: Mãos à Obra!",
+   "desc": "Playlist de Cartoonito Portugal · 120 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoonito-portugal-bugs-bunny-maos-a-obra",
+   "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQmCVPSzviXYtg95e1hXylpx",
+   "logo": "https://i.ytimg.com/vi/JIVIFVtfYEE/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoonito Portugal · Grizzy e os Lemingues",
+   "desc": "Playlist de Cartoonito Portugal · 160 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoonito-portugal-grizzy-e-os-lemingues",
+   "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQmb6Uphk4D8Dll780q8t3Ru",
+   "logo": "https://i.ytimg.com/vi/RBMwBxc9CmE/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Cartoonito Portugal · Tom e Jerry 😼🐭",
+   "desc": "Playlist de Cartoonito Portugal · 503 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/cartoonito-portugal-tom-e-jerry",
+   "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQnQqnQrNJpz5jbW4HJMeiWe",
+   "logo": "https://i.ytimg.com/vi/OO33-_YUw5k/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -141,7 +285,7 @@
    ],
    "studio": "youtoon/portugues-portugal/disney-channel-pt-os-green-na-cidade-grande",
    "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuxl-wU-Q8yhfsmxf2H2G60X",
-   "logo": "https://i.ytimg.com/vi/a1nI-Qj_QN8/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/WcYYx-Fa-FA/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -156,6 +300,54 @@
    "studio": "youtoon/portugues-portugal/disney-channel-pt-phineas-e-ferb",
    "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuwPRPkb-fq3QKw5sLmaB3Yh",
    "logo": "https://i.ytimg.com/vi/ooYaNr_o35o/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso Português Portugal",
+   "desc": "Canal oficial de George o Curioso Português Portugal no YouTube: episódios sem parar.",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues-portugal/george-o-curioso-portugues-portugal",
+   "url": "https://www.youtube.com/channel/UC_pwWfMxWwz2J_oiCd3sqow",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_kdvV-ufizvwsmtWfRJUvX1l7LgrgKJR2Kt-PMWU6G1zA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso Português Portugal · George o Curioso Português Portugal 🐵 Novos Videos 🐵Desenhos Animados",
+   "desc": "Playlist de George o Curioso Português Portugal · 296 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues-portugal/george-o-curioso-portugues-portugal-george-o-curioso-portugues-portugal-novos-vi",
+   "url": "https://www.youtube.com/playlist?list=PL_AtKDf3gwyqXyqYLB3s2LTR6ecTYmO6l",
+   "logo": "https://i.ytimg.com/vi/4mbVafIFtlw/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso Português Portugal · George o Curioso Português Portugal 🐵 Temporada 1 🐵Desenhos Animados",
+   "desc": "Playlist de George o Curioso Português Portugal · 189 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues-portugal/george-o-curioso-portugues-portugal-george-o-curioso-portugues-portugal-temporad",
+   "url": "https://www.youtube.com/playlist?list=PL_AtKDf3gwyqH5PtdUA5xmwAcJHOTSO9Q",
+   "logo": "https://i.ytimg.com/vi/pkbeSl5fXGg/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso Português Portugal · George o Curioso Português Portugal 🐵 Temporada 1 Episódios Completos 🐵Desenhos",
+   "desc": "Playlist de George o Curioso Português Portugal · 24 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues-portugal/george-o-curioso-portugues-portugal-george-o-curioso-portugues-portugal-temporad-2",
+   "url": "https://www.youtube.com/playlist?list=PL_AtKDf3gwyqBh-IupXdidlkqCnBgaYuW",
+   "logo": "https://i.ytimg.com/vi/je9VR-u1kPE/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   }

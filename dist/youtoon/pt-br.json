@@ -4,6 +4,78 @@
  "nome": "Português",
  "channels": [
   {
+   "title": "Barbie Português",
+   "desc": "Canal oficial de Barbie Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/barbie-portugues",
+   "url": "https://www.youtube.com/channel/UC_h9AO8TltqcMoe2UgropOg",
+   "logo": "https://yt3.ggpht.com/fMvbOkGb4W5e3zdMCPs2Q1fnldsCemTYLBODQwbgUI5eMlf3s8HbvK0CZDQqKMU8momTrcRTUg=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Português · ✌️ Barbie Vlogs! | Barbie Portuguése",
+   "desc": "Playlist de Barbie Português · 93 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/barbie-portugues-barbie-vlogs-barbie-portuguese",
+   "url": "https://www.youtube.com/playlist?list=PLGznxe9fR4Zg",
+   "logo": "https://i.ytimg.com/vi/Hxvb9K-umjY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Português · 🎬 Barbie E Barbie No Set | Barbie Português",
+   "desc": "Playlist de Barbie Português · 42 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/barbie-portugues-barbie-e-barbie-no-set-barbie-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLH8Qh1sYHs5u6lk74DYd_FztO6OD3uk78",
+   "logo": "https://i.ytimg.com/vi/bWhUkaWz6lk/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Português · Barbie Compilação 💖🎞",
+   "desc": "Playlist de Barbie Português · 346 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/barbie-portugues-barbie-compilacao",
+   "url": "https://www.youtube.com/playlist?list=PLH8Qh1sYHs5tGL796GIoF9HtqkTDHN0QA",
+   "logo": "https://i.ytimg.com/vi/PmCb1YYJ0IY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Português · Barbie Doll Adventures 🌎🩷 | Barbie Português",
+   "desc": "Playlist de Barbie Português · 96 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/barbie-portugues-barbie-doll-adventures-barbie-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLH8Qh1sYHs5smL_G2InlsD24Y9M8pHrnx",
+   "logo": "https://i.ytimg.com/vi/NmbBn-fszQg/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Português · Barbie Music Videos",
+   "desc": "Playlist de Barbie Português · 52 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/barbie-portugues-barbie-music-videos",
+   "url": "https://www.youtube.com/playlist?list=PLA_lwx6JBpjE",
+   "logo": "https://i.ytimg.com/vi/iGL2kgdPgXw/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Ben 10 Brasil",
    "desc": "Canal oficial de Ben 10 Brasil no YouTube: episódios sem parar.",
    "genre": [
@@ -88,6 +160,97 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Blippi em Português",
+   "desc": "Canal oficial de Blippi em Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/blippi-em-portugues",
+   "url": "https://www.youtube.com/channel/UCiciNcI9sVSqn3YsGmG3PQQ",
+   "logo": "https://yt3.ggpht.com/7lOYZvIHKWJNN6tPf7PnUcbMmj7VIWUVaiZlMy3XcAGi8VkSEhh93GzIO254eF9AZRetikvPfA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi em Português · Blippi 🎨🖼️🏛️ Vamos Explorar Museus, Artes e Cultura!",
+   "desc": "Playlist de Blippi em Português · 53 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/blippi-em-portugues-blippi-vamos-explorar-museus-artes-e-cultura",
+   "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkZDPYCCGuVtmdfN69aKawMN",
+   "logo": "https://i.ytimg.com/vi/-klswfvmt9g/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi em Português · Blippi 🚒🚌🚗 Aventuras de Veículos!",
+   "desc": "Playlist de Blippi em Português · 49 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/blippi-em-portugues-blippi-aventuras-de-veiculos",
+   "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkbYdTR7UV78OPGQBnYAVUJC",
+   "logo": "https://i.ytimg.com/vi/KERvsvLI2GY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi em Português · Blippi Wonders em Português 🟠🔵 As Aventuras Animadas do Blippi!",
+   "desc": "Playlist de Blippi em Português · 48 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/blippi-em-portugues-blippi-wonders-em-portugues-as-aventuras-animadas-do-blippi",
+   "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkbPsj1i3v4kTxaQIHkNbLRz",
+   "logo": "https://i.ytimg.com/vi/3ba1XsjEU3s/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi em Português · TODOS OS EPISÓDIOS! 🟠 Blippi em Português 🔵 Vídeos Educativos em Português",
+   "desc": "Playlist de Blippi em Português · 215 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/blippi-em-portugues-todos-os-episodios-blippi-em-portugues-videos-educativos-em",
+   "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkZ7AS7G6e2KX0hTmpIc8pag",
+   "logo": "https://i.ytimg.com/vi/cb9CotdkNcw/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi em Português · TODOS OS VÍDEOS! 🟠 Maratona do Blippi em Português 🔵 Vídeos Educativos para Crianças",
+   "desc": "Playlist de Blippi em Português · 814 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/blippi-em-portugues-todos-os-videos-maratona-do-blippi-em-portugues-videos-educa",
+   "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkZKyOsGfrWtMBMxIsrRcZMu",
+   "logo": "https://i.ytimg.com/vi/4UEZA0YK-A0/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi em Português 24H",
+   "desc": "BLIPPI AO VIVO! 🔴 Maratona de Halloween 🎃",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/blippi-em-portugues-24h",
+   "url": "https://www.youtube.com/channel/UCiciNcI9sVSqn3YsGmG3PQQ/live",
+   "logo": "https://i.ytimg.com/vi/q9IJpF6HfQk/hqdefault.jpg?v=6ad897bd",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Bluey 24H",
    "desc": "Episódios completos de Bluey, ao vivo 24 horas.",
    "genre": [
@@ -96,6 +259,78 @@
    "studio": "youtoon/portugues/bluey-24h",
    "url": "https://www.youtube.com/channel/UCxTmdyNdj-s9t79UjVdLT_g/live",
    "logo": "https://i.ytimg.com/vi/OBe-ehVPKKk/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja em Português",
+   "desc": "Canal oficial de Bob Esponja em Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/bob-esponja-em-portugues",
+   "url": "https://www.youtube.com/channel/UCx68_7D0FoZSu_u0z7Qc8sQ",
+   "logo": "https://yt3.ggpht.com/U1vcSlDnq3HOGqAALzIp_GpXylH5whKs-AzlFvYROGcLmu3JzTvPPzkE9Mb1GJUMaZXZk28a=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja em Português · Amigos para Sempre | Bob Esponja em Português",
+   "desc": "Playlist de Bob Esponja em Português · 519 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/bob-esponja-em-portugues-amigos-para-sempre-bob-esponja-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLRm7VIYR14Dqzk4wEuDWR1RjbLF0RMhxP",
+   "logo": "https://i.ytimg.com/vi/ZRurjZ7GHZ0/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja em Português · Clássicos! | Bob Esponja em Português",
+   "desc": "Playlist de Bob Esponja em Português · 156 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/bob-esponja-em-portugues-classicos-bob-esponja-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLRm7VIYR14DqvA898MLT6SB2_5vYCgnNH",
+   "logo": "https://i.ytimg.com/vi/dLOlWuGHxoA/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja em Português · Compilaçōes | Bob Esponja em Português",
+   "desc": "Playlist de Bob Esponja em Português · 418 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/bob-esponja-em-portugues-compilacoes-bob-esponja-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLRm7VIYR14DpY-2halARJ_GFceigiEc97",
+   "logo": "https://i.ytimg.com/vi/TzClu36PjCY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja em Português · Novidades! | Bob Esponja em Português",
+   "desc": "Playlist de Bob Esponja em Português · 449 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/bob-esponja-em-portugues-novidades-bob-esponja-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLRm7VIYR14DrXFgEkxXkdbGlkiyRs6-CN",
+   "logo": "https://i.ytimg.com/vi/4Sl75repDpA/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja em Português · O melhor do Patrick | Bob Esponja em Português",
+   "desc": "Playlist de Bob Esponja em Português · 118 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/bob-esponja-em-portugues-o-melhor-do-patrick-bob-esponja-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLRm7VIYR14Dpx2X8Yq3yQ_NWitYgh0Buq",
+   "logo": "https://i.ytimg.com/vi/_pvzIiKW9PY/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -173,13 +408,13 @@
   },
   {
    "title": "Cartoon Network Brasil 24H",
-   "desc": "AO VIVO 🔴 Telecurso 2000 pra Vilões 🎩 Vilanesco | Cartoon Network Brasil",
+   "desc": "AO VIVO 🔴 Especial de Halloween 🎃 | Cartoon Network Brasil",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/portugues/cartoon-network-brasil-24h",
    "url": "https://www.youtube.com/channel/UC1toK6UDXwreacdepXYcyqA/live",
-   "logo": "https://i.ytimg.com/vi/tVIW7yHOCVY/hqdefault.jpg?v=6ab69283",
+   "logo": "https://i.ytimg.com/vi/Gd1BHW3hL9A/hqdefault.jpg?v=6ae27c83",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -347,6 +582,138 @@
    "studio": "youtoon/portugues/dreamworks-madagascar-em-portugues-madagascar-pequenos-selvagens",
    "url": "https://www.youtube.com/playlist?list=PLWmRhQMtnJ4nO38cem76ky0UhCTaj3PcG",
    "logo": "https://i.ytimg.com/vi/fG1E9tn6U_Q/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Português",
+   "desc": "Canal oficial de Ever After High Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/ever-after-high-portugues",
+   "url": "https://www.youtube.com/channel/UCnHXS4lGVKeDv61TxSCYsqQ",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_mxTUI7I8COa2z2m6Oe6jATIqvTqBq6ke2GmdNJ1kVRsWg=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Português · Capítulo 3",
+   "desc": "Playlist de Ever After High Português · 47 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/ever-after-high-portugues-capitulo-3",
+   "url": "https://www.youtube.com/playlist?list=PLX5aCi156MYDZeiqjXu78z4NiVi_66TbB",
+   "logo": "https://i.ytimg.com/vi/mSJJnx2kUTI/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Português · Ever After High em Português Brasil - Novos Vídeos",
+   "desc": "Playlist de Ever After High Português · 178 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/ever-after-high-portugues-ever-after-high-em-portugues-brasil-novos-videos",
+   "url": "https://www.youtube.com/playlist?list=PLX5aCi156MYB1yIoDOPWULtbff5cWhU0d",
+   "logo": "https://i.ytimg.com/vi/bmAg4sNim_k/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Português · Ever After High em Português Brasil | desenhos para crianças",
+   "desc": "Playlist de Ever After High Português · 473 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/ever-after-high-portugues-ever-after-high-em-portugues-brasil-desenhos-para-cria",
+   "url": "https://www.youtube.com/playlist?list=PLX5aCi156MYAiRs4MLEFBYc7zX1uEXtf9",
+   "logo": "https://i.ytimg.com/vi/EMrvbsFO0TQ/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Português · Ever After High em Português Brasil ❄️Lista de reprodução de férias",
+   "desc": "Playlist de Ever After High Português · 47 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/ever-after-high-portugues-ever-after-high-em-portugues-brasil-lista-de-reproduca",
+   "url": "https://www.youtube.com/playlist?list=PLX5aCi156MYA_FYRqHvq46euqyDPImHLk",
+   "logo": "https://i.ytimg.com/vi/nz7OI7zIfi4/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso em Português",
+   "desc": "Canal oficial de George o Curioso em Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/george-o-curioso-em-portugues",
+   "url": "https://www.youtube.com/channel/UCg3VS8afaNzH4EWJmMcdqMg",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_mOm98hoZRwHpt6SRfoABFrFPwKtLpHN8yb-pP04kO7YA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso em Português · COMPILAÇÕES DE EPISÓDIOS COMPLETOS | George, o Curioso",
+   "desc": "Playlist de George o Curioso em Português · 118 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/george-o-curioso-em-portugues-compilacoes-de-episodios-completos-george-o-curios",
+   "url": "https://www.youtube.com/playlist?list=PLh9aRcVPagXyf-9dmC_JCC3b7OhczpEUq",
+   "logo": "https://i.ytimg.com/vi/1iKqkDOq_Y0/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso em Português · George o Curioso em Português Episódios",
+   "desc": "Playlist de George o Curioso em Português · 541 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/george-o-curioso-em-portugues-george-o-curioso-em-portugues-episodios",
+   "url": "https://www.youtube.com/playlist?list=PLh9aRcVPagXwvvITkV9JQR1LWUeI0OS1X",
+   "logo": "https://i.ytimg.com/vi/34Yh5KFfFEU/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso em Português · George o Curioso em Português Novos Vídeos",
+   "desc": "Playlist de George o Curioso em Português · 1583 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/george-o-curioso-em-portugues-george-o-curioso-em-portugues-novos-videos",
+   "url": "https://www.youtube.com/playlist?list=PLh9aRcVPagXy5n_eRkmRUSdaRQJ6l3GhO",
+   "logo": "https://i.ytimg.com/vi/vCeGOs6yh0A/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso em Português · George o Curioso Temporada 1",
+   "desc": "Playlist de George o Curioso em Português · 547 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/george-o-curioso-em-portugues-george-o-curioso-temporada-1",
+   "url": "https://www.youtube.com/playlist?list=PLh9aRcVPagXwOERRGv9Ln-du7gQ1NbaEw",
+   "logo": "https://i.ytimg.com/vi/PohdCbvROA4/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "George o Curioso em Português · Melhores Momentos de George, o Curioso",
+   "desc": "Playlist de George o Curioso em Português · 1003 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/george-o-curioso-em-portugues-melhores-momentos-de-george-o-curioso",
+   "url": "https://www.youtube.com/playlist?list=PLh9aRcVPagXwALlgj6SHA0CHRQaFTufzr",
+   "logo": "https://i.ytimg.com/vi/9bddskdBN7I/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -1194,6 +1561,174 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Três Espiãs Demais em português Brasil",
+   "desc": "Canal oficial de Três Espiãs Demais em português Brasil no YouTube: episódios sem parar.",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil",
+   "url": "https://www.youtube.com/channel/UCOWV_p9dvygdp_kGXNb0Z5g",
+   "logo": "https://yt3.ggpht.com/poEx3Ox0WYwoFpt1zEtAypOl5WM1ksroVPZSKce079yElvwxbjEkn41Eq_Z7qsdTomO8yLc0=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Três Espiãs Demais em português Brasil · 🌸 Três Espiãs Demais | Temporada 1 🌸",
+   "desc": "Playlist de Três Espiãs Demais em português Brasil · 71 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil-tres-espias-demais-temporada-1",
+   "url": "https://www.youtube.com/playlist?list=PLApHaALCU85h9zKRCcXAfrXJ4Boo6ZHH2",
+   "logo": "https://i.ytimg.com/vi/rR5Ecl7zG0k/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Três Espiãs Demais em português Brasil · 🌸 Três Espiãs Demais | Temporada 3 🌸",
+   "desc": "Playlist de Três Espiãs Demais em português Brasil · 64 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil-tres-espias-demais-temporada-3",
+   "url": "https://www.youtube.com/playlist?list=PLApHaALCU85gNcCGIRKqySwSZOOByYkfZ",
+   "logo": "https://i.ytimg.com/vi/s3p5jlmDYoQ/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Três Espiãs Demais em português Brasil · 🌸 Três Espiãs Demais | Temporada 4 🌸",
+   "desc": "Playlist de Três Espiãs Demais em português Brasil · 69 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil-tres-espias-demais-temporada-4",
+   "url": "https://www.youtube.com/playlist?list=PLApHaALCU85gGuXfmLcYHXMx9eXuPzbUs",
+   "logo": "https://i.ytimg.com/vi/FdgCFrBhL4Y/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Três Espiãs Demais em português Brasil · 🕵️‍♀️ TRÊS ESPIÃS DEMAIS 🌸 EPISÓDIO COMPLETO",
+   "desc": "Playlist de Três Espiãs Demais em português Brasil · 302 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil-tres-espias-demais-episodio-completo",
+   "url": "https://www.youtube.com/playlist?list=PLApHaALCU85ijLnPytHIKDLp0XBJjusP7",
+   "logo": "https://i.ytimg.com/vi/uIsOag2iAMs/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Três Espiãs Demais em português Brasil · Melhores momentos! | TRÊS ESPIÂS DEMAIS",
+   "desc": "Playlist de Três Espiãs Demais em português Brasil · 67 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil-melhores-momentos-tres-espias-demais",
+   "url": "https://www.youtube.com/playlist?list=PLApHaALCU85iO5jm-3SDHy2cgpnlqM3rQ",
+   "logo": "https://i.ytimg.com/vi/l4-HFIyqlgU/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Três Espiãs Demais em português Brasil 24H",
+   "desc": "🔴 Três Espiãs Demais 🚨 Temporada 2 | EPISÓDIO COMPLETO",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil-24h",
+   "url": "https://www.youtube.com/channel/UCOWV_p9dvygdp_kGXNb0Z5g/live",
+   "logo": "https://i.ytimg.com/vi/QdS8a_zUuk0/hqdefault.jpg?v=6ac52ba6",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Brasil",
+   "desc": "Canal oficial de WB Kids Brasil no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/wb-kids-brasil",
+   "url": "https://www.youtube.com/channel/UCCb3DX0GO9f0EFizD5PT7bQ",
+   "logo": "https://yt3.ggpht.com/E7Ym9pN6EyQVLt67I0B5W_J6phqAYhk7GTrsMtq_doJKQl2TEe4KiqSddxTeV5eTiE85gAK4pg=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Brasil · Bugs Bunny Builders em Português | Brasil | WB Kids",
+   "desc": "Playlist de WB Kids Brasil · 101 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/wb-kids-brasil-bugs-bunny-builders-em-portugues-brasil-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PL3xmbRfwl4FFP12QUE3Obw2yfmfsscs2E",
+   "logo": "https://i.ytimg.com/vi/qucvBwuzIrE/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Brasil · Gokko! | Brasil 🇧🇷 | @WBKidsBrasil",
+   "desc": "Playlist de WB Kids Brasil · 35 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/wb-kids-brasil-gokko-brasil-wbkidsbrasil",
+   "url": "https://www.youtube.com/playlist?list=PLOrGV_R6blW0",
+   "logo": "https://i.ytimg.com/vi/_0Y2n-ZwBss/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Brasil · Looney Tunes em Português | Brasil | WB Kids",
+   "desc": "Playlist de WB Kids Brasil · 246 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/wb-kids-brasil-looney-tunes-em-portugues-brasil-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PL3xmbRfwl4FF-f5-02tPObfGdp47J5lRP",
+   "logo": "https://i.ytimg.com/vi/KoYZxzxVc0E/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Brasil · Scooby-Doo! em português | Brasil | WB Kids",
+   "desc": "Playlist de WB Kids Brasil · 276 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/wb-kids-brasil-scooby-doo-em-portugues-brasil-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PL3xmbRfwl4FE50eqHhVyoiYtQf0i9sOLg",
+   "logo": "https://i.ytimg.com/vi/HFCS82RG5zA/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Brasil · Tom y Jerry em Português | Brasil | WB Kids",
+   "desc": "Playlist de WB Kids Brasil · 498 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/wb-kids-brasil-tom-y-jerry-em-portugues-brasil-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PL3xmbRfwl4FGi-ld7iY3Y9dHSPqquPy5L",
+   "logo": "https://i.ytimg.com/vi/wwt7MVGQ6Y8/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Brasil 24H",
+   "desc": "🔴 AO VIVO! Scooby-Doo! Mistério S.A. — EPISÓDIOS COMPLETOS 📺 | #Scoobtober 🎃🐾 | @WBKidsBrasil",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/wb-kids-brasil-24h",
+   "url": "https://www.youtube.com/channel/UCCb3DX0GO9f0EFizD5PT7bQ/live",
+   "logo": "https://i.ytimg.com/vi/bOzBHA7ksUo/hqdefault.jpg?v=6ad8e9f0",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Yu-Gi-Oh! Português Brasileiro Oficial",
    "desc": "Canal oficial de Yu-Gi-Oh! Português Brasileiro Oficial no YouTube: episódios sem parar.",
    "genre": [
@@ -1250,6 +1785,78 @@
    "studio": "youtoon/portugues/yu-gi-oh-portugues-brasileiro-oficial-yu-gi-oh-gx-season-3-portugues-do-brasil",
    "url": "https://www.youtube.com/playlist?list=PLhIid9p4AHHXFUuTJe5D6RguwAYXlBfxx",
    "logo": "https://i.ytimg.com/vi/y5WYILsNKig/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Zig e Sharko",
+   "desc": "Canal oficial de Zig e Sharko no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/zig-e-sharko",
+   "url": "https://www.youtube.com/channel/UCe5peH6-BCaP0IovMHwtF3w",
+   "logo": "https://yt3.ggpht.com/Er--ghzQ42rOwQvpAvWjYqR2Qt23RCYt8oRy-k-6MOpBU6bzP-HGtuiJWD07Dp8He26YxXedMg=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Zig e Sharko · ⭐ COMPILAÇÃO ⭐",
+   "desc": "Playlist de Zig e Sharko · 769 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/zig-e-sharko-compilacao",
+   "url": "https://www.youtube.com/playlist?list=PLQVqSFQlTbE0Zo1_IN4AfzdXUdyuveBOQ",
+   "logo": "https://i.ytimg.com/vi/DXv17a2sUjM/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Zig e Sharko · 🌊 TEMPORADA 2 🏝️ Zig e Sharko",
+   "desc": "Playlist de Zig e Sharko · 561 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/zig-e-sharko-temporada-2-zig-e-sharko",
+   "url": "https://www.youtube.com/playlist?list=PLQVqSFQlTbE0tGUgzMd5QjJy9BSU86_I6",
+   "logo": "https://i.ytimg.com/vi/TFQTz9nQH5k/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Zig e Sharko · MELHORES MOMENTOS 💕",
+   "desc": "Playlist de Zig e Sharko · 708 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/zig-e-sharko-melhores-momentos",
+   "url": "https://www.youtube.com/playlist?list=PLQVqSFQlTbE1VHrLHRtRmbqxKm9rQuVnj",
+   "logo": "https://i.ytimg.com/vi/F-TFTXrkCco/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Zig e Sharko · Mistura de episódios 🤩",
+   "desc": "Playlist de Zig e Sharko · 1499 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/zig-e-sharko-mistura-de-episodios",
+   "url": "https://www.youtube.com/playlist?list=PLQVqSFQlTbE3fQU_KC5fzIpYXoOp062a_",
+   "logo": "https://i.ytimg.com/vi/GLQPaUVahgw/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Zig e Sharko · ZIG e SHARKO 🌴 Português Brasil | Cartoon for Kids",
+   "desc": "Playlist de Zig e Sharko · 996 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/portugues/zig-e-sharko-zig-e-sharko-portugues-brasil-cartoon-for-kids",
+   "url": "https://www.youtube.com/playlist?list=PLQVqSFQlTbE0Mrdc0HmyBtEtPpubhXRy3",
+   "logo": "https://i.ytimg.com/vi/QTRyMnm0V8k/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   }

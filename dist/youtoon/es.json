@@ -4,6 +4,78 @@
  "nome": "Espanhol",
  "channels": [
   {
+   "title": "Barbie Latinoamérica",
+   "desc": "Canal oficial de Barbie Latinoamérica no YouTube: episódios sem parar.",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/barbie-latinoamerica",
+   "url": "https://www.youtube.com/channel/UC5Ice380QDQ4q26uzDx-ACg",
+   "logo": "https://yt3.ggpht.com/8etczWpVNJs0o0Ibyq4bqfsJ2fjf8MONjiNuxyf3TEGK3QZSC-ObALMjRbKR55EmRInolWdbSw=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Latinoamérica · Aventuras de las muñecas Barbie 🌎🩷 | Barbie Latinoamérica",
+   "desc": "Playlist de Barbie Latinoamérica · 83 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/barbie-latinoamerica-aventuras-de-las-munecas-barbie-barbie-latinoamerica",
+   "url": "https://www.youtube.com/playlist?list=PLsyiJYWxepPOXJZVp0tAAvK1jVY7zxJ7N",
+   "logo": "https://i.ytimg.com/vi/KXR7nPP-u7U/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Latinoamérica · Barbie Compilación 💖🎞",
+   "desc": "Playlist de Barbie Latinoamérica · 377 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/barbie-latinoamerica-barbie-compilacion",
+   "url": "https://www.youtube.com/playlist?list=PLsyiJYWxepPNmZ63nrXxGz-I5qp22O-1v",
+   "logo": "https://i.ytimg.com/vi/LPrcIFE0TDM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Latinoamérica · Barbie Dreamhouse Adventures I Barbie Latinoamérica",
+   "desc": "Playlist de Barbie Latinoamérica · 67 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/barbie-latinoamerica-barbie-dreamhouse-adventures-i-barbie-latinoamerica",
+   "url": "https://www.youtube.com/playlist?list=PLsyiJYWxepPOEA_1OjIybbrQu8JGq8t2h",
+   "logo": "https://i.ytimg.com/vi/Iuy51vpJOeM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Latinoamérica · Barbie Music Videos",
+   "desc": "Playlist de Barbie Latinoamérica · 108 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/barbie-latinoamerica-barbie-music-videos",
+   "url": "https://www.youtube.com/playlist?list=PLe1MYl9C1wEM",
+   "logo": "https://i.ytimg.com/vi/PVF0bniA84w/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Barbie Latinoamérica · BARBIE VLOGGER EN ESPAÑOL LATINO✨",
+   "desc": "Playlist de Barbie Latinoamérica · 85 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/barbie-latinoamerica-barbie-vlogger-en-espanol-latino",
+   "url": "https://www.youtube.com/playlist?list=PLDqTwHxLXhW8",
+   "logo": "https://i.ytimg.com/vi/KyVe68UU-RI/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Ben 10 LA",
    "desc": "Canal oficial de Ben 10 LA no YouTube: episódios sem parar.",
    "genre": [
@@ -88,6 +160,169 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Blippi en Español",
+   "desc": "Canal oficial de Blippi en Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/blippi-en-espanol",
+   "url": "https://www.youtube.com/channel/UC4YImPQT-_0kCh5joATwyhw",
+   "logo": "https://yt3.ggpht.com/Mu2O1Ji42JUPD4scq1oiCBrAVFIBHIsnqtRo8ScFrNoL5UoWtRU_W3ueR8Oul24MNPQCT2x1=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi en Español · ⚗️Ciencia para Niños 🔎- Blippi en Español | Experimentos Divertidos | Videos Educativos para Niños",
+   "desc": "Playlist de Blippi en Español · 152 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/blippi-en-espanol-ciencia-para-ninos-blippi-en-espanol-experimentos-divertidos-v",
+   "url": "https://www.youtube.com/playlist?list=PLxMv70B4NXQyNEqaws4juBgpnHGSbcsPo",
+   "logo": "https://i.ytimg.com/vi/R8Cvqij7ly4/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi en Español · 🦋 Aprende, explora y juega con Blippi 🔎 | Videos educativos",
+   "desc": "Playlist de Blippi en Español · 558 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/blippi-en-espanol-aprende-explora-y-juega-con-blippi-videos-educativos",
+   "url": "https://www.youtube.com/playlist?list=PLxMv70B4NXQwXpNwbqpUKANu3Rb3lg4kN",
+   "logo": "https://i.ytimg.com/vi/0MttZM3J8f8/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi en Español · 🧡Videos de Blippi Español💙",
+   "desc": "Playlist de Blippi en Español · 688 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/blippi-en-espanol-videos-de-blippi-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLxMv70B4NXQz_qaLQOcAIGxXx0U70lr7d",
+   "logo": "https://i.ytimg.com/vi/0MttZM3J8f8/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi en Español · 🚌Vehículos para Niños🚗| Aprende con Blippi Español",
+   "desc": "Playlist de Blippi en Español · 147 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/blippi-en-espanol-vehiculos-para-ninos-aprende-con-blippi-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLxMv70B4NXQxqho7-yy2_VzdvVuAN3Hzm",
+   "logo": "https://i.ytimg.com/vi/4WycRyoYBLM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi en Español · Videos Educativos para Niños | Aprende Colores y Números | Aprende el Abecedario | Blippi en Español",
+   "desc": "Playlist de Blippi en Español · 413 vídeos",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/blippi-en-espanol-videos-educativos-para-ninos-aprende-colores-y-numeros-aprende",
+   "url": "https://www.youtube.com/playlist?list=PLxMv70B4NXQx_T7HEfGsIJNG-4Sh_wDLB",
+   "logo": "https://i.ytimg.com/vi/8Igy7DM3rp4/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Blippi en Español 24H",
+   "desc": "Especial de Halloween con Blippi 🎃👻 EN VIVO 🔴",
+   "genre": [
+    "Educativos",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/blippi-en-espanol-24h",
+   "url": "https://www.youtube.com/channel/UC4YImPQT-_0kCh5joATwyhw/live",
+   "logo": "https://i.ytimg.com/vi/bEVIjrv446I/hqdefault.jpg?v=6adf3eaa",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja en Español",
+   "desc": "Canal oficial de Bob Esponja en Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/bob-esponja-en-espanol",
+   "url": "https://www.youtube.com/channel/UCMfYMB69Y1B-SlGKm1Tdb0Q",
+   "logo": "https://yt3.ggpht.com/Oar4N0Zohj8UF3SrUgTOONsrUBuwBsSFfcGiPza40WjE_U7iayoqK_4Jv75FN7RnJw-j9D7rSQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja en Español · ¡Clásicos! | Bob Esponja en Español",
+   "desc": "Playlist de Bob Esponja en Español · 152 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/bob-esponja-en-espanol-clasicos-bob-esponja-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLqvQQ3sEnukfxWNkBRcWWiqaESs23YbmB",
+   "logo": "https://i.ytimg.com/vi/lc-rhBpdLTc/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja en Español · ¡Nuevo! | Bob Esponja en Español",
+   "desc": "Playlist de Bob Esponja en Español · 561 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/bob-esponja-en-espanol-nuevo-bob-esponja-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLqvQQ3sEnukdbno0P0yB8UPxui7GvzU1d",
+   "logo": "https://i.ytimg.com/vi/rGq1epEoOMk/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja en Español · Amigos para siempre | Bob Esponja en Español",
+   "desc": "Playlist de Bob Esponja en Español · 106 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/bob-esponja-en-espanol-amigos-para-siempre-bob-esponja-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLqvQQ3sEnukf25hgr42RvgSQmWgTNtqzm",
+   "logo": "https://i.ytimg.com/vi/apceuBNyk9g/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja en Español · Compilaciones 🎥 30 MINUTOS, 60 MINUTOS, 1 HORA! | Bob Esponja en Español",
+   "desc": "Playlist de Bob Esponja en Español · 448 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/bob-esponja-en-espanol-compilaciones-30-minutos-60-minutos-1-hora-bob-esponja-en",
+   "url": "https://www.youtube.com/playlist?list=PLqvQQ3sEnukctQSlT3BYOMQfFfw6wZLrN",
+   "logo": "https://i.ytimg.com/vi/rGq1epEoOMk/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Bob Esponja en Español · Lo mejor de Bob Esponja | Bob Esponja en Español",
+   "desc": "Playlist de Bob Esponja en Español · 387 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/bob-esponja-en-espanol-lo-mejor-de-bob-esponja-bob-esponja-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PLqvQQ3sEnukfQHMJYhps821G-g0hcns6J",
+   "logo": "https://i.ytimg.com/vi/fUwYbUAx1KE/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Cartoon Network LA",
    "desc": "Canal oficial de Cartoon Network LA no YouTube: episódios sem parar.",
    "genre": [
@@ -161,13 +396,13 @@
   },
   {
    "title": "Cartoon Network LA 24H",
-   "desc": "EN VIVO 🔴 Videos de orientación para Villanos 🎩 | Cartoon Network LA",
+   "desc": "EN VIVO 🔴 Especial de Halloween 🎃 | Cartoon Network LA",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/espanhol/cartoon-network-la-24h",
    "url": "https://www.youtube.com/channel/UCQySZQ6rrgJXRuonMwIIGMA/live",
-   "logo": "https://i.ytimg.com/vi/nT-DnourqRU/hqdefault.jpg?v=6ab6847c",
+   "logo": "https://i.ytimg.com/vi/H71TnS5JhPE/hqdefault.jpg?v=6ae27c46",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -324,6 +559,78 @@
    "studio": "youtoon/espanhol/dreamworks-madagascar-en-espanol-madagascar-algo-salvaje",
    "url": "https://www.youtube.com/playlist?list=PLCIN8-D4gmRs3b8MBSpB0Wf1bsncb6c2E",
    "logo": "https://i.ytimg.com/vi/bH_s3hg3vEc/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Latinoamérica",
+   "desc": "Canal oficial de Ever After High Latinoamérica no YouTube: episódios sem parar.",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/ever-after-high-latinoamerica",
+   "url": "https://www.youtube.com/channel/UCD6udhPSuGwhKuRauTdBjnw",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_meoytPew1wuMVzbfpoawerv477wpa7u2BubdJtUjQOmMQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Latinoamérica · Capítulo 2",
+   "desc": "Playlist de Ever After High Latinoamérica · 44 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/ever-after-high-latinoamerica-capitulo-2",
+   "url": "https://www.youtube.com/playlist?list=PLMvDccMLe6LWNO2EAxeWQNPrGsOI4Cexc",
+   "logo": "https://i.ytimg.com/vi/i4Bws8760CM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Latinoamérica · Ever After High Español - Nuevos Videos",
+   "desc": "Playlist de Ever After High Latinoamérica · 464 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/ever-after-high-latinoamerica-ever-after-high-espanol-nuevos-videos",
+   "url": "https://www.youtube.com/playlist?list=PLMvDccMLe6LVu-na1ybYgzJlabqbH_EM2",
+   "logo": "https://i.ytimg.com/vi/8wm3mLgF7hg/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Latinoamérica · Ever After High Latino 💖Caricaturas para niños",
+   "desc": "Playlist de Ever After High Latinoamérica · 483 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/ever-after-high-latinoamerica-ever-after-high-latino-caricaturas-para-ninos",
+   "url": "https://www.youtube.com/playlist?list=PLMvDccMLe6LV9A8XHmymeomDMg5DaL3XS",
+   "logo": "https://i.ytimg.com/vi/LOgAczeUGQs/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Latinoamérica · Ever After High Latino 💖NUEVOS EPISODIOS",
+   "desc": "Playlist de Ever After High Latinoamérica · 464 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/ever-after-high-latinoamerica-ever-after-high-latino-nuevos-episodios",
+   "url": "https://www.youtube.com/playlist?list=PLMvDccMLe6LUOYUUrwJtzBrAqcQBQSuSD",
+   "logo": "https://i.ytimg.com/vi/LMqa0mdwIHc/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Ever After High Latinoamérica · Ever After High Latino❄️¡Felices vacaciones!",
+   "desc": "Playlist de Ever After High Latinoamérica · 40 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/ever-after-high-latinoamerica-ever-after-high-latino-felices-vacaciones",
+   "url": "https://www.youtube.com/playlist?list=PLMvDccMLe6LV2cCXcjdbfMhwU3rCyc9jq",
+   "logo": "https://i.ytimg.com/vi/qo5mvVJyEYA/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -496,6 +803,90 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Jorge el Curioso en Español",
+   "desc": "Canal oficial de Jorge el Curioso en Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/jorge-el-curioso-en-espanol",
+   "url": "https://www.youtube.com/channel/UCWpnUMsmO7UXquKw5f-suFQ",
+   "logo": "https://yt3.ggpht.com/Asw80pK6V40LWnokHf4JwqHNvl_vAQmtN6W2Jz0lDQ9MwtxbarVAVkHiHn24WDgoRWUapvB6=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Jorge el Curioso en Español · Jorge el Curioso | Compilación | Caricaturas para Niños",
+   "desc": "Playlist de Jorge el Curioso en Español · 904 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/jorge-el-curioso-en-espanol-jorge-el-curioso-compilacion-caricaturas-para-ninos",
+   "url": "https://www.youtube.com/playlist?list=PL08EcHdANEaU73bdp78h1liRNos3GPWXK",
+   "logo": "https://i.ytimg.com/vi/UgcheTI_BJs/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Jorge el Curioso en Español · Jorge el Curioso | Temporada 5 Completo en Español | Dibujos Animados",
+   "desc": "Playlist de Jorge el Curioso en Español · 550 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/jorge-el-curioso-en-espanol-jorge-el-curioso-temporada-5-completo-en-espanol-dib",
+   "url": "https://www.youtube.com/playlist?list=PL08EcHdANEaXf2xSv_GS0QaOLrqQFUteQ",
+   "logo": "https://i.ytimg.com/vi/tbFtCWV6Fd8/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Jorge el Curioso en Español · Jorge el Curioso en Español | Latino Capítulos Completos | Dibujos Animados",
+   "desc": "Playlist de Jorge el Curioso en Español · 575 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/jorge-el-curioso-en-espanol-jorge-el-curioso-en-espanol-latino-capitulos-complet",
+   "url": "https://www.youtube.com/playlist?list=PL08EcHdANEaWpFZXObXlt_hHjP2eFeWN5",
+   "logo": "https://i.ytimg.com/vi/VUZNiJJKarw/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Jorge el Curioso en Español · Jorge El Curioso En Español | Nuevo Videos | Dibujos Para Niños",
+   "desc": "Playlist de Jorge el Curioso en Español · 1085 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/jorge-el-curioso-en-espanol-jorge-el-curioso-en-espanol-nuevo-videos-dibujos-par",
+   "url": "https://www.youtube.com/playlist?list=PL08EcHdANEaWEsem41myRdaKoEtvLlpZ1",
+   "logo": "https://i.ytimg.com/vi/jESS8FktY7E/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Jorge el Curioso en Español · Mejores Momentos de Jorge el Curioso en Español",
+   "desc": "Playlist de Jorge el Curioso en Español · 1020 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/jorge-el-curioso-en-espanol-mejores-momentos-de-jorge-el-curioso-en-espanol",
+   "url": "https://www.youtube.com/playlist?list=PL08EcHdANEaVUY8Dmzo64ZfTLGvDK9OJO",
+   "logo": "https://i.ytimg.com/vi/YZ8nkI7BvDo/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Jorge el Curioso en Español 24H",
+   "desc": "LIVE 🔴 Episodios de Jorge El Curioso 🐵 ¿Qué hay en las tuberías? 💧 + Más!",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/jorge-el-curioso-en-espanol-24h",
+   "url": "https://www.youtube.com/channel/UCWpnUMsmO7UXquKw5f-suFQ/live",
+   "logo": "https://i.ytimg.com/vi/hKZ-l7qMabM/hqdefault.jpg?v=6ae36630",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "La Oveja Shaun",
    "desc": "Canal oficial de La Oveja Shaun no YouTube: episódios sem parar.",
    "genre": [
@@ -588,6 +979,90 @@
    "studio": "youtoon/espanhol/lego-lego-friends-heartlake-the-musical-espanol-lego",
    "url": "https://www.youtube.com/playlist?list=PLOrwzljVHjQE",
    "logo": "https://i.ytimg.com/vi/OGBji5cxxyQ/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Los Pitufos – Español Latino",
+   "desc": "Canal oficial de Los Pitufos – Español Latino no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/los-pitufos-espanol-latino",
+   "url": "https://www.youtube.com/channel/UCenlP5URcdwcuXPQ8I9aOZw",
+   "logo": "https://yt3.ggpht.com/Y5ByXuatPQ5gaLqwLJ_1ZDgFeLy4l-BSAdllF8gfxwaYGRZQO8uHmRLrITPyQ8kHWiplAhTQ750=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Los Pitufos – Español Latino · Episodios de Los Pitufos",
+   "desc": "Playlist de Los Pitufos – Español Latino · 393 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/los-pitufos-espanol-latino-episodios-de-los-pitufos",
+   "url": "https://www.youtube.com/playlist?list=PLynb7MteT3bv-JXyQJFD0dgMX1p-kbTyw",
+   "logo": "https://i.ytimg.com/vi/iAAgu3bDHwg/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Los Pitufos – Español Latino · Los Pitufos 3D NUEVA SERIE",
+   "desc": "Playlist de Los Pitufos – Español Latino · 102 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/los-pitufos-espanol-latino-los-pitufos-3d-nueva-serie",
+   "url": "https://www.youtube.com/playlist?list=PLynb7MteT3bvBcp6R00l_Hu51AoQNKUlk",
+   "logo": "https://i.ytimg.com/vi/KUgsEISJpKM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Los Pitufos – Español Latino · Los pitufos Compilaciones",
+   "desc": "Playlist de Los Pitufos – Español Latino · 226 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/los-pitufos-espanol-latino-los-pitufos-compilaciones",
+   "url": "https://www.youtube.com/playlist?list=PLynb7MteT3btYxRSf1QLAYaZJV1h5jNTJ",
+   "logo": "https://i.ytimg.com/vi/hu3WftdYvmM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Los Pitufos – Español Latino · Más de Los Pitufos",
+   "desc": "Playlist de Los Pitufos – Español Latino · 42 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/los-pitufos-espanol-latino-mas-de-los-pitufos",
+   "url": "https://www.youtube.com/playlist?list=PLynb7MteT3bvHYRsiGpOgaNhlaYhSobdA",
+   "logo": "https://i.ytimg.com/vi/YAIlFh59IoM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Los Pitufos – Español Latino · Mejores momentos de los Pitufos",
+   "desc": "Playlist de Los Pitufos – Español Latino · 110 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/los-pitufos-espanol-latino-mejores-momentos-de-los-pitufos",
+   "url": "https://www.youtube.com/playlist?list=PLynb7MteT3bsuxU89y5qv6O6tBL4XIKZu",
+   "logo": "https://i.ytimg.com/vi/gBXK5gEHiac/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Los Pitufos – Español Latino 24H",
+   "desc": "🔴 ¡Los Pitufos 3D Transmisión en vivo! • ¡Sin interrupciones! • ¡Míralo ahora!",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/los-pitufos-espanol-latino-24h",
+   "url": "https://www.youtube.com/channel/UCenlP5URcdwcuXPQ8I9aOZw/live",
+   "logo": "https://i.ytimg.com/vi/oqArHpqqCnI/hqdefault.jpg?v=6ae37357",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -875,7 +1350,7 @@
    ],
    "studio": "youtoon/espanhol/oddbods-espanol-oddbods-y-antiks-videos-graciosos-para-ninos",
    "url": "https://www.youtube.com/playlist?list=PLP7X5ycpylZiDWKqRorRJKDdUh73PzFsm",
-   "logo": "https://i.ytimg.com/vi/bScPCfAyP3A/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/RxBFYBr6INc/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -976,6 +1451,162 @@
    "studio": "youtoon/espanhol/tms-anime-latino-red-baron-el-baron-rojo",
    "url": "https://www.youtube.com/playlist?list=PLhLIuhReJ4ccjpeTDgf39g2yqFgN6QMZX",
    "logo": "https://i.ytimg.com/vi/CwTmQjaDfCQ/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Tres Espías Sin Límite - Totally Spies",
+   "desc": "Canal oficial de Tres Espías Sin Límite - Totally Spies no YouTube: episódios sem parar.",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/espanhol/tres-espias-sin-limite-totally-spies",
+   "url": "https://www.youtube.com/channel/UCPKJ7VUetpOmRVT7J6Cx87Q",
+   "logo": "https://yt3.ggpht.com/9TvWYCN6LfKUj8pPdY_heVWXWAfPQrTmTkhe62xLPFHeSzc6OnSx5sV6ldHLCwfyFmbgeSH7=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Tres Espías Sin Límite - Totally Spies · 🌸 Totally Spies: Temporada 2 🌸",
+   "desc": "Playlist de Tres Espías Sin Límite - Totally Spies · 57 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/espanhol/tres-espias-sin-limite-totally-spies-totally-spies-temporada-2",
+   "url": "https://www.youtube.com/playlist?list=PLz_IrUBx1RH9gvkfqqXbwi4KfRjoI4RVx",
+   "logo": "https://i.ytimg.com/vi/6YMN3b_HSCY/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Tres Espías Sin Límite - Totally Spies · 🌸 Totally Spies: Temporada 4 🌸",
+   "desc": "Playlist de Tres Espías Sin Límite - Totally Spies · 69 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/espanhol/tres-espias-sin-limite-totally-spies-totally-spies-temporada-4",
+   "url": "https://www.youtube.com/playlist?list=PLz_IrUBx1RH8IKk9ZNeUdxg4l9h5yazx_",
+   "logo": "https://i.ytimg.com/vi/0jg6shgyhb0/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Tres Espías Sin Límite - Totally Spies · 🌸 Totally Spies: Temporada 5 🌸",
+   "desc": "Playlist de Tres Espías Sin Límite - Totally Spies · 58 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/espanhol/tres-espias-sin-limite-totally-spies-totally-spies-temporada-5",
+   "url": "https://www.youtube.com/playlist?list=PLz_IrUBx1RH9nC3lNwgoLRHPh_oPfT_IN",
+   "logo": "https://i.ytimg.com/vi/4CmeWea75vo/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Tres Espías Sin Límite - Totally Spies · 🌸Tres Espías Sin Límite Totally Spies | EPISODIO COMPLETO | HD | ALTA DEFINICI",
+   "desc": "Playlist de Tres Espías Sin Límite - Totally Spies · 157 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/espanhol/tres-espias-sin-limite-totally-spies-tres-espias-sin-limite-totally-spies-episod",
+   "url": "https://www.youtube.com/playlist?list=PLz_IrUBx1RH_DkhXApb_M-uG7Q2hQluKD",
+   "logo": "https://i.ytimg.com/vi/BR5jUJRGAl4/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Tres Espías Sin Límite - Totally Spies · 🕵️‍♀️ MARATÓN de EPISODIOS de 🚁 TOTALLY SPIES! en ESPAÑOL 💄💥",
+   "desc": "Playlist de Tres Espías Sin Límite - Totally Spies · 63 vídeos",
+   "genre": [
+    "Aventura"
+   ],
+   "studio": "youtoon/espanhol/tres-espias-sin-limite-totally-spies-maraton-de-episodios-de-totally-spies-en-es",
+   "url": "https://www.youtube.com/playlist?list=PLz_IrUBx1RH8FBJH-NmrVXr07CngwCV_J",
+   "logo": "https://i.ytimg.com/vi/o9fM3E9Iw4c/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Latino",
+   "desc": "Canal oficial de WB Kids Latino no YouTube: episódios sem parar.",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/wb-kids-latino",
+   "url": "https://www.youtube.com/channel/UCtW5GPO_DZon6zVAuinvwxA",
+   "logo": "https://yt3.ggpht.com/7p5v3VOAMjFKxxtcSri6Dz77EMz17GEmdpTtMJA_zYNgpLeGK8MrdUZmt4hoRPvXJEGwlyU0=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Latino · Bugs Bunny Builders | WB Kids",
+   "desc": "Playlist de WB Kids Latino · 98 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/wb-kids-latino-bugs-bunny-builders-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PLqadqENamQjVGiK4gasNYFC_kME1JQkhn",
+   "logo": "https://i.ytimg.com/vi/s4Hz0MuN-4k/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Latino · Gokko! | Latino | @wbkidslatino",
+   "desc": "Playlist de WB Kids Latino · 35 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/wb-kids-latino-gokko-latino-wbkidslatino",
+   "url": "https://www.youtube.com/playlist?list=PLCNwbilrQgbI",
+   "logo": "https://i.ytimg.com/vi/qubgCCMscA8/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Latino · Looney Tunes en Latino | WB Kids",
+   "desc": "Playlist de WB Kids Latino · 290 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/wb-kids-latino-looney-tunes-en-latino-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PLqadqENamQjWeNSbp_Fo8ZAUdsDS5AEYK",
+   "logo": "https://i.ytimg.com/vi/TRsRxJqeko4/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Latino · Scooby-Doo! en Español | Latino America | WB Kids",
+   "desc": "Playlist de WB Kids Latino · 319 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/wb-kids-latino-scooby-doo-en-espanol-latino-america-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PLqadqENamQjUrX31IzDuYZVRx5lHQdzwY",
+   "logo": "https://i.ytimg.com/vi/H6_INc4nOZM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Latino · Tom y Jerry en Latino | WB Kids",
+   "desc": "Playlist de WB Kids Latino · 601 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/wb-kids-latino-tom-y-jerry-en-latino-wb-kids",
+   "url": "https://www.youtube.com/playlist?list=PLqadqENamQjWNaJP1uFFP75jdPR62tIjw",
+   "logo": "https://i.ytimg.com/vi/r5NXcRyM7BE/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WB Kids Latino 24H",
+   "desc": "🔴 ¡EN VIVO! CAPÍTULOS COMPLETOS de ¡Scooby-Doo! Misterios, S.A. 📺 | #Scoobtober 🎃 | @WBKidsLatino",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/espanhol/wb-kids-latino-24h",
+   "url": "https://www.youtube.com/channel/UCtW5GPO_DZon6zVAuinvwxA/live",
+   "logo": "https://i.ytimg.com/vi/1e5d4mBbBxU/hqdefault.jpg?v=6ad8ef98",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
