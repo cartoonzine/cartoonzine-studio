@@ -4,13 +4,13 @@
   {
    "codigo": "pt-BR",
    "nome": "Português",
-   "total": 152,
+   "total": 225,
    "json": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/youtoon/pt-br.json"
   },
   {
    "codigo": "es",
    "nome": "Espanhol",
-   "total": 138,
+   "total": 213,
    "json": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/youtoon/es.json"
   },
   {
@@ -22,7 +22,7 @@
   {
    "codigo": "pt-PT",
    "nome": "Português (Portugal)",
-   "total": 28,
+   "total": 36,
    "json": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/youtoon/pt-pt.json"
   }
  ]

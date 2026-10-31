@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-30T15:06:27.696Z",
+  "geradoEm": "2026-10-31T14:35:43.245Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -24,15 +24,15 @@
     },
     {
       "colecao": "youtoon",
-      "total": 835,
-      "publicados": 835,
+      "total": 991,
+      "publicados": 991,
       "erros": [],
       "avisos": [],
       "porIdioma": {
-        "pt-BR": 152,
-        "es": 138,
+        "pt-BR": 225,
+        "es": 213,
         "en": 517,
-        "pt-PT": 28
+        "pt-PT": 36
       }
     },
     {

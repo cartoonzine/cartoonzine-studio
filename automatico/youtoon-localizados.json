@@ -385,6 +385,10 @@
         "inscritos": 521000,
         "pais": "MX",
         "achadoEm": "2026-10-30"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
       }
     },
     "Funky Cops English Official": {
@@ -477,6 +481,34 @@
         "checadoEm": "2026-10-28"
       }
     },
+    "H2O - just add water": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "Horrid Henry": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
     "Huntik Secrets and Seekers": {
       "Português": {
         "nada": true,
@@ -517,6 +549,22 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-28"
+      }
+    },
+    "Jelly Jamm": {
+      "Português": {
+        "id": "UCdbT1q-kzrP9twbVRw8tCvg",
+        "titulo": "Jelly Jamm Português (Brazil)",
+        "inscritos": 364000,
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
       }
     },
     "Johnny Test": {
@@ -564,6 +612,20 @@
         "checadoEm": "2026-10-29"
       }
     },
+    "LEGO": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
     "Martin Mystery": {
       "Português": {
         "nada": true,
@@ -596,6 +658,43 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-29"
+      }
+    },
+    "Masha and The Bear": {
+      "Português": {
+        "id": "UCJKBSfD5JSUxGhriFeoPCCg",
+        "titulo": "Masha e o Urso",
+        "inscritos": 25600000,
+        "pais": "BR",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCuSo4gcgxJRf4Bzu43wwVyg",
+        "titulo": "Masha y el Oso",
+        "inscritos": 47000000,
+        "pais": "MX",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "id": "UCu-ouRRIRwKHqEGXbLMftVw",
+        "titulo": "Masha e o Urso EU",
+        "inscritos": 587000,
+        "pais": "PT",
+        "achadoEm": "2026-10-31"
+      }
+    },
+    "Me Too!": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
       }
     },
     "Minimighty Kids Official": {
@@ -646,6 +745,108 @@
         "checadoEm": "2026-10-29"
       }
     },
+    "Monster High": {
+      "Português": {
+        "id": "UCNEMqe5ZEdpLMbc-pY7ZstQ",
+        "titulo": "Monster High Português",
+        "inscritos": 476000,
+        "pais": "US",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCKk-DVvxnnkU3IE7rmkcSnw",
+        "titulo": "Monster High en Castellano",
+        "inscritos": 661000,
+        "pais": "US",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "Mr. Bean": {
+      "Português": {
+        "id": "UC0DVrkEtMIuz6x9no_caj3A",
+        "titulo": "Mr Bean em Português",
+        "inscritos": 637000,
+        "pais": "BR",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCwGfYz-2vaBXaBjny67vbBg",
+        "titulo": "Viva Mr Bean",
+        "inscritos": 874000,
+        "pais": "ES",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "id": "UCGptkEGSiF6y5TU14LBzFCQ",
+        "titulo": "Mr Bean No.1 Portugal",
+        "inscritos": 33600,
+        "pais": "PT",
+        "achadoEm": "2026-10-31"
+      }
+    },
+    "My Little Pony - Official Channel": {
+      "Português": {
+        "id": "UCQEBSjJhfZKPrvsaNkBwxJw",
+        "titulo": "My Little Pony Português Brasil - Canal Oficial",
+        "inscritos": 1390000,
+        "pais": "BR",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCavwStVQoAroamzC1lPQmyg",
+        "titulo": "My Little Pony Español Latino - Canal Oficial",
+        "inscritos": 2790000,
+        "pais": "MX",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "National Geographic Kids": {
+      "Português": {
+        "id": "UCFupUY6CNLg5Z7U7u4oEb5w",
+        "titulo": "National Geographic Brasil",
+        "inscritos": 938000,
+        "pais": "BR",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCpyYUq9kcBMLPlfE8EzguvA",
+        "titulo": "National Geographic España",
+        "inscritos": 907000,
+        "pais": "ES",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "Nick Jr": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCaEb7kPgpldLuEzCRzFXsLw",
+        "titulo": "Nick Jr. en Español",
+        "inscritos": 18900000,
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "id": "UCxmK61Geo08axWQP_BPdvlw",
+        "titulo": "Nick Jr. em Português",
+        "inscritos": 9860000,
+        "pais": "PT",
+        "achadoEm": "2026-10-31"
+      }
+    },
     "Nicktoons": {
       "Português": {
         "id": "UCMryAHWeLf3TxDyDxSWs4AQ",
@@ -664,6 +865,26 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-29"
+      }
+    },
+    "Numberblocks": {
+      "Português": {
+        "id": "UCkup3lAYe6aCRyIIHQbIZWg",
+        "titulo": "Numberblocks em Português Brasil - Canal Oficial",
+        "inscritos": 5010000,
+        "pais": "GB",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UC9U6ur-FtPlo7dFIEyKdWFg",
+        "titulo": "Numberblocks Español - Canal Oficial",
+        "inscritos": 7180000,
+        "pais": "GB",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
       }
     },
     "Oddbods": {
@@ -720,6 +941,59 @@
         "checadoEm": "2026-10-29"
       }
     },
+    "PBS Kids": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "Peppa Pig": {
+      "Português": {
+        "id": "UCvD9GB-E4q_TuMpwUtFBhLA",
+        "titulo": "Peppa Pig em Português Brasil - Canal Oficial",
+        "inscritos": 17100000,
+        "pais": "BR",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCrreHSUa5rnuCVDeO8dX4eA",
+        "titulo": "Peppa Pig Español Latino - Canal Oficial",
+        "inscritos": 31500000,
+        "pais": "MX",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "PJ Masks Official": {
+      "Português": {
+        "id": "UC6RA9q6uVGJpe4QcS3UmGmg",
+        "titulo": "PJ Masks em Português - Desenhos Animados",
+        "inscritos": 5190000,
+        "pais": "BR",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCN7o-yhPGxf1rkXOn1nArzA",
+        "titulo": "PJ Masks Español Latino Temporada 2",
+        "inscritos": 2220000,
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
     "Pokemon": {
       "Português": {
         "id": "UCuo1V_VlMUOTjy89D1FDVDw",
@@ -756,6 +1030,40 @@
         "checadoEm": "2026-10-29"
       }
     },
+    "Power Rangers Kids": {
+      "Português": {
+        "id": "UCE3_4WG166NcyQPcRtgGWkQ",
+        "titulo": "Power Rangers para Crianças - Canal Oficial",
+        "inscritos": 1090000,
+        "pais": "GB",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCHr2zD4qgWz8yXkzIun5aAg",
+        "titulo": "Power Rangers para Niños - Canal Oficial ",
+        "inscritos": 1720000,
+        "pais": "GB",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "Puppy In My Pocket": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
     "Robotboy": {
       "Português": {
         "nada": true,
@@ -768,6 +1076,26 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-29"
+      }
+    },
+    "Sesame Street": {
+      "Português": {
+        "id": "UCg3F7JVu-hZ0uYh2E-qaQxA",
+        "titulo": "Vila Sésamo",
+        "inscritos": 345000,
+        "pais": "BR",
+        "achadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UC2H_ikinZV8cHVGawVENHpg",
+        "titulo": "Plaza Sésamo",
+        "inscritos": 5670000,
+        "pais": "MX",
+        "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
       }
     },
     "Shaun the Sheep Official": {
@@ -850,6 +1178,33 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-30"
+      }
+    },
+    "Spookiz": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      }
+    },
+    "Star Wars Kids": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-10-31"
+      },
+      "Espanhol": {
+        "id": "UCtbGAbsn-s5xOVsFi6EykUQ",
+        "titulo": "Star Wars Latinoamérica",
+        "inscritos": 184000,
+        "pais": "US",
+        "achadoEm": "2026-10-31"
       }
     },
     "The Cramp Twins": {
