@@ -1,0 +1,13 @@
+{
+  "nome": "Tekken 5: Dark Resurrection (Recomp)",
+  "links": [
+    "https://tkdr-recomp.pages.dev/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/gasparegas/tkdr-recomp",
+  "descricao": "Port para navegador · tkdr-recomp.pages.dev",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

@@ -1,0 +1,14 @@
+{
+  "nome": "Sonic the Hedgehog",
+  "links": [
+    "https://vinmannie.github.io/Sonic-1-WASM/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/VinMannie/Sonic-1-WASM",
+  "descricao": "Port para navegador · vinmannie.github.io",
+  "ano": 2013,
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

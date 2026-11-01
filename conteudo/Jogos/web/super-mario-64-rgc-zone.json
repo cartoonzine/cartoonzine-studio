@@ -1,0 +1,12 @@
+{
+  "nome": "Super Mario 64 (rgc.zone)",
+  "links": [
+    "https://rgc.zone/ports/sm64-main/index.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · rgc.zone",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

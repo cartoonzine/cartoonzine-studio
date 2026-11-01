@@ -1,0 +1,13 @@
+{
+  "nome": "S.T.A.L.K.E.R.: Call of Pripyat (ZoneVM)",
+  "links": [
+    "https://zonevm.btr.pm/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/x8BitRain/zone-vm",
+  "descricao": "Port para navegador · zonevm.btr.pm",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

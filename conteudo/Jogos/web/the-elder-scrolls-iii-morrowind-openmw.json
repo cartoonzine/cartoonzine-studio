@@ -1,0 +1,13 @@
+{
+  "nome": "The Elder Scrolls III: Morrowind (OpenMW)",
+  "links": [
+    "https://morrowind.virtastic.app/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/Virtastic/openmw-web",
+  "descricao": "Port para navegador · morrowind.virtastic.app",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

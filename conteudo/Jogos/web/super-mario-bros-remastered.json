@@ -1,0 +1,13 @@
+{
+  "nome": "Super Mario Bros. Remastered",
+  "links": [
+    "https://gn-math.dev/?id=736"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/bubbls/ports/blob/main/smb-remastered",
+  "descricao": "Port para navegador · gn-math.dev",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

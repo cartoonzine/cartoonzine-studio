@@ -1,0 +1,12 @@
+{
+  "nome": "Sonic the Fighters",
+  "links": [
+    "https://play.sonicthefighte.rs/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · play.sonicthefighte.rs",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
