@@ -1,0 +1,13 @@
+{
+  "nome": "MiSide (2)",
+  "links": [
+    "https://wasm.rip/files/miside/miside.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/woahhcrackers/MiSideWeb",
+  "descricao": "Port para navegador · wasm.rip",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
