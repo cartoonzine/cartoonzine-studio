@@ -1,0 +1,12 @@
+{
+  "nome": "Limbo",
+  "links": [
+    "https://truffled.lol/games/limbo/index.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · truffled.lol",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

@@ -1,0 +1,13 @@
+{
+  "nome": "Hotline Miami",
+  "links": [
+    "https://gn-math.github.io/web-port/hotline-miami/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/genizy/web-port/tree/main/hotline-miami",
+  "descricao": "Port para navegador · gn-math.github.io",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

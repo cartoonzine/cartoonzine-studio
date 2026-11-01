@@ -1,0 +1,13 @@
+{
+  "nome": "Luanti (Minetest)",
+  "links": [
+    "https://wasmga.me/games/luanti"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/wasmga-me/luanti-wasm",
+  "descricao": "Port para navegador · wasmga.me",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

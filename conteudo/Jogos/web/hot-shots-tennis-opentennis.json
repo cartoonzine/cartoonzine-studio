@@ -1,0 +1,13 @@
+{
+  "nome": "Hot Shots Tennis (OpenTennis)",
+  "links": [
+    "https://opentennis.dev/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/FIZL0/opentennis",
+  "descricao": "Port para navegador · opentennis.dev",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
