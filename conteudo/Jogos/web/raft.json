@@ -1,0 +1,13 @@
+{
+  "nome": "RAFT",
+  "links": [
+    "https://gn-math.github.io/web-port/raft/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/genizy/web-port/tree/main/raft",
+  "descricao": "Port para navegador · gn-math.github.io",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

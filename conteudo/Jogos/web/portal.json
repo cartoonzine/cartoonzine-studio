@@ -1,0 +1,13 @@
+{
+  "nome": "Portal",
+  "links": [
+    "https://yikes.pw/portal/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/weliveinhell/source-engine",
+  "descricao": "Port para navegador · yikes.pw",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

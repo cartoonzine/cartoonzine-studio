@@ -1,0 +1,12 @@
+{
+  "nome": "Sonic CD (Sonic-CD-WASM)",
+  "links": [
+    "https://tws2401.github.io/Sonic-CD-WASM/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · tws2401.github.io",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

@@ -1,0 +1,12 @@
+{
+  "nome": "Quake II (Quake WASM2)",
+  "links": [
+    "https://qwasm2.m-h.org.uk/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · qwasm2.m-h.org.uk",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
