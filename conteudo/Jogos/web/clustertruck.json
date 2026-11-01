@@ -1,0 +1,13 @@
+{
+  "nome": "Clustertruck",
+  "links": [
+    "https://wasm.rip/files/ClusterTruck/clustertruck.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/wasmdotrip/Clustertruck-Port",
+  "descricao": "Port para navegador · wasm.rip",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

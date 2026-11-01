@@ -1,0 +1,12 @@
+{
+  "nome": "Call of Duty Web Collection",
+  "links": [
+    "https://cod-webports.pages.dev/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · cod-webports.pages.dev",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
