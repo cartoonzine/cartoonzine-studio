@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-01T15:12:03.072Z",
+  "geradoEm": "2026-11-01T23:25:59.025Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -112,7 +112,9 @@
         "msdos": 0,
         "flash": 0,
         "ps1": 0,
-        "3do": 0
+        "3do": 0,
+        "web": 0,
+        "webpc": 0
       }
     }
   ]
