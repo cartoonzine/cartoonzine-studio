@@ -157,9 +157,39 @@ Dá para editar até pelo site do GitHub: o robô publica sozinho a cada commit.
 | 📚 Bookzine | `conteudo/bookzine/` | Cartoonzine (view em construção) | `bookzine.json` + `bookzine/indice.json` |
 | 📻 Rádios | `conteudo/radios/` | Rádio | `radios.json`, `radios.m3u`, `radios/pais/<pais>.m3u` |
 | 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/paises.json`, `canais/pais/<pais>.json` e `.m3u` |
-| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles) |
+| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles + 2 de jogos web) |
 
 Os `.m3u` por país também funcionam direto em qualquer player IPTV (VLC, TiviMate…).
+
+### 🌐 Web Games (cartucho web: jogos que rodam direto no navegador)
+
+Dois "consoles" novos dentro de Jogos Retrô, com o link da **página do jogo** (não de uma ROM):
+
+| console | nome no app | vai para |
+|---|---|---|
+| `web` | Web Games · TV e PC | TV, PC e celular (jogos leves) |
+| `webpc` | Web Games · Só PC | só PC: o app esconde na TV (jogos pesados, mouse/teclado) |
+
+No app, o jogo abre no `cartucho-web.html` (core `web`) com o deck, o CZ Mouz e o Live Factory.
+Campos extras (avançados) para esses consoles: **Licença** (`livre`, `autorizada`, `precisa-original`,
+`nao-verificada`), Tipo do port, Controle (`gamepad` = o jogo lê o controle sozinho), Mapa controle → teclado
+(`A=Space, B=KeyX, START=Enter`), Peso (`pesado` → mova para `webpc`) e Código-fonte.
+
+**Um jogo web só é publicado com a licença conferida** (`nao-verificada` ou vazia dá erro; rascunho pode).
+
+Importar a lista [Ultimate Catalog of Web Game Ports](https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports):
+
+```bash
+npm run webports                       # baixa o README oficial e cria os rascunhos em conteudo/jogos/web/
+node tools/importar-webports.mjs --simular            # só mostra o que faria
+node tools/importar-webports.mjs --console webpc      # manda para "Só PC"
+node tools/importar-webports.mjs --atualizar          # completa os que já existem (links reserva, repo)
+```
+
+Cada jogo jogável (▶) vira **rascunho** com licença `nao-verificada`. Quem só tem código-fonte (📦) fica na
+lista `conteudo/jogos/_webports-sem-demo.json` (o build ignora). Reimportar nunca mexe num jogo que você já
+conferiu, publicou ou mudou de console. Muitos itens dessa lista são ports de jogos comerciais feitos por fãs:
+publique só o que for livre, autorizado ou que peça os arquivos originais do próprio jogador.
 
 ### ▶️ YouToon (canais de desenhos do YouTube)
 

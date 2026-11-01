@@ -153,6 +153,10 @@
     { "id": "msdos",        "nome": "MS-DOS",            "prefixoId": "DOS" },
     { "id": "flash",        "nome": "Flash Player",      "prefixoId": "FLA" },
     { "id": "ps1",          "nome": "PlayStation 1",     "prefixoId": "PS1" },
-    { "id": "3do",          "nome": "3DO",               "prefixoId": "3DO" }
+    { "id": "3do",          "nome": "3DO",               "prefixoId": "3DO" },
+    { "id": "web",          "nome": "Web Games · TV e PC", "prefixoId": "WEB", "web": true, "aparelhos": ["tv", "pc"],
+      "_comentario": "Cartucho web: jogos que rodam direto no navegador (WASM/WebGL/HTML5). Leves o bastante para Smart TV." },
+    { "id": "webpc",        "nome": "Web Games · Só PC",   "prefixoId": "WPC", "web": true, "aparelhos": ["pc"],
+      "_comentario": "Cartucho web: jogos pesados ou que precisam de mouse/teclado. O app esconde este console na TV." }
   ]
 }

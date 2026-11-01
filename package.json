@@ -10,6 +10,7 @@
     "sincronizar": "node tools/sincronizar.mjs",
     "links": "node tools/verificar-links.mjs",
     "completar": "node tools/completar.mjs",
+    "webports": "node tools/importar-webports.mjs",
     "test": "node --test test/core.test.mjs"
   }
 }
