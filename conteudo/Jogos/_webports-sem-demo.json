@@ -1,0 +1,2034 @@
+{
+ "_comentario": "Jogos do Ultimate Catalog que só têm código-fonte (sem página jogável). O build ignora este arquivo.",
+ "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+ "total": 405,
+ "jogos": [
+  {
+   "nome": "-b",
+   "repo": "https://github.com/web-ports/baldi-mods/tree/main/-b",
+   "secao": "#"
+  },
+  {
+   "nome": "60 Seconds!",
+   "repo": "https://github.com/usheje883-maker/60-Seconds-Webport",
+   "secao": "#"
+  },
+  {
+   "nome": "Abuse",
+   "repo": "https://github.com/midzer/abuse",
+   "secao": "A"
+  },
+  {
+   "nome": "Albion",
+   "repo": "https://github.com/IS4Code/Albion",
+   "secao": "A"
+  },
+  {
+   "nome": "Alone in the Dark (aitd)",
+   "repo": "https://github.com/xesf/aitd",
+   "secao": "A"
+  },
+  {
+   "nome": "Ambidextro",
+   "repo": "https://github.com/chromecrash/Ambidextro-browser-port",
+   "secao": "A"
+  },
+  {
+   "nome": "Anarch",
+   "repo": "https://gitlab.com/drummyfish/anarch",
+   "secao": "A"
+  },
+  {
+   "nome": "Angband",
+   "repo": "https://github.com/angband/angband",
+   "secao": "A"
+  },
+  {
+   "nome": "Angry Birds 2",
+   "repo": "https://github.com/Reeyuki/angry2",
+   "secao": "A"
+  },
+  {
+   "nome": "Angry Birds Epic v3.0.1",
+   "repo": "https://github.com/DarkTerraYT/EpicWeb",
+   "secao": "A"
+  },
+  {
+   "nome": "Another World (another-world-suite)",
+   "repo": "https://github.com/malandrin/another-world-suite",
+   "secao": "A"
+  },
+  {
+   "nome": "Anton Blast Demo",
+   "repo": "https://github.com/burnedpopcorn/Anton-Blast-Demo-Web-Port",
+   "secao": "A"
+  },
+  {
+   "nome": "Apotheon",
+   "repo": "https://github.com/degloved-net/Apotheon",
+   "secao": "A"
+  },
+  {
+   "nome": "Apotris",
+   "repo": "https://gitea.com/akouzoukos/apotris",
+   "secao": "A"
+  },
+  {
+   "nome": "Arcade games (arcade-js)",
+   "repo": "https://github.com/qarl/arcade-js",
+   "secao": "A"
+  },
+  {
+   "nome": "Arco",
+   "repo": "https://github.com/degloved-net/arco",
+   "secao": "A"
+  },
+  {
+   "nome": "AstroMenace",
+   "repo": "https://github.com/midzer/astromenace",
+   "secao": "A"
+  },
+  {
+   "nome": "Asylum",
+   "repo": "https://github.com/GMH-Code/Asylum",
+   "secao": "A"
+  },
+  {
+   "nome": "Atomiks",
+   "repo": "https://github.com/midzer/atomiks",
+   "secao": "A"
+  },
+  {
+   "nome": "AXIS",
+   "ano": 2005,
+   "repo": "https://github.com/reikop/axis-web",
+   "secao": "A"
+  },
+  {
+   "nome": "Azimuth",
+   "repo": "https://github.com/midzer/azimuth",
+   "secao": "A"
+  },
+  {
+   "nome": "Backyard Baseball '97",
+   "repo": "https://github.com/degloved-net/backyard-baseball-97",
+   "secao": "B"
+  },
+  {
+   "nome": "Balatro",
+   "repo": "https://github.com/W0W53R/web-balatro",
+   "secao": "B"
+  },
+  {
+   "nome": "Baldi Balds The Universe",
+   "repo": "https://github.com/reeyuki/baldiBaldsTheUniverse",
+   "secao": "B"
+  },
+  {
+   "nome": "Baldi's Basics: Minus 3",
+   "repo": "https://github.com/aukak/-3",
+   "secao": "B"
+  },
+  {
+   "nome": "Banished (unbanished)",
+   "repo": "https://github.com/tanepiper/unbanished",
+   "secao": "B"
+  },
+  {
+   "nome": "Bat to Bed Demo",
+   "repo": "https://github.com/gays-studio/BatToBed-DEMO-webport",
+   "secao": "B"
+  },
+  {
+   "nome": "Bat to the Heavens",
+   "repo": "https://github.com/gays-studio/bat-to-the-heavens",
+   "secao": "B"
+  },
+  {
+   "nome": "Beat Banger",
+   "repo": "https://github.com/ajtabjs/bbport",
+   "secao": "B"
+  },
+  {
+   "nome": "Before Close",
+   "repo": "https://github.com/xxuep/before-close-webport",
+   "secao": "B"
+  },
+  {
+   "nome": "Bendy and The Ink Machine (4)",
+   "repo": "https://github.com/web-ports/bendy-and-the-ink-machine",
+   "secao": "B"
+  },
+  {
+   "nome": "Bendy and The Ink Machine (5)",
+   "repo": "https://github.com/woahhcrackers/BATIMWeb",
+   "secao": "B"
+  },
+  {
+   "nome": "Bermuda Syndrome",
+   "repo": "https://github.com/cyxx/bermuda",
+   "secao": "B"
+  },
+  {
+   "nome": "Biolab Disaster",
+   "repo": "https://github.com/phoboslab/high_biolab",
+   "secao": "B"
+  },
+  {
+   "nome": "Black Hole Fishing",
+   "repo": "https://github.com/mynamescrax/gamesforaetheris/tree/main/blackholefishing",
+   "secao": "B"
+  },
+  {
+   "nome": "Blobby Volley 2",
+   "repo": "https://github.com/danielknobe/blobbyvolley2",
+   "secao": "B"
+  },
+  {
+   "nome": "Bloboats",
+   "repo": "https://github.com/midzer/bloboats",
+   "secao": "B"
+  },
+  {
+   "nome": "Block Blast",
+   "repo": "https://github.com/SomeRandomFella/portsandrips/tree/master/blockblast-port",
+   "secao": "B"
+  },
+  {
+   "nome": "Blood: One Unit Whole Blood (NotBlood-Chosen)",
+   "repo": "https://github.com/AdrianPol-projects/NotBlood-Chosen",
+   "secao": "B"
+  },
+  {
+   "nome": "bog/aukak",
+   "repo": "https://github.com/aukak",
+   "secao": "B"
+  },
+  {
+   "nome": "Bombermaaan",
+   "repo": "https://github.com/midzer/Bombermaaan",
+   "secao": "B"
+  },
+  {
+   "nome": "BottleShip (NFS Underground 2, XIII, Far Cry, Mafia, The Bard's Tale…)",
+   "repo": "https://github.com/jenissimo/bottleship",
+   "secao": "B"
+  },
+  {
+   "nome": "breadbb/genizy",
+   "repo": "https://github.com/genizy",
+   "secao": "B"
+  },
+  {
+   "nome": "BreakHack",
+   "repo": "https://github.com/midzer/breakhack",
+   "secao": "B"
+  },
+  {
+   "nome": "Brogue",
+   "repo": "https://github.com/midzer/BrogueCE",
+   "secao": "B"
+  },
+  {
+   "nome": "Brotato (3)",
+   "repo": "https://github.com/wowdabug/s1/tree/main/brotato",
+   "secao": "B"
+  },
+  {
+   "nome": "Brotato (4)",
+   "repo": "https://github.com/degloved-net/brotato-web",
+   "secao": "B"
+  },
+  {
+   "nome": "Bubble Bobble",
+   "repo": "https://github.com/cookertron/BubbleBobble",
+   "secao": "B"
+  },
+  {
+   "nome": "Buckshot Roulette (2)",
+   "repo": "https://github.com/Stratus-Games/Buckshot-NEWEST-Port",
+   "secao": "B"
+  },
+  {
+   "nome": "Buckshot Roulette (3)",
+   "repo": "https://github.com/degloved-net/buckshot-roulette-web",
+   "secao": "B"
+  },
+  {
+   "nome": "burnedwebsite",
+   "repo": "https://github.com/burnedpopcorn/burnedwebsite",
+   "secao": "B"
+  },
+  {
+   "nome": "C-Dogs SDL",
+   "repo": "https://github.com/midzer/cdogs-sdl",
+   "secao": "C"
+  },
+  {
+   "nome": "Caesar III",
+   "repo": "https://github.com/bvschaik/julius",
+   "secao": "C"
+  },
+  {
+   "nome": "Caesar III (Augustus)",
+   "repo": "https://github.com/Keriew/augustus",
+   "secao": "C"
+  },
+  {
+   "nome": "Candy Crisis",
+   "repo": "https://github.com/midzer/CandyCrisis",
+   "secao": "C"
+  },
+  {
+   "nome": "Capuchin",
+   "repo": "https://github.com/aukak/Capuchin",
+   "secao": "C"
+  },
+  {
+   "nome": "Cat Goes Fishing",
+   "repo": "https://github.com/Reeyuki/CatFish",
+   "secao": "C"
+  },
+  {
+   "nome": "Catchaware",
+   "repo": "https://github.com/barnicalstuff/captchaware",
+   "secao": "C"
+  },
+  {
+   "nome": "Celeste 3D",
+   "repo": "https://github.com/gays-studio/celeste3d",
+   "secao": "C"
+  },
+  {
+   "nome": "Celeste 64",
+   "repo": "https://github.com/MercuryWorkshop/Celeste64",
+   "secao": "C"
+  },
+  {
+   "nome": "Chain-Chillas",
+   "repo": "https://github.com/Camzzz-vrgt/chain-chillas-web",
+   "secao": "C"
+  },
+  {
+   "nome": "Chasing Tails ~A Promise in the Snow~",
+   "repo": "https://github.com/gays-studio/chasingtails",
+   "secao": "C"
+  },
+  {
+   "nome": "Cheese Rollers",
+   "repo": "https://github.com/SomeRandomFella/portsandrips/tree/master/CheeseRollingWeb",
+   "secao": "C"
+  },
+  {
+   "nome": "Cheesed Up 1.3.1",
+   "repo": "https://github.com/burnedpopcorn/Cheesed-Up-1.3.1-Web-Port",
+   "secao": "C"
+  },
+  {
+   "nome": "Chip's Challenge (chipdx)",
+   "repo": "https://github.com/CasualX/chipdx",
+   "secao": "C"
+  },
+  {
+   "nome": "Chromium B.S.U.",
+   "repo": "https://github.com/midzer/chromium-bsu",
+   "secao": "C"
+  },
+  {
+   "nome": "Circus Linux!",
+   "repo": "https://github.com/ICTylor/circuslinux",
+   "secao": "C"
+  },
+  {
+   "nome": "Class of '09: The Flip Side",
+   "repo": "https://github.com/AlexBoops/TFS",
+   "secao": "C"
+  },
+  {
+   "nome": "Class of '09: The Re-Up",
+   "repo": "https://github.com/AlexBoops/tru",
+   "secao": "C"
+  },
+  {
+   "nome": "Claw",
+   "repo": "https://github.com/midzer/OpenClaw",
+   "secao": "C"
+  },
+  {
+   "nome": "Click to Ten",
+   "repo": "https://github.com/BestSpark687090/bestspark-web-ports/tree/main/click-to-ten",
+   "secao": "C"
+  },
+  {
+   "nome": "Command & Conquer",
+   "repo": "https://github.com/midzer/Vanilla-Conquer",
+   "secao": "C"
+  },
+  {
+   "nome": "Counter Strike & Half Life",
+   "repo": "https://github.com/yohimik/webxash3d-fwgs",
+   "secao": "C"
+  },
+  {
+   "nome": "Counter Strike & Half Life frontend (2)",
+   "repo": "https://github.com/Pixelsuft/hl",
+   "secao": "C"
+  },
+  {
+   "nome": "Counter Strike 1.6",
+   "repo": "https://github.com/woahhcrackers/Global-Strike",
+   "secao": "C"
+  },
+  {
+   "nome": "Cruelty Squad (2)",
+   "repo": "https://github.com/web-ports/cruelty-squad",
+   "secao": "C"
+  },
+  {
+   "nome": "Cultures: 8th Wonder of the World / Northland (cultures-saga-wasm)",
+   "repo": "https://github.com/cyberneticangel/cultures-saga-wasm",
+   "secao": "C"
+  },
+  {
+   "nome": "Cuphead (2)",
+   "repo": "https://github.com/woahhcrackers/CupheadWeb",
+   "secao": "C"
+  },
+  {
+   "nome": "Cuphead (3)",
+   "repo": "https://github.com/web-ports/cuphead",
+   "secao": "C"
+  },
+  {
+   "nome": "Cuyo",
+   "repo": "https://github.com/midzer/cuyo",
+   "secao": "C"
+  },
+  {
+   "nome": "A Dance of Fire and Ice",
+   "repo": "https://github.com/Nawsif/host/tree/main/ADOFAI",
+   "secao": "D"
+  },
+  {
+   "nome": "Dawnfolk",
+   "repo": "https://github.com/degloved-net/dawnfolk",
+   "secao": "D"
+  },
+  {
+   "nome": "The Deadseat",
+   "repo": "https://github.com/TheBlehLollipop/The-Deadseat-Webport",
+   "secao": "D"
+  },
+  {
+   "nome": "Defblade",
+   "repo": "https://github.com/midzer/paper-world",
+   "secao": "D"
+  },
+  {
+   "nome": "Deltarune",
+   "repo": "https://github.com/Mollomm1/test",
+   "secao": "D"
+  },
+  {
+   "nome": "Der Clou!",
+   "repo": "https://github.com/midzer/derclou",
+   "secao": "D"
+  },
+  {
+   "nome": "Descent I",
+   "repo": "https://github.com/midzer/dxx-rebirth",
+   "secao": "D"
+  },
+  {
+   "nome": "Devil May Cry (ps2-web-dmc)",
+   "repo": "https://github.com/Brando-karim/ps2-web-dmc",
+   "secao": "D"
+  },
+  {
+   "nome": "Dewdrop Dynasty",
+   "repo": "https://github.com/obsidian-ports/Dewdrop-Dynasty",
+   "secao": "D"
+  },
+  {
+   "nome": "Dictators:No Peace Countryballs",
+   "repo": "https://github.com/web-ports/countryballsdictator",
+   "secao": "D"
+  },
+  {
+   "nome": "Digital Logic Simulator",
+   "repo": "https://github.com/thecheetoman/DLSWebPort",
+   "secao": "D"
+  },
+  {
+   "nome": "Doki Doki Literature Club",
+   "repo": "https://github.com/EmeraldGreenR/EmeraldGreenR.github.io",
+   "secao": "D"
+  },
+  {
+   "nome": "Don't Bite Me Bro",
+   "repo": "https://github.com/usheje883-maker/Dont-Bite-Me-Bro-Web",
+   "secao": "D"
+  },
+  {
+   "nome": "Don't Sleep With The Fishes",
+   "repo": "https://github.com/AlexBoops/DSWTF-Port",
+   "secao": "D"
+  },
+  {
+   "nome": "Doom (cssDOOM)",
+   "repo": "https://github.com/NielsLeenheer/cssDOOM",
+   "secao": "D"
+  },
+  {
+   "nome": "Doom (doom-wasm)",
+   "repo": "https://github.com/cloudflare/doom-wasm",
+   "secao": "D"
+  },
+  {
+   "nome": "Doom (doom.wasm)",
+   "repo": "https://github.com/jacobenget/doom.wasm",
+   "secao": "D"
+  },
+  {
+   "nome": "Doom (wasm-doom)",
+   "repo": "https://github.com/lazarv/wasm-doom",
+   "secao": "D"
+  },
+  {
+   "nome": "Doom (wasmdoom)",
+   "repo": "https://github.com/theMagicalKarp/wasmdoom",
+   "secao": "D"
+  },
+  {
+   "nome": "Doom / Doom II / Heretic (EDGE-classic)",
+   "repo": "https://github.com/edge-classic/EDGE-classic",
+   "secao": "D"
+  },
+  {
+   "nome": "Doom Engine",
+   "repo": "https://github.com/GMH-Code/Dwasm",
+   "secao": "D"
+  },
+  {
+   "nome": "DOS demoscene productions (demoscene-recomp)",
+   "repo": "https://github.com/treylorswift/demoscene-recomp",
+   "secao": "D"
+  },
+  {
+   "nome": "Downhill Domination (downhill-revived)",
+   "repo": "https://github.com/skuza-oss/downhill-revived",
+   "secao": "D"
+  },
+  {
+   "nome": "Duck Life Adventure",
+   "repo": "https://github.com/aukak/duck-life-adventure",
+   "secao": "D"
+  },
+  {
+   "nome": "Duck Life Adventure (2)",
+   "repo": "https://github.com/web-ports/duck-8",
+   "secao": "D"
+  },
+  {
+   "nome": "Duke Nukem II",
+   "repo": "https://github.com/lethal-guitar/RigelEngine",
+   "secao": "D"
+  },
+  {
+   "nome": "Dumb Ways to Die (v1.6)",
+   "repo": "https://github.com/web-ports/dumb-ways-to-die",
+   "secao": "D"
+  },
+  {
+   "nome": "Dungeon Rush",
+   "repo": "https://github.com/midzer/DungeonRush",
+   "secao": "D"
+  },
+  {
+   "nome": "Empty Clip",
+   "repo": "https://github.com/midzer/empty-clip",
+   "secao": "E"
+  },
+  {
+   "nome": "Endacopia",
+   "repo": "https://github.com/linkawaken1979-alt/endacopia-",
+   "secao": "E"
+  },
+  {
+   "nome": "F-Zero X (n64hub recomp)",
+   "repo": "https://github.com/n64hub/f-zero-x-recomp",
+   "secao": "F"
+  },
+  {
+   "nome": "Fade To Black",
+   "repo": "https://github.com/midzer/f2bgl",
+   "secao": "F"
+  },
+  {
+   "nome": "Fallout 2",
+   "repo": "https://github.com/roginvs/fallout2-ce",
+   "secao": "F"
+  },
+  {
+   "nome": "Fear and Hunger",
+   "repo": "https://github.com/web-ports/fear-and-hunger",
+   "secao": "F"
+  },
+  {
+   "nome": "Fear and Hunger 2: Termina",
+   "repo": "https://github.com/web-ports/fear-and-hunger-2",
+   "secao": "F"
+  },
+  {
+   "nome": "Feed the Pit",
+   "repo": "https://github.com/idkdl/feedthepit-src",
+   "secao": "F"
+  },
+  {
+   "nome": "Five Nighs at Epstein's",
+   "repo": "https://github.com/web-ports/fnae",
+   "secao": "F"
+  },
+  {
+   "nome": "Five Nights at Candy's 1",
+   "repo": "https://github.com/web-ports/fnac/tree/main/1",
+   "secao": "F"
+  },
+  {
+   "nome": "Five Nights at Freddy's 1",
+   "repo": "https://github.com/irv77/hd_fnaf/tree/main/1",
+   "secao": "F"
+  },
+  {
+   "nome": "Five Nights at Freddy's 4: Halloween Edition",
+   "repo": "https://github.com/genizy/fnaf/tree/main/4-halloween",
+   "secao": "F"
+  },
+  {
+   "nome": "Five Nights at Freddy's: Pizzeria Simulator",
+   "repo": "https://github.com/irv77/hd_fnaf/tree/main/ps",
+   "secao": "F"
+  },
+  {
+   "nome": "Five Nights in Anime 3D",
+   "repo": "https://github.com/Reeyuki/fivenightsanime3dport",
+   "secao": "F"
+  },
+  {
+   "nome": "Flare",
+   "repo": "https://github.com/midzer/flare-engine",
+   "secao": "F"
+  },
+  {
+   "nome": "Flashback",
+   "repo": "https://github.com/midzer/reminiscence",
+   "secao": "F"
+  },
+  {
+   "nome": "Flying Gorilla",
+   "repo": "https://github.com/web-ports/flying-gorilla",
+   "secao": "F"
+  },
+  {
+   "nome": "FNAF",
+   "repo": "https://github.com/genizy/fnaf/tree/main/1",
+   "secao": "F"
+  },
+  {
+   "nome": "FNAF: Blood & Gears (Demo)",
+   "repo": "https://github.com/UMMMM-GUYSSS/Five-Nights-at-Freddy-s-Blood---Gears",
+   "secao": "F"
+  },
+  {
+   "nome": "Free Heroes of Might and Magic II (web)",
+   "repo": "https://github.com/Carter54git/fheroes-1.1.17-ported-to-web",
+   "secao": "F"
+  },
+  {
+   "nome": "Freegemas",
+   "repo": "https://github.com/midzer/freegemas",
+   "secao": "F"
+  },
+  {
+   "nome": "Freegish",
+   "repo": "https://github.com/midzer/freegish",
+   "secao": "F"
+  },
+  {
+   "nome": "Freeserf",
+   "repo": "https://github.com/midzer/freeserf",
+   "secao": "F"
+  },
+  {
+   "nome": "FreeSiege",
+   "repo": "https://github.com/midzer/freesiege",
+   "secao": "F"
+  },
+  {
+   "nome": "Fungiman",
+   "repo": "https://github.com/GrassPorts/Fungiman",
+   "secao": "F"
+  },
+  {
+   "nome": "Gabriel's Awesome Schoolhouse",
+   "repo": "https://github.com/web-ports/gash",
+   "secao": "G"
+  },
+  {
+   "nome": "Gamble with Your Friends",
+   "repo": "https://github.com/Camzzz-vrgt/gamble-with-your-friends-web/tree/main/game",
+   "secao": "G"
+  },
+  {
+   "nome": "Gambonanza",
+   "repo": "https://github.com/AlexBoops/Gambonanza-Port",
+   "secao": "G"
+  },
+  {
+   "nome": "A Game about Feeding a Black Hole",
+   "repo": "https://github.com/GrassPorts/A-Game-About-Feeding-A-Black-Hole",
+   "secao": "G"
+  },
+  {
+   "nome": "A Game about Feeding a Black Hole",
+   "repo": "https://git.gay/portmirrors/agafabh",
+   "secao": "G"
+  },
+  {
+   "nome": "Gang Beasts",
+   "repo": "https://github.com/jmhq20120212-cmd/GangBeast-WebPort",
+   "secao": "G"
+  },
+  {
+   "nome": "gays dot' studio",
+   "repo": "https://github.com/gays-studio",
+   "secao": "G"
+  },
+  {
+   "nome": "Genital Jousting",
+   "repo": "https://github.com/degloved-net/genital-jousting",
+   "secao": "G"
+  },
+  {
+   "nome": "Gilbert and the doors",
+   "repo": "https://github.com/midzer/gilbert",
+   "secao": "G"
+  },
+  {
+   "nome": "GMH-Code",
+   "repo": "https://github.com/GMH-Code",
+   "secao": "G"
+  },
+  {
+   "nome": "God of War II / Gran Turismo 4 (PS2 Web Recomp)",
+   "repo": "https://github.com/snuri00/ps2-web-recomp",
+   "secao": "G"
+  },
+  {
+   "nome": "God of War: Chains of Olympus / Ghost of Sparta (PSP Web Recomp)",
+   "repo": "https://github.com/snuri00/psp-web-recomp",
+   "secao": "G"
+  },
+  {
+   "nome": "Gorilla Tag (2)",
+   "repo": "https://github.com/aukak/gorrila-tag",
+   "secao": "G"
+  },
+  {
+   "nome": "Gran Turismo 2 (gt-2-pc)",
+   "repo": "https://github.com/dubrovskiy-yevhen-stakelogic/gt-2-pc",
+   "secao": "G"
+  },
+  {
+   "nome": "Granny (2)",
+   "repo": "https://github.com/aukak/Granny",
+   "secao": "G"
+  },
+  {
+   "nome": "Granny (3)",
+   "repo": "https://github.com/woahhcrackers/GrannyWeb",
+   "secao": "G"
+  },
+  {
+   "nome": "Granny 2",
+   "repo": "https://github.com/web-ports/granny-2",
+   "secao": "G"
+  },
+  {
+   "nome": "Granny 3",
+   "repo": "https://github.com/mynamescrax/gamesforaetheris/tree/main/granny3",
+   "secao": "G"
+  },
+  {
+   "nome": "Gravity Circuit",
+   "repo": "https://github.com/TheChillVideoGameNerd/Gravity-Circuit-Web-Port",
+   "secao": "G"
+  },
+  {
+   "nome": "GTA 3",
+   "repo": "https://github.com/larpinguser/HelloWorldScriptBasicFunctionCSharpIsCool/",
+   "secao": "G"
+  },
+  {
+   "nome": "GTA 3 (2)",
+   "repo": "https://github.com/woahhcrackers/GTA3Web",
+   "secao": "G"
+  },
+  {
+   "nome": "GTA V (Grand-V)",
+   "repo": "https://github.com/SebasKitten/Grand-V",
+   "secao": "G"
+  },
+  {
+   "nome": "GTA Vice City",
+   "repo": "https://github.com/Lolendor/reVCDOS",
+   "secao": "G"
+  },
+  {
+   "nome": "Happy Wheels",
+   "repo": "https://github.com/Nawsif/host/tree/main/HappyWheels",
+   "secao": "H"
+  },
+  {
+   "nome": "Haxima",
+   "repo": "https://github.com/midzer/nazghul",
+   "secao": "H"
+  },
+  {
+   "nome": "HAYAI",
+   "repo": "https://github.com/degloved-net/HAYAI",
+   "secao": "H"
+  },
+  {
+   "nome": "Heart of Darkness",
+   "repo": "https://github.com/midzer/hode",
+   "secao": "H"
+  },
+  {
+   "nome": "Hedgewars (WebWars)",
+   "repo": "https://github.com/apmlabs/webwars",
+   "secao": "H"
+  },
+  {
+   "nome": "Help Hannah's Horse",
+   "repo": "https://github.com/midzer/hannah",
+   "secao": "H"
+  },
+  {
+   "nome": "Heroes of Might and magic 3 for Web",
+   "repo": "https://github.com/caiiiycuk/vcmi-wasm",
+   "secao": "H"
+  },
+  {
+   "nome": "Hill Climb Racing",
+   "repo": "https://github.com/NotRexed/HillClimbRacingPort",
+   "secao": "H"
+  },
+  {
+   "nome": "Hollow Knight (2)",
+   "repo": "https://github.com/NOTAHACKER9999/Hollow-Knight-Port",
+   "secao": "H"
+  },
+  {
+   "nome": "Hollow Knight: Silksong (2)",
+   "repo": "https://github.com/webporting/Hollow-Knight-Silksong",
+   "secao": "H"
+  },
+  {
+   "nome": "Horse Magnifier",
+   "repo": "https://github.com/AlexBoops/horse-magnifier-port",
+   "secao": "H"
+  },
+  {
+   "nome": "Horsey Game",
+   "repo": "https://github.com/woahhcrackers/HorseyGameWeb",
+   "secao": "H"
+  },
+  {
+   "nome": "Hugo (hugo_js)",
+   "repo": "https://github.com/cyxx/hugo_js",
+   "secao": "H"
+  },
+  {
+   "nome": "Hurrican",
+   "repo": "https://github.com/midzer/hurrican",
+   "secao": "H"
+  },
+  {
+   "nome": "HYDROGEN",
+   "repo": "https://github.com/BestSpark687090/bestspark-web-ports/tree/main/hydrogen",
+   "secao": "H"
+  },
+  {
+   "nome": "I Spoke to God",
+   "repo": "https://github.com/degloved-net/i-spoke-to-god",
+   "secao": "I"
+  },
+  {
+   "nome": "Ignition",
+   "repo": "https://github.com/xesf/ignition",
+   "secao": "I"
+  },
+  {
+   "nome": "In Stars and Time (2)",
+   "repo": "https://github.com/web-ports/in-stars-and-time",
+   "secao": "I"
+  },
+  {
+   "nome": "IS THAT A GUBBY?",
+   "repo": "https://github.com/xxskidxx69420-ai/isthatagubbywebportheh",
+   "secao": "I"
+  },
+  {
+   "nome": "Jagged Alliance 2",
+   "repo": "https://github.com/midzer/ja2-stracciatella",
+   "secao": "J"
+  },
+  {
+   "nome": "Jazz Jackrabbit",
+   "repo": "https://github.com/midzer/openjazz",
+   "secao": "J"
+  },
+  {
+   "nome": "Jazz Jackrabbit 2",
+   "repo": "https://github.com/deathkiller/jazz2-native",
+   "secao": "J"
+  },
+  {
+   "nome": "JENNY",
+   "repo": "https://github.com/MRVAPORWAVE25/JennyGameFiles",
+   "secao": "J"
+  },
+  {
+   "nome": "JS-DOS",
+   "repo": "https://github.com/js-dos/",
+   "secao": "J"
+  },
+  {
+   "nome": "Jump 'n Bump",
+   "repo": "https://github.com/midzer/jumpnbump",
+   "secao": "J"
+  },
+  {
+   "nome": "Karlson (2)",
+   "repo": "https://github.com/thecheetoman/KarlsonWebPort",
+   "secao": "K"
+  },
+  {
+   "nome": "Keep Talking and Nobody Explodes",
+   "repo": "https://github.com/squidward5/ktane-webport",
+   "secao": "K"
+  },
+  {
+   "nome": "Kerbal Space Program",
+   "repo": "https://github.com/woahhcrackers/KSPWeb",
+   "secao": "K"
+  },
+  {
+   "nome": "Kill the Ice Age Baby Adventure 2",
+   "repo": "https://github.com/SomeRandomFella/kill-ice-age-baby-adventure-2-",
+   "secao": "K"
+  },
+  {
+   "nome": "Kingdom Hearts: Chain of Memories (ReKHCoM, web alpha)",
+   "repo": "https://github.com/MatyMeatBoy/ReKHCom",
+   "secao": "K"
+  },
+  {
+   "nome": "KinitoPET",
+   "repo": "https://github.com/web-ports/kinito-pet",
+   "secao": "K"
+  },
+  {
+   "nome": "Kirby ~ Soft and Wet",
+   "repo": "https://github.com/web-ports/soft-and-wet",
+   "secao": "K"
+  },
+  {
+   "nome": "KisakCOD",
+   "repo": "https://github.com/slqntdevss/kisakcod-port",
+   "secao": "K"
+  },
+  {
+   "nome": "Klifur",
+   "repo": "https://github.com/aukak/klifur",
+   "secao": "K"
+  },
+  {
+   "nome": "La Madriguera",
+   "repo": "https://github.com/web-ports/la-madriguera",
+   "secao": "L"
+  },
+  {
+   "nome": "LBreakoutHD",
+   "repo": "https://github.com/midzer/lbreakouthd",
+   "secao": "L"
+  },
+  {
+   "nome": "The Legend of Sword and Fairy (SDLPAL)",
+   "repo": "https://github.com/sdlpal/sdlpal",
+   "secao": "L"
+  },
+  {
+   "nome": "The Legend of Sword and Fairy (type-pal)",
+   "repo": "https://github.com/IllegalCreed/type-pal",
+   "secao": "L"
+  },
+  {
+   "nome": "The Legend of Zelda (ZQuest Classic)",
+   "repo": "https://github.com/ZQuestClassic/ZQuestClassic",
+   "secao": "L"
+  },
+  {
+   "nome": "The Legend of Zelda - A Link to the Past",
+   "repo": "https://github.com/midzer/zelda3",
+   "secao": "L"
+  },
+  {
+   "nome": "The Legend of Zelda - A Link to the Past (lttp, WebGL remake)",
+   "repo": "https://github.com/englercj/lttp",
+   "secao": "L"
+  },
+  {
+   "nome": "The Legend of Zelda: Link's Awakening DX (linksawakening-portable)",
+   "repo": "https://github.com/sp00nznet/linksawakening-portable",
+   "secao": "L"
+  },
+  {
+   "nome": "LEGOLAND",
+   "ano": 1999,
+   "repo": "https://github.com/facundosterzerforino/legoland-port",
+   "secao": "L"
+  },
+  {
+   "nome": "Li-Ri",
+   "repo": "https://github.com/midzer/Li-Ri",
+   "secao": "L"
+  },
+  {
+   "nome": "Lionheart (lionheart-web)",
+   "repo": "https://github.com/ray77/lionheart-web",
+   "secao": "L"
+  },
+  {
+   "nome": "Little Big Adventure 2",
+   "repo": "https://github.com/LBALab/lba2remake",
+   "secao": "L"
+  },
+  {
+   "nome": "Magic Sushi",
+   "repo": "https://github.com/EXL/Magic-Sushi",
+   "secao": "M"
+  },
+  {
+   "nome": "Marathon 2 / Infinity (AlephWeb)",
+   "repo": "https://github.com/TotallyGatsby/AlephWeb",
+   "secao": "M"
+  },
+  {
+   "nome": "Marble Blast Gold & Marble Blast Platinum",
+   "repo": "https://github.com/Vanilagy/MarbleBlast",
+   "secao": "M"
+  },
+  {
+   "nome": "Mario Kart Wii (WebCompiled)",
+   "repo": "https://github.com/dynamiteswag81/webcompiled",
+   "secao": "M"
+  },
+  {
+   "nome": "Mario Party 4 (PC Download Play Edition)",
+   "repo": "https://github.com/wigwoo1/Mario-Party-4-PC-Download-Play-Edition",
+   "secao": "M"
+  },
+  {
+   "nome": "Master of Orion",
+   "repo": "https://github.com/midzer/1oom",
+   "secao": "M"
+  },
+  {
+   "nome": "The Math Is Leaking",
+   "repo": "https://github.com/reeyuki/themathisleaking",
+   "secao": "M"
+  },
+  {
+   "nome": "Mega Mario",
+   "repo": "https://github.com/midzer/megamario",
+   "secao": "M"
+  },
+  {
+   "nome": "Meowdoku!",
+   "repo": "https://github.com/c00lkiddtech/md-",
+   "secao": "M"
+  },
+  {
+   "nome": "The Message From Deep Space",
+   "repo": "https://github.com/dashiellbenton/ports/tree/main/tmfds",
+   "secao": "M"
+  },
+  {
+   "nome": "Meteor 60 Seconds",
+   "repo": "https://github.com/ThatWirdGuy/Meteor-60-Seconds-Web",
+   "secao": "M"
+  },
+  {
+   "nome": "Micro Machines (scale-miniatures)",
+   "repo": "https://github.com/hivvu/scale-miniatures",
+   "secao": "M"
+  },
+  {
+   "nome": "Milkman Karlson (2)",
+   "repo": "https://github.com/aukak/gameports/tree/main/milkman%20karlson",
+   "secao": "M"
+  },
+  {
+   "nome": "Mindustry",
+   "repo": "https://github.com/khoichon/mindustry-web",
+   "secao": "M"
+  },
+  {
+   "nome": "Mine Bombers (minebombers-reloaded)",
+   "repo": "https://github.com/jeiel85/minebombers-reloaded",
+   "secao": "M"
+  },
+  {
+   "nome": "Minecraft 4k",
+   "repo": "https://github.com/midzer/m4kc",
+   "secao": "M"
+  },
+  {
+   "nome": "Minecraft Classic (ClassiCube)",
+   "repo": "https://github.com/ClassiCube/ClassiCube",
+   "secao": "M"
+  },
+  {
+   "nome": "MiniSlug",
+   "repo": "https://github.com/midzer/minislug",
+   "secao": "M"
+  },
+  {
+   "nome": "Mobile Suit Gundam: Gundam vs. Zeta Gundam (re-gvs-gvzg)",
+   "repo": "https://github.com/sennett-lau/re-gvs-gvzg",
+   "secao": "M"
+  },
+  {
+   "nome": "Muck (WIP)",
+   "repo": "https://github.com/gays-studio/muck-webport",
+   "secao": "M"
+  },
+  {
+   "nome": "Muddy Heights",
+   "repo": "https://github.com/gabadagabadgoo/morbidy-obese-chickens",
+   "secao": "M"
+  },
+  {
+   "nome": "MVP Baseball 2005",
+   "repo": "https://github.com/ptitty12/mvp2005-decomp",
+   "secao": "M"
+  },
+  {
+   "nome": "My Baby Talking Hippo",
+   "repo": "https://github.com/web-ports/talking-hippo",
+   "secao": "M"
+  },
+  {
+   "nome": "My Dictator Stalin Can't Be This Cute ?!",
+   "repo": "https://github.com/degloved-net/my-dictator-stalin-cant-be-this-cute",
+   "secao": "M"
+  },
+  {
+   "nome": "My Dictator Stalin Can't Be This Cute ?!",
+   "repo": "https://github.com/degloved-net/stalin-yuri-web",
+   "secao": "M"
+  },
+  {
+   "nome": "My Femboy Roommate",
+   "repo": "http://github.com/gays-studio/mfr-webport",
+   "secao": "M"
+  },
+  {
+   "nome": "My Femboy Roommate (2)",
+   "repo": "https://github.com/Cute-Orange-Cat/MFR/tree/main",
+   "secao": "M"
+  },
+  {
+   "nome": "My Furry Protogen",
+   "repo": "https://github.com/Atreyu802/My-Furry-Protogen-Web-Port",
+   "secao": "M"
+  },
+  {
+   "nome": "Neverball",
+   "repo": "https://github.com/Neverball/neverball",
+   "secao": "N"
+  },
+  {
+   "nome": "New Super Mario Bros. Wii",
+   "repo": "https://github.com/teaserlua/nsmbw-web-port",
+   "secao": "N"
+  },
+  {
+   "nome": "Night in the Woods",
+   "repo": "https://github.com/reeyuki/NightInTheWoods/",
+   "secao": "N"
+  },
+  {
+   "nome": "Night of the Consumers",
+   "repo": "https://github.com/linkawaken1979-alt/night-of-the-consumers-web-port",
+   "secao": "N"
+  },
+  {
+   "nome": "Nikwi",
+   "repo": "https://github.com/midzer/nikwi",
+   "secao": "N"
+  },
+  {
+   "nome": "Nodebuster",
+   "repo": "https://github.com/degloved-net/nodebuster",
+   "secao": "N"
+  },
+  {
+   "nome": "Nothing",
+   "repo": "https://github.com/gays-studio/nothing-wasm-web",
+   "secao": "N"
+  },
+  {
+   "nome": "Nothing (2)",
+   "repo": "https://github.com/googoogoob/NothingWebPort",
+   "secao": "N"
+  },
+  {
+   "nome": "Nothing (3)",
+   "repo": "https://github.com/BestSpark687090/bestspark-web-ports/tree/main/actual-nothing",
+   "secao": "N"
+  },
+  {
+   "nome": "Numpty Physics",
+   "repo": "https://github.com/midzer/numptyphysics",
+   "secao": "N"
+  },
+  {
+   "nome": "OLD CheesedUP",
+   "repo": "https://github.com/burnedpopcorn/OLD-CheesedUP-Web-Port",
+   "secao": "O"
+  },
+  {
+   "nome": "OMORI (openomori)",
+   "repo": "https://github.com/dazacode/openomori",
+   "secao": "O"
+  },
+  {
+   "nome": "One Must Fall 2097 Remastered",
+   "repo": "https://github.com/Jared-woodruff/OMF-2097-Remastered",
+   "secao": "O"
+  },
+  {
+   "nome": "One Night At Kim Jong Un's",
+   "repo": "https://github.com/usheje883-maker/One-Night-At-Kim-Jong-Un-s-Webport",
+   "secao": "O"
+  },
+  {
+   "nome": "One Potion Please!",
+   "repo": "https://github.com/ajtabjs/onepotionplease",
+   "secao": "O"
+  },
+  {
+   "nome": "Open Golf",
+   "repo": "https://github.com/mgerdes/Open-Golf",
+   "secao": "O"
+  },
+  {
+   "nome": "OpenFodder",
+   "repo": "https://github.com/OpenFodder/openfodder",
+   "secao": "O"
+  },
+  {
+   "nome": "OpenTTD (OpenTTD Online)",
+   "repo": "https://github.com/swords02/openttd-online",
+   "secao": "O"
+  },
+  {
+   "nome": "OpenTyrian",
+   "repo": "https://github.com/midzer/opentyrian",
+   "secao": "O"
+  },
+  {
+   "nome": "Pacman",
+   "repo": "https://github.com/midzer/pacman",
+   "secao": "P"
+  },
+  {
+   "nome": "Paint the Town Red",
+   "repo": "https://github.com/Reeyuki/PttrWebport",
+   "secao": "P"
+  },
+  {
+   "nome": "Pang (pang-web)",
+   "repo": "https://github.com/ray77/pang-web",
+   "secao": "P"
+  },
+  {
+   "nome": "Patrick’s Parabox",
+   "repo": "https://github.com/puffrs/patrickparaboxweb",
+   "secao": "P"
+  },
+  {
+   "nome": "People Playground (2)",
+   "repo": "https://github.com/bubbls/ugss/tree/main/people-playground",
+   "secao": "P"
+  },
+  {
+   "nome": "Perfect Dark (n64hub recomp)",
+   "repo": "https://github.com/n64hub/perfect-dark-recomp",
+   "secao": "P"
+  },
+  {
+   "nome": "Perimeter",
+   "repo": "https://github.com/KD-lab-Open-Source/Perimeter",
+   "secao": "P"
+  },
+  {
+   "nome": "Pizza Tower 1.1.0",
+   "repo": "https://github.com/burnedpopcorn/Pizza-Tower-1.1.0-Web-Port",
+   "secao": "P"
+  },
+  {
+   "nome": "PizzaTower April2021 WebPort",
+   "repo": "https://github.com/burnedpopcorn/PizzaTower-April2021-WebPort",
+   "secao": "P"
+  },
+  {
+   "nome": "Plague Inc: Evolved",
+   "repo": "https://github.com/Reeyuki/PlagueIncEvolved",
+   "secao": "P"
+  },
+  {
+   "nome": "Plants vs Zombies: Fusion",
+   "repo": "https://github.com/gays-studio/pvzfusion",
+   "secao": "P"
+  },
+  {
+   "nome": "Plants vs Zombies: GOTY Edition (2)",
+   "repo": "https://github.com/web-ports/pvz",
+   "secao": "P"
+  },
+  {
+   "nome": "Plants vs Zombies: GOTY Edition (3)",
+   "repo": "https://github.com/ajtabjs/pvzdeploy",
+   "secao": "P"
+  },
+  {
+   "nome": "Pokémon Emerald (pokeemerald-wasm)",
+   "repo": "https://github.com/tripplyons/pokeemerald-wasm",
+   "secao": "P"
+  },
+  {
+   "nome": "Pokémon Emerald 3D (pokeemerald-3d)",
+   "repo": "https://github.com/tripplyons/pokeemerald-3d",
+   "secao": "P"
+  },
+  {
+   "nome": "Pokémon Yellow (pokemon-yellow-typescript)",
+   "repo": "https://github.com/gididaf/pokemon-yellow-typescript",
+   "secao": "P"
+  },
+  {
+   "nome": "Portal",
+   "repo": "https://github.com/AlexBoops/portal-1-port",
+   "secao": "P"
+  },
+  {
+   "nome": "POSTAL",
+   "repo": "https://github.com/leahanderson1/POSTAL-WASM",
+   "secao": "P"
+  },
+  {
+   "nome": "Potion Craft: Alchemist Simulator",
+   "repo": "https://github.com/GrassPorts/Potion-Craft-Alchemy-Simulator",
+   "secao": "P"
+  },
+  {
+   "nome": "Powermanga",
+   "repo": "https://github.com/midzer/Powermanga",
+   "secao": "P"
+  },
+  {
+   "nome": "Prehistorik (prehistorik_js)",
+   "repo": "https://github.com/cyxx/prehistorik_js",
+   "secao": "P"
+  },
+  {
+   "nome": "Prototype",
+   "repo": "https://github.com/midzer/prototype",
+   "secao": "P"
+  },
+  {
+   "nome": "Proxified Ports",
+   "repo": "https://github.com/burnedpopcorn/Proxified-Ports",
+   "secao": "P"
+  },
+  {
+   "nome": "Psychopomp",
+   "repo": "https://github.com/z4laxis/PsychopompWebport",
+   "secao": "P"
+  },
+  {
+   "nome": "PT HTML Launcher",
+   "repo": "https://github.com/burnedpopcorn/PT-HTML-Launcher",
+   "secao": "P"
+  },
+  {
+   "nome": "PT Scoutdigo",
+   "repo": "https://github.com/burnedpopcorn/PT-Scoutdigo-Web-Port",
+   "secao": "P"
+  },
+  {
+   "nome": "PTWebLauncher",
+   "repo": "https://github.com/burnedpopcorn/PTWebLauncher",
+   "secao": "P"
+  },
+  {
+   "nome": "Quake 2",
+   "repo": "https://github.com/GMH-Code/Qwasm2",
+   "secao": "Q"
+  },
+  {
+   "nome": "Quake 3",
+   "repo": "https://github.com/lrusso/Quake3",
+   "secao": "Q"
+  },
+  {
+   "nome": "Rabbids Go Home",
+   "repo": "https://github.com/teaserlua/rabbids-go-home-web-port",
+   "secao": "R"
+  },
+  {
+   "nome": "Ragnarok Online (roBrowser)",
+   "repo": "https://github.com/vthibault/roBrowser",
+   "secao": "R"
+  },
+  {
+   "nome": "Raptor - Call of the Shadows",
+   "repo": "https://github.com/midzer/raptor",
+   "secao": "R"
+  },
+  {
+   "nome": "Ravenfield",
+   "repo": "https://github.com/degloved-net/Ravenfield",
+   "secao": "R"
+  },
+  {
+   "nome": "Rec Room",
+   "repo": "https://github.com/98corbins",
+   "secao": "R"
+  },
+  {
+   "nome": "Red Stone Online (redstone-js)",
+   "repo": "https://github.com/LostMyCode/redstone-js",
+   "secao": "R"
+  },
+  {
+   "nome": "REminiscence",
+   "repo": "https://github.com/midzer/reminiscence",
+   "secao": "R"
+  },
+  {
+   "nome": "Rise of the Triad",
+   "repo": "https://github.com/midzer/rottexpr",
+   "secao": "R"
+  },
+  {
+   "nome": "Rockbot",
+   "repo": "https://github.com/midzer/rockbot",
+   "secao": "R"
+  },
+  {
+   "nome": "ROUNDS",
+   "repo": "https://github.com/Nawsif/host/tree/main/ROUNDS",
+   "secao": "R"
+  },
+  {
+   "nome": "Rugby 08 (rugby08-web)",
+   "repo": "https://github.com/IFAKA/rugby08-web",
+   "secao": "R"
+  },
+  {
+   "nome": "Running Fred",
+   "repo": "https://github.com/aukak/running-fred",
+   "secao": "R"
+  },
+  {
+   "nome": "Samogonki (Moonshine Racers)",
+   "repo": "https://github.com/KD-lab-Open-Source/Samogonki",
+   "secao": "S"
+  },
+  {
+   "nome": "San Francisco Rush 2049 (Recomp)",
+   "repo": "https://github.com/n64hub/rush-2049-recomp",
+   "secao": "S"
+  },
+  {
+   "nome": "Scoutdingo",
+   "repo": "https://github.com/web-ports/scoutdingo",
+   "secao": "S"
+  },
+  {
+   "nome": "Scritchy Scratchy",
+   "repo": "https://github.com/c00lkiddtech/scratchy",
+   "secao": "S"
+  },
+  {
+   "nome": "SDL Sopwith",
+   "repo": "https://github.com/fragglet/sdl-sopwith",
+   "secao": "S"
+  },
+  {
+   "nome": "SDL-Ball",
+   "repo": "https://github.com/midzer/sdl-ball",
+   "secao": "S"
+  },
+  {
+   "nome": "Serial Experiments Lain (lainTSX)",
+   "repo": "https://github.com/ad044/lainTSX",
+   "secao": "S"
+  },
+  {
+   "nome": "Sex with Hitler",
+   "repo": "https://github.com/ajtabjs/swhport",
+   "secao": "S"
+  },
+  {
+   "nome": "Sex with Hitler",
+   "repo": "https://github.com/q-29/swhport-fixed",
+   "secao": "S"
+  },
+  {
+   "nome": "Shift at Midnight",
+   "repo": "https://github.com/slqntdevss/ShiftAtMidnightPort",
+   "secao": "S"
+  },
+  {
+   "nome": "Shiromino",
+   "repo": "https://github.com/midzer/shiromino",
+   "secao": "S"
+  },
+  {
+   "nome": "Shrimpio",
+   "repo": "https://github.com/goodmeals/shrimpio",
+   "secao": "S"
+  },
+  {
+   "nome": "Sid Meier's SimGolf (OpenSGolf)",
+   "repo": "https://github.com/crspytopgn/opensgolf",
+   "secao": "S"
+  },
+  {
+   "nome": "Side Effects",
+   "repo": "https://github.com/gn-math/assets/tree/main/318",
+   "secao": "S"
+  },
+  {
+   "nome": "SimTower (concilia-tower)",
+   "repo": "https://github.com/Jonahss/concilia-tower",
+   "secao": "S"
+  },
+  {
+   "nome": "Simutrans",
+   "repo": "https://github.com/midzer/simutrans",
+   "secao": "S"
+  },
+  {
+   "nome": "Slenderina The Cellar",
+   "repo": "https://github.com/Reeyuki/slenderina",
+   "secao": "S"
+  },
+  {
+   "nome": "Slendytubbies",
+   "repo": "https://github.com/web-ports/slendytubbies",
+   "secao": "S"
+  },
+  {
+   "nome": "Slime Ranchers",
+   "repo": "https://github.com/web-ports/slime-ranchers",
+   "secao": "S"
+  },
+  {
+   "nome": "Slime Ranchers (2)",
+   "repo": "https://github.com/Reeyuki/SlimeRanch",
+   "secao": "S"
+  },
+  {
+   "nome": "SM Kart ZX",
+   "repo": "https://github.com/burnedpopcorn/SM-Kart-ZX-Web-Port",
+   "secao": "S"
+  },
+  {
+   "nome": "sm64plus webport PoC",
+   "repo": "https://github.com/burnedpopcorn/sm64plus-webport-PoC",
+   "secao": "S"
+  },
+  {
+   "nome": "SNAPTIC",
+   "repo": "https://github.com/degloved-net/snaptic-web",
+   "secao": "S"
+  },
+  {
+   "nome": "Sokoban",
+   "repo": "https://github.com/midzer/simple-sokoban",
+   "secao": "S"
+  },
+  {
+   "nome": "Something",
+   "repo": "https://github.com/gays-studio/something-web",
+   "secao": "S"
+  },
+  {
+   "nome": "Something (2)",
+   "repo": "https://github.com/googoogoob/SomethingWebPort",
+   "secao": "S"
+  },
+  {
+   "nome": "Something (3)",
+   "repo": "https://github.com/BestSpark687090/bestspark-web-ports/tree/main/actual-something",
+   "secao": "S"
+  },
+  {
+   "nome": "Sonic 3 A.I.R.",
+   "repo": "https://github.com/Eukaryot/sonic3air",
+   "secao": "S"
+  },
+  {
+   "nome": "Sonic GDevelop",
+   "repo": "https://github.com/burnedpopcorn/Sonic-GDevelop-Web-Port",
+   "secao": "S"
+  },
+  {
+   "nome": "Sonic Robo Blast 2 (2)",
+   "repo": "https://github.com/web-ports/srb2",
+   "secao": "S"
+  },
+  {
+   "nome": "Sonic the Hedgehog 1 & 2 (Sonic-Decompilation-WASM)",
+   "repo": "https://github.com/mattConn/Sonic-Decompilation-WASM",
+   "secao": "S"
+  },
+  {
+   "nome": "Sonic the Hedgehog 2",
+   "repo": "https://github.com/VinMannie/Sonic-2-WASM",
+   "secao": "S"
+  },
+  {
+   "nome": "Sonic2 Community Cut WebPort",
+   "repo": "https://github.com/burnedpopcorn/Sonic2-Community-Cut-WebPort",
+   "secao": "S"
+  },
+  {
+   "nome": "sonic3air webport",
+   "repo": "https://github.com/burnedpopcorn/sonic3air-webport",
+   "secao": "S"
+  },
+  {
+   "nome": "SonicManiaPlusWebPort",
+   "repo": "https://github.com/burnedpopcorn/SonicManiaPlusWebPort",
+   "secao": "S"
+  },
+  {
+   "nome": "Space Cadet",
+   "repo": "https://github.com/k4zmu2a/SpaceCadetPinball",
+   "secao": "S"
+  },
+  {
+   "nome": "SRB2 Kart",
+   "repo": "https://github.com/skyleite/Kart-Public-WASM/",
+   "secao": "S"
+  },
+  {
+   "nome": "SSX 3 (ssx3-decomp)",
+   "repo": "https://github.com/andersfischernielsen/ssx3-decomp",
+   "secao": "S"
+  },
+  {
+   "nome": "Star Wars Jedi Knight: Dark Forces II",
+   "repo": "https://github.com/shinyquagsire23/OpenJKDF2",
+   "secao": "S"
+  },
+  {
+   "nome": "Starfighter",
+   "repo": "https://github.com/midzer/starfighter",
+   "secao": "S"
+  },
+  {
+   "nome": "Stunts (stunts-hd)",
+   "repo": "https://github.com/mr-finster/stunts-hd",
+   "secao": "S"
+  },
+  {
+   "nome": "Subway Surfers: Las Vegas",
+   "repo": "https://github.com/Toastiest64/Las-Vegas",
+   "secao": "S"
+  },
+  {
+   "nome": "Sugary Spire",
+   "repo": "https://github.com/burnedpopcorn/Sugary-Spire-Web-Port",
+   "secao": "S"
+  },
+  {
+   "nome": "Suicide Guy Deluxe",
+   "repo": "https://github.com/Reeyuki/SuicideGuyDeluxe",
+   "secao": "S"
+  },
+  {
+   "nome": "Sunky's Schoolhouse",
+   "repo": "https://github.com/gays-studio/sunkys-schoolhouse-webport",
+   "secao": "S"
+  },
+  {
+   "nome": "Supaplex",
+   "repo": "https://github.com/midzer/open-supaplex",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Bo Noise",
+   "repo": "https://github.com/burnedpopcorn/Super-Bo-Noise-Web-Port",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Choppy Orc",
+   "repo": "https://github.com/gays-studio/super-choppy-orc",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Mario 64 (n64hub recomp)",
+   "repo": "https://github.com/n64hub/super-mario-64-recomp",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Mario 64 (sm64js)",
+   "repo": "https://github.com/sm64js/sm64js",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Mario 64 DS (Enhanced PC Port)",
+   "repo": "https://github.com/wigwoo1/Super-Mario-64-DS-Enhanced-PC-Port",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Mario 64 FPS",
+   "repo": "https://github.com/gays-studio/sm64fps-port",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Mario 64 in Scratch",
+   "repo": "https://github.com/naegoxdev/sm64-scratch",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Mario Galaxy",
+   "repo": "https://github.com/T4ctica1YT/SMGwebport",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Mario War",
+   "repo": "https://github.com/mmatyas/supermariowar",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Smash Bros. Melee (melee-pc)",
+   "repo": "https://github.com/999sian/melee-pc",
+   "secao": "S"
+  },
+  {
+   "nome": "Super Smash Bros. Ultimate (SSBU-port-web)",
+   "repo": "https://github.com/longurara/SSBU-port-web",
+   "secao": "S"
+  },
+  {
+   "nome": "Superflight",
+   "repo": "https://github.com/squidward5/superflight-webport",
+   "secao": "S"
+  },
+  {
+   "nome": "SuperTux",
+   "repo": "https://github.com/SuperTux/supertux",
+   "secao": "S"
+  },
+  {
+   "nome": "SuperTuxKart (browser)",
+   "repo": "https://github.com/ading2210/stk-code",
+   "secao": "S"
+  },
+  {
+   "nome": "Swabs Expedition",
+   "repo": "https://github.com/burnedpopcorn/Swabs-Expedition-Web-Port",
+   "secao": "S"
+  },
+  {
+   "nome": "T Cubed",
+   "repo": "https://github.com/web-ports/baldi-mods/tree/main/t3",
+   "secao": "T"
+  },
+  {
+   "nome": "T Cubed (2)",
+   "repo": "https://github.com/GlaceonFan77/T-Cubed-Web",
+   "secao": "T"
+  },
+  {
+   "nome": "Tekken 3 (Tekken3Remake)",
+   "repo": "https://github.com/n0madic/Tekken3Remake",
+   "secao": "T"
+  },
+  {
+   "nome": "Tenchu: Shinobi Gaisen",
+   "repo": "https://github.com/Fuuzetsu/tenchu-shinobi-gaisen-pc",
+   "secao": "T"
+  },
+  {
+   "nome": "Tony Hawk's Pro Skater (thps1-web-port)",
+   "repo": "https://github.com/nascarfan03/thps1-web-port",
+   "secao": "T"
+  },
+  {
+   "nome": "Total Annihilation: Kingdoms (OpenKingdoms)",
+   "repo": "https://github.com/OpenKingdoms/OpenKingdoms",
+   "secao": "T"
+  },
+  {
+   "nome": "There's a Butcher Around",
+   "repo": "https://github.com/usheje883-maker/There-s-A-Butcher-Around-Webport",
+   "secao": "T"
+  },
+  {
+   "nome": "There is No Game: Wrong Dimension",
+   "repo": "https://github.com/dashiellbenton/ports-data/tree/main",
+   "secao": "T"
+  },
+  {
+   "nome": "Torus Trooper",
+   "repo": "https://github.com/speps/tt",
+   "secao": "T"
+  },
+  {
+   "nome": "Totally Accurate Battle Simulator",
+   "repo": "https://github.com/web-ports/tabs",
+   "secao": "T"
+  },
+  {
+   "nome": "Totally Accurate Battle Simulator (2)",
+   "repo": "https://github.com/Reeyuki/Tabs",
+   "secao": "T"
+  },
+  {
+   "nome": "Tower To Heaven",
+   "repo": "https://codeberg.org/midzer/tth",
+   "secao": "T"
+  },
+  {
+   "nome": "Traffic Racer",
+   "repo": "https://github.com/genizy/traffic-racer",
+   "secao": "T"
+  },
+  {
+   "nome": "Trees Hate You",
+   "repo": "https://github.com/thirstygithub/fugglelatougin",
+   "secao": "T"
+  },
+  {
+   "nome": "TriZon",
+   "repo": "https://github.com/degloved-net/trizon",
+   "secao": "T"
+  },
+  {
+   "nome": "Ultrapool (bread fork)",
+   "repo": "https://github.com/genizy/ultrapoolwebport-nothreads",
+   "secao": "U"
+  },
+  {
+   "nome": "Uncharted Waters: New Horizons",
+   "repo": "https://github.com/JohanLi/uncharted-waters-2",
+   "secao": "U"
+  },
+  {
+   "nome": "Uncle Albert's Magical Album",
+   "repo": "https://github.com/panlybero/uncle-albert-magical-album-greek",
+   "secao": "U"
+  },
+  {
+   "nome": "Unreal Gold",
+   "repo": "https://github.com/National-Porting-Association/unrealgold-emscripten",
+   "secao": "U"
+  },
+  {
+   "nome": "Untitled Goose Game (2)",
+   "repo": "https://github.com/webporting/Untitled-Goose-Game",
+   "secao": "U"
+  },
+  {
+   "nome": "Upload Labs",
+   "repo": "https://github.com/googoogoob/UploadLabsWebPort",
+   "secao": "U"
+  },
+  {
+   "nome": "Upstream",
+   "repo": "https://github.com/degloved-net/upstream",
+   "secao": "U"
+  },
+  {
+   "nome": "Urban Reign (PS2 recomp)",
+   "repo": "https://github.com/anmolverma5/urban-reign-wasm",
+   "secao": "U"
+  },
+  {
+   "nome": "Vangers",
+   "repo": "https://github.com/KranX/Vangers",
+   "secao": "V"
+  },
+  {
+   "nome": "Vectoroids",
+   "repo": "https://github.com/midzer/vectoroids",
+   "secao": "V"
+  },
+  {
+   "nome": "Very Realistic Game Dev Simulator",
+   "repo": "https://github.com/UMMMM-GUYSSS/Very-Realistic-Game-Dev-Simulator",
+   "secao": "V"
+  },
+  {
+   "nome": "Violetland",
+   "repo": "https://github.com/midzer/violetland",
+   "secao": "V"
+  },
+  {
+   "nome": "Void Whispers",
+   "repo": "https://github.com/degloved-net/void-whispers",
+   "secao": "V"
+  },
+  {
+   "nome": "Warcraft III: Reign of Chaos / The Frozen Throne (wc3-wasm)",
+   "repo": "https://github.com/rgnv/wc3-wasm",
+   "secao": "W"
+  },
+  {
+   "nome": "Water Closet",
+   "repo": "https://github.com/midzer/waterCloset",
+   "secao": "W"
+  },
+  {
+   "nome": "Web Port Unblocked",
+   "repo": "https://github.com/burnedpopcorn/Web-Port-Unblocked",
+   "secao": "W"
+  },
+  {
+   "nome": "webport.ing",
+   "repo": "https://github.com/webporting",
+   "secao": "W"
+  },
+  {
+   "nome": "Weltendämmerung (weltendaemmerung (spec-driven RE + web port))",
+   "repo": "https://github.com/s-macke/weltendaemmerung",
+   "secao": "W"
+  },
+  {
+   "nome": "while True: learn()",
+   "repo": "https://github.com/dashiellbenton/ports/tree/main/while-true-learn",
+   "secao": "W"
+  },
+  {
+   "nome": "Who's Your Daddy? (2)",
+   "repo": "https://github.com/web-ports/daddygame",
+   "secao": "W"
+  },
+  {
+   "nome": "Wine Assembly (Windows games in the browser: RollerCoaster Tycoon, Space Cadet…)",
+   "repo": "https://github.com/Emupedia/wine-assembly",
+   "secao": "W"
+  },
+  {
+   "nome": "Wizards in Shorts",
+   "repo": "https://github.com/Reeyuki/WizardsInShorts",
+   "secao": "W"
+  },
+  {
+   "nome": "Wolfenstein 3D",
+   "repo": "https://github.com/midzer/wolf4sdl",
+   "secao": "W"
+  },
+  {
+   "nome": "Wolfenstein 3D (Iron Wolf)",
+   "repo": "https://github.com/Ragnaroek/iron-wolf",
+   "secao": "W"
+  },
+  {
+   "nome": "World of Warcraft (wowser)",
+   "repo": "https://github.com/wowserhq/wowser",
+   "secao": "W"
+  },
+  {
+   "nome": "Worldbox",
+   "repo": "https://gitlab.com/Shindo957-Official/worldfox",
+   "secao": "W"
+  },
+  {
+   "nome": "The X-Files Game (shiloh)",
+   "repo": "https://github.com/Asterber/shiloh",
+   "secao": "X"
+  },
+  {
+   "nome": "Xash3D",
+   "repo": "https://github.com/btarg/Xash3D-Emscripten",
+   "secao": "X"
+  },
+  {
+   "nome": "xbattle (xbattle-web)",
+   "repo": "https://github.com/lab1702/xbattle-web",
+   "secao": "X"
+  },
+  {
+   "nome": "XCOM",
+   "repo": "https://github.com/midzer/OpenXcom",
+   "secao": "X"
+  },
+  {
+   "nome": "XGalaga",
+   "repo": "https://github.com/midzer/xgalaga-sdl",
+   "secao": "X"
+  },
+  {
+   "nome": "Yesterday's Meat",
+   "repo": "https://github.com/SoupcanUBG/Yesterdays-Meat",
+   "secao": "Y"
+  },
+  {
+   "nome": "yomih hustle",
+   "repo": "https://github.com/web-ports/yomi-hustle",
+   "secao": "Y"
+  },
+  {
+   "nome": "You Want Half a Mounds Bar",
+   "repo": "https://github.com/wasm-rip/You-Want-Half-A-Mounds-Bar-Web",
+   "secao": "Y"
+  },
+  {
+   "nome": "Your Only Move is Hustle (2)",
+   "repo": "https://github.com/web-ports/yomi-hustle",
+   "secao": "Y"
+  },
+  {
+   "nome": "Youtubers Life OMG!",
+   "repo": "https://github.com/Reeyuki/ytlifeomg",
+   "secao": "Y"
+  },
+  {
+   "nome": "Zato",
+   "repo": "https://github.com/z4laxis/ZatoWebport",
+   "secao": "Z"
+  },
+  {
+   "nome": "Zeliard",
+   "repo": "https://github.com/nolanvenhola/zeliard",
+   "secao": "Z"
+  },
+  {
+   "nome": "Zuma Deluxe (ZumaTAS)",
+   "repo": "https://github.com/9933fa/Zuma-Deluxe-TAS",
+   "secao": "Z"
+  }
+ ]
+}
