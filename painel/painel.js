@@ -585,7 +585,7 @@
         };
         const atualizarJson = () => {
             const it = lerItem();
-            $('#ed-json', fundo).textContent = JSON.stringify(C.paraCloud(it, col, '…'), null, 2);
+            $('#ed-json', fundo).textContent = JSON.stringify(C.paraCloud(it, col, '…', estado.config), null, 2);
         };
         $('#ed-json-box', fundo).addEventListener('toggle', atualizarJson);
 
@@ -1105,7 +1105,7 @@
         const col = colDoCaminho(caminho);
         const it = C.normalizarItem(bruto, col);
         const chave = caminho.replace(/^conteudo\//, '').replace(/\.json$/, '');
-        const o = C.paraCloud(it, col, chave);
+        const o = C.paraCloud(it, col, chave, estado.config);
         const genero = Array.isArray(o.genre) ? o.genre.slice(0, 2).join(' · ') : o.genre;
         return Object.assign({}, o, {
             id: 'studio:' + chave, slug: chave,

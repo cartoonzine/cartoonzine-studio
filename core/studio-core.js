@@ -846,6 +846,67 @@
         { k: 'bannerSkin', rotulo: 'Skin no banner', tipo: 'escolha', opcoes: ['', ...SKINS_BANNER], avancado: true, dica: 'vazio = a escolhida no aparelho (Daileon Dashboard)' },
         { k: 'bannerFx', rotulo: 'Efeito no banner', tipo: 'escolha', opcoes: ['', ...FX_BANNER], avancado: true, dica: 'vazio = o escolhido no aparelho' }
     ];
+    // Cartucho web (consoles "web" e "webpc")
+    const LICENCAS_WEB = ['livre', 'autorizada', 'precisa-original', 'nao-verificada'];
+    const ENGINES_WEB = ['WebAssembly', 'Emscripten', 'Unity WebGL', 'Godot', 'Flash/Ruffle', 'HTML5/JavaScript', 'DOS (js-dos)', 'Outro'];
+    const CONTROLES_WEB = ['teclado', 'gamepad', 'mouse', 'teclado-mouse', 'toque'];
+    const PESOS_WEB = ['leve', 'medio', 'pesado'];
+    /** console de jogos web? (pelo studio.config.json: "web": true; sem config, pelo id web/webpc) */
+    function consoleWeb(id, config) {
+        if (!id) return false;
+        const c = config && (config.consoles || []).find(x => x.id === id);
+        return c ? !!c.web : /^web(pc|tv)?$/.test(String(id));
+    }
+    function aparelhosDoConsole(id, config) {
+        const c = config && (config.consoles || []).find(x => x.id === id);
+        if (c && Array.isArray(c.aparelhos)) return c.aparelhos.slice();
+        return String(id) === 'webpc' ? ['pc'] : ['tv', 'pc'];
+    }
+
+    /**
+     * Lê o README do "Ultimate Catalog of Web Game Ports" (tabelas | Jogo | [▶ host](link) | [📦 repo](link) |)
+     * e devolve { jogos: [{nome, ano?, links, repo?, host, secao, estrela}], semDemo: [{nome, repo, secao}] }.
+     * Tolerante: linha estranha é ignorada; o link "▶" que aponta para o GitHub mas tem o endereço
+     * jogável escrito no texto usa o endereço do texto.
+     */
+    function lerCatalogoWebPorts(texto) {
+        const jogos = [], semDemo = [], vistos = new Set();
+        let secao = '';
+        for (const bruta of String(texto || '').split(/\r?\n/)) {
+            const linha = bruta.trim();
+            const h = /^##\s+(.+?)(\s*<sub>.*)?$/.exec(linha);
+            if (h) { secao = h[1].trim(); continue; }
+            if (!linha.startsWith('|') || /^\|\s*-{3}/.test(linha) || /^\|\s*Game\s*\|/i.test(linha)) continue;
+            const cel = linha.replace(/^\|/, '').replace(/\|\s*$/, '').split('|').map(x => x.trim());
+            if (cel.length < 2) continue;
+            let nome = cel[0].replace(/^⭐\s*/, '').replace(/\s+/g, ' ').trim();
+            const estrela = /^⭐/.test(cel[0]);
+            if (!nome || /^(icon|game)$/i.test(nome)) continue;
+            let ano;
+            const mA = /^(.*\S)\s*\((\d{4})\)\s*$/.exec(nome);
+            if (mA) { nome = mA[1]; ano = parseInt(mA[2], 10); }
+            const links = [];
+            const reLink = /\[▶\s*([^\]]*)\]\(([^)\s]+)\)/g;
+            let m;
+            while ((m = reLink.exec(cel[1] || ''))) {
+                let u = limparLink(m[2]);
+                const rot = m[1].trim();
+                if (/^https?:\/\//i.test(rot) && /github\.com\//i.test(u) && !/github\.com\//i.test(rot)) u = limparLink(rot);
+                if (linkValido(u) && !links.includes(u)) links.push(u);
+            }
+            const mR = /\[📦[^\]]*\]\(([^)\s]+)\)/.exec(cel.slice(2).join('|'));
+            const repo = mR && linkValido(limparLink(mR[1])) ? limparLink(mR[1]) : undefined;
+            const chave = normText(nome) + '|' + (links[0] || repo || '');
+            if (vistos.has(chave)) continue;
+            vistos.add(chave);
+            if (links.length) {
+                let host = ''; try { host = new URL(links[0]).hostname; } catch (e) { /* */ }
+                jogos.push(limparVazios({ nome, ano, links, repo, host, secao, estrela: estrela || undefined }));
+            } else if (repo) semDemo.push(limparVazios({ nome, ano, repo, secao }));
+        }
+        return { jogos, semDemo };
+    }
+
     const CAMPOS_COMUNS_MIDIA = [
         { k: 'capa', rotulo: 'Capa (imagem vertical)', tipo: 'url', imagem: true },
         { k: 'banner', rotulo: 'Banner (imagem horizontal)', tipo: 'url', imagem: true },
@@ -932,12 +993,19 @@
             campos: [
                 { k: 'nome', rotulo: 'Nome do jogo', tipo: 'texto', obrigatorio: true },
                 { k: 'console', rotulo: 'Console', tipo: 'escolha', opcoesDe: 'consoles', obrigatorio: true },
-                { k: 'links', rotulo: 'Link da ROM', tipo: 'links', obrigatorio: true },
+                { k: 'links', rotulo: 'Link da ROM', tipo: 'links', obrigatorio: true, dica: 'nos consoles Web Games: o link da página onde o jogo roda (https://…/index.html)' },
                 ...CAMPOS_COMUNS_MIDIA,
                 { k: 'jogadores', rotulo: 'Jogadores', tipo: 'numero' },
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
-                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console' },
+                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console (nos Web Games é sempre "web")' },
+                // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
+                { k: 'licenca', rotulo: 'Licença (Web Games)', tipo: 'escolha', opcoes: ['', ...LICENCAS_WEB], avancado: true, dica: 'livre = jogo/código aberto ou gratuito · autorizada = demo oficial ou o dono liberou · precisa-original = o jogador carrega os arquivos do próprio jogo · jogo web só é publicado com a licença conferida' },
+                { k: 'engine', rotulo: 'Tipo do port (Web Games)', tipo: 'escolha', opcoes: ['', ...ENGINES_WEB], avancado: true },
+                { k: 'controles', rotulo: 'Controle (Web Games)', tipo: 'escolha', opcoes: ['', ...CONTROLES_WEB], avancado: true, dica: 'gamepad = o jogo já lê o controle sozinho (o cartucho não converte para teclado)' },
+                { k: 'teclas', rotulo: 'Mapa controle → teclado (Web Games)', tipo: 'texto', avancado: true, dica: 'ex.: A=Space, B=KeyX, START=Enter · vazio = padrão (setas, Z, X, Enter…)' },
+                { k: 'peso', rotulo: 'Peso (Web Games)', tipo: 'escolha', opcoes: ['', ...PESOS_WEB], avancado: true, dica: 'pesado = deixe no console "Web Games · Só PC"' },
+                { k: 'repo', rotulo: 'Código-fonte (Web Games)', tipo: 'url', avancado: true },
                 ...CAMPOS_BANNER
             ]
         }
@@ -970,7 +1038,7 @@
         if (Number.isFinite(nota)) out.notaImdb = nota;
         const votos = parseInt(b.votosImdb, 10);
         if (Number.isFinite(votos)) out.votosImdb = votos;
-        for (const k of ['capa', 'banner', 'logo', 'video', 'site', 'fonte']) if (b[k]) out[k] = String(b[k]).trim();
+        for (const k of ['capa', 'banner', 'logo', 'video', 'site', 'fonte', 'repo']) if (b[k]) out[k] = String(b[k]).trim();
         if (!out.capa && (b.thumb || b.poster)) out.capa = String(b.thumb || b.poster).trim();
         const desc = b.descricao || b.sinopse || b.desc;
         if (desc) out.descricao = String(desc).trim();
@@ -978,12 +1046,15 @@
         if (ano) out.ano = ano;
         const gen = lista(b.generos || b.genero || b.genre || b.estilos);
         if (gen.length) out.generos = gen;
-        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie']) {
+        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas']) {
             if (b[k] !== undefined && b[k] !== '') out[k] = String(b[k]).trim();
         }
         if (b.pais) out.pais = codigoPais(b.pais);
         if (out.categoria) { out.categoria = traduzirCategoria(out.categoria); if (!out.categoria) delete out.categoria; }
         if (b.console) out.console = String(b.console).trim().toLowerCase();
+        if (LICENCAS_WEB.includes(b.licenca)) out.licenca = b.licenca;
+        if (CONTROLES_WEB.includes(b.controles)) out.controles = b.controles;
+        if (PESOS_WEB.includes(b.peso)) out.peso = b.peso;
         const jog = inteiro(b.jogadores);
         if (jog) out.jogadores = jog;
         for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
@@ -1044,6 +1115,13 @@
         if (colecao.tipo === 'jogo' && item.console && config && !(config.consoles || []).some(c => c.id === item.console)) {
             erros.push('Console desconhecido: ' + item.console + ' (veja "consoles" no studio.config.json)');
         }
+        if (colecao.tipo === 'jogo' && consoleWeb(item.console, config)) {
+            // cartucho web: só vai para o app com a licença conferida (rascunho pode ficar sem)
+            if (!item._rascunho && (!item.licenca || item.licenca === 'nao-verificada')) erros.push('Jogo web: confira a licença antes de publicar (campo "Licença")');
+            for (const u of item.links || []) if (/^magnet:/i.test(u)) erros.push('Jogo web precisa de um link https da página do jogo');
+            if (item.peso === 'pesado' && aparelhosDoConsole(item.console, config).includes('tv')) avisos.push('jogo pesado no console que vai para a TV: mova para "Web Games · Só PC" (webpc)');
+            if (item.repo && !linkValido(item.repo)) avisos.push('repo não parece um link: ' + item.repo);
+        }
         if (item.ano && (item.ano < 1880 || item.ano > 2100)) avisos.push('Ano estranho: ' + item.ano);
         if (item.archive && !(item.links || []).length && !temEps) erros.push('Link do Internet Archive ainda não importado (use "Importar" no painel ou tools/importar.mjs)');
         return { erros, avisos };
@@ -1088,7 +1166,7 @@
     // ------------------------------------------------------------------
     // Compilação: itens do Studio -> formato do cartoonzine-cloud
     // ------------------------------------------------------------------
-    function paraCloud(item, colecao, chave) {
+    function paraCloud(item, colecao, chave, config) {
         const [url, ...espelhos] = item.links || [];
         const base = {
             title: item.nome,
@@ -1147,12 +1225,19 @@
                     url, mirrors: espelhos, logo: item.logo, country: item.pais, countryName: PAISES[item.pais],
                     city: item.cidade, language: item.idioma, site: item.site
                 }));
-            case 'jogo':
-                return limparVazios(Object.assign(base, {
+            case 'jogo': {
+                const o = Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
                     logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
                     console: item.console, players: item.jogadores, core: item.core
-                }));
+                });
+                // cartucho web: o app abre a página do jogo no cartucho-web.html (core "web")
+                if (consoleWeb(item.console, config)) Object.assign(o, {
+                    core: 'web', web: true, aparelhos: aparelhosDoConsole(item.console, config),
+                    engine: item.engine, license: item.licenca, controls: item.controles, keys: item.teclas, weight: item.peso, repo: item.repo
+                });
+                return limparVazios(o);
+            }
             default:
                 return limparVazios(Object.assign(base, { url, mirrors: espelhos }));
         }
@@ -1208,7 +1293,7 @@
                 else linksVistos.set(principal, caminho);
             }
             const chave = caminho.replace(/^conteudo\//, '').replace(/\.json$/, '');
-            validos.push({ item, registro: paraCloud(item, colecao, chave) });
+            validos.push({ item, registro: paraCloud(item, colecao, chave, config) });
         }
         rel.publicados = validos.length;
         const regs = validos.map(v => v.registro).sort(ordenar);
@@ -1384,6 +1469,7 @@
         refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
-        paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever
+        paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever,
+        consoleWeb, aparelhosDoConsole, lerCatalogoWebPorts, LICENCAS_WEB, ENGINES_WEB, CONTROLES_WEB, PESOS_WEB
     };
 });
