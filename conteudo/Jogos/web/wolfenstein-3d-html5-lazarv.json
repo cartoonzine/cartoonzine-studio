@@ -1,0 +1,13 @@
+{
+  "nome": "Wolfenstein 3D (HTML5, lazarv)",
+  "links": [
+    "https://wolf3d.wadcmd.com/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/lazarv/wolf3d",
+  "descricao": "Port para navegador · wolf3d.wadcmd.com",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

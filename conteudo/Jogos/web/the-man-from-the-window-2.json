@@ -1,0 +1,13 @@
+{
+  "nome": "The Man From the Window 2",
+  "links": [
+    "https://wasm.rip/files/MFDW2/index.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/wasm-rip/the-man-from-the-window-2-web",
+  "descricao": "Port para navegador · wasm.rip",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

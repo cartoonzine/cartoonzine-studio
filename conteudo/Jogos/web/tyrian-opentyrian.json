@@ -1,0 +1,12 @@
+{
+  "nome": "Tyrian (OpenTyrian)",
+  "links": [
+    "https://midzer.de/wasm/opentyrian/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · midzer.de",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

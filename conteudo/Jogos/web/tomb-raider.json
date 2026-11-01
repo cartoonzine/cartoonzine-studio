@@ -1,0 +1,13 @@
+{
+  "nome": "Tomb Raider",
+  "links": [
+    "http://xproger.info/projects/OpenLara/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/XProger/OpenLara",
+  "descricao": "Port para navegador · xproger.info",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
