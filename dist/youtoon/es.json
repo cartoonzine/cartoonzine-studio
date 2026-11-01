@@ -4,6 +4,78 @@
  "nome": "Espanhol",
  "channels": [
   {
+   "title": "Aventuras con los Kratt - Scholastic",
+   "desc": "Canal oficial de Aventuras con los Kratt - Scholastic no YouTube: episódios sem parar.",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/espanhol/aventuras-con-los-kratt-scholastic",
+   "url": "https://www.youtube.com/channel/UCeTdhZLFZEfpHgJ-GAEV-WQ",
+   "logo": "https://yt3.ggpht.com/l1EEaA9WIjoyQUh9EFcuQVUFEgyvHFeO1r8W_yZCTfW0nZ6gXkWi7M4dyAeoMMIgCh-SlfkSCQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras con los Kratt - Scholastic · 🐧 Aventuras con los Kratt | Episodios Completo | Temporada 2 🐦",
+   "desc": "Playlist de Aventuras con los Kratt - Scholastic · 30 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/espanhol/aventuras-con-los-kratt-scholastic-aventuras-con-los-kratt-episodios-completo-te-2",
+   "url": "https://www.youtube.com/playlist?list=PL75Ev9SzNPCaQpYeMyHJu_mP4SRcYTB9I",
+   "logo": "https://i.ytimg.com/vi/2EAST4HDXn4/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras con los Kratt - Scholastic · 🦞 Aventuras con los Kratt | Episodios Completo | Temporada 1 🐊",
+   "desc": "Playlist de Aventuras con los Kratt - Scholastic · 39 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/espanhol/aventuras-con-los-kratt-scholastic-aventuras-con-los-kratt-episodios-completo-te",
+   "url": "https://www.youtube.com/playlist?list=PL75Ev9SzNPCZv76ufwp5j98iTArBaXU4W",
+   "logo": "https://i.ytimg.com/vi/qXOOw9W460Q/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras con los Kratt - Scholastic · Aventuras con los Kratt | Episodios Completo | Temporada 3",
+   "desc": "Playlist de Aventuras con los Kratt - Scholastic · 27 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/espanhol/aventuras-con-los-kratt-scholastic-aventuras-con-los-kratt-episodios-completo-te-3",
+   "url": "https://www.youtube.com/playlist?list=PL75Ev9SzNPCaiTLK5wU3Sh_Aw2bFeM62I",
+   "logo": "https://i.ytimg.com/vi/Xe0ZITS0550/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras con los Kratt - Scholastic · Compilación de Clips - Aventuras con los Kratt",
+   "desc": "Playlist de Aventuras con los Kratt - Scholastic · 205 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/espanhol/aventuras-con-los-kratt-scholastic-compilacion-de-clips-aventuras-con-los-kratt",
+   "url": "https://www.youtube.com/playlist?list=PL75Ev9SzNPCZcH1gDu0JB8Un-wsZvCIlY",
+   "logo": "https://i.ytimg.com/vi/lpKEITI2Bvw/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras con los Kratt - Scholastic · Las Mejores Transformaciones de Poder de Criatura - Aventuras con los Kratt",
+   "desc": "Playlist de Aventuras con los Kratt - Scholastic · 29 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/espanhol/aventuras-con-los-kratt-scholastic-las-mejores-transformaciones-de-poder-de-cria",
+   "url": "https://www.youtube.com/playlist?list=PL75Ev9SzNPCYP8djkDcMqLL9Ux9ujL0Vn",
+   "logo": "https://i.ytimg.com/vi/cB3CEQKA88w/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Barbie Latinoamérica",
    "desc": "Canal oficial de Barbie Latinoamérica no YouTube: episódios sem parar.",
    "genre": [
@@ -35,7 +107,7 @@
    ],
    "studio": "youtoon/espanhol/barbie-latinoamerica-barbie-compilacion",
    "url": "https://www.youtube.com/playlist?list=PLsyiJYWxepPNmZ63nrXxGz-I5qp22O-1v",
-   "logo": "https://i.ytimg.com/vi/LPrcIFE0TDM/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/F9-oA56yElg/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -207,7 +279,7 @@
    ],
    "studio": "youtoon/espanhol/blippi-en-espanol-videos-de-blippi-espanol",
    "url": "https://www.youtube.com/playlist?list=PLxMv70B4NXQz_qaLQOcAIGxXx0U70lr7d",
-   "logo": "https://i.ytimg.com/vi/0MttZM3J8f8/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/AIMeC33nwKQ/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -403,6 +475,66 @@
    "studio": "youtoon/espanhol/cartoon-network-la-24h",
    "url": "https://www.youtube.com/channel/UCQySZQ6rrgJXRuonMwIIGMA/live",
    "logo": "https://i.ytimg.com/vi/H71TnS5JhPE/hqdefault.jpg?v=6ae27c46",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Chip and Potato Español - WildBrain",
+   "desc": "Canal oficial de Chip and Potato Español - WildBrain no YouTube: episódios sem parar.",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/chip-and-potato-espanol-wildbrain",
+   "url": "https://www.youtube.com/channel/UCntYbVYJbpercXnLbRnD5Bw",
+   "logo": "https://yt3.ggpht.com/Hug7dA6kOLZLnBV53StpP02uhjWn9FiawiR_4NBMQk3kOIk3TKKyIE_2s8d6pu4txFU7J6wQvw=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Chip and Potato Español - WildBrain · Best of Chip Compilations",
+   "desc": "Playlist de Chip and Potato Español - WildBrain · 173 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/chip-and-potato-espanol-wildbrain-best-of-chip-compilations",
+   "url": "https://www.youtube.com/playlist?list=PLpbhw2DVXJ2APdNy0LqtuTa9qImZ6c9dy",
+   "logo": "https://i.ytimg.com/vi/kjwOgACEtwA/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Chip and Potato Español - WildBrain · Chip and Potato!",
+   "desc": "Playlist de Chip and Potato Español - WildBrain · 42 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/chip-and-potato-espanol-wildbrain-chip-and-potato",
+   "url": "https://www.youtube.com/playlist?list=PLpbhw2DVXJ2BSuq8riprpmp5IaVm2pxEb",
+   "logo": "https://i.ytimg.com/vi/IB4pJe9lhWQ/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Chip and Potato Español - WildBrain · Chip Double Episodes",
+   "desc": "Playlist de Chip and Potato Español - WildBrain · 10 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/chip-and-potato-espanol-wildbrain-chip-double-episodes",
+   "url": "https://www.youtube.com/playlist?list=PLpbhw2DVXJ2Ac3KlmCRlpCgymOwU4AfGl",
+   "logo": "https://i.ytimg.com/vi/Br68T6Jzb4c/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Chip and Potato Español - WildBrain · Chip Full Episodes",
+   "desc": "Playlist de Chip and Potato Español - WildBrain · 13 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/chip-and-potato-espanol-wildbrain-chip-full-episodes",
+   "url": "https://www.youtube.com/playlist?list=PLpbhw2DVXJ2Aw35Eh-6OFvR-qzAnAaRKt",
+   "logo": "https://i.ytimg.com/vi/U0hSwI0hOCc/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -1188,7 +1320,7 @@
   },
   {
    "title": "Masha y el Oso · Novedades 😉💥",
-   "desc": "Playlist de Masha y el Oso · 353 vídeos",
+   "desc": "Playlist de Masha y el Oso · 354 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -1212,13 +1344,13 @@
   },
   {
    "title": "Masha y el Oso 24H",
-   "desc": "🔴 LIVE ⭐ Masha y el Oso 2026 ✅❌ ¿Sí o no? 🎬 Dibujos Animados en español",
+   "desc": "🔴 LIVE ⭐ Masha y el Oso 2026 🎬 La Avena De Masha 👧🍚 y otros episodios 🎬 Dibujos Animados",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/espanhol/masha-y-el-oso-24h",
    "url": "https://www.youtube.com/channel/UCuSo4gcgxJRf4Bzu43wwVyg/live",
-   "logo": "https://i.ytimg.com/vi/P6jpXNDzFjg/hqdefault.jpg?v=6ae4a552",
+   "logo": "https://i.ytimg.com/vi/-KjVET0csOU/hqdefault.jpg?v=6ae4a55e",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -1290,7 +1422,7 @@
    ],
    "studio": "youtoon/espanhol/miraculous-las-aventuras-de-ladybug-miraculous-akumatizado",
    "url": "https://www.youtube.com/playlist?list=PLDbFdl6Puid4P8V-LVXLBRyaUHx1pHH4Y",
-   "logo": "https://i.ytimg.com/vi/2EDRFSgYD4I/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/oFASPpJGU1s/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -1314,7 +1446,7 @@
    ],
    "studio": "youtoon/espanhol/monster-high-en-castellano-que-hay-de-nuevo-en-monster-high-monster-high-spain",
    "url": "https://www.youtube.com/playlist?list=PL12egR2iK1wL_c2I7B7_FVmrrUK5aHZAJ",
-   "logo": "https://i.ytimg.com/vi/oM3-LkbWbg8/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/WZ5lWljiM4A/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -1446,7 +1578,7 @@
    ],
    "studio": "youtoon/espanhol/my-little-pony-espanol-latino-24h",
    "url": "https://www.youtube.com/channel/UCavwStVQoAroamzC1lPQmyg/live",
-   "logo": "https://i.ytimg.com/vi/UjMYSbpMPyY/hqdefault.jpg?v=6ae5ea6b",
+   "logo": "https://i.ytimg.com/vi/SKjH-vReDbg/hqdefault.jpg?v=6ae73a38",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -1890,7 +2022,7 @@
    ],
    "studio": "youtoon/espanhol/peppa-pig-espanol-latino-24h",
    "url": "https://www.youtube.com/channel/UCrreHSUa5rnuCVDeO8dX4eA/live",
-   "logo": "https://i.ytimg.com/vi/gRFSTj0-vH8/hqdefault.jpg?v=6ae5ecbd",
+   "logo": "https://i.ytimg.com/vi/uICz24qTyDM/hqdefault.jpg?v=6ae73efc",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -1968,13 +2100,13 @@
   },
   {
    "title": "PJ Masks Español Latino Temporada 2 24H",
-   "desc": "🔴 PJ Masks EN VIVO 24H | Robot en Pijama y Aventuras de Pascua - Maratón de Episodios",
+   "desc": "🔴 PJ Masks EN VIVO 24H | Romeo, Ninja Nocturno y Más Aventuras - Maratón de Episodios",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/espanhol/pj-masks-espanol-latino-temporada-2-24h",
    "url": "https://www.youtube.com/channel/UCN7o-yhPGxf1rkXOn1nArzA/live",
-   "logo": "https://i.ytimg.com/vi/5DfvV9TpX7g/hqdefault.jpg?v=3d",
+   "logo": "https://i.ytimg.com/vi/6jp203J_NbM/hqdefault.jpg?v=45",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -2184,7 +2316,7 @@
    ],
    "studio": "youtoon/espanhol/power-rangers-para-ninos-24h",
    "url": "https://www.youtube.com/channel/UCHr2zD4qgWz8yXkzIun5aAg/live",
-   "logo": "https://i.ytimg.com/vi/_vIRLahMfZA/hqdefault.jpg?v=1ae5",
+   "logo": "https://i.ytimg.com/vi/_vIRLahMfZA/hqdefault.jpg?v=1c0c",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -2244,7 +2376,7 @@
    ],
    "studio": "youtoon/espanhol/star-wars-latinoamerica-star-wars-minis",
    "url": "https://www.youtube.com/playlist?list=PLHJr7sxGkpS8",
-   "logo": "https://i.ytimg.com/vi/6DMEoOvVXMg/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/YeR7mVBqLfY/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -2257,6 +2389,228 @@
    "studio": "youtoon/espanhol/star-wars-latinoamerica-the-mandalorian",
    "url": "https://www.youtube.com/playlist?list=PLq-qWe-Dri4z5opa6kE6oj8HzNd6Jv4DK",
    "logo": "https://i.ytimg.com/vi/lZhV-tCaH0g/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Studio100 KIDS Español",
+   "desc": "Canal oficial de Studio100 KIDS Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/studio100-kids-espanol",
+   "url": "https://www.youtube.com/channel/UCeUq6HdQS7kNFVJjo7T3h4A",
+   "logo": "https://yt3.ggpht.com/N5YbEArJZabCxZG0M8dbyK_zdpC1kxcDmrw0P8aG3hdnGTzy0-iTT9vwcxUSkTxRt1G_rDAqZg=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Studio100 KIDS Español · Heidi Los Todos Capitulos",
+   "desc": "Playlist de Studio100 KIDS Español · 67 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/studio100-kids-espanol-heidi-los-todos-capitulos",
+   "url": "https://www.youtube.com/playlist?list=PLBy6KvkIQY399y5ffgxQWX35bbVaMJ_QM",
+   "logo": "https://i.ytimg.com/vi/Lv5dbY2K5kI/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Studio100 KIDS Español · La abeja Maya -  todos los episodios!",
+   "desc": "Playlist de Studio100 KIDS Español · 62 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/studio100-kids-espanol-la-abeja-maya-todos-los-episodios",
+   "url": "https://www.youtube.com/playlist?list=PLBy6KvkIQY3-gnseSPBLQi9CCbuZ3MZA-",
+   "logo": "https://i.ytimg.com/vi/8EqORUVHcwM/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Studio100 KIDS Español · Perrine Monogatari",
+   "desc": "Playlist de Studio100 KIDS Español · 52 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/studio100-kids-espanol-perrine-monogatari",
+   "url": "https://www.youtube.com/playlist?list=PLBy6KvkIQY3-R0Yf2geXZ53JEvP5EJNbc",
+   "logo": "https://i.ytimg.com/vi/yGpyqan3eEc/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Studio100 KIDS Español · Tao Tao",
+   "desc": "Playlist de Studio100 KIDS Español · 52 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/studio100-kids-espanol-tao-tao",
+   "url": "https://www.youtube.com/playlist?list=PLBy6KvkIQY3_IIRbLsozXzX4PkRefJJfi",
+   "logo": "https://i.ytimg.com/vi/e8m0Np2ZE9E/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Studio100 KIDS Español · Wissper - Studio100 KIDS",
+   "desc": "Playlist de Studio100 KIDS Español · 52 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/espanhol/studio100-kids-espanol-wissper-studio100-kids",
+   "url": "https://www.youtube.com/playlist?list=PLBy6KvkIQY3_n7TMyG81u7QN8DoG5a6nY",
+   "logo": "https://i.ytimg.com/vi/HhLZeXT0onY/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Español - Canciones Infantiles Y Más",
+   "desc": "Canal oficial de Super Simple Español - Canciones Infantiles Y Más no YouTube: episódios sem parar.",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/super-simple-espanol-canciones-infantiles-y-mas",
+   "url": "https://www.youtube.com/channel/UCyY3Wd5x85o8AKXjYSoxFAQ",
+   "logo": "https://yt3.ggpht.com/mS5tMq0IJF7XHjmTM86T-JKCED82TPX5UegfycXZtXnRD5bmCuwY6iBCCTK8u4GAIHZqm9yAAQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Español - Canciones Infantiles Y Más · ¡Celebra la Navidad con Super Simple Español!",
+   "desc": "Playlist de Super Simple Español - Canciones Infantiles Y Más · 24 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/super-simple-espanol-canciones-infantiles-y-mas-celebra-la-navidad-con-super-sim",
+   "url": "https://www.youtube.com/playlist?list=PLG5nAmCKiJrsPkiWl0PHZQtgCMBvx3g-0",
+   "logo": "https://i.ytimg.com/vi/x2mf4byGQac/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Español - Canciones Infantiles Y Más · Canciones Infantiles Populares y Canciones De Cuna",
+   "desc": "Playlist de Super Simple Español - Canciones Infantiles Y Más · 50 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/super-simple-espanol-canciones-infantiles-y-mas-canciones-infantiles-populares-y",
+   "url": "https://www.youtube.com/playlist?list=PLG5nAmCKiJrvxvtRusduI9In1dG0Felle",
+   "logo": "https://i.ytimg.com/vi/eWwXn3kh_bA/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Español - Canciones Infantiles Y Más · Caricatura para Niños - El Autolavado de Carl, Señor Mono, Mono Mecá",
+   "desc": "Playlist de Super Simple Español - Canciones Infantiles Y Más · 33 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/super-simple-espanol-canciones-infantiles-y-mas-caricatura-para-ninos-el-autolav",
+   "url": "https://www.youtube.com/playlist?list=PLG5nAmCKiJrte9C5jmnJuCBzT9EpFiPBC",
+   "logo": "https://i.ytimg.com/vi/QENR9ONkDnY/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Español - Canciones Infantiles Y Más · Lo Mejor de Navidad",
+   "desc": "Playlist de Super Simple Español - Canciones Infantiles Y Más · 24 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/super-simple-espanol-canciones-infantiles-y-mas-lo-mejor-de-navidad",
+   "url": "https://www.youtube.com/playlist?list=PLG5nAmCKiJru6Qi_zPxncYslMxFGYKCa7",
+   "logo": "https://i.ytimg.com/vi/uFzy8sWJaWA/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Español - Canciones Infantiles Y Más · Principales canciones infantiles y canciones de cuna en Español",
+   "desc": "Playlist de Super Simple Español - Canciones Infantiles Y Más · 32 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/super-simple-espanol-canciones-infantiles-y-mas-principales-canciones-infantiles",
+   "url": "https://www.youtube.com/playlist?list=PLG5nAmCKiJrtrK9vEk0dfXknpsoXfv8nV",
+   "logo": "https://i.ytimg.com/vi/eWwXn3kh_bA/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas & Friends Latinoamérica",
+   "desc": "Canal oficial de Thomas & Friends Latinoamérica no YouTube: episódios sem parar.",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/thomas-e-friends-latinoamerica",
+   "url": "https://www.youtube.com/channel/UCDHJpAu0cVoFbJdXTcQdTKg",
+   "logo": "https://yt3.ggpht.com/RbsnIKuL2tiKA1YXLzorzfk9N2VjUxx5vC8GpOOy37TTuatp2WI4Rvj2DwOk9gotUQRa24mNGQ=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas & Friends Latinoamérica · ¡Trenes A Todo Vapor! 🚂 | Thomas y Sus Amigos",
+   "desc": "Playlist de Thomas & Friends Latinoamérica · 167 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/thomas-e-friends-latinoamerica-trenes-a-todo-vapor-thomas-y-sus-amigos",
+   "url": "https://www.youtube.com/playlist?list=PLnXcp_Ylwkt627XozbOX3jOgN9MOyJ8AA",
+   "logo": "https://i.ytimg.com/vi/yZs1lBVFOkk/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas & Friends Latinoamérica · ¿Qué hay de nuevo en Thomas & Friends? 🚂 ¡Nuevos videos cada semana!",
+   "desc": "Playlist de Thomas & Friends Latinoamérica · 333 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/thomas-e-friends-latinoamerica-que-hay-de-nuevo-en-thomas-e-friends-nuevos-video",
+   "url": "https://www.youtube.com/playlist?list=PLnXcp_Ylwkt55nmPCI0_H2-xIFhQB2VIi",
+   "logo": "https://i.ytimg.com/vi/ZrkTIblrJ6s/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas & Friends Latinoamérica · Thomas & Friends | Capítulos Completos | Videos Para Niños | Thomas & Friends en Españo",
+   "desc": "Playlist de Thomas & Friends Latinoamérica · 99 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/thomas-e-friends-latinoamerica-thomas-e-friends-capitulos-completos-videos-para",
+   "url": "https://www.youtube.com/playlist?list=PLnXcp_Ylwkt6eHGz5btixh4ViDL2u4-b_",
+   "logo": "https://i.ytimg.com/vi/sa1Xbns3qHw/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas & Friends Latinoamérica · Thomas y sus amigos: ¡Cuidado, Thomas! 🚃",
+   "desc": "Playlist de Thomas & Friends Latinoamérica · 221 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/thomas-e-friends-latinoamerica-thomas-y-sus-amigos-cuidado-thomas",
+   "url": "https://www.youtube.com/playlist?list=PLnXcp_Ylwkt4RHVRzEfiqTosO6jQKM9e_",
+   "logo": "https://i.ytimg.com/vi/IxNhyQw9Tvs/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas & Friends Latinoamérica · Trenes A Todo Vapor! 🚂 | Compilacion | Thomas y Sus Amigos",
+   "desc": "Playlist de Thomas & Friends Latinoamérica · 146 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/espanhol/thomas-e-friends-latinoamerica-trenes-a-todo-vapor-compilacion-thomas-y-sus-amig",
+   "url": "https://www.youtube.com/playlist?list=PLnXcp_Ylwkt7l4x8LeQwLkUGmWXAhwwLN",
+   "logo": "https://i.ytimg.com/vi/Sbfln_i2sts/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -2368,7 +2722,7 @@
    ],
    "studio": "youtoon/espanhol/tres-espias-sin-limite-totally-spies-tres-espias-sin-limite-totally-spies-episod",
    "url": "https://www.youtube.com/playlist?list=PLz_IrUBx1RH_DkhXApb_M-uG7Q2hQluKD",
-   "logo": "https://i.ytimg.com/vi/BR5jUJRGAl4/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/5pOtoDTKkMg/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },
@@ -2513,6 +2867,78 @@
    "studio": "youtoon/espanhol/wb-kids-latino-24h",
    "url": "https://www.youtube.com/channel/UCtW5GPO_DZon6zVAuinvwxA/live",
    "logo": "https://i.ytimg.com/vi/1e5d4mBbBxU/hqdefault.jpg?v=6ad8ef98",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Español",
+   "desc": "Canal oficial de Winx Club Español no YouTube: episódios sem parar.",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/winx-club-espanol",
+   "url": "https://www.youtube.com/channel/UCCTfgeZeCJNPRXXVrUR6bIA",
+   "logo": "https://yt3.ggpht.com/_QOmYcHfsYvt1V8SybpJMfdSawoUORnLlQDzJBhmwzVuC3ggn2DHEnLsBquUxE6uxEqxjwvbcqk=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Español · Escenas Especiales (Special Scenes) | Winx Club",
+   "desc": "Playlist de Winx Club Español · 44 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/winx-club-espanol-escenas-especiales-special-scenes-winx-club",
+   "url": "https://www.youtube.com/playlist?list=PLJN-li1uNbvQ4MRK56yjAOt0sqd0YfQdl",
+   "logo": "https://i.ytimg.com/vi/e7DE4RLcnZw/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Español · Winx Club – World of Winx | Español - Latinoamérica",
+   "desc": "Playlist de Winx Club Español · 59 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/winx-club-espanol-winx-club-world-of-winx-espanol-latinoamerica",
+   "url": "https://www.youtube.com/playlist?list=PLJN-li1uNbvTwWoRZlTBIvO9SIhRezFiG",
+   "logo": "https://i.ytimg.com/vi/rnWlumMfbqw/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Español · Winx Club Latinoamérica Temporada 6 | EPISODIOS COMPLETOS ✨",
+   "desc": "Playlist de Winx Club Español · 30 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/winx-club-espanol-winx-club-latinoamerica-temporada-6-episodios-completos",
+   "url": "https://www.youtube.com/playlist?list=PLJN-li1uNbvSIUVkLQgkamn08qnYE6PBc",
+   "logo": "https://i.ytimg.com/vi/kYV-J3XlwOk/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Español · Winx Club: Vuelve la Magia ✨",
+   "desc": "Playlist de Winx Club Español · 28 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/winx-club-espanol-winx-club-vuelve-la-magia",
+   "url": "https://www.youtube.com/playlist?list=PLLK-tXVELlzI",
+   "logo": "https://i.ytimg.com/vi/DHYOlWHbqtc/hqdefault.jpg",
+   "idioma": "es",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Español · Winx Songs Universe 🎧✨ | TODAS las Canciones",
+   "desc": "Playlist de Winx Club Español · 30 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/espanhol/winx-club-espanol-winx-songs-universe-todas-las-canciones",
+   "url": "https://www.youtube.com/playlist?list=PLP30rnuHtPVA",
+   "logo": "https://i.ytimg.com/vi/xwsh4UeCd2o/hqdefault.jpg",
    "idioma": "es",
    "group": "Desenhos 24H"
   },

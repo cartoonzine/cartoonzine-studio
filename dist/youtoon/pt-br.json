@@ -4,6 +4,78 @@
  "nome": "Português",
  "channels": [
   {
+   "title": "Aventuras com os Kratts - Scholastic",
+   "desc": "Canal oficial de Aventuras com os Kratts - Scholastic no YouTube: episódios sem parar.",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/portugues/aventuras-com-os-kratts-scholastic",
+   "url": "https://www.youtube.com/channel/UCQY7Mp8pT6_JMGpbnXb_MKA",
+   "logo": "https://yt3.ggpht.com/g2WKTtIOEjlhZjR4LfDNlFpc3ZQtQXRRKPgDb9eWseEp_wvNKgfjYMtUjtzRBikYmbZkYMk4Mw=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras com os Kratts - Scholastic · 🔴 Vídeos en vivo 🔴",
+   "desc": "Playlist de Aventuras com os Kratts - Scholastic · 61 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/portugues/aventuras-com-os-kratts-scholastic-videos-en-vivo",
+   "url": "https://www.youtube.com/playlist?list=PL5i5BP1hQZbjpb5E5V0Z_KifB3r3CkP_a",
+   "logo": "https://i.ytimg.com/vi/h2FtTLlMnys/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras com os Kratts - Scholastic · 🦎 Aventuras com os Kratts | Episódios Completos | Temporada 1 🦎",
+   "desc": "Playlist de Aventuras com os Kratts - Scholastic · 20 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/portugues/aventuras-com-os-kratts-scholastic-aventuras-com-os-kratts-episodios-completos-t",
+   "url": "https://www.youtube.com/playlist?list=PL5i5BP1hQZbihQEbXklbQZGwhiN93KE_B",
+   "logo": "https://i.ytimg.com/vi/6jnrvEZphgg/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras com os Kratts - Scholastic · Compilação de Clipes - Aventuras com os Kratts",
+   "desc": "Playlist de Aventuras com os Kratts - Scholastic · 225 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/portugues/aventuras-com-os-kratts-scholastic-compilacao-de-clipes-aventuras-com-os-kratts",
+   "url": "https://www.youtube.com/playlist?list=PL5i5BP1hQZbhxoM0MUheDIynMeR_iriqd",
+   "logo": "https://i.ytimg.com/vi/FUf4na86hDk/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras com os Kratts - Scholastic · Episódios Completos - Aventuras com os Kratts",
+   "desc": "Playlist de Aventuras com os Kratts - Scholastic · 84 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/portugues/aventuras-com-os-kratts-scholastic-episodios-completos-aventuras-com-os-kratts",
+   "url": "https://www.youtube.com/playlist?list=PL5i5BP1hQZbjunUIEPqMNtMrVpYRjWSDd",
+   "logo": "https://i.ytimg.com/vi/URZlSaP0zzg/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Aventuras com os Kratts - Scholastic · Temporada 3 - Aventuras com os Kratts",
+   "desc": "Playlist de Aventuras com os Kratts - Scholastic · 26 vídeos",
+   "genre": [
+    "Educativos"
+   ],
+   "studio": "youtoon/portugues/aventuras-com-os-kratts-scholastic-temporada-3-aventuras-com-os-kratts",
+   "url": "https://www.youtube.com/playlist?list=PL5i5BP1hQZbgaMDCdZ7cvXMdzWNI647pT",
+   "logo": "https://i.ytimg.com/vi/pkqTKLH5as4/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Barbie Português",
    "desc": "Canal oficial de Barbie Português no YouTube: episódios sem parar.",
    "genre": [
@@ -11,7 +83,7 @@
    ],
    "studio": "youtoon/portugues/barbie-portugues",
    "url": "https://www.youtube.com/channel/UC_h9AO8TltqcMoe2UgropOg",
-   "logo": "https://yt3.ggpht.com/fMvbOkGb4W5e3zdMCPs2Q1fnldsCemTYLBODQwbgUI5eMlf3s8HbvK0CZDQqKMU8momTrcRTUg=s800-c-k-c0x00ffffff-no-rj",
+   "logo": "https://yt3.ggpht.com/0baKylb5q4FnV7W0ranE1x_tB5F0WKjA3KcgjLwY4EKrA-woZLosQJaSOtQYQuzZRlDsyh3GKw=s800-c-k-c0x00ffffff-no-rj",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -47,7 +119,7 @@
    ],
    "studio": "youtoon/portugues/barbie-portugues-barbie-compilacao",
    "url": "https://www.youtube.com/playlist?list=PLH8Qh1sYHs5tGL796GIoF9HtqkTDHN0QA",
-   "logo": "https://i.ytimg.com/vi/PmCb1YYJ0IY/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/Nj4wGt53q8M/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -233,7 +305,7 @@
    ],
    "studio": "youtoon/portugues/blippi-em-portugues-todos-os-videos-maratona-do-blippi-em-portugues-videos-educa",
    "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkZKyOsGfrWtMBMxIsrRcZMu",
-   "logo": "https://i.ytimg.com/vi/D_kywvESf9s/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/M6ib2ulOOAo/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -331,6 +403,78 @@
    "studio": "youtoon/portugues/bob-esponja-em-portugues-o-melhor-do-patrick-bob-esponja-em-portugues",
    "url": "https://www.youtube.com/playlist?list=PLRm7VIYR14Dpx2X8Yq3yQ_NWitYgh0Buq",
    "logo": "https://i.ytimg.com/vi/_pvzIiKW9PY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Caillou Português - WildBrain",
+   "desc": "Canal oficial de Caillou Português - WildBrain no YouTube: episódios sem parar.",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/caillou-portugues-wildbrain",
+   "url": "https://www.youtube.com/channel/UCxc9Eq3hOuhAbovmyTqBIig",
+   "logo": "https://yt3.ggpht.com/GscnxhDVZNpA4jPMHapR6S0hu13OTpGOI3CB27v1KsqQBua6GuSuNosMFO7FO2FdckGhH7c-=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Caillou Português - WildBrain · Caillou - Nova Temporada",
+   "desc": "Playlist de Caillou Português - WildBrain · 27 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/caillou-portugues-wildbrain-caillou-nova-temporada",
+   "url": "https://www.youtube.com/playlist?list=PLNu1vy5jyfy-LW7N0z9b66PbCAVcYA1T4",
+   "logo": "https://i.ytimg.com/vi/8FVvMVtfE3M/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Caillou Português - WildBrain · Caillou em português brasil completo - Novos vídeos!",
+   "desc": "Playlist de Caillou Português - WildBrain · 1068 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/caillou-portugues-wildbrain-caillou-em-portugues-brasil-completo-novos-videos",
+   "url": "https://www.youtube.com/playlist?list=PLNu1vy5jyfy-kg_S4z8xrmjnaNz9Ad9iT",
+   "logo": "https://i.ytimg.com/vi/9awpbApPeVE/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Caillou Português - WildBrain · CAILLOU PORTUGUÊS!",
+   "desc": "Playlist de Caillou Português - WildBrain · 1071 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/caillou-portugues-wildbrain-caillou-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLNu1vy5jyfy8rttjkyCFpWl8P-gQCfFd8",
+   "logo": "https://i.ytimg.com/vi/d21noMK4c4Q/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Caillou Português - WildBrain · Caillou Temporada 1",
+   "desc": "Playlist de Caillou Português - WildBrain · 93 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/caillou-portugues-wildbrain-caillou-temporada-1",
+   "url": "https://www.youtube.com/playlist?list=PLNu1vy5jyfy8sh1utuPPN09uYnsBuTMVr",
+   "logo": "https://i.ytimg.com/vi/YhluLzzySrk/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Caillou Português - WildBrain · Caillou Temporada 2",
+   "desc": "Playlist de Caillou Português - WildBrain · 26 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/caillou-portugues-wildbrain-caillou-temporada-2",
+   "url": "https://www.youtube.com/playlist?list=PLNu1vy5jyfy_dS3zAZbihW4Etg3ISe6Ma",
+   "logo": "https://i.ytimg.com/vi/OVI8HvrGSuY/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -1109,7 +1253,7 @@
   },
   {
    "title": "Masha e o Urso · Masha e o Urso - Compilações",
-   "desc": "Playlist de Masha e o Urso · 592 vídeos",
+   "desc": "Playlist de Masha e o Urso · 593 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -1145,7 +1289,7 @@
   },
   {
    "title": "Masha e o Urso · O que há de novo? 🆒",
-   "desc": "Playlist de Masha e o Urso · 748 vídeos",
+   "desc": "Playlist de Masha e o Urso · 749 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -1157,13 +1301,13 @@
   },
   {
    "title": "Masha e o Urso 24H",
-   "desc": "🔴 AO VIVO 👱‍♀️🐻 Masha e o Urso 🎬 Melhores episódios das temporadas 1 e 2 🏆✨",
+   "desc": "🔴 AO VIVO 24/7 👱‍♀️🐻 Masha e o Urso 🎬 Todos os melhores episódios 🍿🤩🎞️ Masha and the Bear",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/portugues/masha-e-o-urso-24h",
    "url": "https://www.youtube.com/channel/UCJKBSfD5JSUxGhriFeoPCCg/live",
-   "logo": "https://i.ytimg.com/vi/WqgIaIxw014/hqdefault.jpg?v=6ae1e15d",
+   "logo": "https://i.ytimg.com/vi/OxvEX_G9LEI/hqdefault.jpg?v=6ac8f620",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -1199,7 +1343,7 @@
    ],
    "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug-miraculous-as-aventuras-de-ladybug-portugues",
    "url": "https://www.youtube.com/playlist?list=PLuoFsz_AsLn02tlCwqFQrHJjTKgutKwhk",
-   "logo": "https://i.ytimg.com/vi/OoHmvux0904/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/JaifKTPTpPU/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -1307,7 +1451,7 @@
    ],
    "studio": "youtoon/portugues/monster-high-portugues-o-que-ha-de-novo-em-monster-high-monster-high-brasil",
    "url": "https://www.youtube.com/playlist?list=PLRGCh6ccREU2dO9pmoQXkywp8xgD9mifT",
-   "logo": "https://i.ytimg.com/vi/IbRieHQRwVk/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/rGeDHVqndNo/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -1987,7 +2131,7 @@
    ],
    "studio": "youtoon/portugues/peppa-pig-em-portugues-brasil-24h",
    "url": "https://www.youtube.com/channel/UCvD9GB-E4q_TuMpwUtFBhLA/live",
-   "logo": "https://i.ytimg.com/vi/JOQbqv3tQPA/hqdefault.jpg?v=6ae5f6d6",
+   "logo": "https://i.ytimg.com/vi/K5iPHoqrj9c/hqdefault.jpg?v=6ae74845",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -2059,7 +2203,7 @@
    ],
    "studio": "youtoon/portugues/pj-masks-em-portugues-desenhos-animados-24h",
    "url": "https://www.youtube.com/channel/UC6RA9q6uVGJpe4QcS3UmGmg/live",
-   "logo": "https://i.ytimg.com/vi/IOcLTtvJuKs/hqdefault.jpg?v=236",
+   "logo": "https://i.ytimg.com/vi/0z6t6HauQcg/hqdefault.jpg?v=4",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -2255,6 +2399,84 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Super Simple Português",
+   "desc": "Canal oficial de Super Simple Português no YouTube: episódios sem parar.",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/super-simple-portugues",
+   "url": "https://www.youtube.com/channel/UCesnqHyrxAAubK4n_HJkgdg",
+   "logo": "https://yt3.ggpht.com/ytc/AIdro_mnRUIDyRIJG7lD4BZz9kKRw7lcOnlU_oB-VuxtR50Lrw=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Português · Canções Infantis - Super Simple Português",
+   "desc": "Playlist de Super Simple Português · 164 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/super-simple-portugues-cancoes-infantis-super-simple-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLE9M3x2ULEuBnW0ME46XMDdsQ6eLONa_5",
+   "logo": "https://i.ytimg.com/vi/3TCfnQqYK3c/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Português · Canções Natalinas Para Crianças",
+   "desc": "Playlist de Super Simple Português · 36 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/super-simple-portugues-cancoes-natalinas-para-criancas",
+   "url": "https://www.youtube.com/playlist?list=PLE9M3x2ULEuAEaZWspSKm7sZsn-HZq42c",
+   "logo": "https://i.ytimg.com/vi/B1XFjK91vUE/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Português · Clássicos Super Simples",
+   "desc": "Playlist de Super Simple Português · 42 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/super-simple-portugues-classicos-super-simples",
+   "url": "https://www.youtube.com/playlist?list=PLE9M3x2ULEuBmB668K6cY_33IrP79HehZ",
+   "logo": "https://i.ytimg.com/vi/up27AfenHlE/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Português · Feliz Dia das Bruxas! 🎃",
+   "desc": "Playlist de Super Simple Português · 24 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/super-simple-portugues-feliz-dia-das-bruxas",
+   "url": "https://www.youtube.com/playlist?list=PLcSLuotQbe-8",
+   "logo": "https://i.ytimg.com/vi/CPDjHfNm80g/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Super Simple Português · Torne o Mês de Conscientização sobre Saúde Mental bem simples",
+   "desc": "Playlist de Super Simple Português · 36 vídeos",
+   "genre": [
+    "Musicais",
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/super-simple-portugues-torne-o-mes-de-conscientizacao-sobre-saude-mental-bem-sim",
+   "url": "https://www.youtube.com/playlist?list=PLE9M3x2ULEuDTw4SYUCv1DsDbX-uGuyYX",
+   "logo": "https://i.ytimg.com/vi/up27AfenHlE/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "THE GARFIELD SHOW BRASIL OFICIAL",
    "desc": "Canal oficial de THE GARFIELD SHOW BRASIL OFICIAL no YouTube: episódios sem parar.",
    "genre": [
@@ -2323,6 +2545,78 @@
    "studio": "youtoon/portugues/the-garfield-show-brasil-oficial-garfield-e-os-monstros",
    "url": "https://www.youtube.com/playlist?list=PLIiZ_DWPzJ4yYKT4VOMkG8H-YJe7B-_QK",
    "logo": "https://i.ytimg.com/vi/JDlJd9uD5MI/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas e Seus Amigos",
+   "desc": "Canal oficial de Thomas e Seus Amigos no YouTube: episódios sem parar.",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/thomas-e-seus-amigos",
+   "url": "https://www.youtube.com/channel/UCeFFmJngBmtFe6eyygCks6g",
+   "logo": "https://yt3.ggpht.com/Rfrl15clj1sdXurr5LvmX0RS7iya4biOqAFjXoKs2H7pCRL-Ie5TKKV1sDDEFMEFLWr9GUyAEA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas e Seus Amigos · Aprenda com Thomas | Thomas e Seus Amigos | Desenho Animados | Trem",
+   "desc": "Playlist de Thomas e Seus Amigos · 67 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/thomas-e-seus-amigos-aprenda-com-thomas-thomas-e-seus-amigos-desenho-animados-tr",
+   "url": "https://www.youtube.com/playlist?list=PLjwraCVcWjAZzKBfSyWA7JXCkg8TUsW70",
+   "logo": "https://i.ytimg.com/vi/-ChKjMMwErY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas e Seus Amigos · Novidades em Thomas & Friends 🚂 Novos Vídeos Toda Semana!",
+   "desc": "Playlist de Thomas e Seus Amigos · 270 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/thomas-e-seus-amigos-novidades-em-thomas-e-friends-novos-videos-toda-semana",
+   "url": "https://www.youtube.com/playlist?list=PLjwraCVcWjAZbybL9Rh1HI2plqdUJLvZF",
+   "logo": "https://i.ytimg.com/vi/J7Dvzuj582Q/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas e Seus Amigos · Thomas e Seus Amigos | Desejos mágicos de aniversário do Thomas | Desenho Animados | Trem",
+   "desc": "Playlist de Thomas e Seus Amigos · 64 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/thomas-e-seus-amigos-thomas-e-seus-amigos-desejos-magicos-de-aniversario-do-thom",
+   "url": "https://www.youtube.com/playlist?list=PLjwraCVcWjAa9i0ujC9H2s_znJP_QgtHk",
+   "logo": "https://i.ytimg.com/vi/mKox5HImiXw/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas e Seus Amigos · Thomas e Seus Amigos: Cuidado, Thomas! 🚋",
+   "desc": "Playlist de Thomas e Seus Amigos · 183 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/thomas-e-seus-amigos-thomas-e-seus-amigos-cuidado-thomas",
+   "url": "https://www.youtube.com/playlist?list=PLjwraCVcWjAY5zTCYMR55YOMAZctbrcJZ",
+   "logo": "https://i.ytimg.com/vi/ZzwThP3yczw/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Thomas e Seus Amigos · Trens A Todo Vapor | Desenhos Animados",
+   "desc": "Playlist de Thomas e Seus Amigos · 183 vídeos",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues/thomas-e-seus-amigos-trens-a-todo-vapor-desenhos-animados",
+   "url": "https://www.youtube.com/playlist?list=PLjwraCVcWjAagxcEqqHaEBnZs0ca0pYNx",
+   "logo": "https://i.ytimg.com/vi/RyUx7pHJTp4/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -2421,7 +2715,7 @@
    ],
    "studio": "youtoon/portugues/tres-espias-demais-em-portugues-brasil-tres-espias-demais-episodio-completo",
    "url": "https://www.youtube.com/playlist?list=PLApHaALCU85ijLnPytHIKDLp0XBJjusP7",
-   "logo": "https://i.ytimg.com/vi/PskV68Dd2Yg/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/Xl4b88tQtas/hqdefault.jpg",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },
@@ -2608,6 +2902,150 @@
    "studio": "youtoon/portugues/wb-kids-brasil-24h",
    "url": "https://www.youtube.com/channel/UCCb3DX0GO9f0EFizD5PT7bQ/live",
    "logo": "https://i.ytimg.com/vi/bOzBHA7ksUo/hqdefault.jpg?v=6ad8e9f0",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WildBrain Crianças · Eena Meena Deeka | WildBrain Português",
+   "desc": "Playlist de WildBrain Crianças · 273 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/wildbrain-criancas-eena-meena-deeka-wildbrain-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLjWraLqVPr3tfb24KRqzCGkH9zGMnek-Y",
+   "logo": "https://i.ytimg.com/vi/MOqZmVPrHiY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WildBrain Crianças · Johnny Test | WildBrain em Português",
+   "desc": "Playlist de WildBrain Crianças · 166 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/wildbrain-criancas-johnny-test-wildbrain-em-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLjWraLqVPr3sW5x7Qf3HLt9V19Rr59ugS",
+   "logo": "https://i.ytimg.com/vi/Q9Ey1xjcVaA/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WildBrain Crianças · Moranguinho | WildBrain Português",
+   "desc": "Playlist de WildBrain Crianças · 311 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/wildbrain-criancas-moranguinho-wildbrain-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLjWraLqVPr3tLyQ_UjOTY7WZLOi1CxmJM",
+   "logo": "https://i.ytimg.com/vi/VFIb7dYeBoY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WildBrain Crianças · Mr. Bean em Português | WildBrain Português",
+   "desc": "Playlist de WildBrain Crianças · 413 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/wildbrain-criancas-mr-bean-em-portugues-wildbrain-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLjWraLqVPr3txol5aFLs7C7vUbkqL6H93",
+   "logo": "https://i.ytimg.com/vi/XhOmzXwYwYg/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WildBrain Crianças · Os Smurfs | WildBrain Português",
+   "desc": "Playlist de WildBrain Crianças · 514 vídeos",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues/wildbrain-criancas-os-smurfs-wildbrain-portugues",
+   "url": "https://www.youtube.com/playlist?list=PLjWraLqVPr3ujiS7JEsm4PeJO7vyKJE0g",
+   "logo": "https://i.ytimg.com/vi/GHI6MFmhFBU/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Brasil",
+   "desc": "Canal oficial de Winx Club Brasil no YouTube: episódios sem parar.",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/winx-club-brasil",
+   "url": "https://www.youtube.com/channel/UCwyrOCdqH-JFCOxrBmBTzrA",
+   "logo": "https://yt3.ggpht.com/wwewqh2O5IKYNin6yW6-zUCQLNtsBGv4iIBZbAqUZOmIbqNQ0T3gim-zWRIB4N2ORN9I5DuXVg=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Brasil · CLIP 🎬 | Winx Club Temporada 2",
+   "desc": "Playlist de Winx Club Brasil · 89 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/winx-club-brasil-clip-winx-club-temporada-2",
+   "url": "https://www.youtube.com/playlist?list=PLaUwt6C2PDbOZztZDeMflMkz2sPiRqlsp",
+   "logo": "https://i.ytimg.com/vi/f8w9QErH9Fg/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Brasil · CLIP 🎬 | Winx Club Temporada 4",
+   "desc": "Playlist de Winx Club Brasil · 72 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/winx-club-brasil-clip-winx-club-temporada-4",
+   "url": "https://www.youtube.com/playlist?list=PLaUwt6C2PDbO9b7-JWR7JlJQ-PXnxYqbt",
+   "logo": "https://i.ytimg.com/vi/_9-KBu6LwIY/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Brasil · Momentos İcônicos de Winx Club (Special Scenes) | Winx Club",
+   "desc": "Playlist de Winx Club Brasil · 45 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/winx-club-brasil-momentos-iconicos-de-winx-club-special-scenes-winx-club",
+   "url": "https://www.youtube.com/playlist?list=PLaUwt6C2PDbMDMzEjprqGw2WE5aa2LKAt",
+   "logo": "https://i.ytimg.com/vi/9I6Ju8PgUmM/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Brasil · Winx Club: A Magia Está de Volta ✨",
+   "desc": "Playlist de Winx Club Brasil · 56 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/winx-club-brasil-winx-club-a-magia-esta-de-volta",
+   "url": "https://www.youtube.com/playlist?list=PLaUwt6C2PDbPPEQYlAxZ71AbdIyWjs1Nx",
+   "logo": "https://i.ytimg.com/vi/-xM8kBxwals/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Brasil · World Of Winx",
+   "desc": "Playlist de Winx Club Brasil · 58 vídeos",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/winx-club-brasil-world-of-winx",
+   "url": "https://www.youtube.com/playlist?list=PLaUwt6C2PDbMdH9z8Grnx13Tb_RZSz2wR",
+   "logo": "https://i.ytimg.com/vi/_IvRNwht1Jk/hqdefault.jpg",
+   "idioma": "pt-BR",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Winx Club Brasil 24H",
+   "desc": "🔴 AO VIVO 24/7! Festa de Halloween das Winx! Maratona mágica e assustadora 🎃✨ | Winx Club",
+   "genre": [
+    "Fantasia e Magia"
+   ],
+   "studio": "youtoon/portugues/winx-club-brasil-24h",
+   "url": "https://www.youtube.com/channel/UCwyrOCdqH-JFCOxrBmBTzrA/live",
+   "logo": "https://i.ytimg.com/vi/4U6mUIdJxR0/hqdefault.jpg?v=6abcc877",
    "idioma": "pt-BR",
    "group": "Desenhos 24H"
   },

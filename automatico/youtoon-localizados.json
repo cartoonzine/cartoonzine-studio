@@ -1205,6 +1205,75 @@
         "inscritos": 184000,
         "pais": "US",
         "achadoEm": "2026-10-31"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      }
+    },
+    "Studio100 KIDS": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "id": "UCeUq6HdQS7kNFVJjo7T3h4A",
+        "titulo": "Studio100 KIDS Español",
+        "inscritos": 263000,
+        "pais": "AR",
+        "achadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      }
+    },
+    "Super Simple Songs": {
+      "Português": {
+        "id": "UCesnqHyrxAAubK4n_HJkgdg",
+        "titulo": "Super Simple Português",
+        "inscritos": 480000,
+        "pais": "CA",
+        "achadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "id": "UCyY3Wd5x85o8AKXjYSoxFAQ",
+        "titulo": "Super Simple Español - Canciones Infantiles Y Más",
+        "inscritos": 4290000,
+        "pais": "CA",
+        "achadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      }
+    },
+    "The Backyardigans": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      }
+    },
+    "The Berenstain Bears": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
       }
     },
     "The Cramp Twins": {
@@ -1264,6 +1333,40 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-30"
+      }
+    },
+    "The Zelfs": {
+      "Português": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      }
+    },
+    "Thomas & Friends": {
+      "Português": {
+        "id": "UCeFFmJngBmtFe6eyygCks6g",
+        "titulo": "Thomas e Seus Amigos",
+        "inscritos": 537000,
+        "pais": "BR",
+        "achadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "id": "UCDHJpAu0cVoFbJdXTcQdTKg",
+        "titulo": "Thomas & Friends Latinoamérica",
+        "inscritos": 957000,
+        "pais": "US",
+        "achadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
       }
     },
     "TMS ANIME": {
@@ -1335,6 +1438,67 @@
       "Português (Portugal)": {
         "nada": true,
         "checadoEm": "2026-10-30"
+      }
+    },
+    "Wild Kratts": {
+      "Português": {
+        "id": "UCQY7Mp8pT6_JMGpbnXb_MKA",
+        "titulo": "Aventuras com os Kratts - Scholastic",
+        "inscritos": 1770000,
+        "pais": "BR",
+        "achadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "id": "UCeTdhZLFZEfpHgJ-GAEV-WQ",
+        "titulo": "Aventuras con los Kratt - Scholastic",
+        "inscritos": 2040000,
+        "achadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
+      }
+    },
+    "WildBrain Kids": {
+      "Português": {
+        "id": "UCxc9Eq3hOuhAbovmyTqBIig",
+        "titulo": "Caillou Português - WildBrain",
+        "inscritos": 2830000,
+        "pais": "BR",
+        "achadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "id": "UCntYbVYJbpercXnLbRnD5Bw",
+        "titulo": "Chip and Potato Español - WildBrain",
+        "inscritos": 434000,
+        "achadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "id": "UCKWGr9VyIYn_c6gXbYctH3w",
+        "titulo": "WildBrain Crianças",
+        "inscritos": 6360000,
+        "pais": "PT",
+        "achadoEm": "2026-11-01"
+      }
+    },
+    "Winx Club Official": {
+      "Português": {
+        "id": "UCwyrOCdqH-JFCOxrBmBTzrA",
+        "titulo": "Winx Club Brasil",
+        "inscritos": 666000,
+        "pais": "BR",
+        "achadoEm": "2026-11-01"
+      },
+      "Espanhol": {
+        "id": "UCCTfgeZeCJNPRXXVrUR6bIA",
+        "titulo": "Winx Club Español",
+        "inscritos": 587000,
+        "pais": "ES",
+        "achadoEm": "2026-11-01"
+      },
+      "Português (Portugal)": {
+        "nada": true,
+        "checadoEm": "2026-11-01"
       }
     },
     "Zig & Sharko": {

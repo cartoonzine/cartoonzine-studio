@@ -131,7 +131,7 @@
    ],
    "studio": "youtoon/portugues-portugal/cartoon-network-portugal-tom-e-jerry",
    "url": "https://www.youtube.com/playlist?list=PLjhmfGvP3yRMf4BjoVp8MXHQMT2wb6miC",
-   "logo": "https://i.ytimg.com/vi/j9-j124Bojw/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/lwHcLjTjGEY/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -389,7 +389,7 @@
   },
   {
    "title": "Masha e o Urso EU · Masha e o Urso 👧🐻 O que há de novo 🆕🌟",
-   "desc": "Playlist de Masha e o Urso EU · 511 vídeos",
+   "desc": "Playlist de Masha e o Urso EU · 512 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -401,7 +401,7 @@
   },
   {
    "title": "Masha e o Urso EU · Masha e o Urso 👧🐻 Seleção dos melhores episódios 🎬",
-   "desc": "Playlist de Masha e o Urso EU · 263 vídeos",
+   "desc": "Playlist de Masha e o Urso EU · 264 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -420,6 +420,18 @@
    "studio": "youtoon/portugues-portugal/masha-e-o-urso-eu-masha-e-o-urso-todos-os-novos-episodios",
    "url": "https://www.youtube.com/playlist?list=PL0hFNECWN4x5VqINSZFYk_KX4aHwcvnq1",
    "logo": "https://i.ytimg.com/vi/FmeZ6sVJ-2Q/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Masha e o Urso EU 24H",
+   "desc": "🔴 LIVE 👧🐻 Masha e o Urso ⭐ Premiere ⭐ Não percas a cabeça 😵‍💫👻🎠 Masha and the Bear",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/masha-e-o-urso-eu-24h",
+   "url": "https://www.youtube.com/channel/UCu-ouRRIRwKHqEGXbLMftVw/live",
+   "logo": "https://i.ytimg.com/vi/4FsXA6FRr8k/hqdefault.jpg?v=6ae23fba",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -444,6 +456,18 @@
    "studio": "youtoon/portugues-portugal/nick-jr-em-portugues",
    "url": "https://www.youtube.com/channel/UCxmK61Geo08axWQP_BPdvlw",
    "logo": "https://yt3.ggpht.com/xs_NHPdUbCntjif-I2CrITeu-voAwG3Gpn04MluTh3NlPBdNmvMUFq4_wzPU5jgYWNl_zK_OEA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "WildBrain Crianças",
+   "desc": "Canal oficial de WildBrain Crianças no YouTube: episódios sem parar.",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/wildbrain-criancas",
+   "url": "https://www.youtube.com/channel/UCKWGr9VyIYn_c6gXbYctH3w",
+   "logo": "https://yt3.ggpht.com/Ny_NwpbF-_rMj6cEE742oXV93kscSF5KLKRx5k95LTJZdgBEet3aZULUdYR41mWFW_ORutFzjs8=s800-c-k-c0x00ffffff-no-rj",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   }
