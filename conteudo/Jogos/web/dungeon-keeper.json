@@ -1,0 +1,12 @@
+{
+  "nome": "Dungeon Keeper",
+  "links": [
+    "https://dk-browser.tiiny.site/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · dk-browser.tiiny.site",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

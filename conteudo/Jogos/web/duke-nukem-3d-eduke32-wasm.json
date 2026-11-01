@@ -1,0 +1,13 @@
+{
+  "nome": "Duke Nukem 3D (eduke32-wasm)",
+  "links": [
+    "https://digitalcybersoft.github.io/eduke32-wasm/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/digitalcybersoft/eduke32-wasm",
+  "descricao": "Port para navegador · digitalcybersoft.github.io",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

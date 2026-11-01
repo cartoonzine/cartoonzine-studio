@@ -1,0 +1,13 @@
+{
+  "nome": "Feed & Grow Fish",
+  "links": [
+    "https://reeyukifish.pages.dev/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/Reeyuki/FeedAndGrowFishPort",
+  "descricao": "Port para navegador · reeyukifish.pages.dev",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
