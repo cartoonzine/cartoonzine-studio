@@ -1,0 +1,13 @@
+{
+  "nome": "Battle City",
+  "links": [
+    "https://battle-city.berrry.app"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/vgrichina/battlecity",
+  "descricao": "Port para navegador · battle-city.berrry.app",
+  "console": "web",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
