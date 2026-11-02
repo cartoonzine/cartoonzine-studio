@@ -514,7 +514,9 @@ test('jogos retrô: cada console tem o core do EmulatorJS; sistemas novos (Game 
     assert.equal(mk('atari5200').core, 'a5200');
     assert.equal(mk('3ds').core, '3ds');
     assert.equal(mk('snes', { core: 'snes9x' }).core, 'snes9x');   // o core do jogo vence o do console
-    assert.equal(mk('msx').core, undefined);                       // sem emulador: não inventa core
+    assert.equal(mk('msx').core, undefined);
+    assert.equal(mk('msdos', { comandoDos: 'KEEN4E.EXE' }).dosrun, 'KEEN4E.EXE');   // MS-DOS: comando do jogo vai para o app
+    assert.equal(mk('msdos').dosrun, undefined);                       // sem emulador: não inventa core
     assert.equal(C.coreDoConsole('ps1'), 'psx');                    // sem config: tabela padrão
     // cada console novo vira um DB (dist/jogos/<id>.json) e uma fonte do cloud
     const r = C.compilarColecao(retro, [{ item: C.normalizarItem({ nome: 'Tetris', console: 'gb', links: ['https://r.x/t.gb'], licenca: 'livre' }, retro), caminho: 'conteudo/jogos/gb/tetris.json' }], config);

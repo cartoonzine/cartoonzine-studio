@@ -1062,6 +1062,7 @@
                 { k: 'soPC', rotulo: 'Só PC (não aparece na TV)', tipo: 'bool', dica: 'marque nos jogos pesados ou que precisam de mouse/teclado' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
                 { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Nos Jogos Web é sempre "web"' },
+                { k: 'comandoDos', rotulo: 'Comando do jogo (MS-DOS)', tipo: 'texto', avancado: true, dica: 'só MS-DOS: o programa que abre o jogo dentro do zip (ex.: KEEN4E.EXE). Vazio = AUTORUN.BAT do zip ou o .exe principal, escolhido sozinho' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
                 { k: 'licenca', rotulo: 'Licença (Web Games)', tipo: 'escolha', opcoes: ['', ...LICENCAS_WEB], avancado: true, dica: 'livre = jogo/código aberto ou gratuito · autorizada = demo oficial ou o dono liberou · precisa-original = o jogador carrega os arquivos do próprio jogo · jogo web só é publicado com a licença conferida' },
                 { k: 'engine', rotulo: 'Tipo do port (Web Games)', tipo: 'escolha', opcoes: ['', ...ENGINES_WEB], avancado: true },
@@ -1109,7 +1110,7 @@
         if (ano) out.ano = ano;
         const gen = lista(b.generos || b.genero || b.genre || b.estilos);
         if (gen.length) out.generos = gen;
-        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas']) {
+        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas', 'comandoDos']) {
             if (b[k] !== undefined && b[k] !== '') out[k] = String(b[k]).trim();
         }
         if (b.pais) out.pais = codigoPais(b.pais);
@@ -1294,6 +1295,7 @@
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
                     logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
                     console: item.console, players: item.jogadores, core: item.core || coreDoConsole(item.console, config),
+                    dosrun: item.comandoDos,                                                    // MS-DOS: programa do jogo dentro do zip
                     aparelhos: item.soPC ? ['pc'] : undefined                               // "Só PC": a TV não mostra
                 });
                 // cartucho web: o app abre a página do jogo no cartucho-web.html (core "web")
