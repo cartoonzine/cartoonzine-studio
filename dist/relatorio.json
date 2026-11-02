@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T03:31:16.876Z",
+  "geradoEm": "2026-11-02T04:11:18.048Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -81,8 +81,8 @@
     },
     {
       "colecao": "jogos",
-      "total": 509,
-      "publicados": 7,
+      "total": 514,
+      "publicados": 13,
       "erros": [],
       "avisos": [
         {
@@ -1934,10 +1934,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tyrian-opentyrian.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos/web/ufc-2009-undisputed-throwdown.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2122,7 +2118,7 @@
         "flash": 0,
         "ps1": 0,
         "3do": 0,
-        "web": 7,
+        "web": 13,
         "webpc": 0
       }
     }
