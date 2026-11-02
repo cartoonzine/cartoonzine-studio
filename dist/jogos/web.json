@@ -48,6 +48,20 @@
    "repo": "https://github.com/web-ports/20-minutes"
   },
   {
+   "title": "Ages of Conflict",
+   "desc": "Port para navegador · wasm.rip",
+   "studio": "jogos/web/ages-of-conflict",
+   "url": "https://wasm.rip/files/aoc/index.html",
+   "console": "web",
+   "core": "web",
+   "web": true,
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "license": "livre"
+  },
+  {
    "title": "Call of Duty Web Collection",
    "desc": "Port para navegador · cod-webports.pages.dev",
    "studio": "jogos/web/call-of-duty-web-collection",
