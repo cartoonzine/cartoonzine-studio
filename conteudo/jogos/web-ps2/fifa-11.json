@@ -1,0 +1,12 @@
+{
+  "nome": "FIFA 11",
+  "links": [
+    "https://fifa11.online/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · fifa11.online",
+  "console": "web-ps2",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

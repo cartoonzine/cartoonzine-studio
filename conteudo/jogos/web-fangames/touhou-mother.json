@@ -1,0 +1,13 @@
+{
+  "nome": "Touhou Mother",
+  "links": [
+    "https://gn-math.dev/?id=523"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/aukak/gameports/tree/main/touhou%20mother",
+  "descricao": "Port para navegador · gn-math.dev",
+  "console": "web-fangames",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

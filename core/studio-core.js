@@ -851,16 +851,50 @@
     const ENGINES_WEB = ['WebAssembly', 'Emscripten', 'Unity WebGL', 'Godot', 'Flash/Ruffle', 'HTML5/JavaScript', 'DOS (js-dos)', 'Outro'];
     const CONTROLES_WEB = ['teclado', 'gamepad', 'mouse', 'teclado-mouse', 'toque'];
     const PESOS_WEB = ['leve', 'medio', 'pesado'];
-    /** console de jogos web? (pelo studio.config.json: "web": true; sem config, pelo id web/webpc) */
+    /** console de jogos web? (pelo studio.config.json: "web": true; sem config, pelo id web-…) */
     function consoleWeb(id, config) {
         if (!id) return false;
         const c = config && (config.consoles || []).find(x => x.id === id);
-        return c ? !!c.web : /^web(pc|tv)?$/.test(String(id));
+        return c ? !!c.web : /^web(-[a-z0-9]+|pc|tv)?$/.test(String(id));
     }
-    function aparelhosDoConsole(id, config) {
+    /** Onde o jogo aparece: "Só PC" marcado = só no PC; senão TV e PC (ou o "aparelhos" do console). */
+    function aparelhosDoConsole(id, config, item) {
+        if (item && item.soPC) return ['pc'];
         const c = config && (config.consoles || []).find(x => x.id === id);
         if (c && Array.isArray(c.aparelhos)) return c.aparelhos.slice();
         return String(id) === 'webpc' ? ['pc'] : ['tv', 'pc'];
+    }
+    /**
+     * Sistema original de um jogo web pelo nome (para quem chega pela importação).
+     * Heurística: a 1ª regra que casar vale; sem regra = "web-outros" (Sem categoria), para conferir no painel.
+     */
+    const REGRAS_SISTEMA_WEB = [
+        ["web-fangames", "^a bite at freddy|five nights at (candy|epstein|frickbear|last breath)|freddy's world: refreshed|i can't believe it's not sonic|jumbo mario|kirby ~ soft|open sonic|sonic robo blast|sonic\\.exe|sonic worlds next|super mario bros\\. remastered|super mario zombies|undertale yellow|deltatraveler|touhou mother|pizza tower: scoutdigo|brutal doom|slendytubbies|caseoh|raldi|jeffrey epstein basics|gabriel's awesome|claude of duty|kino der toten|nacht der untoten|^moon |black ops zombies|luigi's picture poker|fundamental paper novel|super mario 64 multiplayer|super mario 64 \\(multiplayer"],
+        ["web-remakes", "^ballerburg|^battle city|road rash \\(three|rocks'n'diamonds|zelda ii|pokémon mystery dungeon|eaglercraft|^openttd|^xrick|minesweeper plus|^freegemas|^xgalaga|^vectoroids|super smash bros\\. \\(smash"],
+        ["web-pc", "^luanti|^neverball|^tremulous|^urban terror|^freeciv|pekka kana"],
+        ["web-dos", "^alley cat|caesar ii|^chasm|commander keen|daggerfall|^descent|^doom($| \\(|$)|doom i & ii|doom multiplayer|^duke[ :]|^nblood|^dune ii|dungeon keeper|fatal racing|heretic|heroes of might and magic ii|prince of persia|^powerslave|^quake($| tg)|quakeworld|netquake|redneck rampage|^shadow warrior|^stunts|^syndicate|toonstruck|^witchaven|tekwar|^ww2 gi|^wwii gi|^nam / napalm|wolfenstein 3d|beneath a steel sky|drascula|amazon queen|^девятка|jump 'n bump|opentyrian|simcity|warcraft ii|^carmageddon|^wadcmd"],
+        ["web-windows", "space cadet|american mcgee|arx fatalis|atlantis: the lost|brawlhalla|command & conquer|counter[- ]strike|cyberpunk|^diablo|^doom 3|cricket 07|^fallout|grand theft auto 2|grand theft auto iii|vice city|^gta|half[- ]life|^homeworld|lego island|lego racers|need for speed|no one lives forever|^portal|return to castle|rollercoaster|s\\.t\\.a\\.l\\.k\\.e\\.r|jedi knight|team fortress|unreal tournament|^quake ii|^quake iii|morrowind|hard truck|space rangers|liquidator|silkroad|simgolf|warzone 2100|quest for (hussein|al-qa)|minecraft story mode|call of duty: modern warfare|counter strike 2019|reset generation|hexen ii|harry potter and the chamber|plants vs\\.? zombies|simpsons: hit & run|^sonic mania|tsukihime"],
+        ["web-n64", "diddy kong|goldeneye|perfect dark|super mario 64"],
+        ["web-gamecube", "battle stadium d\\.o\\.n|super monkey ball|^pikmin|super mario sunshine|star fox adventures|animal crossing|twilight princess|phantasy star online episode i & ii|resident evil 4"],
+        ["web-dreamcast", "phantasy star online \\(pso|virtua tennis 2"],
+        ["web-xbox", "^halo"],
+        ["web-xbox360", "castle crashers|^skate 3|sonic the hedgehog 4"],
+        ["web-ps1", "crash bash|crash team racing|legend of legaia|^pepsiman|^wipeout|^tomb raider|gran turismo 2"],
+        ["web-psp", "\\(psp|chains of olympus|ghost of sparta|chinatown wars|crisis core|monster hunter freedom|ultimate ninja impact|size matters|silent hill: origins|tekken 5: dark resurrection|tekken: dark resurrection|nba 2k12"],
+        ["web-ps3", "ufc 2009"],
+        ["web-ps2", "burnout 3|crash nitro kart|budokai|def jam|fifa street|fifa 1[123]$|formula one 06|gran turismo 4|jak and daxter|madden nfl|midnight club 3|shaolin monks|ultimate ninja 5|nba street|nfl street|pro evolution soccer|resident evil outbreak|^ratchet & clank$|spider-man 2|^ssx 3|street fighter anniversary|^tekken [45]$|the warriors|tony hawk|smackdown|hot shots tennis|kingdom hearts|downhill domination"],
+        ["web-arcade", "daytona usa|virtua fighter|sonic the fighters|marvel vs\\. capcom|3rd strike|virtual on|taiko no tatsujin"],
+        ["web-mobile", "^granny|plague inc|geometry dash|cut the rope|bad piggies|amazing alex|power hover|talking baby hippo|flying gorilla|call of mini|minecraft pocket|minecraft 0\\.6|createrria|spaceflight simulator|f1 race \\(mtk"],
+        ["web-java", "runescape classic"],
+        ["web-navegador", "duck life|lacey's flash|mini dayz|apes vs helium|cheese rolling|uvuvwevwevwe"],
+        ["web-macos", "cro-mag rally"],
+        ["web-zxspectrum", "sm-kart-zx"],
+        ["web-indie", "20 minutes till dawn|^-3$|difficult game about climbing|ages of conflict|amanda the adventurer|among us|andy's apple farm|antonblast|arthur's nightmare|bad parenting|baldi's basics|beatblock|bendy and|bergentruck|bloodmoney|boil noodles|brotato|buckshot roulette|cheese cube|christmas massacre|class of '09|clover pit|clustertruck|crashout crew|crazy cattle|cruelty squad|cuphead|dead plate|deadseat|deltarune|dice a million|do not take this cat|doki doki|dude simulator|endoparasitic|fear & hunger|fears to fathom|feed & grow|^fez$|^fih$|^fish$|five nights at freddy|^fnaf$|faster than light|getting over it|gorilla tag|happy room|happy sheepies|helltaker|hollow knight|hotline miami|how to fish|human expenditure|i wanna be the guy|in stars and time|inscryption|iron lung|jelly drift|just shapes|karlson|kindergarten|la madriguera|lethal company|^limbo$|lobotomy corporation|look outside|midnight shift|milk (in|out)side|mindwave|miside|needy streamer|nubby's|^omori|oneshot|overburden|^peak|peaks of yore|people playground|pizza tower|^r\\.e\\.p\\.o|^raft$|rain world|rimworld|s\\.p\\.l\\.i\\.t|saihate|schoolboy runaway|scp: containment|shift at midnight|slay the spire|^slender|slime rancher|spelunky|speed stars|stardew|stick with it|^t³|tattletail|not my neighbor|binding of isaac|man (from|in) the window|seven games of the soul|totally accurate|trombone champ|ultrakill|ultrapool|^undertale$|untitled goose|webfishing|who's your daddy|yandere|your only move|yume nikki|^celeste|cave story|vvvvvv|lugaru|terraria|^re:run|promises to keep|fused 240|witch's heart|koi/_flixel|lethal ape"]
+    ];
+    function sistemaWebDoNome(nome) {
+        const n = String(nome || '').trim().toLowerCase();
+        for (const [cat, rx] of REGRAS_SISTEMA_WEB) if (new RegExp(rx).test(n)) return cat;
+        return 'web-outros';
     }
 
     /**
@@ -997,6 +1031,7 @@
                 ...CAMPOS_COMUNS_MIDIA,
                 { k: 'jogadores', rotulo: 'Jogadores', tipo: 'numero' },
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
+                { k: 'soPC', rotulo: 'Só PC (não aparece na TV)', tipo: 'bool', dica: 'marque nos jogos pesados ou que precisam de mouse/teclado' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
                 { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console (nos Web Games é sempre "web")' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
@@ -1059,6 +1094,7 @@
         if (jog) out.jogadores = jog;
         for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
         if (b.destaque === true || b.destaque === 'true' || b.destaque === 'sim') out.destaque = true;
+        if (b.soPC === true || b.soPC === 'true' || b.soPC === 'sim') out.soPC = true;
         for (const k of ['bannerLogo', 'bannerVideo']) if (b[k]) out[k] = String(b[k]).trim();
         if (SKINS_BANNER.includes(b.bannerSkin)) out.bannerSkin = b.bannerSkin;
         if (FX_BANNER.includes(b.bannerFx)) out.bannerFx = b.bannerFx;
@@ -1119,7 +1155,7 @@
             // cartucho web: só vai para o app com a licença conferida (rascunho pode ficar sem)
             if (!item._rascunho && (!item.licenca || item.licenca === 'nao-verificada')) erros.push('Jogo web: confira a licença antes de publicar (campo "Licença")');
             for (const u of item.links || []) if (/^magnet:/i.test(u)) erros.push('Jogo web precisa de um link https da página do jogo');
-            if (item.peso === 'pesado' && aparelhosDoConsole(item.console, config).includes('tv')) avisos.push('jogo pesado no console que vai para a TV: mova para "Web Games · Só PC" (webpc)');
+            if (item.peso === 'pesado' && !item.soPC) avisos.push('jogo pesado indo para a TV: marque "Só PC"');
             if (item.repo && !linkValido(item.repo)) avisos.push('repo não parece um link: ' + item.repo);
         }
         if (item.ano && (item.ano < 1880 || item.ano > 2100)) avisos.push('Ano estranho: ' + item.ano);
@@ -1229,11 +1265,12 @@
                 const o = Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
                     logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
-                    console: item.console, players: item.jogadores, core: item.core
+                    console: item.console, players: item.jogadores, core: item.core,
+                    aparelhos: item.soPC ? ['pc'] : undefined                               // "Só PC": a TV não mostra
                 });
                 // cartucho web: o app abre a página do jogo no cartucho-web.html (core "web")
                 if (consoleWeb(item.console, config)) Object.assign(o, {
-                    core: 'web', web: true, aparelhos: aparelhosDoConsole(item.console, config),
+                    core: 'web', web: true, aparelhos: aparelhosDoConsole(item.console, config, item),
                     engine: item.engine, license: item.licenca, controls: item.controles, keys: item.teclas, weight: item.peso, repo: item.repo
                 });
                 return limparVazios(o);
@@ -1451,6 +1488,7 @@
             eps: contarEpisodios(item) || undefined,
             pais: item.pais, console: item.console, categoria: item.categoria,
             licenca: item.licenca,
+            soPC: item.soPC ? true : undefined,
             rascunho: item._rascunho ? true : undefined,
             auto: item._origem ? true : undefined
         });
@@ -1471,6 +1509,6 @@
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever,
-        consoleWeb, aparelhosDoConsole, lerCatalogoWebPorts, LICENCAS_WEB, ENGINES_WEB, CONTROLES_WEB, PESOS_WEB
+        consoleWeb, aparelhosDoConsole, sistemaWebDoNome, lerCatalogoWebPorts, LICENCAS_WEB, ENGINES_WEB, CONTROLES_WEB, PESOS_WEB
     };
 });

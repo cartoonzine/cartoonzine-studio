@@ -376,12 +376,19 @@ test('Vitrine: aparência no banner (logo, vídeo, skin, efeito) vai para o app 
     for (const t of ['video', 'jogo', 'canal24h']) assert.ok(C.TIPOS[t].campos.some(c => c.k === 'bannerSkin'), t);
 });
 
-// ---------------- Cartucho web (consoles web / webpc) ----------------
-test('cartucho web: consoles web e webpc no config', () => {
-    assert.ok(C.consoleWeb('web', config) && C.consoleWeb('webpc', config));
-    assert.ok(!C.consoleWeb('snes', config));
-    assert.deepEqual(C.aparelhosDoConsole('web', config), ['tv', 'pc']);
-    assert.deepEqual(C.aparelhosDoConsole('webpc', config), ['pc']);
+// ---------------- Cartucho web (um console por sistema original + "Só PC") ----------------
+test('cartucho web: sistemas web no config e "Só PC"', () => {
+    for (const id of ['web-fangames', 'web-indie', 'web-remakes', 'web-pc', 'web-dos', 'web-windows', 'web-ps2', 'web-psp', 'web-n64', 'web-arcade', 'web-navegador', 'web-outros'])
+        assert.ok(C.consoleWeb(id, config), id);
+    assert.ok(!C.consoleWeb('snes', config) && !C.consoleWeb('n64', config));
+    assert.ok(!config.consoles.some(c => c.id === 'web' || c.id === 'webpc'), 'os 2 DBs antigos saíram');
+    assert.equal(new Set(config.consoles.map(c => c.prefixoId)).size, config.consoles.length, 'prefixos únicos');
+    assert.deepEqual(C.aparelhosDoConsole('web-dos', config), ['tv', 'pc']);
+    assert.deepEqual(C.aparelhosDoConsole('web-dos', config, { soPC: true }), ['pc']);
+    assert.equal(C.sistemaWebDoNome('Super Mario 64 (rgc.zone)'), 'web-n64');
+    assert.equal(C.sistemaWebDoNome('Duke Nukem 3D'), 'web-dos');
+    assert.equal(C.sistemaWebDoNome('Tekken 5: Dark Resurrection (Recomp)'), 'web-psp');
+    assert.equal(C.sistemaWebDoNome('Um jogo que ninguém conhece'), 'web-outros');
 });
 
 test('cartucho web: lê o README do Ultimate Catalog (▶ jogável, 📦 só fonte, ano, link do texto)', () => {
@@ -400,36 +407,41 @@ test('cartucho web: lê o README do Ultimate Catalog (▶ jogável, 📦 só fon
     assert.equal(r.semDemo[0].repo, 'https://github.com/midzer/abuse');
 });
 
-test('cartucho web: só publica com licença conferida; vai para o app com core "web"', () => {
+test('cartucho web: só publica com licença conferida; vai para o app com core "web"; "Só PC" esconde da TV', () => {
     const jogos = col('jogos');
-    const base = { nome: 'Alley Cat', console: 'web', links: ['https://petarov.github.io/alleycat.exe/'] };
+    const base = { nome: 'Alley Cat', console: 'web-dos', links: ['https://petarov.github.io/alleycat.exe/'] };
     const sem = C.validarItem(C.normalizarItem(base, jogos), jogos, config);
     assert.ok(sem.erros.some(e => /licença/.test(e)));
     const rasc = C.validarItem(C.normalizarItem(Object.assign({ _rascunho: true, licenca: 'nao-verificada' }, base), jogos), jogos, config);
     assert.equal(rasc.erros.length, 0);
     const pesado = C.validarItem(C.normalizarItem(Object.assign({ licenca: 'livre', peso: 'pesado' }, base), jogos), jogos, config);
     assert.equal(pesado.erros.length, 0);
-    assert.ok(pesado.avisos.some(a => /webpc/.test(a)));
+    assert.ok(pesado.avisos.some(a => /Só PC/.test(a)));
+    assert.equal(C.normalizarItem({ nome: 'x', soPC: 'sim' }, jogos).soPC, true);
     const r = C.compilarColecao(jogos, [
-        { caminho: 'conteudo/jogos/web/alley-cat.json', item: Object.assign({ licenca: 'livre', engine: 'DOS (js-dos)', controles: 'teclado', teclas: 'A=Space', repo: 'https://github.com/petarov/alleycat.exe' }, base) },
-        { caminho: 'conteudo/jogos/web/rascunho.json', item: { nome: 'Rascunho', console: 'web', links: ['https://x.com/'], _rascunho: true } },
-        { caminho: 'conteudo/jogos/webpc/pesado.json', item: { nome: 'Pesado', console: 'webpc', links: ['https://y.com/'], licenca: 'autorizada', peso: 'pesado' } }
+        { caminho: 'conteudo/jogos/web-dos/alley-cat.json', item: Object.assign({ licenca: 'livre', engine: 'DOS (js-dos)', controles: 'teclado', teclas: 'A=Space', repo: 'https://github.com/petarov/alleycat.exe' }, base) },
+        { caminho: 'conteudo/jogos/web-dos/rascunho.json', item: { nome: 'Rascunho', console: 'web-dos', links: ['https://x.com/'], _rascunho: true } },
+        { caminho: 'conteudo/jogos/web-windows/pesado.json', item: { nome: 'Pesado', console: 'web-windows', links: ['https://y.com/'], licenca: 'autorizada', peso: 'pesado', soPC: true } }
     ], config);
-    const web = JSON.parse(r.arquivos['jogos/web.json']).games;
-    assert.equal(web.length, 1);
-    assert.equal(web[0].core, 'web');
-    assert.equal(web[0].web, true);
-    assert.deepEqual(web[0].aparelhos, ['tv', 'pc']);
-    assert.equal(web[0].license, 'livre');
-    assert.equal(web[0].keys, 'A=Space');
-    assert.equal(web[0].controls, 'teclado');
-    const pc = JSON.parse(r.arquivos['jogos/webpc.json']).games;
-    assert.deepEqual(pc[0].aparelhos, ['pc']);
-    assert.ok(r.fontes.some(f => f.console === 'webpc' && f.tipo === 'emulator_json' && /jogos\/webpc\.json$/.test(f.url)));
-    // jogo retrô comum continua igual (sem campos web)
+    const dos = JSON.parse(r.arquivos['jogos/web-dos.json']).games;
+    assert.equal(dos.length, 1);
+    assert.equal(dos[0].core, 'web');
+    assert.equal(dos[0].web, true);
+    assert.deepEqual(dos[0].aparelhos, ['tv', 'pc']);
+    assert.equal(dos[0].license, 'livre');
+    assert.equal(dos[0].keys, 'A=Space');
+    assert.equal(dos[0].controls, 'teclado');
+    const win = JSON.parse(r.arquivos['jogos/web-windows.json']).games;
+    assert.deepEqual(win[0].aparelhos, ['pc']);
+    assert.ok(r.fontes.some(f => f.console === 'web-ps2' && f.tipo === 'emulator_json' && /jogos\/web-ps2\.json$/.test(f.url)));
+    assert.ok(!r.arquivos['jogos/web.json'] && !r.arquivos['jogos/webpc.json']);
+    // jogo retrô comum continua igual; "Só PC" também vale para ele
     const snes = C.paraCloud(C.normalizarItem({ nome: 'Mario', console: 'snes', links: ['https://r.x/m.sfc'], licenca: 'livre' }, jogos), jogos, 'jogos/mario', config);
     assert.equal(snes.core, undefined);
     assert.equal(snes.web, undefined);
+    assert.equal(snes.aparelhos, undefined);
+    const n64pc = C.paraCloud(C.normalizarItem({ nome: 'Pesado 64', console: 'n64', links: ['https://r.x/p.z64'], soPC: true }, jogos), jogos, 'jogos/p', config);
+    assert.deepEqual(n64pc.aparelhos, ['pc']);
 });
 
 test('cartucho web: importador cria rascunhos, junta link repetido e não mexe no que já existe', async () => {
@@ -437,19 +449,20 @@ test('cartucho web: importador cria rascunhos, junta link repetido e não mexe n
     const raiz = fs.mkdtempSync(path.join(os.tmpdir(), 'czweb-'));
     fs.copyFileSync(new URL('../studio.config.json', import.meta.url), path.join(raiz, 'studio.config.json'));
     const { importarWebPorts } = await import('../tools/importar-webports.mjs');
-    const md = '## A\n| Game | Play | Source |\n| --- | --- | --- |\n| Jogo X | [▶ a.io](https://a.io/x/) |  |\n| Jogo X | [▶ b.io](https://b.io/x/) |  |\n| Só Fonte |  | [📦 r](https://github.com/u/r) |\n';
+    const md = '## A\n| Game | Play | Source |\n| --- | --- | --- |\n| Jogo X | [▶ a.io](https://a.io/x/) |  |\n| Jogo X | [▶ b.io](https://b.io/x/) |  |\n| Só Fonte |  | [📦 r](https://github.com/u/r) |\n| Duke Nukem 3D | [▶ d.io](https://d.io/) |  |\n';
     const r1 = importarWebPorts(md, { raiz });
-    assert.equal(r1.novos, 1); assert.equal(r1.atualizados, 1);
-    const arq = path.join(raiz, 'conteudo/jogos/web/jogo-x.json');
+    assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, 'conteudo/jogos/web-dos/duke-nukem-3d.json'), 'utf8')).console, 'web-dos', 'cada jogo vai para o sistema dele');
+    assert.equal(r1.novos, 2); assert.equal(r1.atualizados, 1);
+    const arq = path.join(raiz, 'conteudo/jogos/web-outros/jogo-x.json');
     const it = JSON.parse(fs.readFileSync(arq, 'utf8'));
     assert.deepEqual(it.links, ['https://a.io/x/', 'https://b.io/x/']);
     assert.equal(it._rascunho, true); assert.equal(it.licenca, 'nao-verificada');
-    // o usuário publicou e mudou para webpc: reimportar não cria outro nem mexe
-    fs.mkdirSync(path.join(raiz, 'conteudo/jogos/webpc'));
-    fs.writeFileSync(path.join(raiz, 'conteudo/jogos/webpc/jogo-x.json'), JSON.stringify({ nome: 'Jogo X', console: 'webpc', links: ['https://a.io/x/'], licenca: 'livre' }));
+    // o usuário publicou e mudou de sistema: reimportar não cria outro nem mexe
+    fs.mkdirSync(path.join(raiz, 'conteudo/jogos/web-indie'));
+    fs.writeFileSync(path.join(raiz, 'conteudo/jogos/web-indie/jogo-x.json'), JSON.stringify({ nome: 'Jogo X', console: 'web-indie', links: ['https://a.io/x/'], licenca: 'livre' }));
     fs.unlinkSync(arq);
     const r2 = importarWebPorts(md, { raiz });
-    assert.equal(r2.novos, 0); assert.equal(r2.pulados, 2);
+    assert.equal(r2.novos, 0); assert.equal(r2.pulados, 3);
     assert.ok(!fs.existsSync(arq));
     assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, 'conteudo/jogos/_webports-sem-demo.json'), 'utf8')).jogos[0].nome, 'Só Fonte');
     fs.rmSync(raiz, { recursive: true, force: true });

@@ -1,0 +1,12 @@
+{
+  "nome": "Arx Fatalis (Arxwasm Demo)",
+  "links": [
+    "https://wasm.continuation-labs.com/arxdemo/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · wasm.continuation-labs.com",
+  "console": "web-windows",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

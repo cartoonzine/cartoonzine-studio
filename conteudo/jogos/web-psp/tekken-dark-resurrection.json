@@ -1,0 +1,12 @@
+{
+  "nome": "Tekken: Dark Resurrection",
+  "links": [
+    "https://tekkendr.live/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · tekkendr.live",
+  "console": "web-psp",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

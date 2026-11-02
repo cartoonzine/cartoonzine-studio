@@ -4,19 +4,19 @@
  *
  *   node tools/importar-webports.mjs                       (baixa o README oficial do GitHub)
  *   node tools/importar-webports.mjs README.md             (ou um arquivo/link que você escolher)
- *   node tools/importar-webports.mjs --console webpc       (manda tudo para "Web Games · Só PC")
+ *   node tools/importar-webports.mjs --console web-dos     (manda tudo para um sistema; sem isso, cada jogo vai para o sistema dele)
  *   node tools/importar-webports.mjs --secao A --limite 20 (só a letra A, no máximo 20 jogos)
  *   node tools/importar-webports.mjs --simular             (mostra o que faria, sem salvar nada)
  *
  * O que ele faz:
- *   • cada jogo com link jogável (▶) vira conteudo/jogos/<console>/<nome>.json como RASCUNHO
+ *   • cada jogo com link jogável (▶) vira conteudo/jogos/<sistema>/<nome>.json como RASCUNHO
  *     (licença "nao-verificada"): nada vai para o app antes de você conferir a licença no painel;
  *   • quem só tem código-fonte (📦, sem demo) vai para conteudo/jogos/_webports-sem-demo.json
  *     (arquivo com "_" na frente: o build ignora; é só uma lista para consulta);
  *   • jogo que já existe em qualquer console web (mesmo que você tenha mudado de web para webpc
  *     ou já publicado) NÃO é mexido. Com --atualizar ele só ganha o que falta (link reserva, repo).
  *
- * Consoles: "web" = Web Games · TV e PC   ·   "webpc" = Web Games · Só PC
+ * Sistemas: os consoles com "web": true no studio.config.json (Fangames, Indie, DOS, PS2…). Jogo pesado: marque "Só PC".
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -27,10 +27,12 @@ export const PAGINA_OFICIAL = 'https://github.com/Carter54git/Ultimate-Catalog-O
 const ORIGEM = 'auto:Ultimate Catalog of Web Game Ports';
 
 /** Importa o texto do README. Devolve o resumo (usado também pelos testes). */
-export function importarWebPorts(texto, { raiz = RAIZ, console: destino = 'web', secao, limite, simular = false, atualizar = false } = {}) {
+export function importarWebPorts(texto, { raiz = RAIZ, console: destino = 'auto', secao, limite, simular = false, atualizar = false } = {}) {
     const config = lerConfig(raiz);
     const colecao = acharColecao(config, 'jogos');
-    if (!Core.consoleWeb(destino, config)) throw new Error(`"${destino}" não é um console web (use web ou webpc)`);
+    // "auto" = cada jogo vai para o sistema original dele (pelo nome); o que não der para saber fica em "Sem categoria"
+    if (destino !== 'auto' && !Core.consoleWeb(destino, config)) throw new Error(`"${destino}" não é um console web (veja os "web": true em consoles do studio.config.json)`);
+    const sistemaDe = (nome) => destino === 'auto' ? Core.sistemaWebDoNome(nome) : destino;
     const { jogos, semDemo } = Core.lerCatalogoWebPorts(texto);
     const filtro = (j) => !secao || String(j.secao).toLowerCase() === String(secao).toLowerCase();
     let lista = jogos.filter(filtro);
@@ -47,7 +49,7 @@ export function importarWebPorts(texto, { raiz = RAIZ, console: destino = 'web',
     for (const j of lista) {
         const ja = existentes.get(Core.normText(j.nome));
         const item = {
-            nome: j.nome, ano: j.ano, console: destino, links: j.links, repo: j.repo,
+            nome: j.nome, ano: j.ano, console: sistemaDe(j.nome), links: j.links, repo: j.repo,
             licenca: 'nao-verificada', descricao: `Port para navegador · ${j.host}`,
             fonte: PAGINA_OFICIAL, _rascunho: true, _origem: ORIGEM
         };
@@ -99,11 +101,11 @@ if (direto) {
         process.exit(1);
     }
     try {
-        const r = importarWebPorts(texto, { console: args.console || 'web', secao: args.secao, limite: args.limite, simular: !!args.simular, atualizar: !!args.atualizar });
+        const r = importarWebPorts(texto, { console: args.console || 'auto', secao: args.secao, limite: args.limite, simular: !!args.simular, atualizar: !!args.atualizar });
         console.log(`${args.simular ? '[simulação] ' : ''}Lista lida: ${r.lidos} jogos jogáveis · ${r.semDemo} só com código-fonte`);
         console.log(`Novos: ${r.novos} · atualizados: ${r.atualizados} · iguais: ${r.iguais} · já existiam (não mexi): ${r.pulados}`);
         console.log('Todos entram como RASCUNHO com licença "nao-verificada". Para publicar um jogo: abra no painel,');
-        console.log('confira a licença (livre / autorizada / precisa-original) e tire o rascunho. Jogo pesado → console webpc.');
+        console.log('confira a licença (livre / autorizada / precisa-original) e tire o rascunho. Jogo pesado → marque "Só PC".');
     } catch (e) {
         console.error(e.message);
         process.exit(1);

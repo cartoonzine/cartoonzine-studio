@@ -1,0 +1,12 @@
+{
+  "nome": "RuneScape Classic",
+  "links": [
+    "https://runescapeclassic.gold/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · runescapeclassic.gold",
+  "console": "web-java",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

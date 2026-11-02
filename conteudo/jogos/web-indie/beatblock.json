@@ -1,0 +1,13 @@
+{
+  "nome": "Beatblock",
+  "links": [
+    "https://gn-math.dev/?id=787",
+    "https://wasm.rip/files/beatblock/index.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · gn-math.dev",
+  "console": "web-indie",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

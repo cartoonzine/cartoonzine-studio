@@ -1,0 +1,13 @@
+{
+  "nome": "OpenTTD",
+  "links": [
+    "https://openttdonline.com/play/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/OpenTTD/OpenTTD",
+  "descricao": "Port para navegador · openttdonline.com",
+  "console": "web-remakes",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

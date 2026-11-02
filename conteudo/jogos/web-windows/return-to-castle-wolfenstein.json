@@ -1,0 +1,14 @@
+{
+  "nome": "Return to Castle Wolfenstein",
+  "links": [
+    "https://rgc.zone/ports/castlewolf/index.html",
+    "https://wwasm.m-h.org.uk/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/GMH-Code/Wwasm",
+  "descricao": "Port para navegador · rgc.zone",
+  "console": "web-windows",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

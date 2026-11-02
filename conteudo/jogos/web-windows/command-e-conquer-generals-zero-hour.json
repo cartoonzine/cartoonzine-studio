@@ -1,0 +1,13 @@
+{
+  "nome": "Command & Conquer: Generals Zero Hour",
+  "links": [
+    "https://generals.wasm.ltd"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/origami-ltd/wasm-generals",
+  "descricao": "Port para navegador · generals.wasm.ltd",
+  "console": "web-windows",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

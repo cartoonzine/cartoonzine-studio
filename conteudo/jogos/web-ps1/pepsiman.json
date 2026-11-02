@@ -1,0 +1,12 @@
+{
+  "nome": "Pepsiman",
+  "links": [
+    "https://pepsiman.ol.mr/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · pepsiman.ol.mr",
+  "console": "web-ps1",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

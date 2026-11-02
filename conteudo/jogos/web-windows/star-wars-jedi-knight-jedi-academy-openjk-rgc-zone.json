@@ -1,0 +1,12 @@
+{
+  "nome": "Star Wars Jedi Knight: Jedi Academy (OpenJK, rgc.zone)",
+  "links": [
+    "https://rgc.zone/ports/openjkspweb/index.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · rgc.zone",
+  "console": "web-windows",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

@@ -1,0 +1,13 @@
+{
+  "nome": "F1 Race (MTK)",
+  "links": [
+    "https://lab.exlmoto.ru/f1/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/EXL/F1-Race",
+  "descricao": "Port para navegador · lab.exlmoto.ru",
+  "console": "web-mobile",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

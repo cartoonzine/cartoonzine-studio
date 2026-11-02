@@ -1,0 +1,12 @@
+{
+  "nome": "Monster Hunter Freedom Unite",
+  "links": [
+    "https://mhfu.online/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · mhfu.online",
+  "console": "web-psp",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

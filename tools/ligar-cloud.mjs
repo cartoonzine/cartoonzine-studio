@@ -23,7 +23,9 @@ if (!alvo) { console.log('Uso: node tools/ligar-cloud.mjs <caminho do sources.js
 const arqFontes = path.join(RAIZ, 'dist', 'fontes-cloud.json');
 if (!fs.existsSync(arqFontes)) build({ log: () => {} });
 const doStudio = JSON.parse(fs.readFileSync(arqFontes, 'utf8'));
-const sources = JSON.parse(fs.readFileSync(alvo, 'utf8'));
+// o sources.json do cloud é editado à mão e aceita vírgula sobrando (o cloud lê assim): aqui também
+const lerTolerante = (t) => { try { return JSON.parse(t); } catch (e) { return JSON.parse(t.replace(/^\uFEFF/, '').replace(/,(\s*[}\]])/g, '$1')); } };
+const sources = lerTolerante(fs.readFileSync(alvo, 'utf8'));
 sources.fontes = sources.fontes || [];
 
 let atualizadas = 0, novas = 0;
@@ -47,11 +49,17 @@ for (const f of doStudio) {
     }
 }
 
+// fontes do Studio que não existem mais (ex.: um console que saiu do studio.config.json) saem do cloud
+const chaves = new Set(doStudio.map(f => f._colecao + (f.console ? ':' + f.console : '')));
+const antes = sources.fontes.length;
+sources.fontes = sources.fontes.filter(x => !x._studio || chaves.has(x._studio));
+const removidas = antes - sources.fontes.length;
+
 if (args.simular) {
     console.log(JSON.stringify(sources.fontes.filter(x => x._studio), null, 2));
-    console.log(`\n(simulação) ${atualizadas} vagas seriam preenchidas, ${novas} fontes novas.`);
+    console.log(`\n(simulação) ${atualizadas} vagas seriam preenchidas, ${novas} fontes novas, ${removidas} removidas.`);
 } else {
     fs.writeFileSync(alvo, JSON.stringify(sources, null, 2) + '\n');
-    console.log(`✅ ${atualizadas} vagas preenchidas e ${novas} fontes novas em ${alvo}`);
+    console.log(`✅ ${atualizadas} vagas preenchidas, ${novas} fontes novas e ${removidas} removidas em ${alvo}`);
     console.log('Faça commit/push do cartoonzine-cloud: o robô de lá reconstrói o catálogo sozinho.');
 }

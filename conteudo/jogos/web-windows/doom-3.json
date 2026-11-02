@@ -1,0 +1,13 @@
+{
+  "nome": "Doom 3",
+  "links": [
+    "https://gn-math.dev/?id=626"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/web-ports/doom-3",
+  "descricao": "Port para navegador · gn-math.dev",
+  "console": "web-windows",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

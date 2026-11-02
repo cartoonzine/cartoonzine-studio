@@ -1,0 +1,13 @@
+{
+  "nome": "The Simpsons: Hit & Run (Web Port)",
+  "links": [
+    "https://vheissu.github.io/hit-and-run-web/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/Vheissu/hit-and-run-web",
+  "descricao": "Port para navegador · vheissu.github.io",
+  "console": "web-windows",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
