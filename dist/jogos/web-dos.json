@@ -5,7 +5,7 @@
   {
    "title": "Alley Cat",
    "desc": "Port para navegador · petarov.github.io",
-   "studio": "jogos/web-dos/alley-cat",
+   "studio": "jogos-web/web-dos/alley-cat",
    "url": "https://petarov.github.io/alleycat.exe/",
    "console": "web-dos",
    "core": "web",
@@ -25,7 +25,7 @@
     "Plataforma",
     "Multiplayer"
    ],
-   "studio": "jogos/web-dos/jump-n-bump",
+   "studio": "jogos-web/web-dos/jump-n-bump",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/jumpnbump/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump.jpg",
    "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump-banner.jpg",
@@ -50,7 +50,7 @@
     "Tiro",
     "Nave"
    ],
-   "studio": "jogos/web-dos/tyrian-opentyrian",
+   "studio": "jogos-web/web-dos/tyrian-opentyrian",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/opentyrian/",
    "mirrors": [
     "https://midzer.de/wasm/opentyrian/"

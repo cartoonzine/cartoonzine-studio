@@ -9,7 +9,7 @@
    "genre": [
     "Puzzle"
    ],
-   "studio": "jogos/web-remakes/freegemas",
+   "studio": "jogos-web/web-remakes/freegemas",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/freegemas/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/freegemas.jpg",
    "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/freegemas-banner.jpg",
@@ -33,7 +33,7 @@
     "Arcade",
     "Tiro"
    ],
-   "studio": "jogos/web-remakes/vectoroids",
+   "studio": "jogos-web/web-remakes/vectoroids",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/vectoroids/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/vectoroids.jpg",
    "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/vectoroids-banner.jpg",
@@ -58,7 +58,7 @@
     "Arcade",
     "Tiro"
    ],
-   "studio": "jogos/web-remakes/xgalaga",
+   "studio": "jogos-web/web-remakes/xgalaga",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/xgalaga/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/xgalaga.jpg",
    "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/xgalaga-banner.jpg",

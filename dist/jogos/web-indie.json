@@ -5,7 +5,7 @@
   {
    "title": "-3",
    "desc": "Port para navegador · gn-math.dev",
-   "studio": "jogos/web-indie/3",
+   "studio": "jogos-web/web-indie/3",
    "url": "https://gn-math.dev/?id=816",
    "console": "web-indie",
    "core": "web",
@@ -20,7 +20,7 @@
   {
    "title": "20 Minutes Till Dawn",
    "desc": "Port para navegador · gn-math.dev",
-   "studio": "jogos/web-indie/20-minutes-till-dawn",
+   "studio": "jogos-web/web-indie/20-minutes-till-dawn",
    "url": "https://gn-math.dev/?id=819",
    "console": "web-indie",
    "core": "web",
@@ -35,7 +35,7 @@
   {
    "title": "Ages of Conflict",
    "desc": "Port para navegador · wasm.rip",
-   "studio": "jogos/web-indie/ages-of-conflict",
+   "studio": "jogos-web/web-indie/ages-of-conflict",
    "url": "https://wasm.rip/files/aoc/index.html",
    "console": "web-indie",
    "core": "web",

@@ -5,7 +5,7 @@
   {
    "title": "Call of Duty Web Collection",
    "desc": "Port para navegador · cod-webports.pages.dev",
-   "studio": "jogos/web-outros/call-of-duty-web-collection",
+   "studio": "jogos-web/web-outros/call-of-duty-web-collection",
    "url": "https://cod-webports.pages.dev/",
    "console": "web-outros",
    "core": "web",

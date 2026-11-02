@@ -5,7 +5,7 @@
   {
    "title": "3D Pinball for Windows - Space Cadet",
    "desc": "Port para navegador · ksylvestre.itch.io",
-   "studio": "jogos/web-windows/3d-pinball-for-windows-space-cadet",
+   "studio": "jogos-web/web-windows/3d-pinball-for-windows-space-cadet",
    "url": "https://ksylvestre.itch.io/space-cadet-pinball",
    "console": "web-windows",
    "core": "web",
@@ -20,7 +20,7 @@
   {
    "title": "Atlantis: The Lost Tales",
    "desc": "Port para navegador · ripleyxlr8.github.io",
-   "studio": "jogos/web-windows/atlantis-the-lost-tales",
+   "studio": "jogos-web/web-windows/atlantis-the-lost-tales",
    "url": "https://ripleyxlr8.github.io/atlantis-native/",
    "console": "web-windows",
    "core": "web",
