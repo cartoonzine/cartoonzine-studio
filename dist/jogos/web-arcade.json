@@ -16,6 +16,20 @@
    "web": true,
    "license": "autorizada",
    "repo": "https://github.com/johannruiz/Daytona-USA-Web"
+  },
+  {
+   "title": "Marvel vs. Capcom 2",
+   "desc": "Port para navegador · marvelvscapcom2.online",
+   "studio": "jogos-web/web-arcade/marvel-vs-capcom-2",
+   "url": "https://marvelvscapcom2.online/",
+   "console": "web-arcade",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
   }
  ]
 }
