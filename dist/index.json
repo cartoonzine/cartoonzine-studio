@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-02T06:58:51.274Z",
+  "geradoEm": "2026-11-02T07:44:00.767Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -67,7 +67,7 @@
     },
     {
       "id": "filmes-torrent",
-      "nome": "Filmes",
+      "nome": "Filmes (torrent)",
       "tipo": "video",
       "app": "cartoonzine",
       "publicados": 59,
