@@ -76,6 +76,21 @@
    "repo": "https://github.com/petarov/alleycat.exe"
   },
   {
+   "title": "Amanda The Adventurer",
+   "desc": "Port para navegador · gn-math.github.io",
+   "studio": "jogos-web/web-indie/amanda-the-adventurer",
+   "url": "https://gn-math.github.io/web-port/amanda-the-adventurer/",
+   "console": "web-indie",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "repo": "https://github.com/genizy/web-port/tree/main/amanda-the-adventurer"
+  },
+  {
    "title": "Atlantis: The Lost Tales",
    "desc": "Port para navegador · ripleyxlr8.github.io",
    "studio": "jogos-web/web-windows/atlantis-the-lost-tales",
