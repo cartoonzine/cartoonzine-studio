@@ -237,7 +237,8 @@
     // ==================================================================
     // Estado
     // ==================================================================
-    const estado = { repo: null, config: null, indice: [], col: null, aba: 'itens', busca: '', tela: 'colecoes' };
+    const estado = { repo: null, config: null, indice: [], col: null, aba: 'itens', busca: '', tela: 'colecoes',
+        filtro: 'todos', selecionando: false, sel: new Set(), ultimoSel: -1 };
 
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
@@ -331,7 +332,7 @@
         </div>`;
         $$('.colecao').forEach(b => b.addEventListener('click', () => {
             if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
-            estado.col = b.dataset.col; estado.busca = ''; guardar.gravar('czs-col', estado.col);
+            estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
             if (estado.tela === 'vitrine') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
             desenharApp();
         }));
@@ -362,29 +363,62 @@
         if (estado.aba === 'rapido') desenharRapido(); else desenharLista();
     }
 
+    // filtros da lista: todos · rascunhos · publicados · (jogos) sem licença conferida
+    const semLicenca = i => !i.licenca || i.licenca === 'nao-verificada';
+    function filtrarItens(col) {
+        const alvo = C.normText(estado.busca);
+        const f = estado.filtro;
+        return itensDaColecao(col.id)
+            .filter(i => !alvo || C.normText(i.nome).includes(alvo) || C.normText(i.caminho).includes(alvo))
+            .filter(i => f === 'todos' || (f === 'rascunhos' ? i.rascunho : f === 'publicados' ? !i.rascunho : f === 'semlicenca' ? semLicenca(i) : f.startsWith('console:') ? i.console === f.slice(8) : true))
+            .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
+    }
+
     function desenharLista() {
         const col = colecaoAtual();
         const largo = col.tipo === 'canal' || col.tipo === 'radio' || col.tipo === 'canal24h';
-        const alvo = C.normText(estado.busca);
         const consoles = new Map((estado.config.consoles || []).map(c => [c.id, c.nome]));
-        const itens = itensDaColecao(col.id)
-            .filter(i => !alvo || C.normText(i.nome).includes(alvo) || C.normText(i.caminho).includes(alvo))
-            .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
+        const itens = filtrarItens(col);
         const total = itensDaColecao(col.id).length;
         const MAX = 300;
+        const sel = estado.sel;
+        // tira da seleção o que não existe mais (ex.: excluído ou movido)
+        const existe = new Set(itensDaColecao(col.id).map(i => i.caminho));
+        [...sel].forEach(c => { if (!existe.has(c)) sel.delete(c); });
+        const consolesUsados = col.tipo === 'jogo' ? [...new Set(itensDaColecao(col.id).map(i => i.console).filter(Boolean))] : [];
+        const opcoesFiltro = [['todos', 'Todos'], ['rascunhos', 'Só rascunhos'], ['publicados', 'Só publicados']]
+            .concat(col.tipo === 'jogo' ? [['semlicenca', 'Sem licença conferida']] : [])
+            .concat(consolesUsados.map(c => ['console:' + c, 'Console: ' + (consoles.get(c) || c)]));
         $('#conteudo-aba').innerHTML = `
-          <input class="busca" type="search" placeholder="Buscar em ${esc(col.nome)}…" value="${esc(estado.busca)}" aria-label="Buscar">
+          <div class="barra-lista">
+            <input class="busca" type="search" placeholder="Buscar em ${esc(col.nome)}…" value="${esc(estado.busca)}" aria-label="Buscar">
+            ${total ? `<select class="campo filtro-lista" aria-label="Filtrar">${opcoesFiltro.map(([v, r]) => `<option value="${esc(v)}" ${estado.filtro === v ? 'selected' : ''}>${esc(r)}</option>`).join('')}</select>
+            <button class="btn ${estado.selecionando ? 'ativo-sel' : ''}" id="btn-selecionar" title="Escolha vários itens para mudar todos de uma vez (licença, console, publicar…)">☑ ${estado.selecionando ? 'Selecionando' : 'Selecionar vários'}</button>` : ''}
+          </div>
           ${!total ? `<div class="vazio"><b>Nada aqui ainda</b>Use <b style="display:inline">⚡ Adicionar rápido</b> para colar vários links de uma vez, ou <b style="display:inline">+ Novo</b> para preencher um formulário.</div>` : ''}
-          ${total && !itens.length ? `<div class="vazio">Nada encontrado para "${esc(estado.busca)}".</div>` : ''}
-          <div class="grade">${itens.slice(0, MAX).map(i => {
-              const meta = [i.nota ? '⭐ ' + i.nota : '', i.ano, i.eps ? i.eps + ' ep.' : '', i.console ? consoles.get(i.console) || i.console : '', i.pais, i.categoria].filter(Boolean).join(' · ');
-              return `<button class="card ${largo ? 'largo' : ''}" data-caminho="${esc(i.caminho)}">
+          ${total && !itens.length ? `<div class="vazio">Nada encontrado${estado.busca ? ` para "${esc(estado.busca)}"` : ' com este filtro'}.</div>` : ''}
+          <div class="grade ${estado.selecionando ? 'selecionando' : ''}">${itens.slice(0, MAX).map((i, idx) => {
+              const lic = col.tipo === 'jogo' && C.consoleWeb && C.consoleWeb(i.console, estado.config) ? (semLicenca(i) ? 'licença ?' : 'licença ' + i.licenca) : '';
+              const meta = [i.nota ? '⭐ ' + i.nota : '', i.ano, i.eps ? i.eps + ' ep.' : '', i.console ? consoles.get(i.console) || i.console : '', i.pais, i.categoria, lic].filter(Boolean).join(' · ');
+              const marcado = estado.selecionando && sel.has(i.caminho);
+              return `<button class="card ${largo ? 'largo' : ''} ${marcado ? 'marcado' : ''}" data-caminho="${esc(i.caminho)}" data-idx="${idx}" ${estado.selecionando ? `aria-pressed="${marcado}"` : ''}>
+                ${estado.selecionando ? `<span class="marca" aria-hidden="true">${marcado ? '✓' : ''}</span>` : ''}
                 ${i.rascunho ? '<span class="selo rasc">rascunho</span>' : ''}${i.auto ? '<span class="selo auto">auto</span>' : ''}
                 <div class="img">${i.capa ? `<img src="${esc(i.capa)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</div>
                 <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc(meta || (i.pendente ? 'publicando…' : ' '))}</div></div>
               </button>`;
           }).join('')}</div>
-          ${itens.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${itens.length}. Use a busca para achar o resto.</p>` : ''}`;
+          ${itens.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${itens.length}. Use a busca ou o filtro para achar o resto${estado.selecionando ? ' ("Todos da lista" escolhe os ' + itens.length + ', até os que não aparecem)' : ''}.</p>` : ''}
+          ${estado.selecionando ? `
+          <div class="barra-massa" role="region" aria-label="Seleção">
+            <b id="sel-n">${sel.size} ${sel.size === 1 ? 'selecionado' : 'selecionados'}</b>
+            <button class="btn mini" id="sel-todos">Todos da lista (${itens.length})</button>
+            <button class="btn mini fantasma" id="sel-limpar" ${sel.size ? '' : 'disabled'}>Limpar</button>
+            <span class="dica">Dica: Shift + clique escolhe um intervalo</span>
+            <div class="espaco"></div>
+            <button class="btn principal" id="sel-aplicar" ${sel.size ? '' : 'disabled'}>Mudar ${sel.size || ''} de uma vez…</button>
+            <button class="btn fantasma mini" id="sel-sair">Sair da seleção</button>
+          </div>` : ''}`;
         const busca = $('.busca');
         busca.addEventListener('input', () => {
             estado.busca = busca.value;
@@ -392,7 +426,155 @@
             desenharLista();
             const nova = $('.busca'); nova.focus(); nova.setSelectionRange(pos, pos);
         });
-        $$('.card').forEach(c => c.addEventListener('click', () => abrirEditor(c.dataset.caminho)));
+        const filtro = $('.filtro-lista');
+        if (filtro) filtro.addEventListener('change', () => { estado.filtro = filtro.value; estado.ultimoSel = -1; desenharLista(); });
+        const bSel = $('#btn-selecionar');
+        if (bSel) bSel.addEventListener('click', () => { estado.selecionando = !estado.selecionando; if (!estado.selecionando) estado.sel.clear(); estado.ultimoSel = -1; desenharLista(); });
+        $$('.card').forEach(c => c.addEventListener('click', ev => {
+            if (!estado.selecionando) { abrirEditor(c.dataset.caminho); return; }
+            const idx = +c.dataset.idx;
+            if (ev.shiftKey && estado.ultimoSel >= 0) {
+                const [a, b] = [Math.min(idx, estado.ultimoSel), Math.max(idx, estado.ultimoSel)];
+                const ligar = !sel.has(c.dataset.caminho);
+                itens.slice(a, b + 1).forEach(i => { if (ligar) sel.add(i.caminho); else sel.delete(i.caminho); });
+            } else if (sel.has(c.dataset.caminho)) sel.delete(c.dataset.caminho); else sel.add(c.dataset.caminho);
+            estado.ultimoSel = idx;
+            const rolagem = window.scrollY;
+            desenharLista();
+            window.scrollTo(0, rolagem);
+            const mesmo = document.querySelector(`.card[data-idx="${idx}"]`); if (mesmo) mesmo.focus({ preventScroll: true });
+        }));
+        if (estado.selecionando) {
+            $('#sel-todos').onclick = () => { const todos = itens.every(i => sel.has(i.caminho)); itens.forEach(i => todos ? sel.delete(i.caminho) : sel.add(i.caminho)); desenharLista(); };
+            $('#sel-limpar').onclick = () => { sel.clear(); estado.ultimoSel = -1; desenharLista(); };
+            $('#sel-sair').onclick = () => { estado.selecionando = false; sel.clear(); desenharLista(); };
+            $('#sel-aplicar').onclick = () => abrirMassa(col, [...sel]);
+        }
+    }
+
+    // ==================================================================
+    // ☑ Mudar vários de uma vez (licença, console, peso, controle, publicar/rascunho)
+    //   Lê cada item, aplica só o que foi escolhido, confere (jogo web sem licença não publica)
+    //   e grava TUDO num commit só. Trocar o console move o arquivo para a pasta do console novo.
+    // ==================================================================
+    const NAO_MUDAR = '__igual__';
+    function camposMassa(col) {
+        const l = [];
+        if (col.tipo === 'jogo') {
+            const lic = { livre: 'livre (jogo/código aberto ou gratuito)', autorizada: 'autorizada (demo oficial ou o dono liberou)', 'precisa-original': 'precisa-original (o jogador carrega os arquivos)', 'nao-verificada': 'não verificada' };
+            l.push({ k: 'licenca', rotulo: 'Licença', opcoes: (C.LICENCAS_WEB || []).map(v => [v, lic[v] || v]) });
+            l.push({ k: 'console', rotulo: 'Console (move o arquivo para a pasta dele)', opcoes: (estado.config.consoles || []).map(c => [c.id, c.nome]) });
+            l.push({ k: 'peso', rotulo: 'Peso', opcoes: (C.PESOS_WEB || []).map(v => [v, v]).concat([['', '(apagar)']]) });
+            l.push({ k: 'controles', rotulo: 'Controle', opcoes: (C.CONTROLES_WEB || []).map(v => [v, v]).concat([['', '(apagar)']]) });
+        }
+        l.push({ k: '_situacao', rotulo: 'Situação', opcoes: [['publicar', 'Publicar (tirar do rascunho)'], ['rascunho', 'Voltar para rascunho']] });
+        return l;
+    }
+    function abrirMassa(col, caminhos) {
+        if (!caminhos.length) return;
+        const campos = camposMassa(col);
+        const fundo = document.createElement('div');
+        fundo.className = 'fundo-modal';
+        fundo.innerHTML = `
+          <div class="gaveta" role="dialog" aria-modal="true" aria-labelledby="m-titulo">
+            <h2 id="m-titulo">Mudar ${caminhos.length} ${caminhos.length === 1 ? 'item' : 'itens'} de uma vez</h2>
+            <div class="caminho">${esc(col.nome)} · só o que você escolher muda; o resto de cada item fica como está</div>
+            <form class="form" id="m-form" style="margin-top:16px" novalidate>
+              ${campos.map(c => `<div class="cheio"><label class="rot" for="m-${c.k}">${esc(c.rotulo)}</label>
+                <select class="campo" id="m-${c.k}" data-k="${esc(c.k)}"><option value="${NAO_MUDAR}">— não mudar —</option>${c.opcoes.map(([v, r]) => `<option value="${esc(v)}">${esc(r)}</option>`).join('')}</select></div>`).join('')}
+              ${col.tipo === 'jogo' ? `<div class="cheio dica">Jogo web só é publicado com licença <b>livre</b>, <b>autorizada</b> ou <b>precisa-original</b>. Os que não puderem ficam como rascunho e aparecem no resumo.</div>` : ''}
+            </form>
+            <div class="caixa-erros" id="m-erros"></div>
+            <div class="linha-acoes">
+              <button class="btn principal" id="m-aplicar">Aplicar em ${caminhos.length}</button>
+              <div class="espaco"></div>
+              <button class="btn fantasma" id="m-fechar">Cancelar</button>
+            </div>
+            <details style="margin-top:18px"><summary class="dica" style="cursor:pointer">Ver os ${caminhos.length} selecionados</summary>
+              <pre class="json">${esc(caminhos.map(c => (estado.indice.find(i => i.caminho === c) || {}).nome || c).join('\n'))}</pre></details>
+          </div>`;
+        document.body.appendChild(fundo);
+        const fechar = () => { fundo.remove(); document.removeEventListener('keydown', teclas); };
+        const teclas = ev => { if (ev.key === 'Escape') fechar(); };
+        document.addEventListener('keydown', teclas);
+        fundo.addEventListener('mousedown', ev => { if (ev.target === fundo) fechar(); });
+        $('#m-fechar', fundo).onclick = fechar;
+        // escolheu uma licença boa: já sugere publicar
+        const selLic = $('#m-licenca', fundo), selSit = $('#m-_situacao', fundo);
+        if (selLic) selLic.addEventListener('change', () => { if (['livre', 'autorizada', 'precisa-original'].includes(selLic.value) && selSit.value === NAO_MUDAR) selSit.value = 'publicar'; });
+        $('select', fundo)?.focus();
+        $('#m-aplicar', fundo).onclick = async () => {
+            const escolhas = {};
+            $$('select[data-k]', fundo).forEach(s => { if (s.value !== NAO_MUDAR) escolhas[s.dataset.k] = s.value; });
+            if (!Object.keys(escolhas).length) { $('#m-erros', fundo).innerHTML = 'Escolha pelo menos uma mudança.'; $('#m-erros', fundo).style.display = 'block'; return; }
+            const btn = $('#m-aplicar', fundo);
+            try {
+                const r = await aplicarMassa(col, caminhos, escolhas, (n) => { btn.disabled = true; btn.textContent = `Lendo ${n}/${caminhos.length}…`; });
+                if (!r.mudancas.length) {
+                    btn.disabled = false; btn.textContent = 'Aplicar em ' + caminhos.length;
+                    if (r.naoPublicados.length) { $('#m-erros', fundo).innerHTML = esc(`${r.naoPublicados.length === caminhos.length ? (caminhos.length === 1 ? 'Não pôde ser publicado' : 'Nenhum pôde ser publicado') : r.naoPublicados.length + ' não podem ser publicados'}: ${r.naoPublicados[0].msg}`); $('#m-erros', fundo).style.display = 'block'; return; }
+                    aviso('Nada mudou: os itens já estavam assim.', 'ok'); fechar(); return;
+                }
+                await gravar(r.mudancas, `Studio: ${r.alterados} em ${col.nome} mudados de uma vez (${Object.keys(escolhas).map(k => k.replace('_situacao', 'situação')).join(', ')})`, btn);
+                fechar();
+                estado.sel.clear(); estado.selecionando = false;
+                desenharArea();
+                const partes = [`${r.alterados} ${r.alterados === 1 ? 'item mudado' : 'itens mudados'}`];
+                if (r.publicados) partes.push(`${r.publicados} publicados`);
+                if (r.movidos) partes.push(`${r.movidos} mudaram de console`);
+                if (r.naoPublicados.length) partes.push(`${r.naoPublicados.length} ficaram como rascunho (${r.naoPublicados[0].msg})`);
+                aviso(partes.join(' · '), r.naoPublicados.length ? '' : 'ok');
+            } catch (e) {
+                btn.disabled = false; btn.textContent = 'Tentar de novo';
+                $('#m-erros', fundo).innerHTML = esc('Não deu: ' + e.message); $('#m-erros', fundo).style.display = 'block';
+            }
+        };
+    }
+
+    /** Aplica as escolhas e devolve as mudanças (sem gravar). Exposto para os testes. */
+    async function aplicarMassa(col, caminhos, escolhas, progresso) {
+        const lidos = new Array(caminhos.length);
+        let feitos = 0, prox = 0;
+        const trabalhar = async () => {
+            while (prox < caminhos.length) {
+                const i = prox++;
+                lidos[i] = await estado.repo.ler(caminhos[i]);
+                feitos++; if (progresso) progresso(feitos);
+            }
+        };
+        await Promise.all(Array.from({ length: Math.min(6, caminhos.length) }, trabalhar));
+        const ocupados = new Set(estado.indice.map(i => i.caminho));
+        const r = { mudancas: [], alterados: 0, publicados: 0, movidos: 0, naoPublicados: [] };
+        caminhos.forEach((caminho, i) => {
+            const bruto = lidos[i];
+            const item = C.normalizarItem(bruto, col);
+            for (const [k, v] of Object.entries(escolhas)) {
+                if (k === '_situacao') continue;
+                if (v === '') delete item[k]; else item[k] = v;
+            }
+            if (escolhas._situacao === 'rascunho') item._rascunho = true;
+            if (escolhas._situacao === 'publicar') {
+                const teste = Object.assign({}, item); delete teste._rascunho;
+                const { erros } = C.validarItem(C.normalizarItem(teste, col), col, estado.config);
+                if (erros.length) { item._rascunho = true; r.naoPublicados.push({ caminho, msg: erros[0] }); }
+                else { if (item._rascunho) r.publicados++; delete item._rascunho; }
+            }
+            const final = C.normalizarItem(item, col);
+            let destino = caminho;
+            if (C.caminhoItem(col, final).split('/').slice(0, -1).join('/') !== caminho.split('/').slice(0, -1).join('/')) {
+                const pasta = C.caminhoItem(col, final).replace(/[^/]+$/, '');
+                const nomes = new Set([...ocupados].filter(c => c.startsWith(pasta) && !c.slice(pasta.length).includes('/')).map(c => c.slice(pasta.length).replace(/\.json$/, '')));
+                const slugAtual = caminho.split('/').pop().replace(/\.json$/, '');
+                destino = C.caminhoItem(col, final, C.slugLivre(slugAtual, nomes));
+                ocupados.add(destino); ocupados.delete(caminho);
+            }
+            const texto = C.serializar(final);
+            if (destino === caminho && texto === C.serializar(C.normalizarItem(bruto, col))) return;
+            r.alterados++;
+            if (destino !== caminho) { r.movidos++; r.mudancas.push({ caminho, conteudo: null }); }
+            r.mudancas.push({ caminho: destino, conteudo: texto });
+        });
+        return r;
     }
 
     // ==================================================================
