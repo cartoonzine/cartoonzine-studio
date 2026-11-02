@@ -141,6 +141,12 @@ textarea.campo { resize: vertical; min-height: 80px; }
 .dica { font-size: 12px; color: var(--suave); margin-top: 4px; }
 .check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .check input { width: 18px; height: 18px; accent-color: var(--verde); }
+.seg-fundo { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--borda); border-radius: 999px; margin-top: 4px; }
+.seg-fundo label { cursor: pointer; }
+.seg-fundo input { position: absolute; opacity: 0; pointer-events: none; }
+.seg-fundo span { display: inline-block; padding: 7px 16px; border-radius: 999px; font-weight: 600; font-size: 13px; color: var(--suave); }
+.seg-fundo input:checked + span { background: var(--ciano, #22d3ee); color: #00141a; }
+.seg-fundo input:focus-visible + span { outline: 2px solid #fff; outline-offset: 1px; }
 .pos-quadro { position: relative; margin-top: 8px; aspect-ratio: 1920 / 756; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--borda); cursor: ns-resize; touch-action: none; user-select: none; }
 .pos-quadro.arrastando { cursor: grabbing; outline: 2px solid var(--ciano, #22d3ee); }
 .pos-img { position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; opacity: .7; }

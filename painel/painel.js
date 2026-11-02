@@ -684,11 +684,19 @@
                   ${c.imagem && valor ? `<img class="previa-img" src="${esc(valor)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}</div>`;
             case 'temporadas':
                 return `<div class="cheio" id="temporadas-box"></div>`;
+            case 'seletorFundo': {
+                const ban = valor === 'banner';
+                return `<div class="cheio">${rot}<div class="seg-fundo" role="radiogroup" aria-label="${esc(c.rotulo)}">
+                    <label><input type="radio" name="${id}" data-k="${c.k}" value="capa" ${ban ? '' : 'checked'}><span>🖼️ Capa</span></label>
+                    <label><input type="radio" name="${id}" data-k="${c.k}" value="banner" ${ban ? 'checked' : ''}><span>🎞️ Banner</span></label>
+                  </div>${dica}</div>`;
+            }
             case 'posicao': {
                 // prévia do fundo do topo do app (mesmo corte e degradê); ligarPosicoes() desenha e cuida do arraste
                 const n = Number.isFinite(parseFloat(valor)) ? Math.round(parseFloat(valor)) : '';
                 return `<div class="cheio pos-campo" data-de="${esc(c.de || 'capa')}">${rot}
-                  <div class="pos-quadro" title="Arraste a imagem para cima ou para baixo"><div class="pos-img"></div><div class="pos-degrade"></div><span class="pos-sem">Coloque a capa para ajustar</span></div>
+                  <div class="pos-quadro" title="Arraste a imagem para cima ou para baixo"><div class="pos-img"></div><div class="pos-degrade"></div><span class="pos-sem">Coloque a imagem (capa ou banner) para ajustar</span></div>
+                  <div class="dica pos-aviso" hidden>Este item ainda não tem banner: o app usa a capa.</div>
                   <div class="pos-linha"><span class="dica">topo</span><input type="range" class="pos-barra" min="0" max="100" step="1" value="${n === '' ? 50 : n}" aria-label="${esc(c.rotulo)}"><span class="dica">pé</span>
                     <input class="campo pos-num" id="${id}" data-k="${c.k}" type="number" min="0" max="100" inputmode="numeric" placeholder="centro" value="${n}"><span class="dica">%</span>
                     <button type="button" class="btn fantasma pos-centro">Centro</button></div>${dica}</div>`;
@@ -701,6 +709,11 @@
     function lerCampos(raiz, campos) {
         const out = {};
         for (const c of campos) {
+            if (c.tipo === 'seletorFundo') {
+                const r = raiz.querySelector(`[data-k="${c.k}"]:checked`);
+                if (r && r.value === 'banner') out[c.k] = 'banner';
+                continue;
+            }
             const e = raiz.querySelector(`[data-k="${c.k}"]`);
             if (!e) continue;
             if (c.tipo === 'bool') { if (e.checked) out[c.k] = true; continue; }
@@ -721,8 +734,13 @@
     function ligarPosicoes(form) {
         const lim = (n) => Math.max(0, Math.min(100, Math.round(n)));
         const pintar = () => form.querySelectorAll('.pos-campo').forEach(b => {
-            const capa = form.querySelector(`[data-k="${b.dataset.de}"]`);
-            const url = capa ? capa.value.trim() : '';
+            // a imagem escolhida no seletor (Capa | Banner); banner vazio = usa a capa, igual ao app
+            const valor = (k) => { const e = form.querySelector(`[data-k="${k}"]:not([type="radio"])`); return e ? e.value.trim() : ''; };
+            const escolha = form.querySelector('[data-k="fundoImagem"]:checked');
+            const querBanner = escolha && escolha.value === 'banner';
+            const url = (querBanner && valor('banner')) || valor(b.dataset.de);
+            const aviso = b.querySelector('.pos-aviso');
+            if (aviso) aviso.hidden = !(querBanner && !valor('banner'));
             const num = b.querySelector('.pos-num'), barra = b.querySelector('.pos-barra'), img = b.querySelector('.pos-img');
             const y = num.value === '' ? 50 : lim(parseFloat(num.value) || 0);
             img.style.backgroundImage = url ? `url("${url.replace(/"/g, '%22')}")` : 'none';

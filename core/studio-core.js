@@ -972,7 +972,8 @@
     const CAMPOS_COMUNS_MIDIA = [
         { k: 'capa', rotulo: 'Capa (imagem vertical)', tipo: 'url', imagem: true },
         { k: 'banner', rotulo: 'Banner (imagem horizontal)', tipo: 'url', imagem: true },
-        { k: 'posFundo', rotulo: 'Posição da capa no fundo do topo', tipo: 'posicao', de: 'capa', dica: 'no app a capa vira o fundo do topo da tela, cortada na horizontal: arraste a imagem (ou use a barra) até mostrar a melhor parte · vazio = centro' },
+        { k: 'fundoImagem', rotulo: 'Imagem do fundo do topo', tipo: 'seletorFundo', dica: 'qual imagem vira o fundo do topo da tela no app · sem banner, usa a capa' },
+        { k: 'posFundo', rotulo: 'Posição da imagem no fundo do topo', tipo: 'posicao', de: 'capa', dica: 'no app a imagem vira o fundo do topo da tela, cortada na horizontal: arraste a imagem (ou use a barra) até mostrar a melhor parte · vazio = centro' },
         { k: 'descricao', rotulo: 'Sinopse', tipo: 'textarea' },
         { k: 'ano', rotulo: 'Ano', tipo: 'numero' },
         { k: 'generos', rotulo: 'Gêneros', tipo: 'lista', dica: 'separados por vírgula' }
@@ -1123,6 +1124,7 @@
         const jog = inteiro(b.jogadores);
         if (jog) out.jogadores = jog;
         for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
+        if (b.fundoImagem === 'banner') out.fundoImagem = 'banner';   // capa é o padrão (não precisa gravar)
         const pf = parseFloat(b.posFundo);                 // 0 (topo da imagem) até 100 (pé); vazio = centro
         if (Number.isFinite(pf)) out.posFundo = Math.max(0, Math.min(100, Math.round(pf)));
         if (b.destaque === true || b.destaque === 'true' || b.destaque === 'sim') out.destaque = true;
@@ -1245,7 +1247,8 @@
             destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
             bannerlogo: item.bannerLogo, preview: item.bannerVideo,
             bannerSkin: item.bannerSkin, bannerFx: item.bannerFx,
-            bgPosY: item.posFundo,                         // altura da capa no fundo do topo (0–100 %)
+            bgImg: item.fundoImagem === 'banner' ? 'banner' : undefined,   // fundo do topo: o banner no lugar da capa
+            bgPosY: item.posFundo,                         // altura da imagem no fundo do topo (0–100 %)
             studio: chave
         };
         switch (colecao.tipo) {
