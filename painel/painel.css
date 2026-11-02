@@ -313,3 +313,22 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
   .vit-lista-bloco .vit-pos, .vit-lista-bloco .vit-img, .vit-lista-bloco .vit-txt, .vit-lista-bloco .vit-acoes { grid-area: auto; }
   .vit-lista-bloco .vit-acoes { grid-column: 2 / -1; justify-content: flex-start; }
 }
+
+/* ☑ Selecionar vários (mudar de uma vez) */
+.barra-lista { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.barra-lista .busca { flex: 1 1 260px; width: auto; }
+.barra-lista .filtro-lista { width: auto; flex: 0 0 auto; min-width: 190px; }
+.btn.ativo-sel { border-color: var(--verde); color: var(--verde); background: rgba(46, 230, 166, .08); }
+.grade.selecionando { padding-bottom: 90px; }
+.grade.selecionando .card { cursor: pointer; }
+.card .marca { position: absolute; top: 8px; right: 8px; z-index: 2; width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center;
+  font-size: 15px; font-weight: 800; color: #05070a; background: rgba(0, 0, 0, .55); border: 2px solid rgba(255, 255, 255, .55); }
+.card.marcado { border-color: var(--verde); box-shadow: 0 0 0 2px rgba(46, 230, 166, .45); }
+.card.marcado .marca { background: var(--verde); border-color: var(--verde); }
+.barra-massa { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 30; width: min(1100px, calc(100vw - 32px));
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 16px; border-radius: 14px;
+  background: rgba(14, 14, 20, .96); border: 1px solid rgba(46, 230, 166, .35); box-shadow: 0 12px 40px rgba(0, 0, 0, .55); }
+.barra-massa b { font-size: 14px; }
+.barra-massa .dica { margin: 0; }
+@media (max-width: 640px) { .barra-massa .dica { display: none; } }
+.grade.selecionando .selo.auto { right: 40px; }

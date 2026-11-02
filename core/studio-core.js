@@ -1450,6 +1450,7 @@
             nota: item.notaImdb,
             eps: contarEpisodios(item) || undefined,
             pais: item.pais, console: item.console, categoria: item.categoria,
+            licenca: item.licenca,
             rascunho: item._rascunho ? true : undefined,
             auto: item._origem ? true : undefined
         });
