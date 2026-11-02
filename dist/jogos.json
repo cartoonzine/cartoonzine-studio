@@ -76,6 +76,21 @@
    "repo": "https://github.com/petarov/alleycat.exe"
   },
   {
+   "title": "Atlantis: The Lost Tales",
+   "desc": "Port para navegador · ripleyxlr8.github.io",
+   "studio": "jogos/web/atlantis-the-lost-tales",
+   "url": "https://ripleyxlr8.github.io/atlantis-native/",
+   "console": "web",
+   "core": "web",
+   "web": true,
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "license": "livre",
+   "repo": "https://github.com/ripleyXLR8/atlantis-native"
+  },
+  {
    "title": "Call of Duty Web Collection",
    "desc": "Port para navegador · cod-webports.pages.dev",
    "studio": "jogos/web/call-of-duty-web-collection",

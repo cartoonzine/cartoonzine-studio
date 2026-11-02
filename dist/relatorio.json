@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T02:39:17.246Z",
+  "geradoEm": "2026-11-02T03:31:16.876Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -82,7 +82,7 @@
     {
       "colecao": "jogos",
       "total": 509,
-      "publicados": 6,
+      "publicados": 7,
       "erros": [],
       "avisos": [
         {
@@ -139,10 +139,6 @@
         },
         {
           "caminho": "conteudo/jogos/web/arx-fatalis-rgc-zone.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos/web/atlantis-the-lost-tales.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2126,7 +2122,7 @@
         "flash": 0,
         "ps1": 0,
         "3do": 0,
-        "web": 6,
+        "web": 7,
         "webpc": 0
       }
     }
