@@ -1,0 +1,22 @@
+{
+  "nome": "Vectoroids",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/vectoroids/"
+  ],
+  "capa": "https://cartoonzine.github.io/cartoonzine-jogos/capas/vectoroids.jpg",
+  "banner": "https://cartoonzine.github.io/cartoonzine-jogos/capas/vectoroids-banner.jpg",
+  "descricao": "Asteroids em vetor, de Bill Kendrick. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 2001,
+  "generos": [
+    "Arcade",
+    "Tiro"
+  ],
+  "console": "web",
+  "licenca": "livre",
+  "engine": "Emscripten",
+  "controles": "teclado",
+  "repo": "https://github.com/midzer/vectoroids/tree/emscripten",
+  "site": "http://www.newbreedsoftware.com/vectoroids/",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "teclas": "A=Space, START=Enter"
+}

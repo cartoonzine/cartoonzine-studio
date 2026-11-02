@@ -1,12 +1,24 @@
 {
   "nome": "Tyrian (OpenTyrian)",
   "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/opentyrian/",
     "https://midzer.de/wasm/opentyrian/"
   ],
-  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · midzer.de",
+  "capa": "https://cartoonzine.github.io/cartoonzine-jogos/capas/opentyrian.jpg",
+  "banner": "https://cartoonzine.github.io/cartoonzine-jogos/capas/opentyrian-banner.jpg",
+  "descricao": "Nave de tiro vertical clássica da Epic. Os dados do Tyrian 2.1 foram liberados como freeware. Jogo livre (GPL-2.0 (motor) · Tyrian 2.1 freeware (dados)), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 1995,
+  "generos": [
+    "Tiro",
+    "Nave"
+  ],
   "console": "web",
-  "licenca": "nao-verificada",
-  "_rascunho": true,
+  "licenca": "livre",
+  "engine": "Emscripten",
+  "controles": "teclado",
+  "repo": "https://github.com/opentyrian/opentyrian",
+  "site": "https://github.com/opentyrian/opentyrian",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "teclas": "A=Space, B=Enter, START=Enter, SELECT=Escape",
   "_origem": "auto:Ultimate Catalog of Web Game Ports"
 }
