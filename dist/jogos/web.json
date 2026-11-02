@@ -62,6 +62,21 @@
    "license": "livre"
   },
   {
+   "title": "Alley Cat",
+   "desc": "Port para navegador · petarov.github.io",
+   "studio": "jogos/web/alley-cat",
+   "url": "https://petarov.github.io/alleycat.exe/",
+   "console": "web",
+   "core": "web",
+   "web": true,
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "license": "autorizada",
+   "repo": "https://github.com/petarov/alleycat.exe"
+  },
+  {
    "title": "Call of Duty Web Collection",
    "desc": "Port para navegador · cod-webports.pages.dev",
    "studio": "jogos/web/call-of-duty-web-collection",
