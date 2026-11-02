@@ -377,18 +377,48 @@ test('Vitrine: aparência no banner (logo, vídeo, skin, efeito) vai para o app 
 });
 
 // ---------------- Cartucho web (um console por sistema original + "Só PC") ----------------
-test('cartucho web: sistemas web no config e "Só PC"', () => {
+test('cartucho web: seção Jogos Web com os sistemas e "Só PC"', () => {
+    const web = col('jogos-web');
+    assert.equal(web.consoles, 'consolesWeb');
+    assert.equal(C.consolesDaColecao(web, config).length, config.consolesWeb.length);
+    assert.equal(C.consolesDaColecao(col('jogos'), config).length, config.consoles.length);
     for (const id of ['web-fangames', 'web-indie', 'web-remakes', 'web-pc', 'web-dos', 'web-windows', 'web-ps2', 'web-psp', 'web-n64', 'web-arcade', 'web-navegador', 'web-outros'])
-        assert.ok(C.consoleWeb(id, config), id);
+        assert.ok(C.consoleWeb(id, config) && config.consolesWeb.some(c => c.id === id), id);
     assert.ok(!C.consoleWeb('snes', config) && !C.consoleWeb('n64', config));
-    assert.ok(!config.consoles.some(c => c.id === 'web' || c.id === 'webpc'), 'os 2 DBs antigos saíram');
-    assert.equal(new Set(config.consoles.map(c => c.prefixoId)).size, config.consoles.length, 'prefixos únicos');
+    assert.ok(!config.consoles.some(c => /^web/.test(c.id)), 'Jogos Retrô só com os consoles do emulador');
+    const todos = C.todosConsoles(config);
+    assert.equal(new Set(todos.map(c => c.prefixoId)).size, todos.length, 'prefixos únicos');
+    assert.equal(new Set(todos.map(c => c.id)).size, todos.length, 'ids únicos');
     assert.deepEqual(C.aparelhosDoConsole('web-dos', config), ['tv', 'pc']);
     assert.deepEqual(C.aparelhosDoConsole('web-dos', config, { soPC: true }), ['pc']);
     assert.equal(C.sistemaWebDoNome('Super Mario 64 (rgc.zone)'), 'web-n64');
     assert.equal(C.sistemaWebDoNome('Duke Nukem 3D'), 'web-dos');
     assert.equal(C.sistemaWebDoNome('Tekken 5: Dark Resurrection (Recomp)'), 'web-psp');
     assert.equal(C.sistemaWebDoNome('Um jogo que ninguém conhece'), 'web-outros');
+    // sistema web dentro de Jogos Retrô (ou console retrô em Jogos Web) não passa
+    assert.ok(C.validarItem(C.normalizarItem({ nome: 'x', console: 'web-dos', links: ['https://a.io/'] }, col('jogos')), col('jogos'), config).erros.some(e => /Console desconhecido/.test(e)));
+    assert.ok(C.validarItem(C.normalizarItem({ nome: 'x', console: 'snes', links: ['https://a.io/'] }, web), web, config).erros.some(e => /Console desconhecido/.test(e)));
+    assert.deepEqual(C.opcoesDe('consoles', config, web).map(o => o.v), config.consolesWeb.map(c => c.id));
+});
+
+test('cartucho web: + Novo sistema (id, prefixo único, texto da config preservado)', () => {
+    const fs = require('node:fs');
+    const texto = fs.readFileSync(new URL('../studio.config.json', import.meta.url), 'utf8');
+    const { sistema, config: nova } = C.novoSistemaWeb(config, { nome: 'Game Boy Advance', grupo: 'Nintendo' });
+    assert.equal(sistema.id, 'web-game-boy-advance');
+    assert.equal(sistema.web, true);
+    assert.ok(!C.todosConsoles(config).some(c => c.prefixoId === sistema.prefixoId));
+    assert.equal(nova.consolesWeb.length, config.consolesWeb.length + 1);
+    assert.throws(() => C.novoSistemaWeb(config, { nome: 'Indie' }), /Já existe/);
+    assert.throws(() => C.novoSistemaWeb(config, { nome: '  ' }), /nome/);
+    const novoTexto = C.inserirSistemaNoTexto(texto, sistema);
+    const linhasNovas = novoTexto.split('\n').filter(l => !texto.split('\n').includes(l));
+    assert.equal(linhasNovas.length, 2, 'só a linha nova (e a vírgula da anterior) mudam');
+    assert.ok(JSON.parse(novoTexto).consolesWeb.some(c => c.id === 'web-game-boy-advance'));
+    // o build publica o DB do sistema novo na mesma pasta dos outros e a fonte do cloud
+    const r = C.compilarColecao(Object.assign({}, col('jogos-web')), [], nova);
+    assert.ok(r.arquivos['jogos/web-game-boy-advance.json']);
+    assert.ok(r.fontes.some(f => f.console === 'web-game-boy-advance' && f.web === true && f.grupo === 'Nintendo'));
 });
 
 test('cartucho web: lê o README do Ultimate Catalog (▶ jogável, 📦 só fonte, ano, link do texto)', () => {
@@ -408,7 +438,7 @@ test('cartucho web: lê o README do Ultimate Catalog (▶ jogável, 📦 só fon
 });
 
 test('cartucho web: só publica com licença conferida; vai para o app com core "web"; "Só PC" esconde da TV', () => {
-    const jogos = col('jogos');
+    const jogos = col('jogos-web');
     const base = { nome: 'Alley Cat', console: 'web-dos', links: ['https://petarov.github.io/alleycat.exe/'] };
     const sem = C.validarItem(C.normalizarItem(base, jogos), jogos, config);
     assert.ok(sem.erros.some(e => /licença/.test(e)));
@@ -419,9 +449,9 @@ test('cartucho web: só publica com licença conferida; vai para o app com core 
     assert.ok(pesado.avisos.some(a => /Só PC/.test(a)));
     assert.equal(C.normalizarItem({ nome: 'x', soPC: 'sim' }, jogos).soPC, true);
     const r = C.compilarColecao(jogos, [
-        { caminho: 'conteudo/jogos/web-dos/alley-cat.json', item: Object.assign({ licenca: 'livre', engine: 'DOS (js-dos)', controles: 'teclado', teclas: 'A=Space', repo: 'https://github.com/petarov/alleycat.exe' }, base) },
-        { caminho: 'conteudo/jogos/web-dos/rascunho.json', item: { nome: 'Rascunho', console: 'web-dos', links: ['https://x.com/'], _rascunho: true } },
-        { caminho: 'conteudo/jogos/web-windows/pesado.json', item: { nome: 'Pesado', console: 'web-windows', links: ['https://y.com/'], licenca: 'autorizada', peso: 'pesado', soPC: true } }
+        { caminho: 'conteudo/jogos-web/web-dos/alley-cat.json', item: Object.assign({ licenca: 'livre', engine: 'DOS (js-dos)', controles: 'teclado', teclas: 'A=Space', repo: 'https://github.com/petarov/alleycat.exe' }, base) },
+        { caminho: 'conteudo/jogos-web/web-dos/rascunho.json', item: { nome: 'Rascunho', console: 'web-dos', links: ['https://x.com/'], _rascunho: true } },
+        { caminho: 'conteudo/jogos-web/web-windows/pesado.json', item: { nome: 'Pesado', console: 'web-windows', links: ['https://y.com/'], licenca: 'autorizada', peso: 'pesado', soPC: true } }
     ], config);
     const dos = JSON.parse(r.arquivos['jogos/web-dos.json']).games;
     assert.equal(dos.length, 1);
@@ -436,11 +466,12 @@ test('cartucho web: só publica com licença conferida; vai para o app com core 
     assert.ok(r.fontes.some(f => f.console === 'web-ps2' && f.tipo === 'emulator_json' && /jogos\/web-ps2\.json$/.test(f.url)));
     assert.ok(!r.arquivos['jogos/web.json'] && !r.arquivos['jogos/webpc.json']);
     // jogo retrô comum continua igual; "Só PC" também vale para ele
-    const snes = C.paraCloud(C.normalizarItem({ nome: 'Mario', console: 'snes', links: ['https://r.x/m.sfc'], licenca: 'livre' }, jogos), jogos, 'jogos/mario', config);
-    assert.equal(snes.core, undefined);
+    const retro = col('jogos');
+    const snes = C.paraCloud(C.normalizarItem({ nome: 'Mario', console: 'snes', links: ['https://r.x/m.sfc'], licenca: 'livre' }, retro), retro, 'jogos/mario', config);
+    assert.equal(snes.core, 'snes');                     // sem core próprio = o core do console (EmulatorJS)
     assert.equal(snes.web, undefined);
     assert.equal(snes.aparelhos, undefined);
-    const n64pc = C.paraCloud(C.normalizarItem({ nome: 'Pesado 64', console: 'n64', links: ['https://r.x/p.z64'], soPC: true }, jogos), jogos, 'jogos/p', config);
+    const n64pc = C.paraCloud(C.normalizarItem({ nome: 'Pesado 64', console: 'n64', links: ['https://r.x/p.z64'], soPC: true }, retro), retro, 'jogos/p', config);
     assert.deepEqual(n64pc.aparelhos, ['pc']);
 });
 
@@ -451,19 +482,47 @@ test('cartucho web: importador cria rascunhos, junta link repetido e não mexe n
     const { importarWebPorts } = await import('../tools/importar-webports.mjs');
     const md = '## A\n| Game | Play | Source |\n| --- | --- | --- |\n| Jogo X | [▶ a.io](https://a.io/x/) |  |\n| Jogo X | [▶ b.io](https://b.io/x/) |  |\n| Só Fonte |  | [📦 r](https://github.com/u/r) |\n| Duke Nukem 3D | [▶ d.io](https://d.io/) |  |\n';
     const r1 = importarWebPorts(md, { raiz });
-    assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, 'conteudo/jogos/web-dos/duke-nukem-3d.json'), 'utf8')).console, 'web-dos', 'cada jogo vai para o sistema dele');
+    assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, 'conteudo/jogos-web/web-dos/duke-nukem-3d.json'), 'utf8')).console, 'web-dos', 'cada jogo vai para o sistema dele');
     assert.equal(r1.novos, 2); assert.equal(r1.atualizados, 1);
-    const arq = path.join(raiz, 'conteudo/jogos/web-outros/jogo-x.json');
+    const arq = path.join(raiz, 'conteudo/jogos-web/web-outros/jogo-x.json');
     const it = JSON.parse(fs.readFileSync(arq, 'utf8'));
     assert.deepEqual(it.links, ['https://a.io/x/', 'https://b.io/x/']);
     assert.equal(it._rascunho, true); assert.equal(it.licenca, 'nao-verificada');
     // o usuário publicou e mudou de sistema: reimportar não cria outro nem mexe
-    fs.mkdirSync(path.join(raiz, 'conteudo/jogos/web-indie'));
-    fs.writeFileSync(path.join(raiz, 'conteudo/jogos/web-indie/jogo-x.json'), JSON.stringify({ nome: 'Jogo X', console: 'web-indie', links: ['https://a.io/x/'], licenca: 'livre' }));
+    fs.mkdirSync(path.join(raiz, 'conteudo/jogos-web/web-indie'));
+    fs.writeFileSync(path.join(raiz, 'conteudo/jogos-web/web-indie/jogo-x.json'), JSON.stringify({ nome: 'Jogo X', console: 'web-indie', links: ['https://a.io/x/'], licenca: 'livre' }));
     fs.unlinkSync(arq);
     const r2 = importarWebPorts(md, { raiz });
     assert.equal(r2.novos, 0); assert.equal(r2.pulados, 3);
     assert.ok(!fs.existsSync(arq));
-    assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, 'conteudo/jogos/_webports-sem-demo.json'), 'utf8')).jogos[0].nome, 'Só Fonte');
+    assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, 'conteudo/jogos-web/_webports-sem-demo.json'), 'utf8')).jogos[0].nome, 'Só Fonte');
     fs.rmSync(raiz, { recursive: true, force: true });
+});
+
+test('jogos retrô: cada console tem o core do EmulatorJS; sistemas novos (Game Boy, Atari, Commodore, PSP, 3DS…); MAME fica no Arcade', () => {
+    const retro = config.colecoes.find(c => c.id === 'jogos');
+    const ids = config.consoles.map(c => c.id);
+    for (const novo of ['gb', 'vb', 'atari5200', 'atari7800', 'jaguar', 'lynx', 'wonderswan', 'pcfx', 'c64', 'c128', 'pet', 'plus4', 'vic20', 'psp', '3ds']) assert.ok(ids.includes(novo), novo);
+    // todo console tem core OU está marcado sem emulador; prefixos únicos (retrô + web)
+    for (const c of config.consoles) assert.ok(c.core || c.semEmulador, c.id);
+    const pre = config.consoles.concat(config.consolesWeb).map(c => c.prefixoId);
+    assert.equal(new Set(pre).size, pre.length);
+    const mk = (console, extra) => C.paraCloud(C.normalizarItem(Object.assign({ nome: 'X ' + console, console, links: ['https://r.x/a.zip'], licenca: 'livre' }, extra), retro), retro, 'jogos/x', config);
+    assert.equal(mk('megadrive').core, 'segaMD');
+    assert.equal(mk('gbc').core, 'gb');
+    assert.equal(mk('msdos').core, 'dos');
+    assert.equal(mk('atari5200').core, 'a5200');
+    assert.equal(mk('3ds').core, '3ds');
+    assert.equal(mk('snes', { core: 'snes9x' }).core, 'snes9x');
+    assert.equal(mk('arcade', { core: 'mame2003' }).core, 'mame2003');   // MAME 2003 fica no Arcade, só troca o core
+    assert.ok(!ids.includes('mame2003'));   // o core do jogo vence o do console
+    assert.equal(mk('msx').core, undefined);
+    assert.equal(mk('msdos', { comandoDos: 'KEEN4E.EXE' }).dosrun, 'KEEN4E.EXE');   // MS-DOS: comando do jogo vai para o app
+    assert.equal(mk('msdos').dosrun, undefined);                       // sem emulador: não inventa core
+    assert.equal(C.coreDoConsole('ps1'), 'psx');                    // sem config: tabela padrão
+    // cada console novo vira um DB (dist/jogos/<id>.json) e uma fonte do cloud
+    const r = C.compilarColecao(retro, [{ item: C.normalizarItem({ nome: 'Tetris', console: 'gb', links: ['https://r.x/t.gb'], licenca: 'livre' }, retro), caminho: 'conteudo/jogos/gb/tetris.json' }], config);
+    assert.ok(r.arquivos['jogos/gb.json']);
+    assert.equal(JSON.parse(r.arquivos['jogos/gb.json']).games[0].core, 'gb');
+    assert.ok(r.fontes.some(f => f.console === 'psp' && /jogos\/psp\.json$/.test(f.url)));
 });

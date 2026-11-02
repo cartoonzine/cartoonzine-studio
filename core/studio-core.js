@@ -851,16 +851,44 @@
     const ENGINES_WEB = ['WebAssembly', 'Emscripten', 'Unity WebGL', 'Godot', 'Flash/Ruffle', 'HTML5/JavaScript', 'DOS (js-dos)', 'Outro'];
     const CONTROLES_WEB = ['teclado', 'gamepad', 'mouse', 'teclado-mouse', 'toque'];
     const PESOS_WEB = ['leve', 'medio', 'pesado'];
-    /** console de jogos web? (pelo studio.config.json: "web": true; sem config, pelo id web-…) */
+    /** Consoles de uma coleção de jogos (Jogos Retrô usa "consoles"; Jogos Web usa "consolesWeb"). */
+    function consolesDaColecao(colecao, config) {
+        const lista = config && config[(colecao && colecao.consoles) || 'consoles'];
+        return Array.isArray(lista) ? lista : [];
+    }
+    /** Todos os consoles/sistemas do Studio (retrô + web), para achar um pelo id. */
+    function todosConsoles(config) {
+        return config ? [].concat(config.consoles || [], config.consolesWeb || []) : [];
+    }
+    /** console de jogos web? (pelo studio.config.json: "web": true ou estar em consolesWeb; sem config, pelo id web-…) */
     function consoleWeb(id, config) {
         if (!id) return false;
-        const c = config && (config.consoles || []).find(x => x.id === id);
+        if (config && (config.consolesWeb || []).some(x => x.id === id)) return true;
+        const c = config && todosConsoles(config).find(x => x.id === id);
         return c ? !!c.web : /^web(-[a-z0-9]+|pc|tv)?$/.test(String(id));
+    }
+    /**
+     * Sistema do EmulatorJS de um console retrô ("core" no studio.config.json): é o que o app manda
+     * para o cartucho.html quando o jogo não escolheu um core próprio. Sem config, pelo id mais comum.
+     */
+    const CORE_PADRAO = {
+        arcade: 'arcade', neogeo: 'arcade', nes: 'nes', snes: 'snes', n64: 'n64', nds: 'nds', gb: 'gb', gbc: 'gb', gba: 'gba',
+        vb: 'vb', megadrive: 'segaMD', mastersystem: 'segaMS', gamegear: 'segaGG', segacd: 'segaCD', sega32x: 'sega32x',
+        saturn: 'segaSaturn', atari2600: 'atari2600', atari5200: 'a5200', atari7800: 'atari7800', jaguar: 'jaguar', lynx: 'lynx',
+        pcengine: 'pce', pcenginecd: 'pce', pcfx: 'pcfx', ngp: 'ngp', wonderswan: 'ws', colecovision: 'coleco', amiga: 'amiga',
+        c64: 'c64', c128: 'c128', pet: 'pet', plus4: 'plus4', vic20: 'vic20', msdos: 'dos', ps1: 'psx', psp: 'psp', '3do': '3do',
+        '3ds': '3ds'
+    };
+    function coreDoConsole(id, config) {
+        if (!id) return undefined;
+        const c = config && todosConsoles(config).find(x => x.id === id);
+        if (c) return c.semEmulador || c.web ? undefined : (c.core || CORE_PADRAO[id]);
+        return CORE_PADRAO[id];
     }
     /** Onde o jogo aparece: "Só PC" marcado = só no PC; senão TV e PC (ou o "aparelhos" do console). */
     function aparelhosDoConsole(id, config, item) {
         if (item && item.soPC) return ['pc'];
-        const c = config && (config.consoles || []).find(x => x.id === id);
+        const c = config && todosConsoles(config).find(x => x.id === id);
         if (c && Array.isArray(c.aparelhos)) return c.aparelhos.slice();
         return String(id) === 'webpc' ? ['pc'] : ['tv', 'pc'];
     }
@@ -1033,7 +1061,8 @@
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'soPC', rotulo: 'Só PC (não aparece na TV)', tipo: 'bool', dica: 'marque nos jogos pesados ou que precisam de mouse/teclado' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
-                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console (nos Web Games é sempre "web")' },
+                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Arcade: fbneo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1 ou fbalpha2012_cps2 — todos ficam no card Arcade. Nos Jogos Web é sempre "web"' },
+                { k: 'comandoDos', rotulo: 'Comando do jogo (MS-DOS)', tipo: 'texto', avancado: true, dica: 'só MS-DOS: o programa que abre o jogo dentro do zip (ex.: KEEN4E.EXE). Vazio = AUTORUN.BAT do zip ou o .exe principal, escolhido sozinho' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
                 { k: 'licenca', rotulo: 'Licença (Web Games)', tipo: 'escolha', opcoes: ['', ...LICENCAS_WEB], avancado: true, dica: 'livre = jogo/código aberto ou gratuito · autorizada = demo oficial ou o dono liberou · precisa-original = o jogador carrega os arquivos do próprio jogo · jogo web só é publicado com a licença conferida' },
                 { k: 'engine', rotulo: 'Tipo do port (Web Games)', tipo: 'escolha', opcoes: ['', ...ENGINES_WEB], avancado: true },
@@ -1081,7 +1110,7 @@
         if (ano) out.ano = ano;
         const gen = lista(b.generos || b.genero || b.genre || b.estilos);
         if (gen.length) out.generos = gen;
-        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas']) {
+        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas', 'comandoDos']) {
             if (b[k] !== undefined && b[k] !== '') out[k] = String(b[k]).trim();
         }
         if (b.pais) out.pais = codigoPais(b.pais);
@@ -1148,8 +1177,8 @@
                 }
             }
         }
-        if (colecao.tipo === 'jogo' && item.console && config && !(config.consoles || []).some(c => c.id === item.console)) {
-            erros.push('Console desconhecido: ' + item.console + ' (veja "consoles" no studio.config.json)');
+        if (colecao.tipo === 'jogo' && item.console && config && !consolesDaColecao(colecao, config).some(c => c.id === item.console)) {
+            erros.push('Console desconhecido nesta coleção: ' + item.console + ' (veja "' + (colecao.consoles || 'consoles') + '" no studio.config.json)');
         }
         if (colecao.tipo === 'jogo' && consoleWeb(item.console, config)) {
             // cartucho web: só vai para o app com a licença conferida (rascunho pode ficar sem)
@@ -1265,7 +1294,8 @@
                 const o = Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
                     logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
-                    console: item.console, players: item.jogadores, core: item.core,
+                    console: item.console, players: item.jogadores, core: item.core || coreDoConsole(item.console, config),
+                    dosrun: item.comandoDos,                                                    // MS-DOS: programa do jogo dentro do zip
                     aparelhos: item.soPC ? ['pc'] : undefined                               // "Só PC": a TV não mostra
                 });
                 // cartucho web: o app abre a página do jogo no cartucho-web.html (core "web")
@@ -1338,16 +1368,16 @@
         const fonte = (extraFonte, arq) => Object.assign({}, extraFonte, { url: base + arq });
 
         if (colecao.tipo === 'jogo' && colecao.fonteCloudPorConsole) {
-            const consoles = config.consoles || [];
+            const consoles = consolesDaColecao(colecao, config);
             const porConsole = new Map(consoles.map(c => [c.id, []]));
             for (const r of regs) (porConsole.get(r.console) || []).push(r);
             rel.porConsole = {};
             for (const c of consoles) {
-                const arq = `${colecao.id}/${c.id}.json`;
+                const arq = `${colecao.pastaDist || colecao.id}/${c.id}.json`;   // Jogos Web publica em jogos/ (endereço que o cloud já lê)
                 const lst = porConsole.get(c.id);
                 arquivos[arq] = JSON.stringify({ console: c.id, nome: c.nome, games: lst }, null, 1);
                 rel.porConsole[c.id] = lst.length;
-                fontes.push(fonte({ nome: c.nome, tipo: 'emulator_json', prefixoId: c.prefixoId, console: c.id, targetCategory: c.nome }, arq));
+                fontes.push(fonte(limparVazios({ nome: c.nome, tipo: 'emulator_json', prefixoId: c.prefixoId, console: c.id, targetCategory: c.nome, grupo: c.grupo, web: c.web || colecao.consoles === 'consolesWeb' || undefined }), arq));
             }
             arquivos[`${colecao.id}.json`] = JSON.stringify({ colecao: colecao.id, games: regs }, null, 1);
             return { arquivos, fontes, relatorio: rel };
@@ -1426,11 +1456,56 @@
         return { arquivos, fontes, relatorio: rel };
     }
 
+    /**
+     * Sistema novo da seção Jogos Web: monta a linha certa (id web-…, prefixo único) e devolve
+     * { sistema, config } com a config já com ele. Erro se o nome/id já existir.
+     */
+    function novoSistemaWeb(config, { nome, grupo, id, prefixoId } = {}) {
+        const n = String(nome || '').trim();
+        if (!n) throw new Error('Escreva o nome do sistema');
+        const ident = 'web-' + slugify(String(id || n).replace(/^web-/, ''));
+        const todos = todosConsoles(config);
+        if (todos.some(c => c.id === ident)) throw new Error('Já existe um sistema com o id ' + ident);
+        if ((config.consolesWeb || []).some(c => normText(c.nome) === normText(n))) throw new Error('Já existe um sistema chamado ' + n);
+        const usados = new Set(todos.map(c => c.prefixoId));
+        let pre = String(prefixoId || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5);
+        if (!pre || usados.has(pre)) {
+            const palavras = semAcento(n).toUpperCase().replace(/[^A-Z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);
+            const base = (palavras.length > 1 ? palavras.map(p => p[0]).join('') : (palavras[0] || '')).slice(0, 4) || 'WEB';   // "Game Boy Advance" → GBA
+            pre = base; let k = 2;
+            while (usados.has(pre)) pre = base.slice(0, 3) + (k++);
+        }
+        const sistema = { id: ident, nome: n, prefixoId: pre, web: true, grupo: String(grupo || 'Outros').trim() || 'Outros' };
+        const nova = Object.assign({}, config, { consolesWeb: [].concat(config.consolesWeb || [], [sistema]) });
+        return { sistema, config: nova };
+    }
+
+    /**
+     * Escreve o sistema novo no TEXTO do studio.config.json sem mexer no resto do arquivo
+     * (mantém o alinhamento e os comentários). Se o formato não for o esperado, reescreve o JSON inteiro.
+     */
+    function inserirSistemaNoTexto(texto, sistema) {
+        const linha = '    { ' + Object.keys(sistema).map(k => JSON.stringify(k) + ': ' + JSON.stringify(sistema[k])).join(', ') + ' }';
+        const i = texto.indexOf('"consolesWeb": [');
+        if (i >= 0) {
+            const fim = texto.indexOf('\n  ]', i);
+            if (fim > i) {
+                const antes = texto.slice(0, fim).replace(/\s*$/, '');
+                const vazio = antes.endsWith('[');
+                const novo = antes + (vazio ? '\n' : ',\n') + linha + texto.slice(fim);
+                try { const c = JSON.parse(novo); if ((c.consolesWeb || []).some(x => x.id === sistema.id)) return novo; } catch (e) { /* cai no plano B */ }
+            }
+        }
+        const c = JSON.parse(texto);
+        c.consolesWeb = [].concat(c.consolesWeb || [], [sistema]);
+        return JSON.stringify(c, null, 2) + '\n';
+    }
+
     /** Opções de campos "escolha" que vêm da config. */
-    function opcoesDe(nome, config) {
+    function opcoesDe(nome, config, colecao) {
         if (nome === 'paises') return Object.entries(PAISES).map(([v, r]) => ({ v, r: r + ' (' + v + ')' }));
         if (nome === 'idiomas') return IDIOMAS.map(v => ({ v, r: v }));
-        if (nome === 'consoles') return (config.consoles || []).map(c => ({ v: c.id, r: c.nome }));
+        if (nome === 'consoles') return (colecao ? consolesDaColecao(colecao, config) : todosConsoles(config)).map(c => ({ v: c.id, r: c.nome }));
         if (nome === 'categoriasCanais') return (config.categoriasCanais || []).map(v => ({ v, r: v }));
         if (nome === 'categoriasLivros') return (config.categoriasLivros || []).map(v => ({ v, r: v }));
         return [];
@@ -1508,7 +1583,7 @@
         refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
-        paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever,
-        consoleWeb, aparelhosDoConsole, sistemaWebDoNome, lerCatalogoWebPorts, LICENCAS_WEB, ENGINES_WEB, CONTROLES_WEB, PESOS_WEB
+        paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever, coreDoConsole, CORE_PADRAO,
+        consoleWeb, aparelhosDoConsole, consolesDaColecao, todosConsoles, novoSistemaWeb, inserirSistemaNoTexto, sistemaWebDoNome, lerCatalogoWebPorts, LICENCAS_WEB, ENGINES_WEB, CONTROLES_WEB, PESOS_WEB
     };
 });

@@ -157,14 +157,41 @@ Dá para editar até pelo site do GitHub: o robô publica sozinho a cada commit.
 | 📚 Bookzine | `conteudo/bookzine/` | Cartoonzine (view em construção) | `bookzine.json` + `bookzine/indice.json` |
 | 📻 Rádios | `conteudo/radios/` | Rádio | `radios.json`, `radios.m3u`, `radios/pais/<pais>.m3u` |
 | 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/paises.json`, `canais/pais/<pais>.json` e `.m3u` |
-| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles + 31 sistemas de jogos web) |
+| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (42 consoles, com o core do EmulatorJS) |
+| 🌐 Jogos Web | `conteudo/jogos-web/<sistema>/` | Emulador (cartucho web) | `jogos/<sistema>.json` (31 sistemas, `consolesWeb`) |
 
 Os `.m3u` por país também funcionam direto em qualquer player IPTV (VLC, TiviMate…).
 
+### 🕹️ Jogos Retrô e o EmulatorJS
+
+Cada console em `consoles` (studio.config.json) diz qual **sistema do EmulatorJS** abre os jogos dele (`"core"`).
+O jogo vai para o app com esse core, a não ser que você preencha **Core do emulador** no próprio jogo.
+
+| EmulatorJS | Consoles (id no Studio) |
+|---|---|
+| Nintendo | NES (`nes`) · Super Nintendo (`snes`) · Nintendo 64 (`n64`) · DS (`nds`) · 3DS (`3ds`)* · Game Boy (`gb`) · Game Boy Color (`gbc`) · Game Boy Advance (`gba`) · Virtual Boy (`vb`) |
+| Sega | Master System · Mega Drive · Game Gear · Sega CD · 32X · Saturn |
+| Sony | PlayStation (`ps1`) · PSP (`psp`)* |
+| Atari | 2600 · 5200 (`atari5200`) · 7800 (`atari7800`) · Jaguar (`jaguar`) · Lynx (`lynx`) |
+| Commodore | 64 (`c64`) · 128 (`c128`) · PET (`pet`) · Plus/4 (`plus4`) · VIC-20 (`vic20`) · Amiga (`amiga`) |
+| Outros | Arcade (`arcade`: FBNeo, MAME 2003 e os outros cores de arcade) · Neo Geo (pelo Arcade) · PC Engine / CD · PC-FX (`pcfx`) · Neo Geo Pocket · WonderSwan (`wonderswan`) · ColecoVision · 3DO · MS-DOS (`msdos`)* |
+
+\* **precisam de threads** (`"threads": true`): só abrem onde existe SharedArrayBuffer — o app do PC já liga isso.
+**MS-DOS:** o jogo é um `.zip` com os arquivos do jogo; para ele abrir sozinho, coloque no zip um `AUTORUN.BAT` com o
+comando do jogo (ex.: `KEEN4E.EXE`). Sem isso o app tenta achar o `.exe`/`.bat`/`.com` sozinho.
+**Arcade:** todos os jogos de arcade ficam no mesmo card. O padrão é o FBNeo; para um jogo de MAME escreva
+`mame2003` (ou `mame2003_plus`) no campo **Core do emulador** dele (também valem `fbalpha2012_cps1` e `fbalpha2012_cps2`).
+Sem emulador no EmulatorJS (`"semEmulador": true`): Neo Geo CD, MSX, Odyssey 2 e Flash.
+
 ### 🌐 Web Games (cartucho web: jogos que rodam direto no navegador)
 
-Os jogos web ficam em Jogos Retrô, **um console (DB) por sistema original do jogo**. Cada um vira um card no
-hub de games do app e uma fonte no cloud (`dist/jogos/<sistema>.json`). O link é o da **página do jogo** (não uma ROM).
+Os jogos web têm **seção própria no painel: 🌐 Jogos Web** (`conteudo/jogos-web/<sistema>/`), separada dos
+🕹️ Jogos Retrô (ROMs do emulador). É **um DB por sistema original do jogo**: cada um vira um card no hub de games
+do app e uma fonte no cloud (`dist/jogos/<sistema>.json`). O link é o da **página do jogo** (não uma ROM).
+
+**Sistema novo:** em Jogos Web clique em **+ Novo sistema**, escreva o nome (ex.: *Game Boy Advance*) e o grupo.
+O Studio grava a linha em `consolesWeb` no `studio.config.json`, o cloud pega a fonte nova sozinho (bloco
+`fontesDoStudio` do sources.json) e o hub do app cria o card quando o sistema tiver jogo publicado.
 
 | Grupo | Sistemas (id no Studio) |
 |---|---|
@@ -193,7 +220,7 @@ node tools/importar-webports.mjs --atualizar      # completa os que já existem 
 
 Cada jogo jogável (▶) vira **rascunho** com licença `nao-verificada`; o que o Studio não reconhece fica em
 **Sem categoria** para você mover (seleção em massa → Console). Quem só tem código-fonte (📦) fica em
-`conteudo/jogos/_webports-sem-demo.json`. Reimportar nunca mexe num jogo que você já conferiu, publicou ou mudou de sistema.
+`conteudo/jogos-web/_webports-sem-demo.json`. Reimportar nunca mexe num jogo que você já conferiu, publicou ou mudou de sistema.
 Muitos itens dessa lista são ports de jogos comerciais feitos por fãs: publique só o que for livre, autorizado ou que peça
 os arquivos originais do próprio jogador.
 
