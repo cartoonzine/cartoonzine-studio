@@ -126,6 +126,7 @@
     "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"
   ],
 
+  "_comentarioConsolesWeb": "Jogos web (cartucho web): um console por SISTEMA ORIGINAL do jogo (os que têm \"web\": true). Todos vão para TV e PC; o jogo marcado \"Só PC\" não aparece na TV. Abrem no cartucho-web.html (core web). \"grupo\" só organiza a ordem no app.",
   "consoles": [
     { "id": "arcade",       "nome": "Arcade",            "prefixoId": "ARC" },
     { "id": "nes",          "nome": "Nintendo (NES)",    "prefixoId": "NES" },
@@ -154,9 +155,36 @@
     { "id": "flash",        "nome": "Flash Player",      "prefixoId": "FLA" },
     { "id": "ps1",          "nome": "PlayStation 1",     "prefixoId": "PS1" },
     { "id": "3do",          "nome": "3DO",               "prefixoId": "3DO" },
-    { "id": "web",          "nome": "Web Games · TV e PC", "prefixoId": "WEB", "web": true, "aparelhos": ["tv", "pc"],
-      "_comentario": "Cartucho web: jogos que rodam direto no navegador (WASM/WebGL/HTML5). Leves o bastante para Smart TV." },
-    { "id": "webpc",        "nome": "Web Games · Só PC",   "prefixoId": "WPC", "web": true, "aparelhos": ["pc"],
-      "_comentario": "Cartucho web: jogos pesados ou que precisam de mouse/teclado. O app esconde este console na TV." }
+    { "id": "web-fangames", "nome": "Fangames", "prefixoId": "FAN", "web": true, "grupo": "Comunidade" },
+    { "id": "web-indie", "nome": "Indie", "prefixoId": "IND", "web": true, "grupo": "Comunidade" },
+    { "id": "web-remakes", "nome": "Remakes", "prefixoId": "RMK", "web": true, "grupo": "Comunidade" },
+    { "id": "web-pc", "nome": "PC", "prefixoId": "WPC", "web": true, "grupo": "PC" },
+    { "id": "web-n64", "nome": "Nintendo 64 (Web)", "prefixoId": "WN64", "web": true, "grupo": "Nintendo" },
+    { "id": "web-gamecube", "nome": "GameCube", "prefixoId": "GCN", "web": true, "grupo": "Nintendo" },
+    { "id": "web-wii", "nome": "Wii", "prefixoId": "WII", "web": true, "grupo": "Nintendo" },
+    { "id": "web-switch", "nome": "Nintendo Switch", "prefixoId": "NSW", "web": true, "grupo": "Nintendo" },
+    { "id": "web-dreamcast", "nome": "Dreamcast", "prefixoId": "DC", "web": true, "grupo": "Sega" },
+    { "id": "web-dos", "nome": "DOS (Web)", "prefixoId": "WDOS", "web": true, "grupo": "Microsoft" },
+    { "id": "web-windows", "nome": "Windows", "prefixoId": "WIN", "web": true, "grupo": "Microsoft" },
+    { "id": "web-xbox360", "nome": "Xbox 360", "prefixoId": "X360", "web": true, "grupo": "Microsoft" },
+    { "id": "web-xboxone", "nome": "Xbox One", "prefixoId": "XONE", "web": true, "grupo": "Microsoft" },
+    { "id": "web-xboxseries", "nome": "Xbox Series X|S", "prefixoId": "XSX", "web": true, "grupo": "Microsoft" },
+    { "id": "web-xbox", "nome": "Xbox", "prefixoId": "XBOX", "web": true, "grupo": "Microsoft" },
+    { "id": "web-ps1", "nome": "PlayStation (Web)", "prefixoId": "WPS1", "web": true, "grupo": "Sony" },
+    { "id": "web-ps2", "nome": "PlayStation 2", "prefixoId": "PS2", "web": true, "grupo": "Sony" },
+    { "id": "web-psp", "nome": "PSP", "prefixoId": "PSP", "web": true, "grupo": "Sony" },
+    { "id": "web-ps4", "nome": "PlayStation 4", "prefixoId": "PS4", "web": true, "grupo": "Sony" },
+    { "id": "web-ps3", "nome": "PlayStation 3", "prefixoId": "PS3", "web": true, "grupo": "Sony" },
+    { "id": "web-android", "nome": "Android", "prefixoId": "AND", "web": true, "grupo": "Outros" },
+    { "id": "web-ios", "nome": "iOS", "prefixoId": "IOS", "web": true, "grupo": "Outros" },
+    { "id": "web-arcade", "nome": "Arcade (Web)", "prefixoId": "WARC", "web": true, "grupo": "Outros" },
+    { "id": "web-navegador", "nome": "Navegador (Web browser)", "prefixoId": "NAV", "web": true, "grupo": "Outros" },
+    { "id": "web-java", "nome": "Java", "prefixoId": "JAVA", "web": true, "grupo": "Outros" },
+    { "id": "web-mobile", "nome": "Mobile", "prefixoId": "MOB", "web": true, "grupo": "Outros" },
+    { "id": "web-tabletop", "nome": "Tabletop", "prefixoId": "TAB", "web": true, "grupo": "Outros" },
+    { "id": "web-macos", "nome": "macOS", "prefixoId": "MAC", "web": true, "grupo": "Outros" },
+    { "id": "web-zxspectrum", "nome": "ZX Spectrum", "prefixoId": "ZX", "web": true, "grupo": "Outros" },
+    { "id": "web-neogeo", "nome": "Neo Geo (Web)", "prefixoId": "WNEO", "web": true, "grupo": "Outros" },
+    { "id": "web-outros", "nome": "Sem categoria (Web)", "prefixoId": "WOUT", "web": true, "grupo": "Outros" }
   ]
 }

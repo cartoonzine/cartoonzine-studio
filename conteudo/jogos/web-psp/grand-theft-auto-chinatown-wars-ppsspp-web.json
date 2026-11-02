@@ -1,0 +1,13 @@
+{
+  "nome": "Grand Theft Auto: Chinatown Wars (PPSSPP Web)",
+  "links": [
+    "https://gta-chinatown-wars.pages.dev/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/root-hunter/ppsspp-web",
+  "descricao": "Port para navegador · gta-chinatown-wars.pages.dev",
+  "console": "web-psp",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

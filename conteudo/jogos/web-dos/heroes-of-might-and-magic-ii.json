@@ -1,0 +1,13 @@
+{
+  "nome": "Heroes of Might and Magic II",
+  "links": [
+    "https://midzer.de/wasm/heroes2/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/midzer/fheroes2",
+  "descricao": "Port para navegador · midzer.de",
+  "console": "web-dos",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

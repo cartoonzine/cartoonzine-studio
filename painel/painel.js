@@ -370,7 +370,7 @@
         const f = estado.filtro;
         return itensDaColecao(col.id)
             .filter(i => !alvo || C.normText(i.nome).includes(alvo) || C.normText(i.caminho).includes(alvo))
-            .filter(i => f === 'todos' || (f === 'rascunhos' ? i.rascunho : f === 'publicados' ? !i.rascunho : f === 'semlicenca' ? semLicenca(i) : f.startsWith('console:') ? i.console === f.slice(8) : true))
+            .filter(i => f === 'todos' || (f === 'rascunhos' ? i.rascunho : f === 'publicados' ? !i.rascunho : f === 'semlicenca' ? semLicenca(i) : f === 'sopc' ? !!i.soPC : f.startsWith('console:') ? i.console === f.slice(8) : true))
             .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
     }
 
@@ -387,7 +387,7 @@
         [...sel].forEach(c => { if (!existe.has(c)) sel.delete(c); });
         const consolesUsados = col.tipo === 'jogo' ? [...new Set(itensDaColecao(col.id).map(i => i.console).filter(Boolean))] : [];
         const opcoesFiltro = [['todos', 'Todos'], ['rascunhos', 'Só rascunhos'], ['publicados', 'Só publicados']]
-            .concat(col.tipo === 'jogo' ? [['semlicenca', 'Sem licença conferida']] : [])
+            .concat(col.tipo === 'jogo' ? [['semlicenca', 'Sem licença conferida'], ['sopc', 'Só PC']] : [])
             .concat(consolesUsados.map(c => ['console:' + c, 'Console: ' + (consoles.get(c) || c)]));
         $('#conteudo-aba').innerHTML = `
           <div class="barra-lista">
@@ -399,7 +399,7 @@
           ${total && !itens.length ? `<div class="vazio">Nada encontrado${estado.busca ? ` para "${esc(estado.busca)}"` : ' com este filtro'}.</div>` : ''}
           <div class="grade ${estado.selecionando ? 'selecionando' : ''}">${itens.slice(0, MAX).map((i, idx) => {
               const lic = col.tipo === 'jogo' && C.consoleWeb && C.consoleWeb(i.console, estado.config) ? (semLicenca(i) ? 'licença ?' : 'licença ' + i.licenca) : '';
-              const meta = [i.nota ? '⭐ ' + i.nota : '', i.ano, i.eps ? i.eps + ' ep.' : '', i.console ? consoles.get(i.console) || i.console : '', i.pais, i.categoria, lic].filter(Boolean).join(' · ');
+              const meta = [i.nota ? '⭐ ' + i.nota : '', i.ano, i.eps ? i.eps + ' ep.' : '', i.console ? consoles.get(i.console) || i.console : '', i.pais, i.categoria, lic, i.soPC ? '🖥 só PC' : ''].filter(Boolean).join(' · ');
               const marcado = estado.selecionando && sel.has(i.caminho);
               return `<button class="card ${largo ? 'largo' : ''} ${marcado ? 'marcado' : ''}" data-caminho="${esc(i.caminho)}" data-idx="${idx}" ${estado.selecionando ? `aria-pressed="${marcado}"` : ''}>
                 ${estado.selecionando ? `<span class="marca" aria-hidden="true">${marcado ? '✓' : ''}</span>` : ''}
@@ -466,6 +466,7 @@
             l.push({ k: 'console', rotulo: 'Console (move o arquivo para a pasta dele)', opcoes: (estado.config.consoles || []).map(c => [c.id, c.nome]) });
             l.push({ k: 'peso', rotulo: 'Peso', opcoes: (C.PESOS_WEB || []).map(v => [v, v]).concat([['', '(apagar)']]) });
             l.push({ k: 'controles', rotulo: 'Controle', opcoes: (C.CONTROLES_WEB || []).map(v => [v, v]).concat([['', '(apagar)']]) });
+            l.push({ k: 'soPC', rotulo: 'Só PC (não aparece na TV)', opcoes: [['sim', '☑ Só PC'], ['', '☐ TV e PC']] });
         }
         l.push({ k: '_situacao', rotulo: 'Situação', opcoes: [['publicar', 'Publicar (tirar do rascunho)'], ['rascunho', 'Voltar para rascunho']] });
         return l;
@@ -550,6 +551,7 @@
             const item = C.normalizarItem(bruto, col);
             for (const [k, v] of Object.entries(escolhas)) {
                 if (k === '_situacao') continue;
+                if (k === 'soPC') { if (v === 'sim') item.soPC = true; else delete item.soPC; continue; }
                 if (v === '') delete item[k]; else item[k] = v;
             }
             if (escolhas._situacao === 'rascunho') item._rascunho = true;

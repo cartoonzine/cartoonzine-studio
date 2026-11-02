@@ -1,0 +1,12 @@
+{
+  "nome": "Beneath a Steel Sky (ScummWeb)",
+  "links": [
+    "https://scummweb.tsilva.eu/beneath-a-steel-sky/play"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · scummweb.tsilva.eu",
+  "console": "web-dos",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

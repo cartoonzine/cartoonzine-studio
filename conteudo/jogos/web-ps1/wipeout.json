@@ -1,0 +1,13 @@
+{
+  "nome": "WipEout",
+  "links": [
+    "https://phoboslab.org/wipegame/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/phoboslab/wipeout-rewrite",
+  "descricao": "Port para navegador · phoboslab.org",
+  "console": "web-ps1",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

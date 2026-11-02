@@ -1,0 +1,13 @@
+{
+  "nome": "Diddy Kong Racing (Golden Balloon)",
+  "links": [
+    "https://akratch.github.io/golden-balloon/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/akratch/goldenballoon",
+  "descricao": "Port para navegador · akratch.github.io",
+  "console": "web-n64",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

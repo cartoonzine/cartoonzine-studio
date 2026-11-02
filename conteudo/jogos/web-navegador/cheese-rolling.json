@@ -1,0 +1,13 @@
+{
+  "nome": "Cheese Rolling",
+  "links": [
+    "https://gn-math.dev/?id=762",
+    "https://wasm.rip/files/cheese-rolling/index.html"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · gn-math.dev",
+  "console": "web-navegador",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

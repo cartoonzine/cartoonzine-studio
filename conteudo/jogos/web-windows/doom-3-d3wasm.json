@@ -1,0 +1,12 @@
+{
+  "nome": "Doom 3 (D3Wasm)",
+  "links": [
+    "https://recompiledgames.com/doom-3-recompiled"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · recompiledgames.com",
+  "console": "web-windows",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

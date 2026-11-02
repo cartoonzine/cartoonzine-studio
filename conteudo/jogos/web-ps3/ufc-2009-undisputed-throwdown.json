@@ -1,0 +1,12 @@
+{
+  "nome": "UFC 2009 Undisputed / Throwdown",
+  "links": [
+    "https://ufc2.online/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · ufc2.online",
+  "console": "web-ps3",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

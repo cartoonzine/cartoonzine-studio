@@ -1,0 +1,13 @@
+{
+  "nome": "Super Mario 64",
+  "links": [
+    "https://gn-math.dev/?id=588",
+    "https://recompiledgames.com/super-mario-64-recompiled"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "descricao": "Port para navegador · gn-math.dev",
+  "console": "web-n64",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

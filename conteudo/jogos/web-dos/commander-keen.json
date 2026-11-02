@@ -1,0 +1,13 @@
+{
+  "nome": "Commander Keen",
+  "links": [
+    "https://www.jamesfmackenzie.com/chocolatekeen/"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/jamesfmackenzie/chocolatekeen",
+  "descricao": "Port para navegador · www.jamesfmackenzie.com",
+  "console": "web-dos",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}

@@ -1,0 +1,13 @@
+{
+  "nome": "Urban Terror",
+  "links": [
+    "http://ut.pieter.com"
+  ],
+  "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
+  "repo": "https://github.com/FrozenSand/ioq3-for-UrbanTerror-4",
+  "descricao": "Port para navegador · ut.pieter.com",
+  "console": "web-pc",
+  "licenca": "nao-verificada",
+  "_rascunho": true,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+}
