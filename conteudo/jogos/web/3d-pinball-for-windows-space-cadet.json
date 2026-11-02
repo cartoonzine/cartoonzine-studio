@@ -7,7 +7,6 @@
   "repo": "https://github.com/k4zmu2a/SpaceCadetPinball",
   "descricao": "Port para navegador · ksylvestre.itch.io",
   "console": "web",
-  "licenca": "nao-verificada",
-  "_rascunho": true,
+  "licenca": "livre",
   "_origem": "auto:Ultimate Catalog of Web Game Ports"
 }
