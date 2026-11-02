@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T01:40:47.801Z",
+  "geradoEm": "2026-11-02T01:41:47.046Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -82,15 +82,11 @@
     {
       "colecao": "jogos",
       "total": 509,
-      "publicados": 1,
+      "publicados": 2,
       "erros": [],
       "avisos": [
         {
           "caminho": "conteudo/jogos/web/20-minutes-till-dawn.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos/web/3d-pinball-for-windows-space-cadet.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2146,7 +2142,7 @@
         "flash": 0,
         "ps1": 0,
         "3do": 0,
-        "web": 1,
+        "web": 2,
         "webpc": 0
       }
     }
