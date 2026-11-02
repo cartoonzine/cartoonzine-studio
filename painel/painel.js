@@ -728,7 +728,7 @@
             img.style.backgroundImage = url ? `url("${url.replace(/"/g, '%22')}")` : 'none';
             img.style.backgroundPosition = `center ${y}%`;
             barra.value = y;
-            b.classList.toggle('vazio', !url);
+            b.classList.toggle('pos-vazio', !url);
         });
         if (!form._posLigado) {
             form._posLigado = true;
@@ -742,7 +742,7 @@
             });
             form.addEventListener('pointerdown', (e) => {
                 const q = e.target.closest && e.target.closest('.pos-quadro');
-                if (!q || q.closest('.pos-campo').classList.contains('vazio')) return;
+                if (!q || q.closest('.pos-campo').classList.contains('pos-vazio')) return;
                 e.preventDefault();
                 const num = q.closest('.pos-campo').querySelector('.pos-num');
                 const y0 = e.clientY, v0 = num.value === '' ? 50 : lim(parseFloat(num.value) || 0);
