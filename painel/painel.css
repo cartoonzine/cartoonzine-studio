@@ -146,8 +146,8 @@ textarea.campo { resize: vertical; min-height: 80px; }
 .pos-img { position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; opacity: .7; }
 .pos-degrade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,.8) 70%, #000 100%); pointer-events: none; }
 .pos-sem { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; color: #64748b; font-size: 13px; }
-.pos-campo.vazio .pos-sem { display: flex; }
-.pos-campo.vazio .pos-quadro { cursor: default; }
+.pos-campo.pos-vazio .pos-sem { display: flex; }
+.pos-campo.pos-vazio .pos-quadro { cursor: default; }
 .pos-linha { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
 .pos-linha .pos-barra { flex: 1; min-width: 140px; }
 .pos-linha .pos-num { width: 104px; }
