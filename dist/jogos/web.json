@@ -46,6 +46,20 @@
    ],
    "license": "livre",
    "repo": "https://github.com/web-ports/20-minutes"
+  },
+  {
+   "title": "Call of Duty Web Collection",
+   "desc": "Port para navegador · cod-webports.pages.dev",
+   "studio": "jogos/web/call-of-duty-web-collection",
+   "url": "https://cod-webports.pages.dev/",
+   "console": "web",
+   "core": "web",
+   "web": true,
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "license": "autorizada"
   }
  ]
 }

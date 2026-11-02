@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T02:29:47.501Z",
+  "geradoEm": "2026-11-02T02:36:38.325Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -82,7 +82,7 @@
     {
       "colecao": "jogos",
       "total": 509,
-      "publicados": 3,
+      "publicados": 4,
       "erros": [],
       "avisos": [
         {
@@ -267,10 +267,6 @@
         },
         {
           "caminho": "conteudo/jogos/web/call-of-duty-modern-warfare-2.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos/web/call-of-duty-web-collection.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2138,7 +2134,7 @@
         "flash": 0,
         "ps1": 0,
         "3do": 0,
-        "web": 3,
+        "web": 4,
         "webpc": 0
       }
     }
