@@ -877,7 +877,7 @@
         saturn: 'segaSaturn', atari2600: 'atari2600', atari5200: 'a5200', atari7800: 'atari7800', jaguar: 'jaguar', lynx: 'lynx',
         pcengine: 'pce', pcenginecd: 'pce', pcfx: 'pcfx', ngp: 'ngp', wonderswan: 'ws', colecovision: 'coleco', amiga: 'amiga',
         c64: 'c64', c128: 'c128', pet: 'pet', plus4: 'plus4', vic20: 'vic20', msdos: 'dos', ps1: 'psx', psp: 'psp', '3do': '3do',
-        '3ds': '3ds', mame2003: 'mame2003'
+        '3ds': '3ds'
     };
     function coreDoConsole(id, config) {
         if (!id) return undefined;
@@ -1061,7 +1061,7 @@
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'soPC', rotulo: 'Só PC (não aparece na TV)', tipo: 'bool', dica: 'marque nos jogos pesados ou que precisam de mouse/teclado' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
-                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Nos Jogos Web é sempre "web"' },
+                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Arcade: fbneo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1 ou fbalpha2012_cps2 — todos ficam no card Arcade. Nos Jogos Web é sempre "web"' },
                 { k: 'comandoDos', rotulo: 'Comando do jogo (MS-DOS)', tipo: 'texto', avancado: true, dica: 'só MS-DOS: o programa que abre o jogo dentro do zip (ex.: KEEN4E.EXE). Vazio = AUTORUN.BAT do zip ou o .exe principal, escolhido sozinho' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
                 { k: 'licenca', rotulo: 'Licença (Web Games)', tipo: 'escolha', opcoes: ['', ...LICENCAS_WEB], avancado: true, dica: 'livre = jogo/código aberto ou gratuito · autorizada = demo oficial ou o dono liberou · precisa-original = o jogador carrega os arquivos do próprio jogo · jogo web só é publicado com a licença conferida' },

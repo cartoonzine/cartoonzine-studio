@@ -138,7 +138,7 @@
     "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"
   ],
 
-  "_comentarioConsoles": "Jogos Retrô: um DB por console. \"core\" = sistema do EmulatorJS que abre o jogo (o jogo pode trocar no campo Core). \"threads\": precisa de SharedArrayBuffer (funciona no app do PC; navegador comum pode não abrir). \"semEmulador\": o EmulatorJS não tem esse sistema; o jogo precisa de outro jeito de abrir.",
+  "_comentarioConsoles": "Jogos Retrô: um DB por console. \"core\" = sistema do EmulatorJS que abre o jogo (o jogo pode trocar no campo Core). Arcade junta todos os cores de arcade: FBNeo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1, fbalpha2012_cps2. \"threads\": precisa de SharedArrayBuffer (funciona no app do PC; navegador comum pode não abrir). \"semEmulador\": o EmulatorJS não tem esse sistema; o jogo precisa de outro jeito de abrir.",
   "consoles": [
     { "id": "arcade",       "nome": "Arcade",             "prefixoId": "ARC", "core": "arcade" },
     { "id": "nes",          "nome": "Nintendo (NES)",     "prefixoId": "NES", "core": "nes" },
@@ -180,7 +180,6 @@
     { "id": "pet",          "nome": "Commodore PET",      "prefixoId": "PET", "core": "pet" },
     { "id": "plus4",        "nome": "Commodore Plus/4",   "prefixoId": "P4", "core": "plus4" },
     { "id": "vic20",        "nome": "Commodore VIC-20",   "prefixoId": "VIC", "core": "vic20" },
-    { "id": "mame2003",     "nome": "MAME 2003",          "prefixoId": "M03", "core": "mame2003" },
     { "id": "psp",          "nome": "PSP",                "prefixoId": "PSPR", "core": "psp", "threads": true },
     { "id": "3ds",          "nome": "Nintendo 3DS",       "prefixoId": "3DS", "core": "3ds", "threads": true }
   ],

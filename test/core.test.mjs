@@ -499,10 +499,10 @@ test('cartucho web: importador cria rascunhos, junta link repetido e não mexe n
     fs.rmSync(raiz, { recursive: true, force: true });
 });
 
-test('jogos retrô: cada console tem o core do EmulatorJS; sistemas novos (Game Boy, Atari, Commodore, PSP, 3DS…)', () => {
+test('jogos retrô: cada console tem o core do EmulatorJS; sistemas novos (Game Boy, Atari, Commodore, PSP, 3DS…); MAME fica no Arcade', () => {
     const retro = config.colecoes.find(c => c.id === 'jogos');
     const ids = config.consoles.map(c => c.id);
-    for (const novo of ['gb', 'vb', 'atari5200', 'atari7800', 'jaguar', 'lynx', 'wonderswan', 'pcfx', 'c64', 'c128', 'pet', 'plus4', 'vic20', 'mame2003', 'psp', '3ds']) assert.ok(ids.includes(novo), novo);
+    for (const novo of ['gb', 'vb', 'atari5200', 'atari7800', 'jaguar', 'lynx', 'wonderswan', 'pcfx', 'c64', 'c128', 'pet', 'plus4', 'vic20', 'psp', '3ds']) assert.ok(ids.includes(novo), novo);
     // todo console tem core OU está marcado sem emulador; prefixos únicos (retrô + web)
     for (const c of config.consoles) assert.ok(c.core || c.semEmulador, c.id);
     const pre = config.consoles.concat(config.consolesWeb).map(c => c.prefixoId);
@@ -513,7 +513,9 @@ test('jogos retrô: cada console tem o core do EmulatorJS; sistemas novos (Game 
     assert.equal(mk('msdos').core, 'dos');
     assert.equal(mk('atari5200').core, 'a5200');
     assert.equal(mk('3ds').core, '3ds');
-    assert.equal(mk('snes', { core: 'snes9x' }).core, 'snes9x');   // o core do jogo vence o do console
+    assert.equal(mk('snes', { core: 'snes9x' }).core, 'snes9x');
+    assert.equal(mk('arcade', { core: 'mame2003' }).core, 'mame2003');   // MAME 2003 fica no Arcade, só troca o core
+    assert.ok(!ids.includes('mame2003'));   // o core do jogo vence o do console
     assert.equal(mk('msx').core, undefined);
     assert.equal(mk('msdos', { comandoDos: 'KEEN4E.EXE' }).dosrun, 'KEEN4E.EXE');   // MS-DOS: comando do jogo vai para o app
     assert.equal(mk('msdos').dosrun, undefined);                       // sem emulador: não inventa core
