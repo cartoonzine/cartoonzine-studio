@@ -684,6 +684,15 @@
                   ${c.imagem && valor ? `<img class="previa-img" src="${esc(valor)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}</div>`;
             case 'temporadas':
                 return `<div class="cheio" id="temporadas-box"></div>`;
+            case 'posicao': {
+                // prévia do fundo do topo do app (mesmo corte e degradê); ligarPosicoes() desenha e cuida do arraste
+                const n = Number.isFinite(parseFloat(valor)) ? Math.round(parseFloat(valor)) : '';
+                return `<div class="cheio pos-campo" data-de="${esc(c.de || 'capa')}">${rot}
+                  <div class="pos-quadro" title="Arraste a imagem para cima ou para baixo"><div class="pos-img"></div><div class="pos-degrade"></div><span class="pos-sem">Coloque a capa para ajustar</span></div>
+                  <div class="pos-linha"><span class="dica">topo</span><input type="range" class="pos-barra" min="0" max="100" step="1" value="${n === '' ? 50 : n}" aria-label="${esc(c.rotulo)}"><span class="dica">pé</span>
+                    <input class="campo pos-num" id="${id}" data-k="${c.k}" type="number" min="0" max="100" inputmode="numeric" placeholder="centro" value="${n}"><span class="dica">%</span>
+                    <button type="button" class="btn fantasma pos-centro">Centro</button></div>${dica}</div>`;
+            }
             default:
                 return `<div>${rot}<input class="campo" id="${id}" data-k="${c.k}" value="${esc(valor || '')}">${dica}</div>`;
         }
@@ -700,9 +709,52 @@
             if (c.tipo === 'links') out[c.k] = v.split(/\s+/).filter(Boolean);
             else if (c.tipo === 'lista') out[c.k] = C.lista(v);
             else if (c.tipo === 'numero') out[c.k] = parseInt(v, 10);
+            else if (c.tipo === 'posicao') { const n = parseInt(v, 10); if (Number.isFinite(n)) out[c.k] = Math.max(0, Math.min(100, n)); }
             else out[c.k] = v;
         }
         return out;
+    }
+
+    // ------------------------------------------------------------------
+    // Posição da capa no fundo do topo (campo "posicao"): prévia + barra + arrastar
+    // ------------------------------------------------------------------
+    function ligarPosicoes(form) {
+        const lim = (n) => Math.max(0, Math.min(100, Math.round(n)));
+        const pintar = () => form.querySelectorAll('.pos-campo').forEach(b => {
+            const capa = form.querySelector(`[data-k="${b.dataset.de}"]`);
+            const url = capa ? capa.value.trim() : '';
+            const num = b.querySelector('.pos-num'), barra = b.querySelector('.pos-barra'), img = b.querySelector('.pos-img');
+            const y = num.value === '' ? 50 : lim(parseFloat(num.value) || 0);
+            img.style.backgroundImage = url ? `url("${url.replace(/"/g, '%22')}")` : 'none';
+            img.style.backgroundPosition = `center ${y}%`;
+            barra.value = y;
+            b.classList.toggle('vazio', !url);
+        });
+        if (!form._posLigado) {
+            form._posLigado = true;
+            form.addEventListener('input', (e) => {
+                if (e.target.classList && e.target.classList.contains('pos-barra')) e.target.closest('.pos-campo').querySelector('.pos-num').value = e.target.value;
+                pintar();
+            });
+            form.addEventListener('click', (e) => {
+                const bt = e.target.closest && e.target.closest('.pos-centro');
+                if (bt) { bt.closest('.pos-campo').querySelector('.pos-num').value = ''; pintar(); }
+            });
+            form.addEventListener('pointerdown', (e) => {
+                const q = e.target.closest && e.target.closest('.pos-quadro');
+                if (!q || q.closest('.pos-campo').classList.contains('vazio')) return;
+                e.preventDefault();
+                const num = q.closest('.pos-campo').querySelector('.pos-num');
+                const y0 = e.clientY, v0 = num.value === '' ? 50 : lim(parseFloat(num.value) || 0);
+                try { q.setPointerCapture(e.pointerId); } catch (err) { /* */ }
+                q.classList.add('arrastando');
+                // arrastar para baixo puxa a imagem para baixo → aparece a parte de CIMA (porcentagem menor)
+                const mover = (ev) => { num.value = lim(v0 - (ev.clientY - y0) / q.clientHeight * 100); pintar(); };
+                const fim = () => { q.classList.remove('arrastando'); q.removeEventListener('pointermove', mover); q.removeEventListener('pointerup', fim); q.removeEventListener('pointercancel', fim); };
+                q.addEventListener('pointermove', mover); q.addEventListener('pointerup', fim); q.addEventListener('pointercancel', fim);
+            });
+        }
+        pintar();
     }
 
     // ------------------------------------------------------------------
@@ -825,6 +877,7 @@
         let lerTemps = () => item.temporadas;
         const boxT = $('#temporadas-box', fundo);
         if (boxT) lerTemps = editorTemporadas(boxT, item.temporadas);
+        ligarPosicoes(form);
         const lerItem = () => {
             // começa do item como está (guarda nota do IMDb, fonte, _origem…) e troca o que o formulário mostra
             const novo = Object.assign({}, item);
@@ -907,6 +960,7 @@
                     (avancados.length ? `<details class="avancado cheio"><summary>Opções avançadas</summary><div class="form" style="margin-top:12px">${avancados.map(c => campoHtml(c, item[c.k])).join('')}</div></details>` : '');
                 const nb = $('#temporadas-box', fundo);
                 if (nb) lerTemps = editorTemporadas(nb, item.temporadas);
+                ligarPosicoes(form);
                 const extra = avisosAuto.length ? ' ⚠ ' + avisosAuto.join(' ') : '';
                 aviso((achados.length ? 'Preenchido: ' + achados.join(' · ') + '. Confira antes de salvar.' : 'Não achei nada novo para este nome.') + extra, achados.length ? 'ok' : (avisosAuto.length ? 'ruim' : ''));
             } catch (e) { aviso('Não deu para buscar: ' + e.message, 'ruim'); }
