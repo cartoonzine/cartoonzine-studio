@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T23:01:51.101Z",
+  "geradoEm": "2026-11-02T23:02:59.465Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -45,14 +45,9 @@
     {
       "colecao": "filmes-torrent",
       "total": 60,
-      "publicados": 59,
+      "publicados": 60,
       "erros": [],
-      "avisos": [
-        {
-          "caminho": "conteudo/filmes-torrent/sempre-vitoriosos.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        }
-      ]
+      "avisos": []
     },
     {
       "colecao": "series",
