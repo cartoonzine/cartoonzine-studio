@@ -543,3 +543,15 @@ test('posição da capa no fundo do topo: 0–100, vazio = centro; vai para o ap
     assert.ok(C.TIPOS.jogo.campos.some(c => c.k === 'posFundo'));
     assert.equal(C.paraCloud(C.normalizarItem({ nome: 'J', console: 'snes', links: ['https://r.x/j.sfc'], posFundo: 70 }, jogo), jogo, 'j', config).bgPosY, 70);
 });
+
+test('imagem do fundo do topo: capa (padrão) ou banner; vai para o app como bgImg', () => {
+    const filmes = config.colecoes.find(c => c.tipo === 'video');
+    const mk = (extra) => C.paraCloud(C.normalizarItem(Object.assign({ nome: 'X', links: ['https://v.x/a.mp4'], capa: 'https://i.x/c.jpg', banner: 'https://i.x/b.jpg' }, extra), filmes), filmes, 'x', config);
+    assert.equal(mk({ fundoImagem: 'banner' }).bgImg, 'banner');
+    assert.equal('bgImg' in mk({ fundoImagem: 'capa' }), false);
+    assert.equal('bgImg' in mk({}), false);
+    assert.equal('bgImg' in mk({ fundoImagem: 'outra' }), false);
+    assert.equal(C.normalizarItem({ nome: 'X', fundoImagem: 'banner' }, filmes).fundoImagem, 'banner');
+    const campos = C.TIPOS.video.campos.map(c => c.k);
+    assert.ok(campos.indexOf('fundoImagem') === campos.indexOf('posFundo') - 1);   // o seletor fica logo acima da prévia
+});
