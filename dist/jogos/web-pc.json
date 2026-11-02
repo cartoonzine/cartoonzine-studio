@@ -1,0 +1,30 @@
+{
+ "console": "web-pc",
+ "nome": "PC",
+ "games": [
+  {
+   "title": "Neverball",
+   "desc": "Incline o tabuleiro e leve a bola até a saída pegando as moedas. Mais de 100 fases. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2003,
+   "genre": [
+    "Puzzle",
+    "Habilidade"
+   ],
+   "studio": "jogos/web-pc/neverball",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/neverball/",
+   "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/neverball.jpg",
+   "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/neverball-banner.jpg",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "gamepad",
+   "repo": "https://github.com/Neverball/neverball"
+  }
+ ]
+}

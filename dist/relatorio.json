@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T04:11:50.506Z",
+  "geradoEm": "2026-11-02T04:35:01.903Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -86,2007 +86,2007 @@
       "erros": [],
       "avisos": [
         {
-          "caminho": "conteudo/jogos/web/a-bite-at-freddy-s.json",
+          "caminho": "conteudo/jogos/web-arcade/daytona-usa.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/a-difficult-game-about-climbing.json",
+          "caminho": "conteudo/jogos/web-arcade/marvel-vs-capcom-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/amanda-the-adventurer.json",
+          "caminho": "conteudo/jogos/web-arcade/sonic-the-fighters.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/amazing-alex.json",
+          "caminho": "conteudo/jogos/web-arcade/street-fighter-iii-3rd-strike.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/american-mcgee-s-alice.json",
+          "caminho": "conteudo/jogos/web-arcade/taiko-no-tatsujin.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/among-us.json",
+          "caminho": "conteudo/jogos/web-arcade/virtua-fighter.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/andy-s-apple-farm.json",
+          "caminho": "conteudo/jogos/web-arcade/virtual-on-cyber-troopers.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/animal-crossing-gamecube.json",
+          "caminho": "conteudo/jogos/web-dos/beneath-a-steel-sky-scummweb.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/animal-crossing.json",
+          "caminho": "conteudo/jogos/web-dos/caesar-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/antonblast.json",
+          "caminho": "conteudo/jogos/web-dos/carmageddon.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/apes-vs-helium.json",
+          "caminho": "conteudo/jogos/web-dos/chasm-the-rift.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/arthur-s-nightmare.json",
+          "caminho": "conteudo/jogos/web-dos/commander-keen.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/arx-fatalis-arxwasm-demo.json",
+          "caminho": "conteudo/jogos/web-dos/daggerfall-daggerfalljs.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/arx-fatalis-rgc-zone.json",
+          "caminho": "conteudo/jogos/web-dos/descent-dxx-rebirth.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bad-parenting-1.json",
+          "caminho": "conteudo/jogos/web-dos/descent.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bad-piggies.json",
+          "caminho": "conteudo/jogos/web-dos/doom-i-e-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/baldi-s-basics-birthday-bash.json",
+          "caminho": "conteudo/jogos/web-dos/doom-joeheyming-classic-and-mods.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/baldi-s-basics-classic-remastered.json",
+          "caminho": "conteudo/jogos/web-dos/doom-multiplayer.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/baldi-s-basics-plus.json",
+          "caminho": "conteudo/jogos/web-dos/doom-webdoom.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ballerburg-sdl.json",
+          "caminho": "conteudo/jogos/web-dos/doom.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/battle-city.json",
+          "caminho": "conteudo/jogos/web-dos/drascula-the-vampire-strikes-back-scummweb.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/battle-stadium-d-o-n.json",
+          "caminho": "conteudo/jogos/web-dos/duke-caribbean-life-s-a-beach.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/beatblock.json",
+          "caminho": "conteudo/jogos/web-dos/duke-it-out-in-d-c.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bendy-and-the-ink-machine-2.json",
+          "caminho": "conteudo/jogos/web-dos/duke-nuclear-winter.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bendy-and-the-ink-machine-3.json",
+          "caminho": "conteudo/jogos/web-dos/duke-nukem-3d-eduke32-wasm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bendy-and-the-ink-machine-all-chapters.json",
+          "caminho": "conteudo/jogos/web-dos/duke-nukem-3d-tg.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bendy-and-the-ink-machine.json",
+          "caminho": "conteudo/jogos/web-dos/duke-nukem-3d.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/beneath-a-steel-sky-scummweb.json",
+          "caminho": "conteudo/jogos/web-dos/dune-ii-tg.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bergentruck-201x.json",
+          "caminho": "conteudo/jogos/web-dos/dune-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bloodmoney.json",
+          "caminho": "conteudo/jogos/web-dos/dungeon-keeper.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/boil-noodles-at-night.json",
+          "caminho": "conteudo/jogos/web-dos/fatal-racing.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/brawlhalla.json",
+          "caminho": "conteudo/jogos/web-dos/flight-of-the-amazon-queen-scummweb.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/brotato-2.json",
+          "caminho": "conteudo/jogos/web-dos/heretic-hexen.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/brotato.json",
+          "caminho": "conteudo/jogos/web-dos/heroes-of-might-and-magic-ii-fheroes2-rgc-zone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/brutal-doom.json",
+          "caminho": "conteudo/jogos/web-dos/heroes-of-might-and-magic-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/buckshot-roulette.json",
+          "caminho": "conteudo/jogos/web-dos/item.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/bumpy-s-arcade-fantasy.json",
+          "caminho": "conteudo/jogos/web-dos/nam-napalm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/burnout-3-takedown.json",
+          "caminho": "conteudo/jogos/web-dos/nblood.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/buster-jam.json",
+          "caminho": "conteudo/jogos/web-dos/netquake-io.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/caesar-ii.json",
+          "caminho": "conteudo/jogos/web-dos/powerslave.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/call-of-duty-black-ops-zombies-2.json",
+          "caminho": "conteudo/jogos/web-dos/prince-of-persia.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/call-of-duty-black-ops-zombies.json",
+          "caminho": "conteudo/jogos/web-dos/quake-tg.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/call-of-duty-modern-warfare-2.json",
+          "caminho": "conteudo/jogos/web-dos/quake.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/call-of-mini-dino-hunter-revival.json",
+          "caminho": "conteudo/jogos/web-dos/quakeworld.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/carmageddon.json",
+          "caminho": "conteudo/jogos/web-dos/redneck-rampage-rides-again.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/caseoh-s-basics-in-eating-and-fast-food.json",
+          "caminho": "conteudo/jogos/web-dos/redneck-rampage-route-66.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/castle-crashers.json",
+          "caminho": "conteudo/jogos/web-dos/redneck-rampage.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cave-story.json",
+          "caminho": "conteudo/jogos/web-dos/shadow-warrior-twin-dragon.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/celeste-2.json",
+          "caminho": "conteudo/jogos/web-dos/shadow-warrior-wanton-destruction.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/celeste.json",
+          "caminho": "conteudo/jogos/web-dos/shadow-warrior.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/chasm-the-rift.json",
+          "caminho": "conteudo/jogos/web-dos/simcity-micropolisjs.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cheese-cube.json",
+          "caminho": "conteudo/jogos/web-dos/stunts-playstunts.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cheese-rolling.json",
+          "caminho": "conteudo/jogos/web-dos/syndicate.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/christmas-massacre.json",
+          "caminho": "conteudo/jogos/web-dos/toonstruck.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/class-of-09.json",
+          "caminho": "conteudo/jogos/web-dos/wadcmd.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/claude-of-duty-vibe-slops-ii-goofyahhbro69420-mirror.json",
+          "caminho": "conteudo/jogos/web-dos/warcraft-ii-wargus.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/claude-of-duty-vibe-slops-ii.json",
+          "caminho": "conteudo/jogos/web-dos/william-shatner-s-tekwar.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/clover-pit.json",
+          "caminho": "conteudo/jogos/web-dos/witchaven-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/clustertruck.json",
+          "caminho": "conteudo/jogos/web-dos/witchaven.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/command-e-conquer-generals-wasm-com-br.json",
+          "caminho": "conteudo/jogos/web-dos/wolfenstein-3d-html5-lazarv.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/command-e-conquer-generals-zero-hour.json",
+          "caminho": "conteudo/jogos/web-dos/wolfenstein-3d-tg.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/command-e-conquer-red-alert-2.json",
+          "caminho": "conteudo/jogos/web-dos/ww2-gi-platoon-leader.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/command-e-conquer-renegade-open-commando.json",
+          "caminho": "conteudo/jogos/web-dos/wwii-gi.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/commander-keen.json",
+          "caminho": "conteudo/jogos/web-dreamcast/phantasy-star-online-pso-reborn.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/counter-strike-1-6-2.json",
+          "caminho": "conteudo/jogos/web-dreamcast/virtua-tennis-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/counter-strike-2019.json",
+          "caminho": "conteudo/jogos/web-fangames/a-bite-at-freddy-s.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/counter-strike-e-half-life-2.json",
+          "caminho": "conteudo/jogos/web-fangames/brutal-doom.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/counter-strike-gstrike.json",
+          "caminho": "conteudo/jogos/web-fangames/call-of-duty-black-ops-zombies-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/counter-strike-source-bunnyhop.json",
+          "caminho": "conteudo/jogos/web-fangames/call-of-duty-black-ops-zombies.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/counter-strike-source-surf.json",
+          "caminho": "conteudo/jogos/web-fangames/caseoh-s-basics-in-eating-and-fast-food.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/crash-bash-online.json",
+          "caminho": "conteudo/jogos/web-fangames/claude-of-duty-vibe-slops-ii-goofyahhbro69420-mirror.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/crash-nitro-kart.json",
+          "caminho": "conteudo/jogos/web-fangames/claude-of-duty-vibe-slops-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/crash-team-racing-high-octane.json",
+          "caminho": "conteudo/jogos/web-fangames/deltatraveler.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/crash-team-racing-turbocharged.json",
+          "caminho": "conteudo/jogos/web-fangames/five-nights-at-candy-s-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/crashout-crew.json",
+          "caminho": "conteudo/jogos/web-fangames/five-nights-at-candy-s.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/crazy-cattle-3d.json",
+          "caminho": "conteudo/jogos/web-fangames/five-nights-at-epstein-s.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/createrria.json",
+          "caminho": "conteudo/jogos/web-fangames/five-nights-at-freddy-s-world-refreshed.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/crisis-core-final-fantasy-vii.json",
+          "caminho": "conteudo/jogos/web-fangames/five-nights-at-frickbear-s-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cro-mag-rally.json",
+          "caminho": "conteudo/jogos/web-fangames/five-nights-at-last-breath.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cruelty-squad.json",
+          "caminho": "conteudo/jogos/web-fangames/fundamental-paper-novel.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cuphead-4.json",
+          "caminho": "conteudo/jogos/web-fangames/gabriel-s-awesome-schoolhouse-gash.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cuphead.json",
+          "caminho": "conteudo/jogos/web-fangames/i-can-t-believe-it-s-not-sonic-1.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cut-the-rope-dx.json",
+          "caminho": "conteudo/jogos/web-fangames/jeffrey-epstein-basics-in-education-and-kidnapping.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cut-the-rope-h5dx.json",
+          "caminho": "conteudo/jogos/web-fangames/jumbo-mario.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/cyberpunk-2077.json",
+          "caminho": "conteudo/jogos/web-fangames/kino-der-toten-goofyahhbro69420-mirror.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/daggerfall-daggerfalljs.json",
+          "caminho": "conteudo/jogos/web-fangames/kino-der-toten-theeagler1234-mirror.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/daytona-usa.json",
+          "caminho": "conteudo/jogos/web-fangames/kino-der-toten.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dead-plate.json",
+          "caminho": "conteudo/jogos/web-fangames/kirby-soft-e-wet.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/deadseat.json",
+          "caminho": "conteudo/jogos/web-fangames/luigi-s-picture-poker.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/def-jam-fight-for-ny.json",
+          "caminho": "conteudo/jogos/web-fangames/moon-black-ops-zombies-vel-gg.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/deltarune-chapters-1-4.json",
+          "caminho": "conteudo/jogos/web-fangames/moon-zombies.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/deltarune.json",
+          "caminho": "conteudo/jogos/web-fangames/nacht-der-untoten-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/deltatraveler.json",
+          "caminho": "conteudo/jogos/web-fangames/nacht-der-untoten.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/descent-dxx-rebirth.json",
+          "caminho": "conteudo/jogos/web-fangames/open-sonic.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/descent.json",
+          "caminho": "conteudo/jogos/web-fangames/pizza-tower-scoutdigo.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/diablo-diablo-web.json",
+          "caminho": "conteudo/jogos/web-fangames/raldi-s-crackhouse.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/diablo.json",
+          "caminho": "conteudo/jogos/web-fangames/slendytubbies-1.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dice-a-million.json",
+          "caminho": "conteudo/jogos/web-fangames/slendytubbies-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/diddy-kong-racing-golden-balloon.json",
+          "caminho": "conteudo/jogos/web-fangames/slendytubbies-2d.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/do-not-take-this-cat-home.json",
+          "caminho": "conteudo/jogos/web-fangames/sonic-exe-original.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doki-doki-literature-club-plus.json",
+          "caminho": "conteudo/jogos/web-fangames/sonic-exe.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom-3-d3wasm.json",
+          "caminho": "conteudo/jogos/web-fangames/sonic-robo-blast-2-kart.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom-3-demo.json",
+          "caminho": "conteudo/jogos/web-fangames/sonic-robo-blast-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom-3.json",
+          "caminho": "conteudo/jogos/web-fangames/sonic-worlds-next.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom-i-e-ii.json",
+          "caminho": "conteudo/jogos/web-fangames/super-mario-64-multiplayer-olivers-tools.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom-joeheyming-classic-and-mods.json",
+          "caminho": "conteudo/jogos/web-fangames/super-mario-64-multiplayer.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom-multiplayer.json",
+          "caminho": "conteudo/jogos/web-fangames/super-mario-bros-remastered.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom-webdoom.json",
+          "caminho": "conteudo/jogos/web-fangames/super-mario-zombies.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/doom.json",
+          "caminho": "conteudo/jogos/web-fangames/touhou-mother.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dos-zone.json",
+          "caminho": "conteudo/jogos/web-fangames/undertale-yellow.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/downhill-domination.json",
+          "caminho": "conteudo/jogos/web-gamecube/animal-crossing-gamecube.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dragon-ball-z-budokai-3.json",
+          "caminho": "conteudo/jogos/web-gamecube/animal-crossing.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dragon-ball-z-budokai-tenkaichi-2.json",
+          "caminho": "conteudo/jogos/web-gamecube/battle-stadium-d-o-n.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dragon-ball-z-budokai-tenkaichi-3.json",
+          "caminho": "conteudo/jogos/web-gamecube/phantasy-star-online-episode-i-e-ii-pso-reborn.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/drascula-the-vampire-strikes-back-scummweb.json",
+          "caminho": "conteudo/jogos/web-gamecube/pikmin.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/duck-life-8.json",
+          "caminho": "conteudo/jogos/web-gamecube/resident-evil-4.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dude-simulator-2.json",
+          "caminho": "conteudo/jogos/web-gamecube/star-fox-adventures.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dude-simulator.json",
+          "caminho": "conteudo/jogos/web-gamecube/super-mario-sunshine.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/duke-caribbean-life-s-a-beach.json",
+          "caminho": "conteudo/jogos/web-gamecube/super-monkey-ball.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/duke-it-out-in-d-c.json",
+          "caminho": "conteudo/jogos/web-gamecube/the-legend-of-zelda-twilight-princess-dusklight.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/duke-nuclear-winter.json",
+          "caminho": "conteudo/jogos/web-indie/a-difficult-game-about-climbing.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/duke-nukem-3d-eduke32-wasm.json",
+          "caminho": "conteudo/jogos/web-indie/amanda-the-adventurer.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/duke-nukem-3d-tg.json",
+          "caminho": "conteudo/jogos/web-indie/among-us.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/duke-nukem-3d.json",
+          "caminho": "conteudo/jogos/web-indie/andy-s-apple-farm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dune-ii-tg.json",
+          "caminho": "conteudo/jogos/web-indie/antonblast.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dune-ii.json",
+          "caminho": "conteudo/jogos/web-indie/arthur-s-nightmare.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/dungeon-keeper.json",
+          "caminho": "conteudo/jogos/web-indie/bad-parenting-1.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ea-sports-cricket-07.json",
+          "caminho": "conteudo/jogos/web-indie/baldi-s-basics-birthday-bash.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/eaglercraft.json",
+          "caminho": "conteudo/jogos/web-indie/baldi-s-basics-classic-remastered.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/endoparasitic-2.json",
+          "caminho": "conteudo/jogos/web-indie/baldi-s-basics-plus.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/endoparasitic.json",
+          "caminho": "conteudo/jogos/web-indie/beatblock.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/f1-race-mtk.json",
+          "caminho": "conteudo/jogos/web-indie/bendy-and-the-ink-machine-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fallout-nevada-sonora.json",
+          "caminho": "conteudo/jogos/web-indie/bendy-and-the-ink-machine-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fallout.json",
+          "caminho": "conteudo/jogos/web-indie/bendy-and-the-ink-machine-all-chapters.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/faster-than-light-demo.json",
+          "caminho": "conteudo/jogos/web-indie/bendy-and-the-ink-machine.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fatal-racing.json",
+          "caminho": "conteudo/jogos/web-indie/bergentruck-201x.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fear-e-hunger-2-termina.json",
+          "caminho": "conteudo/jogos/web-indie/bloodmoney.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fear-e-hunger.json",
+          "caminho": "conteudo/jogos/web-indie/boil-noodles-at-night.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fears-to-fathom-home-alone.json",
+          "caminho": "conteudo/jogos/web-indie/brotato-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fears-to-fathom.json",
+          "caminho": "conteudo/jogos/web-indie/brotato.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/feed-e-grow-fish.json",
+          "caminho": "conteudo/jogos/web-indie/buckshot-roulette.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fez.json",
+          "caminho": "conteudo/jogos/web-indie/cave-story.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fifa-10-psp.json",
+          "caminho": "conteudo/jogos/web-indie/celeste-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fifa-11.json",
+          "caminho": "conteudo/jogos/web-indie/celeste.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fifa-12.json",
+          "caminho": "conteudo/jogos/web-indie/cheese-cube.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fifa-13.json",
+          "caminho": "conteudo/jogos/web-indie/christmas-massacre.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fifa-14-psp.json",
+          "caminho": "conteudo/jogos/web-indie/class-of-09.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fifa-street-2.json",
+          "caminho": "conteudo/jogos/web-indie/clover-pit.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fifa-street.json",
+          "caminho": "conteudo/jogos/web-indie/clustertruck.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fih.json",
+          "caminho": "conteudo/jogos/web-indie/crashout-crew.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fish.json",
+          "caminho": "conteudo/jogos/web-indie/crazy-cattle-3d.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-candy-s-2.json",
+          "caminho": "conteudo/jogos/web-indie/cruelty-squad.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-candy-s.json",
+          "caminho": "conteudo/jogos/web-indie/cuphead-4.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-epstein-s.json",
+          "caminho": "conteudo/jogos/web-indie/cuphead.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-2.json",
+          "caminho": "conteudo/jogos/web-indie/dead-plate.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-3.json",
+          "caminho": "conteudo/jogos/web-indie/deadseat.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-4-halloween.json",
+          "caminho": "conteudo/jogos/web-indie/deltarune-chapters-1-4.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-4.json",
+          "caminho": "conteudo/jogos/web-indie/deltarune.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-pizza-simulator.json",
+          "caminho": "conteudo/jogos/web-indie/dice-a-million.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-sister-location.json",
+          "caminho": "conteudo/jogos/web-indie/do-not-take-this-cat-home.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-ultimate-custom-night.json",
+          "caminho": "conteudo/jogos/web-indie/doki-doki-literature-club-plus.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-world-refreshed.json",
+          "caminho": "conteudo/jogos/web-indie/dude-simulator-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s-world.json",
+          "caminho": "conteudo/jogos/web-indie/dude-simulator.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-freddy-s.json",
+          "caminho": "conteudo/jogos/web-indie/endoparasitic-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-frickbear-s-3.json",
+          "caminho": "conteudo/jogos/web-indie/endoparasitic.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/five-nights-at-last-breath.json",
+          "caminho": "conteudo/jogos/web-indie/faster-than-light-demo.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/flight-of-the-amazon-queen-scummweb.json",
+          "caminho": "conteudo/jogos/web-indie/fear-e-hunger-2-termina.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/flying-gorilla-3d.json",
+          "caminho": "conteudo/jogos/web-indie/fear-e-hunger.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fnaf.json",
+          "caminho": "conteudo/jogos/web-indie/fears-to-fathom-home-alone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/formula-one-06.json",
+          "caminho": "conteudo/jogos/web-indie/fears-to-fathom.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/freeciv-freeciv-web.json",
+          "caminho": "conteudo/jogos/web-indie/feed-e-grow-fish.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fundamental-paper-novel.json",
+          "caminho": "conteudo/jogos/web-indie/fez.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/fused-240.json",
+          "caminho": "conteudo/jogos/web-indie/fih.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/gabriel-s-awesome-schoolhouse-gash.json",
+          "caminho": "conteudo/jogos/web-indie/fish.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/geometry-dash-web-dashers.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/geometry-dash.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/getting-over-it-with-bennett-foddy.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-4-halloween.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/getting-over-it.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-4.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/god-of-war-chains-of-olympus.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-pizza-simulator.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/god-of-war-ghost-of-sparta.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-sister-location.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/golden-sun.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-ultimate-custom-night.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/goldeneye-007-goldenweb64.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s-world.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/gorilla-tag.json",
+          "caminho": "conteudo/jogos/web-indie/five-nights-at-freddy-s.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/gran-turismo-2.json",
+          "caminho": "conteudo/jogos/web-indie/fnaf.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/gran-turismo-4.json",
+          "caminho": "conteudo/jogos/web-indie/fused-240.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/grand-theft-auto-2.json",
+          "caminho": "conteudo/jogos/web-indie/getting-over-it-with-bennett-foddy.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/grand-theft-auto-chinatown-wars-ppsspp-web.json",
+          "caminho": "conteudo/jogos/web-indie/getting-over-it.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/grand-theft-auto-iii-online-quenq.json",
+          "caminho": "conteudo/jogos/web-indie/gorilla-tag.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/grand-theft-auto-iii-wasm-rip.json",
+          "caminho": "conteudo/jogos/web-indie/happy-room.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/grand-theft-auto-vice-city-quenq.json",
+          "caminho": "conteudo/jogos/web-indie/happy-sheepies.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/grand-theft-auto-vice-city-revc-wasm-ltd.json",
+          "caminho": "conteudo/jogos/web-indie/helltaker-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/granny.json",
+          "caminho": "conteudo/jogos/web-indie/helltaker.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/gta-3-3.json",
+          "caminho": "conteudo/jogos/web-indie/hollow-knight-silksong.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/gta-v.json",
+          "caminho": "conteudo/jogos/web-indie/hollow-knight.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/gta-vice-city-2.json",
+          "caminho": "conteudo/jogos/web-indie/hotline-miami.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/half-life-2.json",
+          "caminho": "conteudo/jogos/web-indie/how-to-fish.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/half-life-and-counter-strike-1-6-webxash.json",
+          "caminho": "conteudo/jogos/web-indie/human-expenditure-program.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/half-life-opposing-force.json",
+          "caminho": "conteudo/jogos/web-indie/i-wanna-be-the-guy.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/half-life.json",
+          "caminho": "conteudo/jogos/web-indie/in-stars-and-time.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/halo-combat-evolved-combat-lab.json",
+          "caminho": "conteudo/jogos/web-indie/inscryption.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/halo-combat-evolved-mobile.json",
+          "caminho": "conteudo/jogos/web-indie/iron-lung.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/halo-combat-evolved-opence.json",
+          "caminho": "conteudo/jogos/web-indie/jelly-drift.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/halo-combat-evolved.json",
+          "caminho": "conteudo/jogos/web-indie/just-shapes-e-beats.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/happy-room.json",
+          "caminho": "conteudo/jogos/web-indie/karlson-2d.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/happy-sheepies.json",
+          "caminho": "conteudo/jogos/web-indie/karlson.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/hard-truck-hard-truck-2-1-2.json",
+          "caminho": "conteudo/jogos/web-indie/kindergarten-1-e-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/harry-potter-and-the-chamber-of-secrets.json",
+          "caminho": "conteudo/jogos/web-indie/kindergarten-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/helltaker-2.json",
+          "caminho": "conteudo/jogos/web-indie/kindergarten-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/helltaker.json",
+          "caminho": "conteudo/jogos/web-indie/kindergarten.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/heretic-hexen.json",
+          "caminho": "conteudo/jogos/web-indie/koi-flixel.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/heroes-of-might-and-magic-ii-fheroes2-rgc-zone.json",
+          "caminho": "conteudo/jogos/web-indie/la-madriguera-lazy-bear-game.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/heroes-of-might-and-magic-ii.json",
+          "caminho": "conteudo/jogos/web-indie/lethal-ape.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/hexen-ii-hexenwail.json",
+          "caminho": "conteudo/jogos/web-indie/lethal-company.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/hexen-ii.json",
+          "caminho": "conteudo/jogos/web-indie/limbo.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/hollow-knight-silksong.json",
+          "caminho": "conteudo/jogos/web-indie/lobotomy-corporation.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/hollow-knight.json",
+          "caminho": "conteudo/jogos/web-indie/look-outside.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/homeworld.json",
+          "caminho": "conteudo/jogos/web-indie/lugaru.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/hot-shots-tennis-opentennis.json",
+          "caminho": "conteudo/jogos/web-indie/midnight-shift.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/hotline-miami.json",
+          "caminho": "conteudo/jogos/web-indie/milk-inside-a-bag-of-milk-inside-a-bag-of-milk.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/how-to-fish.json",
+          "caminho": "conteudo/jogos/web-indie/milk-outside-a-bag-of-milk-outside-a-bag-of-milk.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/human-expenditure-program.json",
+          "caminho": "conteudo/jogos/web-indie/milkman-karlson.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/i-can-t-believe-it-s-not-sonic-1.json",
+          "caminho": "conteudo/jogos/web-indie/mindwave.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/i-wanna-be-the-guy.json",
+          "caminho": "conteudo/jogos/web-indie/miside-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/in-stars-and-time.json",
+          "caminho": "conteudo/jogos/web-indie/miside.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/inscryption.json",
+          "caminho": "conteudo/jogos/web-indie/needy-streamer-overload.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/iron-lung.json",
+          "caminho": "conteudo/jogos/web-indie/nubby-s-number-factory.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/item.json",
+          "caminho": "conteudo/jogos/web-indie/omori.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/jak-and-daxter-the-lost-frontier.json",
+          "caminho": "conteudo/jogos/web-indie/oneshot-legacy.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/jeffrey-epstein-basics-in-education-and-kidnapping.json",
+          "caminho": "conteudo/jogos/web-indie/oneshot-world-machine-edition.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/jelly-drift.json",
+          "caminho": "conteudo/jogos/web-indie/overburden.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/jumbo-mario.json",
+          "caminho": "conteudo/jogos/web-indie/peak-very-wip.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/just-shapes-e-beats.json",
+          "caminho": "conteudo/jogos/web-indie/peaks-of-yore.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/karlson-2d.json",
+          "caminho": "conteudo/jogos/web-indie/people-playground.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/karlson.json",
+          "caminho": "conteudo/jogos/web-indie/pizza-tower.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kindergarten-1-e-2.json",
+          "caminho": "conteudo/jogos/web-indie/promises-to-keep.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kindergarten-2.json",
+          "caminho": "conteudo/jogos/web-indie/r-e-p-o.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kindergarten-3.json",
+          "caminho": "conteudo/jogos/web-indie/raft.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kindergarten.json",
+          "caminho": "conteudo/jogos/web-indie/rain-world.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kingdom-hearts-chain-of-memories-replicom.json",
+          "caminho": "conteudo/jogos/web-indie/re-run.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kino-der-toten-goofyahhbro69420-mirror.json",
+          "caminho": "conteudo/jogos/web-indie/rimworld.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kino-der-toten-theeagler1234-mirror.json",
+          "caminho": "conteudo/jogos/web-indie/s-p-l-i-t.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kino-der-toten.json",
+          "caminho": "conteudo/jogos/web-indie/saihate-station.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kirby-e-the-amazing-mirror-katam-port.json",
+          "caminho": "conteudo/jogos/web-indie/schoolboy-runaway.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/kirby-soft-e-wet.json",
+          "caminho": "conteudo/jogos/web-indie/scp-containment-breach.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/koi-flixel.json",
+          "caminho": "conteudo/jogos/web-indie/shift-at-midnight.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/la-madriguera-lazy-bear-game.json",
+          "caminho": "conteudo/jogos/web-indie/slay-the-spire.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lacey-s-flash-games.json",
+          "caminho": "conteudo/jogos/web-indie/slender-the-8-pages.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/legend-of-legaia.json",
+          "caminho": "conteudo/jogos/web-indie/slender-the-eight-pages.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lego-island.json",
+          "caminho": "conteudo/jogos/web-indie/slime-rancher.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lego-racers.json",
+          "caminho": "conteudo/jogos/web-indie/speed-stars.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lenin-first-blood.json",
+          "caminho": "conteudo/jogos/web-indie/spelunky-classic-hd.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lethal-ape.json",
+          "caminho": "conteudo/jogos/web-indie/stardew-valley.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lethal-company.json",
+          "caminho": "conteudo/jogos/web-indie/stick-with-it.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/limbo.json",
+          "caminho": "conteudo/jogos/web-indie/t-t-cubed.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/liquidator-3d.json",
+          "caminho": "conteudo/jogos/web-indie/tattletail.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lobotomy-corporation.json",
+          "caminho": "conteudo/jogos/web-indie/terraria-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/look-outside.json",
+          "caminho": "conteudo/jogos/web-indie/terraria-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/luanti-minetest.json",
+          "caminho": "conteudo/jogos/web-indie/terraria.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/lugaru.json",
+          "caminho": "conteudo/jogos/web-indie/that-s-not-my-neighbor.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/luigi-s-picture-poker.json",
+          "caminho": "conteudo/jogos/web-indie/the-binding-of-isaac-repentance.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/madden-nfl-08.json",
+          "caminho": "conteudo/jogos/web-indie/the-deadseat.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/marvel-vs-capcom-2.json",
+          "caminho": "conteudo/jogos/web-indie/the-man-from-the-window-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/master-of-defence.json",
+          "caminho": "conteudo/jogos/web-indie/the-man-from-the-window.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/medabots-ax.json",
+          "caminho": "conteudo/jogos/web-indie/the-man-in-the-window.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/midnight-club-3-dub-edition.json",
+          "caminho": "conteudo/jogos/web-indie/the-seven-games-of-the-soul.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/midnight-shift.json",
+          "caminho": "conteudo/jogos/web-indie/totally-accurate-battle-simulator-tabs.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/milk-inside-a-bag-of-milk-inside-a-bag-of-milk.json",
+          "caminho": "conteudo/jogos/web-indie/trombone-champ.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/milk-outside-a-bag-of-milk-outside-a-bag-of-milk.json",
+          "caminho": "conteudo/jogos/web-indie/ultrakill-prelude.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/milkman-karlson.json",
+          "caminho": "conteudo/jogos/web-indie/ultrakill.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/mindwave.json",
+          "caminho": "conteudo/jogos/web-indie/ultrapool.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/minecraft-0-6-1.json",
+          "caminho": "conteudo/jogos/web-indie/undertale.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/minecraft-1-8-8-eaglercraftx.json",
+          "caminho": "conteudo/jogos/web-indie/untitled-goose-game.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/minecraft-pocket-edition.json",
+          "caminho": "conteudo/jogos/web-indie/vvvvvv.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/minecraft-story-mode.json",
+          "caminho": "conteudo/jogos/web-indie/webfishing.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/minesweeper-plus.json",
+          "caminho": "conteudo/jogos/web-indie/who-s-your-daddy.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/mini-dayz.json",
+          "caminho": "conteudo/jogos/web-indie/witch-s-heart.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/miside-2.json",
+          "caminho": "conteudo/jogos/web-indie/yandere-simulator.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/miside.json",
+          "caminho": "conteudo/jogos/web-indie/your-only-move-is-hustle.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/monster-hunter-freedom-unite.json",
+          "caminho": "conteudo/jogos/web-indie/yume-nikki.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/moon-black-ops-zombies-vel-gg.json",
+          "caminho": "conteudo/jogos/web-java/runescape-classic.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/moon-zombies.json",
+          "caminho": "conteudo/jogos/web-macos/cro-mag-rally.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/mortal-kombat-shaolin-monks.json",
+          "caminho": "conteudo/jogos/web-mobile/amazing-alex.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/my-talking-baby-hippo.json",
+          "caminho": "conteudo/jogos/web-mobile/bad-piggies.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nacht-der-untoten-2.json",
+          "caminho": "conteudo/jogos/web-mobile/call-of-mini-dino-hunter-revival.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nacht-der-untoten.json",
+          "caminho": "conteudo/jogos/web-mobile/createrria.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nam-napalm.json",
+          "caminho": "conteudo/jogos/web-mobile/cut-the-rope-dx.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/naruto-shippuden-ultimate-ninja-5.json",
+          "caminho": "conteudo/jogos/web-mobile/cut-the-rope-h5dx.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/naruto-shippuden-ultimate-ninja-impact.json",
+          "caminho": "conteudo/jogos/web-mobile/f1-race-mtk.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nba-2k12.json",
+          "caminho": "conteudo/jogos/web-mobile/flying-gorilla-3d.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nba-street-v3.json",
+          "caminho": "conteudo/jogos/web-mobile/geometry-dash-web-dashers.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nblood.json",
+          "caminho": "conteudo/jogos/web-mobile/geometry-dash.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ncaa-football-10-psp-recomp.json",
+          "caminho": "conteudo/jogos/web-mobile/granny.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/need-for-speed-most-wanted-2005-dezm0n-web-port.json",
+          "caminho": "conteudo/jogos/web-mobile/minecraft-0-6-1.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/need-for-speed-most-wanted-2005-nfsmw-online-web.json",
+          "caminho": "conteudo/jogos/web-mobile/minecraft-pocket-edition.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/need-for-speed-most-wanted-2005-nfsmw-online.json",
+          "caminho": "conteudo/jogos/web-mobile/my-talking-baby-hippo.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/need-for-speed-underground-2-nfsunderground2-site.json",
+          "caminho": "conteudo/jogos/web-mobile/plague-inc.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/need-for-speed-underground-2.json",
+          "caminho": "conteudo/jogos/web-mobile/power-hover.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/needy-streamer-overload.json",
+          "caminho": "conteudo/jogos/web-mobile/spaceflight-simulator.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/netquake-io.json",
+          "caminho": "conteudo/jogos/web-n64/diddy-kong-racing-golden-balloon.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nfl-street.json",
+          "caminho": "conteudo/jogos/web-n64/goldeneye-007-goldenweb64.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nhl-94.json",
+          "caminho": "conteudo/jogos/web-n64/perfect-dark.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/no-one-lives-forever.json",
+          "caminho": "conteudo/jogos/web-n64/super-mario-64-rgc-zone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/nubby-s-number-factory.json",
+          "caminho": "conteudo/jogos/web-n64/super-mario-64-sm3das.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/omori.json",
+          "caminho": "conteudo/jogos/web-n64/super-mario-64.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/oneshot-legacy.json",
+          "caminho": "conteudo/jogos/web-navegador/apes-vs-helium.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/oneshot-world-machine-edition.json",
+          "caminho": "conteudo/jogos/web-navegador/cheese-rolling.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/open-sonic.json",
+          "caminho": "conteudo/jogos/web-navegador/duck-life-8.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/openttd.json",
+          "caminho": "conteudo/jogos/web-navegador/lacey-s-flash-games.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/overburden.json",
+          "caminho": "conteudo/jogos/web-navegador/mini-dayz.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/peak-very-wip.json",
+          "caminho": "conteudo/jogos/web-navegador/uvuvwevwevweonyetenvewveugwemubwemossas.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/peaks-of-yore.json",
+          "caminho": "conteudo/jogos/web-outros/bumpy-s-arcade-fantasy.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pekka-kana-2.json",
+          "caminho": "conteudo/jogos/web-outros/buster-jam.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/penthouse-paradise.json",
+          "caminho": "conteudo/jogos/web-outros/dos-zone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/people-playground.json",
+          "caminho": "conteudo/jogos/web-outros/golden-sun.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pepsiman.json",
+          "caminho": "conteudo/jogos/web-outros/kirby-e-the-amazing-mirror-katam-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/perfect-dark.json",
+          "caminho": "conteudo/jogos/web-outros/lenin-first-blood.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/phantasy-star-online-episode-i-e-ii-pso-reborn.json",
+          "caminho": "conteudo/jogos/web-outros/master-of-defence.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/phantasy-star-online-pso-reborn.json",
+          "caminho": "conteudo/jogos/web-outros/medabots-ax.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/phineas-and-ferb-in-the-transport-inators-of-doooom.json",
+          "caminho": "conteudo/jogos/web-outros/nhl-94.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pikmin.json",
+          "caminho": "conteudo/jogos/web-outros/penthouse-paradise.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pizza-tower-scoutdigo.json",
+          "caminho": "conteudo/jogos/web-outros/phineas-and-ferb-in-the-transport-inators-of-doooom.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pizza-tower.json",
+          "caminho": "conteudo/jogos/web-outros/plunder-e-pillage.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/plague-inc.json",
+          "caminho": "conteudo/jogos/web-outros/scampton-the-great.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/plants-vs-zombies-goty-edition.json",
+          "caminho": "conteudo/jogos/web-outros/skate-rust-global-terror.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/plants-vs-zombies.json",
+          "caminho": "conteudo/jogos/web-outros/sonic-cd-sonic-cd-wasm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/plunder-e-pillage.json",
+          "caminho": "conteudo/jogos/web-outros/sonic-cd.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pokemon-mystery-dungeon-web-mystery-dungeon.json",
+          "caminho": "conteudo/jogos/web-outros/sonic-the-hedgehog.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/portal.json",
+          "caminho": "conteudo/jogos/web-outros/wasm-arcade.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/power-hover.json",
+          "caminho": "conteudo/jogos/web-outros/wasm-rip.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/powerslave.json",
+          "caminho": "conteudo/jogos/web-pc/freeciv-freeciv-web.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/prince-of-persia.json",
+          "caminho": "conteudo/jogos/web-pc/luanti-minetest.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pro-evolution-soccer-2011.json",
+          "caminho": "conteudo/jogos/web-pc/pekka-kana-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pro-evolution-soccer-2012.json",
+          "caminho": "conteudo/jogos/web-pc/tremulous.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pro-evolution-soccer-2014-psp.json",
+          "caminho": "conteudo/jogos/web-pc/urban-terror.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/pro-evolution-soccer-6.json",
+          "caminho": "conteudo/jogos/web-ps1/crash-bash-online.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/promises-to-keep.json",
+          "caminho": "conteudo/jogos/web-ps1/crash-team-racing-high-octane.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake-ii-q2-pieter-com.json",
+          "caminho": "conteudo/jogos/web-ps1/crash-team-racing-turbocharged.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake-ii-quake-wasm2.json",
+          "caminho": "conteudo/jogos/web-ps1/gran-turismo-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake-ii.json",
+          "caminho": "conteudo/jogos/web-ps1/legend-of-legaia.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake-iii-arena-q3-pieter-com.json",
+          "caminho": "conteudo/jogos/web-ps1/pepsiman.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake-iii-arena-q3js.json",
+          "caminho": "conteudo/jogos/web-ps1/tomb-raider.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake-iii-arena.json",
+          "caminho": "conteudo/jogos/web-ps1/wipeout.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake-tg.json",
+          "caminho": "conteudo/jogos/web-ps2/burnout-3-takedown.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quake.json",
+          "caminho": "conteudo/jogos/web-ps2/crash-nitro-kart.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quakeworld.json",
+          "caminho": "conteudo/jogos/web-ps2/def-jam-fight-for-ny.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quest-for-al-qa-eda.json",
+          "caminho": "conteudo/jogos/web-ps2/downhill-domination.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/quest-for-hussein.json",
+          "caminho": "conteudo/jogos/web-ps2/dragon-ball-z-budokai-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/r-e-p-o.json",
+          "caminho": "conteudo/jogos/web-ps2/dragon-ball-z-budokai-tenkaichi-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/raft.json",
+          "caminho": "conteudo/jogos/web-ps2/dragon-ball-z-budokai-tenkaichi-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/rain-world.json",
+          "caminho": "conteudo/jogos/web-ps2/fifa-11.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/raldi-s-crackhouse.json",
+          "caminho": "conteudo/jogos/web-ps2/fifa-12.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ratchet-e-clank-size-matters.json",
+          "caminho": "conteudo/jogos/web-ps2/fifa-13.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ratchet-e-clank.json",
+          "caminho": "conteudo/jogos/web-ps2/fifa-street-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/re-run.json",
+          "caminho": "conteudo/jogos/web-ps2/fifa-street.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/redneck-rampage-rides-again.json",
+          "caminho": "conteudo/jogos/web-ps2/formula-one-06.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/redneck-rampage-route-66.json",
+          "caminho": "conteudo/jogos/web-ps2/gran-turismo-4.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/redneck-rampage.json",
+          "caminho": "conteudo/jogos/web-ps2/hot-shots-tennis-opentennis.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/reset-generation.json",
+          "caminho": "conteudo/jogos/web-ps2/jak-and-daxter-the-lost-frontier.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/resident-evil-4.json",
+          "caminho": "conteudo/jogos/web-ps2/kingdom-hearts-chain-of-memories-replicom.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/resident-evil-outbreak-file-1-e-2-outbreak-web.json",
+          "caminho": "conteudo/jogos/web-ps2/madden-nfl-08.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/return-to-castle-wolfenstein-rtcw-pieter-com.json",
+          "caminho": "conteudo/jogos/web-ps2/midnight-club-3-dub-edition.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/return-to-castle-wolfenstein.json",
+          "caminho": "conteudo/jogos/web-ps2/mortal-kombat-shaolin-monks.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/rimworld.json",
+          "caminho": "conteudo/jogos/web-ps2/naruto-shippuden-ultimate-ninja-5.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/road-rash-three-js.json",
+          "caminho": "conteudo/jogos/web-ps2/nba-street-v3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/rocks-n-diamonds.json",
+          "caminho": "conteudo/jogos/web-ps2/nfl-street.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/rollercoaster-tycoon-2-openrct2.json",
+          "caminho": "conteudo/jogos/web-ps2/pro-evolution-soccer-2011.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/runescape-classic.json",
+          "caminho": "conteudo/jogos/web-ps2/pro-evolution-soccer-2012.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/s-p-l-i-t.json",
+          "caminho": "conteudo/jogos/web-ps2/pro-evolution-soccer-6.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/s-t-a-l-k-e-r-call-of-pripyat-zonevm.json",
+          "caminho": "conteudo/jogos/web-ps2/ratchet-e-clank.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/saihate-station.json",
+          "caminho": "conteudo/jogos/web-ps2/resident-evil-outbreak-file-1-e-2-outbreak-web.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/scampton-the-great.json",
+          "caminho": "conteudo/jogos/web-ps2/spider-man-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/schoolboy-runaway.json",
+          "caminho": "conteudo/jogos/web-ps2/ssx-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/scp-containment-breach.json",
+          "caminho": "conteudo/jogos/web-ps2/street-fighter-anniversary-collection.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/shadow-warrior-twin-dragon.json",
+          "caminho": "conteudo/jogos/web-ps2/tekken-4.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/shadow-warrior-wanton-destruction.json",
+          "caminho": "conteudo/jogos/web-ps2/tekken-5.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/shadow-warrior.json",
+          "caminho": "conteudo/jogos/web-ps2/the-warriors.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/shift-at-midnight.json",
+          "caminho": "conteudo/jogos/web-ps2/tony-hawk-s-pro-skater-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/silent-hill-origins.json",
+          "caminho": "conteudo/jogos/web-ps2/wwe-smackdown-here-comes-the-pain.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/silkroad-online-opensro.json",
+          "caminho": "conteudo/jogos/web-ps2/wwe-smackdown-vs-raw-2010.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/simcity-micropolisjs.json",
+          "caminho": "conteudo/jogos/web-ps2/wwe-smackdown-vs-raw-2011.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/simgolf.json",
+          "caminho": "conteudo/jogos/web-ps2/wwe-smackdown-vs-raw.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/skate-3.json",
+          "caminho": "conteudo/jogos/web-ps3/ufc-2009-undisputed-throwdown.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/skate-rust-global-terror.json",
+          "caminho": "conteudo/jogos/web-psp/crisis-core-final-fantasy-vii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/slay-the-spire.json",
+          "caminho": "conteudo/jogos/web-psp/fifa-10-psp.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/slender-the-8-pages.json",
+          "caminho": "conteudo/jogos/web-psp/fifa-14-psp.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/slender-the-eight-pages.json",
+          "caminho": "conteudo/jogos/web-psp/god-of-war-chains-of-olympus.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/slendytubbies-1.json",
+          "caminho": "conteudo/jogos/web-psp/god-of-war-ghost-of-sparta.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/slendytubbies-2.json",
+          "caminho": "conteudo/jogos/web-psp/grand-theft-auto-chinatown-wars-ppsspp-web.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/slendytubbies-2d.json",
+          "caminho": "conteudo/jogos/web-psp/monster-hunter-freedom-unite.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/slime-rancher.json",
+          "caminho": "conteudo/jogos/web-psp/naruto-shippuden-ultimate-ninja-impact.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-cd-sonic-cd-wasm.json",
+          "caminho": "conteudo/jogos/web-psp/nba-2k12.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-cd.json",
+          "caminho": "conteudo/jogos/web-psp/ncaa-football-10-psp-recomp.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-exe-original.json",
+          "caminho": "conteudo/jogos/web-psp/pro-evolution-soccer-2014-psp.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-exe.json",
+          "caminho": "conteudo/jogos/web-psp/ratchet-e-clank-size-matters.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-mania.json",
+          "caminho": "conteudo/jogos/web-psp/silent-hill-origins.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-robo-blast-2-kart.json",
+          "caminho": "conteudo/jogos/web-psp/tekken-5-dark-resurrection-recomp.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-robo-blast-2.json",
+          "caminho": "conteudo/jogos/web-psp/tekken-dark-resurrection.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-the-fighters.json",
+          "caminho": "conteudo/jogos/web-remakes/ballerburg-sdl.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-the-hedgehog-4-episode-i.json",
+          "caminho": "conteudo/jogos/web-remakes/battle-city.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-the-hedgehog.json",
+          "caminho": "conteudo/jogos/web-remakes/eaglercraft.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/sonic-worlds-next.json",
+          "caminho": "conteudo/jogos/web-remakes/minecraft-1-8-8-eaglercraftx.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/space-rangers-quests.json",
+          "caminho": "conteudo/jogos/web-remakes/minesweeper-plus.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/spaceflight-simulator.json",
+          "caminho": "conteudo/jogos/web-remakes/openttd.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/speed-stars.json",
+          "caminho": "conteudo/jogos/web-remakes/pokemon-mystery-dungeon-web-mystery-dungeon.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/spelunky-classic-hd.json",
+          "caminho": "conteudo/jogos/web-remakes/road-rash-three-js.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/spider-man-2.json",
+          "caminho": "conteudo/jogos/web-remakes/rocks-n-diamonds.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ssx-3.json",
+          "caminho": "conteudo/jogos/web-remakes/super-smash-bros-smash-fun.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/star-fox-adventures.json",
+          "caminho": "conteudo/jogos/web-remakes/xrick.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/star-wars-jedi-knight-dark-forces-2.json",
+          "caminho": "conteudo/jogos/web-remakes/zelda-ii-the-adventure-of-link-z2rs.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/star-wars-jedi-knight-jedi-academy-openjk-rgc-zone.json",
+          "caminho": "conteudo/jogos/web-windows/american-mcgee-s-alice.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/star-wars-jedi-knight-jedi-academy.json",
+          "caminho": "conteudo/jogos/web-windows/arx-fatalis-arxwasm-demo.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/stardew-valley.json",
+          "caminho": "conteudo/jogos/web-windows/arx-fatalis-rgc-zone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/stick-with-it.json",
+          "caminho": "conteudo/jogos/web-windows/brawlhalla.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/street-fighter-anniversary-collection.json",
+          "caminho": "conteudo/jogos/web-windows/call-of-duty-modern-warfare-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/street-fighter-iii-3rd-strike.json",
+          "caminho": "conteudo/jogos/web-windows/command-e-conquer-generals-wasm-com-br.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/stunts-playstunts.json",
+          "caminho": "conteudo/jogos/web-windows/command-e-conquer-generals-zero-hour.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-64-multiplayer-olivers-tools.json",
+          "caminho": "conteudo/jogos/web-windows/command-e-conquer-red-alert-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-64-multiplayer.json",
+          "caminho": "conteudo/jogos/web-windows/command-e-conquer-renegade-open-commando.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-64-rgc-zone.json",
+          "caminho": "conteudo/jogos/web-windows/counter-strike-1-6-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-64-sm3das.json",
+          "caminho": "conteudo/jogos/web-windows/counter-strike-2019.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-64.json",
+          "caminho": "conteudo/jogos/web-windows/counter-strike-e-half-life-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-bros-remastered.json",
+          "caminho": "conteudo/jogos/web-windows/counter-strike-gstrike.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-kart-sm-kart-zx-web-port.json",
+          "caminho": "conteudo/jogos/web-windows/counter-strike-source-bunnyhop.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-sunshine.json",
+          "caminho": "conteudo/jogos/web-windows/counter-strike-source-surf.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-mario-zombies.json",
+          "caminho": "conteudo/jogos/web-windows/cyberpunk-2077.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-monkey-ball.json",
+          "caminho": "conteudo/jogos/web-windows/diablo-diablo-web.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/super-smash-bros-smash-fun.json",
+          "caminho": "conteudo/jogos/web-windows/diablo.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/syndicate.json",
+          "caminho": "conteudo/jogos/web-windows/doom-3-d3wasm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/t-t-cubed.json",
+          "caminho": "conteudo/jogos/web-windows/doom-3-demo.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/taiko-no-tatsujin.json",
+          "caminho": "conteudo/jogos/web-windows/doom-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tattletail.json",
+          "caminho": "conteudo/jogos/web-windows/ea-sports-cricket-07.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/team-fortress-2.json",
+          "caminho": "conteudo/jogos/web-windows/fallout-nevada-sonora.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tekken-4.json",
+          "caminho": "conteudo/jogos/web-windows/fallout.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tekken-5-dark-resurrection-recomp.json",
+          "caminho": "conteudo/jogos/web-windows/grand-theft-auto-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tekken-5.json",
+          "caminho": "conteudo/jogos/web-windows/grand-theft-auto-iii-online-quenq.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tekken-dark-resurrection.json",
+          "caminho": "conteudo/jogos/web-windows/grand-theft-auto-iii-wasm-rip.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/terraria-2.json",
+          "caminho": "conteudo/jogos/web-windows/grand-theft-auto-vice-city-quenq.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/terraria-3.json",
+          "caminho": "conteudo/jogos/web-windows/grand-theft-auto-vice-city-revc-wasm-ltd.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/terraria.json",
+          "caminho": "conteudo/jogos/web-windows/gta-3-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/that-s-not-my-neighbor.json",
+          "caminho": "conteudo/jogos/web-windows/gta-v.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-binding-of-isaac-repentance.json",
+          "caminho": "conteudo/jogos/web-windows/gta-vice-city-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-deadseat.json",
+          "caminho": "conteudo/jogos/web-windows/half-life-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-elder-scrolls-iii-morrowind-openmw.json",
+          "caminho": "conteudo/jogos/web-windows/half-life-and-counter-strike-1-6-webxash.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-legend-of-zelda-twilight-princess-dusklight.json",
+          "caminho": "conteudo/jogos/web-windows/half-life-opposing-force.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-man-from-the-window-2.json",
+          "caminho": "conteudo/jogos/web-windows/half-life.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-man-from-the-window.json",
+          "caminho": "conteudo/jogos/web-windows/hard-truck-hard-truck-2-1-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-man-in-the-window.json",
+          "caminho": "conteudo/jogos/web-windows/harry-potter-and-the-chamber-of-secrets.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-seven-games-of-the-soul.json",
+          "caminho": "conteudo/jogos/web-windows/hexen-ii-hexenwail.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-simpsons-hit-e-run-rgc-zone.json",
+          "caminho": "conteudo/jogos/web-windows/hexen-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-simpsons-hit-e-run-shar-wasm.json",
+          "caminho": "conteudo/jogos/web-windows/homeworld.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-simpsons-hit-e-run-web-port.json",
+          "caminho": "conteudo/jogos/web-windows/lego-island.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-simpsons-hit-e-run-with-mod-support.json",
+          "caminho": "conteudo/jogos/web-windows/lego-racers.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-simpsons-hit-e-run.json",
+          "caminho": "conteudo/jogos/web-windows/liquidator-3d.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/the-warriors.json",
+          "caminho": "conteudo/jogos/web-windows/minecraft-story-mode.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tomb-raider.json",
+          "caminho": "conteudo/jogos/web-windows/need-for-speed-most-wanted-2005-dezm0n-web-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tony-hawk-s-pro-skater-3.json",
+          "caminho": "conteudo/jogos/web-windows/need-for-speed-most-wanted-2005-nfsmw-online-web.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/toonstruck.json",
+          "caminho": "conteudo/jogos/web-windows/need-for-speed-most-wanted-2005-nfsmw-online.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/totally-accurate-battle-simulator-tabs.json",
+          "caminho": "conteudo/jogos/web-windows/need-for-speed-underground-2-nfsunderground2-site.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/touhou-mother.json",
+          "caminho": "conteudo/jogos/web-windows/need-for-speed-underground-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tremulous.json",
+          "caminho": "conteudo/jogos/web-windows/no-one-lives-forever.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/trombone-champ.json",
+          "caminho": "conteudo/jogos/web-windows/plants-vs-zombies-goty-edition.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/tsukihime-tsukiweb.json",
+          "caminho": "conteudo/jogos/web-windows/plants-vs-zombies.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ufc-2009-undisputed-throwdown.json",
+          "caminho": "conteudo/jogos/web-windows/portal.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ultrakill-prelude.json",
+          "caminho": "conteudo/jogos/web-windows/quake-ii-q2-pieter-com.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ultrakill.json",
+          "caminho": "conteudo/jogos/web-windows/quake-ii-quake-wasm2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ultrapool.json",
+          "caminho": "conteudo/jogos/web-windows/quake-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/undertale-yellow.json",
+          "caminho": "conteudo/jogos/web-windows/quake-iii-arena-q3-pieter-com.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/undertale.json",
+          "caminho": "conteudo/jogos/web-windows/quake-iii-arena-q3js.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/unreal-tournament-surrealengine-web.json",
+          "caminho": "conteudo/jogos/web-windows/quake-iii-arena.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/untitled-goose-game.json",
+          "caminho": "conteudo/jogos/web-windows/quest-for-al-qa-eda.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/urban-terror.json",
+          "caminho": "conteudo/jogos/web-windows/quest-for-hussein.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/uvuvwevwevweonyetenvewveugwemubwemossas.json",
+          "caminho": "conteudo/jogos/web-windows/reset-generation.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/virtua-fighter.json",
+          "caminho": "conteudo/jogos/web-windows/return-to-castle-wolfenstein-rtcw-pieter-com.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/virtua-tennis-2.json",
+          "caminho": "conteudo/jogos/web-windows/return-to-castle-wolfenstein.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/virtual-on-cyber-troopers.json",
+          "caminho": "conteudo/jogos/web-windows/rollercoaster-tycoon-2-openrct2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/vvvvvv.json",
+          "caminho": "conteudo/jogos/web-windows/s-t-a-l-k-e-r-call-of-pripyat-zonevm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wadcmd.json",
+          "caminho": "conteudo/jogos/web-windows/silkroad-online-opensro.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/warcraft-ii-wargus.json",
+          "caminho": "conteudo/jogos/web-windows/simgolf.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/warzone-2100-web-edition.json",
+          "caminho": "conteudo/jogos/web-windows/sonic-mania.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wasm-arcade.json",
+          "caminho": "conteudo/jogos/web-windows/space-rangers-quests.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wasm-rip.json",
+          "caminho": "conteudo/jogos/web-windows/star-wars-jedi-knight-dark-forces-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/webfishing.json",
+          "caminho": "conteudo/jogos/web-windows/star-wars-jedi-knight-jedi-academy-openjk-rgc-zone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/who-s-your-daddy.json",
+          "caminho": "conteudo/jogos/web-windows/star-wars-jedi-knight-jedi-academy.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/william-shatner-s-tekwar.json",
+          "caminho": "conteudo/jogos/web-windows/team-fortress-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wipeout.json",
+          "caminho": "conteudo/jogos/web-windows/the-elder-scrolls-iii-morrowind-openmw.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/witch-s-heart.json",
+          "caminho": "conteudo/jogos/web-windows/the-simpsons-hit-e-run-rgc-zone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/witchaven-ii.json",
+          "caminho": "conteudo/jogos/web-windows/the-simpsons-hit-e-run-shar-wasm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/witchaven.json",
+          "caminho": "conteudo/jogos/web-windows/the-simpsons-hit-e-run-web-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wolfenstein-3d-html5-lazarv.json",
+          "caminho": "conteudo/jogos/web-windows/the-simpsons-hit-e-run-with-mod-support.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wolfenstein-3d-tg.json",
+          "caminho": "conteudo/jogos/web-windows/the-simpsons-hit-e-run.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/ww2-gi-platoon-leader.json",
+          "caminho": "conteudo/jogos/web-windows/tsukihime-tsukiweb.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wwe-smackdown-here-comes-the-pain.json",
+          "caminho": "conteudo/jogos/web-windows/unreal-tournament-surrealengine-web.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wwe-smackdown-vs-raw-2010.json",
+          "caminho": "conteudo/jogos/web-windows/warzone-2100-web-edition.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wwe-smackdown-vs-raw-2011.json",
+          "caminho": "conteudo/jogos/web-xbox/halo-combat-evolved-combat-lab.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wwe-smackdown-vs-raw.json",
+          "caminho": "conteudo/jogos/web-xbox/halo-combat-evolved-mobile.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/wwii-gi.json",
+          "caminho": "conteudo/jogos/web-xbox/halo-combat-evolved-opence.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/xrick.json",
+          "caminho": "conteudo/jogos/web-xbox/halo-combat-evolved.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/yandere-simulator.json",
+          "caminho": "conteudo/jogos/web-xbox360/castle-crashers.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/your-only-move-is-hustle.json",
+          "caminho": "conteudo/jogos/web-xbox360/skate-3.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/yume-nikki.json",
+          "caminho": "conteudo/jogos/web-xbox360/sonic-the-hedgehog-4-episode-i.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos/web/zelda-ii-the-adventure-of-link-z2rs.json",
+          "caminho": "conteudo/jogos/web-zxspectrum/super-mario-kart-sm-kart-zx-web-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         }
       ],
@@ -2118,8 +2118,37 @@
         "flash": 0,
         "ps1": 0,
         "3do": 0,
-        "web": 13,
-        "webpc": 0
+        "web-fangames": 0,
+        "web-indie": 3,
+        "web-remakes": 3,
+        "web-pc": 1,
+        "web-n64": 0,
+        "web-gamecube": 0,
+        "web-wii": 0,
+        "web-switch": 0,
+        "web-dreamcast": 0,
+        "web-dos": 3,
+        "web-windows": 2,
+        "web-xbox360": 0,
+        "web-xboxone": 0,
+        "web-xboxseries": 0,
+        "web-xbox": 0,
+        "web-ps1": 0,
+        "web-ps2": 0,
+        "web-psp": 0,
+        "web-ps4": 0,
+        "web-ps3": 0,
+        "web-android": 0,
+        "web-ios": 0,
+        "web-arcade": 0,
+        "web-navegador": 0,
+        "web-java": 0,
+        "web-mobile": 0,
+        "web-tabletop": 0,
+        "web-macos": 0,
+        "web-zxspectrum": 0,
+        "web-neogeo": 0,
+        "web-outros": 1
       }
     }
   ]
