@@ -30,6 +30,21 @@
    ],
    "license": "livre",
    "repo": "https://github.com/k4zmu2a/SpaceCadetPinball"
+  },
+  {
+   "title": "20 Minutes Till Dawn",
+   "desc": "Port para navegador · gn-math.dev",
+   "studio": "jogos/web/20-minutes-till-dawn",
+   "url": "https://gn-math.dev/?id=819",
+   "console": "web",
+   "core": "web",
+   "web": true,
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "license": "livre",
+   "repo": "https://github.com/web-ports/20-minutes"
   }
  ]
 }

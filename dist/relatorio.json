@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T01:41:47.046Z",
+  "geradoEm": "2026-11-02T01:42:19.998Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -82,13 +82,9 @@
     {
       "colecao": "jogos",
       "total": 509,
-      "publicados": 2,
+      "publicados": 3,
       "erros": [],
       "avisos": [
-        {
-          "caminho": "conteudo/jogos/web/20-minutes-till-dawn.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
         {
           "caminho": "conteudo/jogos/web/a-bite-at-freddy-s.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
@@ -2142,7 +2138,7 @@
         "flash": 0,
         "ps1": 0,
         "3do": 0,
-        "web": 2,
+        "web": 3,
         "webpc": 0
       }
     }
