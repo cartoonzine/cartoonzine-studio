@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T07:44:00.767Z",
+  "geradoEm": "2026-11-02T18:25:57.199Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -29,9 +29,9 @@
       "erros": [],
       "avisos": [],
       "porIdioma": {
-        "pt-BR": 260,
-        "es": 247,
-        "en": 513,
+        "pt-BR": 259,
+        "es": 246,
+        "en": 515,
         "pt-PT": 37
       }
     },

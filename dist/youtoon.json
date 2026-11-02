@@ -550,7 +550,7 @@
    ],
    "studio": "youtoon/espanhol/barbie-latinoamerica",
    "url": "https://www.youtube.com/channel/UC5Ice380QDQ4q26uzDx-ACg",
-   "logo": "https://yt3.ggpht.com/8etczWpVNJs0o0Ibyq4bqfsJ2fjf8MONjiNuxyf3TEGK3QZSC-ObALMjRbKR55EmRInolWdbSw=s800-c-k-c0x00ffffff-no-rj",
+   "logo": "https://yt3.ggpht.com/wCF_fAJfpf4X2ZuzGKmKIrlPUuUogJF3cfunVT6Kdq8PolwRuSVZeWwxRwRcLDAvI1xzRe9gZQ=s800-c-k-c0x00ffffff-no-rj",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
@@ -1025,7 +1025,7 @@
   },
   {
    "title": "Blippi - Educational Videos for Kids · 🔵 Brand New Blippi Educational Videos for Kids! 🎉",
-   "desc": "Playlist de Blippi - Educational Videos for Kids · 63 vídeos",
+   "desc": "Playlist de Blippi - Educational Videos for Kids · 64 vídeos",
    "genre": [
     "Educativos",
     "Pré-escolar"
@@ -1116,7 +1116,7 @@
   },
   {
    "title": "Blippi em Português · Blippi 🚒🚌🚗 Aventuras de Veículos!",
-   "desc": "Playlist de Blippi em Português · 49 vídeos",
+   "desc": "Playlist de Blippi em Português · 50 vídeos",
    "genre": [
     "Educativos",
     "Pré-escolar"
@@ -1128,21 +1128,21 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "Blippi em Português · Blippi Wonders em Português 🟠🔵 As Aventuras Animadas do Blippi!",
+   "title": "Blippi em Português · Blippi 🟠🤓🔵 Vamos Aprender e Brincar!",
    "desc": "Playlist de Blippi em Português · 48 vídeos",
    "genre": [
     "Educativos",
     "Pré-escolar"
    ],
-   "studio": "youtoon/portugues/blippi-em-portugues-blippi-wonders-em-portugues-as-aventuras-animadas-do-blippi",
-   "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkbPsj1i3v4kTxaQIHkNbLRz",
-   "logo": "https://i.ytimg.com/vi/3ba1XsjEU3s/hqdefault.jpg",
+   "studio": "youtoon/portugues/blippi-em-portugues-blippi-vamos-aprender-e-brincar",
+   "url": "https://www.youtube.com/playlist?list=PLtLZuBVfgFkbynnoYwsFbGFDD8Rj7KArG",
+   "logo": "https://i.ytimg.com/vi/fvz4uOsgX0U/hqdefault.jpg",
    "idioma": "Português",
    "group": "Desenhos 24H"
   },
   {
    "title": "Blippi em Português · TODOS OS EPISÓDIOS! 🟠 Blippi em Português 🔵 Vídeos Educativos em Português",
-   "desc": "Playlist de Blippi em Português · 215 vídeos",
+   "desc": "Playlist de Blippi em Português · 219 vídeos",
    "genre": [
     "Educativos",
     "Pré-escolar"
@@ -1155,7 +1155,7 @@
   },
   {
    "title": "Blippi em Português · TODOS OS VÍDEOS! 🟠 Maratona do Blippi em Português 🔵 Vídeos Educativos para Crianças",
-   "desc": "Playlist de Blippi em Português · 814 vídeos",
+   "desc": "Playlist de Blippi em Português · 820 vídeos",
    "genre": [
     "Educativos",
     "Pré-escolar"
@@ -1569,18 +1569,6 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "Cartoon Network Brasil 24H",
-   "desc": "AO VIVO 🔴 Especial de Halloween 🎃 | Cartoon Network Brasil",
-   "genre": [
-    "Comédia"
-   ],
-   "studio": "youtoon/portugues/cartoon-network-brasil-24h",
-   "url": "https://www.youtube.com/channel/UC1toK6UDXwreacdepXYcyqA/live",
-   "logo": "https://i.ytimg.com/vi/Gd1BHW3hL9A/hqdefault.jpg?v=6ae27c83",
-   "idioma": "Português",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "Cartoon Network LA",
    "desc": "Canal oficial de Cartoon Network LA no YouTube: episódios sem parar.",
    "genre": [
@@ -1649,18 +1637,6 @@
    "studio": "youtoon/espanhol/cartoon-network-la-steven-universe",
    "url": "https://www.youtube.com/playlist?list=PL_6LtW9tXrxj_6PMplWwq-6Ih0DW1yV5s",
    "logo": "https://i.ytimg.com/vi/3_Uwd6D0Qj8/hqdefault.jpg",
-   "idioma": "Espanhol",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Cartoon Network LA 24H",
-   "desc": "EN VIVO 🔴 Especial de Halloween 🎃 | Cartoon Network LA",
-   "genre": [
-    "Comédia"
-   ],
-   "studio": "youtoon/espanhol/cartoon-network-la-24h",
-   "url": "https://www.youtube.com/channel/UCQySZQ6rrgJXRuonMwIIGMA/live",
-   "logo": "https://i.ytimg.com/vi/H71TnS5JhPE/hqdefault.jpg?v=6ae27c46",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
@@ -2360,18 +2336,6 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "Disney Channel 24H",
-   "desc": "🔴 LIVE! | Halloweentown 1 Movie Livestream 🎃🎬 | 24/7 | Disney Channel",
-   "genre": [
-    "Infantil"
-   ],
-   "studio": "youtoon/ingles/disney-channel-24h",
-   "url": "https://www.youtube.com/channel/UCktaw9L-f65LzUUdjmCFkbQ/live",
-   "logo": "https://i.ytimg.com/vi/b3kJiy4_KRg/hqdefault.jpg?v=6ac3d756",
-   "idioma": "Inglês",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "Disney Channel Animation",
    "desc": "Canal oficial de Disney Channel Animation no YouTube: episódios sem parar.",
    "genre": [
@@ -2471,7 +2435,7 @@
   },
   {
    "title": "Disney Channel PT · Kiff",
-   "desc": "Playlist de Disney Channel PT · 110 vídeos",
+   "desc": "Playlist de Disney Channel PT · 112 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -2479,13 +2443,13 @@
    ],
    "studio": "youtoon/portugues-portugal/disney-channel-pt-kiff",
    "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuzl26bGFQ_6ucDYYvom_jLc",
-   "logo": "https://i.ytimg.com/vi/GCsEZMN60-w/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/LWNjuxnzqfE/hqdefault.jpg",
    "idioma": "Português (Portugal)",
    "group": "Desenhos 24H"
   },
   {
    "title": "Disney Channel PT · Miraculous - As Aventuras de Ladybug",
-   "desc": "Playlist de Disney Channel PT · 287 vídeos",
+   "desc": "Playlist de Disney Channel PT · 288 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -2499,7 +2463,7 @@
   },
   {
    "title": "Disney Channel PT · Os Descendentes",
-   "desc": "Playlist de Disney Channel PT · 170 vídeos",
+   "desc": "Playlist de Disney Channel PT · 175 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -2513,7 +2477,7 @@
   },
   {
    "title": "Disney Channel PT · Os Green na Cidade Grande",
-   "desc": "Playlist de Disney Channel PT · 249 vídeos",
+   "desc": "Playlist de Disney Channel PT · 251 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -2553,7 +2517,7 @@
   },
   {
    "title": "Disney Jr. · Best of Pixar Cars on Disney Jr. 🚗",
-   "desc": "Playlist de Disney Jr. · 319 vídeos",
+   "desc": "Playlist de Disney Jr. · 322 vídeos",
    "genre": [
     "Pré-escolar"
    ],
@@ -2577,7 +2541,7 @@
   },
   {
    "title": "Disney Jr. · Disney Jr. Super Heroes!",
-   "desc": "Playlist de Disney Jr. · 302 vídeos",
+   "desc": "Playlist de Disney Jr. · 303 vídeos",
    "genre": [
     "Pré-escolar"
    ],
@@ -2601,13 +2565,13 @@
   },
   {
    "title": "Disney Jr. · Mickey Mouse Clubhouse+ 🐭🏠",
-   "desc": "Playlist de Disney Jr. · 202 vídeos",
+   "desc": "Playlist de Disney Jr. · 203 vídeos",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/disney-jr-mickey-mouse-clubhouse",
    "url": "https://www.youtube.com/playlist?list=PL2m1vjiMH_hOCLfO_F-Cwv2jlbP0XNSWe",
-   "logo": "https://i.ytimg.com/vi/FsiwC4JMDyc/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/dn2p8TtDzyw/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -2793,7 +2757,7 @@
   },
   {
    "title": "Disney Kids · 'Tis the Season! 🎁☺️ | Holiday Disney and Winter Magic ❄️☃️⛸️🥶",
-   "desc": "Playlist de Disney Kids · 53 vídeos",
+   "desc": "Playlist de Disney Kids · 54 vídeos",
    "genre": [
     "Aventura"
    ],
@@ -4574,6 +4538,19 @@
   },
   {
    "title": "Johnny Test 24H",
+   "desc": "🔴 LIVE 24/7 | Non-Stop Jonny Test Episodes Including Johnny Test: The Lost Web Series!",
+   "genre": [
+    "Comédia",
+    "Ficção Científica"
+   ],
+   "studio": "youtoon/ingles/johnny-test-24h",
+   "url": "https://www.youtube.com/channel/UCqdgeIot-FbCtOpTfGSEftA/live",
+   "logo": "https://i.ytimg.com/vi/QjTpxEilctw/hqdefault.jpg?v=6ae882c3",
+   "idioma": "Inglês",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Johnny Test 24H",
    "genre": [
     "Ação",
     "Aventuras e Invenções"
@@ -5216,13 +5193,13 @@
   },
   {
    "title": "Marvel H.Q. · What's New On Marvel HQ! 💥",
-   "desc": "Playlist de Marvel H.Q. · 786 vídeos",
+   "desc": "Playlist de Marvel H.Q. · 787 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
    "studio": "youtoon/ingles/marvel-h-q-what-s-new-on-marvel-hq",
    "url": "https://www.youtube.com/playlist?list=PLNw_hEO5pK1ovGllglrwKRewSetHIjmFb",
-   "logo": "https://i.ytimg.com/vi/WoN42lx1aQ0/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/Yy_D1rK89kg/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -5444,13 +5421,13 @@
   },
   {
    "title": "Masha and The Bear · What's New? 😃😜",
-   "desc": "Playlist de Masha and The Bear · 844 vídeos",
+   "desc": "Playlist de Masha and The Bear · 845 vídeos",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/ingles/masha-and-the-bear-what-s-new",
    "url": "https://www.youtube.com/playlist?list=PL-yqdhzdKqQQ3Ad6-v0Pb76taFKmIrz43",
-   "logo": "https://i.ytimg.com/vi/9H2o_HqlT0s/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/11Mz29sWZMs/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -5636,19 +5613,19 @@
   },
   {
    "title": "Masha y el Oso · ⭕ LIVE",
-   "desc": "Playlist de Masha y el Oso · 594 vídeos",
+   "desc": "Playlist de Masha y el Oso · 595 vídeos",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/espanhol/masha-y-el-oso-live",
    "url": "https://www.youtube.com/playlist?list=PLAf-1Hp6f8s6xUExeUy-s8Do4a0tvBFYK",
-   "logo": "https://i.ytimg.com/vi/xaBRYl4VyIM/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/P6jpXNDzFjg/hqdefault.jpg",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
   {
    "title": "Masha y el Oso · Masha y el Oso - Compilación",
-   "desc": "Playlist de Masha y el Oso · 600 vídeos",
+   "desc": "Playlist de Masha y el Oso · 601 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -5672,7 +5649,7 @@
   },
   {
    "title": "Masha y el Oso · Novedades 😉💥",
-   "desc": "Playlist de Masha y el Oso · 354 vídeos",
+   "desc": "Playlist de Masha y el Oso · 355 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -5888,13 +5865,13 @@
   },
   {
    "title": "MIRACULOUS - As Aventuras de Ladybug · 🇧🇷 Miraculous - As Aventuras de Ladybug 🐞 Português BRASIL 🇧🇷",
-   "desc": "Playlist de MIRACULOUS - As Aventuras de Ladybug · 613 vídeos",
+   "desc": "Playlist de MIRACULOUS - As Aventuras de Ladybug · 615 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/portugues/miraculous-as-aventuras-de-ladybug-miraculous-as-aventuras-de-ladybug-portugues-2",
    "url": "https://www.youtube.com/playlist?list=PLuoFsz_AsLn0th8H80jj58ExF2re4gv8d",
-   "logo": "https://i.ytimg.com/vi/muFBvf-_QlY/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/k7rI-9rf4hQ/hqdefault.jpg",
    "idioma": "Português",
    "group": "Desenhos 24H"
   },
@@ -6302,7 +6279,7 @@
    ],
    "studio": "youtoon/portugues/monster-high-portugues-o-que-ha-de-novo-em-monster-high-monster-high-brasil",
    "url": "https://www.youtube.com/playlist?list=PLRGCh6ccREU2dO9pmoQXkywp8xgD9mifT",
-   "logo": "https://i.ytimg.com/vi/rGeDHVqndNo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/0u0mgGBXfJU/hqdefault.jpg",
    "idioma": "Português",
    "group": "Desenhos 24H"
   },
@@ -6374,37 +6351,37 @@
    ],
    "studio": "youtoon/ingles/mr-bean",
    "url": "https://www.youtube.com/channel/UCkAGrHCLFmlK3H2kd6isipg",
-   "logo": "https://yt3.ggpht.com/LlZmu7iWpEIgKk-8YbguQEHECFPEfCjraE9ElZ59SHJ6bhivu3PI6oymSNE039Az5Y_W8zVDPQ=s800-c-k-c0x00ffffff-no-rj",
+   "logo": "https://yt3.ggpht.com/JpBTq7C6h3phO_n3jl4IiEJICB2caxG_fnhSwFaNezNaTyDYEP-0STaU8HZiUfJKPyqfxMx9kA=s800-c-k-c0x00ffffff-no-rj",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
   {
    "title": "Mr. Bean · Best of Mr Bean Animated 😎 | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 1190 vídeos",
+   "desc": "Playlist de Mr. Bean · 1191 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/mr-bean-best-of-mr-bean-animated-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh9Um40N668S9a2zUi9lxOqp",
-   "logo": "https://i.ytimg.com/vi/C0ByBgzYUzk/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/MN9qXvE5sMA/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
   {
    "title": "Mr. Bean · Best of Mr Bean Live Action 😂 | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 931 vídeos",
+   "desc": "Playlist de Mr. Bean · 932 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/mr-bean-best-of-mr-bean-live-action-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh9xuwtjUoZq8zja2uX7j21n",
-   "logo": "https://i.ytimg.com/vi/UJ-p5O801oo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/HtUk39CkXgU/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
   {
    "title": "Mr. Bean · Compilations | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 423 vídeos",
+   "desc": "Playlist de Mr. Bean · 424 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -6416,7 +6393,7 @@
   },
   {
    "title": "Mr. Bean · Mr Bean the Animated Series: Season 1 🎨 | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 448 vídeos",
+   "desc": "Playlist de Mr. Bean · 449 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -6518,7 +6495,7 @@
    ],
    "studio": "youtoon/ingles/my-little-pony-official-channel-24h",
    "url": "https://www.youtube.com/channel/UC9qgVkKRZUXcgHdf35Z-8dw/live",
-   "logo": "https://i.ytimg.com/vi/IlsDnjQCDWU/hqdefault.jpg?v=6ae7e207",
+   "logo": "https://i.ytimg.com/vi/xM5AEuqzJ7g/hqdefault.jpg?v=6ae8c342",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -6602,7 +6579,7 @@
    ],
    "studio": "youtoon/espanhol/my-little-pony-espanol-latino-24h",
    "url": "https://www.youtube.com/channel/UCavwStVQoAroamzC1lPQmyg/live",
-   "logo": "https://i.ytimg.com/vi/xAUf3CKh1MI/hqdefault.jpg?v=6ae7ab83",
+   "logo": "https://i.ytimg.com/vi/gehTW2qDIyE/hqdefault.jpg?v=6ae88d1f",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
@@ -6891,6 +6868,18 @@
    "studio": "youtoon/ingles/national-geographic-kids-whoa-factor-nat-geo-kids",
    "url": "https://www.youtube.com/playlist?list=PLCTlX3B4y8I4",
    "logo": "https://i.ytimg.com/vi/W9ZuLHjJRk0/hqdefault.jpg",
+   "idioma": "Inglês",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "National Geographic Kids 24H",
+   "desc": "🔴 LIVE! 24 Hours of Unlikely Animal Friends Livestream 😻🐶 | Nat Geo Kids",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/ingles/national-geographic-kids-24h",
+   "url": "https://www.youtube.com/channel/UCXVCgDuD_QCkI7gTKU7-tpg/live",
+   "logo": "https://i.ytimg.com/vi/0-RTk1cQ3lU/hqdefault.jpg?v=6ae84310",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -7280,13 +7269,13 @@
   },
   {
    "title": "Nicktoons · NEW From Nicktoons! 🚀",
-   "desc": "Playlist de Nicktoons · 1184 vídeos",
+   "desc": "Playlist de Nicktoons · 1185 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/nicktoons-new-from-nicktoons",
    "url": "https://www.youtube.com/playlist?list=PLUQR09yEYrP2Er9Et0Od21xc5mM0WqHJ9",
-   "logo": "https://i.ytimg.com/vi/VquZI_psVJo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/4qOd8dns2AA/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -7316,13 +7305,13 @@
   },
   {
    "title": "Nicktoons · SpongeBob SquarePants 🧽 | Nicktoons",
-   "desc": "Playlist de Nicktoons · 460 vídeos",
+   "desc": "Playlist de Nicktoons · 461 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/nicktoons-spongebob-squarepants-nicktoons",
    "url": "https://www.youtube.com/playlist?list=PLUQR09yEYrP0hxz_Jl32_bu_B5K3_Z6NC",
-   "logo": "https://i.ytimg.com/vi/VquZI_psVJo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/4qOd8dns2AA/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -8055,7 +8044,7 @@
   },
   {
    "title": "Oggy and the Cockroaches · Oggy & the Cockroaches - Top Videos",
-   "desc": "Playlist de Oggy and the Cockroaches · 694 vídeos",
+   "desc": "Playlist de Oggy and the Cockroaches · 695 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -8260,13 +8249,13 @@
   },
   {
    "title": "Peppa Pig 24H",
-   "desc": "🔴 LIVE: Peppa Pig & Baby Evie’s Big Halloween Surprise! 🎃👻 Non-Stop Kids Cartoons",
+   "desc": "🔴 LIVE: Cutest Baby Evie Moments 🍼 | Peppa Pig’s Best Big Sister Moments ✨ | 4K",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/peppa-pig-24h",
    "url": "https://www.youtube.com/channel/UCAOtE1V7Ots4DjM8JLlrYgg/live",
-   "logo": "https://i.ytimg.com/vi/-kxaairp-uY/hqdefault.jpg?v=6ae7eb64",
+   "logo": "https://i.ytimg.com/vi/m-iHRJAQUps/hqdefault.jpg?v=6ae8ccdb",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -8344,13 +8333,13 @@
   },
   {
    "title": "Peppa Pig em Português Brasil 24H",
-   "desc": "🔴 AO VIVO: Peppa Pig no HALLOWEEN! 👻 Aventuras com Baby Evie 🎃 | Episódios Completos | 4K",
+   "desc": "🔴 AO VIVO ⭐ Os melhores momentos de Peppa como irmã mais velha da Bebê Evie! 🍼 Episódios Completos",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/portugues/peppa-pig-em-portugues-brasil-24h",
    "url": "https://www.youtube.com/channel/UCvD9GB-E4q_TuMpwUtFBhLA/live",
-   "logo": "https://i.ytimg.com/vi/Om5JASddsqA/hqdefault.jpg?v=6ae7f2af",
+   "logo": "https://i.ytimg.com/vi/u4OboY_1PYU/hqdefault.jpg?v=6ae8d243",
    "idioma": "Português",
    "group": "Desenhos 24H"
   },
@@ -8422,7 +8411,7 @@
    ],
    "studio": "youtoon/espanhol/peppa-pig-espanol-latino-24h",
    "url": "https://www.youtube.com/channel/UCrreHSUa5rnuCVDeO8dX4eA/live",
-   "logo": "https://i.ytimg.com/vi/EJxe_Bvdneo/hqdefault.jpg?v=6ae7e6c2",
+   "logo": "https://i.ytimg.com/vi/XcLfEJSp53w/hqdefault.jpg?v=6ae8c7fe",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
@@ -8506,7 +8495,7 @@
    ],
    "studio": "youtoon/portugues/pj-masks-em-portugues-desenhos-animados-24h",
    "url": "https://www.youtube.com/channel/UC6RA9q6uVGJpe4QcS3UmGmg/live",
-   "logo": "https://i.ytimg.com/vi/0z6t6HauQcg/hqdefault.jpg?v=8b",
+   "logo": "https://i.ytimg.com/vi/LGen3sVAToc/hqdefault.jpg?v=6ae8a4a7",
    "idioma": "Português",
    "group": "Desenhos 24H"
   },
@@ -8584,13 +8573,13 @@
   },
   {
    "title": "PJ Masks Español Latino Temporada 2 24H",
-   "desc": "🔴 PJ Masks EN VIVO 24H | Romeo, Ninja Nocturno y Más Aventuras - Maratón de Episodios",
+   "desc": "🔴 PJ Masks EN VIVO 24H | Robot en Pijama y Aventuras de Pascua - Maratón de Episodios",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/espanhol/pj-masks-espanol-latino-temporada-2-24h",
    "url": "https://www.youtube.com/channel/UCN7o-yhPGxf1rkXOn1nArzA/live",
-   "logo": "https://i.ytimg.com/vi/6jp203J_NbM/hqdefault.jpg?v=cc",
+   "logo": "https://i.ytimg.com/vi/uRn43WU2Uy8/hqdefault.jpg?v=6a",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
@@ -8753,7 +8742,7 @@
    ],
    "studio": "youtoon/ingles/pokemon",
    "url": "https://www.youtube.com/channel/UC8wrbl5viYtQmRUgdFdf4ew",
-   "logo": "https://yt3.ggpht.com/78hGGkDgiOtjei5qc4hzbEDwGmoaRdg5WJttYswp0b-fIzgAyDtEg2v9lT0NnV624I-B6dWac0g=s800-c-k-c0x00ffffff-no-rj",
+   "logo": "https://yt3.ggpht.com/f3GfWO7zlgLpIQLl2G_ujSZGKz6cWKzpfk8FcnddFtj5iELA0jcqCyP2UpdmB5giwdzRaNz0Dg=s800-c-k-c0x00ffffff-no-rj",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -9191,7 +9180,7 @@
    ],
    "studio": "youtoon/espanhol/power-rangers-para-ninos-24h",
    "url": "https://www.youtube.com/channel/UCHr2zD4qgWz8yXkzIun5aAg/live",
-   "logo": "https://i.ytimg.com/vi/_vIRLahMfZA/hqdefault.jpg?v=1c94",
+   "logo": "https://i.ytimg.com/vi/_vIRLahMfZA/hqdefault.jpg?v=1d53",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
@@ -9875,13 +9864,13 @@
   },
   {
    "title": "SpongeBob SquarePants Official · New Videos Every Day!",
-   "desc": "Playlist de SpongeBob SquarePants Official · 1391 vídeos",
+   "desc": "Playlist de SpongeBob SquarePants Official · 1392 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/spongebob-squarepants-official-new-videos-every-day",
    "url": "https://www.youtube.com/playlist?list=PLM1j2JqVBQfkjSUEdAeDh_PT6gfJXkJl6",
-   "logo": "https://i.ytimg.com/vi/pZ19rNcKA7I/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/5Q_RQ9CPt5A/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -9894,6 +9883,18 @@
    "studio": "youtoon/ingles/spongebob-squarepants-official-spongebob-squarepants-mega-marathon-10-minute-car",
    "url": "https://www.youtube.com/playlist?list=PLM1j2JqVBQfneP1sowXOz_G3y9DHnnnv8",
    "logo": "https://i.ytimg.com/vi/f5-dtT9q1jo/hqdefault.jpg",
+   "idioma": "Inglês",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "SpongeBob SquarePants Official 24H",
+   "desc": "🔴LIVE: Spongebob's FAMILY Marathon! 💞🧽 | SpongeBob",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/ingles/spongebob-squarepants-official-24h",
+   "url": "https://www.youtube.com/channel/UCx27Pkk8plpiosF14qXq-VA/live",
+   "logo": "https://i.ytimg.com/vi/9v0tJsY61HU/hqdefault.jpg?v=6ae8c2e0",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -9911,13 +9912,13 @@
   },
   {
    "title": "Spookiz · 👻MONSTERIFIC LIVESTREAMS👻",
-   "desc": "Playlist de Spookiz · 180 vídeos",
+   "desc": "Playlist de Spookiz · 181 vídeos",
    "genre": [
     "Mistério e Sobrenatural"
    ],
    "studio": "youtoon/ingles/spookiz-monsterific-livestreams",
    "url": "https://www.youtube.com/playlist?list=PLjFmi1u8peSo3fM4TTzsLVWqcpGlGFdmP",
-   "logo": "https://i.ytimg.com/vi/OcHSJfjio1Y/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/T63NvZV9Zg8/hqdefault.jpg?v=6ae852b3",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -9935,7 +9936,7 @@
   },
   {
    "title": "Spookiz · Funny Spookiz Videos | Cartoons for Children",
-   "desc": "Playlist de Spookiz · 636 vídeos",
+   "desc": "Playlist de Spookiz · 637 vídeos",
    "genre": [
     "Mistério e Sobrenatural"
    ],
@@ -9947,7 +9948,7 @@
   },
   {
    "title": "Spookiz · Spookiz and Friends | Cartoons for Children",
-   "desc": "Playlist de Spookiz · 627 vídeos",
+   "desc": "Playlist de Spookiz · 628 vídeos",
    "genre": [
     "Mistério e Sobrenatural"
    ],
@@ -9965,19 +9966,19 @@
    ],
    "studio": "youtoon/ingles/spookiz-spookiz-for-everyone",
    "url": "https://www.youtube.com/playlist?list=PLjFmi1u8peSqfuNF_6MNZAtEoE7iyVOwF",
-   "logo": "https://i.ytimg.com/vi/YMEljqidXfU/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/LSnF5xRKzDU/hqdefault.jpg",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
   {
    "title": "Spookiz 24H",
-   "desc": "MONSTERIFIC LIVESTREAM! 👻 Spookiz Monsters Awakening Marathon & More! | It's Always Spooky Season",
+   "desc": "🔴Spookiz LIVE -  It's Always Spooky Season | Monster Cartoons For Kids | Spookiz full episodes",
    "genre": [
     "Mistério e Sobrenatural"
    ],
    "studio": "youtoon/ingles/spookiz-24h",
    "url": "https://www.youtube.com/channel/UCGRODP7wtTU_uyNZmu9cb7g/live",
-   "logo": "https://i.ytimg.com/vi/Ul19hKicD1M/hqdefault.jpg?v=6a82d0fc",
+   "logo": "https://i.ytimg.com/vi/T63NvZV9Zg8/hqdefault.jpg?v=6ae852b3",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
@@ -10109,7 +10110,7 @@
    ],
    "studio": "youtoon/espanhol/star-wars-latinoamerica-star-wars-minis",
    "url": "https://www.youtube.com/playlist?list=PLHJr7sxGkpS8",
-   "logo": "https://i.ytimg.com/vi/YeR7mVBqLfY/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/CvmH-CqJ9Zs/hqdefault.jpg",
    "idioma": "Espanhol",
    "group": "Desenhos 24H"
   },
@@ -10512,7 +10513,7 @@
    ],
    "studio": "youtoon/ingles/super-simple-songs-24h",
    "url": "https://www.youtube.com/channel/UCLsooMJoIpl_7ux2jvdPB-Q/live",
-   "logo": "https://i.ytimg.com/vi/jjfxs-wZSoY/hqdefault.jpg?v=6ae4a569",
+   "logo": "https://i.ytimg.com/vi/3iCKrWA95jw/hqdefault.jpg?v=6ae89bf4",
    "idioma": "Inglês",
    "group": "Desenhos 24H"
   },
