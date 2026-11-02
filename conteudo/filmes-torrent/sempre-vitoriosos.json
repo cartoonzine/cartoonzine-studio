@@ -12,9 +12,9 @@
   "generos": [
     "Ação"
   ],
-  "posFundo": 73,
+  "fundoImagem": "banner",
+  "posFundo": 40,
   "destaque": true,
   "bannerSkin": "cinema",
-  "bannerFx": "cinema",
-  "_rascunho": true
+  "bannerFx": "cinema"
 }
