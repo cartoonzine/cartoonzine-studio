@@ -259,6 +259,20 @@
    "repo": "https://github.com/midzer/vectoroids/tree/emscripten"
   },
   {
+   "title": "Virtual On: Cyber Troopers",
+   "desc": "Port para navegador · solid7s.github.io",
+   "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
+   "url": "https://solid7s.github.io/Virtual-On-Web/",
+   "console": "web-arcade",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
+  },
+  {
    "title": "XGalaga",
    "desc": "Clone de Galaga: naves inimigas em formação, tiro sem parar. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1998,

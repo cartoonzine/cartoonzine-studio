@@ -30,6 +30,20 @@
    ],
    "web": true,
    "license": "autorizada"
+  },
+  {
+   "title": "Virtual On: Cyber Troopers",
+   "desc": "Port para navegador · solid7s.github.io",
+   "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
+   "url": "https://solid7s.github.io/Virtual-On-Web/",
+   "console": "web-arcade",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
   }
  ]
 }

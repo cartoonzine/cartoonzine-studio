@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T06:57:20.853Z",
+  "geradoEm": "2026-11-02T06:58:05.819Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     {
       "colecao": "jogos-web",
       "total": 514,
-      "publicados": 15,
+      "publicados": 16,
       "erros": [],
       "avisos": [
         {
@@ -150,10 +150,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-arcade/virtua-fighter.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-arcade/virtual-on-cyber-troopers.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2156,7 +2152,7 @@
         "web-ps3": 0,
         "web-android": 0,
         "web-ios": 0,
-        "web-arcade": 2,
+        "web-arcade": 3,
         "web-navegador": 0,
         "web-java": 0,
         "web-mobile": 0,
