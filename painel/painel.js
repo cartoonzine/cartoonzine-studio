@@ -354,7 +354,7 @@
           <div class="cab">
             <div>
               <h1>${esc(col.icone || '')} ${esc(col.nome)}</h1>
-              <div class="sub">${n} ${n === 1 ? 'item' : 'itens'} · ${esc(tipo ? tipo.rotulo : col.tipo)} · vai para ${esc(col.app || 'cartoonzine')}</div>
+              <div class="sub">${n} ${n === 1 ? 'item' : 'itens'} · ${esc(col.consoles === 'consolesWeb' ? 'Jogo web' : (tipo ? tipo.rotulo : col.tipo))} · vai para ${esc(col.app || 'cartoonzine')}</div>
             </div>
             <div class="espaco"></div>
             <div class="abas" role="tablist">

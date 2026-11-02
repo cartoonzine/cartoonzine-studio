@@ -57,7 +57,7 @@
     },
     {
       "id": "filmes-torrent",
-      "nome": "Filmes",
+      "nome": "Filmes (torrent)",
       "tipo": "video",
       "app": "cartoonzine",
       "icone": "🧲",
