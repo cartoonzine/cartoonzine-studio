@@ -157,10 +157,29 @@ Dá para editar até pelo site do GitHub: o robô publica sozinho a cada commit.
 | 📚 Bookzine | `conteudo/bookzine/` | Cartoonzine (view em construção) | `bookzine.json` + `bookzine/indice.json` |
 | 📻 Rádios | `conteudo/radios/` | Rádio | `radios.json`, `radios.m3u`, `radios/pais/<pais>.m3u` |
 | 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/paises.json`, `canais/pais/<pais>.json` e `.m3u` |
-| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles) |
+| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (43 consoles, com o core do EmulatorJS) |
 | 🌐 Jogos Web | `conteudo/jogos-web/<sistema>/` | Emulador (cartucho web) | `jogos/<sistema>.json` (31 sistemas, `consolesWeb`) |
 
 Os `.m3u` por país também funcionam direto em qualquer player IPTV (VLC, TiviMate…).
+
+### 🕹️ Jogos Retrô e o EmulatorJS
+
+Cada console em `consoles` (studio.config.json) diz qual **sistema do EmulatorJS** abre os jogos dele (`"core"`).
+O jogo vai para o app com esse core, a não ser que você preencha **Core do emulador** no próprio jogo.
+
+| EmulatorJS | Consoles (id no Studio) |
+|---|---|
+| Nintendo | NES (`nes`) · Super Nintendo (`snes`) · Nintendo 64 (`n64`) · DS (`nds`) · 3DS (`3ds`)* · Game Boy (`gb`) · Game Boy Color (`gbc`) · Game Boy Advance (`gba`) · Virtual Boy (`vb`) |
+| Sega | Master System · Mega Drive · Game Gear · Sega CD · 32X · Saturn |
+| Sony | PlayStation (`ps1`) · PSP (`psp`)* |
+| Atari | 2600 · 5200 (`atari5200`) · 7800 (`atari7800`) · Jaguar (`jaguar`) · Lynx (`lynx`) |
+| Commodore | 64 (`c64`) · 128 (`c128`) · PET (`pet`) · Plus/4 (`plus4`) · VIC-20 (`vic20`) · Amiga (`amiga`) |
+| Outros | Arcade (FBNeo) · Neo Geo (pelo Arcade) · MAME 2003 (`mame2003`) · PC Engine / CD · PC-FX (`pcfx`) · Neo Geo Pocket · WonderSwan (`wonderswan`) · ColecoVision · 3DO · MS-DOS (`msdos`)* |
+
+\* **precisam de threads** (`"threads": true`): só abrem onde existe SharedArrayBuffer — o app do PC já liga isso.
+**MS-DOS:** o jogo é um `.zip` com os arquivos do jogo; para ele abrir sozinho, coloque no zip um `AUTORUN.BAT` com o
+comando do jogo (ex.: `KEEN4E.EXE`). Sem isso o app tenta achar o `.exe`/`.bat`/`.com` sozinho.
+Sem emulador no EmulatorJS (`"semEmulador": true`): Neo Geo CD, MSX, Odyssey 2 e Flash.
 
 ### 🌐 Web Games (cartucho web: jogos que rodam direto no navegador)
 

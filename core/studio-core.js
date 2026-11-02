@@ -867,6 +867,24 @@
         const c = config && todosConsoles(config).find(x => x.id === id);
         return c ? !!c.web : /^web(-[a-z0-9]+|pc|tv)?$/.test(String(id));
     }
+    /**
+     * Sistema do EmulatorJS de um console retrô ("core" no studio.config.json): é o que o app manda
+     * para o cartucho.html quando o jogo não escolheu um core próprio. Sem config, pelo id mais comum.
+     */
+    const CORE_PADRAO = {
+        arcade: 'arcade', neogeo: 'arcade', nes: 'nes', snes: 'snes', n64: 'n64', nds: 'nds', gb: 'gb', gbc: 'gb', gba: 'gba',
+        vb: 'vb', megadrive: 'segaMD', mastersystem: 'segaMS', gamegear: 'segaGG', segacd: 'segaCD', sega32x: 'sega32x',
+        saturn: 'segaSaturn', atari2600: 'atari2600', atari5200: 'a5200', atari7800: 'atari7800', jaguar: 'jaguar', lynx: 'lynx',
+        pcengine: 'pce', pcenginecd: 'pce', pcfx: 'pcfx', ngp: 'ngp', wonderswan: 'ws', colecovision: 'coleco', amiga: 'amiga',
+        c64: 'c64', c128: 'c128', pet: 'pet', plus4: 'plus4', vic20: 'vic20', msdos: 'dos', ps1: 'psx', psp: 'psp', '3do': '3do',
+        '3ds': '3ds', mame2003: 'mame2003'
+    };
+    function coreDoConsole(id, config) {
+        if (!id) return undefined;
+        const c = config && todosConsoles(config).find(x => x.id === id);
+        if (c) return c.semEmulador || c.web ? undefined : (c.core || CORE_PADRAO[id]);
+        return CORE_PADRAO[id];
+    }
     /** Onde o jogo aparece: "Só PC" marcado = só no PC; senão TV e PC (ou o "aparelhos" do console). */
     function aparelhosDoConsole(id, config, item) {
         if (item && item.soPC) return ['pc'];
@@ -1043,7 +1061,7 @@
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'soPC', rotulo: 'Só PC (não aparece na TV)', tipo: 'bool', dica: 'marque nos jogos pesados ou que precisam de mouse/teclado' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
-                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = padrão do console (nos Web Games é sempre "web")' },
+                { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Nos Jogos Web é sempre "web"' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
                 { k: 'licenca', rotulo: 'Licença (Web Games)', tipo: 'escolha', opcoes: ['', ...LICENCAS_WEB], avancado: true, dica: 'livre = jogo/código aberto ou gratuito · autorizada = demo oficial ou o dono liberou · precisa-original = o jogador carrega os arquivos do próprio jogo · jogo web só é publicado com a licença conferida' },
                 { k: 'engine', rotulo: 'Tipo do port (Web Games)', tipo: 'escolha', opcoes: ['', ...ENGINES_WEB], avancado: true },
@@ -1275,7 +1293,7 @@
                 const o = Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
                     logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
-                    console: item.console, players: item.jogadores, core: item.core,
+                    console: item.console, players: item.jogadores, core: item.core || coreDoConsole(item.console, config),
                     aparelhos: item.soPC ? ['pc'] : undefined                               // "Só PC": a TV não mostra
                 });
                 // cartucho web: o app abre a página do jogo no cartucho-web.html (core "web")
@@ -1563,7 +1581,7 @@
         refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
-        paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever,
+        paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever, coreDoConsole, CORE_PADRAO,
         consoleWeb, aparelhosDoConsole, consolesDaColecao, todosConsoles, novoSistemaWeb, inserirSistemaNoTexto, sistemaWebDoNome, lerCatalogoWebPorts, LICENCAS_WEB, ENGINES_WEB, CONTROLES_WEB, PESOS_WEB
     };
 });

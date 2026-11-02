@@ -468,7 +468,7 @@ test('cartucho web: só publica com licença conferida; vai para o app com core 
     // jogo retrô comum continua igual; "Só PC" também vale para ele
     const retro = col('jogos');
     const snes = C.paraCloud(C.normalizarItem({ nome: 'Mario', console: 'snes', links: ['https://r.x/m.sfc'], licenca: 'livre' }, retro), retro, 'jogos/mario', config);
-    assert.equal(snes.core, undefined);
+    assert.equal(snes.core, 'snes');                     // sem core próprio = o core do console (EmulatorJS)
     assert.equal(snes.web, undefined);
     assert.equal(snes.aparelhos, undefined);
     const n64pc = C.paraCloud(C.normalizarItem({ nome: 'Pesado 64', console: 'n64', links: ['https://r.x/p.z64'], soPC: true }, retro), retro, 'jogos/p', config);
@@ -497,4 +497,28 @@ test('cartucho web: importador cria rascunhos, junta link repetido e não mexe n
     assert.ok(!fs.existsSync(arq));
     assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, 'conteudo/jogos-web/_webports-sem-demo.json'), 'utf8')).jogos[0].nome, 'Só Fonte');
     fs.rmSync(raiz, { recursive: true, force: true });
+});
+
+test('jogos retrô: cada console tem o core do EmulatorJS; sistemas novos (Game Boy, Atari, Commodore, PSP, 3DS…)', () => {
+    const retro = config.colecoes.find(c => c.id === 'jogos');
+    const ids = config.consoles.map(c => c.id);
+    for (const novo of ['gb', 'vb', 'atari5200', 'atari7800', 'jaguar', 'lynx', 'wonderswan', 'pcfx', 'c64', 'c128', 'pet', 'plus4', 'vic20', 'mame2003', 'psp', '3ds']) assert.ok(ids.includes(novo), novo);
+    // todo console tem core OU está marcado sem emulador; prefixos únicos (retrô + web)
+    for (const c of config.consoles) assert.ok(c.core || c.semEmulador, c.id);
+    const pre = config.consoles.concat(config.consolesWeb).map(c => c.prefixoId);
+    assert.equal(new Set(pre).size, pre.length);
+    const mk = (console, extra) => C.paraCloud(C.normalizarItem(Object.assign({ nome: 'X ' + console, console, links: ['https://r.x/a.zip'], licenca: 'livre' }, extra), retro), retro, 'jogos/x', config);
+    assert.equal(mk('megadrive').core, 'segaMD');
+    assert.equal(mk('gbc').core, 'gb');
+    assert.equal(mk('msdos').core, 'dos');
+    assert.equal(mk('atari5200').core, 'a5200');
+    assert.equal(mk('3ds').core, '3ds');
+    assert.equal(mk('snes', { core: 'snes9x' }).core, 'snes9x');   // o core do jogo vence o do console
+    assert.equal(mk('msx').core, undefined);                       // sem emulador: não inventa core
+    assert.equal(C.coreDoConsole('ps1'), 'psx');                    // sem config: tabela padrão
+    // cada console novo vira um DB (dist/jogos/<id>.json) e uma fonte do cloud
+    const r = C.compilarColecao(retro, [{ item: C.normalizarItem({ nome: 'Tetris', console: 'gb', links: ['https://r.x/t.gb'], licenca: 'livre' }, retro), caminho: 'conteudo/jogos/gb/tetris.json' }], config);
+    assert.ok(r.arquivos['jogos/gb.json']);
+    assert.equal(JSON.parse(r.arquivos['jogos/gb.json']).games[0].core, 'gb');
+    assert.ok(r.fontes.some(f => f.console === 'psp' && /jogos\/psp\.json$/.test(f.url)));
 });
