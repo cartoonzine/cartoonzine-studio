@@ -141,6 +141,16 @@ textarea.campo { resize: vertical; min-height: 80px; }
 .dica { font-size: 12px; color: var(--suave); margin-top: 4px; }
 .check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .check input { width: 18px; height: 18px; accent-color: var(--verde); }
+.pos-quadro { position: relative; margin-top: 8px; aspect-ratio: 1920 / 756; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--borda); cursor: ns-resize; touch-action: none; user-select: none; }
+.pos-quadro.arrastando { cursor: grabbing; outline: 2px solid var(--ciano, #22d3ee); }
+.pos-img { position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; opacity: .7; }
+.pos-degrade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,.8) 70%, #000 100%); pointer-events: none; }
+.pos-sem { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; color: #64748b; font-size: 13px; }
+.pos-campo.vazio .pos-sem { display: flex; }
+.pos-campo.vazio .pos-quadro { cursor: default; }
+.pos-linha { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.pos-linha .pos-barra { flex: 1; min-width: 140px; }
+.pos-linha .pos-num { width: 104px; }
 .previa-img { margin-top: 8px; max-height: 120px; border-radius: 8px; border: 1px solid var(--borda); display: block; }
 details.avancado summary { cursor: pointer; color: var(--suave); font-size: 13px; }
 .linha-acoes { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }

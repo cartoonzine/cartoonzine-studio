@@ -526,3 +526,20 @@ test('jogos retrô: cada console tem o core do EmulatorJS; sistemas novos (Game 
     assert.equal(JSON.parse(r.arquivos['jogos/gb.json']).games[0].core, 'gb');
     assert.ok(r.fontes.some(f => f.console === 'psp' && /jogos\/psp\.json$/.test(f.url)));
 });
+
+test('posição da capa no fundo do topo: 0–100, vazio = centro; vai para o app como bgPosY', () => {
+    const filmes = config.colecoes.find(c => c.tipo === 'video');
+    const n = (x) => C.normalizarItem({ nome: 'X', links: ['https://v.x/a.mp4'], posFundo: x }, filmes).posFundo;
+    assert.equal(n(25), 25);
+    assert.equal(n('0'), 0);                 // topo da imagem também vale
+    assert.equal(n(140), 100);
+    assert.equal(n(''), undefined);
+    assert.equal(n(undefined), undefined);
+    const reg = C.paraCloud(C.normalizarItem({ nome: 'X', links: ['https://v.x/a.mp4'], posFundo: 18 }, filmes), filmes, 'x', config);
+    assert.equal(reg.bgPosY, 18);
+    const sem = C.paraCloud(C.normalizarItem({ nome: 'X', links: ['https://v.x/a.mp4'] }, filmes), filmes, 'x', config);
+    assert.equal('bgPosY' in sem, false);
+    const jogo = config.colecoes.find(c => c.id === 'jogos');
+    assert.ok(C.TIPOS.jogo.campos.some(c => c.k === 'posFundo'));
+    assert.equal(C.paraCloud(C.normalizarItem({ nome: 'J', console: 'snes', links: ['https://r.x/j.sfc'], posFundo: 70 }, jogo), jogo, 'j', config).bgPosY, 70);
+});
