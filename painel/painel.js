@@ -42,6 +42,11 @@
             return this;
         }
         async indice() { return (await fetch('/api/indice', { cache: 'no-store' })).json(); }
+        async lerTexto(caminho) {
+            const r = await fetch('/' + caminho, { cache: 'no-store' });
+            if (!r.ok) throw new Error('não consegui abrir ' + caminho);
+            return r.text();
+        }
         async ler(caminho) {
             const r = await fetch('/api/arquivo?caminho=' + encodeURIComponent(caminho), { cache: 'no-store' });
             if (!r.ok) throw new Error('não consegui abrir ' + caminho);
@@ -137,6 +142,7 @@
         }
         async indice() { return Object.entries(this.arquivos).map(([c, t]) => C.resumoItem(c, JSON.parse(t))); }
         async ler(c) { if (!this.arquivos[c]) throw new Error('não existe'); return JSON.parse(this.arquivos[c]); }
+        async lerTexto(c) { if (c === 'studio.config.json') return this.arquivos[c] || JSON.stringify(this.config, null, 2); return this.arquivos[c]; }
         async salvar(mudancas) {
             for (const m of mudancas) { if (m.conteudo == null) delete this.arquivos[m.caminho]; else this.arquivos[m.caminho] = m.conteudo; }
             guardar.gravar('czs-demo', this.arquivos);
@@ -355,11 +361,13 @@
               <button class="aba ${estado.aba === 'itens' ? 'ativa' : ''}" data-aba="itens" role="tab">Itens</button>
               <button class="aba ${estado.aba === 'rapido' ? 'ativa' : ''}" data-aba="rapido" role="tab">⚡ Adicionar rápido</button>
             </div>
+            ${col.consoles === 'consolesWeb' ? '<button class="btn" id="btn-novo-sistema" title="Cria um DB novo de sistema (vira um card no app)">+ Novo sistema</button>' : ''}
             <button class="btn principal" id="btn-novo">+ Novo</button>
           </div>
           <div id="conteudo-aba"></div>`;
         $$('.aba').forEach(b => b.addEventListener('click', () => { estado.aba = b.dataset.aba; desenharArea(); }));
         $('#btn-novo').addEventListener('click', () => abrirEditor(null));
+        const bSis = $('#btn-novo-sistema'); if (bSis) bSis.addEventListener('click', () => abrirNovoSistema());
         if (estado.aba === 'rapido') desenharRapido(); else desenharLista();
     }
 
@@ -377,7 +385,7 @@
     function desenharLista() {
         const col = colecaoAtual();
         const largo = col.tipo === 'canal' || col.tipo === 'radio' || col.tipo === 'canal24h';
-        const consoles = new Map((estado.config.consoles || []).map(c => [c.id, c.nome]));
+        const consoles = new Map(C.todosConsoles(estado.config).map(c => [c.id, c.nome]));
         const itens = filtrarItens(col);
         const total = itensDaColecao(col.id).length;
         const MAX = 300;
@@ -453,6 +461,66 @@
     }
 
     // ==================================================================
+    // 🌐 + Novo sistema (Jogos Web): um DB novo, que vira um card no app sozinho
+    //   Grava uma linha em consolesWeb no studio.config.json (sem mexer no resto do arquivo).
+    //   O cloud lê os sistemas que o Studio publica e o hub do app cria o card pelo catálogo.
+    // ==================================================================
+    function abrirNovoSistema() {
+        const grupos = [...new Set((estado.config.consolesWeb || []).map(c => c.grupo).filter(Boolean))];
+        const fundo = document.createElement('div');
+        fundo.className = 'fundo-modal';
+        fundo.innerHTML = `
+          <div class="gaveta" role="dialog" aria-modal="true" aria-labelledby="ns-titulo">
+            <h2 id="ns-titulo">Novo sistema em Jogos Web</h2>
+            <div class="caminho">vira um DB próprio no Studio, uma fonte no cloud e um card no hub de games do app</div>
+            <div class="caixa-erros" id="ns-erros"></div>
+            <form class="form" id="ns-form" style="margin-top:16px" novalidate>
+              <div class="cheio"><label class="rot" for="ns-nome">Nome do sistema</label><input class="campo" id="ns-nome" placeholder="ex.: Game Boy Advance" autocomplete="off"></div>
+              <div><label class="rot" for="ns-grupo">Grupo</label><input class="campo" id="ns-grupo" list="ns-grupos" value="Outros" autocomplete="off"><datalist id="ns-grupos">${grupos.map(g => `<option value="${esc(g)}">`).join('')}</datalist>
+                <div class="dica">só organiza a ordem no app (${esc(grupos.join(', '))})</div></div>
+              <div><label class="rot" for="ns-prefixo">Prefixo dos ids (opcional)</label><input class="campo" id="ns-prefixo" maxlength="5" placeholder="automático" autocomplete="off"></div>
+              <div class="cheio dica" id="ns-previa"></div>
+            </form>
+            <div class="linha-acoes">
+              <button class="btn principal" id="ns-criar">Criar sistema</button>
+              <div class="espaco"></div>
+              <button class="btn fantasma" id="ns-fechar">Cancelar</button>
+            </div>
+          </div>`;
+        document.body.appendChild(fundo);
+        const fechar = () => { fundo.remove(); document.removeEventListener('keydown', teclas); };
+        const teclas = ev => { if (ev.key === 'Escape') fechar(); };
+        document.addEventListener('keydown', teclas);
+        fundo.addEventListener('mousedown', ev => { if (ev.target === fundo) fechar(); });
+        $('#ns-fechar', fundo).onclick = fechar;
+        const ler = () => ({ nome: $('#ns-nome', fundo).value, grupo: $('#ns-grupo', fundo).value, prefixoId: $('#ns-prefixo', fundo).value });
+        const previa = () => {
+            try { const { sistema } = C.novoSistemaWeb(estado.config, ler()); $('#ns-previa', fundo).textContent = `id: ${sistema.id} · prefixo: ${sistema.prefixoId} · pasta: conteudo/jogos-web/${sistema.id}/ · DB: dist/jogos/${sistema.id}.json`; }
+            catch (e) { $('#ns-previa', fundo).textContent = $('#ns-nome', fundo).value.trim() ? e.message : ''; }
+        };
+        $$('input', fundo).forEach(i => i.addEventListener('input', previa));
+        $('#ns-nome', fundo).focus();
+        $('#ns-criar', fundo).onclick = async () => {
+            const btn = $('#ns-criar', fundo), erros = $('#ns-erros', fundo);
+            try {
+                const { sistema, config } = C.novoSistemaWeb(estado.config, ler());
+                btn.disabled = true; btn.textContent = 'Criando…';
+                const texto = await estado.repo.lerTexto('studio.config.json');
+                const novo = C.inserirSistemaNoTexto(texto, sistema);
+                await estado.repo.salvar([{ caminho: 'studio.config.json', conteudo: novo }], `Studio: novo sistema em Jogos Web — ${sistema.nome}`);
+                estado.config = config; if (estado.repo.config) estado.repo.config = config;
+                if (estado.repo.arquivos) estado.repo.arquivos['studio.config.json'] = novo;
+                fechar();
+                desenharApp();
+                aviso(`Sistema "${sistema.nome}" criado. Os jogos dele vão para conteudo/jogos-web/${sistema.id}/ e o card aparece no app quando tiver jogo publicado.`, 'ok');
+            } catch (e) {
+                btn.disabled = false; btn.textContent = 'Criar sistema';
+                erros.textContent = e.message; erros.style.display = 'block';
+            }
+        };
+    }
+
+    // ==================================================================
     // ☑ Mudar vários de uma vez (licença, console, peso, controle, publicar/rascunho)
     //   Lê cada item, aplica só o que foi escolhido, confere (jogo web sem licença não publica)
     //   e grava TUDO num commit só. Trocar o console move o arquivo para a pasta do console novo.
@@ -463,7 +531,7 @@
         if (col.tipo === 'jogo') {
             const lic = { livre: 'livre (jogo/código aberto ou gratuito)', autorizada: 'autorizada (demo oficial ou o dono liberou)', 'precisa-original': 'precisa-original (o jogador carrega os arquivos)', 'nao-verificada': 'não verificada' };
             l.push({ k: 'licenca', rotulo: 'Licença', opcoes: (C.LICENCAS_WEB || []).map(v => [v, lic[v] || v]) });
-            l.push({ k: 'console', rotulo: 'Console (move o arquivo para a pasta dele)', opcoes: (estado.config.consoles || []).map(c => [c.id, c.nome]) });
+            l.push({ k: 'console', rotulo: col.consoles === 'consolesWeb' ? 'Sistema (move o arquivo para a pasta dele)' : 'Console (move o arquivo para a pasta dele)', opcoes: C.consolesDaColecao(col, estado.config).map(c => [c.id, c.nome]) });
             l.push({ k: 'peso', rotulo: 'Peso', opcoes: (C.PESOS_WEB || []).map(v => [v, v]).concat([['', '(apagar)']]) });
             l.push({ k: 'controles', rotulo: 'Controle', opcoes: (C.CONTROLES_WEB || []).map(v => [v, v]).concat([['', '(apagar)']]) });
             l.push({ k: 'soPC', rotulo: 'Só PC (não aparece na TV)', opcoes: [['sim', '☑ Só PC'], ['', '☐ TV e PC']] });
@@ -597,7 +665,7 @@
             case 'bool':
                 return `<div><label class="check"><input type="checkbox" id="${id}" data-k="${c.k}" ${valor ? 'checked' : ''}> ${esc(c.rotulo)}</label>${dica}</div>`;
             case 'escolha': {
-                const ops = c.opcoes ? c.opcoes.map(v => ({ v, r: v || '—' })) : C.opcoesDe(c.opcoesDe, estado.config);
+                const ops = c.opcoes ? c.opcoes.map(v => ({ v, r: v || '—' })) : C.opcoesDe(c.opcoesDe, estado.config, colecaoAtual());
                 if (c.livre) {
                     return `<div>${rot}<input class="campo" id="${id}" data-k="${c.k}" list="${id}-l" value="${esc(valor || '')}">
                       <datalist id="${id}-l">${ops.map(o => `<option value="${esc(o.v)}">`).join('')}</datalist>${dica}</div>`;

@@ -157,14 +157,20 @@ Dá para editar até pelo site do GitHub: o robô publica sozinho a cada commit.
 | 📚 Bookzine | `conteudo/bookzine/` | Cartoonzine (view em construção) | `bookzine.json` + `bookzine/indice.json` |
 | 📻 Rádios | `conteudo/radios/` | Rádio | `radios.json`, `radios.m3u`, `radios/pais/<pais>.m3u` |
 | 📡 Canais | `conteudo/canais/<país>/` | TVzine | `canais.json`, `canais.m3u`, `canais/paises.json`, `canais/pais/<pais>.json` e `.m3u` |
-| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles + 31 sistemas de jogos web) |
+| 🕹️ Jogos Retrô | `conteudo/jogos/<console>/` | Emulador | `jogos/<console>.json` (27 consoles) |
+| 🌐 Jogos Web | `conteudo/jogos-web/<sistema>/` | Emulador (cartucho web) | `jogos/<sistema>.json` (31 sistemas, `consolesWeb`) |
 
 Os `.m3u` por país também funcionam direto em qualquer player IPTV (VLC, TiviMate…).
 
 ### 🌐 Web Games (cartucho web: jogos que rodam direto no navegador)
 
-Os jogos web ficam em Jogos Retrô, **um console (DB) por sistema original do jogo**. Cada um vira um card no
-hub de games do app e uma fonte no cloud (`dist/jogos/<sistema>.json`). O link é o da **página do jogo** (não uma ROM).
+Os jogos web têm **seção própria no painel: 🌐 Jogos Web** (`conteudo/jogos-web/<sistema>/`), separada dos
+🕹️ Jogos Retrô (ROMs do emulador). É **um DB por sistema original do jogo**: cada um vira um card no hub de games
+do app e uma fonte no cloud (`dist/jogos/<sistema>.json`). O link é o da **página do jogo** (não uma ROM).
+
+**Sistema novo:** em Jogos Web clique em **+ Novo sistema**, escreva o nome (ex.: *Game Boy Advance*) e o grupo.
+O Studio grava a linha em `consolesWeb` no `studio.config.json`, o cloud pega a fonte nova sozinho (bloco
+`fontesDoStudio` do sources.json) e o hub do app cria o card quando o sistema tiver jogo publicado.
 
 | Grupo | Sistemas (id no Studio) |
 |---|---|
@@ -193,7 +199,7 @@ node tools/importar-webports.mjs --atualizar      # completa os que já existem 
 
 Cada jogo jogável (▶) vira **rascunho** com licença `nao-verificada`; o que o Studio não reconhece fica em
 **Sem categoria** para você mover (seleção em massa → Console). Quem só tem código-fonte (📦) fica em
-`conteudo/jogos/_webports-sem-demo.json`. Reimportar nunca mexe num jogo que você já conferiu, publicou ou mudou de sistema.
+`conteudo/jogos-web/_webports-sem-demo.json`. Reimportar nunca mexe num jogo que você já conferiu, publicou ou mudou de sistema.
 Muitos itens dessa lista são ports de jogos comerciais feitos por fãs: publique só o que for livre, autorizado ou que peça
 os arquivos originais do próprio jogador.
 

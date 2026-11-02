@@ -55,7 +55,9 @@ export function criarServidor({ raiz = RAIZ } = {}) {
             }
             if (url.pathname === '/api/salvar' && req.method === 'POST') {
                 const { mudancas = [] } = await corpo(req);
-                for (const m of mudancas) if (!CAMINHO_OK.test(m.caminho || '') || m.caminho.includes('..')) return json(res, 400, { erro: 'caminho inválido: ' + m.caminho });
+                for (const m of mudancas) if ((!CAMINHO_OK.test(m.caminho || '') && m.caminho !== 'studio.config.json') || m.caminho.includes('..')) return json(res, 400, { erro: 'caminho inválido: ' + m.caminho });
+                // studio.config.json (+ Novo sistema): só aceita um JSON válido que continue com as coleções
+                for (const m of mudancas) if (m.caminho === 'studio.config.json') { const c = JSON.parse(m.conteudo || 'null'); if (!c || !Array.isArray(c.colecoes) || !c.colecoes.length) return json(res, 400, { erro: 'config inválida' }); }
                 for (const m of mudancas) {
                     const abs = path.join(raiz, m.caminho);
                     if (m.conteudo == null) {

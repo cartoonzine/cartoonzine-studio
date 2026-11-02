@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Cartucho web: importa a lista "Ultimate Catalog of Web Game Ports" para a coleção Jogos Retrô.
+ * Cartucho web: importa a lista "Ultimate Catalog of Web Game Ports" para a seção Jogos Web.
  *
  *   node tools/importar-webports.mjs                       (baixa o README oficial do GitHub)
  *   node tools/importar-webports.mjs README.md             (ou um arquivo/link que você escolher)
@@ -9,14 +9,14 @@
  *   node tools/importar-webports.mjs --simular             (mostra o que faria, sem salvar nada)
  *
  * O que ele faz:
- *   • cada jogo com link jogável (▶) vira conteudo/jogos/<sistema>/<nome>.json como RASCUNHO
+ *   • cada jogo com link jogável (▶) vira conteudo/jogos-web/<sistema>/<nome>.json como RASCUNHO
  *     (licença "nao-verificada"): nada vai para o app antes de você conferir a licença no painel;
- *   • quem só tem código-fonte (📦, sem demo) vai para conteudo/jogos/_webports-sem-demo.json
+ *   • quem só tem código-fonte (📦, sem demo) vai para conteudo/jogos-web/_webports-sem-demo.json
  *     (arquivo com "_" na frente: o build ignora; é só uma lista para consulta);
  *   • jogo que já existe em qualquer console web (mesmo que você tenha mudado de web para webpc
  *     ou já publicado) NÃO é mexido. Com --atualizar ele só ganha o que falta (link reserva, repo).
  *
- * Sistemas: os consoles com "web": true no studio.config.json (Fangames, Indie, DOS, PS2…). Jogo pesado: marque "Só PC".
+ * Sistemas: consolesWeb no studio.config.json (Fangames, Indie, DOS, PS2…). Jogo pesado: marque "Só PC".
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -29,9 +29,9 @@ const ORIGEM = 'auto:Ultimate Catalog of Web Game Ports';
 /** Importa o texto do README. Devolve o resumo (usado também pelos testes). */
 export function importarWebPorts(texto, { raiz = RAIZ, console: destino = 'auto', secao, limite, simular = false, atualizar = false } = {}) {
     const config = lerConfig(raiz);
-    const colecao = acharColecao(config, 'jogos');
+    const colecao = acharColecao(config, 'jogos-web');
     // "auto" = cada jogo vai para o sistema original dele (pelo nome); o que não der para saber fica em "Sem categoria"
-    if (destino !== 'auto' && !Core.consoleWeb(destino, config)) throw new Error(`"${destino}" não é um console web (veja os "web": true em consoles do studio.config.json)`);
+    if (destino !== 'auto' && !Core.consoleWeb(destino, config)) throw new Error(`"${destino}" não é um console web (veja consolesWeb no studio.config.json)`);
     const sistemaDe = (nome) => destino === 'auto' ? Core.sistemaWebDoNome(nome) : destino;
     const { jogos, semDemo } = Core.lerCatalogoWebPorts(texto);
     const filtro = (j) => !secao || String(j.secao).toLowerCase() === String(secao).toLowerCase();

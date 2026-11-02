@@ -106,6 +106,18 @@
       "icone": "🕹️",
       "subpasta": "console",
       "fonteCloudPorConsole": true
+    },
+    {
+      "id": "jogos-web",
+      "nome": "Jogos Web",
+      "tipo": "jogo",
+      "app": "cartoonzine/emulator (cartucho web)",
+      "icone": "🌐",
+      "_comentario": "Jogos que rodam direto no navegador. Os sistemas (um DB e um card no app para cada) ficam em consolesWeb. Os arquivos publicados continuam em dist/jogos/<sistema>.json (mesmo endereço que o cloud já lê).",
+      "subpasta": "console",
+      "fonteCloudPorConsole": true,
+      "consoles": "consolesWeb",
+      "pastaDist": "jogos"
     }
   ],
 
@@ -126,7 +138,6 @@
     "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"
   ],
 
-  "_comentarioConsolesWeb": "Jogos web (cartucho web): um console por SISTEMA ORIGINAL do jogo (os que têm \"web\": true). Todos vão para TV e PC; o jogo marcado \"Só PC\" não aparece na TV. Abrem no cartucho-web.html (core web). \"grupo\" só organiza a ordem no app.",
   "consoles": [
     { "id": "arcade",       "nome": "Arcade",            "prefixoId": "ARC" },
     { "id": "nes",          "nome": "Nintendo (NES)",    "prefixoId": "NES" },
@@ -154,7 +165,11 @@
     { "id": "msdos",        "nome": "MS-DOS",            "prefixoId": "DOS" },
     { "id": "flash",        "nome": "Flash Player",      "prefixoId": "FLA" },
     { "id": "ps1",          "nome": "PlayStation 1",     "prefixoId": "PS1" },
-    { "id": "3do",          "nome": "3DO",               "prefixoId": "3DO" },
+    { "id": "3do",          "nome": "3DO",               "prefixoId": "3DO" }
+  ],
+
+  "_comentarioConsolesWeb": "Sistemas da seção Jogos Web (cartucho web): um DB por SISTEMA ORIGINAL do jogo. Para criar um sistema novo use \"+ Novo sistema\" no painel (ou acrescente uma linha aqui: id começando com web-, nome, prefixoId único, grupo). Todos vão para TV e PC; o jogo marcado \"Só PC\" não aparece na TV.",
+  "consolesWeb": [
     { "id": "web-fangames", "nome": "Fangames", "prefixoId": "FAN", "web": true, "grupo": "Comunidade" },
     { "id": "web-indie", "nome": "Indie", "prefixoId": "IND", "web": true, "grupo": "Comunidade" },
     { "id": "web-remakes", "nome": "Remakes", "prefixoId": "RMK", "web": true, "grupo": "Comunidade" },
