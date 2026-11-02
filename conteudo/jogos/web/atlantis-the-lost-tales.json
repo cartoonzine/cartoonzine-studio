@@ -7,7 +7,6 @@
   "repo": "https://github.com/ripleyXLR8/atlantis-native",
   "descricao": "Port para navegador · ripleyxlr8.github.io",
   "console": "web",
-  "licenca": "nao-verificada",
-  "_rascunho": true,
+  "licenca": "livre",
   "_origem": "auto:Ultimate Catalog of Web Game Ports"
 }
