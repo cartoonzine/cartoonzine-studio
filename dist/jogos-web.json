@@ -105,6 +105,21 @@
    "license": "autorizada"
   },
   {
+   "title": "Daytona USA",
+   "desc": "Port para navegador · johannruiz.github.io",
+   "studio": "jogos-web/web-arcade/daytona-usa",
+   "url": "https://johannruiz.github.io/Daytona-USA-Web/",
+   "console": "web-arcade",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada",
+   "repo": "https://github.com/johannruiz/Daytona-USA-Web"
+  },
+  {
    "title": "Freegemas",
    "desc": "Junte 3 joias iguais. No estilo Bejeweled, ótimo para a família. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2010,

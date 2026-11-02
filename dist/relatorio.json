@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-02T06:29:11.990Z",
+  "geradoEm": "2026-11-02T06:55:29.019Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,13 +133,9 @@
     {
       "colecao": "jogos-web",
       "total": 514,
-      "publicados": 13,
+      "publicados": 14,
       "erros": [],
       "avisos": [
-        {
-          "caminho": "conteudo/jogos-web/web-arcade/daytona-usa.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
         {
           "caminho": "conteudo/jogos-web/web-arcade/marvel-vs-capcom-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
@@ -2164,7 +2160,7 @@
         "web-ps3": 0,
         "web-android": 0,
         "web-ios": 0,
-        "web-arcade": 0,
+        "web-arcade": 1,
         "web-navegador": 0,
         "web-java": 0,
         "web-mobile": 0,
