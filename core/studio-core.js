@@ -1040,9 +1040,9 @@
             campos: [
                 { k: 'nome', rotulo: 'Título', tipo: 'texto', obrigatorio: true },
                 { k: 'autor', rotulo: 'Autor(es)', tipo: 'texto' },
-                { k: 'links', rotulo: 'Arquivo para ler', tipo: 'links', obrigatorio: true, dica: 'PDF, EPUB, CBZ/CBR (gibis), MOBI, DjVu, TXT… 1º = principal; os outros viram reserva. Link do archive.org importa sozinho.' },
+                { k: 'links', rotulo: 'Arquivo para ler', tipo: 'links', obrigatorio: true, dica: 'O leitor do app abre EPUB, PDF, CBZ/CBR (gibis), MOBI/AZW3 sem DRM, FB2 e TXT. 1º = principal; os outros viram reserva. Link do archive.org importa sozinho.' },
                 { k: 'categoria', rotulo: 'Estante', tipo: 'escolha', opcoesDe: 'categoriasLivros', livre: true },
-                { k: 'formato', rotulo: 'Formato', tipo: 'escolha', opcoes: ['', 'PDF', 'EPUB', 'CBZ', 'CBR', 'CB7', 'MOBI', 'AZW3', 'DjVu', 'TXT', 'HTML'], dica: 'vazio = descobre pela extensão do link' },
+                { k: 'formato', rotulo: 'Formato', tipo: 'escolha', opcoes: ['', 'PDF', 'EPUB', 'CBZ', 'CBR', 'CB7', 'MOBI', 'AZW3', 'FB2', 'DjVu', 'TXT', 'HTML'], dica: 'vazio = descobre pela extensão do link' },
                 { k: 'idioma', rotulo: 'Idioma', tipo: 'escolha', opcoesDe: 'idiomas' },
                 { k: 'serie', rotulo: 'Coleção / série', tipo: 'texto', dica: 'ex.: Turma da Mônica, Tex, Bíblia de Almeida' },
                 { k: 'volume', rotulo: 'Número / volume', tipo: 'numero' },

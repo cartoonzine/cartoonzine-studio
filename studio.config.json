@@ -94,9 +94,10 @@
       "id": "bookzine",
       "nome": "Bookzine",
       "tipo": "livro",
-      "app": "cartoonzine (view em construção)",
+      "app": "cartoonzine → views bookzine (biblioteca) e bookzine_leitor (leitor)",
       "icone": "📚",
-      "_comentario": "Livraria: livros, bíblias antigas, gibis, revistas e outros, em PDF, EPUB, CBZ/CBR, MOBI, DjVu, TXT. Publica bookzine.json e bookzine/indice.json. Ainda SEM fonteCloud de propósito: o app não tem a view; quando ela existir, acrescente aqui \"fonteCloud\": { \"nome\": \"Bookzine\", \"tipo\": \"vod_json\", \"prefixoId\": \"BOOK\", \"targetCategory\": \"Bookzine\", \"destino\": \"livros\" } e rode tools/ligar-cloud.mjs."
+      "_comentario": "Livraria: livros, bíblias antigas, gibis, revistas e outros. O leitor do app abre EPUB, PDF, CBZ/CBR, MOBI/AZW3 (sem DRM), FB2 e TXT. Publica bookzine.json e bookzine/indice.json. A Estante de cada livro vira a fileira dele no app (sem targetCategory de propósito).",
+      "fonteCloud": { "nome": "Bookzine", "tipo": "vod_json", "prefixoId": "BOOK", "destino": "livros", "categoryType": "livro", "agruparSeries": false }
     },
     {
       "id": "jogos",
@@ -128,9 +129,22 @@
     { "nome": "Português (Portugal)", "codigo": "pt-PT", "prefixoId": "YTN_PT" }
   ],
 
+  "_comentarioLivros": "Estantes do Bookzine (cada uma vira uma fileira no app), em 4 grupos. O app junta nomes antigos: Poesia → Poesia e Cordel, Contos e Fábulas → Contos, Fábulas e Lendas. Os gêneros (generosLivros) vão no campo Gêneros do livro e viram o filtro Gênero da biblioteca.",
   "categoriasLivros": [
-    "Livros", "Clássicos da Literatura", "Bíblias e Textos Sagrados", "Gibis e HQs", "Mangás", "Revistas",
-    "Infantil", "Poesia", "Contos e Fábulas", "História", "Ciência", "Religião", "Biografias", "Didáticos", "Outros"
+    "Livros", "Clássicos da Literatura", "Infantil", "Juvenil", "Contos, Fábulas e Lendas", "Poesia e Cordel", "Teatro",
+    "Gibis e HQs", "Mangás", "Tiras e Cartuns", "Graphic Novels",
+    "Revistas", "Almanaques", "Fanzines", "Passatempos e Atividades",
+    "Bíblias e Textos Sagrados", "Religião", "História", "Ciência", "Biografias", "Didáticos", "Dicionários e Enciclopédias", "Arte e Música", "Culinária", "Outros"
+  ],
+  "gruposLivros": {
+    "Literatura": ["Livros", "Clássicos da Literatura", "Infantil", "Juvenil", "Contos, Fábulas e Lendas", "Poesia e Cordel", "Teatro"],
+    "Quadrinhos": ["Gibis e HQs", "Mangás", "Tiras e Cartuns", "Graphic Novels"],
+    "Revistas": ["Revistas", "Almanaques", "Fanzines", "Passatempos e Atividades"],
+    "Conhecimento": ["Bíblias e Textos Sagrados", "Religião", "História", "Ciência", "Biografias", "Didáticos", "Dicionários e Enciclopédias", "Arte e Música", "Culinária", "Outros"]
+  },
+  "generosLivros": [
+    "Aventura", "Ação", "Humor", "Drama", "Romance", "Terror", "Suspense", "Policial e Mistério", "Ficção Científica", "Fantasia",
+    "Super-heróis", "Faroeste", "Guerra", "Esporte", "Mitologia", "Folclore", "Educativo"
   ],
 
   "categoriasCanais": [
