@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-04T14:28:51.166Z",
+  "geradoEm": "2026-11-04T14:42:55.755Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -82,14 +82,9 @@
     {
       "colecao": "jogos",
       "total": 1,
-      "publicados": 0,
+      "publicados": 1,
       "erros": [],
-      "avisos": [
-        {
-          "caminho": "conteudo/jogos/msdos/brix.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        }
-      ],
+      "avisos": [],
       "porConsole": {
         "arcade": 0,
         "nes": 0,
@@ -114,7 +109,7 @@
         "odyssey2": 0,
         "colecovision": 0,
         "amiga": 0,
-        "msdos": 0,
+        "msdos": 1,
         "flash": 0,
         "ps1": 0,
         "3do": 0,
