@@ -181,6 +181,8 @@ O jogo vai para o app com esse core, a não ser que você preencha **Core do emu
 comando do jogo (ex.: `KEEN4E.EXE`). Sem isso o app tenta achar o `.exe`/`.bat`/`.com` sozinho.
 **Arcade:** todos os jogos de arcade ficam no mesmo card. O padrão é o FBNeo; para um jogo de MAME escreva
 `mame2003` (ou `mame2003_plus`) no campo **Core do emulador** dele (também valem `fbalpha2012_cps1` e `fbalpha2012_cps2`).
+**MAME 0.289 por partes:** `mame_capcom` é um core próprio (feito no repositório cartoonzine-jogos, pasta `nucleos`) com os
+jogos da Capcom do MAME 0.289. A ROM precisa ser do romset 0.289 e o link tem que terminar com o nome do romset (ex.: `.../sf2.zip`).
 Sem emulador no EmulatorJS (`"semEmulador": true`): Neo Geo CD, MSX, Odyssey 2 e Flash.
 
 ### 🌐 Web Games (cartucho web: jogos que rodam direto no navegador)
