@@ -320,6 +320,15 @@
   },
   {
     "_colecao": "jogos",
+    "nome": "PC Classics",
+    "tipo": "emulator_json",
+    "prefixoId": "PCC",
+    "console": "pcclassics",
+    "targetCategory": "PC Classics",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/pcclassics.json"
+  },
+  {
+    "_colecao": "jogos",
     "nome": "Flash Player",
     "tipo": "emulator_json",
     "prefixoId": "FLA",

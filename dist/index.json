@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-04T16:22:39.810Z",
+  "geradoEm": "2026-11-04T16:52:47.194Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -159,6 +159,7 @@
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/colecovision.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/amiga.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/msdos.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/pcclassics.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/flash.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/ps1.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/3do.json",
@@ -204,6 +205,7 @@
         "colecovision": 0,
         "amiga": 0,
         "msdos": 1,
+        "pcclassics": 0,
         "flash": 0,
         "ps1": 0,
         "3do": 0,

@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-04T16:22:39.810Z",
+  "geradoEm": "2026-11-04T16:52:47.194Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -110,6 +110,7 @@
         "colecovision": 0,
         "amiga": 0,
         "msdos": 1,
+        "pcclassics": 0,
         "flash": 0,
         "ps1": 0,
         "3do": 0,
