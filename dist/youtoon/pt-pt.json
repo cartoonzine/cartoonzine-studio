@@ -167,7 +167,7 @@
    ],
    "studio": "youtoon/portugues-portugal/cartoonito-portugal-batwheels",
    "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQnU0v7dQiOMM3pmTS60Hbrm",
-   "logo": "https://i.ytimg.com/vi/9jcMqm9U8qQ/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/x3yN8eMWYpE/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -249,7 +249,7 @@
   },
   {
    "title": "Disney Channel PT · Miraculous - As Aventuras de Ladybug",
-   "desc": "Playlist de Disney Channel PT · 288 vídeos",
+   "desc": "Playlist de Disney Channel PT · 291 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -257,7 +257,7 @@
    ],
    "studio": "youtoon/portugues-portugal/disney-channel-pt-miraculous-as-aventuras-de-ladybug",
    "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuyVoeOg6gS_tXbwupPETFrl",
-   "logo": "https://i.ytimg.com/vi/x9db4aPr4PI/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/rgxqXH_UB8E/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -420,6 +420,18 @@
    "studio": "youtoon/portugues-portugal/masha-e-o-urso-eu-masha-e-o-urso-todos-os-novos-episodios",
    "url": "https://www.youtube.com/playlist?list=PL0hFNECWN4x5VqINSZFYk_KX4aHwcvnq1",
    "logo": "https://i.ytimg.com/vi/FmeZ6sVJ-2Q/hqdefault.jpg",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Masha e o Urso EU 24H",
+   "desc": "🔴 LIVE 👧🐻 Masha e o Urso 🛁 Porque devemos tomar banho? 🧼🧴 Masha and the Bear",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/masha-e-o-urso-eu-24h",
+   "url": "https://www.youtube.com/channel/UCu-ouRRIRwKHqEGXbLMftVw/live",
+   "logo": "https://i.ytimg.com/vi/O3zBK-pIwfw/hqdefault.jpg?v=6ae5eac3",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
