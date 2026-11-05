@@ -196,6 +196,20 @@
    "license": "autorizada"
   },
   {
+   "title": "GTA V",
+   "desc": "Port para navegador · web.archive.org",
+   "studio": "jogos-web/web-windows/gta-v",
+   "url": "https://web.archive.org/web/20261006055917/https://playgta5.com/",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
+  },
+  {
    "title": "Jump 'n Bump",
    "desc": "Coelhinhos pulando na cabeça uns dos outros. Clássico multiplayer local (até 4 no mesmo teclado/controle). Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1998,
