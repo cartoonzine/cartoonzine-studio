@@ -351,3 +351,4 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 
 /* 🧩 Prateleira */
 @media (max-width: 640px) { .pr-topo { grid-template-columns: 1fr !important; } }
+#pr-fila a.btn { text-decoration: none; color: var(--texto); }
