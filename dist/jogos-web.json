@@ -306,10 +306,12 @@
     "Puzzle",
     "Habilidade"
    ],
+   "bgImg": "banner",
+   "bgPosY": 0,
    "studio": "jogos-web/web-pc/neverball",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/neverball/",
-   "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/neverball.jpg",
-   "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/neverball-banner.jpg",
+   "thumb": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co9ugw.jpg",
+   "bannerThumb": "https://images.igdb.com/igdb/image/upload/t_720p/sc80i3.webp",
    "console": "web-pc",
    "core": "web",
    "aparelhos": [
