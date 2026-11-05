@@ -115,3 +115,15 @@ test('prateleira: ficha para Jogos Web e já cadastrado', () => {
     assert.equal(P.jaCadastrado(indice, { id: 'xgalaga', nome: 'XGalaga' }), null);
     assert.equal(P.jaCadastrado([{ caminho: 'conteudo/jogos/x/opentyrian.json' }], j), null);
 });
+
+test('prateleira: remover jogo do jogos.json (vírgulas certas)', () => {
+    const txt = '{\n  "jogos": [\n    { "id": "a", "nome": "A {x}" },\n    { "id": "b", "nome": "B \\" } ,",\n      "generos": ["X"] },\n    { "id": "c" }\n  ]\n}\n';
+    const semB = P.removerDoJogosJson(txt, 'b');
+    assert.equal(semB, '{\n  "jogos": [\n    { "id": "a", "nome": "A {x}" },\n    { "id": "c" }\n  ]\n}\n');
+    const semC = P.removerDoJogosJson(txt, 'c');
+    assert.deepEqual(JSON.parse(semC).jogos.map(j => j.id), ['a', 'b']);
+    assert.ok(/"generos": \["X"\] }\n  \]/.test(semC));
+    assert.deepEqual(JSON.parse(P.removerDoJogosJson(txt, 'a')).jogos.map(j => j.id), ['b', 'c']);
+    assert.deepEqual(JSON.parse(P.removerDoJogosJson('{"jogos":[{"id":"z"}]}', 'z')).jogos, []);
+    assert.throws(() => P.removerDoJogosJson(txt, 'nada'), /Não achei/);
+});

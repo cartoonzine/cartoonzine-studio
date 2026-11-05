@@ -268,6 +268,7 @@
                 ? ` <span class="chip" style="color:var(--verde)" title="${esc(cad.caminho)}">✔ em Jogos Web</span>`
                 : ` <span class="pr-cad" style="display:inline-flex;gap:6px;align-items:center"><select class="campo" data-sis="${esc(j.id)}" style="padding:4px 8px;width:auto">${sistemas.map(c => `<option value="${esc(c.id)}" ${c.id === 'web-pc' ? 'selected' : ''}>${esc(c.nome)}</option>`).join('')}</select>
                    <button class="btn principal mini" data-cadastrar="${esc(j.id)}">Cadastrar em Jogos Web</button></span>`);
+            acoes += ` <button class="btn perigo mini" data-remover="${esc(j.id)}" title="Tira o jogo da prateleira (ficha + receita${l.noAr ? ' + a versão publicada' : ''})">🗑️ Remover</button>`;
             return `<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--borda);border-radius:10px">
                 <span style="min-width:150px;flex:1"><b>${esc(j.nome || j.id)}</b> <span class="dica">(${esc(j.id)})</span></span>
                 <span class="chip" style="${cor ? 'color:' + cor : ''}">${rot}${l.estado === 'falhou' && l.noAr ? ' · versão antiga no ar' : ''}</span>
@@ -275,6 +276,7 @@
         }).join('')}</div>`;
         caixa.querySelectorAll('[data-compilar]').forEach(b => b.onclick = () => compilar(S, b.dataset.compilar, b));
         caixa.querySelectorAll('[data-cadastrar]').forEach(b => b.onclick = () => cadastrar(S, b.dataset.cadastrar, b));
+        caixa.querySelectorAll('[data-remover]').forEach(b => b.onclick = () => remover(S, b.dataset.remover, b));
     }
 
     async function compilar(S, id, botao) {
@@ -288,6 +290,38 @@
         } catch (e) {
             botao.disabled = false; botao.textContent = '▶ Compilar';
             S.aviso('Não consegui: ' + e.message, 'ruim');
+        }
+    }
+
+    async function remover(S, id, botao) {
+        const l = pr.fila.lista.find(x => x.jogo.id === id);
+        const nome = l ? (l.jogo.nome || id) : id;
+        const cad = l && l.noAr ? P.jaCadastrado(S.indice(), l.jogo) : null;
+        if (!confirm(`Remover "${nome}" da prateleira?\n\nApaga a ficha do jogos.json e a receita receitas/${id}.sh` +
+            (l && l.noAr ? ', e tira o jogo do site.' : '.') +
+            (cad ? `\n\nAtenção: ele também está em Jogos Web (${cad.caminho}). Esse card NÃO é apagado: apague na coleção Jogos Web se quiser.` : ''))) return;
+        botao.disabled = true; botao.textContent = 'Removendo…';
+        try {
+            const atual = await lerPrateleira(S, tokenAtual(S));
+            const repo = atual.repo;
+            const temReceita = await repo.api('/contents/receitas/' + encodeURIComponent(id) + '.sh?ref=main', { cache: 'no-store' }).then(() => true, () => false);
+            const mud = [{ caminho: 'jogos.json', conteudo: P.removerDoJogosJson(atual.texto, id) }];
+            if (temReceita) mud.push({ caminho: 'receitas/' + id + '.sh', conteudo: null });
+            await repo.salvar(mud, 'Prateleira: remove — ' + nome);
+            // a versão publicada (pasta <id>/ no gh-pages): o robô não apaga sozinho
+            if (l && l.noAr && /^[a-z0-9][a-z0-9-]*$/.test(id) && !['capas', 'dos', 'pc', 'cores'].includes(id)) {
+                try {
+                    const site = new S.RepoGitHub({ repo: REPO_JOGOS, branch: 'gh-pages', token: tokenAtual(S) });
+                    const arv = await lerJson(site, '/git/trees/gh-pages?recursive=1');
+                    const arquivos = (arv.tree || []).filter(t => t.type === 'blob' && t.path.startsWith(id + '/')).map(t => ({ caminho: t.path, conteudo: null }));
+                    if (arquivos.length) await site.salvar(arquivos, 'site: remove ' + id);
+                } catch (e) { S.aviso('Removido da prateleira, mas não consegui tirar do site: ' + e.message, 'ruim'); }
+            }
+            S.aviso('"' + nome + '" saiu da prateleira.', 'ok');
+            pr.fila = null; pr.jogos = null; carregarFila(S);
+        } catch (e) {
+            botao.disabled = false; botao.textContent = '🗑️ Remover';
+            S.aviso('Não consegui remover: ' + e.message, 'ruim');
         }
     }
 

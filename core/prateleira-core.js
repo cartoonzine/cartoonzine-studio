@@ -229,6 +229,35 @@ echo "receita ainda não feita" && exit 1`;
             (norm(i.caminho.split('/').pop().replace(/\.json$/, '')).includes(id) || (nome && norm(i.nome) === nome))) || null;
     }
 
-    return { LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson,
+    /** Tira um jogo inteiro do jogos.json (com a vírgula certa, sem mexer no resto do arquivo). */
+    function removerDoJogosJson(texto, id) {
+        const dados = JSON.parse(texto);
+        const n = (dados.jogos || []).length;
+        if (!(dados.jogos || []).some(j => j.id === id)) throw new Error('Não achei o jogo "' + id + '" no jogos.json');
+        const m = new RegExp('"id"\\s*:\\s*' + JSON.stringify(id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).exec(texto);
+        if (m) {
+            const ini = texto.lastIndexOf('{', m.index);
+            let fim = -1, nivel = 0, emTexto = false;                 // acha o "}" que fecha este jogo
+            for (let i = ini; i < texto.length; i++) {
+                const c = texto[i];
+                if (emTexto) { if (c === '\\') i++; else if (c === '"') emTexto = false; continue; }
+                if (c === '"') emTexto = true; else if (c === '{') nivel++; else if (c === '}' && --nivel === 0) { fim = i + 1; break; }
+            }
+            if (fim > 0) {
+                let a = ini, b = fim;
+                const depois = /^\s*,/.exec(texto.slice(b));
+                if (depois) b += depois[0].length;                      // "jogo," → leva a vírgula de depois
+                else { const antes = /,\s*$/.exec(texto.slice(0, a)); if (antes) a -= antes[0].length; }   // último: leva a de antes
+                while (a > 0 && /[ \t]/.test(texto[a - 1])) a--;
+                if (texto[a - 1] === '\n' && depois) { a--; }
+                const novo = texto.slice(0, a) + texto.slice(b);
+                try { const v = JSON.parse(novo); if (v.jogos.length === n - 1 && !v.jogos.some(j => j.id === id)) return novo; } catch (e) { /* plano B */ }
+            }
+        }
+        dados.jogos = dados.jogos.filter(j => j.id !== id);
+        return JSON.stringify(dados, null, 2) + '\n';
+    }
+
+    return { removerDoJogosJson, LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson,
         PAGINA, statusDosJogos, tirarRascunho, itemJogosWeb, jaCadastrado };
 });
