@@ -1,0 +1,82 @@
+# 🏛️ Importar jogos de MS-DOS do Internet Archive para o console MS-DOS
+#  - Actions → "Importar MS-DOS do Internet Archive" → Run workflow → escolha quantos, a década, o gênero…
+#  - o robô cria um branch com os jogos novos e abre um pull request; aceitando, eles vão para o app
+#  - o jogo continua no Archive: o card guarda o link da página do jogo (o cartucho DOS do app abre direto)
+name: Importar MS-DOS do Internet Archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: "Quantos jogos (até 1000)"
+        default: "100"
+      inicio:
+        description: "Começar do jogo nº (0 = do começo; 100 = pula os 100 primeiros)"
+        default: "0"
+      ordem:
+        description: "Ordem: populares, titulo, ano ou recentes"
+        default: "populares"
+      decada:
+        description: "Década (ex.: 1990) — vazio = todas"
+        default: ""
+      genero:
+        description: "Gênero em inglês, como no Archive (ex.: puzzle, platform, rpg) — vazio = todos"
+        default: ""
+      rascunho:
+        description: "Entrar como rascunho (sim/nao)"
+        default: "nao"
+  push:
+    branches: [archive-dos]
+    paths: ['.github/workflows/importar-archive.yml']
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Testes do importador
+        run: node --test test/archive-dos.test.mjs
+      - name: Buscar e importar
+        id: imp
+        env:
+          LIMITE: ${{ github.event.inputs.limite || '100' }}
+          INICIO: ${{ github.event.inputs.inicio || '0' }}
+          ORDEM: ${{ github.event.inputs.ordem || 'populares' }}
+          DECADA: ${{ github.event.inputs.decada || '' }}
+          GENERO: ${{ github.event.inputs.genero || '' }}
+          RASCUNHO: ${{ github.event.inputs.rascunho || 'nao' }}
+        run: |
+          set -o pipefail
+          a=(--limite "$LIMITE" --inicio "$INICIO" --ordem "$ORDEM")
+          [ -n "$DECADA" ] && a+=(--decada "$DECADA")
+          [ -n "$GENERO" ] && a+=(--genero "$GENERO")
+          [ "$RASCUNHO" = "sim" ] && a+=(--rascunho)
+          node tools/importar-archive-dos.mjs "${a[@]}" | tee /tmp/resumo.txt
+          echo "resumo=$(tail -1 /tmp/resumo.txt)" >> "$GITHUB_OUTPUT"
+      - name: Guardar e abrir o pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESUMO: ${{ steps.imp.outputs.resumo }}
+        run: |
+          git config user.name "cartoonzine-studio[bot]"
+          git config user.email "cartoonzine-studio@users.noreply.github.com"
+          git add conteudo/jogos/msdos
+          if git diff --cached --quiet; then echo "nenhum jogo novo"; exit 0; fi
+          n=$(git diff --cached --name-only | wc -l)
+          if [ "${GITHUB_REF_NAME}" = "archive-dos" ]; then
+            git commit -q -m "MS-DOS: $n jogos do Internet Archive ($RESUMO)" && git push -q origin HEAD:archive-dos
+            exit 0
+          fi
+          b="archive-dos-$(date +%Y%m%d-%H%M)"
+          git checkout -q -b "$b" && git commit -q -m "MS-DOS: $n jogos do Internet Archive ($RESUMO)" && git push -q origin "$b"
+          gh pr create --base main --head "$b" --title "MS-DOS: $n jogos do Internet Archive" \
+            --body "Importados pelo robô (tools/importar-archive-dos.mjs). $RESUMO. Os jogos continuam no Archive; o card guarda o link da página do jogo." \
+            || echo "não deu para abrir o PR sozinho: abra pelo branch $b"
