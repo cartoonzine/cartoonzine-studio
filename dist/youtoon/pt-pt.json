@@ -167,7 +167,7 @@
    ],
    "studio": "youtoon/portugues-portugal/cartoonito-portugal-batwheels",
    "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQnU0v7dQiOMM3pmTS60Hbrm",
-   "logo": "https://i.ytimg.com/vi/x3yN8eMWYpE/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/nr560ZReFtU/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -197,7 +197,7 @@
   },
   {
    "title": "Cartoonito Portugal · Grizzy e os Lemingues",
-   "desc": "Playlist de Cartoonito Portugal · 160 vídeos",
+   "desc": "Playlist de Cartoonito Portugal · 162 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -209,7 +209,7 @@
   },
   {
    "title": "Cartoonito Portugal · Tom e Jerry 😼🐭",
-   "desc": "Playlist de Cartoonito Portugal · 513 vídeos",
+   "desc": "Playlist de Cartoonito Portugal · 520 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -285,7 +285,7 @@
    ],
    "studio": "youtoon/portugues-portugal/disney-channel-pt-os-green-na-cidade-grande",
    "url": "https://www.youtube.com/playlist?list=PLp2N2tyX4iuxl-wU-Q8yhfsmxf2H2G60X",
-   "logo": "https://i.ytimg.com/vi/WcYYx-Fa-FA/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/NZSz8IVdcjg/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -377,13 +377,13 @@
   },
   {
    "title": "Masha e o Urso EU · 🔴 LIVE 👧🐻 Masha e o Urso",
-   "desc": "Playlist de Masha e o Urso EU · 242 vídeos",
+   "desc": "Playlist de Masha e o Urso EU · 243 vídeos",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/portugues-portugal/masha-e-o-urso-eu-live-masha-e-o-urso",
    "url": "https://www.youtube.com/playlist?list=PL0hFNECWN4x7ss9TvXEPt_sqzgW3J0E43",
-   "logo": "https://i.ytimg.com/vi/rmNPrD8ZYDk/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/O3zBK-pIwfw/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -424,18 +424,6 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "Masha e o Urso EU 24H",
-   "desc": "🔴 LIVE 👧🐻 Masha e o Urso 🛁 Porque devemos tomar banho? 🧼🧴 Masha and the Bear",
-   "genre": [
-    "Infantil"
-   ],
-   "studio": "youtoon/portugues-portugal/masha-e-o-urso-eu-24h",
-   "url": "https://www.youtube.com/channel/UCu-ouRRIRwKHqEGXbLMftVw/live",
-   "logo": "https://i.ytimg.com/vi/O3zBK-pIwfw/hqdefault.jpg?v=6ae5eac3",
-   "idioma": "pt-PT",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "Mr Bean No.1 Portugal",
    "desc": "Canal oficial de Mr Bean No.1 Portugal no YouTube: episódios sem parar.",
    "genre": [
@@ -456,6 +444,18 @@
    "studio": "youtoon/portugues-portugal/nick-jr-em-portugues",
    "url": "https://www.youtube.com/channel/UCxmK61Geo08axWQP_BPdvlw",
    "logo": "https://yt3.ggpht.com/xs_NHPdUbCntjif-I2CrITeu-voAwG3Gpn04MluTh3NlPBdNmvMUFq4_wzPU5jgYWNl_zK_OEA=s800-c-k-c0x00ffffff-no-rj",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Nick Jr. em Português 24H",
+   "desc": "🔴AO VIVO: Resgates, Aventuras e Jogos com Robôs do Blaze! 🤖",
+   "genre": [
+    "Pré-escolar"
+   ],
+   "studio": "youtoon/portugues-portugal/nick-jr-em-portugues-24h",
+   "url": "https://www.youtube.com/channel/UCxmK61Geo08axWQP_BPdvlw/live",
+   "logo": "https://i.ytimg.com/vi/Z9Nm2wVYczY/hqdefault.jpg?v=6908f3f5",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
