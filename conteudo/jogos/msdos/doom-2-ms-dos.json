@@ -1,0 +1,16 @@
+{
+  "nome": "Doom 2 (MS-DOS)",
+  "links": [
+    "https://archive.org/details/Doom-2"
+  ],
+  "capa": "https://archive.org/services/img/Doom-2",
+  "fonte": "https://archive.org/details/Doom-2",
+  "descricao": "Video game \"Doom 2\" / \"Doom II\" for MS-DOS, 1994. The zip includes \"DeathManager\", a utility that helped setting up multiplayer games (IPX, modem or serial cable)",
+  "ano": 1994,
+  "generos": [
+    "Video game"
+  ],
+  "editora": "Id Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

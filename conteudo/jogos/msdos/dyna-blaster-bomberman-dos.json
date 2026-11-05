@@ -1,0 +1,16 @@
+{
+  "nome": "Dyna Blaster (Bomberman) - DOS",
+  "links": [
+    "https://archive.org/details/chenall_dyna"
+  ],
+  "capa": "https://archive.org/services/img/chenall_dyna",
+  "fonte": "https://archive.org/details/chenall_dyna",
+  "descricao": "The general goal throughout the series is to complete the levels by strategically placing bombs in order to kill enemies and destroy obstacles. Exploding bombs can set off other bombs, kill or injure enemies, and destroy obstacles. However, they can also kill or injure the player character,…",
+  "ano": 1992,
+  "generos": [
+    "Bomberman",
+    "Dyna"
+  ],
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

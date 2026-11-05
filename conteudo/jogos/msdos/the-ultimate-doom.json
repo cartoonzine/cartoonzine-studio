@@ -1,0 +1,17 @@
+{
+  "nome": "The Ultimate Doom",
+  "links": [
+    "https://archive.org/details/The_Ultimate_Doom"
+  ],
+  "capa": "https://archive.org/services/img/The_Ultimate_Doom",
+  "fonte": "https://archive.org/details/The_Ultimate_Doom",
+  "descricao": "Doom Engine + WAD for The Ultimate Doom",
+  "ano": 1995,
+  "generos": [
+    "Doom",
+    "Dos games"
+  ],
+  "editora": "ID Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

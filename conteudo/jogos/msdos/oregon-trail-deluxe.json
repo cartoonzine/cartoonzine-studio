@@ -1,0 +1,16 @@
+{
+  "nome": "Oregon Trail Deluxe",
+  "links": [
+    "https://archive.org/details/oregon-trail-deluxe"
+  ],
+  "capa": "https://archive.org/services/img/oregon-trail-deluxe",
+  "fonte": "https://archive.org/details/oregon-trail-deluxe",
+  "descricao": "This is the classic Oregon Trail Deluxe!",
+  "ano": 1992,
+  "generos": [
+    "Oregon Trail"
+  ],
+  "editora": "MECC",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

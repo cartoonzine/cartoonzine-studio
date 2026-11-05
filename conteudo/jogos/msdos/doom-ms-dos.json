@@ -1,0 +1,16 @@
+{
+  "nome": "DOOM (MS-DOS)",
+  "links": [
+    "https://archive.org/details/doom_dos"
+  ],
+  "capa": "https://archive.org/services/img/doom_dos",
+  "fonte": "https://archive.org/details/doom_dos",
+  "descricao": "The Union Aerospace Corporation has been experimenting with teleportation technology on Mars' moons Phobos and Deimos. After early successes, something goes wrong. It seems the scientists have opened a gateway straight to Hell. Phobos base is overrun with demonic creatures, and the whole of…",
+  "ano": 1993,
+  "generos": [
+    "DOOM"
+  ],
+  "editora": "id Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}
