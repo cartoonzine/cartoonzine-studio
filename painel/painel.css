@@ -348,3 +348,6 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .barra-massa .dica { margin: 0; }
 @media (max-width: 640px) { .barra-massa .dica { display: none; } }
 .grade.selecionando .selo.auto { right: 40px; }
+
+/* 🧩 Prateleira */
+@media (max-width: 640px) { .pr-topo { grid-template-columns: 1fr !important; } }
