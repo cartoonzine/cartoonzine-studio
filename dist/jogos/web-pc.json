@@ -28,6 +28,24 @@
    "license": "livre"
   },
   {
+   "title": "Maze of Galious",
+   "desc": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2025,
+   "studio": "jogos-web/web-pc/maze-of-galious",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/mazeofgalious/",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/midzer/mazeofgalious"
+  },
+  {
    "title": "Neverball",
    "desc": "Incline o tabuleiro e leve a bola até a saída pegando as moedas. Mais de 100 fases. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2003,
