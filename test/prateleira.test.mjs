@@ -127,3 +127,21 @@ test('prateleira: remover jogo do jogos.json (vírgulas certas)', () => {
     assert.deepEqual(JSON.parse(P.removerDoJogosJson('{"jogos":[{"id":"z"}]}', 'z')).jogos, []);
     assert.throws(() => P.removerDoJogosJson(txt, 'nada'), /Não achei/);
 });
+
+test('prateleira: backup e restaurar só o que falta', () => {
+    const txt = '{ "jogos": [ { "id": "a", "nome": "A" }, { "id": "b", "nome": "B", "rascunho": true } ] }';
+    const bk = P.montarBackup(txt, { a: 'receita a', b: 'receita b' }, '2026-11-05T12:00:00Z');
+    assert.equal(bk.data, '2026-11-05T12:00:00.000Z');
+    assert.equal(bk.jogos.length, 2);
+    const ida = JSON.parse(JSON.stringify(bk));                     // como se viesse do arquivo
+    const p1 = P.planoRestauracao(ida, [{ id: 'a' }, { id: 'c' }], ['a', 'c']);
+    assert.deepEqual(p1.jogos.map(j => j.id), ['b']);
+    assert.equal(p1.jogos[0].rascunho, true);
+    assert.deepEqual(p1.arquivos, [{ caminho: 'receitas/b.sh', conteudo: 'receita b' }]);
+    const p2 = P.planoRestauracao(ida, [{ id: 'a' }, { id: 'b' }], ['b']);        // a ficha do "a" existe, a receita sumiu
+    assert.deepEqual(p2.jogos, []);
+    assert.deepEqual(p2.arquivos.map(a => a.caminho), ['receitas/a.sh']);
+    assert.deepEqual(P.planoRestauracao(ida, [{ id: 'a' }, { id: 'b' }], ['a', 'b']), { jogos: [], arquivos: [] });
+    assert.throws(() => P.planoRestauracao({ jogos: [] }, []), /não é um backup/);
+    assert.deepEqual(P.planoRestauracao({ ...ida, jogos: [{ id: '../x' }] }, []).jogos, []);
+});

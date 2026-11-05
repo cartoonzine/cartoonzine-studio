@@ -83,6 +83,9 @@
                 <b style="font-size:16px">📋 Fila da prateleira</b>
                 <span class="dica" id="pr-fila-info"></span>
                 <div class="espaco" style="flex:1"></div>
+                <button class="btn fantasma mini" id="pr-backup" title="Baixa um arquivo com as fichas e as receitas de todos os jogos">💾 Baixar backup</button>
+                <button class="btn fantasma mini" id="pr-restaurar" title="Traz de volta os jogos que faltam (não mexe nos que já estão lá)">📂 Restaurar backup</button>
+                <input type="file" id="pr-restaurar-arq" accept=".json,application/json" hidden>
                 <button class="btn fantasma mini" id="pr-fila-atualizar">↻ Atualizar</button>
               </div>
               <div id="pr-fila" style="margin-top:12px"></div>
@@ -116,6 +119,9 @@
         $('#pr-link').addEventListener('keydown', ev => { if (ev.key === 'Enter') ir(); });
         if (pr.analise) desenharResultado(S);
         $('#pr-fila-atualizar').onclick = () => { pr.fila = null; carregarFila(S); };
+        $('#pr-backup').onclick = () => baixarBackup(S, $('#pr-backup'));
+        $('#pr-restaurar').onclick = () => { $('#pr-restaurar-arq').value = ''; $('#pr-restaurar-arq').click(); };
+        $('#pr-restaurar-arq').onchange = e => { const f = e.target.files[0]; if (f) restaurarBackup(S, f, $('#pr-restaurar')); };
         if (token) { if (pr.fila) desenharFila(S); else carregarFila(S); }
         else $('#pr-fila').innerHTML = '<p class="dica">Salve o token do GitHub para ver a fila.</p>';
     }
@@ -291,6 +297,57 @@
             botao.disabled = false; botao.textContent = '▶ Compilar';
             S.aviso('Não consegui: ' + e.message, 'ruim');
         }
+    }
+
+    // ------------------------------------------------------------------ backup
+    async function lerReceitas(repo) {
+        const lista = await lerJson(repo, '/contents/receitas?ref=main').catch(() => []);
+        const nomes = lista.filter(x => x.type === 'file' && /\.sh$/.test(x.name) && x.name !== 'comum.sh').map(x => x.name.replace(/\.sh$/, ''));
+        return nomes;
+    }
+
+    async function baixarBackup(S, botao) {
+        const txt = botao.textContent; botao.disabled = true; botao.textContent = 'Juntando…';
+        try {
+            const atual = await lerPrateleira(S, tokenAtual(S));
+            const nomes = await lerReceitas(atual.repo);
+            const receitas = {};
+            for (const id of nomes) receitas[id] = await atual.repo.lerTexto('receitas/' + id + '.sh');
+            const bk = P.montarBackup(atual.texto, receitas);
+            const url = URL.createObjectURL(new Blob([JSON.stringify(bk, null, 2)], { type: 'application/json' }));
+            const a = document.createElement('a');
+            a.href = url; a.download = 'backup-prateleira-' + bk.data.slice(0, 10) + '.json';
+            document.body.appendChild(a); a.click(); a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 5000);
+            S.aviso('Backup baixado: ' + bk.jogos.length + ' jogos e ' + nomes.length + ' receitas. Guarde o arquivo no seu PC.', 'ok');
+        } catch (e) { S.aviso('Não consegui fazer o backup: ' + e.message, 'ruim'); }
+        botao.disabled = false; botao.textContent = txt;
+    }
+
+    async function restaurarBackup(S, arquivo, botao) {
+        const txt = botao.textContent; botao.disabled = true; botao.textContent = 'Lendo…';
+        try {
+            let bk;
+            try { bk = JSON.parse(await arquivo.text()); } catch (e) { throw new Error('o arquivo não é um JSON válido'); }
+            const atual = await lerPrateleira(S, tokenAtual(S));
+            const plano = P.planoRestauracao(bk, atual.lista, await lerReceitas(atual.repo));
+            if (!plano.jogos.length && !plano.arquivos.length) { S.aviso('Nada para restaurar: todos os jogos desse backup já estão na prateleira.', 'ok'); return; }
+            const soReceitas = plano.arquivos.filter(a => !plano.jogos.some(j => 'receitas/' + j.id + '.sh' === a.caminho)).map(a => a.caminho.slice(9, -3));
+            const msg = 'Backup de ' + new Date(bk.data).toLocaleString('pt-BR') + '.\n\n' +
+                (plano.jogos.length ? 'Vai trazer de volta: ' + plano.jogos.map(j => j.nome || j.id).join(', ') + '.\n' : '') +
+                (soReceitas.length ? 'Vai repor a receita de: ' + soReceitas.join(', ') + '.\n' : '') +
+                '\nOs jogos que já estão na prateleira não são mexidos. Continuar?';
+            if (!confirm(msg)) return;
+            botao.textContent = 'Restaurando…';
+            let texto = atual.texto;
+            for (const j of plano.jogos) texto = P.inserirNoJogosJson(texto, j);
+            const mud = plano.arquivos.slice();
+            if (plano.jogos.length) mud.unshift({ caminho: 'jogos.json', conteudo: texto });
+            await atual.repo.salvar(mud, 'Prateleira: restaura backup — ' + (plano.jogos.map(j => j.nome || j.id).join(', ') || soReceitas.join(', ')));
+            S.aviso('Restaurado! O robô compila os que não estão em rascunho.', 'ok');
+            pr.fila = null; pr.jogos = null; carregarFila(S);
+        } catch (e) { S.aviso('Não consegui restaurar: ' + e.message, 'ruim'); }
+        finally { botao.disabled = false; botao.textContent = txt; }
     }
 
     async function remover(S, id, botao) {
