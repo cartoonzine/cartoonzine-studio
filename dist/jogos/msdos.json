@@ -72,6 +72,7 @@
     "Action",
     "Platform"
    ],
+   "bannerSkin": "arcade",
    "bgImg": "banner",
    "bgPosY": 15,
    "studio": "jogos/msdos/batman-returns",
