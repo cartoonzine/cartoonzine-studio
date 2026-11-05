@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-05T04:49:27.842Z",
+  "geradoEm": "2026-11-05T05:00:48.275Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 514,
-      "publicados": 17,
+      "publicados": 18,
       "erros": [],
       "avisos": [
         {
@@ -1542,10 +1542,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-ps2/gran-turismo-4.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-ps2/hot-shots-tennis-opentennis.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2143,7 +2139,7 @@
         "web-xboxseries": 0,
         "web-xbox": 0,
         "web-ps1": 0,
-        "web-ps2": 0,
+        "web-ps2": 1,
         "web-psp": 0,
         "web-ps4": 0,
         "web-ps3": 0,
