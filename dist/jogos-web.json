@@ -159,6 +159,27 @@
    "license": "autorizada"
   },
   {
+   "title": "Counter Strike & Half Life (2)",
+   "desc": "Port para navegador · pixelsuft.github.io",
+   "genre": [
+    "FPS",
+    "Ação",
+    "Tiro",
+    "Guerra"
+   ],
+   "studio": "jogos-web/web-windows/counter-strike-e-half-life-2",
+   "url": "https://pixelsuft.github.io/hl/",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada",
+   "repo": "https://github.com/Pixelsuft/hl"
+  },
+  {
    "title": "Daytona USA",
    "desc": "Port para navegador · johannruiz.github.io",
    "studio": "jogos-web/web-arcade/daytona-usa",

@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-05T16:32:36.016Z",
+  "geradoEm": "2026-11-05T17:29:58.528Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 514,
-      "publicados": 22,
+      "publicados": 23,
       "erros": [],
       "avisos": [
         {
@@ -1790,10 +1790,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-windows/counter-strike-e-half-life-2.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-windows/counter-strike-gstrike.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2117,7 +2113,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 3,
-        "web-windows": 4,
+        "web-windows": 5,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
