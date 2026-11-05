@@ -1,4 +1,4 @@
-# 🏛️ Importar jogos de MS-DOS do Internet Archive para o console MS-DOS (só os oficiais msdos_*, sem adulto nem mods)
+# 🏛️ Importar jogos de MS-DOS do Internet Archive para o console MS-DOS (só os oficiais msdos_*, sem adulto, mods nem expansões)
 #  - Actions → "Importar MS-DOS do Internet Archive" → Run workflow → escolha quantos, a década, o gênero…
 #  - o robô cria um branch com os jogos novos e abre um pull request; aceitando, eles vão para o app
 #  - o jogo continua no Archive: o card guarda o link da página do jogo (o cartucho DOS do app abre direto)
