@@ -72,6 +72,8 @@ test('archive dos: fora do filtro (adulto, mods), liberável', () => {
     assert.equal(motivoParaPular({ title: 'Finnish DOS games' }), 'mod/coletânea');
     assert.equal(motivoParaPular({ title: 'California Games' }), '');
     assert.equal(motivoParaPular({ title: 'Prince of Persia' }), '');
+    assert.equal(motivoParaPular({ title: 'Duke it out in D.C.', description: 'Developed by Sunstorm Interactive Released 1997 Genre DLC / Add-on Description x' }), 'expansão (precisa do jogo original)');
+    assert.equal(lerFicha('Developed by Windmill Software Platform DOS Released 1983 Genre Action Description x')['Developed by'], 'Windmill Software');
     assert.equal(motivoParaPular(RESPOSTA.response.docs[4], { adultos: true }), '');
 });
 

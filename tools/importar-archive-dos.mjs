@@ -77,6 +77,8 @@ export function motivoParaPular(doc, { adultos = false } = {}) {
     const titulo = String(um(doc.title) || ''), tudo = titulo + ' ' + lista(doc.subject).join(' ') + ' ' + String(um(doc.description) || '');
     if (!adultos && (ADULTO.test(titulo) || /\b(adult|erotic|nudity|sexual content|sexual themes)\b/i.test(tudo))) return 'adulto';
     if (NAO_JOGO.test(titulo)) return 'mod/coletânea';
+    const ficha = lerFicha(doc.description);
+    if (ficha && /\b(DLC|Add-?on|Expansion)\b/i.test(String(ficha.Genre || '') + ' ' + String(ficha['Add-on'] !== undefined ? 'Add-on' : ''))) return 'expansão (precisa do jogo original)';
     return '';
 }
 
@@ -95,6 +97,8 @@ export function lerFicha(texto) {
         const fim = x.rot === 'Description' ? t.length : (marcas[i + 1] ? marcas[i + 1].ini : t.length);
         f[x.rot] = t.slice(x.fim, fim).trim();
     });
+    // "Windmill Software Platform DOS": o campo "Platform" vem grudado no nome da empresa
+    ['Developed by', 'Published by', 'Released'].forEach(k => { if (f[k]) f[k] = f[k].replace(/\s+Platforms?\s+(DOS|PC|Windows|MS-?DOS)\b.*$/i, '').trim(); });
     return f;
 }
 
