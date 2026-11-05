@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-05T05:28:25.403Z",
+  "geradoEm": "2026-11-05T05:29:33.695Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 514,
-      "publicados": 21,
+      "publicados": 22,
       "erros": [],
       "avisos": [
         {
@@ -607,10 +607,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-indie/a-difficult-game-about-climbing.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-indie/among-us.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2112,7 +2108,7 @@
       ],
       "porConsole": {
         "web-fangames": 0,
-        "web-indie": 4,
+        "web-indie": 5,
         "web-remakes": 3,
         "web-pc": 1,
         "web-n64": 0,

@@ -60,6 +60,21 @@
    "web": true,
    "license": "livre",
    "repo": "https://github.com/genizy/web-port/tree/main/amanda-the-adventurer"
+  },
+  {
+   "title": "Among Us",
+   "desc": "Port para navegador · wasm.rip",
+   "studio": "jogos-web/web-indie/among-us",
+   "url": "https://wasm.rip/files/amongus/index.html",
+   "console": "web-indie",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada",
+   "repo": "https://github.com/wasmdotrip/AmongUsPort"
   }
  ]
 }
