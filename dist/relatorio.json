@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-05T05:28:12.284Z",
+  "geradoEm": "2026-11-05T05:28:25.403Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 514,
-      "publicados": 20,
+      "publicados": 21,
       "erros": [],
       "avisos": [
         {
@@ -1866,10 +1866,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-windows/gta-3-3.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-windows/gta-vice-city-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2125,7 +2121,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 3,
-        "web-windows": 3,
+        "web-windows": 4,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,

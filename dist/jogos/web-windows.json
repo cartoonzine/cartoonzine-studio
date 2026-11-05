@@ -33,6 +33,20 @@
    "repo": "https://github.com/ripleyXLR8/atlantis-native"
   },
   {
+   "title": "GTA 3 (3)",
+   "desc": "Port para navegador · wasmarcade.com",
+   "studio": "jogos-web/web-windows/gta-3-3",
+   "url": "https://wasmarcade.com/gta3",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
+  },
+  {
    "title": "GTA V",
    "desc": "Port para navegador · web.archive.org",
    "studio": "jogos-web/web-windows/gta-v",
