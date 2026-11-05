@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-05T05:00:48.275Z",
+  "geradoEm": "2026-11-05T05:27:49.108Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 514,
-      "publicados": 18,
+      "publicados": 19,
       "erros": [],
       "avisos": [
         {
@@ -1658,10 +1658,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-psp/god-of-war-chains-of-olympus.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-psp/god-of-war-ghost-of-sparta.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2140,7 +2136,7 @@
         "web-xbox": 0,
         "web-ps1": 0,
         "web-ps2": 1,
-        "web-psp": 0,
+        "web-psp": 1,
         "web-ps4": 0,
         "web-ps3": 0,
         "web-android": 0,

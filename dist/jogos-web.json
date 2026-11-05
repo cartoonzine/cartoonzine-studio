@@ -182,6 +182,20 @@
    "repo": "https://github.com/JoseTomasTocino/freegemas"
   },
   {
+   "title": "God of War: Chains of Olympus",
+   "desc": "Port para navegador · godofwarchains.online",
+   "studio": "jogos-web/web-psp/god-of-war-chains-of-olympus",
+   "url": "https://godofwarchains.online/",
+   "console": "web-psp",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
+  },
+  {
    "title": "Jump 'n Bump",
    "desc": "Coelhinhos pulando na cabeça uns dos outros. Clássico multiplayer local (até 4 no mesmo teclado/controle). Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1998,

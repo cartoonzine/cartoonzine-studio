@@ -1,5 +1,20 @@
 {
  "console": "web-psp",
  "nome": "PSP",
- "games": []
+ "games": [
+  {
+   "title": "God of War: Chains of Olympus",
+   "desc": "Port para navegador · godofwarchains.online",
+   "studio": "jogos-web/web-psp/god-of-war-chains-of-olympus",
+   "url": "https://godofwarchains.online/",
+   "console": "web-psp",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
+  }
+ ]
 }
