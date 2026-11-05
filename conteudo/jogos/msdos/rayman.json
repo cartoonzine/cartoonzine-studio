@@ -1,0 +1,17 @@
+{
+  "nome": "Rayman",
+  "links": [
+    "https://archive.org/details/msdos_Rayman_1995"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Rayman_1995",
+  "fonte": "https://archive.org/details/msdos_Rayman_1995",
+  "descricao": "Jogo de MS-DOS · Action, Platform (1995), de Ubi Soft Montpellier SAS. Do acervo do Internet Archive.",
+  "ano": 1995,
+  "generos": [
+    "Action",
+    "Platform"
+  ],
+  "editora": "Ubi Soft Montpellier SAS",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

@@ -1,0 +1,17 @@
+{
+  "nome": "Where in the World is Carmen Sandiego Enhanced",
+  "links": [
+    "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
+  "fonte": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
+  "descricao": "Jogo de MS-DOS · Adventure, Puzzle (1989), de Brøderbund Software. Do acervo do Internet Archive.",
+  "ano": 1989,
+  "generos": [
+    "Adventure",
+    "Puzzle"
+  ],
+  "editora": "Brøderbund Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

@@ -1,0 +1,18 @@
+{
+  "nome": "Jazz Jackrabbit",
+  "links": [
+    "https://archive.org/details/msdos_Jazz_Jackrabbit_1994"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_1994",
+  "fonte": "https://archive.org/details/msdos_Jazz_Jackrabbit_1994",
+  "descricao": "Jogo de MS-DOS · Action, Platform, Shooter (1994), de Epic MegaGames. Do acervo do Internet Archive.",
+  "ano": 1994,
+  "generos": [
+    "Action",
+    "Platform",
+    "Shooter"
+  ],
+  "editora": "Epic MegaGames",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

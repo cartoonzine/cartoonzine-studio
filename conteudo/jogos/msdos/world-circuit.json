@@ -1,0 +1,18 @@
+{
+  "nome": "World Circuit",
+  "links": [
+    "https://archive.org/details/msdos_World_Circuit_1992"
+  ],
+  "capa": "https://archive.org/services/img/msdos_World_Circuit_1992",
+  "fonte": "https://archive.org/details/msdos_World_Circuit_1992",
+  "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1992), de MicroProse Ltd.. Do acervo do Internet Archive.",
+  "ano": 1992,
+  "generos": [
+    "Racing / Driving",
+    "Simulation",
+    "Vehicle Simulator"
+  ],
+  "editora": "MicroProse Ltd.",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

@@ -1,0 +1,13 @@
+{
+  "nome": "Number Munchers",
+  "links": [
+    "https://archive.org/details/msdos_Number_Munchers_1990"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Number_Munchers_1990",
+  "fonte": "https://archive.org/details/msdos_Number_Munchers_1990",
+  "descricao": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+  "ano": 1990,
+  "editora": "MECC",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

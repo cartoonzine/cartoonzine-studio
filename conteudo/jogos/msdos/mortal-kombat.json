@@ -1,0 +1,18 @@
+{
+  "nome": "Mortal Kombat",
+  "links": [
+    "https://archive.org/details/msdos_Mortal_Kombat_1993"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Mortal_Kombat_1993",
+  "fonte": "https://archive.org/details/msdos_Mortal_Kombat_1993",
+  "descricao": "Jogo de MS-DOS · Action, Fighting, Martial Arts (1993), de Midway Manufacturing Company. Do acervo do Internet Archive.",
+  "ano": 1993,
+  "generos": [
+    "Action",
+    "Fighting",
+    "Martial Arts"
+  ],
+  "editora": "Midway Manufacturing Company",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

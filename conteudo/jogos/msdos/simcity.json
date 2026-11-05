@@ -1,0 +1,16 @@
+{
+  "nome": "SimCity",
+  "links": [
+    "https://archive.org/details/msdos_SimCity_1989"
+  ],
+  "capa": "https://archive.org/services/img/msdos_SimCity_1989",
+  "fonte": "https://archive.org/details/msdos_SimCity_1989",
+  "descricao": "Jogo de MS-DOS · Simulation (1989), de Maxis Software. Do acervo do Internet Archive.",
+  "ano": 1989,
+  "generos": [
+    "Simulation"
+  ],
+  "editora": "Maxis Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

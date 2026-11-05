@@ -1,0 +1,17 @@
+{
+  "nome": "Mario's Game Gallery",
+  "links": [
+    "https://archive.org/details/msdos_Marios_Game_Gallery_1995"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Marios_Game_Gallery_1995",
+  "fonte": "https://archive.org/details/msdos_Marios_Game_Gallery_1995",
+  "descricao": "Jogo de MS-DOS · Strategy/Tactics, Board Game (1995), de Presage Software. Do acervo do Internet Archive.",
+  "ano": 1995,
+  "generos": [
+    "Strategy/Tactics",
+    "Board Game"
+  ],
+  "editora": "Presage Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}
