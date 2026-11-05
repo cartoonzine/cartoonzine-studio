@@ -1,0 +1,14 @@
+{
+  "nome": "BananaBread",
+  "links": [
+    "https://kripken.github.io/BananaBread/cube2/bb.html"
+  ],
+  "generos": [
+    "FPS",
+    "Ação",
+    "Tiro",
+    "Guerra"
+  ],
+  "console": "web-indie",
+  "licenca": "livre"
+}
