@@ -94,9 +94,10 @@
       "id": "bookzine",
       "nome": "Bookzine",
       "tipo": "livro",
-      "app": "cartoonzine (view em construção)",
+      "app": "cartoonzine → views bookzine (biblioteca) e bookzine_leitor (leitor)",
       "icone": "📚",
-      "_comentario": "Livraria: livros, bíblias antigas, gibis, revistas e outros, em PDF, EPUB, CBZ/CBR, MOBI, DjVu, TXT. Publica bookzine.json e bookzine/indice.json. Ainda SEM fonteCloud de propósito: o app não tem a view; quando ela existir, acrescente aqui \"fonteCloud\": { \"nome\": \"Bookzine\", \"tipo\": \"vod_json\", \"prefixoId\": \"BOOK\", \"targetCategory\": \"Bookzine\", \"destino\": \"livros\" } e rode tools/ligar-cloud.mjs."
+      "_comentario": "Livraria: livros, bíblias antigas, gibis, revistas e outros. O leitor do app abre EPUB, PDF, CBZ/CBR, MOBI/AZW3 (sem DRM), FB2 e TXT. Publica bookzine.json e bookzine/indice.json. A Estante de cada livro vira a fileira dele no app (sem targetCategory de propósito).",
+      "fonteCloud": { "nome": "Bookzine", "tipo": "vod_json", "prefixoId": "BOOK", "destino": "livros", "categoryType": "livro", "agruparSeries": false }
     },
     {
       "id": "jogos",
@@ -128,11 +129,53 @@
     { "nome": "Português (Portugal)", "codigo": "pt-PT", "prefixoId": "YTN_PT" }
   ],
 
+  "_comentarioLivros": "Bookzine: cada ESTANTE (categoriasLivros) é um card no hub do app e uma tela de lista; as CATEGORIAS dela (categoriasPorEstante) viram as fileiras e o filtro Cat// — escreva-as no campo Gêneros do livro. Os grupos (gruposLivros) são as fileiras do hub. Nomes antigos continuam valendo no app: Gibis e HQs → Quadrinhos, Poesia → Poesia e Cordel, Contos e Fábulas → Contos, Fábulas e Lendas, Bíblias e Textos Sagrados → Bíblias e Religião, Ciência → Ciência e Tecnologia, Dicionários e Enciclopédias, Arte e Música, Culinária, Outros (iguais).",
   "categoriasLivros": [
-    "Livros", "Clássicos da Literatura", "Bíblias e Textos Sagrados", "Gibis e HQs", "Mangás", "Revistas",
-    "Infantil", "Poesia", "Contos e Fábulas", "História", "Ciência", "Religião", "Biografias", "Didáticos", "Outros"
+    "Livros", "Clássicos da Literatura", "Infantil", "Juvenil", "Contos, Fábulas e Lendas", "Poesia e Cordel", "Teatro",
+    "Quadrinhos", "Mangás", "Tiras e Cartuns", "Graphic Novels", "Revistas", "Almanaques", "Fanzines", "Passatempos e Atividades",
+    "Gamer", "Cultura POP", "Coleções", "Arte e Música", "Culinária", "Hobbies e Lazer",
+    "Cursos e Apostilas", "Didáticos", "Ciência e Tecnologia", "História", "Biografias", "Bíblias e Religião", "Dicionários e Enciclopédias", "Filosofia e Sociedade", "Negócios e Carreira", "Desenvolvimento Pessoal", "Outros"
   ],
-
+  "gruposLivros": {
+    "Leitura": ["Livros", "Clássicos da Literatura", "Infantil", "Juvenil", "Contos, Fábulas e Lendas", "Poesia e Cordel", "Teatro"],
+    "Quadrinhos e Revistas": ["Quadrinhos", "Mangás", "Tiras e Cartuns", "Graphic Novels", "Revistas", "Almanaques", "Fanzines", "Passatempos e Atividades"],
+    "Cultura e Hobbies": ["Gamer", "Cultura POP", "Coleções", "Arte e Música", "Culinária", "Hobbies e Lazer"],
+    "Conhecimento": ["Cursos e Apostilas", "Didáticos", "Ciência e Tecnologia", "História", "Biografias", "Bíblias e Religião", "Dicionários e Enciclopédias", "Filosofia e Sociedade", "Negócios e Carreira", "Desenvolvimento Pessoal", "Outros"]
+  },
+  "categoriasPorEstante": {
+    "Livros": ["Romance", "Aventura", "Ação", "Drama", "Fantasia", "Ficção Científica", "Terror", "Suspense", "Policial e Mistério", "Humor", "Contos", "Crônicas", "Poesia", "Teatro", "Histórico", "Distopia", "Clássicos"],
+    "Clássicos da Literatura": ["Literatura Brasileira", "Literatura Portuguesa", "Literatura Estrangeira", "Romantismo", "Realismo", "Modernismo", "Épicos e Antiguidade", "Domínio Público"],
+    "Infantil": ["Contos de Fadas", "Fábulas", "Primeiras Leituras", "Livros Ilustrados", "Rimas e Cantigas", "Aventuras", "Animais", "Educativo", "Para Colorir"],
+    "Juvenil": ["Aventura", "Fantasia", "Romance", "Mistério", "Distopia", "Escola e Amizade", "Ficção Científica", "Terror"],
+    "Contos, Fábulas e Lendas": ["Lendas Brasileiras", "Folclore", "Mitologia", "Fábulas", "Contos Populares", "Contos de Fadas", "Contos do Mundo"],
+    "Poesia e Cordel": ["Poesia", "Cordel", "Sonetos", "Haicai", "Poesia Infantil", "Letras e Canções", "Repente"],
+    "Teatro": ["Comédia", "Tragédia", "Drama", "Infantil", "Musical", "Monólogos"],
+    "Quadrinhos": ["Super-heróis", "Infantil", "Humor", "Aventura", "Faroeste", "Terror", "Ficção Científica", "Guerra", "Policial", "Fantasia", "Esporte", "Clássicos"],
+    "Mangás": ["Shonen", "Shoujo", "Seinen", "Josei", "Kodomo", "Isekai", "Mecha", "Esporte", "Terror", "Comédia", "Romance"],
+    "Tiras e Cartuns": ["Tiras", "Cartuns", "Charges", "Caricaturas", "Humor Gráfico"],
+    "Graphic Novels": ["Drama", "Biografia", "Histórico", "Fantasia", "Ficção Científica", "Suspense", "Adaptações"],
+    "Revistas": ["Variedades", "Ciência", "Tecnologia", "Música", "Cinema e TV", "Esporte", "Automóveis", "Natureza", "Saúde", "Moda", "Notícias", "Infantil"],
+    "Almanaques": ["Almanaque Infantil", "Curiosidades", "Humor", "Calendários", "Astronomia", "Agricultura", "Esportes"],
+    "Fanzines": ["Música", "Quadrinhos", "Arte", "Punk", "Literatura", "Cinema"],
+    "Passatempos e Atividades": ["Palavras Cruzadas", "Caça-palavras", "Sudoku", "Labirintos", "Colorir", "Charadas", "Jogos de Lógica"],
+    "Gamer": ["Revistas de Games", "Guias e Detonados", "Manuais", "História dos Games", "Arte de Games", "Retrô", "E-sports"],
+    "Cultura POP": ["Cinema", "Séries", "Animação", "Anime", "Música", "Colecionáveis", "Fandom", "Curiosidades", "Bastidores"],
+    "Coleções": ["Séries Completas", "Edições Especiais", "Encadernados", "Box e Kits", "Edições de Colecionador", "Raridades"],
+    "Arte e Música": ["Pintura", "Desenho", "Fotografia", "Música", "Partituras", "Design", "Arquitetura", "Dança"],
+    "Culinária": ["Receitas", "Doces e Sobremesas", "Salgados", "Pães e Massas", "Vegetariana", "Culinária Regional", "Bebidas"],
+    "Hobbies e Lazer": ["Artesanato", "Jardinagem", "Viagem", "Esportes", "Pesca", "Pets", "Faça Você Mesmo", "Modelismo"],
+    "Cursos e Apostilas": ["Idiomas", "Informática", "Programação", "Concursos", "ENEM e Vestibular", "Profissionalizante", "Música", "Desenho"],
+    "Didáticos": ["Alfabetização", "Português", "Matemática", "História", "Geografia", "Ciências", "Inglês", "Espanhol", "Artes"],
+    "Ciência e Tecnologia": ["Física", "Química", "Biologia", "Astronomia", "Matemática", "Tecnologia", "Natureza", "Medicina"],
+    "História": ["Brasil", "Mundo", "Antiguidade", "Idade Média", "Guerras", "Arqueologia", "Política"],
+    "Biografias": ["Biografias", "Autobiografias", "Memórias", "Diários", "Entrevistas"],
+    "Bíblias e Religião": ["Bíblias", "Estudos Bíblicos", "Devocionais", "Espiritualidade", "Textos Sagrados", "Mitologia", "História das Religiões"],
+    "Dicionários e Enciclopédias": ["Dicionários", "Enciclopédias", "Atlas", "Gramáticas", "Guias", "Manuais"],
+    "Filosofia e Sociedade": ["Filosofia", "Sociologia", "Psicologia", "Política", "Direito", "Economia", "Educação"],
+    "Negócios e Carreira": ["Empreendedorismo", "Finanças", "Marketing", "Liderança", "Carreira", "Vendas"],
+    "Desenvolvimento Pessoal": ["Autoajuda", "Motivação", "Saúde e Bem-estar", "Relacionamentos", "Produtividade", "Meditação"],
+    "Outros": ["Diversos"]
+  },
   "categoriasCanais": [
     "TV Aberta", "Notícias", "Esportes", "Infantil", "Filmes e Séries", "Documentários",
     "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"
