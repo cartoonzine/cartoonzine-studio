@@ -1,0 +1,17 @@
+{
+  "nome": "Disney's Aladdin",
+  "links": [
+    "https://archive.org/details/msdos_Disneys_Aladdin_1994"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Disneys_Aladdin_1994",
+  "fonte": "https://archive.org/details/msdos_Disneys_Aladdin_1994",
+  "descricao": "Jogo de MS-DOS · Action, Platform (1994), de Virgin Interactive Entertainment. Do acervo do Internet Archive.",
+  "ano": 1994,
+  "generos": [
+    "Action",
+    "Platform"
+  ],
+  "editora": "Virgin Interactive Entertainment",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

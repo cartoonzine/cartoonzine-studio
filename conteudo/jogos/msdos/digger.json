@@ -1,0 +1,17 @@
+{
+  "nome": "Digger",
+  "links": [
+    "https://archive.org/details/msdos_Digger_1983_1983"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Digger_1983_1983",
+  "fonte": "https://archive.org/details/msdos_Digger_1983_1983",
+  "descricao": "Jogo de MS-DOS · Action, Arcade (1983), de Windmill Software Platform PC Booter. Do acervo do Internet Archive.",
+  "ano": 1983,
+  "generos": [
+    "Action",
+    "Arcade"
+  ],
+  "editora": "Windmill Software Platform PC Booter",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

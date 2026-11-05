@@ -1,0 +1,18 @@
+{
+  "nome": "Double Dragon",
+  "links": [
+    "https://archive.org/details/msdos_Double_Dragon_1988"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Double_Dragon_1988",
+  "fonte": "https://archive.org/details/msdos_Double_Dragon_1988",
+  "descricao": "Jogo de MS-DOS · Action, Arcade, Beat 'em up / Brawler (1988), de Technos Japan Corp.. Do acervo do Internet Archive.",
+  "ano": 1988,
+  "generos": [
+    "Action",
+    "Arcade",
+    "Beat 'em up / Brawler"
+  ],
+  "editora": "Technos Japan Corp.",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

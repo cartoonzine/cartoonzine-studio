@@ -1,0 +1,18 @@
+{
+  "nome": "PC Futbol 5.0",
+  "links": [
+    "https://archive.org/details/msdos_PC_Futbol_5.0_1996"
+  ],
+  "capa": "https://archive.org/services/img/msdos_PC_Futbol_5.0_1996",
+  "fonte": "https://archive.org/details/msdos_PC_Futbol_5.0_1996",
+  "descricao": "Jogo de MS-DOS · Simulation, Sports, Strategy/Tactics (1996), de Dinamic Multimedia, S.A.. Do acervo do Internet Archive.",
+  "ano": 1996,
+  "generos": [
+    "Simulation",
+    "Sports",
+    "Strategy/Tactics"
+  ],
+  "editora": "Dinamic Multimedia, S.A.",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

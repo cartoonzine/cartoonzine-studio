@@ -1,0 +1,17 @@
+{
+  "nome": "Pac-Man",
+  "links": [
+    "https://archive.org/details/msdos_Pac-Man_1983"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Pac-Man_1983",
+  "fonte": "https://archive.org/details/msdos_Pac-Man_1983",
+  "descricao": "Jogo de MS-DOS · Action, Arcade (1983), de Namco Limited. Do acervo do Internet Archive.",
+  "ano": 1983,
+  "generos": [
+    "Action",
+    "Arcade"
+  ],
+  "editora": "Namco Limited",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

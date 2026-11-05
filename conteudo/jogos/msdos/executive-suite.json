@@ -1,0 +1,16 @@
+{
+  "nome": "Executive Suite",
+  "links": [
+    "https://archive.org/details/msdos_Executive_Suite_1982"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Executive_Suite_1982",
+  "fonte": "https://archive.org/details/msdos_Executive_Suite_1982",
+  "descricao": "Jogo de MS-DOS · Simulation (1982), de Armonk Corporation Platform PC Booter. Do acervo do Internet Archive.",
+  "ano": 1982,
+  "generos": [
+    "Simulation"
+  ],
+  "editora": "Armonk Corporation Platform PC Booter",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

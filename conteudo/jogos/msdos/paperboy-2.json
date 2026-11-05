@@ -1,0 +1,16 @@
+{
+  "nome": "Paperboy 2",
+  "links": [
+    "https://archive.org/details/msdos_Paperboy_2_1991"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Paperboy_2_1991",
+  "fonte": "https://archive.org/details/msdos_Paperboy_2_1991",
+  "descricao": "Jogo de MS-DOS · Action (1991), de Tengen. Do acervo do Internet Archive.",
+  "ano": 1991,
+  "generos": [
+    "Action"
+  ],
+  "editora": "Tengen",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

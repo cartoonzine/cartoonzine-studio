@@ -1,0 +1,18 @@
+{
+  "nome": "Prince of Persia",
+  "links": [
+    "https://archive.org/details/msdos_Prince_of_Persia_1990"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Prince_of_Persia_1990",
+  "fonte": "https://archive.org/details/msdos_Prince_of_Persia_1990",
+  "descricao": "Jogo de MS-DOS · Action, Platform, Puzzle (1990), de Brøderbund Software. Do acervo do Internet Archive.",
+  "ano": 1990,
+  "generos": [
+    "Action",
+    "Platform",
+    "Puzzle"
+  ],
+  "editora": "Brøderbund Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

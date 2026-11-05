@@ -1,0 +1,17 @@
+{
+  "nome": "SimFarm",
+  "links": [
+    "https://archive.org/details/msdos_SimFarm_1993"
+  ],
+  "capa": "https://archive.org/services/img/msdos_SimFarm_1993",
+  "fonte": "https://archive.org/details/msdos_SimFarm_1993",
+  "descricao": "Jogo de MS-DOS · Simulation, Strategy (1993), de Leaping Lizard Software. Do acervo do Internet Archive.",
+  "ano": 1993,
+  "generos": [
+    "Simulation",
+    "Strategy"
+  ],
+  "editora": "Leaping Lizard Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

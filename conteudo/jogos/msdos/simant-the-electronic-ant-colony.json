@@ -1,0 +1,16 @@
+{
+  "nome": "SimAnt - The Electronic Ant Colony",
+  "links": [
+    "https://archive.org/details/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991"
+  ],
+  "capa": "https://archive.org/services/img/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
+  "fonte": "https://archive.org/details/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
+  "descricao": "Jogo de MS-DOS · Simulation (1991), de Maxis Software. Do acervo do Internet Archive.",
+  "ano": 1991,
+  "generos": [
+    "Simulation"
+  ],
+  "editora": "Maxis Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

@@ -1,0 +1,18 @@
+{
+  "nome": "Jazz Jackrabbit - Holiday Hare 1995",
+  "links": [
+    "https://archive.org/details/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
+  "fonte": "https://archive.org/details/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
+  "descricao": "Jogo de MS-DOS · Action, Platform, Shooter (1995), de Epic MegaGames, Inc. Platform DOS. Do acervo do Internet Archive.",
+  "ano": 1995,
+  "generos": [
+    "Action",
+    "Platform",
+    "Shooter"
+  ],
+  "editora": "Epic MegaGames, Inc. Platform DOS",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

@@ -1,0 +1,18 @@
+{
+  "nome": "Ferrari Formula One",
+  "links": [
+    "https://archive.org/details/msdos_Ferrari_Formula_One_1989"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Ferrari_Formula_One_1989",
+  "fonte": "https://archive.org/details/msdos_Ferrari_Formula_One_1989",
+  "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1989), de Electronic Arts. Do acervo do Internet Archive.",
+  "ano": 1989,
+  "generos": [
+    "Racing / Driving",
+    "Simulation",
+    "Vehicle Simulator"
+  ],
+  "editora": "Electronic Arts",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}
