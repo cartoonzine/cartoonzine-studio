@@ -249,6 +249,8 @@
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
 
+    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : 'colecoes';
+
     async function conectar(repo) {
         estado.repo = await repo.iniciar();
         estado.config = repo.config;
@@ -260,7 +262,8 @@
         $('#btn-publicacao').hidden = false;
         $('#btn-chaves').hidden = false;
         $('#btn-vitrine').hidden = false;
-        estado.tela = location.hash === '#vitrine' ? 'vitrine' : 'colecoes';
+        $('#btn-prateleira').hidden = false;
+        estado.tela = telaDoHash();
         await recarregarIndice();
         desenharApp();
     }
@@ -339,11 +342,14 @@
         $$('.colecao').forEach(b => b.addEventListener('click', () => {
             if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
             estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
-            if (estado.tela === 'vitrine') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
+            if (estado.tela !== 'colecoes') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
             desenharApp();
         }));
         $('#btn-vitrine').classList.toggle('ativo', estado.tela === 'vitrine');
-        if (estado.tela === 'vitrine') desenharVitrine(); else desenharArea();
+        $('#btn-prateleira').classList.toggle('ativo', estado.tela === 'prateleira');
+        if (estado.tela === 'vitrine') desenharVitrine();
+        else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), { RepoGitHub, aviso, esc, guardar });
+        else desenharArea();
     }
 
     function desenharArea() {
@@ -1750,9 +1756,10 @@ https://archive.org/details/algum_desenho
     $('#btn-chaves').addEventListener('click', mostrarChaves);
     // 🎬 Vitrine: endereço próprio (…/painel/#vitrine), dá para favoritar e abrir direto
     $('#btn-vitrine').addEventListener('click', () => { if (location.hash !== '#vitrine') location.hash = 'vitrine'; });
+    $('#btn-prateleira').addEventListener('click', () => { if (location.hash !== '#prateleira') location.hash = 'prateleira'; });
     window.addEventListener('hashchange', () => {
         if (!estado.repo) return;
-        const quer = location.hash === '#vitrine' ? 'vitrine' : 'colecoes';
+        const quer = telaDoHash();
         if (quer === estado.tela) return;
         if (estado.tela === 'vitrine' && !sairDaVitrineOk()) { history.replaceState(null, '', '#vitrine'); return; }
         estado.tela = quer;
@@ -1763,7 +1770,7 @@ https://archive.org/details/algum_desenho
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true;
         vit.lista = null; limparAjustes();
         telaConectar();
     });
