@@ -258,6 +258,29 @@ echo "receita ainda não feita" && exit 1`;
         return JSON.stringify(dados, null, 2) + '\n';
     }
 
-    return { removerDoJogosJson, LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson,
+    // ------------------------------------------------------------------ backup
+    /** Um arquivo só com as fichas e as receitas de todos os jogos. receitas = { id: texto } */
+    function montarBackup(jogosTexto, receitas, data = new Date()) {
+        const dados = JSON.parse(jogosTexto);
+        return { _backup: 'cartoonzine-jogos/prateleira', versao: 1, data: new Date(data).toISOString(),
+            jogos: dados.jogos || [], receitas: Object.assign({}, receitas) };
+    }
+
+    /** O que um backup traria de volta (só o que falta: nada do que já existe é mexido). */
+    function planoRestauracao(backup, jogosAtuais, receitasAtuais = []) {
+        if (!backup || backup._backup !== 'cartoonzine-jogos/prateleira' || !Array.isArray(backup.jogos))
+            throw new Error('Esse arquivo não é um backup da Prateleira.');
+        const ids = new Set((jogosAtuais || []).map(j => j.id));
+        const temReceita = new Set(receitasAtuais);
+        const receitas = backup.receitas || {};
+        const jogos = backup.jogos.filter(j => j && typeof j.id === 'string' && /^[a-z0-9][a-z0-9-]*$/.test(j.id) && !ids.has(j.id));
+        const precisam = new Set(jogos.map(j => j.id));
+        (jogosAtuais || []).forEach(j => { if (!temReceita.has(j.id) && receitas[j.id]) precisam.add(j.id); });   // ficha existe, receita sumiu
+        const arquivos = [...precisam].filter(id => typeof receitas[id] === 'string' && !temReceita.has(id))
+            .map(id => ({ caminho: 'receitas/' + id + '.sh', conteudo: receitas[id] }));
+        return { jogos, arquivos };
+    }
+
+    return { removerDoJogosJson, montarBackup, planoRestauracao, LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson,
         PAGINA, statusDosJogos, tirarRascunho, itemJogosWeb, jaCadastrado };
 });
