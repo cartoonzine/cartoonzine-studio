@@ -34,7 +34,7 @@
      *   textos   = README + arquivos de build (CMakeLists.txt, Makefile, configure.ac…) juntos
      *   branches = nomes dos branches (para achar um "emscripten" / "web" / "wasm")
      */
-    function analisarRepo({ info = {}, caminhos = [], textos = '', branches = [], link = '' } = {}) {
+    function analisarRepo({ info = {}, caminhos = [], textos = '', branches = [], link = '', guia = '', guiaArquivo = '' } = {}) {
         const avisos = [];
         const tem = (re) => caminhos.some(c => re.test(c));
         const raizTem = (nome) => caminhos.includes(nome);
@@ -67,7 +67,9 @@
 
         const nome = String(info.name || '').replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).trim();
         const original = info.html_url || link;
-        const facil = (temWeb || tipo === 'cmake' || tipo === 'make') && sdl !== 'sdl1' && tipo !== 'visualstudio' && tipo !== 'desconhecido';
+        const g = comandosDoGuia(guia) || comandosDoGuia(t);
+        const ports = portsDoSdl(t + '\n' + guia, sdl);
+        const facil = !!g || (temWeb || tipo === 'cmake' || tipo === 'make') && sdl !== 'sdl1' && tipo !== 'visualstudio' && tipo !== 'desconhecido';
         return {
             id: idDoNome(info.name || nome),
             nome: nome || info.full_name || 'Jogo',
@@ -80,7 +82,7 @@
             original,
             branchPadrao: info.default_branch || 'main',
             branchWeb,
-            licenca, tipo, sdl, temWeb, facil, avisos,
+            licenca, tipo, sdl, temWeb, facil, avisos, ports, guia: g, guiaArquivo: g ? (comandosDoGuia(guia) ? guiaArquivo : 'README') : '',
             capa: info.owner && info.name ? 'https://opengraph.githubassets.com/1/' + info.owner.login + '/' + info.name : ''
         };
     }
@@ -104,27 +106,81 @@
         return e;
     }
 
+    /** Bibliotecas extras do SDL que o jogo usa (pelos arquivos de build/README) → opções de "port" do Emscripten. */
+    function portsDoSdl(texto, sdl) {
+        const t = String(texto || '');
+        if (sdl !== 'sdl2') return sdl === 'sdl1' ? ['-sUSE_SDL=1'] : [];
+        const f = ['-sUSE_SDL=2'];
+        const usa = re => re.test(t);
+        // SDL_image e SDL_mixer quase todo jogo SDL2 usa: liga se aparecer OU se não der para saber (só deixa o arquivo um pouco maior)
+        const fala = usa(/SDL2?_?(image|mixer|ttf|net|gfx)/i);
+        if (usa(/SDL2?_?image/i) || !fala) f.push('-sUSE_SDL_IMAGE=2', '-sSDL2_IMAGE_FORMATS=[png,jpg,bmp,pcx]');
+        if (usa(/SDL2?_?mixer/i) || !fala) f.push('-sUSE_SDL_MIXER=2', '-sSDL2_MIXER_FORMATS=[ogg,wav,mod,mp3]');
+        if (usa(/SDL2?_?ttf/i)) f.push('-sUSE_SDL_TTF=2');
+        if (usa(/SDL2?_?net/i)) f.push('-sUSE_SDL_NET=2');
+        if (usa(/SDL2?_?gfx/i)) f.push('-sUSE_SDL_GFX=2');
+        return f;
+    }
+
+    /**
+     * Comandos de um guia de build para a web (o EMSCRIPTEN.md dos forks do midzer, por exemplo):
+     * pega os blocos ``` ``` e acha os comandos de compilar e o de "linkar" (o que gera o index.html).
+     */
+    function comandosDoGuia(md) {
+        const blocos = [];
+        String(md || '').replace(/```[^\n]*\n([\s\S]*?)```/g, (_, b) => { blocos.push(b); return ''; });
+        const linhas = blocos.join('\n').replace(/\s*\\\r?\n\s*/g, ' ').split(/\r?\n/).map(l => l.trim().replace(/^\$\s+/, '')).filter(Boolean);
+        const cmd = /^(emmake|emconfigure|emcmake|emcc|em\+\+|make|cmake|autoreconf|autogen\.sh|\.\/autogen\.sh|\.\/configure|cd|mkdir)(?=\s|$)/;
+        const uteis = linhas.filter(l => cmd.test(l));
+        const ehLink = l => /^(emcc|em\+\+)(?=\s)/.test(l) && /\s-o\s+\S*\.(html|js)\b/.test(l);
+        const li = uteis.map(ehLink).lastIndexOf(true);
+        if (li < 0) return null;
+        let link = uteis[li]
+            .replace(/-sTOTAL_MEMORY=/g, '-sINITIAL_MEMORY=')
+            .replace(/(-s[A-Z0-9_]+=)(\[[^\]\s]*\])/g, '$1"$2"');      // [..] entre aspas para o bash não tratar como curinga
+        const saida = (/\s-o\s+(\S+)/.exec(link) || [])[1] || 'index.html';
+        const ports = (link.match(/-s(USE_[A-Z0-9_]+=\S+|SDL2_[A-Z_]+_FORMATS=\S+)/g) || []);
+        return { build: uteis.slice(0, li), link, saida, ports };
+    }
+
     /** Receita automática (rascunho) para o tipo de projeto. Usa as funções de receitas/comum.sh. */
     function receitaAutomatica(a, extras = {}) {
         const nome = (extras.nome || a.nome).replace(/["$`\\]/g, '');
         const git = a.original.replace(/\/$/, '') + (/\.git$/.test(a.original) ? '' : '.git');
         const branch = a.branchWeb || a.branchPadrao || 'main';
-        const sdlFlags = a.sdl === 'sdl2' ? ' -sUSE_SDL=2' : a.sdl === 'sdl1' ? ' -sUSE_SDL=1' : '';
-        const lk = `-sALLOW_MEMORY_GROWTH=1 -sASYNCIFY${sdlFlags}`;
+        const ports = (a.ports && a.ports.length ? a.ports : (a.sdl === 'sdl2' ? ['-sUSE_SDL=2'] : a.sdl === 'sdl1' ? ['-sUSE_SDL=1'] : [])).join(' ');
+        const lk = `-sALLOW_MEMORY_GROWTH=1 -sASYNCIFY -sENVIRONMENT=web`;
+        // os "ports" (SDL_image, SDL_mixer…) precisam valer já na compilação, senão faltam os .h: o EMCC_CFLAGS vale para todo emcc/em++
+        const env = ports ? `export EMCC_CFLAGS="${ports.replace(/"/g, '')}"\n` : '';
+        const g = a.guia;
         const cab = `. "$RAIZ/receitas/comum.sh"
-# ⚙️ RECEITA AUTOMÁTICA (feita pela Prateleira da Studio) — tipo: ${a.tipo}${a.sdl ? ' · ' + a.sdl : ''}${a.temWeb ? ' · já tem versão web' : ''}
+# ⚙️ RECEITA AUTOMÁTICA (feita pela Prateleira da Studio) — ${g ? 'seguindo o guia do próprio projeto (' + (a.guiaArquivo || 'README') + ')' : 'tipo: ' + a.tipo}${a.sdl ? ' · ' + a.sdl : ''}${a.temWeb ? ' · já tem versão web' : ''}
 # Se o robô falhar, ajuste aqui (dependências, opções do Emscripten, arquivos de dados) e tire o "rascunho" no jogos.json.
 baixar_fonte ${git} ${branch}
+FONTE=$(pwd)
 `;
         let corpo;
-        if (a.tipo === 'cmake') corpo = `emcmake cmake -S . -B web -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="${sdlFlags.trim()}" -DCMAKE_CXX_FLAGS="${sdlFlags.trim()}" -DCMAKE_EXE_LINKER_FLAGS="${lk}"
+        if (g) {
+            const padrao = { make: ['emmake make'], cmake: ['mkdir -p build', 'cd build', 'emcmake cmake ..', 'emmake make', 'cd "$FONTE"'],
+                autotools: ['[ -f configure ] || autoreconf -fi', 'emconfigure ./configure', 'emmake make'] }[a.tipo] || [];
+            const build = (g.build.length ? g.build : padrao).map(c => /^(emmake\s+)?make\b/.test(c) ? c.replace(/^(emmake\s+)?make\b/, 'emmake make -k -j"$(nproc)"') + ' || true' : c).join('\n');
+            const portsGuia = g.ports.length ? g.ports.join(' ').replace(/"/g, '') : ports.replace(/"/g, '');
+            corpo = (portsGuia ? `export EMCC_CFLAGS="${portsGuia}"\n` : '') + (build ? build + '\n' : '') + `unset EMCC_CFLAGS
+${g.link}
+publicar_saida "$(dirname "${g.saida}")" "${nome}"`;
+        }
+        else if (a.tipo === 'cmake') corpo = env + `emcmake cmake -S . -B web -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXE_LINKER_FLAGS="${lk}"
 cmake --build web -j"$(nproc)"
 publicar_saida web "${nome}"`;
-        else if (a.tipo === 'make') corpo = `emmake make -j"$(nproc)" CC=emcc CXX=em++ LDFLAGS="${lk}"
+        else if (a.tipo === 'make') corpo = env + `emmake make -k -j"$(nproc)" CC=emcc CXX=em++ || true
+# o "make" costuma gerar o jogo sem as opções da web: se não saiu nenhum .wasm, junte os .o à mão
+if ! find . -maxdepth 3 -name '*.wasm' | grep -q .; then
+  em++ $(find . -name '*.o' | sort) -o index.html ${lk} $EMCC_CFLAGS $(for d in data graphics gfx images sounds sound music levels rooms fonts assets; do [ -d "$d" ] && printf -- '--preload-file %s ' "$d"; done)
+fi
 publicar_saida . "${nome}"`;
-        else if (a.tipo === 'autotools') corpo = `[ -f configure ] || autoreconf -fi
-emconfigure ./configure --host=wasm32-unknown-emscripten
-emmake make -j"$(nproc)" LDFLAGS="${lk}"
+        else if (a.tipo === 'autotools') corpo = env + `[ -f configure ] || autoreconf -fi
+emconfigure ./configure --host=wasm32-unknown-emscripten || true
+emmake make -k -j"$(nproc)" LDFLAGS="${lk}" || true
 publicar_saida . "${nome}"`;
         else if (a.tipo === 'meson') corpo = `# meson: precisa de um arquivo "cross" do Emscripten — ajuste à mão
 echo "receita meson ainda não feita" && exit 1`;
@@ -281,6 +337,6 @@ echo "receita ainda não feita" && exit 1`;
         return { jogos, arquivos };
     }
 
-    return { removerDoJogosJson, montarBackup, planoRestauracao, LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson,
+    return { portsDoSdl, comandosDoGuia, removerDoJogosJson, montarBackup, planoRestauracao, LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson,
         PAGINA, statusDosJogos, tirarRascunho, itemJogosWeb, jaCadastrado };
 });
