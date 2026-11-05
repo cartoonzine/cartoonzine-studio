@@ -98,7 +98,7 @@ export function lerFicha(texto) {
         f[x.rot] = t.slice(x.fim, fim).trim();
     });
     // "Windmill Software Platform DOS": o campo "Platform" vem grudado no nome da empresa
-    ['Developed by', 'Published by', 'Released'].forEach(k => { if (f[k]) f[k] = f[k].replace(/\s+Platforms?\s+(DOS|PC|Windows|MS-?DOS)\b.*$/i, '').trim(); });
+    ['Developed by', 'Published by', 'Released'].forEach(k => { if (f[k]) f[k] = f[k].replace(/\s+Platforms?\s+\S.*$/, '').trim(); });
     return f;
 }
 
