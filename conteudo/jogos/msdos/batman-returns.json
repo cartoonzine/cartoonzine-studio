@@ -16,5 +16,6 @@
   "console": "msdos",
   "fundoImagem": "banner",
   "posFundo": 15,
+  "bannerSkin": "arcade",
   "_origem": "auto:Internet Archive MS-DOS"
 }
