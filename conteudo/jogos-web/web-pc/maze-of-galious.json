@@ -1,0 +1,16 @@
+{
+  "nome": "Maze of Galious",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/mazeofgalious/"
+  ],
+  "site": "https://github.com/midzer/mazeofgalious",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/midzer/mazeofgalious",
+  "descricao": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 2025,
+  "engine": "Emscripten",
+  "console": "web-pc",
+  "licenca": "livre",
+  "controles": "teclado",
+  "_origem": "prateleira:cartoonzine-jogos"
+}
