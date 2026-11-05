@@ -72,9 +72,12 @@
     "Action",
     "Platform"
    ],
+   "bgImg": "banner",
+   "bgPosY": 15,
    "studio": "jogos/msdos/batman-returns",
    "url": "https://archive.org/details/msdos_Batman_Returns_1993",
-   "thumb": "https://archive.org/services/img/msdos_Batman_Returns_1993",
+   "thumb": "https://images.launchbox-app.com//e75fc659-d3ac-4d73-8dd5-a69754abb7e9.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//ac591503-062d-4b29-a4d8-62bc10d1459f.png",
    "console": "msdos",
    "core": "dos"
   },
