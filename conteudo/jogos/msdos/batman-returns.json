@@ -3,7 +3,8 @@
   "links": [
     "https://archive.org/details/msdos_Batman_Returns_1993"
   ],
-  "capa": "https://archive.org/services/img/msdos_Batman_Returns_1993",
+  "capa": "https://images.launchbox-app.com//e75fc659-d3ac-4d73-8dd5-a69754abb7e9.jpg",
+  "banner": "https://images.launchbox-app.com//ac591503-062d-4b29-a4d8-62bc10d1459f.png",
   "fonte": "https://archive.org/details/msdos_Batman_Returns_1993",
   "descricao": "Jogo de MS-DOS · Action, Platform (1993), de Malibu Interactive. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -13,5 +14,7 @@
   ],
   "editora": "Malibu Interactive",
   "console": "msdos",
+  "fundoImagem": "banner",
+  "posFundo": 15,
   "_origem": "auto:Internet Archive MS-DOS"
 }
