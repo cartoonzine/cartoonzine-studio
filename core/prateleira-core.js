@@ -154,5 +154,81 @@ echo "receita ainda não feita" && exit 1`;
         return JSON.stringify(dados, null, 2) + '\n';
     }
 
-    return { LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson };
+    // ------------------------------------------------------------------ Parte 2: fila e cadastro
+    const PAGINA = id => 'https://cartoonzine.github.io/cartoonzine-jogos/' + id + '/';
+
+    /**
+     * Situação de cada jogo da prateleira.
+     *   publicados = pastas que existem no branch gh-pages (jogos já no ar)
+     *   jobs       = jobs da última execução do robô "construir" ([{ name: 'jogo (<id>)', status, conclusion, html_url }])
+     * → [{ jogo, estado: 'rascunho'|'compilando'|'falhou'|'pronto'|'aguardando', noAr, job }]
+     */
+    function statusDosJogos(jogos, publicados = [], jobs = []) {
+        const noAr = new Set(publicados);
+        const porId = new Map();
+        for (const j of jobs || []) { const m = /^jogo \((.+)\)$/.exec(j.name || ''); if (m) porId.set(m[1], j); }
+        return (jogos || []).map(jogo => {
+            const job = porId.get(jogo.id) || null;
+            const ar = noAr.has(jogo.id);
+            let estado = ar ? 'pronto' : 'aguardando';
+            if (jogo.rascunho) estado = 'rascunho';
+            else if (job && job.status !== 'completed') estado = 'compilando';
+            else if (job && job.conclusion && job.conclusion !== 'success' && job.conclusion !== 'skipped') estado = 'falhou';
+            return { jogo, estado, noAr: ar, job };
+        });
+    }
+
+    /** Tira o "rascunho": true de um jogo no jogos.json (sem mexer no resto do arquivo). */
+    function tirarRascunho(texto, id) {
+        const dados = JSON.parse(texto);
+        const alvo = (dados.jogos || []).find(j => j.id === id);
+        if (!alvo) throw new Error('Não achei o jogo "' + id + '" no jogos.json');
+        if (!alvo.rascunho) return texto;
+        const ini = texto.indexOf('"id": "' + id + '"') >= 0 ? texto.indexOf('"id": "' + id + '"') : texto.indexOf('"id":"' + id + '"');
+        if (ini >= 0) {
+            const prox = texto.indexOf('"id"', ini + 5);
+            const fim = prox < 0 ? texto.length : prox;
+            const trecho = texto.slice(ini, fim).replace(/,\s*"rascunho"\s*:\s*true/, '');
+            const novo = texto.slice(0, ini) + trecho + texto.slice(fim);
+            try { const v = JSON.parse(novo); const j = v.jogos.find(x => x.id === id); if (j && !j.rascunho && v.jogos.length === dados.jogos.length) return novo; } catch (e) { /* plano B */ }
+        }
+        delete alvo.rascunho;
+        return JSON.stringify(dados, null, 2) + '\n';
+    }
+
+    /** Ficha do jogo para a coleção "Jogos Web" da Studio (mesmo jeito dos que já estão lá). */
+    function itemJogosWeb(jogo, { console: sistema = 'web-pc', capas = [] } = {}) {
+        const base = 'https://cartoonzine.github.io/cartoonzine-jogos/capas/' + jogo.id;
+        const item = {
+            nome: jogo.nome || jogo.id,
+            links: [PAGINA(jogo.id)],
+            site: jogo.original || jogo.fonte || '',
+            fonte: 'https://github.com/cartoonzine/cartoonzine-jogos',
+            repo: jogo.original || jogo.fonte || '',
+            descricao: (jogo.descricao ? jogo.descricao.replace(/\s*\.?\s*$/, '.') + ' ' : '') + 'Jogo livre (' + (jogo.licenca || 'código aberto') + '), hospedado sem propaganda no Cartoonzine Jogos.',
+            ano: jogo.ano,
+            generos: jogo.generos || [],
+            engine: 'Emscripten',
+            teclas: jogo.teclas,
+            console: sistema,
+            licenca: 'livre',
+            controles: jogo.controles || 'teclado',
+            _origem: 'prateleira:cartoonzine-jogos'
+        };
+        if (capas.includes(jogo.id + '.jpg')) item.capa = base + '.jpg';
+        if (capas.includes(jogo.id + '-banner.jpg')) { item.banner = base + '-banner.jpg'; item.fundoImagem = 'banner'; }
+        Object.keys(item).forEach(k => { if (item[k] === undefined || item[k] === '') delete item[k]; });
+        return item;
+    }
+
+    /** Já está em Jogos Web? (pelo nome do arquivo ou pelo nome do jogo) — índice = [{ caminho, nome }] */
+    function jaCadastrado(indice, jogo) {
+        const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+        const id = norm(jogo.id), nome = norm(jogo.nome);
+        return (indice || []).find(i => i.caminho && i.caminho.startsWith('conteudo/jogos-web/') &&
+            (norm(i.caminho.split('/').pop().replace(/\.json$/, '')).includes(id) || (nome && norm(i.nome) === nome))) || null;
+    }
+
+    return { LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, receitaAutomatica, jaExiste, inserirNoJogosJson,
+        PAGINA, statusDosJogos, tirarRascunho, itemJogosWeb, jaCadastrado };
 });

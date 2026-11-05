@@ -78,6 +78,15 @@
               </details>
             </section>
             <div id="pr-res"></div>
+            <section class="painel" style="margin-top:16px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <b style="font-size:16px">📋 Fila da prateleira</b>
+                <span class="dica" id="pr-fila-info"></span>
+                <div class="espaco" style="flex:1"></div>
+                <button class="btn fantasma mini" id="pr-fila-atualizar">↻ Atualizar</button>
+              </div>
+              <div id="pr-fila" style="margin-top:12px"></div>
+            </section>
           </div>`;
         $('#pr-token-ok').onclick = () => {
             const v = $('#pr-token').value.trim();
@@ -106,6 +115,9 @@
         $('#pr-analisar').onclick = ir;
         $('#pr-link').addEventListener('keydown', ev => { if (ev.key === 'Enter') ir(); });
         if (pr.analise) desenharResultado(S);
+        $('#pr-fila-atualizar').onclick = () => { pr.fila = null; carregarFila(S); };
+        if (token) { if (pr.fila) desenharFila(S); else carregarFila(S); }
+        else $('#pr-fila').innerHTML = '<p class="dica">Salve o token do GitHub para ver a fila.</p>';
     }
 
     function selo(texto, bom) {
@@ -191,7 +203,8 @@
                 { caminho: 'jogos.json', conteudo: novo },
                 { caminho: 'receitas/' + id + '.sh', conteudo: receita }
             ], (entrada.rascunho ? 'Prateleira: rascunho — ' : 'Prateleira: novo jogo — ') + nome);
-            pr.jogos = null; pr.analise = null; pr.link = '';
+            pr.jogos = null; pr.analise = null; pr.link = ''; pr.fila = null;
+            carregarFila(S);
             $('#pr-res').innerHTML = `<section class="painel" style="margin-top:16px;border-color:rgba(46,230,166,.45)">✅ <b>${S.esc(nome)}</b> entrou na prateleira${entrada.rascunho ? ' como <b>rascunho</b>' : ''}.
               <div class="dica" style="margin-top:6px">${entrada.rascunho
                 ? 'Quando quiser compilar: tire o <code>"rascunho": true</code> dele no jogos.json (ou adicione de novo marcando "Compilar já").'
@@ -203,6 +216,87 @@
             add.disabled = false; msg.textContent = '';
             S.aviso('Não consegui salvar: ' + e.message, 'ruim');
         }
+    }
+
+    // ------------------------------------------------------------------ Parte 2: fila
+    const ROTULO = {
+        rascunho: ['📝 Rascunho', ''], aguardando: ['⏳ Esperando o robô', 'var(--amarelo)'], compilando: ['⚙️ Compilando…', 'var(--amarelo)'],
+        falhou: ['❌ Falhou', 'var(--erro)'], pronto: ['✅ No ar', 'var(--verde)']
+    };
+
+    async function carregarFila(S) {
+        const caixa = $('#pr-fila'); if (!caixa) return;
+        const tk = tokenAtual(S);
+        caixa.innerHTML = '<p class="carregando">Lendo a prateleira…</p>';
+        try {
+            const jogos = await lerPrateleira(S, tk);
+            const repo = jogos.repo;
+            const [pastas, capas, runs] = await Promise.all([
+                lerJson(repo, '/git/trees/gh-pages').then(r => (r.tree || []).filter(t => t.type === 'tree').map(t => t.path)).catch(() => []),
+                lerJson(repo, '/contents/capas?ref=gh-pages').then(r => r.map(x => x.name)).catch(() => []),
+                lerJson(repo, '/actions/workflows/construir.yml/runs?per_page=1').catch(() => null)
+            ]);
+            const run = runs && runs.workflow_runs && runs.workflow_runs[0];
+            const jobs = run ? await lerJson(repo, '/actions/runs/' + run.id + '/jobs?per_page=100').then(r => r.jobs || []).catch(() => []) : [];
+            pr.jogos = jogos;
+            pr.fila = { lista: P.statusDosJogos(jogos.lista, pastas, jobs), capas, run, semActions: !runs };
+            desenharFila(S);
+        } catch (e) {
+            caixa.innerHTML = `<p style="color:var(--erro)">❌ ${S.esc(e.message)}</p>`;
+        }
+    }
+
+    function desenharFila(S) {
+        const esc = S.esc, f = pr.fila, caixa = $('#pr-fila');
+        if (!caixa || !f) return;
+        const run = f.run;
+        $('#pr-fila-info').innerHTML = run
+            ? `último robô: <a href="${esc(run.html_url)}" target="_blank" rel="noopener">${run.status === 'completed' ? (run.conclusion === 'success' ? 'terminou ✅' : 'terminou com erro ❌') : 'rodando agora ⚙️'}</a> · ${esc(new Date(run.created_at).toLocaleString('pt-BR'))}`
+            : (f.semActions ? 'o token não lê o Actions: o estado "compilando/falhou" não aparece' : '');
+        const sistemas = S.consolesWeb();
+        const ordem = { falhou: 0, compilando: 1, aguardando: 2, rascunho: 3, pronto: 4 };
+        const linhas = f.lista.slice().sort((a, b) => ordem[a.estado] - ordem[b.estado] || String(a.jogo.nome).localeCompare(String(b.jogo.nome), 'pt'));
+        if (!linhas.length) { caixa.innerHTML = '<p class="dica">A prateleira está vazia.</p>'; return; }
+        caixa.innerHTML = `<div style="display:grid;gap:8px">${linhas.map(l => {
+            const j = l.jogo, [rot, cor] = ROTULO[l.estado];
+            const cad = l.noAr ? P.jaCadastrado(S.indice(), j) : null;
+            const editar = `https://github.com/${REPO_JOGOS}/edit/main/receitas/${encodeURIComponent(j.id)}.sh`;
+            let acoes = '';
+            if (l.estado === 'rascunho') acoes = `<button class="btn mini" data-compilar="${esc(j.id)}">▶ Compilar</button> <a class="btn fantasma mini" href="${editar}" target="_blank" rel="noopener">Editar receita</a>`;
+            if (l.estado === 'falhou') acoes = `<a class="btn mini" href="${esc(l.job.html_url)}" target="_blank" rel="noopener">Ver o erro</a> <a class="btn fantasma mini" href="${editar}" target="_blank" rel="noopener">Editar receita</a>`;
+            if (l.noAr) acoes += ` <a class="btn fantasma mini" href="${P.PAGINA(j.id)}" target="_blank" rel="noopener">▶ Jogar</a>` + (cad
+                ? ` <span class="chip" style="color:var(--verde)" title="${esc(cad.caminho)}">✔ em Jogos Web</span>`
+                : ` <span class="pr-cad" style="display:inline-flex;gap:6px;align-items:center"><select class="campo" data-sis="${esc(j.id)}" style="padding:4px 8px;width:auto">${sistemas.map(c => `<option value="${esc(c.id)}" ${c.id === 'web-pc' ? 'selected' : ''}>${esc(c.nome)}</option>`).join('')}</select>
+                   <button class="btn principal mini" data-cadastrar="${esc(j.id)}">Cadastrar em Jogos Web</button></span>`);
+            return `<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--borda);border-radius:10px">
+                <span style="min-width:150px;flex:1"><b>${esc(j.nome || j.id)}</b> <span class="dica">(${esc(j.id)})</span></span>
+                <span class="chip" style="${cor ? 'color:' + cor : ''}">${rot}${l.estado === 'falhou' && l.noAr ? ' · versão antiga no ar' : ''}</span>
+                <span style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${acoes}</span></div>`;
+        }).join('')}</div>`;
+        caixa.querySelectorAll('[data-compilar]').forEach(b => b.onclick = () => compilar(S, b.dataset.compilar, b));
+        caixa.querySelectorAll('[data-cadastrar]').forEach(b => b.onclick = () => cadastrar(S, b.dataset.cadastrar, b));
+    }
+
+    async function compilar(S, id, botao) {
+        botao.disabled = true; botao.textContent = 'Salvando…';
+        try {
+            const atual = await lerPrateleira(S, tokenAtual(S));
+            const j = atual.lista.find(x => x.id === id);
+            await atual.repo.salvar([{ caminho: 'jogos.json', conteudo: P.tirarRascunho(atual.texto, id) }], 'Prateleira: compilar — ' + (j ? j.nome : id));
+            S.aviso('Pronto: o robô vai compilar "' + (j ? j.nome : id) + '". Leva uns minutos — clique em ↻ Atualizar para acompanhar.', 'ok');
+            pr.fila = null; carregarFila(S);
+        } catch (e) {
+            botao.disabled = false; botao.textContent = '▶ Compilar';
+            S.aviso('Não consegui: ' + e.message, 'ruim');
+        }
+    }
+
+    async function cadastrar(S, id, botao) {
+        const l = pr.fila.lista.find(x => x.jogo.id === id);
+        const sel = document.querySelector(`[data-sis="${CSS.escape(id)}"]`);
+        const item = P.itemJogosWeb(l.jogo, { console: sel ? sel.value : 'web-pc', capas: pr.fila.capas });
+        try { await S.cadastrarWeb(item, botao); }
+        catch (e) { /* o aviso de erro já apareceu */ }
     }
 
     window.CZPrateleira = { desenhar };

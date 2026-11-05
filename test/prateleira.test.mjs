@@ -81,3 +81,37 @@ test('prateleira: insere no jogos.json sem bagunçar', () => {
     assert.throws(() => P.inserirNoJogosJson(txt, { id: 'opentyrian' }), /Já existe/);
     assert.equal(JSON.parse(P.inserirNoJogosJson('{"jogos":[]}', { id: 'a' })).jogos[0].id, 'a');
 });
+
+test('prateleira: situação de cada jogo (fila)', () => {
+    const jogos = [{ id: 'a' }, { id: 'b', rascunho: true }, { id: 'c' }, { id: 'd' }, { id: 'e' }];
+    const jobs = [{ name: 'lista', status: 'completed', conclusion: 'success' }, { name: 'jogo (a)', status: 'completed', conclusion: 'success' },
+        { name: 'jogo (c)', status: 'in_progress', conclusion: null }, { name: 'jogo (d)', status: 'completed', conclusion: 'failure', html_url: 'u' }];
+    const st = P.statusDosJogos(jogos, ['a', 'd', 'capas'], jobs).map(s => s.estado);
+    assert.deepEqual(st, ['pronto', 'rascunho', 'compilando', 'falhou', 'aguardando']);
+    assert.equal(P.statusDosJogos(jogos, ['a', 'd'], jobs)[3].noAr, true);
+});
+
+test('prateleira: tirar rascunho sem bagunçar o arquivo', () => {
+    const txt = '{\n  "jogos": [\n    { "id": "a", "nome": "A" },\n    { "id": "b", "nome": "B", "rascunho": true },\n    { "id": "c", "rascunho": true }\n  ]\n}\n';
+    const novo = P.tirarRascunho(txt, 'b');
+    assert.equal(novo, txt.replace(', "rascunho": true }', ' }'));
+    const v = JSON.parse(novo); assert.equal(v.jogos[1].rascunho, undefined); assert.equal(v.jogos[2].rascunho, true);
+    assert.equal(P.tirarRascunho(txt, 'a'), txt);
+    assert.throws(() => P.tirarRascunho(txt, 'zz'), /Não achei/);
+});
+
+test('prateleira: ficha para Jogos Web e já cadastrado', () => {
+    const j = { id: 'opentyrian', nome: 'OpenTyrian', ano: 1995, licenca: 'GPL-2.0', original: 'https://github.com/opentyrian/opentyrian', descricao: 'Nave de tiro', generos: ['Tiro'], controles: 'teclado', teclas: 'A=Space' };
+    const it = P.itemJogosWeb(j, { console: 'web-dos', capas: ['opentyrian.jpg', 'opentyrian-banner.jpg'] });
+    assert.deepEqual(it.links, ['https://cartoonzine.github.io/cartoonzine-jogos/opentyrian/']);
+    assert.equal(it.console, 'web-dos');
+    assert.equal(it.capa, 'https://cartoonzine.github.io/cartoonzine-jogos/capas/opentyrian.jpg');
+    assert.equal(it.fundoImagem, 'banner');
+    assert.match(it.descricao, /^Nave de tiro\. Jogo livre \(GPL-2\.0\)/);
+    assert.equal(P.itemJogosWeb({ id: 'x' }).capa, undefined);
+    const indice = [{ caminho: 'conteudo/jogos-web/web-dos/tyrian-opentyrian.json', nome: 'Tyrian (OpenTyrian)' }, { caminho: 'conteudo/jogos-web/web-pc/neverball.json', nome: 'Neverball' }];
+    assert.ok(P.jaCadastrado(indice, j));
+    assert.ok(P.jaCadastrado(indice, { id: 'nb', nome: 'Neverball' }));
+    assert.equal(P.jaCadastrado(indice, { id: 'xgalaga', nome: 'XGalaga' }), null);
+    assert.equal(P.jaCadastrado([{ caminho: 'conteudo/jogos/x/opentyrian.json' }], j), null);
+});

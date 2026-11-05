@@ -348,7 +348,22 @@
         $('#btn-vitrine').classList.toggle('ativo', estado.tela === 'vitrine');
         $('#btn-prateleira').classList.toggle('ativo', estado.tela === 'prateleira');
         if (estado.tela === 'vitrine') desenharVitrine();
-        else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), { RepoGitHub, aviso, esc, guardar });
+        else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
+            RepoGitHub, aviso, esc, guardar,
+            indice: () => estado.indice,
+            consolesWeb: () => estado.config.consolesWeb || [],
+            cadastrarWeb: async (bruto, botao) => {      // grava a ficha na coleção Jogos Web (local, demo ou GitHub)
+                const col = estado.config.colecoes.find(c => c.id === 'jogos-web');
+                if (!col) throw new Error('coleção Jogos Web não existe');
+                const item = C.normalizarItem(bruto, col);
+                const base = C.caminhoItem(col, item);
+                const pasta = base.slice(0, base.lastIndexOf('/') + 1);
+                const nomes = new Set(estado.indice.map(i => i.caminho).filter(c => c.startsWith(pasta) && !c.slice(pasta.length).includes('/'))
+                    .map(c => c.slice(pasta.length).replace(/\.json$/, '')));
+                const destino = C.caminhoItem(col, item, C.slugLivre(C.slugify(item.nome), nomes));
+                await gravar([{ caminho: destino, conteudo: C.serializar(item) }], `Studio: adiciona "${item.nome}" em Jogos Web (Prateleira)`, botao);
+            }
+        });
         else desenharArea();
     }
 
