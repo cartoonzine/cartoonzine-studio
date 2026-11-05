@@ -1,0 +1,16 @@
+{
+  "nome": "Castle of Dr. Brain",
+  "links": [
+    "https://archive.org/details/msdos_Castle_of_Dr._Brain_1991"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Castle_of_Dr._Brain_1991",
+  "fonte": "https://archive.org/details/msdos_Castle_of_Dr._Brain_1991",
+  "descricao": "Jogo de MS-DOS · Adventure (1991), de Sierra On-Line. Do acervo do Internet Archive.",
+  "ano": 1991,
+  "generos": [
+    "Adventure"
+  ],
+  "editora": "Sierra On-Line",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

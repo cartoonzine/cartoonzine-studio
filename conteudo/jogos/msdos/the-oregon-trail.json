@@ -1,0 +1,13 @@
+{
+  "nome": "The Oregon Trail",
+  "links": [
+    "https://archive.org/details/msdos_Oregon_Trail_The_1990"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Oregon_Trail_The_1990",
+  "fonte": "https://archive.org/details/msdos_Oregon_Trail_The_1990",
+  "descricao": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+  "ano": 1990,
+  "editora": "MECC",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

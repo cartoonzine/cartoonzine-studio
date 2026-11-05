@@ -1,0 +1,17 @@
+{
+  "nome": "Championship Manager 93-94",
+  "links": [
+    "https://archive.org/details/msdos_Championship_Manager_93-94_1993"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Championship_Manager_93-94_1993",
+  "fonte": "https://archive.org/details/msdos_Championship_Manager_93-94_1993",
+  "descricao": "Jogo de MS-DOS · Simulation, Sports (1993), de Domark Software. Do acervo do Internet Archive.",
+  "ano": 1993,
+  "generos": [
+    "Simulation",
+    "Sports"
+  ],
+  "editora": "Domark Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

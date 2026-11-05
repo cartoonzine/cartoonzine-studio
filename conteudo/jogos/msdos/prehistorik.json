@@ -1,0 +1,17 @@
+{
+  "nome": "Prehistorik",
+  "links": [
+    "https://archive.org/details/msdos_Prehistorik_1991"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Prehistorik_1991",
+  "fonte": "https://archive.org/details/msdos_Prehistorik_1991",
+  "descricao": "Jogo de MS-DOS · Action, Platform (1991), de Titus France SA. Do acervo do Internet Archive.",
+  "ano": 1991,
+  "generos": [
+    "Action",
+    "Platform"
+  ],
+  "editora": "Titus France SA",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

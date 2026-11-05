@@ -1,0 +1,18 @@
+{
+  "nome": "Stunt Driver",
+  "links": [
+    "https://archive.org/details/msdos_Stunt_Driver_1990"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Stunt_Driver_1990",
+  "fonte": "https://archive.org/details/msdos_Stunt_Driver_1990",
+  "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Tricks / Stunts (1990), de Sphere. Do acervo do Internet Archive.",
+  "ano": 1990,
+  "generos": [
+    "Racing / Driving",
+    "Simulation",
+    "Tricks / Stunts"
+  ],
+  "editora": "Sphere",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

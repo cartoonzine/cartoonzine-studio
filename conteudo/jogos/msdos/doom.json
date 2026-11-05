@@ -1,0 +1,17 @@
+{
+  "nome": "DOOM",
+  "links": [
+    "https://archive.org/details/msdos_DOOM_1993"
+  ],
+  "capa": "https://archive.org/services/img/msdos_DOOM_1993",
+  "fonte": "https://archive.org/details/msdos_DOOM_1993",
+  "descricao": "Jogo de MS-DOS · Action, Shooter (1993), de id Software. Do acervo do Internet Archive.",
+  "ano": 1993,
+  "generos": [
+    "Action",
+    "Shooter"
+  ],
+  "editora": "id Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}

@@ -1,0 +1,17 @@
+{
+  "nome": "The Games - Winter Challenge",
+  "links": [
+    "https://archive.org/details/msdos_The_Games_-_Winter_Challenge_1991"
+  ],
+  "capa": "https://archive.org/services/img/msdos_The_Games_-_Winter_Challenge_1991",
+  "fonte": "https://archive.org/details/msdos_The_Games_-_Winter_Challenge_1991",
+  "descricao": "Jogo de MS-DOS · Action, Sports (1991), de MindSpan. Do acervo do Internet Archive.",
+  "ano": 1991,
+  "generos": [
+    "Action",
+    "Sports"
+  ],
+  "editora": "MindSpan",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS"
+}
