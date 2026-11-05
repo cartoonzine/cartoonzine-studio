@@ -38,7 +38,10 @@
         const deBuild = ['CMakeLists.txt', 'Makefile', 'makefile', 'GNUmakefile', 'configure.ac', 'configure.in', 'meson.build'].filter(c => caminhos.includes(c));
         const textos = [await lerCru(repo, '/readme?ref=' + encodeURIComponent(branch))];
         for (const c of deBuild) textos.push(await lerCru(repo, '/contents/' + c + '?ref=' + encodeURIComponent(branch)));
-        const a = P.analisarRepo({ info, caminhos, textos: textos.join('\n').slice(0, 400000), branches, link });
+        // guia de build para a web do próprio projeto (ex.: EMSCRIPTEN.md dos forks do midzer)
+        const guiaArquivo = caminhos.find(c => /^(docs\/)?(emscripten|build[_-]?(web|emscripten|wasm)|web|wasm)\.md$/i.test(c)) || '';
+        const guia = guiaArquivo ? await lerCru(repo, '/contents/' + guiaArquivo.split('/').map(encodeURIComponent).join('/') + '?ref=' + encodeURIComponent(branch)) : '';
+        const a = P.analisarRepo({ info, caminhos, textos: textos.join('\n').slice(0, 400000), branches, link, guia, guiaArquivo });
         if (alvo.branch) { a.branchWeb = alvo.branch; a.temWeb = a.temWeb || /emscripten|web|wasm|html5|browser/i.test(alvo.branch); }
         return a;
     }
@@ -144,6 +147,7 @@
                   ${selo('Licença: ' + esc(a.licenca.spdx || a.licenca.nome), a.licenca.livre)}
                   ${selo('Build: ' + esc(tipoTxt), a.tipo === 'desconhecido' || a.tipo === 'visualstudio' ? false : null)}
                   ${a.sdl ? selo(esc(a.sdl.toUpperCase().replace('SDL', 'SDL ')), a.sdl === 'sdl2' ? true : null) : ''}
+                  ${a.guia ? selo('📘 Guia ' + esc(a.guiaArquivo || 'README') + ' (receita segue ele)', true) : ''}
                   ${a.temWeb ? selo('Já tem versão web' + (a.branchWeb ? ' (' + esc(a.branchWeb) + ')' : ''), true) : ''}
                   ${selo(a.facil ? '👍 boa chance de compilar' : '🛠️ vai precisar de ajuste', a.facil)}
                   ${a.estrelas ? selo('⭐ ' + a.estrelas) : ''}

@@ -145,3 +145,38 @@ test('prateleira: backup e restaurar só o que falta', () => {
     assert.throws(() => P.planoRestauracao({ jogos: [] }, []), /não é um backup/);
     assert.deepEqual(P.planoRestauracao({ ...ida, jogos: [{ id: '../x' }] }, []).jogos, []);
 });
+
+const GUIA_MOG = "# Emscripten\n\n## Build\n\n```\nemmake make\n```\n\n## Link\n\n```\nem++ -flto -O3 -fno-rtti -fno-exceptions sources/*.o -o index.html -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -sSDL2_IMAGE_FORMATS=pcx -sUSE_SDL_MIXER=2 -sSDL2_MIXER_FORMATS=ogg -sASYNCIFY -sENVIRONMENT=web -sTOTAL_MEMORY=256mb --preload-file graphics/ --preload-file rooms/ --preload-file sound/ --closure 1 -sEXPORTED_RUNTIME_METHODS=['allocate','ALLOC_NORMAL']\n```\n";
+
+test('prateleira: guia EMSCRIPTEN.md vira receita', () => {
+    const g = P.comandosDoGuia(GUIA_MOG);
+    assert.deepEqual(g.build, ['emmake make']);
+    assert.match(g.link, /-sINITIAL_MEMORY=256mb/);
+    assert.match(g.link, /-sEXPORTED_RUNTIME_METHODS="\['allocate','ALLOC_NORMAL'\]"/);   // o SDL2 usa os dois (o closure reclama sem eles)
+    assert.deepEqual(g.ports, ['-sUSE_SDL=2', '-sUSE_SDL_IMAGE=2', '-sSDL2_IMAGE_FORMATS=pcx', '-sUSE_SDL_MIXER=2', '-sSDL2_MIXER_FORMATS=ogg']);
+    assert.equal(P.comandosDoGuia('# nada\n```\nls\n```'), null);
+    assert.equal(P.comandosDoGuia('```\nemcc a.c \\\n  -o index.html -sUSE_SDL=2\n```').link, 'emcc a.c -o index.html -sUSE_SDL=2');
+    const a = P.analisarRepo({ info: INFO, caminhos: ['Makefile', 'EMSCRIPTEN.md'], textos: 'LDFLAGS = `sdl2-config --libs` -lSDL2_image -lSDL2_mixer', guia: GUIA_MOG, guiaArquivo: 'EMSCRIPTEN.md' });
+    assert.equal(a.facil, true);
+    const r = P.receitaAutomatica(a);
+    assert.match(r, /export EMCC_CFLAGS="-sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -sSDL2_IMAGE_FORMATS=pcx -sUSE_SDL_MIXER=2 -sSDL2_MIXER_FORMATS=ogg"\nemmake make -k -j"\$\(nproc\)" \|\| true\nunset EMCC_CFLAGS\nem\+\+ /);
+    assert.match(r, /publicar_saida "\$\(dirname "index.html"\)" "Open Tyrian"/);
+    assert.match(r, /EMSCRIPTEN\.md/);
+});
+
+test('prateleira: ports do SDL e receita de Makefile sem guia', () => {
+    assert.deepEqual(P.portsDoSdl('-lSDL2_mixer -lSDL2_ttf', 'sdl2'), ['-sUSE_SDL=2', '-sUSE_SDL_MIXER=2', '-sSDL2_MIXER_FORMATS=[ogg,wav,mod,mp3]', '-sUSE_SDL_TTF=2']);
+    assert.equal(P.portsDoSdl('SDL2', 'sdl2').length, 5);                 // sem pistas: liga image + mixer
+    assert.deepEqual(P.portsDoSdl('', 'sdl1'), ['-sUSE_SDL=1']);
+    const a = P.analisarRepo({ info: INFO, caminhos: ['Makefile'], textos: '`sdl2-config --cflags` -lSDL2_image -lSDL2_mixer' });
+    const r = P.receitaAutomatica(a);
+    assert.match(r, /export EMCC_CFLAGS="-sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -sSDL2_IMAGE_FORMATS=\[png,jpg,bmp,pcx\] -sUSE_SDL_MIXER=2/);
+    assert.match(r, /emmake make -k/);
+    assert.match(r, /--preload-file/);
+});
+
+test('prateleira: guia só com o link usa o build padrão do tipo', () => {
+    const a = P.analisarRepo({ info: INFO, caminhos: ['CMakeLists.txt'], textos: 'SDL2', guia: '```\nem++ build/*.o -o index.html -sUSE_SDL=2\n```', guiaArquivo: 'EMSCRIPTEN.md' });
+    const r = P.receitaAutomatica(a);
+    assert.match(r, /cd build\nemcmake cmake \.\.\nemmake make -k -j"\$\(nproc\)" \|\| true\ncd "\$FONTE"\nunset EMCC_CFLAGS\nem\+\+ build/);
+});
