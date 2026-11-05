@@ -2,6 +2,82 @@
  "colecao": "jogos",
  "games": [
   {
+   "title": "'Nam 1965-1975",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics (1991), de Kremlin, The. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Strategy/Tactics"
+   ],
+   "studio": "jogos/msdos/nam-1965-1975",
+   "url": "https://archive.org/details/msdos_Nam_1965-1975_1991",
+   "thumb": "https://archive.org/services/img/msdos_Nam_1965-1975_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "3D Bomber",
+   "desc": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
+   "year": 1998,
+   "studio": "jogos/msdos/3d-bomber",
+   "url": "https://archive.org/details/msdos_3D_Bomber_1998",
+   "thumb": "https://archive.org/services/img/msdos_3D_Bomber_1998",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "4D Prince of Persia",
+   "desc": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
+   "year": 1994,
+   "studio": "jogos/msdos/4d-prince-of-persia",
+   "url": "https://archive.org/details/msdos_4D_Prince_of_Persia_1994",
+   "thumb": "https://archive.org/services/img/msdos_4D_Prince_of_Persia_1994",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Alley Cat",
+   "desc": "Jogo de MS-DOS · Action, Arcade, Platform (1984), de Synapse Software Corporation. Do acervo do Internet Archive.",
+   "year": 1984,
+   "genre": [
+    "Action",
+    "Arcade",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/alley-cat",
+   "url": "https://archive.org/details/msdos_Alley_Cat_1984",
+   "thumb": "https://archive.org/services/img/msdos_Alley_Cat_1984",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Back to the Future Part III",
+   "desc": "Jogo de MS-DOS · Action, Arcade (1991), de Probe Software Ltd.. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Action",
+    "Arcade"
+   ],
+   "studio": "jogos/msdos/back-to-the-future-part-iii",
+   "url": "https://archive.org/details/msdos_Back_to_the_Future_Part_III_1991",
+   "thumb": "https://archive.org/services/img/msdos_Back_to_the_Future_Part_III_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Batman Returns",
+   "desc": "Jogo de MS-DOS · Action, Platform (1993), de Malibu Interactive. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/batman-returns",
+   "url": "https://archive.org/details/msdos_Batman_Returns_1993",
+   "thumb": "https://archive.org/services/img/msdos_Batman_Returns_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
    "title": "brix",
    "desc": "Brix é um jogo de quebra-cabeça para MS-DOS , desenvolvido por Michael Riedel e produzido e publicado em 1991. Uma versão atualizada com gráficos e som aprimorados foi publicada pela Epic MegaGames em 1992. É um clone de Puzznic , da Taito , e, portanto, apresenta fortes semelhanças gráficas e algumas de jogabilidade com Plotting , também produzido pela Taito. \nUma versão aprimorada, Brix 2 Deluxe , foi lançada junto com a versão da Epic MegaGames, com dezenas de novos níveis e um editor de níveis.",
    "year": 1992,
@@ -16,6 +92,1145 @@
    "bannerThumb": "https://images.launchbox-app.com/ec51a18f-8159-4447-a3f8-053f4545938e.png",
    "console": "msdos",
    "players": 2,
+   "core": "dos"
+  },
+  {
+   "title": "Bubble Bobble",
+   "desc": "Jogo de MS-DOS · Action, Arcade, Platform (1988), de Taito Corporation. Do acervo do Internet Archive.",
+   "year": 1988,
+   "genre": [
+    "Action",
+    "Arcade",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/bubble-bobble",
+   "url": "https://archive.org/details/msdos_Bubble_Bobble_1988",
+   "thumb": "https://archive.org/services/img/msdos_Bubble_Bobble_1988",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Budokan The Martial Spirit",
+   "desc": "Jogo de MS-DOS · Simulation, Sports, Martial Arts (1989), de Electronic Arts. Do acervo do Internet Archive.",
+   "year": 1989,
+   "genre": [
+    "Simulation",
+    "Sports",
+    "Martial Arts"
+   ],
+   "studio": "jogos/msdos/budokan-the-martial-spirit",
+   "url": "https://archive.org/details/msdos_Budokan_The_Martial_Spirit_1989",
+   "thumb": "https://archive.org/services/img/msdos_Budokan_The_Martial_Spirit_1989",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Bust-A-Move",
+   "desc": "Jogo de MS-DOS · Puzzle, Arcade, Tile Matching Puzzle (1997), de Taito Corporation. Do acervo do Internet Archive.",
+   "year": 1997,
+   "genre": [
+    "Puzzle",
+    "Arcade",
+    "Tile Matching Puzzle"
+   ],
+   "studio": "jogos/msdos/bust-a-move",
+   "url": "https://archive.org/details/msdos_Bust-A-Move_1997",
+   "thumb": "https://archive.org/services/img/msdos_Bust-A-Move_1997",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Carmageddon Max Pack",
+   "desc": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
+   "year": 1998,
+   "studio": "jogos/msdos/carmageddon-max-pack",
+   "url": "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998",
+   "thumb": "https://archive.org/services/img/msdos_Carmageddon_Max_Pack_1998",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Castle of Dr. Brain",
+   "desc": "Jogo de MS-DOS · Adventure (1991), de Sierra On-Line. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Adventure"
+   ],
+   "studio": "jogos/msdos/castle-of-dr-brain",
+   "url": "https://archive.org/details/msdos_Castle_of_Dr._Brain_1991",
+   "thumb": "https://archive.org/services/img/msdos_Castle_of_Dr._Brain_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Castle Wolfenstein",
+   "desc": "Jogo de MS-DOS · Action, Shooter, Stealth (1984), de Muse Software. Do acervo do Internet Archive.",
+   "year": 1984,
+   "genre": [
+    "Action",
+    "Shooter",
+    "Stealth"
+   ],
+   "studio": "jogos/msdos/castle-wolfenstein",
+   "url": "https://archive.org/details/msdos_Castle_Wolfenstein_1984",
+   "thumb": "https://archive.org/services/img/msdos_Castle_Wolfenstein_1984",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Centurion - Defender of Rome",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics (1990), de Bits of Magic. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Strategy/Tactics"
+   ],
+   "studio": "jogos/msdos/centurion-defender-of-rome",
+   "url": "https://archive.org/details/msdos_Centurion_-_Defender_of_Rome_1990",
+   "thumb": "https://archive.org/services/img/msdos_Centurion_-_Defender_of_Rome_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Championship Manager 93-94",
+   "desc": "Jogo de MS-DOS · Simulation, Sports (1993), de Domark Software. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Simulation",
+    "Sports"
+   ],
+   "studio": "jogos/msdos/championship-manager-93-94",
+   "url": "https://archive.org/details/msdos_Championship_Manager_93-94_1993",
+   "thumb": "https://archive.org/services/img/msdos_Championship_Manager_93-94_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Cool World",
+   "desc": "Jogo de MS-DOS · Action, Platform (1992), de Twilight. Do acervo do Internet Archive.",
+   "year": 1992,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/cool-world",
+   "url": "https://archive.org/details/msdos_Cool_World_1992",
+   "thumb": "https://archive.org/services/img/msdos_Cool_World_1992",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Crosscountry Canada",
+   "desc": "Jogo de MS-DOS (1991), de Didatech Software Ltd.. Do acervo do Internet Archive.",
+   "year": 1991,
+   "studio": "jogos/msdos/crosscountry-canada",
+   "url": "https://archive.org/details/msdos_Crosscountry_Canada_1991",
+   "thumb": "https://archive.org/services/img/msdos_Crosscountry_Canada_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Dangerous Dave in the Deserted Pirate's Hideout",
+   "desc": "Jogo de MS-DOS · Action, Platform, Puzzle (1990), de Uptime Disk Monthly. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Action",
+    "Platform",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/dangerous-dave-in-the-deserted-pirate-s-hideout",
+   "url": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990",
+   "thumb": "https://archive.org/services/img/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Dangerous Dave in the Haunted Mansion",
+   "desc": "Jogo de MS-DOS · Action, Platform (1991), de Gamer's Edge, id Software. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/dangerous-dave-in-the-haunted-mansion",
+   "url": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
+   "thumb": "https://archive.org/services/img/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Das Boot German U-Boat Simulation",
+   "desc": "Jogo de MS-DOS · Simulation (1990), de Artech Digital Entertainment, Ltd.. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Simulation"
+   ],
+   "studio": "jogos/msdos/das-boot-german-u-boat-simulation",
+   "url": "https://archive.org/details/msdos_Das_Boot_German_U-Boat_Simulation_1990",
+   "thumb": "https://archive.org/services/img/msdos_Das_Boot_German_U-Boat_Simulation_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Deluxe Ski Jump",
+   "desc": "Jogo de MS-DOS · Simulation, Sports (2000), de Mediamond. Do acervo do Internet Archive.",
+   "year": 2000,
+   "genre": [
+    "Simulation",
+    "Sports"
+   ],
+   "studio": "jogos/msdos/deluxe-ski-jump",
+   "url": "https://archive.org/details/msdos_Deluxe_Ski_Jump_2000",
+   "thumb": "https://archive.org/services/img/msdos_Deluxe_Ski_Jump_2000",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Digger",
+   "desc": "Jogo de MS-DOS · Action, Arcade (1983), de Windmill Software. Do acervo do Internet Archive.",
+   "year": 1983,
+   "genre": [
+    "Action",
+    "Arcade"
+   ],
+   "studio": "jogos/msdos/digger",
+   "url": "https://archive.org/details/msdos_Digger_1983_1983",
+   "thumb": "https://archive.org/services/img/msdos_Digger_1983_1983",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Disney's Aladdin",
+   "desc": "Jogo de MS-DOS · Action, Platform (1994), de Virgin Interactive Entertainment. Do acervo do Internet Archive.",
+   "year": 1994,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/disney-s-aladdin",
+   "url": "https://archive.org/details/msdos_Disneys_Aladdin_1994",
+   "thumb": "https://archive.org/services/img/msdos_Disneys_Aladdin_1994",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Disney's Duck Tales - The Quest for Gold",
+   "desc": "Jogo de MS-DOS · Action, Platform (1990), de Incredible Technologies. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/disney-s-duck-tales-the-quest-for-gold",
+   "url": "https://archive.org/details/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
+   "thumb": "https://archive.org/services/img/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Donkey Kong",
+   "desc": "Jogo de MS-DOS · Action, Arcade, Platform (1983), de Nintendo Co., Ltd.. Do acervo do Internet Archive.",
+   "year": 1983,
+   "genre": [
+    "Action",
+    "Arcade",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/donkey-kong",
+   "url": "https://archive.org/details/msdos_Donkey_Kong_1983",
+   "thumb": "https://archive.org/services/img/msdos_Donkey_Kong_1983",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "DOOM",
+   "desc": "Jogo de MS-DOS · Action, Shooter (1993), de id Software. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Action",
+    "Shooter"
+   ],
+   "studio": "jogos/msdos/doom",
+   "url": "https://archive.org/details/msdos_DOOM_1993",
+   "thumb": "https://archive.org/services/img/msdos_DOOM_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Doom - The Roguelike",
+   "desc": "Jogo de MS-DOS (2005). Do acervo do Internet Archive.",
+   "year": 2005,
+   "studio": "jogos/msdos/doom-the-roguelike",
+   "url": "https://archive.org/details/msdos_Doom_-_The_Roguelike_2005",
+   "thumb": "https://archive.org/services/img/msdos_Doom_-_The_Roguelike_2005",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Double Dragon",
+   "desc": "Jogo de MS-DOS · Action, Arcade, Beat 'em up / Brawler (1988), de Technos Japan Corp.. Do acervo do Internet Archive.",
+   "year": 1988,
+   "genre": [
+    "Action",
+    "Arcade",
+    "Beat 'em up / Brawler"
+   ],
+   "studio": "jogos/msdos/double-dragon",
+   "url": "https://archive.org/details/msdos_Double_Dragon_1988",
+   "thumb": "https://archive.org/services/img/msdos_Double_Dragon_1988",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Dragon's Lair",
+   "desc": "Jogo de MS-DOS · Action, Timed Input (1993), de Sullivan Bluth Interactive Media. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Action",
+    "Timed Input"
+   ],
+   "studio": "jogos/msdos/dragon-s-lair",
+   "url": "https://archive.org/details/msdos_Dragons_Lair_1993_1993",
+   "thumb": "https://archive.org/services/img/msdos_Dragons_Lair_1993_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Dune 2 - The Building of a Dynasty",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics, Real-time strategy (1992), de Westwood Studios. Do acervo do Internet Archive.",
+   "year": 1992,
+   "genre": [
+    "Strategy/Tactics",
+    "Real-time strategy"
+   ],
+   "studio": "jogos/msdos/dune-2-the-building-of-a-dynasty",
+   "url": "https://archive.org/details/msdos_Dune_2_-_The_Building_of_a_Dynasty_1992",
+   "thumb": "https://archive.org/services/img/msdos_Dune_2_-_The_Building_of_a_Dynasty_1992",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Empire Deluxe",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics (1993), de White Wolf Productions. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Strategy/Tactics"
+   ],
+   "studio": "jogos/msdos/empire-deluxe",
+   "url": "https://archive.org/details/msdos_Empire_Deluxe_1993",
+   "thumb": "https://archive.org/services/img/msdos_Empire_Deluxe_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "European Championship 1992",
+   "desc": "Jogo de MS-DOS · Sports (1992), de Tecmo, Ltd.. Do acervo do Internet Archive.",
+   "year": 1992,
+   "genre": [
+    "Sports"
+   ],
+   "studio": "jogos/msdos/european-championship-1992",
+   "url": "https://archive.org/details/msdos_European_Championship_1992_1992",
+   "thumb": "https://archive.org/services/img/msdos_European_Championship_1992_1992",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Executive Suite",
+   "desc": "Jogo de MS-DOS · Simulation (1982), de Armonk Corporation. Do acervo do Internet Archive.",
+   "year": 1982,
+   "genre": [
+    "Simulation"
+   ],
+   "studio": "jogos/msdos/executive-suite",
+   "url": "https://archive.org/details/msdos_Executive_Suite_1982",
+   "thumb": "https://archive.org/services/img/msdos_Executive_Suite_1982",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Ferrari Formula One",
+   "desc": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1989), de Electronic Arts. Do acervo do Internet Archive.",
+   "year": 1989,
+   "genre": [
+    "Racing / Driving",
+    "Simulation",
+    "Vehicle Simulator"
+   ],
+   "studio": "jogos/msdos/ferrari-formula-one",
+   "url": "https://archive.org/details/msdos_Ferrari_Formula_One_1989",
+   "thumb": "https://archive.org/services/img/msdos_Ferrari_Formula_One_1989",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Golden Axe",
+   "desc": "Jogo de MS-DOS · Action, Beat 'em up / Brawler (1990), de Team Shinobi. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Action",
+    "Beat 'em up / Brawler"
+   ],
+   "studio": "jogos/msdos/golden-axe",
+   "url": "https://archive.org/details/msdos_Golden_Axe_1990",
+   "thumb": "https://archive.org/services/img/msdos_Golden_Axe_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Hugo 3",
+   "desc": "Jogo de MS-DOS (1995). Do acervo do Internet Archive.",
+   "year": 1995,
+   "studio": "jogos/msdos/hugo-3",
+   "url": "https://archive.org/details/msdos_Hugo_3_1995",
+   "thumb": "https://archive.org/services/img/msdos_Hugo_3_1995",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Indiana Jones and The Last Crusade",
+   "desc": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1989), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
+   "year": 1989,
+   "genre": [
+    "Adventure",
+    "Graphic Adventure",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/indiana-jones-and-the-last-crusade",
+   "url": "https://archive.org/details/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
+   "thumb": "https://archive.org/services/img/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Jazz Jackrabbit",
+   "desc": "Jogo de MS-DOS · Action, Platform, Shooter (1994), de Epic MegaGames. Do acervo do Internet Archive.",
+   "year": 1994,
+   "genre": [
+    "Action",
+    "Platform",
+    "Shooter"
+   ],
+   "studio": "jogos/msdos/jazz-jackrabbit",
+   "url": "https://archive.org/details/msdos_Jazz_Jackrabbit_1994",
+   "thumb": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_1994",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Jazz Jackrabbit - Holiday Hare 1995",
+   "desc": "Jogo de MS-DOS · Action, Platform, Shooter (1995), de Epic MegaGames. Do acervo do Internet Archive.",
+   "year": 1995,
+   "genre": [
+    "Action",
+    "Platform",
+    "Shooter"
+   ],
+   "studio": "jogos/msdos/jazz-jackrabbit-holiday-hare-1995",
+   "url": "https://archive.org/details/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
+   "thumb": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Karateka",
+   "desc": "Jogo de MS-DOS · Action, Beat 'em up / Brawler, Martial Arts (1986), de Brøderbund Software. Do acervo do Internet Archive.",
+   "year": 1986,
+   "genre": [
+    "Action",
+    "Beat 'em up / Brawler",
+    "Martial Arts"
+   ],
+   "studio": "jogos/msdos/karateka",
+   "url": "https://archive.org/details/msdos_Karateka_1986",
+   "thumb": "https://archive.org/services/img/msdos_Karateka_1986",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Lode Runner",
+   "desc": "Jogo de MS-DOS · Action, Puzzle, Platform (1983), de Brøderbund Software. Do acervo do Internet Archive.",
+   "year": 1983,
+   "genre": [
+    "Action",
+    "Puzzle",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/lode-runner",
+   "url": "https://archive.org/details/msdos_Lode_Runner_1983_1983",
+   "thumb": "https://archive.org/services/img/msdos_Lode_Runner_1983_1983",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Lotus - The Ultimate Challenge",
+   "desc": "Jogo de MS-DOS · Racing / Driving, Arcade (1993), de Magnetic Fields (Software Design) Ltd.. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Racing / Driving",
+    "Arcade"
+   ],
+   "studio": "jogos/msdos/lotus-the-ultimate-challenge",
+   "url": "https://archive.org/details/msdos_Lotus_-_The_Ultimate_Challenge_1993",
+   "thumb": "https://archive.org/services/img/msdos_Lotus_-_The_Ultimate_Challenge_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Maniac Mansion",
+   "desc": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1987), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
+   "year": 1987,
+   "genre": [
+    "Adventure",
+    "Graphic Adventure",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/maniac-mansion",
+   "url": "https://archive.org/details/msdos_Maniac_Mansion_1987",
+   "thumb": "https://archive.org/services/img/msdos_Maniac_Mansion_1987",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Mario Brothers VGA",
+   "desc": "Jogo de MS-DOS (1990). Do acervo do Internet Archive.",
+   "year": 1990,
+   "studio": "jogos/msdos/mario-brothers-vga",
+   "url": "https://archive.org/details/msdos_Mario_Brothers_VGA_1990",
+   "thumb": "https://archive.org/services/img/msdos_Mario_Brothers_VGA_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Mario's Game Gallery",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics, Board Game (1995), de Presage Software. Do acervo do Internet Archive.",
+   "year": 1995,
+   "genre": [
+    "Strategy/Tactics",
+    "Board Game"
+   ],
+   "studio": "jogos/msdos/mario-s-game-gallery",
+   "url": "https://archive.org/details/msdos_Marios_Game_Gallery_1995",
+   "thumb": "https://archive.org/services/img/msdos_Marios_Game_Gallery_1995",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Master of Orion",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics, 4X, Turn-based strategy (1993), de SimTex. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Strategy/Tactics",
+    "4X",
+    "Turn-based strategy"
+   ],
+   "studio": "jogos/msdos/master-of-orion",
+   "url": "https://archive.org/details/msdos_Master_of_Orion_1993",
+   "thumb": "https://archive.org/services/img/msdos_Master_of_Orion_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Monkey Island 2 - LeChuck's Revenge",
+   "desc": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1991), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Adventure",
+    "Graphic Adventure",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/monkey-island-2-lechuck-s-revenge",
+   "url": "https://archive.org/details/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
+   "thumb": "https://archive.org/services/img/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Monopoly Deluxe",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics, Board Game (1992), de Virgin Games. Do acervo do Internet Archive.",
+   "year": 1992,
+   "genre": [
+    "Strategy/Tactics",
+    "Board Game"
+   ],
+   "studio": "jogos/msdos/monopoly-deluxe",
+   "url": "https://archive.org/details/msdos_Monopoly_Deluxe_1992",
+   "thumb": "https://archive.org/services/img/msdos_Monopoly_Deluxe_1992",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Mortal Kombat",
+   "desc": "Jogo de MS-DOS · Action, Fighting, Martial Arts (1993), de Midway Manufacturing Company. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Action",
+    "Fighting",
+    "Martial Arts"
+   ],
+   "studio": "jogos/msdos/mortal-kombat",
+   "url": "https://archive.org/details/msdos_Mortal_Kombat_1993",
+   "thumb": "https://archive.org/services/img/msdos_Mortal_Kombat_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Ms. Pac-Man",
+   "desc": "Jogo de MS-DOS · Action, Arcade (1983), de Midway Mfg. Co., General Computer Corporation. Do acervo do Internet Archive.",
+   "year": 1983,
+   "genre": [
+    "Action",
+    "Arcade"
+   ],
+   "studio": "jogos/msdos/ms-pac-man",
+   "url": "https://archive.org/details/msdos_Ms._Pac-Man_1983",
+   "thumb": "https://archive.org/services/img/msdos_Ms._Pac-Man_1983",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Nuclear War",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics (1989), de New World Computing. Do acervo do Internet Archive.",
+   "year": 1989,
+   "genre": [
+    "Strategy/Tactics"
+   ],
+   "studio": "jogos/msdos/nuclear-war",
+   "url": "https://archive.org/details/msdos_Nuclear_War_1989",
+   "thumb": "https://archive.org/services/img/msdos_Nuclear_War_1989",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Number Munchers",
+   "desc": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+   "year": 1990,
+   "studio": "jogos/msdos/number-munchers",
+   "url": "https://archive.org/details/msdos_Number_Munchers_1990",
+   "thumb": "https://archive.org/services/img/msdos_Number_Munchers_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Pac-Man",
+   "desc": "Jogo de MS-DOS · Action, Arcade (1983), de Namco Limited. Do acervo do Internet Archive.",
+   "year": 1983,
+   "genre": [
+    "Action",
+    "Arcade"
+   ],
+   "studio": "jogos/msdos/pac-man",
+   "url": "https://archive.org/details/msdos_Pac-Man_1983",
+   "thumb": "https://archive.org/services/img/msdos_Pac-Man_1983",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Paperboy 2",
+   "desc": "Jogo de MS-DOS · Action (1991), de Tengen. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Action"
+   ],
+   "studio": "jogos/msdos/paperboy-2",
+   "url": "https://archive.org/details/msdos_Paperboy_2_1991",
+   "thumb": "https://archive.org/services/img/msdos_Paperboy_2_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "PC Futbol 5.0",
+   "desc": "Jogo de MS-DOS · Simulation, Sports, Strategy/Tactics (1996), de Dinamic Multimedia, S.A.. Do acervo do Internet Archive.",
+   "year": 1996,
+   "genre": [
+    "Simulation",
+    "Sports",
+    "Strategy/Tactics"
+   ],
+   "studio": "jogos/msdos/pc-futbol-5-0",
+   "url": "https://archive.org/details/msdos_PC_Futbol_5.0_1996",
+   "thumb": "https://archive.org/services/img/msdos_PC_Futbol_5.0_1996",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Prehistorik",
+   "desc": "Jogo de MS-DOS · Action, Platform (1991), de Titus France SA. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/prehistorik",
+   "url": "https://archive.org/details/msdos_Prehistorik_1991",
+   "thumb": "https://archive.org/services/img/msdos_Prehistorik_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Prehistorik 2",
+   "desc": "Jogo de MS-DOS · Action, Platform (1993), de Titus France SA. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/prehistorik-2",
+   "url": "https://archive.org/details/msdos_Prehistorik_2_1993",
+   "thumb": "https://archive.org/services/img/msdos_Prehistorik_2_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "President Elect - 1988 Edition",
+   "desc": "Jogo de MS-DOS · Simulation, Strategy/Tactics (1987), de Strategic Simulations. Do acervo do Internet Archive.",
+   "year": 1987,
+   "genre": [
+    "Simulation",
+    "Strategy/Tactics"
+   ],
+   "studio": "jogos/msdos/president-elect-1988-edition",
+   "url": "https://archive.org/details/msdos_President_Elect_-_1988_Edition_1987",
+   "thumb": "https://archive.org/services/img/msdos_President_Elect_-_1988_Edition_1987",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Prince of Persia",
+   "desc": "Jogo de MS-DOS · Action, Platform, Puzzle (1990), de Brøderbund Software. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Action",
+    "Platform",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/prince-of-persia",
+   "url": "https://archive.org/details/msdos_Prince_of_Persia_1990",
+   "thumb": "https://archive.org/services/img/msdos_Prince_of_Persia_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Prince of Persia 2 - The Shadow & The Flame",
+   "desc": "Jogo de MS-DOS · Action, Platform, Puzzle (1993), de Brøderbund Software. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Action",
+    "Platform",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/prince-of-persia-2-the-shadow-e-the-flame",
+   "url": "https://archive.org/details/msdos_Prince_of_Persia_2_-_The_Shadow__The_Flame_1993",
+   "thumb": "https://archive.org/services/img/msdos_Prince_of_Persia_2_-_The_Shadow__The_Flame_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Rayman",
+   "desc": "Jogo de MS-DOS · Action, Platform (1995), de Ubi Soft Montpellier SAS. Do acervo do Internet Archive.",
+   "year": 1995,
+   "genre": [
+    "Action",
+    "Platform"
+   ],
+   "studio": "jogos/msdos/rayman",
+   "url": "https://archive.org/details/msdos_Rayman_1995",
+   "thumb": "https://archive.org/services/img/msdos_Rayman_1995",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Rogue",
+   "desc": "Jogo de MS-DOS · Role-Playing (RPG), Roguelike (1983), de A.I. Design. Do acervo do Internet Archive.",
+   "year": 1983,
+   "genre": [
+    "Role-Playing (RPG)",
+    "Roguelike"
+   ],
+   "studio": "jogos/msdos/rogue",
+   "url": "https://archive.org/details/msdos_Rogue_1983",
+   "thumb": "https://archive.org/services/img/msdos_Rogue_1983",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Scorched Earth",
+   "desc": "Jogo de MS-DOS (1991). Do acervo do Internet Archive.",
+   "year": 1991,
+   "studio": "jogos/msdos/scorched-earth",
+   "url": "https://archive.org/details/msdos_Scorched_Earth_1991",
+   "thumb": "https://archive.org/services/img/msdos_Scorched_Earth_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Sid Meier's Colonization",
+   "desc": "Jogo de MS-DOS · Simulation, Strategy/Tactics, 4X (1994), de MicroProse Software. Do acervo do Internet Archive.",
+   "year": 1994,
+   "genre": [
+    "Simulation",
+    "Strategy/Tactics",
+    "4X"
+   ],
+   "studio": "jogos/msdos/sid-meier-s-colonization",
+   "url": "https://archive.org/details/msdos_Sid_Meiers_Colonization_1994",
+   "thumb": "https://archive.org/services/img/msdos_Sid_Meiers_Colonization_1994",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "SimAnt - The Electronic Ant Colony",
+   "desc": "Jogo de MS-DOS · Simulation (1991), de Maxis Software. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Simulation"
+   ],
+   "studio": "jogos/msdos/simant-the-electronic-ant-colony",
+   "url": "https://archive.org/details/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
+   "thumb": "https://archive.org/services/img/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "SimCity",
+   "desc": "Jogo de MS-DOS · Simulation (1989), de Maxis Software. Do acervo do Internet Archive.",
+   "year": 1989,
+   "genre": [
+    "Simulation"
+   ],
+   "studio": "jogos/msdos/simcity",
+   "url": "https://archive.org/details/msdos_SimCity_1989",
+   "thumb": "https://archive.org/services/img/msdos_SimCity_1989",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "SimCity Classic",
+   "desc": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
+   "year": 1994,
+   "studio": "jogos/msdos/simcity-classic",
+   "url": "https://archive.org/details/msdos_SimCity_Classic_1994",
+   "thumb": "https://archive.org/services/img/msdos_SimCity_Classic_1994",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "SimFarm",
+   "desc": "Jogo de MS-DOS · Simulation, Strategy (1993), de Leaping Lizard Software. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Simulation",
+    "Strategy"
+   ],
+   "studio": "jogos/msdos/simfarm",
+   "url": "https://archive.org/details/msdos_SimFarm_1993",
+   "thumb": "https://archive.org/services/img/msdos_SimFarm_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Ski or Die",
+   "desc": "Jogo de MS-DOS · Sports, Tricks / Stunts (1990), de Electronic Arts. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Sports",
+    "Tricks / Stunts"
+   ],
+   "studio": "jogos/msdos/ski-or-die",
+   "url": "https://archive.org/details/msdos_Ski_or_Die_1990",
+   "thumb": "https://archive.org/services/img/msdos_Ski_or_Die_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Star Wars",
+   "desc": "Jogo de MS-DOS · Action, Arcade, Rail Shooter (1988), de Atari. Do acervo do Internet Archive.",
+   "year": 1988,
+   "genre": [
+    "Action",
+    "Arcade",
+    "Rail Shooter"
+   ],
+   "studio": "jogos/msdos/star-wars",
+   "url": "https://archive.org/details/msdos_Star_Wars_1988",
+   "thumb": "https://archive.org/services/img/msdos_Star_Wars_1988",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Stunt Driver",
+   "desc": "Jogo de MS-DOS · Racing / Driving, Simulation, Tricks / Stunts (1990), de Sphere. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Racing / Driving",
+    "Simulation",
+    "Tricks / Stunts"
+   ],
+   "studio": "jogos/msdos/stunt-driver",
+   "url": "https://archive.org/details/msdos_Stunt_Driver_1990",
+   "thumb": "https://archive.org/services/img/msdos_Stunt_Driver_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Stunts",
+   "desc": "Jogo de MS-DOS · Racing / Driving, Tricks / Stunts, Vehicle Simulator (1990), de Distinctive Software. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Racing / Driving",
+    "Tricks / Stunts",
+    "Vehicle Simulator"
+   ],
+   "studio": "jogos/msdos/stunts",
+   "url": "https://archive.org/details/msdos_Stunts_1990",
+   "thumb": "https://archive.org/services/img/msdos_Stunts_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Super Mario World DX",
+   "desc": "Jogo de MS-DOS (2002). Do acervo do Internet Archive.",
+   "year": 2002,
+   "studio": "jogos/msdos/super-mario-world-dx",
+   "url": "https://archive.org/details/msdos_Super_Mario_World_DX_2002",
+   "thumb": "https://archive.org/services/img/msdos_Super_Mario_World_DX_2002",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Super Solvers Gizmos and Gadgets",
+   "desc": "Jogo de MS-DOS · Action (1993), de Learning Co., The. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Action"
+   ],
+   "studio": "jogos/msdos/super-solvers-gizmos-and-gadgets",
+   "url": "https://archive.org/details/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
+   "thumb": "https://archive.org/services/img/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Test Drive III The Passion",
+   "desc": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1990), de Accolade. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Racing / Driving",
+    "Simulation",
+    "Vehicle Simulator"
+   ],
+   "studio": "jogos/msdos/test-drive-iii-the-passion",
+   "url": "https://archive.org/details/msdos_Test_Drive_III_The_Passion_1990",
+   "thumb": "https://archive.org/services/img/msdos_Test_Drive_III_The_Passion_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Tetris",
+   "desc": "Jogo de MS-DOS · Action, Puzzle, Falling Block Puzzle (1986), de Spectrum Holobyte. Do acervo do Internet Archive.",
+   "year": 1986,
+   "genre": [
+    "Action",
+    "Puzzle",
+    "Falling Block Puzzle"
+   ],
+   "studio": "jogos/msdos/tetris",
+   "url": "https://archive.org/details/msdos_Tetris_1986",
+   "thumb": "https://archive.org/services/img/msdos_Tetris_1986",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "The Elf's Christmas Adventure",
+   "desc": "Jogo de MS-DOS (1992), de Bruce MacKay and Marlene Abriel. Do acervo do Internet Archive.",
+   "year": 1992,
+   "studio": "jogos/msdos/the-elf-s-christmas-adventure",
+   "url": "https://archive.org/details/msdos_Elfs_Christmas_Adventure_The_1992",
+   "thumb": "https://archive.org/services/img/msdos_Elfs_Christmas_Adventure_The_1992",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "The Games - Winter Challenge",
+   "desc": "Jogo de MS-DOS · Action, Sports (1991), de MindSpan. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Action",
+    "Sports"
+   ],
+   "studio": "jogos/msdos/the-games-winter-challenge",
+   "url": "https://archive.org/details/msdos_The_Games_-_Winter_Challenge_1991",
+   "thumb": "https://archive.org/services/img/msdos_The_Games_-_Winter_Challenge_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "The Oregon Trail",
+   "desc": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+   "year": 1990,
+   "studio": "jogos/msdos/the-oregon-trail",
+   "url": "https://archive.org/details/msdos_Oregon_Trail_The_1990",
+   "thumb": "https://archive.org/services/img/msdos_Oregon_Trail_The_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "The Oregon Trail Deluxe",
+   "desc": "Jogo de MS-DOS (1992). Do acervo do Internet Archive.",
+   "year": 1992,
+   "studio": "jogos/msdos/the-oregon-trail-deluxe",
+   "url": "https://archive.org/details/msdos_Oregon_Trail_Deluxe_The_1992",
+   "thumb": "https://archive.org/services/img/msdos_Oregon_Trail_Deluxe_The_1992",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "The Secret of Monkey Island",
+   "desc": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1990), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Adventure",
+    "Graphic Adventure",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/the-secret-of-monkey-island",
+   "url": "https://archive.org/details/msdos_Secret_of_Monkey_Island_The_1990",
+   "thumb": "https://archive.org/services/img/msdos_Secret_of_Monkey_Island_The_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Total Carnage",
+   "desc": "Jogo de MS-DOS · Action, Shooter (1994), de Midway Manufacturing Company. Do acervo do Internet Archive.",
+   "year": 1994,
+   "genre": [
+    "Action",
+    "Shooter"
+   ],
+   "studio": "jogos/msdos/total-carnage",
+   "url": "https://archive.org/details/msdos_Total_Carnage_1994",
+   "thumb": "https://archive.org/services/img/msdos_Total_Carnage_1994",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "VGA Miner",
+   "desc": "Jogo de MS-DOS (1989). Do acervo do Internet Archive.",
+   "year": 1989,
+   "studio": "jogos/msdos/vga-miner",
+   "url": "https://archive.org/details/msdos_VGA_Miner_1989",
+   "thumb": "https://archive.org/services/img/msdos_VGA_Miner_1989",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Volfied",
+   "desc": "Jogo de MS-DOS · Action, Puzzle, Arcade (1991), de Taito Corporation. Do acervo do Internet Archive.",
+   "year": 1991,
+   "genre": [
+    "Action",
+    "Puzzle",
+    "Arcade"
+   ],
+   "studio": "jogos/msdos/volfied",
+   "url": "https://archive.org/details/msdos_Volfied_1991",
+   "thumb": "https://archive.org/services/img/msdos_Volfied_1991",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Warlords II",
+   "desc": "Jogo de MS-DOS · Strategy/Tactics, RPG, Wargame (1993), de Strategic Studies Group Pty Ltd.. Do acervo do Internet Archive.",
+   "year": 1993,
+   "genre": [
+    "Strategy/Tactics",
+    "RPG",
+    "Wargame"
+   ],
+   "studio": "jogos/msdos/warlords-ii",
+   "url": "https://archive.org/details/msdos_Warlords_II_1993",
+   "thumb": "https://archive.org/services/img/msdos_Warlords_II_1993",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Warlords II Deluxe",
+   "desc": "Jogo de MS-DOS (1995). Do acervo do Internet Archive.",
+   "year": 1995,
+   "studio": "jogos/msdos/warlords-ii-deluxe",
+   "url": "https://archive.org/details/msdos_Warlords_II_Deluxe_1995",
+   "thumb": "https://archive.org/services/img/msdos_Warlords_II_Deluxe_1995",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Where in the World is Carmen Sandiego",
+   "desc": "Jogo de MS-DOS · Adventure, Puzzle (1985), de Brøderbund Software. Do acervo do Internet Archive.",
+   "year": 1985,
+   "genre": [
+    "Adventure",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego",
+   "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_1985",
+   "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_1985",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Where in the World is Carmen Sandiego Deluxe",
+   "desc": "Jogo de MS-DOS · Adventure, Puzzle (1990), de Brøderbund Software. Do acervo do Internet Archive.",
+   "year": 1990,
+   "genre": [
+    "Adventure",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego-deluxe",
+   "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990",
+   "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Where in the World is Carmen Sandiego Enhanced",
+   "desc": "Jogo de MS-DOS · Adventure, Puzzle (1989), de Brøderbund Software. Do acervo do Internet Archive.",
+   "year": 1989,
+   "genre": [
+    "Adventure",
+    "Puzzle"
+   ],
+   "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego-enhanced",
+   "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
+   "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "Wolfenstein 3D",
+   "desc": "Jogo de MS-DOS · Action, Shooter (1992), de id Software. Do acervo do Internet Archive.",
+   "year": 1992,
+   "genre": [
+    "Action",
+    "Shooter"
+   ],
+   "studio": "jogos/msdos/wolfenstein-3d",
+   "url": "https://archive.org/details/msdos_Wolfenstein_3D_1992",
+   "thumb": "https://archive.org/services/img/msdos_Wolfenstein_3D_1992",
+   "console": "msdos",
+   "core": "dos"
+  },
+  {
+   "title": "World Circuit",
+   "desc": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1992), de MicroProse Ltd.. Do acervo do Internet Archive.",
+   "year": 1992,
+   "genre": [
+    "Racing / Driving",
+    "Simulation",
+    "Vehicle Simulator"
+   ],
+   "studio": "jogos/msdos/world-circuit",
+   "url": "https://archive.org/details/msdos_World_Circuit_1992",
+   "thumb": "https://archive.org/services/img/msdos_World_Circuit_1992",
+   "console": "msdos",
    "core": "dos"
   }
  ]

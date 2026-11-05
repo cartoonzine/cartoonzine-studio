@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-05T03:29:41.016Z",
+  "geradoEm": "2026-11-05T04:16:06.279Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -132,7 +132,7 @@
       "nome": "Jogos Retrô",
       "tipo": "jogo",
       "app": "cartoonzine/emulator",
-      "publicados": 1,
+      "publicados": 91,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/arcade.json",
@@ -204,7 +204,7 @@
         "odyssey2": 0,
         "colecovision": 0,
         "amiga": 0,
-        "msdos": 1,
+        "msdos": 91,
         "pcclassics": 0,
         "flash": 0,
         "ps1": 0,

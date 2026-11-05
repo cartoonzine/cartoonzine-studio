@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-05T03:29:41.016Z",
+  "geradoEm": "2026-11-05T04:16:06.279Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -81,8 +81,8 @@
     },
     {
       "colecao": "jogos",
-      "total": 1,
-      "publicados": 1,
+      "total": 91,
+      "publicados": 91,
       "erros": [],
       "avisos": [],
       "porConsole": {
@@ -109,7 +109,7 @@
         "odyssey2": 0,
         "colecovision": 0,
         "amiga": 0,
-        "msdos": 1,
+        "msdos": 91,
         "pcclassics": 0,
         "flash": 0,
         "ps1": 0,
