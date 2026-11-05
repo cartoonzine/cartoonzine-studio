@@ -164,6 +164,7 @@
     { "id": "colecovision", "nome": "ColecoVision",       "prefixoId": "COL", "core": "coleco" },
     { "id": "amiga",        "nome": "Amiga",              "prefixoId": "AMI", "core": "amiga" },
     { "id": "msdos",        "nome": "MS-DOS",             "prefixoId": "DOS", "core": "dos", "threads": true },
+    { "id": "pcclassics",   "nome": "PC Classics",        "prefixoId": "PCC", "semEmulador": true, "aparelhos": ["pc"], "dica": "Windows 95/98 e PC antigo: link do pacote .jsdos (js-dos 8). Abre no cartucho PC Classics do site cartoonzine-jogos." },
     { "id": "flash",        "nome": "Flash Player",       "prefixoId": "FLA", "semEmulador": true },
     { "id": "ps1",          "nome": "PlayStation 1",      "prefixoId": "PS1", "core": "psx" },
     { "id": "3do",          "nome": "3DO",                "prefixoId": "3DO", "core": "3do" },
