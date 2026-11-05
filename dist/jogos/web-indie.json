@@ -75,6 +75,25 @@
    "web": true,
    "license": "autorizada",
    "repo": "https://github.com/wasmdotrip/AmongUsPort"
+  },
+  {
+   "title": "BananaBread",
+   "genre": [
+    "FPS",
+    "Ação",
+    "Tiro",
+    "Guerra"
+   ],
+   "studio": "jogos-web/web-indie/bananabread",
+   "url": "https://kripken.github.io/BananaBread/cube2/bb.html",
+   "console": "web-indie",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
   }
  ]
 }
