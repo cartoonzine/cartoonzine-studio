@@ -378,9 +378,11 @@
     "Arcade",
     "Beat 'em up / Brawler"
    ],
+   "bgPosY": 58,
    "studio": "jogos/msdos/double-dragon",
    "url": "https://archive.org/details/msdos_Double_Dragon_1988",
-   "thumb": "https://archive.org/services/img/msdos_Double_Dragon_1988",
+   "thumb": "https://images.launchbox-app.com//18ef691b-4ff3-4fee-91cc-33fd79ca0974.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//fa3f20a2-5032-480a-bb59-8c5ffcfddde3.jpg",
    "console": "msdos",
    "core": "dos"
   },
