@@ -1,0 +1,21 @@
+{
+  "nome": "Powermanga",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/powermanga/"
+  ],
+  "site": "https://linux.tlk.fr/games/Powermanga/",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://linux.tlk.fr/games/Powermanga/",
+  "descricao": "Nave de tiro vertical com dezenas de fases, chefões e muitas armas para turbinar a nave. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 1999,
+  "generos": [
+    "Tiro",
+    "Nave"
+  ],
+  "engine": "Emscripten",
+  "teclas": "A=Space, B=Ctrl, START=Enter, SELECT=Escape",
+  "console": "web-pc",
+  "licenca": "livre",
+  "controles": "teclado",
+  "_origem": "prateleira:cartoonzine-jogos"
+}
