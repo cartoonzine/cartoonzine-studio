@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-06T04:38:57.736Z",
+  "geradoEm": "2026-11-06T04:46:27.454Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 526,
+      "total": 527,
       "publicados": 35,
       "erros": [],
       "avisos": [
@@ -1431,6 +1431,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-outros/wasm-rip.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-pc/counter-strike-source-surf.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
