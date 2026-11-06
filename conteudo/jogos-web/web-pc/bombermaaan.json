@@ -1,0 +1,16 @@
+{
+  "nome": "Bombermaaan",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/bombermaaan/"
+  ],
+  "site": "https://github.com/midzer/Bombermaaan",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/midzer/Bombermaaan",
+  "descricao": "Bombermaaan is inspired on the classic Bomberman game ported for the web. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 2023,
+  "engine": "Emscripten",
+  "console": "web-pc",
+  "licenca": "livre",
+  "controles": "teclado",
+  "_origem": "prateleira:cartoonzine-jogos"
+}
