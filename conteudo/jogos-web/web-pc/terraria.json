@@ -1,0 +1,12 @@
+{
+  "nome": "Terraria",
+  "links": [
+    "https://playterraria.lol/game/"
+  ],
+  "capa": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
+  "banner": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
+  "console": "web-pc",
+  "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 70
+}
