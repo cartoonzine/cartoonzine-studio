@@ -1,0 +1,12 @@
+{
+  "nome": "Bunny Hop lol",
+  "links": [
+    "https://bunnyhop.lol/"
+  ],
+  "capa": "https://bunnyhop.lol/about/run-poster.webp",
+  "banner": "https://bunnyhop.lol/about/ghost.webp",
+  "console": "web-pc",
+  "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 72
+}
