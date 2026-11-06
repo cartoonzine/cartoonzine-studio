@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-06T04:58:20.156Z",
+  "geradoEm": "2026-11-06T05:11:28.609Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 528,
+      "total": 529,
       "publicados": 36,
       "erros": [],
       "avisos": [
@@ -1443,6 +1443,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-pc/luanti-minetest.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-pc/nacht-der-untoten.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
