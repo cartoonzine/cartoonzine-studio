@@ -1,0 +1,17 @@
+{
+  "nome": "Astromenace",
+  "links": [
+    "https://midzer.de/wasm/astromenace/"
+  ],
+  "capa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBJiTGs-8VQMf9xrFEEnAMlXig-t4pu21mK_Iwuham80kngeBv8D63QYn&s=10",
+  "banner": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Astromenace_Gameplay.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original",
+  "generos": [
+    "Shoot 'Em Up",
+    "Navinha"
+  ],
+  "console": "web-pc",
+  "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 29,
+  "soPC": true
+}
