@@ -1,0 +1,20 @@
+{
+  "nome": "Hurrican",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/hurrican/"
+  ],
+  "site": "https://github.com/HurricanGame/Hurrican",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/HurricanGame/Hurrican",
+  "descricao": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 2007,
+  "generos": [
+    "Ação",
+    "Plataforma"
+  ],
+  "engine": "Emscripten",
+  "console": "web-pc",
+  "licenca": "livre",
+  "controles": "gamepad",
+  "_origem": "prateleira:cartoonzine-jogos"
+}
