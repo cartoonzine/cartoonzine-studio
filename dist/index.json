@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-06T05:45:42.555Z",
+  "geradoEm": "2026-11-06T16:00:26.182Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -43,7 +43,7 @@
       "nome": "YouToon",
       "tipo": "canal24h",
       "app": "cartoonzine",
-      "publicados": 1062,
+      "publicados": 1066,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/youtoon.json",
