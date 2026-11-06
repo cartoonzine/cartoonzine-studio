@@ -1,0 +1,17 @@
+{
+  "nome": "Brawlhalla",
+  "links": [
+    "https://truffled.lol/games/brawlhalla/index.html"
+  ],
+  "capa": "https://store-images.s-microsoft.com/image/apps.60631.66915708565277087.6939cc90-5cdd-45d0-b0cd-a485dca34280.160b949a-8de8-4012-9dad-bba0d534927d",
+  "banner": "https://miro.medium.com/1*AV6_RGYjWyjousz9Jp8LXg.jpeg",
+  "generos": [
+    "Luta",
+    "Briga",
+    "ação"
+  ],
+  "console": "web-pc",
+  "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 76
+}
