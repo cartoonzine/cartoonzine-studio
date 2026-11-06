@@ -1,0 +1,20 @@
+{
+  "nome": "Abuse",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/abuse/"
+  ],
+  "site": "https://github.com/Xenoveritas/abuse",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/Xenoveritas/abuse",
+  "descricao": "Clássico de ação da Crack dot Com: um soldado sozinho contra mutantes numa prisão subterrânea. Jogo livre (Domínio público / GPL / WTFPL (código e dados) · sons de Bobby Prince com permissão de redistribuição), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 1995,
+  "generos": [
+    "Ação",
+    "Plataforma"
+  ],
+  "engine": "Emscripten",
+  "console": "web-pc",
+  "licenca": "livre",
+  "controles": "teclado",
+  "_origem": "prateleira:cartoonzine-jogos"
+}
