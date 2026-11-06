@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-06T03:26:55.719Z",
+  "geradoEm": "2026-11-06T03:59:05.896Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,8 +133,8 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 523,
-      "publicados": 32,
+      "total": 524,
+      "publicados": 33,
       "erros": [],
       "avisos": [
         {
@@ -2106,7 +2106,7 @@
         "web-fangames": 0,
         "web-indie": 6,
         "web-remakes": 3,
-        "web-pc": 9,
+        "web-pc": 10,
         "web-n64": 0,
         "web-gamecube": 0,
         "web-wii": 0,
