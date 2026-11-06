@@ -1,0 +1,12 @@
+{
+  "nome": "Cyberpunk 2077 - Browser",
+  "links": [
+    "https://cyberpunk2077.lol/game?ioShared=1&amp%3BioSharedMB=128&amp%3BioInflight=4&amp%3BioPersist=1&amp%3BioPersistMB=6144&amp%3BbinkRecycle=1&amp%3BpsoWarm=0&amp%3BskipIntro=1&amp%3BioLookahead=16&amp%3BbehindLoad=0.5&ioSharedMB=128&ioInflight=4&ioPersist=1&ioPersistMB=6144&binkRecycle=1&psoWarm=0&skipIntro=1&ioLookahead=16&behindLoad=0&floodKeep=1"
+  ],
+  "capa": "https://www.dolby.com/siteassets/xf-site/content-detail-pages/cyberpunk-2077.jpg",
+  "banner": "https://4kwallpapers.com/images/wallpapers/cyberpunk-2077-johnny-silverhand-character-v-xbox-series-x-2560x1440-1617.jpg",
+  "console": "web-pc",
+  "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 8
+}
