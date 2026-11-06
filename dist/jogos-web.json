@@ -91,21 +91,6 @@
    "repo": "https://github.com/aukak/-3"
   },
   {
-   "title": "3D Pinball for Windows - Space Cadet",
-   "desc": "Port para navegador · ksylvestre.itch.io",
-   "studio": "jogos-web/web-windows/3d-pinball-for-windows-space-cadet",
-   "url": "https://ksylvestre.itch.io/space-cadet-pinball",
-   "console": "web-windows",
-   "core": "web",
-   "aparelhos": [
-    "tv",
-    "pc"
-   ],
-   "web": true,
-   "license": "livre",
-   "repo": "https://github.com/k4zmu2a/SpaceCadetPinball"
-  },
-  {
    "title": "20 Minutes Till Dawn",
    "desc": "Port para navegador · gn-math.dev",
    "studio": "jogos-web/web-indie/20-minutes-till-dawn",
