@@ -135,6 +135,23 @@
    "license": "livre"
   },
   {
+   "title": "Bunny Hop lol",
+   "bgImg": "banner",
+   "bgPosY": 72,
+   "studio": "jogos-web/web-pc/bunny-hop-lol",
+   "url": "https://bunnyhop.lol/",
+   "thumb": "https://bunnyhop.lol/about/run-poster.webp",
+   "bannerThumb": "https://bunnyhop.lol/about/ghost.webp",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Cyberpunk 2077 - Browser",
    "bgImg": "banner",
    "bgPosY": 8,
