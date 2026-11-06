@@ -326,6 +326,28 @@
    "license": "autorizada"
   },
   {
+   "title": "Hurrican",
+   "desc": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2007,
+   "genre": [
+    "Ação",
+    "Plataforma"
+   ],
+   "studio": "jogos-web/web-pc/hurrican",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/hurrican/",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "gamepad",
+   "repo": "https://github.com/HurricanGame/Hurrican"
+  },
+  {
    "title": "Jump 'n Bump",
    "desc": "Coelhinhos pulando na cabeça uns dos outros. Clássico multiplayer local (até 4 no mesmo teclado/controle). Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1998,
@@ -407,6 +429,29 @@
    "license": "livre",
    "controls": "gamepad",
    "repo": "https://github.com/Neverball/neverball"
+  },
+  {
+   "title": "Powermanga",
+   "desc": "Nave de tiro vertical com dezenas de fases, chefões e muitas armas para turbinar a nave. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 1999,
+   "genre": [
+    "Tiro",
+    "Nave"
+   ],
+   "studio": "jogos-web/web-pc/powermanga",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/powermanga/",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "keys": "A=Space, B=Ctrl, START=Enter, SELECT=Escape",
+   "repo": "https://linux.tlk.fr/games/Powermanga/"
   },
   {
    "title": "Tyrian (OpenTyrian)",
