@@ -70,6 +70,24 @@
    "license": "livre"
   },
   {
+   "title": "Bombermaaan",
+   "desc": "Bombermaaan is inspired on the classic Bomberman game ported for the web. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2023,
+   "studio": "jogos-web/web-pc/bombermaaan",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/bombermaaan/",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/midzer/Bombermaaan"
+  },
+  {
    "title": "Hurrican",
    "desc": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2007,

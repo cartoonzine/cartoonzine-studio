@@ -231,6 +231,24 @@
    "license": "livre"
   },
   {
+   "title": "Bombermaaan",
+   "desc": "Bombermaaan is inspired on the classic Bomberman game ported for the web. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2023,
+   "studio": "jogos-web/web-pc/bombermaaan",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/bombermaaan/",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/midzer/Bombermaaan"
+  },
+  {
    "title": "Call of Duty Web Collection",
    "desc": "Port para navegador · cod-webports.pages.dev",
    "studio": "jogos-web/web-outros/call-of-duty-web-collection",
