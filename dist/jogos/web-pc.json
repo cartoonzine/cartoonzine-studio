@@ -273,6 +273,23 @@
    "controls": "teclado",
    "keys": "A=Space, B=Ctrl, START=Enter, SELECT=Escape",
    "repo": "https://linux.tlk.fr/games/Powermanga/"
+  },
+  {
+   "title": "Terraria",
+   "bgImg": "banner",
+   "bgPosY": 70,
+   "studio": "jogos-web/web-pc/terraria",
+   "url": "https://playterraria.lol/game/",
+   "thumb": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
+   "bannerThumb": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
   }
  ]
 }
