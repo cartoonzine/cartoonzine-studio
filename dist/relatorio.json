@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-06T05:11:28.609Z",
+  "geradoEm": "2026-11-06T05:17:34.824Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 529,
+      "total": 530,
       "publicados": 36,
       "erros": [],
       "avisos": [
@@ -1451,6 +1451,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-pc/pekka-kana-2.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-pc/quake-ii.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
