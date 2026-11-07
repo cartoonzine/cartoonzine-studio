@@ -4,6 +4,7 @@
     "https://cartoonzine.github.io/cartoonzine-jogos/gta3web/"
   ],
   "capa": "https://flowgames.gg/wp-content/uploads/2026/06/GTA3_Box_Art.jpg",
+  "banner": "https://wallpaper.forfun.com/fetch/45/455c7479a00b47eb77b26cb238c4fcd5.jpeg",
   "site": "https://github.com/woahhcrackers/GTA3Web",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/woahhcrackers/GTA3Web",
@@ -12,6 +13,8 @@
   "engine": "Emscripten",
   "console": "web-pc",
   "licenca": "livre",
-  "controles": "teclado",
+  "controles": "gamepad",
+  "fundoImagem": "banner",
+  "posFundo": 0,
   "_origem": "prateleira:cartoonzine-jogos"
 }
