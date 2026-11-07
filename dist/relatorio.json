@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-07T05:16:52.511Z",
+  "geradoEm": "2026-11-07T05:28:36.042Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -2120,9 +2120,9 @@
       ],
       "porConsole": {
         "web-fangames": 0,
-        "web-indie": 7,
+        "web-indie": 6,
         "web-remakes": 3,
-        "web-pc": 15,
+        "web-pc": 16,
         "web-n64": 0,
         "web-gamecube": 0,
         "web-wii": 0,
