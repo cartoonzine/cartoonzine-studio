@@ -1,0 +1,16 @@
+{
+  "nome": "GTA3Web",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/gta3web/"
+  ],
+  "site": "https://github.com/woahhcrackers/GTA3Web",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/woahhcrackers/GTA3Web",
+  "descricao": "webport of gta 3/gta iii by woahhcrackers. Jogo livre (sem licença), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 2026,
+  "engine": "Emscripten",
+  "console": "web-pc",
+  "licenca": "livre",
+  "controles": "teclado",
+  "_origem": "prateleira:cartoonzine-jogos"
+}
