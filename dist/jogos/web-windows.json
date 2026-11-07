@@ -37,20 +37,6 @@
    "web": true,
    "license": "autorizada",
    "repo": "https://github.com/Pixelsuft/hl"
-  },
-  {
-   "title": "GTA V",
-   "desc": "Port para navegador · web.archive.org",
-   "studio": "jogos-web/web-windows/gta-v",
-   "url": "https://web.archive.org/web/20261006055917/https://playgta5.com/",
-   "console": "web-windows",
-   "core": "web",
-   "aparelhos": [
-    "tv",
-    "pc"
-   ],
-   "web": true,
-   "license": "autorizada"
   }
  ]
 }
