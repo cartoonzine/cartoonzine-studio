@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-07T05:28:36.042Z",
+  "geradoEm": "2026-11-07T05:59:26.450Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 533,
+      "total": 532,
       "publicados": 38,
       "erros": [],
       "avisos": [
@@ -723,10 +723,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-indie/cruelty-squad.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-indie/cuphead-4.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
