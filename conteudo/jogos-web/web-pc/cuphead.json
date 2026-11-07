@@ -13,9 +13,11 @@
     "Tiro"
   ],
   "engine": "WebAssembly",
-  "console": "web-indie",
-  "licenca": "autorizada",
+  "console": "web-pc",
+  "licenca": "livre",
   "controles": "gamepad",
+  "peso": "medio",
+  "jogadores": 2,
   "fundoImagem": "banner",
   "posFundo": 100,
   "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256894191/movie_max_vp9.webm?t=1656595223",
