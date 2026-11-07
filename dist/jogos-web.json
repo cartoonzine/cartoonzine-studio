@@ -459,6 +459,24 @@
    "license": "autorizada"
   },
   {
+   "title": "GTA3Web",
+   "desc": "webport of gta 3/gta iii by woahhcrackers. Jogo livre (sem licença), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2026,
+   "studio": "jogos-web/web-pc/gta3web",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/gta3web/",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/woahhcrackers/GTA3Web"
+  },
+  {
    "title": "Hurrican",
    "desc": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2007,
