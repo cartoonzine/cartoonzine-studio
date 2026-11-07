@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-06T16:15:46.250Z",
+  "geradoEm": "2026-11-07T05:16:52.511Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 533,
-      "publicados": 37,
+      "publicados": 38,
       "erros": [],
       "avisos": [
         {
@@ -727,10 +727,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-indie/cuphead-4.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-indie/cuphead.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2124,7 +2120,7 @@
       ],
       "porConsole": {
         "web-fangames": 0,
-        "web-indie": 6,
+        "web-indie": 7,
         "web-remakes": 3,
         "web-pc": 15,
         "web-n64": 0,
