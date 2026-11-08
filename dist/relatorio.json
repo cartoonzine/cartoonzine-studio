@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-08T23:56:54.279Z",
+  "geradoEm": "2026-11-08T23:57:07.284Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 531,
+      "total": 530,
       "publicados": 39,
       "erros": [],
       "avisos": [
@@ -1123,10 +1123,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-indie/tattletail.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-indie/terraria-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
