@@ -116,7 +116,7 @@
             try {
                 const jogos = pr.jogos || await lerPrateleira(S, tk);
                 const a = await analisar(S, pr.link, tk, jogos.manifesto);
-                pr.analise = a; pr.jogos = jogos;
+                pr.analise = pr.original = a; pr.jogos = jogos;
                 desenharResultado(S);
             } catch (e) {
                 $('#pr-res').innerHTML = `<section class="painel" style="margin-top:16px;border-color:rgba(255,84,112,.45)">❌ ${esc(e.message)}
@@ -163,6 +163,12 @@
                   <div class="dica">${revisao ? 'As regras acharam algo sem solução conhecida. A receita gerada só para com o motivo; ajuste à mão e valide.'
                     : 'Isto é uma previsão, não um resultado: o jogo só fica "pronto" depois que o workflow "Validar receita" compilar e abrir o jogo de verdade.'}</div>
                   ${a.motivos.length ? `<ul style="margin:6px 0 0;padding-left:18px">${a.motivos.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+                  ${pr.original && (pr.original.motivos.some(m => /licen[cç]a/i.test(m)) || a.licenca.conferidaAMao) ? `
+                  <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                    <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="pr-lic-mao" ${a.licenca.conferidaAMao ? 'checked' : ''}> Conferi a licença do código à mão:</label>
+                    <input class="campo" id="pr-lic-mao-v" style="width:150px;padding:4px 8px" placeholder="GPL-3.0" value="${esc(a.licenca.conferidaAMao ? a.licenca.spdx : '')}">
+                    <span class="dica">${a.erroLicenca ? '❌ ' + esc(a.erroLicenca) : 'abra o arquivo LICENSE do projeto e escreva o nome (GPL-3.0, MIT, Zlib…)'}</span>
+                  </div>` : ''}
                 </div>
                 ${a.avisos.length ? `<ul class="dica" style="margin:4px 0 0;padding-left:18px">${a.avisos.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
                 <details><summary class="dica" style="cursor:pointer">🔍 Evidências (${a.evidencias.length})</summary>
@@ -198,6 +204,19 @@
             </div>
           </section>`}`;
         if (dup) return;
+        const lm = $('#pr-lic-mao');
+        if (lm) {
+            const aplicar = () => {
+                const campos = ['#pr-id', '#pr-nome', '#pr-ano', '#pr-desc', '#pr-gen', '#pr-ctrl', '#pr-teclas'].map(sel => [sel, ($(sel) || {}).value]);
+                pr.analise = lm.checked ? P.confirmarLicenca(pr.original, $('#pr-lic-mao-v').value) : pr.original;
+                if (pr.analise.erroLicenca) pr.analise = Object.assign({}, pr.original, { erroLicenca: pr.analise.erroLicenca });
+                desenharResultado(S);
+                campos.forEach(([sel, v]) => { if ($(sel) && v != null) $(sel).value = v; });
+                if (!pr.analise.erroLicenca && pr.analise.licenca.conferidaAMao) $('#pr-lic').value = pr.analise.licenca.spdx;
+            };
+            lm.onchange = aplicar;
+            $('#pr-lic-mao-v').onchange = () => { if (lm.checked) aplicar(); };
+        }
         const livres = $('#pr-livres'), add = $('#pr-add'), rec = $('#pr-receita');
         livres.onchange = () => { add.disabled = !livres.checked; };
         $('#pr-id').oninput = e => { $('#pr-rid').textContent = P.idDoNome(e.target.value); };

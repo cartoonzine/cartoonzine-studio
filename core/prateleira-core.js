@@ -44,7 +44,7 @@
         // sem port no Emscripten → revisão necessária (receita própria, como a do AstroMenace com o freealut)
         { id: 'alut', nome: 'ALUT (freealut)', port: null, externa: 'freealut', nota: 'não faz parte do OpenAL do Emscripten: a receita precisa compilar o freealut', regras: [/\balut\b/i, /freealut/i] },
         { id: 'gl4es', nome: 'GL4ES', port: null, externa: 'gl4es', nota: 'camada OpenGL→WebGL que precisa ser compilada na receita', regras: [/gl4es/i] },
-        { id: 'glu', nome: 'GLU', port: null, nota: 'o Emscripten não tem GLU', regras: [/find_package\s*\(\s*GLU\b/i, /-lGLU\b/, /OpenGL::GLU\b/, /\blibGLU\b/] },
+        { id: 'glu', nome: 'GLU', port: null, externa: 'glu', nota: 'o Emscripten não tem GLU', regras: [/find_package\s*\(\s*GLU\b/i, /-lGLU\b/, /OpenGL::GLU\b/, /\blibGLU\b/] },
         { id: 'glew', nome: 'GLEW', port: null, nota: 'confira se funciona com o GLEW emulado do Emscripten', regras: [/find_package\s*\(\s*GLEW/i, /-lGLEW\b/] },
         { id: 'boost', nome: 'Boost', port: null, nota: 'sem port: a receita precisa baixar/compilar', regras: [/find_package\s*\(\s*Boost/i, /-lboost_/] },
         { id: 'lua', nome: 'Lua', port: null, nota: 'sem port: o projeto precisa trazer a Lua junto ou a receita compila', regras: [/find_package\s*\(\s*Lua/i, /-llua(jit)?[\d.]*\b/, /\blua5\.\d\b/i] },
@@ -235,7 +235,7 @@
             avisos.push('Sem evidência sobre o laço principal: se o teste no navegador travar, acrescente "-sASYNCIFY" em flagsLinkar.');
 
         const nome = String(info.name || '').replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).trim();
-        const ajustes = { subdir: b.subdir, alvo, dados, submodulos, externas, flagsCompilar: [], flagsLinkar: [...new Set(flagsGuia)], cmakeOpcoes: [], configureOpcoes: [] };
+        const ajustes = { subdir: b.subdir, alvo, dados, submodulos, externas: ordemExternas(externas, manifesto || []), flagsCompilar: [], flagsLinkar: [...new Set(flagsGuia)], cmakeOpcoes: [], configureOpcoes: [] };
         if (!/^[0-9a-f]{40}$/.test(commit)) motivos.push('Não consegui o commit exato do código (a receita precisa dele).');
         return {
             id: idDoNome(info.name || nome),
@@ -260,6 +260,28 @@
     // opções que escondem erro de link (símbolo não resolvido) nunca entram
     const PROIBIDAS = /^-s(ERROR_ON_UNDEFINED_SYMBOLS=0|WARN_ON_UNDEFINED_SYMBOLS|LLD_REPORT_UNDEFINED=0)/;
 
+    /** Põe junto o que cada externa "requer" (regra declarada no manifesto) e ordena como no manifesto (quem é requerido vem antes). */
+    function ordemExternas(ids, manifesto) {
+        const todos = new Set();
+        const pega = id => { if (todos.has(id)) return; const m = manifesto.find(x => x.id === id); if (!m) return; (m.requer || []).forEach(pega); todos.add(id); };
+        ids.forEach(pega);
+        return [...todos].sort((a, b) => manifesto.findIndex(m => m.id === a) - manifesto.findIndex(m => m.id === b));
+    }
+
+    /**
+     * Licença do código conferida por uma PESSOA (quando o GitHub não reconhece, ex.: "Other").
+     * Tira só o motivo de licença, registra a evidência como confirmação humana e reclassifica.
+     */
+    function confirmarLicenca(a, spdx) {
+        const id = String(spdx || '').trim();
+        if (!LIVRES.includes(id)) return { ...a, erroLicenca: `"${id || '(vazio)'}" não está na lista de licenças livres (ex.: GPL-3.0, MIT, Zlib).` };
+        const ehLicenca = m => /licen[cç]a|não é livre/i.test(m);
+        const motivos = a.motivos.filter(m => !ehLicenca(m));
+        return { ...a, erroLicenca: '', licenca: { spdx: id, nome: id, livre: true, conferidaAMao: true }, motivos,
+            classificacao: motivos.length ? 'revisao' : 'candidata',
+            evidencias: [...a.evidencias, { tipo: 'licenca', valor: id, arquivo: 'confirmação humana na Studio', regra: 'licença do código conferida à mão (o GitHub não reconheceu)', confianca: 'humana' }] };
+    }
+
     /** Confere os ajustes (dados estruturados e revisáveis). Tudo que não passa na lista branca vira erro — nada vai para o shell. */
     function validarAjustes(aj = {}, { manifesto = null } = {}) {
         const erros = [];
@@ -279,7 +301,7 @@
         ['flagsCompilar', 'flagsLinkar'].forEach(k => (Array.isArray(aj[k]) ? aj[k] : []).filter(f => PROIBIDAS.test(f)).forEach(f => erros.push(`Opção proibida (esconde símbolos não resolvidos): ${f}`)));
         const out = {
             subdir: RE_CAMINHO.test(subdir) ? subdir : '', alvo: /^[A-Za-z0-9_.+-]*$/.test(alvo) ? alvo : '',
-            dados, submodulos: aj.submodulos === true, externas: manifesto ? externas.filter(x => manifesto.some(m => m.id === x)) : externas,
+            dados, submodulos: aj.submodulos === true, externas: manifesto ? ordemExternas(externas.filter(x => manifesto.some(m => m.id === x)), manifesto) : externas,
             flagsCompilar: lista('flagsCompilar', RE_FLAG_COMP, 'Flag de compilação').filter(f => !PROIBIDAS.test(f)),
             flagsLinkar: lista('flagsLinkar', RE_FLAG_LINK, 'Flag de link').filter(f => !PROIBIDAS.test(f)),
             cmakeOpcoes: lista('cmakeOpcoes', RE_CMAKE_OP, 'Opção do CMake'),
@@ -556,6 +578,6 @@
         return { jogos, arquivos };
     }
 
-    return { DEPENDENCIAS, arquivosParaLer, tipoDoBuild, validarAjustes, receitaCandidata, TEMPLATES, resumoValidacao, estadoReceita, removerDoJogosJson, montarBackup, planoRestauracao, LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, jaExiste, inserirNoJogosJson,
+    return { confirmarLicenca, ordemExternas, DEPENDENCIAS, arquivosParaLer, tipoDoBuild, validarAjustes, receitaCandidata, TEMPLATES, resumoValidacao, estadoReceita, removerDoJogosJson, montarBackup, planoRestauracao, LIVRES, repoDoLink, idDoNome, analisarRepo, entradaJogo, jaExiste, inserirNoJogosJson,
         PAGINA, statusDosJogos, tirarRascunho, itemJogosWeb, jaCadastrado };
 });
