@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-08T22:39:45.264Z",
+  "geradoEm": "2026-11-08T23:05:59.790Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,9 +133,14 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 531,
+      "total": 532,
       "publicados": 38,
-      "erros": [],
+      "erros": [
+        {
+          "caminho": "conteudo/jogos-web/outros/stardew-valley.json",
+          "msg": "Falta: Console"
+        }
+      ],
       "avisos": [
         {
           "caminho": "conteudo/jogos-web/web-arcade/sonic-the-fighters.json",
