@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-08T23:05:59.790Z",
+  "geradoEm": "2026-11-08T23:38:22.021Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,13 +134,8 @@
     {
       "colecao": "jogos-web",
       "total": 532,
-      "publicados": 38,
-      "erros": [
-        {
-          "caminho": "conteudo/jogos-web/outros/stardew-valley.json",
-          "msg": "Falta: Console"
-        }
-      ],
+      "publicados": 39,
+      "erros": [],
       "avisos": [
         {
           "caminho": "conteudo/jogos-web/web-arcade/sonic-the-fighters.json",
@@ -2119,7 +2114,7 @@
         "web-fangames": 0,
         "web-indie": 6,
         "web-remakes": 3,
-        "web-pc": 17,
+        "web-pc": 18,
         "web-n64": 0,
         "web-gamecube": 0,
         "web-wii": 0,
