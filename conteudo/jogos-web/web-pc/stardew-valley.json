@@ -11,10 +11,12 @@
     "Simulação",
     "role-playing"
   ],
+  "console": "web-pc",
   "licenca": "livre",
+  "controles": "gamepad",
   "jogadores": 2,
   "fundoImagem": "banner",
   "posFundo": 100,
-  "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256660296/movie_max.webm?t=1454099186",
-  "_rascunho": true
+  "destaque": true,
+  "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256660296/movie_max.webm?t=1454099186"
 }
