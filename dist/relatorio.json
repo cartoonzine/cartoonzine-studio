@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-08T22:31:56.197Z",
+  "geradoEm": "2026-11-08T22:39:45.264Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 531,
-      "publicados": 37,
+      "publicados": 38,
       "erros": [],
       "avisos": [
         {
@@ -219,10 +219,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-dos/duke-nuclear-winter.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-dos/duke-nukem-3d-eduke32-wasm.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2124,7 +2120,7 @@
         "web-wii": 0,
         "web-switch": 0,
         "web-dreamcast": 0,
-        "web-dos": 3,
+        "web-dos": 4,
         "web-windows": 2,
         "web-xbox360": 0,
         "web-xboxone": 0,

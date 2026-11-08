@@ -27,6 +27,35 @@
    "license": "livre"
   },
   {
+   "title": "Duke Nukem 3D",
+   "desc": "Alienígenas aterrissaram na Los Angeles futurista e cabe ao Duke acabar com eles e expulsá-los de lá. Após os primeiros jogos de plataforma com rolagem lateral, Duke Nukem 3D introduz a perspectiva em primeira pessoa à série e transforma o jogo em um shooter completo com gráficos 2.5D.\n\nO arsenal de Duke inclui pistolas, bombas caseiras, minas terrestres a laser, metralhadoras Nordenfelt, uma metralhadora giratória e vários lançadores de foguetes, além de seu poderoso pé para chutar os inimigos. O jogo apresenta um alto nível de interatividade. Muitos objetos no ambiente podem ser quebrados ou interagidos, como mesas de bilhar, máquinas de fliperama, vidros, interruptores de luz e câmeras de segurança. O protagonista também pode dar dólares para as strippers para que elas tirem a blusa.\n\nO personagem principal comenta regularmente os eventos por meio de frases de efeito. Há vinte e oito fases, divididas em três episódios, ambientadas em locais como ruas, uma igreja, uma estação espacial, uma vila japonesa, um campo de futebol e diversos cenários modernos. Os inimigos incluem principalmente alienígenas, humanos mutantes e policiais transformados em Policiais Porcos. Além de armas, Duke também tem acesso a kits médicos, esteroides para aumentar sua velocidade, visão noturna, botas de proteção, um holograma conhecido como \"holoduke\" e um jetpack para alcançar áreas mais altas. A maior parte da jogabilidade é voltada para a ação, mas também há diversos quebra-cabeças necessários para progredir ou acessar áreas secretas.\n\nO jogo inclui modo de jogo em rede através do protocolo IPX, para partidas de combate até a morte e jogos cooperativos.",
+   "year": 1996,
+   "genre": [
+    "FPS",
+    "Ação",
+    "Tiro"
+   ],
+   "destaque": true,
+   "bgImg": "banner",
+   "bgPosY": 23,
+   "studio": "jogos-web/web-dos/duke-nukem-3d-eduke32-wasm",
+   "url": "https://digitalcybersoft.github.io/eduke32-wasm/",
+   "thumb": "https://images.launchbox-app.com//7a658a61-8276-49cd-bdf4-b760f749ee5f.jpg",
+   "bannerThumb": "https://www.techspot.com/images2/news/bigimage/2026/01/2026-01-31-image-5.jpg",
+   "console": "web-dos",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "controls": "gamepad",
+   "weight": "leve",
+   "repo": "https://github.com/digitalcybersoft/eduke32-wasm"
+  },
+  {
    "title": "Gran Turismo 4",
    "desc": "Gran Turismo está de volta com uma enorme variedade de carros, incluindo o Ford Modelo T, o Tank Car do Jay Leno e alguns dos famosos carros de Le Mans de todas as épocas. GT4 conta com pistas totalmente novas, incluindo o famoso Nürburgring, além de pistas em locais icônicos como Paris, o Grand Canyon e muitos outros. Há um novo Modo Foto em GT4, onde você pode tirar fotos de replays salvos ou durante a corrida e salvá-las no seu cartão de memória ou em um dispositivo de armazenamento USB. Há também um novo Modo B-Spec, onde você assume o papel de gerente de corrida, ou seja, deixa o computador fazer o trabalho, o que é útil para corridas de longa duração.",
    "year": 2004,
