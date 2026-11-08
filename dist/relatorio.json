@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-08T23:42:25.450Z",
+  "geradoEm": "2026-11-08T23:56:54.279Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 532,
+      "total": 531,
       "publicados": 39,
       "erros": [],
       "avisos": [
@@ -1131,10 +1131,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-indie/terraria-3.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-indie/terraria.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
