@@ -341,7 +341,7 @@
         </div>`;
         $$('.colecao').forEach(b => b.addEventListener('click', () => {
             if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
-            estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
+            estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.mostrar = PASSO_LISTA; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
             if (estado.tela !== 'colecoes') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
             desenharApp();
         }));
@@ -403,13 +403,31 @@
             .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
     }
 
+    // Rolagem infinita: quando o aviso "role para carregar mais" aparece na tela, desenha mais um lote
+    // (a página continua leve porque nunca desenha a coleção inteira de uma vez; as capas já são lazy).
+    const PASSO_LISTA = 300, PASSO_VITRINE = 60;
+    const observadores = new Map();
+    function rolarParaMais(alvo, carregar, chave = 'lista') {
+        if (observadores.has(chave)) { observadores.get(chave).disconnect(); observadores.delete(chave); }
+        if (!alvo || !('IntersectionObserver' in window)) return;
+        const obs = new IntersectionObserver(ent => {
+            if (!ent.some(e => e.isIntersecting)) return;
+            obs.disconnect(); observadores.delete(chave);
+            const y = window.scrollY;
+            carregar();
+            window.scrollTo(0, y);                              // continua de onde estava
+        }, { rootMargin: '600px 0px' });
+        obs.observe(alvo);
+        observadores.set(chave, obs);
+    }
+
     function desenharLista() {
         const col = colecaoAtual();
         const largo = col.tipo === 'canal' || col.tipo === 'radio' || col.tipo === 'canal24h';
         const consoles = new Map(C.todosConsoles(estado.config).map(c => [c.id, c.nome]));
         const itens = filtrarItens(col);
         const total = itensDaColecao(col.id).length;
-        const MAX = 300;
+        const MAX = estado.mostrar || PASSO_LISTA;               // rolagem infinita: cresce de 300 em 300 ao chegar no fim
         const sel = estado.sel;
         // tira da seleção o que não existe mais (ex.: excluído ou movido)
         const existe = new Set(itensDaColecao(col.id).map(i => i.caminho));
@@ -437,7 +455,7 @@
                 <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc(meta || (i.pendente ? 'publicando…' : ' '))}</div></div>
               </button>`;
           }).join('')}</div>
-          ${itens.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${itens.length}. Use a busca ou o filtro para achar o resto${estado.selecionando ? ' ("Todos da lista" escolhe os ' + itens.length + ', até os que não aparecem)' : ''}.</p>` : ''}
+          ${itens.length > MAX ? `<p class="dica" id="lista-mais">Mostrando ${MAX} de ${itens.length} · role para carregar mais…</p>` : ''}
           ${estado.selecionando ? `
           <div class="barra-massa" role="region" aria-label="Seleção">
             <b id="sel-n">${sel.size} ${sel.size === 1 ? 'selecionado' : 'selecionados'}</b>
@@ -448,15 +466,16 @@
             <button class="btn principal" id="sel-aplicar" ${sel.size ? '' : 'disabled'}>Mudar ${sel.size || ''} de uma vez…</button>
             <button class="btn fantasma mini" id="sel-sair">Sair da seleção</button>
           </div>` : ''}`;
+        rolarParaMais($('#lista-mais'), () => { estado.mostrar = MAX + PASSO_LISTA; desenharLista(); });
         const busca = $('.busca');
         busca.addEventListener('input', () => {
-            estado.busca = busca.value;
+            estado.busca = busca.value; estado.mostrar = PASSO_LISTA;
             const pos = busca.selectionStart;
             desenharLista();
             const nova = $('.busca'); nova.focus(); nova.setSelectionRange(pos, pos);
         });
         const filtro = $('.filtro-lista');
-        if (filtro) filtro.addEventListener('change', () => { estado.filtro = filtro.value; estado.ultimoSel = -1; desenharLista(); });
+        if (filtro) filtro.addEventListener('change', () => { estado.filtro = filtro.value; estado.mostrar = PASSO_LISTA; estado.ultimoSel = -1; desenharLista(); });
         const bSel = $('#btn-selecionar');
         if (bSel) bSel.addEventListener('click', () => { estado.selecionando = !estado.selecionando; if (!estado.selecionando) estado.sel.clear(); estado.ultimoSel = -1; desenharLista(); });
         $$('.card').forEach(c => c.addEventListener('click', ev => {
@@ -1120,9 +1139,9 @@
             </section>
           </div>`;
         const busca = $('#vit-busca');
-        busca.addEventListener('input', () => { vit.busca = busca.value; desenharResultadosVitrine(); });
-        $('#vit-col').onchange = e => { vit.col = e.target.value; desenharResultadosVitrine(); };
-        $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; desenharResultadosVitrine(); };
+        busca.addEventListener('input', () => { vit.busca = busca.value; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); });
+        $('#vit-col').onchange = e => { vit.col = e.target.value; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); };
+        $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); };
         $('#vp-mostrar').onclick = () => {
             vit.prev.mostrar = !vit.prev.mostrar; guardar.gravar('czs-vit-previa', vit.prev.mostrar);
             ['#vit-tela', '#vit-controles', '#vp-dica'].forEach(s => { $(s).hidden = !vit.prev.mostrar; });
@@ -1380,7 +1399,7 @@
         const box = $('#vit-resultados');
         if (!box) return;
         const alvo = C.normText(vit.busca);
-        const MAX = 60;
+        const MAX = vit.mostrar || PASSO_VITRINE;
         const achados = estado.indice
             .filter(i => naVitrine(i) && !i.rascunho)
             .filter(i => !vit.col || colDoCaminho(i.caminho).id === vit.col)
@@ -1399,7 +1418,8 @@
                 <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc([col.nome, i.ano].filter(Boolean).join(' · '))}${!i.banner ? ' · sem banner' : ''}</div></div>
               </button>`;
           }).join('')}</div>
-          ${achados.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${achados.length}. Refine a busca para achar o resto.</p>` : ''}`;
+          ${achados.length > MAX ? `<p class="dica" id="vit-mais">Mostrando ${MAX} de ${achados.length} · role para carregar mais…</p>` : ''}`;
+        rolarParaMais($('#vit-mais', box), () => { vit.mostrar = MAX + PASSO_VITRINE; desenharResultadosVitrine(); }, 'vitrine');
         $$('[data-alternar]', box).forEach(b => b.onclick = () => {
             const c = b.dataset.alternar;
             if (vit.lista.includes(c)) vit.lista = vit.lista.filter(x => x !== c);
