@@ -268,3 +268,17 @@ test('opções que escondem símbolo não resolvido são recusadas', () => {
     assert.match(v.erros.join(), /esconde símbolos não resolvidos/);
     assert.deepEqual(v.ajustes.flagsLinkar, ['-sASYNCIFY']);
 });
+
+test('licença conferida à mão: só tira o motivo de licença (os outros continuam) e não aceita licença fora da lista', () => {
+    const a = analisa({ info: { ...INFO, license: { spdx_id: 'NOASSERTION', name: 'Other' } }, manifesto: MANIFESTO });
+    assert.equal(a.classificacao, 'revisao');
+    const ok = P.confirmarLicenca(a, 'GPL-3.0');
+    assert.equal(ok.classificacao, 'candidata');
+    assert.equal(ok.licenca.conferidaAMao, true);
+    assert.equal(ok.evidencias.at(-1).confianca, 'humana');
+    assert.match(P.confirmarLicenca(a, 'Proprietária').erroLicenca, /não está na lista/);
+    const astro = analisa({ info: { ...INFO, license: { spdx_id: 'NOASSERTION', name: 'Other' } }, arquivos: { 'CMakeLists.txt': CMAKE_ASTRO } });   // sem manifesto
+    const c = P.confirmarLicenca(astro, 'GPL-3.0');
+    assert.equal(c.classificacao, 'revisao');                        // o ALUT sem manifesto continua pedindo revisão
+    assert.deepEqual(P.ordemExternas(['glu', 'freealut'], [...MANIFESTO, { id: 'glu', requer: ['gl4es'] }]), ['freealut', 'gl4es', 'glu']);
+});
