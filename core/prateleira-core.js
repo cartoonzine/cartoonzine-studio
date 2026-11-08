@@ -37,8 +37,8 @@
         { id: 'zlib', nome: 'zlib', port: ['-sUSE_ZLIB=1'], regras: [/find_package\s*\(\s*ZLIB/i, /-lz\b/, /-sUSE_ZLIB/] },
         { id: 'libpng', nome: 'libpng', port: ['-sUSE_LIBPNG=1'], regras: [/find_package\s*\(\s*PNG\b/i, /-lpng\d*\b/, /\blibpng\b/i, /-sUSE_LIBPNG/] },
         { id: 'libjpeg', nome: 'libjpeg', port: ['-sUSE_LIBJPEG=1'], regras: [/find_package\s*\(\s*JPEG\b/i, /-ljpeg\b/, /-sUSE_LIBJPEG/] },
-        { id: 'ogg', nome: 'libogg', port: ['-sUSE_OGG=1'], regras: [/find_package\s*\(\s*Ogg\b/i, /-logg\b/, /-sUSE_OGG/] },
-        { id: 'vorbis', nome: 'libvorbis', port: ['-sUSE_VORBIS=1'], regras: [/find_package\s*\(\s*Vorbis/i, /-lvorbis(file)?\b/, /-sUSE_VORBIS/] },
+        { id: 'ogg', nome: 'libogg', port: ['-sUSE_OGG=1'], regras: [/find_package\s*\(\s*Ogg\b/i, /-logg\b/, /-sUSE_OGG/, /find_(library|path)\s*\(\s*\w+\s+(NAMES\s+)?(ogg|ogg\/ogg\.h)\b/i] },
+        { id: 'vorbis', nome: 'libvorbis', port: ['-sUSE_VORBIS=1'], regras: [/find_package\s*\(\s*Vorbis/i, /-lvorbis(file)?\b/, /-sUSE_VORBIS/, /find_(library|path)\s*\(\s*\w+\s+(NAMES\s+)?(vorbis|vorbisfile|vorbis\/\w+\.h)\b/i] },
         { id: 'openal', nome: 'OpenAL', port: ['-lopenal'], regras: [/find_package\s*\(\s*OpenAL/i, /-lopenal\b/i] },
         { id: 'opengl', nome: 'OpenGL/WebGL', port: ['-lGL'], regras: [/find_package\s*\(\s*OpenGL\b/i, /-lGL\b/, /-lGLESv2\b/, /-sFULL_ES[23]/] },
         // sem port no Emscripten → revisão necessária (receita própria, como a do AstroMenace com o freealut)
@@ -54,6 +54,11 @@
         { id: 'gtk', nome: 'GTK', port: null, nota: 'GTK não roda no navegador', regras: [/\bgtk\+?-?[234]\.?\d*\b/i, /find_package\s*\(\s*GTK/i] },
         { id: 'allegro', nome: 'Allegro', port: null, nota: 'sem port nestas receitas', regras: [/\ballegro\b/i] }
     ];
+
+    // FIND_LIBRARY(VAR nome) / FIND_PATH(VAR cabeçalho) do próprio projeto → qual port do Emscripten responde
+    const PORT_LIB = { SDL2: 'sdl2', ogg: 'ogg', vorbis: 'vorbis', vorbisfile: 'vorbis', freetype: 'freetype' };
+    const PORT_INC = [[/^(SDL\.h|SDL2\/)/, 'sdl2'], [/^ogg\//, 'ogg'], [/^vorbis\//, 'vorbis'], [/^(ft2build\.h|freetype)/, 'freetype']];
+    const RE_CMAKE_PORT = /^[A-Za-z_][A-Za-z0-9_]*=(lib|inc):[A-Za-z0-9_.+-]+$/;
 
     // opções de Emscripten aceitas de ajustes/guia (lista branca: nada de caractere de shell)
     const RE_FLAG_S = /^-s[A-Z][A-Z0-9_]*(=[A-Za-z0-9_.,\[\]-]+)?$/;
@@ -197,6 +202,20 @@
             } else motivos.push(`Dependência sem port conhecido no Emscripten: ${d.nome} — ${d.nota}${depNoManifesto(d)}.`);
         }
 
+        // variáveis que o CMake do projeto declara para achar bibliotecas que têm port (FIND_LIBRARY / FIND_PATH)
+        const cmakePorts = [];
+        if (b.tipo === 'cmake')
+            for (const arq of nomesArq.filter(x => /CMakeLists\.txt$/.test(x)))
+                for (const { l, n } of linhasSemComentario(arq, arquivos[arq])) {
+                    let m = /find_library\s*\(\s*([A-Za-z_]\w*)\s+(?:NAMES\s+)?([\w.+-]+)/i.exec(l), v = '';
+                    if (m && PORT_LIB[m[2]] && deps.has(PORT_LIB[m[2]])) v = `${m[1]}=lib:${m[2]}`;
+                    if (!m && (m = /find_path\s*\(\s*([A-Za-z_]\w*)\s+(?:NAMES\s+)?([\w.\/+-]+)/i.exec(l))) {
+                        const p = PORT_INC.find(([re]) => re.test(m[2]));
+                        if (p && deps.has(p[1])) v = `${m[1]}=inc:${p[1]}`;
+                    }
+                    if (v && !cmakePorts.includes(v)) { cmakePorts.push(v); ev('ajuste', 'cmakePorts: ' + v, { arquivo: arq, linha: n, trecho: l.trim().slice(0, 140), regra: 'o projeto procura a biblioteca no sistema; o port do Emscripten responde', confianca: 'alta' }); }
+                }
+
         // submódulos git
         const submodulos = caminhos.includes('.gitmodules');
         if (submodulos) ev('ajuste', 'submodulos', { arquivo: '.gitmodules', regra: 'o repositório usa submódulos', confianca: 'alta' });
@@ -235,7 +254,7 @@
             avisos.push('Sem evidência sobre o laço principal: se o teste no navegador travar, acrescente "-sASYNCIFY" em flagsLinkar.');
 
         const nome = String(info.name || '').replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).trim();
-        const ajustes = { subdir: b.subdir, alvo, dados, submodulos, externas: ordemExternas(externas, manifesto || []), flagsCompilar: [], flagsLinkar: [...new Set(flagsGuia)], cmakeOpcoes: [], configureOpcoes: [] };
+        const ajustes = { subdir: b.subdir, alvo, dados, submodulos, externas: ordemExternas(externas, manifesto || []), cmakePorts, flagsCompilar: [], flagsLinkar: [...new Set(flagsGuia)], cmakeOpcoes: [], configureOpcoes: [] };
         if (!/^[0-9a-f]{40}$/.test(commit)) motivos.push('Não consegui o commit exato do código (a receita precisa dele).');
         return {
             id: idDoNome(info.name || nome),
@@ -302,12 +321,13 @@
         const out = {
             subdir: RE_CAMINHO.test(subdir) ? subdir : '', alvo: /^[A-Za-z0-9_.+-]*$/.test(alvo) ? alvo : '',
             dados, submodulos: aj.submodulos === true, externas: manifesto ? ordemExternas(externas.filter(x => manifesto.some(m => m.id === x)), manifesto) : externas,
+            cmakePorts: lista('cmakePorts', RE_CMAKE_PORT, 'Variável de port para o CMake'),
             flagsCompilar: lista('flagsCompilar', RE_FLAG_COMP, 'Flag de compilação').filter(f => !PROIBIDAS.test(f)),
             flagsLinkar: lista('flagsLinkar', RE_FLAG_LINK, 'Flag de link').filter(f => !PROIBIDAS.test(f)),
             cmakeOpcoes: lista('cmakeOpcoes', RE_CMAKE_OP, 'Opção do CMake'),
             configureOpcoes: lista('configureOpcoes', RE_CONF_OP, 'Opção do configure')
         };
-        const conhecidas = ['subdir', 'alvo', 'dados', 'submodulos', 'externas', 'flagsCompilar', 'flagsLinkar', 'cmakeOpcoes', 'configureOpcoes'];
+        const conhecidas = ['subdir', 'alvo', 'dados', 'submodulos', 'externas', 'cmakePorts', 'flagsCompilar', 'flagsLinkar', 'cmakeOpcoes', 'configureOpcoes'];
         Object.keys(aj).filter(k => !conhecidas.includes(k)).forEach(k => erros.push('Ajuste desconhecido: ' + k));
         return { ok: !erros.length, erros, ajustes: out };
     }
@@ -324,9 +344,11 @@
     const aspasCom = (s, extra, usar) => usar ? '"' + String(s).replace(/["$`\\]/g, '') + ' ' + extra + '"' : aspas(s);
     const TEMPLATES = {
         cmake: (a, aj, f) => [
+            // ports que o CMake do projeto procura "no sistema" (FindSDL2 etc.): caminhos de modelo/ports-cmake.json, conferidos no build
+            ...(a.dependencias.some(d => d.port) ? [`preparar_ports_cmake ${[...a.dependencias.filter(d => d.port).map(d => d.id), ...aj.cmakePorts].join(' ')}`] : []),
             `emcmake cmake -S ${aspas(aj.subdir || '.')} -B build-web -DCMAKE_BUILD_TYPE=Release \\`,
             `  -DCMAKE_C_FLAGS=${aspasCom(f.compilar, '$EXTERNAS_CFLAGS', f.ext)} -DCMAKE_CXX_FLAGS=${aspasCom(f.compilar, '$EXTERNAS_CFLAGS', f.ext)} \\`,
-            `  -DCMAKE_EXE_LINKER_FLAGS=${aspasCom(f.linkar, '$EXTERNAS_LIBS', f.ext)}${aj.cmakeOpcoes.length ? ' ' + aj.cmakeOpcoes.join(' ') : ''}${f.ext ? ' "${EXTERNAS_CMAKE[@]}"' : ''}`,
+            `  -DCMAKE_EXE_LINKER_FLAGS=${aspasCom(f.linkar, '$EXTERNAS_LIBS', f.ext)}${aj.cmakeOpcoes.length ? ' ' + aj.cmakeOpcoes.join(' ') : ''}${f.ext ? ' "${EXTERNAS_CMAKE[@]}"' : ''}${a.dependencias.some(d => d.port) ? ' "${PORTS_CMAKE[@]}"' : ''}`,
             'cmake --build build-web -j"$(nproc)"',
             `PASTA_BUILD=build-web`],
         make: (a, aj, f) => [

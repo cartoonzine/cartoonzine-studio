@@ -165,7 +165,8 @@ test('receitas candidatas: templates por tipo, flags nos pontos certos, sem || t
     assert.ok(!/\*\.o|find .*\.o/.test(r));
     assert.match(r, new RegExp('baixar_commit https://github.com/opentyrian/open-tyrian\\.git ' + SHA + '\\n'));
     assert.match(r, /-DCMAKE_C_FLAGS="-sUSE_SDL=2 -sUSE_SDL_MIXER=2"/);
-    assert.match(r, /-DCMAKE_EXE_LINKER_FLAGS="-sUSE_SDL=2 -sUSE_SDL_MIXER=2 -sALLOW_MEMORY_GROWTH=1 -sENVIRONMENT=web -sFORCE_FILESYSTEM=1"/);
+    assert.match(r, /-DCMAKE_EXE_LINKER_FLAGS="-sUSE_SDL=2 -sUSE_SDL_MIXER=2 -sALLOW_MEMORY_GROWTH=1 -sENVIRONMENT=web -sFORCE_FILESYSTEM=1" "\$\{PORTS_CMAKE\[@\]\}"\n/);
+    assert.match(r, /\npreparar_ports_cmake sdl2 sdl2_mixer\nemcmake cmake/);
     assert.match(r, /publicar_jogo "\$PASTA_BUILD" "open-tyrian" "Open Tyrian" "data@\/data"/);
     assert.ok(!/ASYNCIFY/.test(r));                                                 // sem evidência, não liga sozinho
     assert.match(a.avisos.join(), /ASYNCIFY/);
@@ -245,7 +246,7 @@ test('AstroMenace com o manifesto: ALUT vira dependência externa fixada (sem re
     assert.match(r, /\ndependencia_externa freealut   #/);
     assert.ok(r.indexOf('dependencia_externa freealut') < r.indexOf('emcmake cmake'));
     assert.match(r, /-DCMAKE_C_FLAGS="-sUSE_SDL=2 -sUSE_FREETYPE=1 \$EXTERNAS_CFLAGS"/);
-    assert.match(r, /-DCMAKE_EXE_LINKER_FLAGS="[^"]*-lopenal[^"]* \$EXTERNAS_LIBS" "\$\{EXTERNAS_CMAKE\[@\]\}"/);
+    assert.match(r, /-DCMAKE_EXE_LINKER_FLAGS="[^"]*-lopenal[^"]* \$EXTERNAS_LIBS" "\$\{EXTERNAS_CMAKE\[@\]\}" "\$\{PORTS_CMAKE\[@\]\}"/);
     assert.ok(!/ERROR_ON_UNDEFINED_SYMBOLS|\|\|\s*true/.test(r));
     assert.equal(P.estadoReceita(P.entradaJogo(a), null, 'x'), 'candidata');
 });
@@ -281,4 +282,14 @@ test('licença conferida à mão: só tira o motivo de licença (os outros conti
     const c = P.confirmarLicenca(astro, 'GPL-3.0');
     assert.equal(c.classificacao, 'revisao');                        // o ALUT sem manifesto continua pedindo revisão
     assert.deepEqual(P.ordemExternas(['glu', 'freealut'], [...MANIFESTO, { id: 'glu', requer: ['gl4es'] }]), ['freealut', 'gl4es', 'glu']);
+});
+
+test('FIND_LIBRARY/FIND_PATH próprios do projeto também contam como evidência (ogg/vorbis do AstroMenace original)', () => {
+    const a = analisa({ arquivos: { 'CMakeLists.txt': CMAKE_SDL + 'FIND_LIBRARY(OGG_LIBRARY ogg)\nFIND_PATH(VORBIS_INCLUDE_DIR vorbis/vorbisfile.h)\nFIND_LIBRARY(VORBISFILE_LIBRARY NAMES vorbisfile)\n' } });
+    assert.ok(a.dependencias.some(d => d.id === 'ogg'));
+    assert.ok(a.dependencias.some(d => d.id === 'vorbis'));
+    assert.match(P.receitaCandidata(a), /-sUSE_OGG=1 -sUSE_VORBIS=1/);
+    assert.deepEqual(a.ajustes.cmakePorts, ['OGG_LIBRARY=lib:ogg', 'VORBIS_INCLUDE_DIR=inc:vorbis', 'VORBISFILE_LIBRARY=lib:vorbisfile']);
+    assert.match(P.receitaCandidata(a), /\npreparar_ports_cmake sdl2 sdl2_mixer ogg vorbis OGG_LIBRARY=lib:ogg VORBIS_INCLUDE_DIR=inc:vorbis VORBISFILE_LIBRARY=lib:vorbisfile\n/);
+    assert.equal(P.validarAjustes({ cmakePorts: ['X=lib:ogg;rm'] }).ok, false);
 });
