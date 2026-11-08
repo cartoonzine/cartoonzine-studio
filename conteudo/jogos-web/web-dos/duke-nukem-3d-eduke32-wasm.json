@@ -1,13 +1,17 @@
 {
-  "nome": "Duke Nukem 3D (eduke32-wasm)",
+  "nome": "Duke Nukem 3D",
   "links": [
     "https://digitalcybersoft.github.io/eduke32-wasm/"
   ],
+  "capa": "https://images.launchbox-app.com//7a658a61-8276-49cd-bdf4-b760f749ee5f.jpg",
+  "banner": "https://www.techspot.com/images2/news/bigimage/2026/01/2026-01-31-image-5.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/digitalcybersoft/eduke32-wasm",
   "descricao": "Port para navegador · digitalcybersoft.github.io",
   "console": "web-dos",
   "licenca": "nao-verificada",
-  "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "fundoImagem": "banner",
+  "posFundo": 24,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_rascunho": true
 }
