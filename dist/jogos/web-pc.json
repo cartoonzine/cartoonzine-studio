@@ -220,23 +220,6 @@
    "repo": "https://github.com/HurricanGame/Hurrican"
   },
   {
-   "title": "Lego Island",
-   "bgImg": "banner",
-   "bgPosY": 8,
-   "studio": "jogos-web/web-pc/lego-island",
-   "url": "https://isle.pizza/",
-   "thumb": "https://static.wikia.nocookie.net/dublagem/images/6/62/LegoIsland.Capa.jpg/revision/latest?cb=20250216003717&path-prefix=pt-br",
-   "bannerThumb": "https://www.lego.com/cdn/cs/aboutus/assets/bltb00f011e70e8b028/LEGO_Island_-_Project_Island.png",
-   "console": "web-pc",
-   "core": "web",
-   "aparelhos": [
-    "tv",
-    "pc"
-   ],
-   "web": true,
-   "license": "livre"
-  },
-  {
    "title": "Maze of Galious",
    "desc": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2025,
