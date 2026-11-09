@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-09T00:55:43.015Z",
+  "geradoEm": "2026-11-09T00:58:27.132Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 529,
+      "total": 528,
       "publicados": 39,
       "erros": [],
       "avisos": [
@@ -1891,10 +1891,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-windows/homeworld.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-windows/lego-island.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
