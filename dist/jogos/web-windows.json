@@ -91,6 +91,32 @@
    "repo": "https://github.com/Pixelsuft/hl"
   },
   {
+   "title": "Neverball",
+   "desc": "Incline o tabuleiro e leve a bola até a saída pegando as moedas. Mais de 100 fases. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2003,
+   "genre": [
+    "Puzzle",
+    "Habilidade"
+   ],
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-windows/neverball",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/neverball/",
+   "thumb": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co9ugw.jpg",
+   "bannerThumb": "https://images.igdb.com/igdb/image/upload/t_720p/sc80i3.webp",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "gamepad",
+   "repo": "https://github.com/Neverball/neverball"
+  },
+  {
    "title": "Terraria",
    "bgImg": "banner",
    "bgPosY": 70,
