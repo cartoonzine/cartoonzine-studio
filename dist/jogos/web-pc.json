@@ -176,28 +176,6 @@
    "license": "livre"
   },
   {
-   "title": "GTA3Web",
-   "desc": "webport of gta 3/gta iii by woahhcrackers. Jogo livre (sem licença), hospedado sem propaganda no Cartoonzine Jogos.",
-   "year": 2026,
-   "bgImg": "banner",
-   "bgPosY": 0,
-   "studio": "jogos-web/web-pc/gta3web",
-   "url": "https://cartoonzine.github.io/cartoonzine-jogos/gta3web/",
-   "thumb": "https://flowgames.gg/wp-content/uploads/2026/06/GTA3_Box_Art.jpg",
-   "bannerThumb": "https://wallpaper.forfun.com/fetch/45/455c7479a00b47eb77b26cb238c4fcd5.jpeg",
-   "console": "web-pc",
-   "core": "web",
-   "aparelhos": [
-    "tv",
-    "pc"
-   ],
-   "web": true,
-   "engine": "Emscripten",
-   "license": "livre",
-   "controls": "gamepad",
-   "repo": "https://github.com/woahhcrackers/GTA3Web"
-  },
-  {
    "title": "Hurrican",
    "desc": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2007,

@@ -495,11 +495,11 @@
    "year": 2026,
    "bgImg": "banner",
    "bgPosY": 0,
-   "studio": "jogos-web/web-pc/gta3web",
+   "studio": "jogos-web/web-windows/gta3web",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/gta3web/",
    "thumb": "https://flowgames.gg/wp-content/uploads/2026/06/GTA3_Box_Art.jpg",
    "bannerThumb": "https://wallpaper.forfun.com/fetch/45/455c7479a00b47eb77b26cb238c4fcd5.jpeg",
-   "console": "web-pc",
+   "console": "web-windows",
    "core": "web",
    "aparelhos": [
     "tv",
