@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-09T06:58:05.650Z",
+  "geradoEm": "2026-11-09T07:05:14.122Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -138,10 +138,6 @@
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
-          "msg": "Falta: Console"
-        },
-        {
-          "caminho": "conteudo/jogos-web/outros/kingdom.json",
           "msg": "Falta: Console"
         }
       ],
@@ -1900,6 +1896,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-windows/homeworld.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-windows/kingdom.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
