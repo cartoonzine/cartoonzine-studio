@@ -13,11 +13,11 @@
    "destaque": true,
    "bgImg": "banner",
    "bgPosY": 81,
-   "studio": "jogos-web/web-pc/call-of-duty-black-ops-zombies",
+   "studio": "jogos-web/web-windows/call-of-duty-black-ops-zombies",
    "url": "https://vel.gg/bsz",
    "thumb": "https://i5.walmartimages.com/seo/Call-of-Duty-Black-Ops-Zombie-Print-24-x-36-Poster_a1800d92-6378-4cce-b6d2-51d791a707e7.964a2a92b83978ac5a5d66e9446e393b.jpeg",
    "bannerThumb": "https://cdn.mos.cms.futurecdn.net/6shBTwxAoEknpGcKq3DQZ5.jpg",
-   "console": "web-pc",
+   "console": "web-windows",
    "core": "web",
    "aparelhos": [
     "tv",
