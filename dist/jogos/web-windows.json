@@ -62,6 +62,23 @@
    "web": true,
    "license": "autorizada",
    "repo": "https://github.com/Pixelsuft/hl"
+  },
+  {
+   "title": "The Simpsons: Hit & Run",
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-windows/the-simpsons-hit-e-run-2",
+   "url": "https://shar-wasm.cjoseph.workers.dev/?skipmovie",
+   "thumb": "https://m.media-amazon.com/images/M/MV5BMjkwMmY3ZmItYmJiYi00ZWNjLTlhOTEtMmJhODJiMGE2NjAwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+   "bannerThumb": "https://gaming-cdn.com/images/products/22895/orig/the-simpsons-hit-and-run-remake-pc-cover.jpg?v=1781086923",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
   }
  ]
 }
