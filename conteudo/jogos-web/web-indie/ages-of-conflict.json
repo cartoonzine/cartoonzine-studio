@@ -3,9 +3,13 @@
   "links": [
     "https://wasm.rip/files/aoc/index.html"
   ],
+  "capa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ45Fiok__JSSzi0cBKhZKnkNG8Hf3Mava6e_6l1jBO4PLz1O8uzLTdpb96&s=10",
+  "banner": "https://img.itch.zone/aW1hZ2UvMTY2NTcyNC8xODAxMzM4OS5wbmc=/original/gnMLyx.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wasm.rip",
   "console": "web-indie",
   "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 1,
   "_origem": "auto:Ultimate Catalog of Web Game Ports"
 }
