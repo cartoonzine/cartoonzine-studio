@@ -1,0 +1,12 @@
+{
+  "nome": "Sonic Mania Plus",
+  "capa": "https://gamesdb-images.launchbox.gg/r2_587b9a87-9011-4ae5-b016-fdf0decb37c8.png",
+  "banner": "https://images.launchbox-app.com//b3453545-543e-442c-80ec-305fec9d845e.jpg",
+  "descricao": "Vivencie a celebração definitiva do passado e do futuro em Sonic Mania, uma aventura 2D inédita do Sonic rodando a 60 FPS com gráficos retrô em alta definição impressionantes. Diversos personagens jogáveis ​​permitem que você acelere explosivamente como Sonic, voe como Tails ou supere obstáculos difíceis com a força bruta de Knuckles. Você pode reviver o Sonic do passado com uma nova e emocionante abordagem das fases clássicas enquanto luta contra novos chefões e o exército de robôs malignos do Dr. Eggman. Dispute partidas com outros jogadores no Modo Competição ou jogue no Modo Cooperativo com um amigo. Sonic Mania foi desenvolvido por Christian Whitehead, Headcannon e PagodaWest Games em colaboração com a Sonic Team. Bem-vindo ao Sonic Mania!\n\nSonic Mania Encore DLC - Experimente uma nova versão de fases familiares com o novíssimo Modo Encore, jogue com dois novos personagens com habilidades únicas: Mighty, o Tatu, e Ray, o Esquilo Voador, e dispute com até quatro amigos no Modo Competição expandido!",
+  "console": "web-windows",
+  "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 55,
+  "bannerLogo": "https://images.launchbox-app.com//bdb3c23d-e5e6-4f00-9b3b-8e2e65332868.png",
+  "_rascunho": true
+}
