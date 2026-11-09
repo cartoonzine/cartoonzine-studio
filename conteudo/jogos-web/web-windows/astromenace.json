@@ -9,7 +9,7 @@
     "Shoot 'Em Up",
     "Navinha"
   ],
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "fundoImagem": "banner",
   "posFundo": 29,
