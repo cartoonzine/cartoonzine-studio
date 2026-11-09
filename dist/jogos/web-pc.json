@@ -63,23 +63,6 @@
    "repo": "https://github.com/midzer/Bombermaaan"
   },
   {
-   "title": "Bunny Hop lol",
-   "bgImg": "banner",
-   "bgPosY": 72,
-   "studio": "jogos-web/web-pc/bunny-hop-lol",
-   "url": "https://bunnyhop.lol/",
-   "thumb": "https://bunnyhop.lol/about/run-poster.webp",
-   "bannerThumb": "https://bunnyhop.lol/about/ghost.webp",
-   "console": "web-pc",
-   "core": "web",
-   "aparelhos": [
-    "tv",
-    "pc"
-   ],
-   "web": true,
-   "license": "livre"
-  },
-  {
    "title": "Hurrican",
    "desc": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2007,

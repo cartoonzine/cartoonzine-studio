@@ -117,6 +117,23 @@
    "license": "livre"
   },
   {
+   "title": "Bunny Hop lol",
+   "bgImg": "banner",
+   "bgPosY": 72,
+   "studio": "jogos-web/web-windows/bunny-hop-lol",
+   "url": "https://bunnyhop.lol/",
+   "thumb": "https://bunnyhop.lol/about/run-poster.webp",
+   "bannerThumb": "https://bunnyhop.lol/about/ghost.webp",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Counter Strike & Half Life (2)",
    "desc": "Port para navegador · pixelsuft.github.io",
    "genre": [
