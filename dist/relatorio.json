@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-09T03:54:38.578Z",
+  "geradoEm": "2026-11-09T04:09:01.565Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,9 +133,14 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 529,
+      "total": 530,
       "publicados": 41,
-      "erros": [],
+      "erros": [
+        {
+          "caminho": "conteudo/jogos-web/outros/capuchin.json",
+          "msg": "Falta: Console"
+        }
+      ],
       "avisos": [
         {
           "caminho": "conteudo/jogos-web/web-arcade/sonic-the-fighters.json",
