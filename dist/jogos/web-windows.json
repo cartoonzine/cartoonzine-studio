@@ -64,6 +64,23 @@
    "repo": "https://github.com/Pixelsuft/hl"
   },
   {
+   "title": "Terraria",
+   "bgImg": "banner",
+   "bgPosY": 70,
+   "studio": "jogos-web/web-windows/terraria",
+   "url": "https://playterraria.lol/game/",
+   "thumb": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
+   "bannerThumb": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "The Simpsons: Hit & Run",
    "bgImg": "banner",
    "bgPosY": 0,
