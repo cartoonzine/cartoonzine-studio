@@ -11,7 +11,7 @@
   "descricao": "webport of gta 3/gta iii by woahhcrackers. Jogo livre (sem licença), hospedado sem propaganda no Cartoonzine Jogos.",
   "ano": 2026,
   "engine": "Emscripten",
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "controles": "gamepad",
   "fundoImagem": "banner",
