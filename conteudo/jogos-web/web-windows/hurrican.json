@@ -3,6 +3,8 @@
   "links": [
     "https://cartoonzine.github.io/cartoonzine-jogos/hurrican/"
   ],
+  "capa": "https://cdn.mobygames.com/covers/6495734-hurrican-windows-front-cover.jpg",
+  "banner": "https://img.utdstc.com/screen/9ef/4bf/9ef4bf99b593acaec7b710c7d3cbf5379ff06ccb60713975cbe4e2d4f131fa65:600",
   "site": "https://github.com/HurricanGame/Hurrican",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/HurricanGame/Hurrican",
@@ -13,8 +15,10 @@
     "Plataforma"
   ],
   "engine": "Emscripten",
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "controles": "gamepad",
+  "fundoImagem": "banner",
+  "posFundo": 100,
   "_origem": "prateleira:cartoonzine-jogos"
 }
