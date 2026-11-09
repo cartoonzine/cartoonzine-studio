@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-09T00:43:04.037Z",
+  "geradoEm": "2026-11-09T00:43:27.270Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -271,14 +271,14 @@
         "web-fangames": 0,
         "web-indie": 6,
         "web-remakes": 3,
-        "web-pc": 15,
+        "web-pc": 14,
         "web-n64": 0,
         "web-gamecube": 0,
         "web-wii": 0,
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 4,
-        "web-windows": 5,
+        "web-windows": 6,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
