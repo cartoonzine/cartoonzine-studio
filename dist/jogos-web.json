@@ -251,11 +251,11 @@
    ],
    "bgImg": "banner",
    "bgPosY": 29,
-   "studio": "jogos-web/web-pc/astromenace",
+   "studio": "jogos-web/web-windows/astromenace",
    "url": "https://midzer.de/wasm/astromenace/",
    "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBJiTGs-8VQMf9xrFEEnAMlXig-t4pu21mK_Iwuham80kngeBv8D63QYn&s=10",
    "bannerThumb": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Astromenace_Gameplay.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original",
-   "console": "web-pc",
+   "console": "web-windows",
    "core": "web",
    "aparelhos": [
     "pc"

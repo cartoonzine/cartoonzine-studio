@@ -25,26 +25,6 @@
    "repo": "https://github.com/Xenoveritas/abuse"
   },
   {
-   "title": "Astromenace",
-   "genre": [
-    "Shoot 'Em Up",
-    "Navinha"
-   ],
-   "bgImg": "banner",
-   "bgPosY": 29,
-   "studio": "jogos-web/web-pc/astromenace",
-   "url": "https://midzer.de/wasm/astromenace/",
-   "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBJiTGs-8VQMf9xrFEEnAMlXig-t4pu21mK_Iwuham80kngeBv8D63QYn&s=10",
-   "bannerThumb": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Astromenace_Gameplay.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original",
-   "console": "web-pc",
-   "core": "web",
-   "aparelhos": [
-    "pc"
-   ],
-   "web": true,
-   "license": "livre"
-  },
-  {
    "title": "Bombermaaan",
    "desc": "Bombermaaan is inspired on the classic Bomberman game ported for the web. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2023,
