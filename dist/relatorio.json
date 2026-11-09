@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-09T02:18:19.720Z",
+  "geradoEm": "2026-11-09T02:32:52.837Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,8 +133,8 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 526,
-      "publicados": 38,
+      "total": 527,
+      "publicados": 39,
       "erros": [],
       "avisos": [
         {
@@ -2101,7 +2101,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 5,
-        "web-windows": 16,
+        "web-windows": 17,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
