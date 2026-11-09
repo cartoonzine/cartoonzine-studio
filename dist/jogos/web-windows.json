@@ -251,6 +251,33 @@
    "license": "livre"
   },
   {
+   "title": "Doki Doki Literature Club",
+   "desc": "Bem-vindo(a) ao clube! Escreva poemas para a pessoa por quem você tem uma queda e vivencie o terror do romance escolar nesta história de terror psicológico aclamada pela crítica.",
+   "genre": [
+    "RPG",
+    "Visual Novel",
+    "Terror"
+   ],
+   "bannerlogo": "https://images.launchbox-app.com//3e063167-4a84-4009-9ea7-0859f0f12214.png",
+   "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256841082/movie_max_vp9.webm?t=1625791341",
+   "bgImg": "banner",
+   "bgPosY": 12,
+   "studio": "jogos-web/web-windows/doki-doki-literature-club",
+   "url": "https://hedgeplays2.github.io/DDLC-Web-Port/",
+   "thumb": "https://images.launchbox-app.com//c61bdadd-d1ec-4bd5-ac9c-05b48fdcb24d.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//724e042a-5ae4-4725-9cc1-68dd60c139ce.jpg",
+   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256841082/movie_max_vp9.webm?t=1625791341",
+   "console": "web-windows",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "GTA3Web",
    "desc": "webport of gta 3/gta iii by woahhcrackers. Jogo livre (sem licença), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2026,
