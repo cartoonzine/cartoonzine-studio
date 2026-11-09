@@ -3,14 +3,18 @@
   "links": [
     "https://cartoonzine.github.io/cartoonzine-jogos/mazeofgalious/"
   ],
+  "capa": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co6o1w.jpg",
+  "banner": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWsFTYEQ8bkNl-bTKTt1bUPfoVlxrILPC4yVNDUZY2g&s=10",
   "site": "https://github.com/midzer/mazeofgalious",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/midzer/mazeofgalious",
   "descricao": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
   "ano": 2025,
   "engine": "Emscripten",
-  "console": "web-pc",
+  "console": "web-remakes",
   "licenca": "livre",
   "controles": "teclado",
+  "fundoImagem": "banner",
+  "posFundo": 0,
   "_origem": "prateleira:cartoonzine-jogos"
 }
