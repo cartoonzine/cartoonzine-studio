@@ -32,6 +32,28 @@
    "repo": "https://github.com/digitalcybersoft/eduke32-wasm"
   },
   {
+   "title": "Abuse",
+   "desc": "Clássico de ação da Crack dot Com: um soldado sozinho contra mutantes numa prisão subterrânea. Jogo livre (Domínio público / GPL / WTFPL (código e dados) · sons de Bobby Prince com permissão de redistribuição), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 1995,
+   "genre": [
+    "Ação",
+    "Plataforma"
+   ],
+   "studio": "jogos-web/web-dos/abuse",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/abuse/",
+   "console": "web-dos",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/Xenoveritas/abuse"
+  },
+  {
    "title": "Alley Cat",
    "desc": "Port para navegador · petarov.github.io",
    "studio": "jogos-web/web-dos/alley-cat",

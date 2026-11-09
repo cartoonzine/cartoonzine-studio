@@ -170,9 +170,9 @@
     "Ação",
     "Plataforma"
    ],
-   "studio": "jogos-web/web-pc/abuse",
+   "studio": "jogos-web/web-dos/abuse",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/abuse/",
-   "console": "web-pc",
+   "console": "web-dos",
    "core": "web",
    "aparelhos": [
     "tv",
