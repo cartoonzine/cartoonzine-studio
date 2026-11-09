@@ -13,7 +13,7 @@
     "Plataforma"
   ],
   "engine": "Emscripten",
-  "console": "web-pc",
+  "console": "web-dos",
   "licenca": "livre",
   "controles": "teclado",
   "_origem": "prateleira:cartoonzine-jogos"
