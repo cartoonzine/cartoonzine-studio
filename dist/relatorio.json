@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-09T03:30:48.710Z",
+  "geradoEm": "2026-11-09T03:36:12.639Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -137,11 +137,7 @@
       "publicados": 39,
       "erros": [
         {
-          "caminho": "conteudo/jogos-web/outros/sonic-mania-plus.json",
-          "msg": "Falta: Console"
-        },
-        {
-          "caminho": "conteudo/jogos-web/outros/sonic-mania-plus.json",
+          "caminho": "conteudo/jogos-web/web-windows/sonic-mania-plus.json",
           "msg": "Falta: Link da ROM"
         }
       ],
