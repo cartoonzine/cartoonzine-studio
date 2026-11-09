@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-09T03:36:12.639Z",
+  "geradoEm": "2026-11-09T03:37:45.138Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,13 +134,8 @@
     {
       "colecao": "jogos-web",
       "total": 528,
-      "publicados": 39,
-      "erros": [
-        {
-          "caminho": "conteudo/jogos-web/web-windows/sonic-mania-plus.json",
-          "msg": "Falta: Link da ROM"
-        }
-      ],
+      "publicados": 40,
+      "erros": [],
       "avisos": [
         {
           "caminho": "conteudo/jogos-web/web-arcade/sonic-the-fighters.json",
@@ -2106,7 +2101,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 5,
-        "web-windows": 17,
+        "web-windows": 18,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
