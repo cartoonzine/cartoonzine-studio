@@ -26,6 +26,28 @@
    "repo": "https://github.com/JoseTomasTocino/freegemas"
   },
   {
+   "title": "Maze of Galious",
+   "desc": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2025,
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-remakes/maze-of-galious",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/mazeofgalious/",
+   "thumb": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co6o1w.jpg",
+   "bannerThumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWsFTYEQ8bkNl-bTKTt1bUPfoVlxrILPC4yVNDUZY2g&s=10",
+   "console": "web-remakes",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/midzer/mazeofgalious"
+  },
+  {
    "title": "Vectoroids",
    "desc": "Asteroids em vetor, de Bill Kendrick. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2001,
