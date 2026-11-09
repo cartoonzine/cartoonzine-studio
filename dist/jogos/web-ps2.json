@@ -21,6 +21,7 @@
    "console": "web-ps2",
    "core": "web",
    "aparelhos": [
+    "tv",
     "pc"
    ],
    "web": true,
