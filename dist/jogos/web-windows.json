@@ -91,6 +91,38 @@
    "repo": "https://github.com/Pixelsuft/hl"
   },
   {
+   "title": "Cuphead",
+   "desc": "Port para navegador · gn-math.github.io",
+   "genre": [
+    "Plataforma",
+    "Tiro"
+   ],
+   "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256894191/movie_max_vp9.webm?t=1656595223",
+   "bgImg": "banner",
+   "bgPosY": 100,
+   "studio": "jogos-web/web-windows/cuphead",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/cuphead/",
+   "mirrors": [
+    "https://gn-math.github.io/web-port/cuphead/"
+   ],
+   "thumb": "https://images.launchbox-app.com//23729ca1-f427-4f79-9bdc-8937bf485d2c.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//f452b0c3-7e3a-42fb-a575-4588257c97de.jpg",
+   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256894191/movie_max_vp9.webm?t=1656595223",
+   "console": "web-windows",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "WebAssembly",
+   "license": "livre",
+   "controls": "gamepad",
+   "weight": "medio",
+   "repo": "https://github.com/genizy/web-port/tree/main/cuphead"
+  },
+  {
    "title": "GTA3Web",
    "desc": "webport of gta 3/gta iii by woahhcrackers. Jogo livre (sem licença), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2026,
