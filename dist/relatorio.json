@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-09T04:09:01.565Z",
+  "geradoEm": "2026-11-09T06:58:05.650Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,11 +133,15 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 530,
+      "total": 531,
       "publicados": 41,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
+          "msg": "Falta: Console"
+        },
+        {
+          "caminho": "conteudo/jogos-web/outros/kingdom.json",
           "msg": "Falta: Console"
         }
       ],
