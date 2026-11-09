@@ -117,11 +117,11 @@
    "destaque": true,
    "bgImg": "banner",
    "bgPosY": 0,
-   "studio": "jogos-web/web-pc/taiko-no-tatsujin",
+   "studio": "jogos-web/web-windows/taiko-no-tatsujin",
    "url": "https://cjdgrevival.com/",
    "thumb": "https://store-images.s-microsoft.com/image/apps.29856.13744419880759751.76c7be28-be8f-493a-80e6-4c0af4541010.1d928aed-e13a-47f7-9951-da8a72fabb3a",
    "bannerThumb": "https://cms-assets.xboxservices.com/assets/3b/47/3b473d87-7723-40fb-a75d-a39eb23a5dd9.png?n=XB_ww_TaikoDF_DLC_TMP_SuperHeroArt_3840x2160.png&q=90&o=f&w=480&h=270",
-   "console": "web-pc",
+   "console": "web-windows",
    "players": 2,
    "core": "web",
    "aparelhos": [
