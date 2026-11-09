@@ -133,21 +133,6 @@
    "license": "livre"
   },
   {
-   "title": "-3",
-   "desc": "Port para navegador · gn-math.dev",
-   "studio": "jogos-web/web-indie/3",
-   "url": "https://gn-math.dev/?id=816",
-   "console": "web-indie",
-   "core": "web",
-   "aparelhos": [
-    "tv",
-    "pc"
-   ],
-   "web": true,
-   "license": "livre",
-   "repo": "https://github.com/aukak/-3"
-  },
-  {
    "title": "20 Minutes Till Dawn",
    "desc": "Port para navegador · gn-math.dev",
    "studio": "jogos-web/web-indie/20-minutes-till-dawn",
