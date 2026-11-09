@@ -35,8 +35,12 @@
   {
    "title": "Ages of Conflict",
    "desc": "Port para navegador · wasm.rip",
+   "bgImg": "banner",
+   "bgPosY": 1,
    "studio": "jogos-web/web-indie/ages-of-conflict",
    "url": "https://wasm.rip/files/aoc/index.html",
+   "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ45Fiok__JSSzi0cBKhZKnkNG8Hf3Mava6e_6l1jBO4PLz1O8uzLTdpb96&s=10",
+   "bannerThumb": "https://img.itch.zone/aW1hZ2UvMTY2NTcyNC8xODAxMzM4OS5wbmc=/original/gnMLyx.png",
    "console": "web-indie",
    "core": "web",
    "aparelhos": [
