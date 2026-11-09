@@ -15,7 +15,7 @@
     "Habilidade"
   ],
   "engine": "Emscripten",
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "controles": "gamepad",
   "fundoImagem": "banner",
