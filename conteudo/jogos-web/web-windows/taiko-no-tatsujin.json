@@ -11,7 +11,7 @@
     "Musical",
     "Ritmo"
   ],
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "jogadores": 2,
   "fundoImagem": "banner",
