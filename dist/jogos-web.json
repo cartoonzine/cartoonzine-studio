@@ -520,9 +520,13 @@
     "Ação",
     "Plataforma"
    ],
-   "studio": "jogos-web/web-pc/hurrican",
+   "bgImg": "banner",
+   "bgPosY": 100,
+   "studio": "jogos-web/web-windows/hurrican",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/hurrican/",
-   "console": "web-pc",
+   "thumb": "https://cdn.mobygames.com/covers/6495734-hurrican-windows-front-cover.jpg",
+   "bannerThumb": "https://img.utdstc.com/screen/9ef/4bf/9ef4bf99b593acaec7b710c7d3cbf5379ff06ccb60713975cbe4e2d4f131fa65:600",
+   "console": "web-windows",
    "core": "web",
    "aparelhos": [
     "tv",

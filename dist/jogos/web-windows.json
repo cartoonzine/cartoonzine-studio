@@ -246,6 +246,32 @@
    "repo": "https://github.com/woahhcrackers/GTA3Web"
   },
   {
+   "title": "Hurrican",
+   "desc": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2007,
+   "genre": [
+    "Ação",
+    "Plataforma"
+   ],
+   "bgImg": "banner",
+   "bgPosY": 100,
+   "studio": "jogos-web/web-windows/hurrican",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/hurrican/",
+   "thumb": "https://cdn.mobygames.com/covers/6495734-hurrican-windows-front-cover.jpg",
+   "bannerThumb": "https://img.utdstc.com/screen/9ef/4bf/9ef4bf99b593acaec7b710c7d3cbf5379ff06ccb60713975cbe4e2d4f131fa65:600",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "gamepad",
+   "repo": "https://github.com/HurricanGame/Hurrican"
+  },
+  {
    "title": "Lego Island",
    "bgImg": "banner",
    "bgPosY": 8,
