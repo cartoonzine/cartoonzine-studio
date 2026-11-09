@@ -15,7 +15,7 @@
     "Tiro"
   ],
   "engine": "WebAssembly",
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "controles": "gamepad",
   "peso": "medio",
