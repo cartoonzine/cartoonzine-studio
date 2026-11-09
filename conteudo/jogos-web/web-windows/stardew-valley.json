@@ -11,7 +11,7 @@
     "Simulação",
     "role-playing"
   ],
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "controles": "gamepad",
   "jogadores": 2,
