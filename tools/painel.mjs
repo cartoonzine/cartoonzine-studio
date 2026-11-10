@@ -19,7 +19,7 @@ const TIPOS_MIME = {
     '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.m3u': 'audio/x-mpegurl; charset=utf-8',
     '.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon', '.md': 'text/plain; charset=utf-8'
 };
-const HOSTS_PROXY = /(^|\.)(archive\.org|wikipedia\.org)$/i;
+const HOSTS_PROXY = /(^|\.)(archive\.org|wikipedia\.org|screenscraper\.fr|steamgriddb\.com)$/i;
 const CAMINHO_OK = /^conteudo\/[a-z0-9][a-z0-9._-]*(\/[a-z0-9][a-z0-9._-]*)*\.json$/;
 
 export function criarServidor({ raiz = RAIZ } = {}) {
@@ -77,7 +77,10 @@ export function criarServidor({ raiz = RAIZ } = {}) {
             if (url.pathname === '/api/proxy') {
                 const alvo = new URL(url.searchParams.get('url') || '');
                 if (alvo.protocol !== 'https:' || !HOSTS_PROXY.test(alvo.hostname)) return json(res, 403, { erro: 'host não permitido' });
-                const r = await fetch(alvo, { headers: { 'User-Agent': 'cartoonzine-studio' } });
+                const cab = { 'User-Agent': 'cartoonzine-studio' };
+                const aut = req.headers['x-proxy-authorization'];
+                if (aut && /(^|\.)steamgriddb\.com$/i.test(alvo.hostname)) cab.Authorization = String(aut);
+                const r = await fetch(alvo, { headers: cab });
                 res.writeHead(r.status, { 'Content-Type': r.headers.get('content-type') || 'application/json' });
                 return res.end(Buffer.from(await r.arrayBuffer()));
             }
