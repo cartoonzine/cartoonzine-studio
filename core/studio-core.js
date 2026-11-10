@@ -721,8 +721,15 @@
             output: 'json', ssid: ss.user || '', sspassword: ss.senha || '', romnom: nome
         });
         const r = await f('https://www.screenscraper.fr/api2/jeuInfos.php?' + p.toString());
-        if (r.status === 401 || r.status === 403 || r.status === 430) throw new Error('credenciais recusadas (' + r.status + ')');
-        if (!r.ok) throw new Error('HTTP ' + r.status);
+        if (!r.ok) {
+            // o ScreenScraper explica o erro em texto (em francês): traduz os mais comuns
+            let txt = ''; try { txt = String(await r.text()).trim().slice(0, 160); } catch (e) { /* */ }
+            if (/d[ée]veloppeur|devid|developer/i.test(txt)) throw new Error('Dev ID / Dev password recusados — eles NÃO são o seu login do site: peça os seus no fórum do ScreenScraper (HTTP ' + r.status + ')');
+            if (/identifiant|login|utilisateur|ssid|password/i.test(txt)) throw new Error('usuário/senha do site recusados (HTTP ' + r.status + ')');
+            if (/non trouv|not found|jeu/i.test(txt) && r.status === 404) return {};
+            if (r.status === 429 || r.status === 430 || /quota|threads/i.test(txt)) throw new Error('limite de consultas do ScreenScraper atingido; tente mais tarde (HTTP ' + r.status + ')');
+            throw new Error('HTTP ' + r.status + (txt ? ' — ' + txt : ''));
+        }
         let j; try { j = await r.json(); } catch (e) { throw new Error('resposta inválida (confira as credenciais)'); }
         const medias = (j && j.response && j.response.jeu && j.response.jeu.medias) || [];
         const achar = (re) => { const m = medias.find(x => re.test(x.type || '') && /(wor|eu|us|ss)/i.test(x.region || 'wor')) || medias.find(x => re.test(x.type || '')); return (m && (m.url || '')) || ''; };

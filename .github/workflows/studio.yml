@@ -57,6 +57,17 @@ jobs:
           # aos domingos, atualiza as notas do IMDb de tudo (o plano grátis do OMDb aceita 1000 por dia)
           if [ "$(date +%u)" = "7" ]; then node tools/completar.mjs --notas --limite 800; fi
 
+      - name: Logos dos jogos (SteamGridDB / ScreenScraper)
+        if: github.event_name != 'push'
+        continue-on-error: true
+        env:
+          STEAMGRID_KEY: ${{ secrets.STEAMGRID_KEY }}
+          SS_DEV_ID: ${{ secrets.SS_DEV_ID }}
+          SS_DEV_PASSWORD: ${{ secrets.SS_DEV_PASSWORD }}
+          SS_USER: ${{ secrets.SS_USER }}
+          SS_PASSWORD: ${{ secrets.SS_PASSWORD }}
+        run: node tools/completar.mjs --jogos --limite 250
+
       - name: Testar links (os mais antigos primeiro)
         if: github.event_name != 'push'
         continue-on-error: true

@@ -153,8 +153,9 @@
     /** Wikipedia/Internet Archive: no modo local passa pelo servidor (evita bloqueio de CORS). */
     function fetchExterno(url, init) {
         // TMDB e OMDb aceitam o navegador direto; archive.org/Wikipedia passam pelo servidor local quando ele existe
-        if (estado.repo && estado.repo.usaProxy && /^https:\/\/([^/]*\.)?(archive\.org|wikipedia\.org|screenscraper\.fr)\//.test(url)) {
-            return fetch('/api/proxy?url=' + encodeURIComponent(url));
+        if (estado.repo && estado.repo.usaProxy && /^https:\/\/([^/]*\.)?(archive\.org|wikipedia\.org|screenscraper\.fr|steamgriddb\.com)\//.test(url)) {
+            const aut = init && init.headers && (init.headers.Authorization || init.headers.authorization);
+            return fetch('/api/proxy?url=' + encodeURIComponent(url), aut ? { headers: { 'X-Proxy-Authorization': aut } } : undefined);
         }
         return fetch(url, init);
     }
@@ -220,10 +221,16 @@
                 if (novo.steamgrid) {
                     const url = await C.buscarLogoSteamGrid('Sonic the Hedgehog', novo.steamgrid, fetchExterno).then(x => x, e => ({ erro: e.message }));
                     if (url && typeof url === 'string') res.push('✅ SteamGridDB funcionando (logo de teste encontrado)');
+                    else if (url && url.erro && /failed to fetch|networkerror|load failed/i.test(url.erro) && !(estado.repo && estado.repo.usaProxy))
+                        res.push('ℹ SteamGridDB: o site não aceita pedidos direto do navegador (Studio online). A chave fica salva aqui, mas quem busca os logos é o robô do GitHub: cadastre ela no segredo STEAMGRID_KEY do repositório.');
                     else if (url && url.erro) res.push('❌ SteamGridDB: ' + url.erro);
                     else res.push('❌ SteamGridDB: respondeu, mas sem logo no teste');
                 }
-                if (ss.dev) {
+                if (ss.dev && ss.user && ss.dev.toLowerCase() === ss.user.toLowerCase()) {
+                    res.push('❌ ScreenScraper: o Dev ID está igual ao seu usuário. Dev ID / Dev password são a credencial de DESENVOLVEDOR (pedida no fórum do ScreenScraper), não o seu login. Seu login vai só nos dois campos de baixo.');
+                } else if (!ss.dev && (ss.user || ss.senha)) {
+                    res.push('❌ ScreenScraper: falta o Dev ID e a Dev password (peça no fórum do ScreenScraper). Só o login do site não basta.');
+                } else if (ss.dev) {
                     const r = await C.buscarScreenScraper('Sonic The Hedgehog', ss, fetchExterno).then(x => x, e => ({ erro: e.message }));
                     if (r && r.erro) res.push('❌ ScreenScraper: ' + r.erro);
                     else if (r && (r.logo || r.video)) res.push('✅ ScreenScraper funcionando (' + [r.logo ? 'logo' : '', r.video ? 'vídeo' : ''].filter(Boolean).join(' + ') + ')');
@@ -232,9 +239,9 @@
             } catch (e) { res.push('❌ ' + e.message); }
             b.disabled = false; b.textContent = 'Salvar e testar';
             const box = $('#ch-msg', fundo);
-            box.style.borderColor = res.every(x => x.startsWith('✅')) ? 'rgba(46,230,166,.45)' : '';
-            box.style.background = res.every(x => x.startsWith('✅')) ? 'rgba(46,230,166,.08)' : '';
-            box.style.color = res.every(x => x.startsWith('✅')) ? 'var(--texto)' : '';
+            box.style.borderColor = res.every(x => !x.startsWith('❌')) ? 'rgba(46,230,166,.45)' : '';
+            box.style.background = res.every(x => !x.startsWith('❌')) ? 'rgba(46,230,166,.08)' : '';
+            box.style.color = res.every(x => !x.startsWith('❌')) ? 'var(--texto)' : '';
             box.innerHTML = res.length ? res.map(esc).join('<br>') : 'Chaves apagadas deste navegador.';
             if (estado.aba === 'rapido') desenharArea();
         };

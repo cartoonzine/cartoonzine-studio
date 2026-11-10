@@ -109,7 +109,9 @@ export async function baixarTexto(url, { timeoutMs = 30000 } = {}) {
 
 /** Chaves do TMDB/OMDb: variáveis de ambiente (no GitHub, os "secrets" TMDB_TOKEN e OMDB_KEY). */
 export function chavesExternas() {
-    return { tmdb: process.env.TMDB_TOKEN || process.env.TMDB_API_KEY || '', omdb: process.env.OMDB_KEY || '' };
+    const ss = { dev: process.env.SS_DEV_ID || '', devSenha: process.env.SS_DEV_PASSWORD || '', user: process.env.SS_USER || '', senha: process.env.SS_PASSWORD || '' };
+    return { tmdb: process.env.TMDB_TOKEN || process.env.TMDB_API_KEY || '', omdb: process.env.OMDB_KEY || '',
+        steamgrid: process.env.STEAMGRID_KEY || '', screenscraper: ss.dev ? ss : null };
 }
 
 /**
