@@ -27,7 +27,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -57,7 +57,18 @@ jobs:
           # aos domingos, atualiza as notas do IMDb de tudo (o plano grátis do OMDb aceita 1000 por dia)
           if [ "$(date +%u)" = "7" ]; then node tools/completar.mjs --notas --limite 800; fi
 
-      - name: Artes dos jogos — logo, capa e banner (SteamGridDB)
+      - name: Jogos pelo ScreenScraper (principal) — capa, logo, banner, vídeo e dados
+        if: github.event_name != 'push'
+        continue-on-error: true
+        env:
+          SS_DEV_ID: ${{ secrets.SS_DEV_ID }}
+          SS_DEV_PASSWORD: ${{ secrets.SS_DEV_PASSWORD }}
+          SS_USER: ${{ secrets.SS_USER }}
+          SS_PASSWORD: ${{ secrets.SS_PASSWORD }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node tools/midia-jogos.mjs --limite 300 --minutos 20
+
+      - name: Artes dos jogos que faltarem — logo, capa e banner (SteamGridDB)
         if: github.event_name != 'push'
         continue-on-error: true
         env:

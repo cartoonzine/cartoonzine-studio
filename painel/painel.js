@@ -183,7 +183,7 @@
               <label class="rot" for="ch-steamgrid" style="margin-top:14px">SteamGridDB — logo, capa e banner dos jogos</label>
               <input class="campo" id="ch-steamgrid" type="password" autocomplete="off" placeholder="Chave da API do SteamGridDB" value="${esc(ch.steamgrid || '')}">
               <div class="dica">Grátis: em <a href="https://www.steamgriddb.com/profile/preferences/api" target="_blank" rel="noopener">steamgriddb.com → Preferences → API</a>. Usada para baixar o logo dos jogos automaticamente.</div>
-              <label class="rot" style="margin-top:14px">ScreenScraper — só teste (desligado no catálogo: os links de mídia dele levam a sua senha)</label>
+              <label class="rot" style="margin-top:14px">ScreenScraper — capa, logo, banner, vídeo e dados dos jogos (o robô do GitHub baixa os arquivos; aqui é só o teste)</label>
               <div class="dica" style="margin-bottom:8px">Login = seu usuário/senha do site. Dev ID / Dev password: peça no <a href="https://www.screenscraper.fr/forum.php" target="_blank" rel="noopener">fórum do ScreenScraper</a> (apps gratuitos). <a href="https://www.screenscraper.fr/webapi2.php" target="_blank" rel="noopener">doc da API</a>.</div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
                 <input class="campo" id="ch-ss-dev" type="text" autocomplete="off" placeholder="Dev ID" value="${esc((ch.screenscraper && ch.screenscraper.dev) || '')}">
