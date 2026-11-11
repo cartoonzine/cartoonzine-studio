@@ -27,7 +27,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
 
@@ -66,7 +66,7 @@ jobs:
           SS_DEV_PASSWORD: ${{ secrets.SS_DEV_PASSWORD }}
           SS_USER: ${{ secrets.SS_USER }}
           SS_PASSWORD: ${{ secrets.SS_PASSWORD }}
-        run: node tools/completar.mjs --jogos --limite 250
+        run: node tools/completar.mjs --jogos --limite 250 --minutos 15
 
       - name: Testar links (os mais antigos primeiro)
         if: github.event_name != 'push'
