@@ -712,28 +712,47 @@
         return (jl && jl.data && jl.data[0] && jl.data[0].url) || '';
     }
 
-    /** ScreenScraper (jeuInfos): logo "wheel" + vídeo snap do jogo. Precisa das credenciais de dev + login. */
-    async function buscarScreenScraper(nome, ss, fetchFn) {
+    /**
+     * ScreenScraper: logo "wheel" + vídeo snap do jogo. Precisa das credenciais de dev + login.
+     * Busca pelo NOME (jeuRecherche — o jeuInfos exige o CRC da ROM ou o sistema); quando o
+     * console do jogo é conhecido, procura primeiro só nele e, sem resultado, em todos.
+     */
+    const SS_SISTEMAS = {
+        msdos: 135, dos: 135, 'web-dos': 135, 'web-windows': 138, 'web-pc': 138, 'web-indie': 138,
+        ps1: 57, psx: 57, 'web-ps1': 57, ps2: 58, 'web-ps2': 58, psp: 61, 'web-psp': 61,
+        n64: 14, 'web-n64': 14, gamecube: 13, 'web-gamecube': 13, dreamcast: 23, 'web-dreamcast': 23,
+        megadrive: 1, genesis: 1, mastersystem: 2, nes: 3, snes: 4, gb: 9, gbc: 10, gba: 12, nds: 15,
+        sega32x: 19, segacd: 20, gamegear: 21, saturn: 22, arcade: 75, 'web-arcade': 75, neogeo: 142
+    };
+    async function buscarScreenScraper(nome, ss, fetchFn, consoleId) {
         if (!nome || !ss || !ss.dev) return {};
         const f = fetchFn || ((...a) => fetch(...a));
-        const p = new URLSearchParams({
-            devid: ss.dev, devpassword: ss.devSenha || '', softname: ss.softname || 'cartoonzine',
-            output: 'json', ssid: ss.user || '', sspassword: ss.senha || '', romnom: nome
-        });
-        const r = await f('https://www.screenscraper.fr/api2/jeuInfos.php?' + p.toString());
-        if (!r.ok) {
-            // o ScreenScraper explica o erro em texto (em francês): traduz os mais comuns
-            let txt = ''; try { txt = String(await r.text()).trim().slice(0, 160); } catch (e) { /* */ }
-            if (/d[ée]veloppeur|devid|developer/i.test(txt)) throw new Error('Dev ID / Dev password recusados — eles NÃO são o seu login do site: peça os seus no fórum do ScreenScraper (HTTP ' + r.status + ')');
-            if (/identifiant|login|utilisateur|ssid|password/i.test(txt)) throw new Error('usuário/senha do site recusados (HTTP ' + r.status + ')');
-            if (/non trouv|not found|jeu/i.test(txt) && r.status === 404) return {};
-            if (r.status === 429 || r.status === 430 || /quota|threads/i.test(txt)) throw new Error('limite de consultas do ScreenScraper atingido; tente mais tarde (HTTP ' + r.status + ')');
-            throw new Error('HTTP ' + r.status + (txt ? ' — ' + txt : ''));
-        }
-        let j; try { j = await r.json(); } catch (e) { throw new Error('resposta inválida (confira as credenciais)'); }
-        const medias = (j && j.response && j.response.jeu && j.response.jeu.medias) || [];
-        const achar = (re) => { const m = medias.find(x => re.test(x.type || '') && /(wor|eu|us|ss)/i.test(x.region || 'wor')) || medias.find(x => re.test(x.type || '')); return (m && (m.url || '')) || ''; };
-        return { logo: achar(/wheel|logo/i), video: achar(/video/i), capa: achar(/box-2D|box2d|mixrbv|ss$/i) };
+        const pedir = async (sistema) => {
+            const p = new URLSearchParams({
+                devid: ss.dev, devpassword: ss.devSenha || '', softname: ss.softname || 'cartoonzine',
+                output: 'json', ssid: ss.user || '', sspassword: ss.senha || '', recherche: nome
+            });
+            if (sistema) p.set('systemeid', String(sistema));
+            const r = await f('https://www.screenscraper.fr/api2/jeuRecherche.php?' + p.toString());
+            if (!r.ok) {
+                // o ScreenScraper explica o erro em texto (em francês): traduz os mais comuns
+                let txt = ''; try { txt = String(await r.text()).trim().slice(0, 160); } catch (e) { /* */ }
+                if (/d[ée]veloppeur|devid|developer/i.test(txt)) throw new Error('Dev ID / Dev password recusados — eles NÃO são o seu login do site: peça os seus no fórum do ScreenScraper (HTTP ' + r.status + ')');
+                if (/identifiant|login|utilisateur|ssid|password/i.test(txt)) throw new Error('usuário/senha do site recusados (HTTP ' + r.status + ')');
+                if (r.status === 404 || /non trouv|not found|aucun/i.test(txt)) return null;
+                if (r.status === 429 || r.status === 430 || /quota|threads/i.test(txt)) throw new Error('limite de consultas do ScreenScraper atingido; tente mais tarde (HTTP ' + r.status + ')');
+                throw new Error('HTTP ' + r.status + (txt ? ' — ' + txt : ''));
+            }
+            let j; try { j = await r.json(); } catch (e) { throw new Error('resposta inválida (confira as credenciais)'); }
+            const jogos = ((j && j.response && j.response.jeux) || []).filter(x => x && x.id);
+            return jogos[0] || null;
+        };
+        const sis = SS_SISTEMAS[String(consoleId || '').toLowerCase()];
+        let jeu = sis ? await pedir(sis) : null;
+        if (!jeu) jeu = await pedir(null);
+        const medias = (jeu && jeu.medias) || [];
+        const achar = (re) => { const m = medias.find(x => re.test(x.type || '') && /(wor|br|us|eu|ss)/i.test(x.region || 'wor')) || medias.find(x => re.test(x.type || '')); return (m && (m.url || '')) || ''; };
+        return { logo: achar(/^(wheel|wheel-hd|wheel-carbon|wheel-steel|logo)/i), video: achar(/^video/i), capa: achar(/box-2D|box2d|mixrbv|ss$/i) };
     }
 
     async function completarItem(item, { tmdb, omdb, steamgrid, screenscraper, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
@@ -750,7 +769,7 @@
             }
             if (screenscraper && screenscraper.dev && (!out.logo || !out.video)) {
                 try {
-                    const ss = await buscarScreenScraper(out.nome, screenscraper, fetchFn);
+                    const ss = await buscarScreenScraper(out.nome, screenscraper, fetchFn, out.console);
                     if (ss.logo && !out.logo) { out.logo = ss.logo; achados.push('ScreenScraper: logo'); }
                     if (ss.video && !out.video) { out.video = ss.video; achados.push('ScreenScraper: vídeo'); }
                     if (ss.capa && !out.capa) { out.capa = ss.capa; }

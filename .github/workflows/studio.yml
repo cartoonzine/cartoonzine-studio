@@ -61,7 +61,7 @@ jobs:
         if: github.event_name != 'push'
         continue-on-error: true
         env:
-          STEAMGRID_KEY: ${{ secrets.STEAMGRID_KEY }}
+          STEAMGRID_KEY: ${{ secrets.STEAMGRID_KEY || secrets.STEAMGRIDDBAPI }}
           SS_DEV_ID: ${{ secrets.SS_DEV_ID }}
           SS_DEV_PASSWORD: ${{ secrets.SS_DEV_PASSWORD }}
           SS_USER: ${{ secrets.SS_USER }}
