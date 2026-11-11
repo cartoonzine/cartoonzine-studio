@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-11T05:59:14.555Z",
+  "geradoEm": "2026-11-11T06:05:49.447Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 531,
-      "publicados": 42,
+      "publicados": 43,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -144,10 +144,6 @@
       "avisos": [
         {
           "caminho": "conteudo/jogos-web/web-arcade/sonic-the-fighters.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-arcade/street-fighter-iii-3rd-strike.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2118,7 +2114,7 @@
         "web-ps3": 0,
         "web-android": 0,
         "web-ios": 0,
-        "web-arcade": 3,
+        "web-arcade": 4,
         "web-navegador": 0,
         "web-java": 0,
         "web-mobile": 0,

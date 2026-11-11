@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-11T05:59:14.555Z",
+  "geradoEm": "2026-11-11T06:05:49.447Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -231,7 +231,7 @@
       "nome": "Jogos Web",
       "tipo": "jogo",
       "app": "cartoonzine/emulator (cartucho web)",
-      "publicados": 42,
+      "publicados": 43,
       "comErro": 1,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/web-fangames.json",
@@ -290,7 +290,7 @@
         "web-ps3": 0,
         "web-android": 0,
         "web-ios": 0,
-        "web-arcade": 3,
+        "web-arcade": 4,
         "web-navegador": 0,
         "web-java": 0,
         "web-mobile": 0,

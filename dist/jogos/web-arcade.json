@@ -38,6 +38,23 @@
    "license": "autorizada"
   },
   {
+   "title": "Street Fighter III: 3rd Strike",
+   "desc": "Port para navegador · streetfighter3.online",
+   "studio": "jogos-web/web-arcade/street-fighter-iii-3rd-strike",
+   "url": "https://streetfighter3.online/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/74795ed1eea8eff2d2ead49ad13475b3.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/aba53da2f6340a8b89dc96d09d0d0430.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/22cf8d98dca2b9de5052ae9253bddef3.png",
+   "console": "web-arcade",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Virtual On: Cyber Troopers",
    "desc": "Port para navegador · solid7s.github.io",
    "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
