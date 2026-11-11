@@ -15,6 +15,7 @@
  * JOGOS: com STEAMGRID_KEY e/ou SS_DEV_ID + SS_DEV_PASSWORD + SS_USER + SS_PASSWORD
  * (ScreenScraper), busca o LOGO (e o vídeo snap) dos jogos que ainda não têm.
  *   node tools/completar.mjs --jogos               só os jogos
+ *   node tools/completar.mjs --jogos --minutos 15  para sozinho depois de 15 minutos
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -61,7 +62,10 @@ const lote = fila.slice(0, limite);
 console.log(`${fila.length} itens para completar; vou fazer ${lote.length} agora.`);
 
 let mudou = 0;
+// --minutos N: para sozinho depois de N minutos (o que já foi feito fica salvo; o resto vai na próxima rodada)
+const prazo = args.minutos ? Date.now() + parseFloat(args.minutos) * 60000 : Infinity;
 for (const { caminho, colecao, item } of lote) {
+    if (Date.now() > prazo) { console.log(`⏱ Tempo de ${args.minutos} min esgotado: o resto fica para a próxima rodada.`); break; }
     const r = soNotas
         ? await Core.completarItem({ imdb: item.imdb }, { omdb: ch.omdb }).then(x => ({ ...x, item: Core.aplicarDadosExternos(item, { notaImdb: x.item.notaImdb, votosImdb: x.item.votosImdb }) }))
         : colecao.tipo === 'jogo'
