@@ -3,14 +3,24 @@
   "links": [
     "https://truffled.lol/games/pikmin/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/fbb12b97a88a081cf8528b62df955103.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/9e44c61d998ba3341d70dee528c7c075.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/19d47109e3c9e2c1423eac228aff27d1.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--pikmin--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--pikmin--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--pikmin--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--pikmin--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--pikmin--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · truffled.lol",
+  "descricao": "Pikmin – Aventura e Estratégia\r\nUma jornada única cheia de estratégia e emoção! Em Pikmin, você acompanha o Capitão Olimar, um viajante espacial que ficou preso em um planeta desconhecido e precisa reconstruir sua nave antes que seu sistema de suporte de vida falhe.\r\nPara sobreviver, conte com a ajuda dos Pikmin, pequenas criaturas semelhantes a plantas, mas extremamente úteis. Cada tipo possui habilidades diferentes, sendo essenciais para enfrentar inimigos, superar obstáculos e resolver diversos quebra-cabeças.\r\nDerrote criaturas do planeta e leve-as até as “Cebolas”, os ninhos dos Pikmin, para criar novos aliados e aumentar seu exército. Mas fique atento: predadores gigantes estão à espreita e podem devorar seus Pikmin rapidamente!\r\nCom uma mistura envolvente de estratégia, exploração e ação, Pikmin é perfeito para quem busca um desafio inteligente e uma experiência inesquecível nos games!",
+  "ano": 2001,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "web-gamecube",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 4803,
+  "_ssPreviaEm": "2026-11-11"
 }

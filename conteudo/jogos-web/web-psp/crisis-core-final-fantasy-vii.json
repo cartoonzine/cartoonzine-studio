@@ -3,11 +3,14 @@
   "links": [
     "https://crisiscorefinalfantasy7.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/74e79ca3621639d1a966b9286fd9eb76.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/bb44c2e24438b59f0d2109fec67f6b20.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/e10d2c6778afa7e23b9f5db6b1b55d9e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · crisiscorefinalfantasy7.online",
   "console": "web-psp",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

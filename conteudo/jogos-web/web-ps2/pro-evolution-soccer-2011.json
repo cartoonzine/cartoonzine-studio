@@ -3,11 +3,14 @@
   "links": [
     "https://pes11.optijuegos.net/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/558f6243e24d2566b00d0332f48e48e7.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/1ad4dc0986f8e453fad705c87ed6dfda.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/acc10448113ddce32e5d76f7dd04376d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · pes11.optijuegos.net",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

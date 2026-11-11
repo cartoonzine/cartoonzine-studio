@@ -3,11 +3,14 @@
   "links": [
     "https://wwe2010.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/2abbb67d13de26bdb4b9487c072ce63f.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/6f042a89d3023e48e7bafed434011ee3.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/53d201c136e76d7f5d18104f1c21f342.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wwe2010.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

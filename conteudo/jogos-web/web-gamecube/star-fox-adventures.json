@@ -3,14 +3,24 @@
   "links": [
     "https://foxhollow.dev/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/e9176bfe821b41775162a9beb913909c.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/c7175168a5229945c2d6426e9812d300.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/9d94c8981a48d12adfeecfe1ae6e0ec1.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--star-fox-adventures--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--star-fox-adventures--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--star-fox-adventures--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--star-fox-adventures--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--star-fox-adventures--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · foxhollow.dev",
+  "descricao": "Oito anos após a derrota de Andross, a equipe Star Fox descobre um belo planeta pré-histórico governado por um tirano sinistro conhecido como General Scales. Você deve assumir o comando do líder da Star Fox, Fox McCloud, para salvar os habitantes das garras de Scales e restaurar a paz naquele paraíso. Star Fox Adventures se passa em um enorme ambiente 3D repleto de paisagens bizarras, quebra-cabeças e ação intensa. Aprenda os segredos do misticismo para se livrar dos inimigos e usar vários feitiços. Além disso, o sistema de mira intuitivo permite que você combata os inimigos sem perder um único golpe. Você só precisa criar estratégias inteligentes para derrotar os inimigos do fim do nível.",
+  "ano": 2002,
+  "generos": [
+    "Aventura"
+  ],
   "console": "web-gamecube",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 4756,
+  "_ssPreviaEm": "2026-11-11"
 }

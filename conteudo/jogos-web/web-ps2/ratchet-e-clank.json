@@ -3,6 +3,9 @@
   "links": [
     "https://re-rac.github.io/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/da5a21d5b7479ac98965612f25b95a76.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/3acd56cd51b99b9bbf5ef25629d26606.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/8b2a9c176d358811a479f771a5874c1b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/re-rac/rerac",
   "descricao": "Port para navegador · re-rac.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

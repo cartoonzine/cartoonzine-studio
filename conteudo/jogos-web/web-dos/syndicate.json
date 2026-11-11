@@ -3,15 +3,25 @@
   "links": [
     "https://rgc.zone/ports/syndweb/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/a6ac6cce1f378cace454ced797f61497.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/4129e674ae0510c5453aff0b3122a713.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/7c406bc1bea03b2156059bed9e4309f4.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--syndicate--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--syndicate--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--syndicate--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--syndicate--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--syndicate--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/freesynd",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "In the sequel to the dark isometric action / strategy game Syndicate, you control either Eurocorp Syndicate or Church of the New Epoch. These two sinister forces are battling for world domination. You must help them dominate the world across 60 violent missions spread through 30 cities - you receive e-mails containing the mission plans. After selecting a squad of four men from your roster, you direct them through the rotatable 3D city views, shooting foes as the situation dictates. Nuclear grenades and psycho gas are among the new weapons. Tubes, a monorail system and unimpeded Antigrav vehicles give a futuristic feel to travel.",
+  "ano": 1996,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155690,
+  "_ssPreviaEm": "2026-11-11"
 }

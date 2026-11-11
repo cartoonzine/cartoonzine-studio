@@ -3,15 +3,19 @@
   "links": [
     "https://gn-math.dev/?id=523"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/a05f13cf49bb8435a2fa2d1e310aac84.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/3de1c950a90a96a946d40f9445a4298e.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/c38569036ad7bfb4020ef9f3bc9336f0.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-fangames--touhou-mother--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-fangames--touhou-mother--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-fangames--touhou-mother--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-fangames--touhou-mother--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/aukak/gameports/tree/main/touhou%20mother",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Touhou Seiboroku Touhou Mother is a Touhou Project and EarthBound cross-over parody. It stars Reimu Hakurei, Marisa Kirisame, Yuuka Kazami, and Mima and features many Touhou characters from the PC-98 and Windows canon, along with several characters from the Mother series and a few fan-made characters. The majority of the outside influence and references come from EarthBound, but other notorious video games are paid homage as well.",
   "console": "web-fangames",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 214389,
+  "_ssPreviaEm": "2026-11-11"
 }

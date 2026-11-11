@@ -3,11 +3,14 @@
   "links": [
     "https://tekkendr.live/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/2043e7432dfc8838fa7f9a2086cea077.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/7ffd85d93a3e4de5c490d304ccd9f864.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/63140d7268e35585c9508acac3025477.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · tekkendr.live",
   "console": "web-psp",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

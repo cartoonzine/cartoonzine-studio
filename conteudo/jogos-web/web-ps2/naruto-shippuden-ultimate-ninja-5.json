@@ -3,11 +3,14 @@
   "links": [
     "https://narutoshippuden5.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/253b89bcdded78df6ac0b74c7be6612a.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/6215ff596443b9c761b344f67c85eaad.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/530e685ac1c17f4c13ba184841f66796.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · narutoshippuden5.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

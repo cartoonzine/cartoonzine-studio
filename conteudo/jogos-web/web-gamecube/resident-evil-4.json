@@ -3,14 +3,25 @@
   "links": [
     "https://residentevil4.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/46cc597bae1fee3cd19314f32c6cb4f0.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/e2ccf95a7f2e1878fcafc8376649b6e8.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/5b658d2a925565f0755e035597f8d22f.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--resident-evil-4--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--resident-evil-4--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--resident-evil-4--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--resident-evil-4--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--resident-evil-4--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · residentevil4.online",
+  "descricao": "A história é sobre Leon S. Kennedy, um dos sobreviventes do desastre de Raccoon City; Ele é enviado em uma missão especial para resgatar Ashley Graham, filha do presidente dos Estados Unidos, que foi sequestrada por uma estranha organização localizada na Espanha. Mas sua investigação é prejudicada quando uma horda de aldeões violentos o ataca sem motivo aparente. É um videogame de ação e aventura no estilo survival horror. Pela primeira vez na série, o ambiente fechado e linear é deixado de lado para incluir cenários maiores e mais dinâmicos, já que a história se passa em uma cidade da Espanha.",
+  "ano": 2005,
+  "generos": [
+    "Aventura",
+    "Aventura / Survival Horror"
+  ],
   "console": "web-gamecube",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 4750,
+  "_ssPreviaEm": "2026-11-11"
 }

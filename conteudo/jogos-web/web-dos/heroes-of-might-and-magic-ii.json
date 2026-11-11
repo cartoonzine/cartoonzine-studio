@@ -3,15 +3,25 @@
   "links": [
     "https://midzer.de/wasm/heroes2/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/574e04d3b783927e028982e71467bf13.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/fc910dce7e448dcd095ffe158fccd66b.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/d08155e24a46d6bbdac6c849cd26564f.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--heroes-of-might-and-magic-ii--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--heroes-of-might-and-magic-ii--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--heroes-of-might-and-magic-ii--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--heroes-of-might-and-magic-ii--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--heroes-of-might-and-magic-ii--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/fheroes2",
-  "descricao": "Port para navegador · midzer.de",
+  "descricao": "Heroes of Might and Magic II is a fantasy role-playing game which takes place in the land of Enroth, a place of magic. There are a multitude of creature types, from griffins to rocs, golems to pikemen, unicorns to hydras, and four different dragons. Each castle type has six different creatures, from the weak to the strong. There are six castle types, each corresponding to a hero class: Knight, Sorceress, Wizard (Good side), Barbarian, Necromancer and Warlock (Evil side). There are also six different types of neutral creatures you can recruit in special structures scattered about the maps.\n\nCompared to the first game, this sequel has larger and more interactive combat screens. The spell system is now based on spell points instead of spell memorization.\n\nThe maps themselves range from small two player maps, to huge maps that all six player types could fit in easily. There is a map maker included, and you can multiplay via hotseat, modem, or IP.",
+  "ano": 1996,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 6,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157872,
+  "_ssPreviaEm": "2026-11-11"
 }

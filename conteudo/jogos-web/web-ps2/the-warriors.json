@@ -3,11 +3,14 @@
   "links": [
     "https://thewarriors.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4d895b36f6022d8abc0a30249da4df56.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/69f6ffd71cf2dc9146e752ec559a9b06.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/613e4b45be59f778a80853ebed1031e7.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · thewarriors.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,6 +3,8 @@
   "links": [
     "https://ovz-game-production.up.railway.app"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/cc96d0754de7d47e9a9a709eb2cd451f.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/e7023ba77a45f7e84c5ee8a28dd63585.png",
   "logo": "https://cdn2.steamgriddb.com/logo/f7d90eaf20a3c676e36710d069f8d8b8.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · ovz-game-production.up.railway.app",

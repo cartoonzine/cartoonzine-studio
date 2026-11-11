@@ -3,6 +3,8 @@
   "links": [
     "https://wasm.rip/files/gta3/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/7856a3a5b530f10a69bec1c57d90330e.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/1f12491d99a85c8ea8cd2109b292f47e.png",
   "logo": "https://cdn2.steamgriddb.com/logo/8684ff2b6457df6145f160954e1ff7a7.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wasm.rip",

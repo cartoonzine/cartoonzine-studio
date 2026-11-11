@@ -3,14 +3,23 @@
   "links": [
     "https://rgc.zone/ports/8777-tekwar/run.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/92c50cf422ff3aa91114677c489b12f8.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/3b2acfe2e38102074656ed938abf4ac3.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/ad0efad9dd0abaec4b8f9aaa489ec2f1.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--william-shatner-s-tekwar--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--william-shatner-s-tekwar--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--william-shatner-s-tekwar--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--william-shatner-s-tekwar--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "You're an ex-cop who was sentenced to cryo sleep. When you awake you are recruited by the Cosmos Detective Agency as a hitman. Why? Cause there's a dangerous new drug on the streets of New LA: Tek! Take out the seven Tek Lords and their minions in 7 missions, but spare those innocent civilians.\r\n\r\nTekWar is a 1st person shooter based on the TekWar novels of William Shatner. TekWar is situated in the near future and uses the famous Build Engine.",
+  "ano": 1995,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188908,
+  "_ssPreviaEm": "2026-11-11"
 }

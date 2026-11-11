@@ -3,14 +3,25 @@
   "links": [
     "https://rgc.zone/ports/8783-witchaven/run.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/fb798821f25e762aa06416160a39f0fe.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/6df40b25ac1d572cf6900484a4dae9ed.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/6f3ee5b43d930a54d31a59930b071adc.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--witchaven--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--witchaven--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--witchaven--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--witchaven--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--witchaven--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Grondoval, a knight from the land of Stazhia, has been just chosen to travel to the forbidding Island of Char. An evil witch named Illwhyrin has cast a curse of never-ending darkness on Stazhia, and built her lair, the Witchaven, on the island, sacrificing the few foolish humans who dare venture there. The witch's present goal is to remove a magical barrier known as the Veil, which serves as a portal to the world of demons. Should she succeed, unspeakable evil shall arrive and consume the world. Grondoval must defeat Illwhyrin's demonic minions, reach the core of Witchaven, and defeat her.",
+  "ano": 1995,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188919,
+  "_ssPreviaEm": "2026-11-11"
 }

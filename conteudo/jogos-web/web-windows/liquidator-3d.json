@@ -3,6 +3,8 @@
   "links": [
     "https://rgc.zone/ports/8778-liquidator/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/da79b01abf9689935fe1c38bb39eb1dc.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c1a1a5ba8578956739249e51e14db543.png",
   "logo": "https://cdn2.steamgriddb.com/logo/2b4e178a90cfbb25b81ce2521ba862fa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",

@@ -3,11 +3,14 @@
   "links": [
     "https://ratchetclanksizematters.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0d98926befdf0c51782d5abe931165ac.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/a4e858c15255e55d5e1e221bd151154f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3f8dda6ed535e3a243e50a5bf93b132f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · ratchetclanksizematters.online",
   "console": "web-psp",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

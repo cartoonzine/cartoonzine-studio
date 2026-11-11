@@ -3,6 +3,8 @@
   "links": [
     "https://qwasm2.m-h.org.uk/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/5e26badb3867ac7f26d3624ca39a9df4.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/c2ea9ab296477ed6346856f41c9aa5da.png",
   "logo": "https://cdn2.steamgriddb.com/logo/f874885e6c1552dfc93fc4ad9b3b3d5c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · qwasm2.m-h.org.uk",

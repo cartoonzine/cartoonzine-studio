@@ -3,11 +3,14 @@
   "links": [
     "https://godofwarsparta.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1f751f12b2347aeaa24c1c1184996a0d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/9afefc52942cb83c7c1f14b2139b09ba.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/146f75b81c92486c040ebfdc49ecaf00.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · godofwarsparta.online",
   "console": "web-psp",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

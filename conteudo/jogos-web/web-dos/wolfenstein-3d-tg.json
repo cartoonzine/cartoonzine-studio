@@ -3,14 +3,25 @@
   "links": [
     "https://rgc.zone/ports/wolf3dtg/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/31017a5aacb8de6b5c793ff5dc1b99eb.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/3b5d4919c43697e04ae8f965bc07acd1.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/9d12d071c18b535cda26f47f20e5c7ae.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wolfenstein-3d-tg--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wolfenstein-3d-tg--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wolfenstein-3d-tg--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wolfenstein-3d-tg--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wolfenstein-3d-tg--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Em Wolfenstein 3D, o jogo é visto pelo ponto de vista do protagonista William &quot;B.J.&quot; Blazkowicz. O jogador circula pelos labirínticos níveis em busca de um elevador que serve de saída, matando inimigos com um arsenal de quatro armas (uma pistola, uma metralhadora, uma metralhadora giratória e uma Faca). Itens incluem comida e kit de primeiros socorros para restaurar saúde, chaves para abrir portas trancadas, e tesouros para acumular pontos. O jogador tem até 9 vidas (encontradas pelos níveis e conseguidas acumulando 40,000 pontos), e se morrer recomeça o nível com apenas uma pistola e oito balas. Certas paredes quando pressionadas com o botão de abrir portas revelam passagens escondidas, normalmente com itens mas também levando a fases secretas (uma em cada episódio - a do episódio 3 é uma paródia de Pac-Man).",
+  "ano": 1992,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 152368,
+  "_ssPreviaEm": "2026-11-11"
 }

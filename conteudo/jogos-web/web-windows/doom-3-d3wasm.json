@@ -3,6 +3,8 @@
   "links": [
     "https://recompiledgames.com/doom-3-recompiled"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4c6f6719bec50eb89ca7b85756c3d27c.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4299f209da83da82b711f1d631cc607b.png",
   "logo": "https://cdn2.steamgriddb.com/logo/f80bf05527157a8c2a7bb63b22f49aaa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · recompiledgames.com",

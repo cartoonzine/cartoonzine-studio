@@ -3,6 +3,8 @@
   "links": [
     "https://generals.wasm.com.br/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/db6e6f04e40842e3f1f104fae6d65eb1.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/9d8df73a3cfbf3c5b47bc9b50f214aff.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/c115ba9e04ab27fbbb664f932112246d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · generals.wasm.com.br",

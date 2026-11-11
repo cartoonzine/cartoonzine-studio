@@ -3,11 +3,14 @@
   "links": [
     "https://wwe2011.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/816f5f6b759e7ebdebb05e34a3506308.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/38bf2544f0bde18e6a3fc3bc13e2409d.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/78211247db84d96acf4e00092a7fba80.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wwe2011.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

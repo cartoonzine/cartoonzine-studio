@@ -3,15 +3,25 @@
   "links": [
     "https://rgc.zone/ports/ac-webport-main/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/d9e16849e6c8440f27574666b9e9735a.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/8a061f5bc5b5bf7596bfc81024ddf032.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/968b15768f3d19770471e9436d97913c.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--animal-crossing--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--animal-crossing--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--animal-crossing--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--animal-crossing--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--animal-crossing--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/ac-gamecube",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Ocasionalmente estranho, mas completamente viciante, Animal Crossing da Nintendo para a GameCube não é tanto um jogo, mas uma simulação de vida numa pequena cidade. Os jogadores começam por viver sozinhos numa cidade colorida, onde encontram uma infinidade de atividades e personagens. O tempo passa em Animal Crossing em tempo real, com o mês, dia, estação e hora do dia a corresponder ao do jogador. As épocas festivas vêm e vão como no mundo real. Os jogadores podem pescar, decorar a casa, apanhar insetos, jardinar, escrever cartas e até jogar os jogos originais da Nintendo NES neste jogo imaginativo e viciante.",
+  "ano": 2002,
+  "generos": [
+    "Aventura"
+  ],
   "console": "web-gamecube",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 4772,
+  "_ssPreviaEm": "2026-11-11"
 }

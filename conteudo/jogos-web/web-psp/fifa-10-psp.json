@@ -3,11 +3,14 @@
   "links": [
     "https://fifa10.website/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/29f455ec7dff1aa8ce22c9d21d2c44b5.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ed155979ee6f796884898fc40230bf2b.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/18ba64ddc1ae53ffa54c1a1239e2e029.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · fifa10.website",
   "console": "web-psp",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

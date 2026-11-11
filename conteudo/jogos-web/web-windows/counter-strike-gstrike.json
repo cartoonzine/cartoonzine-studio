@@ -3,6 +3,8 @@
   "links": [
     "https://wasm.rip/files/gstrike/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/9e63bf4c221fde71b7a71661cc5816e1.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/1be3614ec5d67a9fe3fd389516f369ea.png",
   "logo": "https://cdn2.steamgriddb.com/logo/13d429db192fbc7b5cabf9b936cf78e1.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wasm.rip",

@@ -3,14 +3,25 @@
   "links": [
     "https://rgc.zone/ports/toonstruckweb/index.html#toonstruck-fargus"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/876434852ab4f8c4ac7a4ddac35c4a2d.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/2a647c7f569ce84ee44877313bfc01ad.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/cb122d0a144a23bdcffe695b3c4f72e5.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--toonstruck--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--toonstruck--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--toonstruck--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--toonstruck--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--toonstruck--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Drew Blanc is a cartoon animator and the original creator of the Fluffy Fluffy Bun Bun Show. This show has been an unprecedented ten year success for his company, but in reality the many cute talking rabbits that star in the show sicken him. His self-revered creation, Flux Wildly, a wise-talking and sarcastic small purple character, has been denied the chance of starring in his own show. Drew's boss, Sam Schmaltz (played by Ben Stein), sets him the task of designing more bunnies to co-star in the Fluffy Fluffy Bun Bun Show by the next morning. However, the depressed animator soon nods off, suffering from acute artist's block. He wakes early the next morning to inexplicably find his television switched on, announcing the Fluffy Fluffy Bun Bun Show. Suddenly, Drew is mysteriously drawn into the television screen and transported to an idyllic two-dimensional cartoon world populated by his own creations, among many other cartoon characters. He soon befriends Flux Wildly (Dan Castellaneta), and discovers that this fictional paradise is being ravaged by a ruthless new character with a devastating weapon of evil, a flying machine equipped with a ray beam that mutates the pleasant, childish landscape and its inhabitants into dark, twisted and mean counterpart versions of themselves. He is tasked with hunting down and stopping this madman, thereby restoring peace and harmony to the land, in return for safe passage back to three-dimensional reality.",
+  "ano": 1996,
+  "generos": [
+    "Aventura",
+    "Aventura / Point and Click"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 99929,
+  "_ssPreviaEm": "2026-11-11"
 }

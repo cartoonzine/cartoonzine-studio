@@ -3,11 +3,14 @@
   "links": [
     "https://ssx3.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/14a7008203a7a8e4ebb7abb51a4b4637.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/eecccd8ff4107946c78d42265cd474b5.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/7792a0500b5aabb4b072d113a160d200.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · ssx3.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,11 +3,14 @@
   "links": [
     "https://pes12.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/178c94eb65530e8853445b53d865002e.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/dddeb7ae59fc0fd59f9b0a9b28e8fd03.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/19fcda327fa2dc952170ec46d34fc96b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · pes12.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

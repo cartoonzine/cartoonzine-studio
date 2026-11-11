@@ -3,14 +3,24 @@
   "links": [
     "https://rgc.zone/ports/redneckrweb/run.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/0a9ee853c0080f3a51a25f59352725c2.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/b46b8ecaf8be2981fd8ce34240b49f53.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/2207a93921fcf81cbb2956c9619d4e16.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--redneck-rampage--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--redneck-rampage--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--redneck-rampage--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--redneck-rampage--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--redneck-rampage--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Redneck Rampage é um jogo de tiro em primeira pessoa em &quot;pseudo-3D&quot;, bastante semelhante a Duke Nukem 3D, utilizando sprites 2D para representar inimigos e outros objetos. Na verdade, ele utiliza a mesma engine, a Build engine, que Duke Nukem 3D.\r\n\r\nRedneck Rampage também apresenta um cenário bastante peculiar... em vez de se passar em uma base alienígena ou em uma instalação secreta do governo, o jogo ocorre na remota e pacata cidade de Hickston, no Arkansas.\r\n\r\nAcontece que um grupo de alienígenas ciborgues — com um visual que remete a tabloides sensacionalistas e fetiches com couro — abduziu os habitantes da cidade (o estereótipo do &quot;caipira&quot; americano) e os clonou. Os alienígenas também levaram Bessie, a porca premiada dos irmãos Leonard e Bubba. No papel de Leonard, você precisará enfrentar tanto os clones desses caipiras quanto os próprios alienígenas por toda Hickston para resgatar sua porca.",
+  "ano": 1997,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188411,
+  "_ssPreviaEm": "2026-11-11"
 }

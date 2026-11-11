@@ -3,6 +3,8 @@
   "links": [
     "https://generals.wasm.ltd"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/52da446847470576cfb4a08e0311dae4.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/3faf3b08de6c7c130e63c0e38e5553a8.png",
   "logo": "https://cdn2.steamgriddb.com/logo/1b2ae1abc7405fb92168d400454c936c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/origami-ltd/wasm-generals",

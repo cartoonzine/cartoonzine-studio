@@ -3,15 +3,26 @@
   "links": [
     "https://princejs.com/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/003b36afc53d4e078a9df02e0e43fb28.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/b571ecea16a9824023ee1af16897a582.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/b6aef86083b784fdf8a5418bb69d66a1.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--prince-of-persia--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--prince-of-persia--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--prince-of-persia--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--prince-of-persia--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--prince-of-persia--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/SDLPoP",
-  "descricao": "Port para navegador · princejs.com",
+  "descricao": "Prince of Persia é um jogo de plataforma ambientado no Médio Oriente. O jogador controla o Príncipe da Pérsia que pode andar, correr, pato, saltar, agarrar-se e lutar com espadas. O objectivo é completar todos os níveis para libertar a princesa dentro do tempo limite de uma hora. Cada nível consiste numa masmorra cada vez maior com muitas armadilhas (precipícios, lajes que cedem por baixo dos pés, picos que saem do chão).",
+  "ano": 1990,
+  "generos": [
+    "Plataforma",
+    "Plataforma / Corre e Pula"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 152356,
+  "_ssPreviaEm": "2026-11-11"
 }

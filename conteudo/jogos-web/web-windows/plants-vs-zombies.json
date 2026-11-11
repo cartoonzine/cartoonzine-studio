@@ -3,6 +3,8 @@
   "links": [
     "https://rgc.zone/ports/pvzweb/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3203535afc65b43bb6a05ffd462e58ff.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/adc94733dd4f96f1e64ac4874e909215.png",
   "logo": "https://cdn2.steamgriddb.com/logo/9ac270230fcb62e226e01721389463fc.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",

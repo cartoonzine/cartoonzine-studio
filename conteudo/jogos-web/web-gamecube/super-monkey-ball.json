@@ -3,14 +3,25 @@
   "links": [
     "https://monkeyball-online.pages.dev/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/ed10e468b306f16f3e3c43f643316cf7.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/2318f5f3a9602a7ba2f2d21b919b7f13.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/4b58db5ec33af76c6d9b968cf2c633b1.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--super-monkey-ball--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--super-monkey-ball--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--super-monkey-ball--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--super-monkey-ball--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--super-monkey-ball--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · monkeyball-online.pages.dev",
+  "descricao": "Super Monkey Ball é um jogo de estratégia e plataforma focado em física, onde o objetivo é guiar um macaco dentro de uma esfera transparente através de percursos suspensos. Diferente de jogos tradicionais, o jogador não controla o personagem, mas sim a inclinação do cenário, utilizando a gravidade para movimentar a esfera. A meta é alcançar o portal de saída dentro de um limite de tempo, coletando bananas para ganhar vidas extras. O título apresenta quatro personagens selecionáveis (AiAi, MeeMee, Baby e GonGon) e três níveis de dificuldade: Beginner, Advanced e Expert. Além do modo principal, inclui minijogos como Monkey Race, Monkey Fight e Monkey Bowling, suportando até quatro jogadores locais.",
+  "ano": 2001,
+  "generos": [
+    "Ação",
+    "Ação / Labirinto"
+  ],
   "console": "web-gamecube",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 4984,
+  "_ssPreviaEm": "2026-11-11"
 }

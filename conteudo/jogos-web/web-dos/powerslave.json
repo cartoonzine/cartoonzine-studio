@@ -3,14 +3,25 @@
   "links": [
     "https://rgc.zone/ports/8774-powerslave/run.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/55575a1bfa43a48356c22fdd87c49d81.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/729f48eb079c2f9bd8aac4d8f6dfbfd5.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/34ac42f166aab43ce18d720c21903cda.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--powerslave--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--powerslave--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--powerslave--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--powerslave--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--powerslave--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "In this First person shooter, you're an armed forces specialist sent to investigate strange happenings at the ancient Egyptian city of Karnak. Soon you learn that alien invaders with a penchant for mummifying humans alive have taken over the place. You have to fight your way through increasingly difficult levels with an unbelievable cast in order to finish it.",
+  "ano": 1996,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188340,
+  "_ssPreviaEm": "2026-11-11"
 }

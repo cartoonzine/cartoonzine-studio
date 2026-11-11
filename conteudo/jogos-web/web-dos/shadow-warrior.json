@@ -3,15 +3,26 @@
   "links": [
     "https://rgc.zone/ports/8775-swarrior/run.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/037c2de02b0d16ce2c0a7c14ddaabdae.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/e264bfffd059132b31ce3762134faa5f.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/169779d3852b32ce8b1a1724dbf5217d.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/jfsw",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Lo Wang is the henchman of Japan's most powerful entrepreneur: Master Zilla. An expert ninja in the art of assassination, he executes his contracts without making waves. Zilla Enterprises is a conglomerate that controls Japan's biggest industries, often with an iron fist. Lo Wang, familiar with his employer's methods, uncovers a vast conspiracy involving the summoning of demons to control Japan. Lo Wang, true to his Code of Honor, decides to stop working for Zilla, but Zilla won't hear of it. Lo Wang, now enemy number one, must fight Zilla to put an end to his plans for domination.",
+  "ano": 1997,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "livre",
+  "jogadores": 1,
   "fundoImagem": "banner",
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188513,
+  "_ssPreviaEm": "2026-11-11"
 }

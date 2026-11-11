@@ -3,11 +3,14 @@
   "links": [
     "https://tonyhawkpro3.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/bcc3bc4b265dd4f13ba2296293cec2d9.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b458201027eb55a7a6dcb41b0af61993.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/fa003a753346e732d8f02d6199dd2d2c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · tonyhawkpro3.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,6 +3,8 @@
   "links": [
     "https://fallout-nevada.ru/#/en"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/214dc5a7a972b48b057b44a417e835de.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/79362506bec085b61a71848752c0b128.png",
   "logo": "https://cdn2.steamgriddb.com/logo/6b67f18e00a168ef46104d3d7647ff3c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · fallout-nevada.ru",

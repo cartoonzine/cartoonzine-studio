@@ -3,10 +3,13 @@
   "links": [
     "https://godofwarchains.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/63719b0a1928ddc9f968cb69bffe2f81.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/955cb567b6e38f4c6b3f28cc857fc38c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/863ae4a798069192865306197bff9428.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · godofwarchains.online",
   "console": "web-psp",
   "licenca": "autorizada",
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

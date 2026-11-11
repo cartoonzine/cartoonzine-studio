@@ -3,14 +3,25 @@
   "links": [
     "https://virtuatennis2.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/521b68201a1d00531c7350abc8c48a6d.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/511bccf59c39f3a2bb87057908dc708a.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/8bbd6ed02e5b1387ac5e61e03b1608fb.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dreamcast--virtua-tennis-2--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dreamcast--virtua-tennis-2--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dreamcast--virtua-tennis-2--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dreamcast--virtua-tennis-2--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dreamcast--virtua-tennis-2--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · virtuatennis2.online",
+  "descricao": "Sequela do jogo original lançado dois anos antes. Os gráficos dos jogos foram melhorados e há uma lista maior de jogadores para escolher. A adição mais notável é a de jogadoras, como Monica Seles e Venus e Serena Williams. No entanto, você não pode jogar como um homem contra uma mulher.\r\nA jogabilidade é muito mais rápida que o original. Os jogadores que você controla se movem muito mais rápido, assim como os jogadores de computador AI. Menos mergulho, mas mais obtenção de tiros que vão atrás de você e sobre o ombro.\r\n\r\nOs modos de jogo do original são os mesmos, apresentando o modo torneio, onde você joga contra os profissionais; modo de exibição para um jogo um contra um, melhor de três; e o modo world tour que agora apresenta a opção de criar e personalizar seu próprio jogador. Treine seu jogador, compre equipamentos e contrate profissionais para jogar partidas de duplas com você.",
+  "ano": 2001,
+  "generos": [
+    "Esporte",
+    "Esporte / Tênis"
+  ],
   "console": "web-dreamcast",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 13557,
+  "_ssPreviaEm": "2026-11-11"
 }

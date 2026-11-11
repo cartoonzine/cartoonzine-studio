@@ -3,6 +3,8 @@
   "links": [
     "https://mcsm-web.pages.dev/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/7a42d04dbcdcccece898bfbc2bb6d326.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/6dfe08eda761bd321f8a9b239f6f4ec3.png",
   "logo": "https://cdn2.steamgriddb.com/logo/f4be00279ee2e0a53eafdaa94a151e2c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · mcsm-web.pages.dev",

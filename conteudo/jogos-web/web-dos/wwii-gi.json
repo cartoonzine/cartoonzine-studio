@@ -3,12 +3,23 @@
   "links": [
     "https://rgc.zone/ports/ww2giweb/run.html"
   ],
-  "logo": "https://cdn2.steamgriddb.com/logo/c7dfbbb2c4b908a2b8841c6ebbdfa8d6.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wwii-gi--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wwii-gi--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wwii-gi--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--wwii-gi--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "World War II GI is a first-person shooter that takes players back to D-Day and the Normandy invasion. The player takes control of a G.I. (''galvanized iron'', referring to a soldier in the US military), sent in to wipe out scores of Wehrmacht and SS soldiers. Missions take the player through the D-Day beach landings, assaults on equipment depots, and other set pieces. This game is based on the Build engine, with 3D environments and 2D character sprites. It shares many gameplay elements with NAM, created by the same developers.",
+  "ano": 1999,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188926,
+  "_ssPreviaEm": "2026-11-11"
 }

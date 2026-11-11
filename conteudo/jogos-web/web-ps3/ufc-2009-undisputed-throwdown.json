@@ -3,11 +3,14 @@
   "links": [
     "https://ufc2.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/cf487b31963b32f9b516cf23b62e2ac7.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4c6f6719bec50eb89ca7b85756c3d27c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/64ea908ebe81374b1a0a466fd1425834.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · ufc2.online",
   "console": "web-ps3",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

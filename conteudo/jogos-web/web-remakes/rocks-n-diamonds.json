@@ -3,6 +3,8 @@
   "links": [
     "https://www.artsoft.org/rocksndiamonds/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ee652cdd5d72e7875194627b77150392.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c658116af924ab8898111adf45cad28e.png",
   "logo": "https://cdn2.steamgriddb.com/logo/e0be8eda9747e5b6eb8094f0738eb859.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · www.artsoft.org",

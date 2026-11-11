@@ -341,7 +341,7 @@
   },
   {
    "title": "Barbie · Barbie DreamHouse Adventures | New Season | Episodes, Special & Music Videos | Barbie",
-   "desc": "Playlist de Barbie · 28 vídeos",
+   "desc": "Playlist de Barbie · 32 vídeos",
    "genre": [
     "Fantasia e Magia"
    ],
@@ -353,7 +353,7 @@
   },
   {
    "title": "Barbie · Barbie Full Specials & Movies",
-   "desc": "Playlist de Barbie · 23 vídeos",
+   "desc": "Playlist de Barbie · 24 vídeos",
    "genre": [
     "Fantasia e Magia"
    ],
@@ -365,7 +365,7 @@
   },
   {
    "title": "Barbie · Barbie Music Videos",
-   "desc": "Playlist de Barbie · 96 vídeos",
+   "desc": "Playlist de Barbie · 97 vídeos",
    "genre": [
     "Fantasia e Magia"
    ],
@@ -413,7 +413,7 @@
   },
   {
    "title": "Ben 10 · Ben 10 - New Videos!",
-   "desc": "Playlist de Ben 10 · 260 vídeos",
+   "desc": "Playlist de Ben 10 · 261 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
@@ -437,13 +437,13 @@
   },
   {
    "title": "Ben 10 · Ben 10 (2016) Reboot Best Moments",
-   "desc": "Playlist de Ben 10 · 58 vídeos",
+   "desc": "Playlist de Ben 10 · 59 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
    "studio": "youtoon/ingles/ben-10-ben-10-2016-reboot-best-moments",
    "url": "https://www.youtube.com/playlist?list=PLEy0MtsV5_rQS6aQIa6F4Dk731oczsXAq",
-   "logo": "https://i.ytimg.com/vi/XCHRPK2QNho/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/9oV68oLEobM/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -911,7 +911,7 @@
   },
   {
    "title": "Curious George · Curious George Compilation",
-   "desc": "Playlist de Curious George · 1101 vídeos",
+   "desc": "Playlist de Curious George · 1102 vídeos",
    "genre": [
     "Pré-escolar"
    ],
@@ -935,7 +935,7 @@
   },
   {
    "title": "Curious George · Curious George Official | All Videos",
-   "desc": "Playlist de Curious George · 1227 vídeos",
+   "desc": "Playlist de Curious George · 1228 vídeos",
    "genre": [
     "Pré-escolar"
    ],
@@ -1367,13 +1367,13 @@
   },
   {
    "title": "Dora & Friends · What’s New with Dora! | Dora & Friends",
-   "desc": "Playlist de Dora & Friends · 859 vídeos",
+   "desc": "Playlist de Dora & Friends · 860 vídeos",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/dora-e-friends-what-s-new-with-dora-dora-e-friends",
    "url": "https://www.youtube.com/playlist?list=PLJmDk3QJqTWF-SzA-qKTlK_uqIqYzz1Rx",
-   "logo": "https://i.ytimg.com/vi/iJH5N0mwYcs/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/MvZolM8uCvY/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -1774,6 +1774,18 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Gundaminfo · 【EN Dub ver】Mobile Suit Gundam SEED DESTINY",
+   "desc": "Playlist de Gundaminfo · 50 vídeos",
+   "genre": [
+    "Anime"
+   ],
+   "studio": "youtoon/ingles/gundaminfo-en-dub-ver-mobile-suit-gundam-seed-destiny",
+   "url": "https://www.youtube.com/playlist?list=PLLlBv52XOt4I",
+   "logo": "https://i.ytimg.com/vi/4AbgG1rVFrk/hqdefault.jpg",
+   "idioma": "en",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Gundaminfo · GUNPLA / FIGURE",
    "desc": "Playlist de Gundaminfo · 256 vídeos",
    "genre": [
@@ -1806,18 +1818,6 @@
    "studio": "youtoon/ingles/gundaminfo-seedgp2026",
    "url": "https://www.youtube.com/playlist?list=PLAKqAsKfNksU",
    "logo": "https://i.ytimg.com/vi/wlKQtkeAq4A/hqdefault.jpg",
-   "idioma": "en",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Gundaminfo · 机动战士高达SEED ECLIPSE",
-   "desc": "Playlist de Gundaminfo · 49 vídeos",
-   "genre": [
-    "Anime"
-   ],
-   "studio": "youtoon/ingles/gundaminfo-seed-eclipse",
-   "url": "https://www.youtube.com/playlist?list=PLJV1h9xQ7Hx8pn1GZDnTi2svSYS2wfglI",
-   "logo": "https://i.ytimg.com/vi/xc3SIbZd8KM/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -1937,7 +1937,7 @@
    ],
    "studio": "youtoon/ingles/horrid-henry-horrid-henry-cartoons-for-kids",
    "url": "https://www.youtube.com/playlist?list=PL2CsdBO5-Mciz3U-oPK6Zt_CIyepdvBIe",
-   "logo": "https://i.ytimg.com/vi/RtmdENbb0ek/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/O9B-eUrU0EA/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -2549,25 +2549,25 @@
   },
   {
    "title": "Marvel H.Q. · What's New On Marvel HQ! 💥",
-   "desc": "Playlist de Marvel H.Q. · 796 vídeos",
+   "desc": "Playlist de Marvel H.Q. · 797 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
    "studio": "youtoon/ingles/marvel-h-q-what-s-new-on-marvel-hq",
    "url": "https://www.youtube.com/playlist?list=PLNw_hEO5pK1ovGllglrwKRewSetHIjmFb",
-   "logo": "https://i.ytimg.com/vi/ouO4Dqf_DcY/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/bWQPH3kYqf8/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
   {
    "title": "Marvel H.Q. · Your Friendly Neighborhood Spider-Man 🕷️🕸️❤️",
-   "desc": "Playlist de Marvel H.Q. · 353 vídeos",
+   "desc": "Playlist de Marvel H.Q. · 354 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
    "studio": "youtoon/ingles/marvel-h-q-your-friendly-neighborhood-spider-man",
    "url": "https://www.youtube.com/playlist?list=PLd_Veup5fbrM",
-   "logo": "https://i.ytimg.com/vi/O81f2sztBpc/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/bWQPH3kYqf8/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -2657,13 +2657,13 @@
   },
   {
    "title": "Masha and The Bear 24H",
-   "desc": "🔴 LIVE STREAM 🎬 Masha and the Bear 24/7 LIVE 👧 Watch ALL Episodes NOW! ▶️ 🍁 ALL DAY with MASHA💖",
+   "desc": "🔴 LIVE STREAM 🎬 Masha and the Bear 👧🐻 Season 2: All episodes 😜 🍭",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/ingles/masha-and-the-bear-24h",
    "url": "https://www.youtube.com/channel/UCu59yAFE8fM0sVNTipR4edw/live",
-   "logo": "https://i.ytimg.com/vi/hNFz5B0p8x0/hqdefault.jpg?v=6aee3711",
+   "logo": "https://i.ytimg.com/vi/ux87iHEJJtk/hqdefault.jpg?v=6af3369c",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -2999,7 +2999,7 @@
    ],
    "studio": "youtoon/ingles/mr-bean-best-of-mr-bean-animated-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh9Um40N668S9a2zUi9lxOqp",
-   "logo": "https://i.ytimg.com/vi/mYS-ze88unM/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/KpwAiDZj6WA/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -3035,7 +3035,7 @@
    ],
    "studio": "youtoon/ingles/mr-bean-mr-bean-the-animated-series-season-1-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh8IWwCVEPxcQ1SkMH1mBlA6",
-   "logo": "https://i.ytimg.com/vi/Jyo-kXiAqGs/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/KpwAiDZj6WA/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -3131,7 +3131,7 @@
    ],
    "studio": "youtoon/ingles/my-little-pony-official-channel-24h",
    "url": "https://www.youtube.com/channel/UC9qgVkKRZUXcgHdf35Z-8dw/live",
-   "logo": "https://i.ytimg.com/vi/9vDpWEN6Vrg/hqdefault.jpg?v=6af3f710",
+   "logo": "https://i.ytimg.com/vi/jHlpeK5r2gk/hqdefault.jpg?v=6af4831c",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -3317,13 +3317,13 @@
   },
   {
    "title": "Nicktoons · NEW From Nicktoons! 🚀",
-   "desc": "Playlist de Nicktoons · 1189 vídeos",
+   "desc": "Playlist de Nicktoons · 1190 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/nicktoons-new-from-nicktoons",
    "url": "https://www.youtube.com/playlist?list=PLUQR09yEYrP2Er9Et0Od21xc5mM0WqHJ9",
-   "logo": "https://i.ytimg.com/vi/eSSZFnc3nO4/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/lZOLriVMQBw/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -3713,13 +3713,13 @@
   },
   {
    "title": "Oggy and the Cockroaches 24H",
-   "desc": "OGGY AND THE COCKROACHES 🔴 LIVE ALL SEASONS STREAMING NOW | Best collection for kids | ALL EPISODES",
+   "desc": "OGGY 🔴 LIVE All episodes | Your Daily Cartoon Break!",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/oggy-and-the-cockroaches-24h",
    "url": "https://www.youtube.com/channel/UCNEKMkg_DG8eAyR1BNWsSvw/live",
-   "logo": "https://i.ytimg.com/vi/pxmIY1oPW6w/hqdefault.jpg?v=6ad79a7c",
+   "logo": "https://i.ytimg.com/vi/AiQ2ifm7e7c/hqdefault.jpg?v=6af466a3",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -3881,13 +3881,13 @@
   },
   {
    "title": "Peppa Pig 24H",
-   "desc": "🔴 LIVE: Cutest Baby Evie Moments 🍼 | Peppa Pig’s Best Big Sister Moments ✨ | 4K",
+   "desc": "🔴 LIVE: Baby Evie's Cutest Giggle Marathon 🍼 | Peppa’s Big Sister Adventures ✨ | 4K",
    "genre": [
     "Pré-escolar"
    ],
    "studio": "youtoon/ingles/peppa-pig-24h",
    "url": "https://www.youtube.com/channel/UCAOtE1V7Ots4DjM8JLlrYgg/live",
-   "logo": "https://i.ytimg.com/vi/kZ8pg77VP1o/hqdefault.jpg?v=6af3e3d7",
+   "logo": "https://i.ytimg.com/vi/ZleZTnBUTps/hqdefault.jpg?v=6af48c5c",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -4290,7 +4290,7 @@
    ],
    "studio": "youtoon/ingles/robotboy-robotboy-season-1-compilations",
    "url": "https://www.youtube.com/playlist?list=PLGsVaqfVidOwSyVJFq7Qs0F5-sZhZac47",
-   "logo": "https://i.ytimg.com/vi/zWfO_cyRCrM/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/3XiD-sDFMlk/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -4502,6 +4502,18 @@
    "studio": "youtoon/ingles/shaun-the-sheep-official-shaun-the-sheep-season-1-full-episodes",
    "url": "https://www.youtube.com/playlist?list=PLUlnvCyZAcjo",
    "logo": "https://i.ytimg.com/vi/Tet0GDaIAGs/hqdefault.jpg",
+   "idioma": "en",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Shaun the Sheep Official 24H",
+   "desc": "LIVE 24/7 - Shaun The Sheep 🐑⭐️ Kids Cartoons, Preschool, Relaxing Fun!",
+   "genre": [
+    "Comédia"
+   ],
+   "studio": "youtoon/ingles/shaun-the-sheep-official-24h",
+   "url": "https://www.youtube.com/channel/UCS7H8U-n5mINVJjJsaRtGHg/live",
+   "logo": "https://i.ytimg.com/vi/k5UnVed--fw/hqdefault.jpg?v=6af44a3a",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -4771,13 +4783,13 @@
   },
   {
    "title": "SpongeBob SquarePants Official · New Videos Every Day!",
-   "desc": "Playlist de SpongeBob SquarePants Official · 1401 vídeos",
+   "desc": "Playlist de SpongeBob SquarePants Official · 1403 vídeos",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/spongebob-squarepants-official-new-videos-every-day",
    "url": "https://www.youtube.com/playlist?list=PLM1j2JqVBQfkjSUEdAeDh_PT6gfJXkJl6",
-   "logo": "https://i.ytimg.com/vi/brnUom5sNPw/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/Eat-U0j-e_I/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -4873,7 +4885,7 @@
    ],
    "studio": "youtoon/ingles/spookiz-spookiz-for-everyone",
    "url": "https://www.youtube.com/playlist?list=PLjFmi1u8peSqfuNF_6MNZAtEoE7iyVOwF",
-   "logo": "https://i.ytimg.com/vi/8lDPHZngiAI/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/LRhTD5RK3kI/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -4939,25 +4951,25 @@
   },
   {
    "title": "Star Wars Kids · Star Wars: The Clone Wars 🌌🚀",
-   "desc": "Playlist de Star Wars Kids · 136 vídeos",
+   "desc": "Playlist de Star Wars Kids · 137 vídeos",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/ingles/star-wars-kids-star-wars-the-clone-wars",
    "url": "https://www.youtube.com/playlist?list=PLXsbMnnbPpLXTvDoVLLZSO1nxkgDfXge8",
-   "logo": "https://i.ytimg.com/vi/5wae0H5ugsM/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/eItZ7XImVZE/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
   {
    "title": "Star Wars Kids · What's New on Star Wars Kids! ⭐🌌✨",
-   "desc": "Playlist de Star Wars Kids · 525 vídeos",
+   "desc": "Playlist de Star Wars Kids · 526 vídeos",
    "genre": [
     "Infantil"
    ],
    "studio": "youtoon/ingles/star-wars-kids-what-s-new-on-star-wars-kids",
    "url": "https://www.youtube.com/playlist?list=PLXsbMnnbPpLUHa6hfNLs0VNhURnw1Mpgt",
-   "logo": "https://i.ytimg.com/vi/5wae0H5ugsM/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/eItZ7XImVZE/hqdefault.jpg",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -5120,7 +5132,7 @@
    ],
    "studio": "youtoon/ingles/super-simple-songs-24h",
    "url": "https://www.youtube.com/channel/UCLsooMJoIpl_7ux2jvdPB-Q/live",
-   "logo": "https://i.ytimg.com/vi/7nNGaPxVK80/hqdefault.jpg?v=6af1d21f",
+   "logo": "https://i.ytimg.com/vi/TMvOeNtSIl0/hqdefault.jpg?v=6af47203",
    "idioma": "en",
    "group": "Desenhos 24H"
   },
@@ -5743,7 +5755,7 @@
   },
   {
    "title": "Totally Spies! · COMPILATIONS 🌸",
-   "desc": "Playlist de Totally Spies! · 441 vídeos",
+   "desc": "Playlist de Totally Spies! · 449 vídeos",
    "genre": [
     "Aventura"
    ],
@@ -6139,7 +6151,7 @@
   },
   {
    "title": "Winx Club Official · Winx Club: The Magic is Back – The Final Episodes are now streaming on Netflix ✨",
-   "desc": "Playlist de Winx Club Official · 107 vídeos",
+   "desc": "Playlist de Winx Club Official · 108 vídeos",
    "genre": [
     "Fantasia e Magia"
    ],
@@ -6247,13 +6259,13 @@
   },
   {
    "title": "Zig & Sharko 24H",
-   "desc": "NEW ZIG & SHARKO 🔴 LIVE CARTOON | ALL SEASON & EPISODES | Collection for kids HD",
+   "desc": "Zig & Sharko | YOUR CARTOON BREAK! 🔴 LIVE | Seasons 1-4 & All Episodes",
    "genre": [
     "Comédia"
    ],
    "studio": "youtoon/ingles/zig-e-sharko-24h",
    "url": "https://www.youtube.com/channel/UCcKJJuOe2tOqgrKw0Gks-sw/live",
-   "logo": "https://i.ytimg.com/vi/hWDQZeOraxs/hqdefault.jpg?v=6ad79684",
+   "logo": "https://i.ytimg.com/vi/mpyrcfk-cSo/hqdefault.jpg?v=6af4669f",
    "idioma": "en",
    "group": "Desenhos 24H"
   }

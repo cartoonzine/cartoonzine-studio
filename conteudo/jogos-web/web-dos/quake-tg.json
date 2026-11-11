@@ -3,14 +3,25 @@
   "links": [
     "https://rgc.zone/ports/quaketg/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/906fec3cca7ccc130fa2b1844aa10126.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/f3296629e5e4964de099e204626f32fd.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/3a2a9aef4cbed81244820a091667c0bd.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--quake-tg--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--quake-tg--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--quake-tg--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--quake-tg--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--quake-tg--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Em Quake, o jogador assume o papel do protagonista conhecido como Ranger, que foi enviado a um portal para impedir um inimigo de codinome &quot;Quake&quot;. O governo estava fazendo experiências com tecnologia de teletransporte e desenvolveu um protótipo funcional chamado &quot;Slipgate&quot;; o misterioso terremoto comprometeu o Slipgate conectando-o com seu próprio sistema de teletransporte, usando-o para enviar esquadrões da morte para a dimensão &quot;Humana&quot;, a fim de testar as capacidades marciais da humanidade.\r\n\r\nO único protagonista sobrevivente em &quot;Operação Counterstrike&quot; é Ranger, que deve avançar, começando cada um dos quatro episódios de uma base militar humana invadida, antes de lutar para chegar a outras dimensões, alcançando-as através do Slipgate ou seu equivalente no outro mundo. Depois de passar pelo Slipgate, o objetivo principal do Ranger é coletar quatro runas mágicas de quatro dimensões de Quake; estes são a chave para deter o inimigo posteriormente descoberto como Shub-Niggurath e acabar com a invasão da Terra.",
+  "ano": 1996,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 32,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 108793,
+  "_ssPreviaEm": "2026-11-11"
 }

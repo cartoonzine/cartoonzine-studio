@@ -3,11 +3,14 @@
   "links": [
     "https://mhfu.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3bf3cc7649920a539474fe28e6e3cda9.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/1ba7439a02d9539077510205dd05123f.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/97550c51d72fe06f777c5a41404c940c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · mhfu.online",
   "console": "web-psp",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,6 +3,7 @@
   "links": [
     "https://awest813.github.io/NCAA-10-PSP-Recomp/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b3b646cda464b451c73ac4bfc782d079.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/awest813/NCAA-10-PSP-Recomp",
   "descricao": "Port para navegador · awest813.github.io",
@@ -10,5 +11,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

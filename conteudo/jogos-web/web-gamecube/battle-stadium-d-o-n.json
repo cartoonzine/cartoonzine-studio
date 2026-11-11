@@ -3,14 +3,24 @@
   "links": [
     "https://battlestadium.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/760b335c18d63c6031ec332ffdd7b17f.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/5f2e931b6484ce094fd344dc0a70c4cd.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/f58b37e6e297d56a49ae971f1011cb27.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--battle-stadium-d-o-n--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--battle-stadium-d-o-n--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--battle-stadium-d-o-n--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--battle-stadium-d-o-n--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-gamecube--battle-stadium-d-o-n--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · battlestadium.online",
+  "descricao": "Battle Stadium D.O.N (GameCube / PS2)\r\nBattle Stadium D.O.N é um jogo de luta e ação crossover que reúne, em arenas 3D dinâmicas, os universos de três das maiores franquias da história dos mangás e animes: Dragon Ball Z, One Piece e Naruto (cujas iniciais formam a sigla D.O.N).\r\n\r\nO jogo coloca ícones como Goku, Luffy e Naruto lado a lado em combates frenéticos para até quatro jogadores simultâneos. Com um estilo de arena acessível e cheio de plataformas interativas, o objetivo principal vai além de apenas nocautear os oponentes: os lutadores disputam orbes de energia que caem durante os confrontos. Coletar essas esferas enfraquece os adversários, fortalece seu personagem e permite ativar o poderoso modo Burst, desencadeando transformações e golpes especiais devastadores.\r\n\r\nSeja no modo história solo ou em batalhas cooperativas e competitivas em grupo, o título é uma celebração nostálgica imperdível para os fãs de anime.",
+  "ano": 2006,
+  "generos": [
+    "Luta"
+  ],
   "console": "web-gamecube",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 4840,
+  "_ssPreviaEm": "2026-11-11"
 }
