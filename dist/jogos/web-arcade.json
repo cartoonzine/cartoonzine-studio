@@ -10,6 +10,7 @@
     "Corrida, Pilotagem",
     "Corrida em 3ª pessoa"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--video.mp4",
    "studio": "jogos-web/web-arcade/daytona-usa",
    "url": "https://johannruiz.github.io/Daytona-USA-Web/",
@@ -36,6 +37,7 @@
     "Luta",
     "Luta / Versus"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--video.mp4",
    "studio": "jogos-web/web-arcade/marvel-vs-capcom-2",
    "url": "https://marvelvscapcom2.online/",
@@ -56,6 +58,7 @@
   {
    "title": "Street Fighter III: 3rd Strike",
    "desc": "Port para navegador · streetfighter3.online",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/22cf8d98dca2b9de5052ae9253bddef3.png",
    "studio": "jogos-web/web-arcade/street-fighter-iii-3rd-strike",
    "url": "https://streetfighter3.online/",
    "thumb": "https://cdn2.steamgriddb.com/grid/74795ed1eea8eff2d2ead49ad13475b3.png",
@@ -73,6 +76,7 @@
   {
    "title": "Virtual On: Cyber Troopers",
    "desc": "Port para navegador · solid7s.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/03258e6ca69527cccd5313e56401d8fa.png",
    "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
    "url": "https://solid7s.github.io/Virtual-On-Web/",
    "thumb": "https://cdn2.steamgriddb.com/grid/54bbc32dde48d6cae73213c6a21a0995.png",

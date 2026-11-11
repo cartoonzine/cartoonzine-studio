@@ -105,7 +105,9 @@ for (const colecao of config.colecoes) {
     if (colecao.tipo !== 'jogo' || (args.colecao && args.colecao !== colecao.id)) continue;
     for (const { caminho, item } of lerColecao(colecao).entradas) {
         if (item._travado || !item.nome) continue;
-        if (!args.refazer && item._ssEm && (Date.now() - Date.parse(item._ssEm)) < REFAZER_DIAS * 864e5) continue;
+        const recente = item._ssEm && (Date.now() - Date.parse(item._ssEm)) < REFAZER_DIAS * 864e5;
+        // já buscado há pouco: só volta à fila se foi encontrado e ainda não tentou a imagem da tela de prévia
+        if (!args.refazer && recente && !(item._ssId && !item.previa && !item._ssPreviaEm)) continue;
         fila.push({ caminho, colecao, item });
     }
 }
@@ -151,6 +153,8 @@ for (const { caminho, colecao, item } of lote) {
         await pegar('logo', m.logo, { maxwidth: 800, maxheight: 400 }, 'logo');
         await pegar('banner', m.banner, { maxwidth: 1920, maxheight: 1080 }, 'banner');
         if (comVideo) await pegar('video', m.video, {}, 'vídeo');
+        await pegar('previa', m.previa, { maxwidth: 1280, maxheight: 960 }, 'tela de prévia');
+        novo._ssPreviaEm = hoje;
         // textos (sem URL, sem senha)
         const d = Core.dadosScreenScraper(jeu);
         if (d.sinopse && (sinopseFraca(item.descricao) || (d.sinopseLingua === 'pt' && pareceIngles(item.descricao)))) { novo.descricao = d.sinopse; feito.push('sinopse' + (d.sinopseLingua === 'pt' ? ' (pt)' : '')); }
