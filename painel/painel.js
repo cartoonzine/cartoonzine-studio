@@ -906,6 +906,38 @@
     // ------------------------------------------------------------------
     // Gaveta do editor
     // ------------------------------------------------------------------
+    /**
+     * Jogos: atalhos para ajustar as artes à mão.
+     *  • "Ver no ScreenScraper": a página do jogo no site (todas as caixas, logos, fanarts, telas…);
+     *    sem o número do jogo (_ssId), uma busca pelo nome.
+     *  • "Arquivos baixados": o release "midia-jogos" com tudo que o robô baixou.
+     *  • miniaturas das artes atuais do jogo (clique abre a imagem / o vídeo).
+     */
+    function barraJogo(item) {
+        const repo = (estado.repo && estado.repo.repo) || 'cartoonzine/cartoonzine-studio';
+        const ssUrl = item._ssId > 0
+            ? 'https://www.screenscraper.fr/gameinfos.php?gameid=' + encodeURIComponent(item._ssId)
+            : 'https://www.google.com/search?q=' + encodeURIComponent('site:screenscraper.fr ' + (item.nome || ''));
+        const artes = [['capa', 'Capa'], ['logo', 'Logo'], ['banner', 'Banner'], ['previa', 'Tela de prévia'], ['video', 'Vídeo (snap)']]
+            .filter(([k]) => item[k]);
+        const mini = ([k, rotulo]) => {
+            const u = esc(item[k]);
+            const vis = k === 'video'
+                ? '<span style="display:flex;align-items:center;justify-content:center;height:100%;font-size:26px">▶</span>'
+                : `<img src="${u}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:${k === 'logo' ? 'contain' : 'cover'}">`;
+            return `<a href="${u}" target="_blank" rel="noopener" title="${esc(rotulo)} — abrir em outra aba"
+                       style="display:flex;flex-direction:column;gap:4px;width:${k === 'capa' ? 70 : 120}px;text-decoration:none;color:inherit">
+                       <span style="display:block;height:96px;border-radius:8px;overflow:hidden;background:${k === 'logo' ? 'repeating-conic-gradient(#2a2d36 0 25%, #1c1f27 0 50%) 0 0/14px 14px' : '#111'};border:1px solid rgba(255,255,255,.12)">${vis}</span>
+                       <small class="dica" style="text-align:center">${esc(rotulo)}</small></a>`;
+        };
+        return `
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+              <a class="btn mini" style="text-decoration:none" href="${esc(ssUrl)}" target="_blank" rel="noopener" title="Abre a página do jogo no ScreenScraper (faça login lá para baixar as imagens)">🔎 ${item._ssId > 0 ? 'Ver no ScreenScraper' : 'Procurar no ScreenScraper'}</a>
+              <a class="btn mini fantasma" style="text-decoration:none" href="https://github.com/${esc(repo)}/releases/tag/midia-jogos" target="_blank" rel="noopener" title="Tudo que o robô baixou do ScreenScraper — e onde você pode anexar imagens suas">📦 Arquivos baixados</a>
+            </div>
+            ${artes.length ? `<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-items:flex-start">${artes.map(mini).join('')}</div>` : ''}
+            <div class="dica" style="margin-top:8px">Para trocar uma arte: baixe a imagem no ScreenScraper, anexe em "Arquivos baixados" (✏️ Edit → arraste o arquivo → Update release), copie o link do arquivo e cole no campo abaixo. O robô nunca troca um link que você pôs à mão.</div>`;
+    }
     async function abrirEditor(caminho) {
         const col = colecaoAtual();
         const tipo = C.TIPOS[col.tipo];
@@ -922,6 +954,7 @@
           <div class="gaveta" role="dialog" aria-modal="true" aria-labelledby="ed-titulo">
             <h2 id="ed-titulo">${caminho ? esc(item.nome || 'Editar') : 'Novo em ' + esc(col.nome)}</h2>
             <div class="caminho">${caminho ? esc(caminho) : 'o arquivo é criado ao salvar'}</div>
+            ${col.tipo === 'jogo' ? barraJogo(item) : ''}
             <div class="caixa-erros" id="ed-erros"></div>
             <form class="form" id="ed-form" style="margin-top:16px" novalidate>
               ${normais.map(c => campoHtml(c, item[c.k])).join('')}
