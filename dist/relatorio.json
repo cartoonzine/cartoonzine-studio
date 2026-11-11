@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-11T06:05:49.447Z",
+  "geradoEm": "2026-11-11T06:09:57.285Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 531,
-      "publicados": 43,
+      "publicados": 44,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -312,10 +312,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-dos/shadow-warrior-wanton-destruction.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-dos/shadow-warrior.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2101,7 +2097,7 @@
         "web-wii": 0,
         "web-switch": 0,
         "web-dreamcast": 0,
-        "web-dos": 6,
+        "web-dos": 7,
         "web-windows": 19,
         "web-xbox360": 0,
         "web-xboxone": 0,

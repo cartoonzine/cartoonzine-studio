@@ -120,6 +120,25 @@
    "repo": "https://github.com/midzer/jumpnbump/tree/emscripten"
   },
   {
+   "title": "Shadow Warrior",
+   "desc": "Port para navegador · rgc.zone",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-dos/shadow-warrior",
+   "url": "https://rgc.zone/ports/8775-swarrior/run.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/037c2de02b0d16ce2c0a7c14ddaabdae.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e264bfffd059132b31ce3762134faa5f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/169779d3852b32ce8b1a1724dbf5217d.png",
+   "console": "web-dos",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "repo": "https://github.com/midzer/jfsw"
+  },
+  {
    "title": "Tyrian (OpenTyrian)",
    "desc": "Nave de tiro vertical clássica da Epic. Os dados do Tyrian 2.1 foram liberados como freeware. Jogo livre (GPL-2.0 (motor) · Tyrian 2.1 freeware (dados)), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1995,

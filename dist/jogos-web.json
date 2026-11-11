@@ -758,6 +758,25 @@
    "repo": "https://linux.tlk.fr/games/Powermanga/"
   },
   {
+   "title": "Shadow Warrior",
+   "desc": "Port para navegador · rgc.zone",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-dos/shadow-warrior",
+   "url": "https://rgc.zone/ports/8775-swarrior/run.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/037c2de02b0d16ce2c0a7c14ddaabdae.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e264bfffd059132b31ce3762134faa5f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/169779d3852b32ce8b1a1724dbf5217d.png",
+   "console": "web-dos",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "repo": "https://github.com/midzer/jfsw"
+  },
+  {
    "title": "Sonic Mania Plus",
    "desc": "Vivencie a celebração definitiva do passado e do futuro em Sonic Mania, uma aventura 2D inédita do Sonic rodando a 60 FPS com gráficos retrô em alta definição impressionantes. Diversos personagens jogáveis ​​permitem que você acelere explosivamente como Sonic, voe como Tails ou supere obstáculos difíceis com a força bruta de Knuckles. Você pode reviver o Sonic do passado com uma nova e emocionante abordagem das fases clássicas enquanto luta contra novos chefões e o exército de robôs malignos do Dr. Eggman. Dispute partidas com outros jogadores no Modo Competição ou jogue no Modo Cooperativo com um amigo. Sonic Mania foi desenvolvido por Christian Whitehead, Headcannon e PagodaWest Games em colaboração com a Sonic Team. Bem-vindo ao Sonic Mania!\n\nSonic Mania Encore DLC - Experimente uma nova versão de fases familiares com o novíssimo Modo Encore, jogue com dois novos personagens com habilidades únicas: Mighty, o Tatu, e Ray, o Esquilo Voador, e dispute com até quatro amigos no Modo Competição expandido!",
    "bannerlogo": "https://images.launchbox-app.com//bdb3c23d-e5e6-4f00-9b3b-8e2e65332868.png",
