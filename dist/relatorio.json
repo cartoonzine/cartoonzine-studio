@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-11T05:47:46.912Z",
+  "geradoEm": "2026-11-11T05:59:14.555Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 531,
-      "publicados": 41,
+      "publicados": 42,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -256,10 +256,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-dos/heretic-hexen.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-dos/heroes-of-might-and-magic-ii-fheroes2-rgc-zone.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2109,7 +2105,7 @@
         "web-wii": 0,
         "web-switch": 0,
         "web-dreamcast": 0,
-        "web-dos": 5,
+        "web-dos": 6,
         "web-windows": 19,
         "web-xbox360": 0,
         "web-xboxone": 0,

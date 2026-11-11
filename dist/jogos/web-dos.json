@@ -76,6 +76,24 @@
    "repo": "https://github.com/petarov/alleycat.exe"
   },
   {
+   "title": "Heroes of Might and Magic II (fheroes2, rgc.zone)",
+   "desc": "Port para navegador · rgc.zone",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-dos/heroes-of-might-and-magic-ii-fheroes2-rgc-zone",
+   "url": "https://rgc.zone/ports/fheroes2weblast/index.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/574e04d3b783927e028982e71467bf13.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/fc910dce7e448dcd095ffe158fccd66b.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/d08155e24a46d6bbdac6c849cd26564f.png",
+   "console": "web-dos",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Jump 'n Bump",
    "desc": "Coelhinhos pulando na cabeça uns dos outros. Clássico multiplayer local (até 4 no mesmo teclado/controle). Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1998,
