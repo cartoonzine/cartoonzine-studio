@@ -1120,6 +1120,7 @@
    ],
    "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--video.mp4",
+   "bgPosY": 53,
    "studio": "jogos/msdos/prince-of-persia",
    "url": "https://archive.org/details/msdos_Prince_of_Persia_1990",
    "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--capa.png",
