@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/karlson/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/d7b44861a4bf57aab5978fab30a96620.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/04f9243ae51f6780df54a57c325ce0a5.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/37439aefe72ecd272b583eed4fb82337.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/karlson",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

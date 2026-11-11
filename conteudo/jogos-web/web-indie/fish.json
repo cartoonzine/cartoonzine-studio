@@ -3,6 +3,8 @@
   "links": [
     "https://gn-math.dev/?id=761"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/cfeaeddb2141b077642e66b3868451d1.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/63a8b02f72c49c316f642d7f60bdda5f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/fish",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +12,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -4,6 +4,9 @@
     "https://rgc.zone/ports/cavestory/index.html",
     "https://midzer.de/wasm/cavestory/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e646e2fec7dcbe33111f4481a96523af.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/97d0145823aeb8ed80617be62e08bdcc.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/c02064e6a401f91134e124c48970862c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/nxengine-evo",
   "descricao": "Port para navegador · rgc.zone",
@@ -11,5 +14,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

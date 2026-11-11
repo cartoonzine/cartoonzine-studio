@@ -3,11 +3,14 @@
   "links": [
     "https://f12006.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/23ff224e2cbd93cc9843c5bb14ee15de.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/39bfc8e91df7baefe561a56b7f74f041.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/47fce94977802dbd31561cfc842b36bd.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · f12006.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

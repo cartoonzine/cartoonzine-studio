@@ -3,7 +3,10 @@
   "links": [
     "https://openhaloce.com/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b52d3118781cb4ab860e23db21dd631d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/0678c572b0d5597d2d4a6b5bd135754c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/4671aeaf49c792689533b00664a5c3ef.png",
   "console": "web-pc",
   "_rascunho": true,
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

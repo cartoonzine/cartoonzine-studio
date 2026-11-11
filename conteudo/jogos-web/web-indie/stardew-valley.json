@@ -4,6 +4,9 @@
     "https://gn-math.dev/?id=789",
     "https://wasm.rip/files/stardewvalley/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/cf30b40a1573a32248fcd0ba94e67652.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/d44c78dcad9de0aed2f37902ea02cef2.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a15612aee1f0b2fdf1768df0d2688bd1.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/degloved-net/stardew-wasm",
   "descricao": "Port para navegador · gn-math.dev",
@@ -11,5 +14,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

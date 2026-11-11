@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=783"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/a609b736bc2eac7d08838bb8feb2e298.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/da9bf6b907be7c5597a92c1c79c4eb24.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/b24bd912005e51017d4ccaf5fede1c9a.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/bubbls/UGS-Assets/tree/main/apesvshelium",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

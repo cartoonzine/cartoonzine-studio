@@ -3,6 +3,8 @@
   "links": [
     "https://gn-math.dev/?id=717"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/30e6d826c3914018949ed89a574a5f04.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/093c07ef4319891a047d522ff9372d1a.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/peaks-of-yore",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +12,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

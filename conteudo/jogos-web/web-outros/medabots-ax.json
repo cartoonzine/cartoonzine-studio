@@ -3,11 +3,14 @@
   "links": [
     "https://medabots-ax.meme.ar/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/2c09e47a931795292f363b58bf176163.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/900e9a6cea0b0ddfecbfba02cc20b13f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9a5d1781b5a5cb66c99703c5dee81a1a.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · medabots-ax.meme.ar",
   "console": "web-outros",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

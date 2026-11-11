@@ -4,12 +4,15 @@
     "https://archive.org/details/msdos_Mario_Brothers_VGA_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Mario_Brothers_VGA_1990",
-  "banner": "https://cdn2.steamgriddb.com/hero/1bf50aaf147b3b0ddd26a820d2ed394d.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/98f0bf5318169643e61666d006bd3f96.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-brothers-vga--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-brothers-vga--logo.png",
   "fonte": "https://archive.org/details/msdos_Mario_Brothers_VGA_1990",
-  "descricao": "Jogo de MS-DOS (1990). Do acervo do Internet Archive.",
+  "descricao": "Mario Brothers VGA is an unofficial remake of the classic Mario Bros. game of the arcade in VGA 16 colors.You control Mario who has to flip turtles coming out from two pipes at the top of the screen. The goal of the game is to defeat these turtles and score points by flipping them from underneath, not jumping on them. All gameplay is on one single screen, there are no scrolling levels like regular Mario games.The registered version also allows a second player as Luigi.",
   "ano": 1990,
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188098
 }

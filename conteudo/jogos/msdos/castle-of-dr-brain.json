@@ -3,17 +3,21 @@
   "links": [
     "https://archive.org/details/msdos_Castle_of_Dr._Brain_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_Castle_of_Dr._Brain_1991",
-  "banner": "https://cdn2.steamgriddb.com/hero/c6ad3c412b25ae3af6e6a94ebbdc25b2.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/56f9974a418d59299a4321dd2ffcde1a.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--video.mp4",
   "fonte": "https://archive.org/details/msdos_Castle_of_Dr._Brain_1991",
-  "descricao": "Jogo de MS-DOS · Adventure (1991), de Sierra On-Line. Do acervo do Internet Archive.",
+  "descricao": "Castle of Dr. Brain is a critically acclaimed, brain-bending game filled with off-beat humor and mind-boggling challenges.\r\n\r\nYour problem-solving skills will be stretched to the limits as you try to think your way through a gauntlet of science stampers, mazes, logic problems, codes, and math games on your quest to become Dr. Brain's assistant. If you succeed without blowing a mental fuse, you just might be as smart as you think you are.",
   "ano": 1991,
   "generos": [
     "Adventure"
   ],
   "editora": "Sierra On-Line",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 99523
 }

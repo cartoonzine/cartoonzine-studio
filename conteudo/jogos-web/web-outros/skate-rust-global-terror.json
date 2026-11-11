@@ -3,11 +3,14 @@
   "links": [
     "https://global-terror.net/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/71299ed511c521dcaa275e9073378994.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/640105bca8a4f6a03586af718a3841a8.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3bd7ef30b1a12dc749b97afc9517a4f4.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · global-terror.net",
   "console": "web-outros",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

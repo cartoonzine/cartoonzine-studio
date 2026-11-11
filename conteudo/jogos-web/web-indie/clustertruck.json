@@ -3,6 +3,9 @@
   "links": [
     "https://wasm.rip/files/ClusterTruck/clustertruck.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f395ac2685e649ba0523852fe159d6a5.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b169037388372dcbd818fd7b24c23062.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/fca7a9a39563f62e67a0018690b0d4c9.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/wasmdotrip/Clustertruck-Port",
   "descricao": "Port para navegador · wasm.rip",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

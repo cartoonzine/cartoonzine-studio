@@ -3,6 +3,7 @@
   "links": [
     "https://gn-math.github.io/web-port/deadseat/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/68e5e25b42b6ff8c3c3d9858c0313aa6.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/deadseat",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +11,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

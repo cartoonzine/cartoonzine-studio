@@ -3,6 +3,9 @@
   "links": [
     "https://andrewaltimit.github.io/legend-of-legaia-re/play.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/70b4d3e0b3d5c9c9869bf1fee1aebe19.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b84a25d15d9d44f58640a485c1387df8.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2232f30cfb819b91b49e55a1b29841dc.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/AndrewAltimit/legend-of-legaia-re",
   "descricao": "Port para navegador · andrewaltimit.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

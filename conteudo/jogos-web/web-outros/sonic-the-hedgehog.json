@@ -3,6 +3,9 @@
   "links": [
     "https://vinmannie.github.io/Sonic-1-WASM/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/6babf6559ebc185d02860ca79b1088a5.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/9fe06b33ea459f011178ef3156ff09c7.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/47c95199b010148056eda6ac6f961c63.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/VinMannie/Sonic-1-WASM",
   "descricao": "Port para navegador · vinmannie.github.io",
@@ -11,5 +14,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,11 +3,14 @@
   "links": [
     "https://crashnitrokart.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/305b4101de6e18dd7bf1ca14f0f534eb.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/7d0576cbd93947fa6a3ffaae450ff8b7.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b1ab8aea23da706493a95512b29c7dd7.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · crashnitrokart.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

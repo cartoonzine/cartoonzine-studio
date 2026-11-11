@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Prehistorik_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_Prehistorik_1991",
-  "banner": "https://cdn2.steamgriddb.com/hero/adab26689c26db511dbd0a4a55689cb2.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/0ddf1b440eaeb5732332bf2e58d2c7e8.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--video.mp4",
   "fonte": "https://archive.org/details/msdos_Prehistorik_1991",
   "descricao": "Jogo de MS-DOS · Action, Platform (1991), de Titus France SA. Do acervo do Internet Archive.",
   "ano": 1991,
@@ -15,6 +16,9 @@
   ],
   "editora": "Titus France SA",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 152354
 }

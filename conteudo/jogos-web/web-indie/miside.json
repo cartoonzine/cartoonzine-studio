@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=814"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/7033b1bc9154b171d23c5ee400a734a4.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b46e7e91ffc9b8b7bb367300b87a2978.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2dd4303421a203febe5246df2fb49676.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/miside/",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/jelly-drift/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/13e38520cbdd42fba8af3a1faea3f6aa.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/8819982b300008ab09ecdfe101015fcf.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ed0c2babc7172df86564dd21fd047184.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/jelly-drift",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

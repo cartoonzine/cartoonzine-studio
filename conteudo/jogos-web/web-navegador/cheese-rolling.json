@@ -4,11 +4,14 @@
     "https://gn-math.dev/?id=762",
     "https://wasm.rip/files/cheese-rolling/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/62762b47d66634b4f07b47805dd42c41.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/a60a4d1dc3b26523676030deda4d55f9.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/e0e7f0da081df1eba16c04104d118191.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-navegador",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

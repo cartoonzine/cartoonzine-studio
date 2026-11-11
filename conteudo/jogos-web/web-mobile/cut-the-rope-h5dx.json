@@ -3,11 +3,14 @@
   "links": [
     "https://yell0wsuit.github.io/cuttherope-h5dx/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0384e59d348a9248f08a2627cdf43741.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/d8c33083ef391fb58934b7745d71e8ad.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/228817faf36305ff344e4d7cbe4dc222.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · yell0wsuit.github.io",
   "console": "web-mobile",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

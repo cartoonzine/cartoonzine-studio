@@ -3,11 +3,14 @@
   "links": [
     "https://truffled.lol/games/sts/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/eb18d63a27975cfc0e8b5cedea56f356.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/5cfa02f9154d8220d0a911d6ca82ddb5.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/186b6db9fa62b94adf2ac5227f6ee5e4.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · truffled.lol",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

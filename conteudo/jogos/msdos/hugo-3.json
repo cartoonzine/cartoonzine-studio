@@ -3,11 +3,18 @@
   "links": [
     "https://archive.org/details/msdos_Hugo_3_1995"
   ],
-  "capa": "https://archive.org/services/img/msdos_Hugo_3_1995",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--hugo-3--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--hugo-3--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--hugo-3--logo.png",
   "fonte": "https://archive.org/details/msdos_Hugo_3_1995",
-  "descricao": "Jogo de MS-DOS (1995). Do acervo do Internet Archive.",
+  "descricao": "New adventures with Hugo on CD-ROM! Hugo, the little troll, known by young and old through interactive television program of the same name, must rescue his wife Hugoline and his three children from the clutches of the evil witch Scylla in this new adventure. There's diverse mini-games: rafting, skateboarding and ice cave are waiting with many obstacles that Scylla has placed in the way for him with much cunning and malice. Has he finally reached the cave to free his family, Scylla is already there waiting for him!",
   "ano": 1995,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187877
 }

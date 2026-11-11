@@ -3,12 +3,21 @@
   "links": [
     "https://play.fatal.racing/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/2abe563a4339099ed869eb0de0a34a0d.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--fatal-racing--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--fatal-racing--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--fatal-racing--logo.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · play.fatal.racing",
+  "descricao": "Whiplash is a fast-paced racing game where you choose from eight different cars and race on over sixteen different tracks to brave death-defying loops and corkscrews in stunt racing. The different players are organized in teams of two cars each. The aim is of course to reach the finish line first, but on harder difficulty levels opponents can also be killed by repeatedly bumping into them. The damage is visible, with dents and smoke. Each track has a pit stop where cars stand still to be repaired, but they can be pushed out of the area. When going for kills, team members will not engage each other.\n\nThere are different camera angles, a replay function, and both automatic and manual transmission. Next to quick races, the main portion of the game are the cups, unlocked one after another.",
+  "ano": 1996,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 171087
 }

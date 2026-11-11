@@ -3,11 +3,11 @@
   "links": [
     "https://archive.org/details/msdos_Cool_World_1992"
   ],
-  "capa": "https://archive.org/services/img/msdos_Cool_World_1992",
-  "banner": "https://cdn2.steamgriddb.com/hero/a1395df0a1abc218eb63b3addbdd1693.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/7552663f68b5eba5b1e88899419a4a01.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--cool-world--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--cool-world--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--cool-world--logo.png",
   "fonte": "https://archive.org/details/msdos_Cool_World_1992",
-  "descricao": "Jogo de MS-DOS · Action, Platform (1992), de Twilight. Do acervo do Internet Archive.",
+  "descricao": "A licensed game based on the live action/animation movie ''Cool World''You play Frank Harris and your task is to stop Holli Would from entering the real world.You accomplish the levels by shooting doodles and collecting coins.Gameplay is set by 4 World with 4 levels each.Same as the movie, the game is based in cartoon graphics.",
   "ano": 1992,
   "generos": [
     "Action",
@@ -15,6 +15,9 @@
   ],
   "editora": "Twilight",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187463
 }

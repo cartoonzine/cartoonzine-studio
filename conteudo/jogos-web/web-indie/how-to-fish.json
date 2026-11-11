@@ -3,6 +3,9 @@
   "links": [
     "https://wasm.rip/files/HowToFish/HowToFish.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3088bd4c563700823649c4cb6d4fcba2.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/8bb288e41bf950a183fa0900a47bf1d1.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/6687b79b1711e61cca077a1a03c9d9bd.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/NotRexed/HowToFishPort",
   "descricao": "Port para navegador · wasm.rip",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

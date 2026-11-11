@@ -3,6 +3,9 @@
   "links": [
     "https://wasm.rip/files/tchamp/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f1fe2d8b6b424a758749cf3b5fbc1c20.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/d390b7d1af40252a3ba81b6256304d9b.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/15b1b1e164dd0b1d53b9c3fda4622533.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/degloved-net/trombone-champ",
   "descricao": "Port para navegador · wasm.rip",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

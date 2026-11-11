@@ -3,11 +3,14 @@
   "links": [
     "https://goldenweb64.com/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f0971d67a49ade9bab406f7664e8129d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/164f7441f18de0245255d25238462f8f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/c77cfd5563c8ec4bfcde94c09098ba84.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · goldenweb64.com",
   "console": "web-n64",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

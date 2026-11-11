@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/the-man-in-the-window/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/87794236ff87124c0d82484d7e382701.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/fb4496b0885a0879b6efadecfa7b0c60.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b0a78f6d3b619e16c18e2ec49b079170.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/the-man-in-the-window",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

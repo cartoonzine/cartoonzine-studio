@@ -3,7 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Stunts_1990"
   ],
-  "capa": "https://archive.org/services/img/msdos_Stunts_1990",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--video.mp4",
   "fonte": "https://archive.org/details/msdos_Stunts_1990",
   "descricao": "Jogo de MS-DOS · Racing / Driving, Tricks / Stunts, Vehicle Simulator (1990), de Distinctive Software. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -14,6 +17,9 @@
   ],
   "editora": "Distinctive Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 152362
 }

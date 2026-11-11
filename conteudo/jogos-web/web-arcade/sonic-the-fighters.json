@@ -3,14 +3,23 @@
   "links": [
     "https://play.sonicthefighte.rs/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/e6492dc4c8cce0953e992c39500b220a.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/d4639f34c2205952f23dabd303bd45b9.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/fac1f0665b5caf417eefc77c236b23df.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--sonic-the-fighters--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--sonic-the-fighters--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--sonic-the-fighters--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--sonic-the-fighters--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · play.sonicthefighte.rs",
+  "descricao": "Sonic the Fighters é um jogo de luta 3D, com personagens da franquia Sonic the Hedgehog. A história é que o Doutor Eggman construiu o Death Egg II, uma nova versão de sua instalação que apareceu nos jogos anteriores. Impedí-lo exige as Chaos Emeralds e várias pessoas, incluindo heróis como Sonic the Hedgehog e Miles &quot;Tails&quot; Prower participam de um torneio de luta para reuní-las. No total, existem oito personagens jogáveis e dois chefões (Metal Sonic e Dr. Eggman). \r\n\r\nA jogabilidade é típica de um jogo de luta, 1 contra 1 em uma melhor de 3. Os jogadores usam saltos, socos, pontapés e armas especiais. Bean the Dynamite, por exemplo, um pato que faz sua estréia no universo Sonic, usa bombas. O bloqueio é feito usando uma quantidade limitada de barreiras. Toda a ação é ilustrada de uma maneira cômica, como seria de esperar de um jogo do Sonic. Uma rodada é ganha quando um jogador consegue esgotar a saúde de um oponente, a menos que o tempo se esgote, caso em que o personagem com mais saúde restante é o vencedor. Os ambientes são arenas 3D fechadas, mas a jogabilidade é principalmente 2D, permitindo manobras de esquiva limitadas.",
+  "ano": 1996,
+  "generos": [
+    "Luta",
+    "Luta / Versus"
+  ],
   "console": "web-arcade",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 37480
 }

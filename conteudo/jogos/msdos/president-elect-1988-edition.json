@@ -3,7 +3,9 @@
   "links": [
     "https://archive.org/details/msdos_President_Elect_-_1988_Edition_1987"
   ],
-  "capa": "https://archive.org/services/img/msdos_President_Elect_-_1988_Edition_1987",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--president-elect-1988-edition--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--president-elect-1988-edition--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--president-elect-1988-edition--logo.png",
   "fonte": "https://archive.org/details/msdos_President_Elect_-_1988_Edition_1987",
   "descricao": "Jogo de MS-DOS · Simulation, Strategy/Tactics (1987), de Strategic Simulations. Do acervo do Internet Archive.",
   "ano": 1987,
@@ -14,5 +16,7 @@
   "editora": "Strategic Simulations",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157981
 }

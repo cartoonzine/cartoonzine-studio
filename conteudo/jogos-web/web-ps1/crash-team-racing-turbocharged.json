@@ -3,11 +3,14 @@
   "links": [
     "https://ctr.cmzi.uk/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3a6430ccda63161354c5c81e538e7196.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/88a199611ac2b85bd3f76e8ee7e55650.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/df3aebc649f9e3b674eeb790a4da224e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · ctr.cmzi.uk",
   "console": "web-ps1",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

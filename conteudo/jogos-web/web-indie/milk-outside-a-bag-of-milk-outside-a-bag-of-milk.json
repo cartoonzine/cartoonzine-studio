@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=651"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/a7b2cac3a72acdc14f1cfb863330dbef.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b79850c1310417e3ce582e3d303dad98.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/cd403a05fbbc1997842a6028a1032608.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/milk-bag-games/tree/main/outside",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

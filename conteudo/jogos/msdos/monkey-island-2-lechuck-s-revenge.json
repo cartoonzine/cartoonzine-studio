@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
-  "banner": "https://cdn2.steamgriddb.com/hero/8b5bd6d5eb424f179d84ab721ff03823.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/15114b232670d53c100a833d5b55946f.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--video.mp4",
   "fonte": "https://archive.org/details/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
   "descricao": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1991), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
   "ano": 1991,
@@ -16,6 +17,9 @@
   ],
   "editora": "Lucasfilm Games LLC",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 99779
 }

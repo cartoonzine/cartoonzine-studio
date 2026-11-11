@@ -3,11 +3,14 @@
   "links": [
     "https://ydubr-gt2.surge.sh/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/47cd68598781647f7bd34ebb8428d5a0.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/e7fbb55818def36977ba4a90d82958af.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ce7c0dcb707083a5953857be0416db44.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · ydubr-gt2.surge.sh",
   "console": "web-ps1",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -4,10 +4,11 @@
     "https://archive.org/details/msdos_Deluxe_Ski_Jump_2000"
   ],
   "capa": "https://archive.org/services/img/msdos_Deluxe_Ski_Jump_2000",
-  "banner": "https://cdn2.steamgriddb.com/hero/4810890bd129231235c4e324311cd0c1.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/86ae42e53deed0705cb6b6db11bd6ffb.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--deluxe-ski-jump--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--deluxe-ski-jump--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--deluxe-ski-jump--video.mp4",
   "fonte": "https://archive.org/details/msdos_Deluxe_Ski_Jump_2000",
-  "descricao": "Jogo de MS-DOS · Simulation, Sports (2000), de Mediamond. Do acervo do Internet Archive.",
+  "descricao": "Deluxe Ski Jump is a shareware ski jumping simulation with full 3D graphics and excellently modelled real world physics. The game contains 32 different hills, which vary in size from the tiny K50 in England to the huge K250 in Slovenia. DSJ also allows for up to 16 players (computer or human controlled) to compete for the World Cup trophy simultaneously, using the same computer. \n\nThe actual jumping is performed using the mouse buttons (for jumping and landing) and by moving the mouse up and down (to angle your jumper in flight). This system works quite well, though it takes practice to master.\n\nThere are several factors that affect the outcome of a jump, of which the most important is timing. A poorly timed ''take off'' will most likely drag you down and force you to land prematurely. Other factors include wind strenght and direction as well as a certain knowledge of the hill you're jumping.",
   "ano": 2000,
   "generos": [
     "Simulation",
@@ -16,5 +17,7 @@
   "editora": "Mediamond",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 171574
 }

@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=757"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/00f8cc1c0714b9d2af611d2e2c2f118e.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ae83a31daf023aecc9b07ed6edda6530.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d57db91af41bb6dc943ed7df5ba19de5.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/ParrrotVR/ultrapoolwebport",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

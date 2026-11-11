@@ -4,12 +4,18 @@
     "https://archive.org/details/msdos_Doom_-_The_Roguelike_2005"
   ],
   "capa": "https://archive.org/services/img/msdos_Doom_-_The_Roguelike_2005",
-  "banner": "https://cdn2.steamgriddb.com/hero/9424aa849c54613a0086d9003cb1e5f7.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/46a36a35a3c58cdc8cccceef67833b78.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom-the-roguelike--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom-the-roguelike--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom-the-roguelike--video.mp4",
   "fonte": "https://archive.org/details/msdos_Doom_-_The_Roguelike_2005",
-  "descricao": "Jogo de MS-DOS (2005). Do acervo do Internet Archive.",
+  "descricao": "This game is a mix between two classic games: Rogue, the text-only dungeon crawl role-playing game that has spawned a whole genre of games, and Doom, one of the breakthrough games for 1st-person shooter genre.\n\nThe story is the same as in Doom: You are some soldier performing his monotonic duties in a space base on Phobos -- when suddenly your base is attacked. The only way out is through. Equipped only with a pistol, you start to shoot your way through the mazes.\n\nThe whole game is text-only, but made in a Doom-like style (the sound effects in the Windows version are the original Doom sounds). The only difference to Doom is that you haven't got a realistic 3D world. What you've got are simple 2D text graphics, like in Rogue, where @ denotes the player character, letters denote monsters and other characters denote items.\n\nApart from the style, this game is a straight Rogue-like dungeon crawler. The gameplay is turn-based, with each action taking a certain amount of time. As in a role-playing game, the character has different stats that increase with his experience -- he can reload faster, do more damage, shoot more accurately etc. During the game, you find different weapons and power-ups, all well-known to doom players (blue sphere power-ups, green armor etc.).\n\nThe game is freeware and was written in FreePascal, using the Valkyrie library by the same developer.",
   "ano": 2005,
+  "generos": [
+    "Jogos de RPG"
+  ],
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155791
 }

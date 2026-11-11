@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Jazz_Jackrabbit_1994"
   ],
-  "capa": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_1994",
-  "banner": "https://cdn2.steamgriddb.com/hero/061b7b3d5e2ee31c7875058883fbcce8.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/f5930695d180d30a1b0f358ab79cf115.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--video.mp4",
   "fonte": "https://archive.org/details/msdos_Jazz_Jackrabbit_1994",
   "descricao": "Jogo de MS-DOS · Action, Platform, Shooter (1994), de Epic MegaGames. Do acervo do Internet Archive.",
   "ano": 1994,
@@ -16,6 +17,9 @@
   ],
   "editora": "Epic MegaGames",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155675
 }

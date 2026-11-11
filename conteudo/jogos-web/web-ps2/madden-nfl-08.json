@@ -3,11 +3,14 @@
   "links": [
     "https://maddennfl08.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/88c3d892fc789e8d6071b564b37c5ea5.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/0cac8ef0217411b26be6840a65e14e88.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/0e78a1b0be474c86f804095d2909c141.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · maddennfl08.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

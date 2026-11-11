@@ -3,15 +3,24 @@
   "links": [
     "https://midzer.de/wasm/duke3d/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/4fcf86be9106bf001cd5c131c72c5aae.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/bdddf7327677bbfc879f505df7122e2e.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/5f5c19fa671886b5f7f205d541157c1f.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/BelgianChocolateDuke3D",
-  "descricao": "Port para navegador · midzer.de",
+  "descricao": "A Jogabilidade consiste em o jogador se mover pelos níveis, eliminando inimigos e resolvendo pequenos puzzles até que o se ache uma saída para outro nível.\r\n\r\nO jogador possui algumas habilidades especiais, tais não existiam nos jogos da época. Era possível se abaixar ou pular, nadar e voar, além de poder mirar verticalmente nos inimigos/objetos no cenário utilizando mouse ou teclado. Também é utilizado um sistema de inventário semelhante ao de Hexen e Heretic, onde alguns itens poderiam ser armazenados para serem usados apenas quando fora necessário.",
+  "ano": 1996,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 108792
 }

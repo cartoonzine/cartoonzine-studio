@@ -3,11 +3,14 @@
   "links": [
     "https://burnout3.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/54cdd2db0fcfaa0134f43f363996161e.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c7f06a3e0ab3785cab98e8d0180d9784.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/816d385f9dfa8b6e2f3637f77b97ac9c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · burnout3.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

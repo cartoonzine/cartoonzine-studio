@@ -3,6 +3,9 @@
   "links": [
     "https://wasm.rip/files/scp/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3a7903fcebdcf15c702766488ede0488.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/64ff7983a47d331b13a81156e2f4d29d.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/ba7609ee5789cc4dff171045a693a65f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/larpinguser/q8j",
   "descricao": "Port para navegador · wasm.rip",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

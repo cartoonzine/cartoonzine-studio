@@ -3,11 +3,14 @@
   "links": [
     "https://downhilldomination.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/67cba4c3a1a41d3c799955574abbb2da.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/fc4a9982bb5fe99fc87d9a270db69ca9.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d78c7ea7c8c149904c3ef11359bdaa4e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · downhilldomination.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

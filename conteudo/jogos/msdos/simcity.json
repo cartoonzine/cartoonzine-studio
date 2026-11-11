@@ -3,17 +3,21 @@
   "links": [
     "https://archive.org/details/msdos_SimCity_1989"
   ],
-  "capa": "https://archive.org/services/img/msdos_SimCity_1989",
-  "banner": "https://cdn2.steamgriddb.com/hero/40e244ce06f98f84c452989ca388b8a2.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/3a6c2c9231df58107434b942fa600b22.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--video.mp4",
   "fonte": "https://archive.org/details/msdos_SimCity_1989",
-  "descricao": "Jogo de MS-DOS · Simulation (1989), de Maxis Software. Do acervo do Internet Archive.",
+  "descricao": "SimCity 2000 is the successor to the ground breaking city simulation game Sim City. You are once again the mayor, but this time you can fully customize the terrain before building your city. The graphics are isometric, whereas the original had graphics displayed in a top-down fashion.\r\n\r\nThis title adds numerous features over the original such as the ability of building &quot;light&quot; zones, subways, hospitals, colleges, zoos, and arcos which are actually cities in cities. You can now give names to places, and your city is surrounded by neighboring towns with which you can make trade. Finally, instead of the poll in the first game you now have the option of reading several newspapers to get an idea of your progress.",
   "ano": 1989,
   "generos": [
     "Simulation"
   ],
   "editora": "Maxis Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155689
 }

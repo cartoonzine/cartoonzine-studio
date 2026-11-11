@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/laceys-flash-games/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/9a1cf935777c63962f9ea96e61f240f2.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/3f0a4c39c931b999d291fb9686a69914.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/83184ea47fbcc52ef59e6c78fdce1a5b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/lacysflashgames",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

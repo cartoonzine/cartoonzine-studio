@@ -3,11 +3,14 @@
   "links": [
     "https://comdh.krig.games/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/74382b603df4a14cc8dc4ea375ddbc64.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c1972825977a04d826aa8f04b033314b.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/660bc121513a9d5442e97c5cef85786e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · comdh.krig.games",
   "console": "web-mobile",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

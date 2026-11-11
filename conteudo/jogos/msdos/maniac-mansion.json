@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Maniac_Mansion_1987"
   ],
-  "capa": "https://archive.org/services/img/msdos_Maniac_Mansion_1987",
-  "banner": "https://cdn2.steamgriddb.com/hero/56b68074a594752f33faa659f227ac65.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/1dcfee25dedf7c8e7e25a9b588299f84.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--video.mp4",
   "fonte": "https://archive.org/details/msdos_Maniac_Mansion_1987",
   "descricao": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1987), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
   "ano": 1987,
@@ -16,6 +17,9 @@
   ],
   "editora": "Lucasfilm Games LLC",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 99767
 }

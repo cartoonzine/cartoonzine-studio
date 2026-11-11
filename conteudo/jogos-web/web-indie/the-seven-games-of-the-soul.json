@@ -3,6 +3,9 @@
   "links": [
     "https://omnium-games.github.io/faust/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/91d44c2f55bb599b88e11398e09bc6d7.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/5643089fc5312acca6e68376dca7ca81.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/16ae3b4800570a7c30054422b93cc18b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/Omnium-Games/faust",
   "descricao": "Port para navegador · omnium-games.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,11 +3,14 @@
   "links": [
     "https://monkeyball-online.pages.dev/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ed10e468b306f16f3e3c43f643316cf7.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/2318f5f3a9602a7ba2f2d21b919b7f13.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/4b58db5ec33af76c6d9b968cf2c633b1.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · monkeyball-online.pages.dev",
   "console": "web-gamecube",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

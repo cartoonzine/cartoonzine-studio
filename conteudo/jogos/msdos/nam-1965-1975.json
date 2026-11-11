@@ -3,16 +3,21 @@
   "links": [
     "https://archive.org/details/msdos_Nam_1965-1975_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_Nam_1965-1975_1991",
-  "logo": "https://cdn2.steamgriddb.com/logo/086ee121fcc973f97e5fcfecfc4f2dad.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--video.mp4",
   "fonte": "https://archive.org/details/msdos_Nam_1965-1975_1991",
-  "descricao": "Jogo de MS-DOS · Strategy/Tactics (1991), de Kremlin, The. Do acervo do Internet Archive.",
+  "descricao": "'Nam 1965-1975 is a strategy game set during the Vietnam war. The player takes the role of both the President of the United States and the commander-in-chief, and the goal of the game is to prevent the South of Vietnam to fall in the hands of the Vietcong, managing its military resources and preventing the public opinion to reject the war. As President, the player has to manage the military resources, and as Commander in chief they can take direct decisions on the terrain, such as tactics or engaging enemies. \r\nThe game offers five different scenarios: Khe Sanh, Tet Offensive, 1975 offensive, Nixon and Johnson. The first three are some of the most decisive battles during the conflict, whereas choosing &quot;Nixon&quot; or &quot;Johnson&quot; changes the year (1964 or 1968) in which the player starts playing.",
   "ano": 1991,
   "generos": [
     "Strategy/Tactics"
   ],
   "editora": "Kremlin, The",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157052
 }

@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Golden_Axe_1990"
   ],
-  "capa": "https://archive.org/services/img/msdos_Golden_Axe_1990",
-  "banner": "https://cdn2.steamgriddb.com/hero/362e95a098223bb09b80ff75afd0150f.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/dc1913d422398c25c5f0b81cab94cc87.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--video.mp4",
   "fonte": "https://archive.org/details/msdos_Golden_Axe_1990",
   "descricao": "Jogo de MS-DOS · Action, Beat 'em up / Brawler (1990), de Team Shinobi. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -15,6 +16,9 @@
   ],
   "editora": "Team Shinobi",
   "console": "msdos",
+  "jogadores": 2,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187808
 }

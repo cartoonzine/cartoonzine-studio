@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Alley_Cat_1984"
   ],
-  "capa": "https://archive.org/services/img/msdos_Alley_Cat_1984",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--alley-cat--capa.png",
   "banner": "https://cdn2.steamgriddb.com/hero/156d33030be5fe619195e5e76752aad4.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/d405ba4799c3c7ef483513a23c07aa2c.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--alley-cat--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--alley-cat--video.mp4",
   "fonte": "https://archive.org/details/msdos_Alley_Cat_1984",
   "descricao": "Jogo de MS-DOS · Action, Arcade, Platform (1984), de Synapse Software Corporation. Do acervo do Internet Archive.",
   "ano": 1984,
@@ -16,6 +17,9 @@
   ],
   "editora": "Synapse Software Corporation",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187149
 }

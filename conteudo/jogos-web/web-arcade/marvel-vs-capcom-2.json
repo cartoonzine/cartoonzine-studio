@@ -3,13 +3,22 @@
   "links": [
     "https://marvelvscapcom2.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/bc7b4e25f69535e8ff34363547ac09da.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/ef67f7c2d86352c2c42e19d20f881f53.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/e81fef8820149d2910bc279001126f97.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · marvelvscapcom2.online",
+  "descricao": "Marvel vs. Capcom 2: New Age of Heroes é a quarta edição da série Marvel vs. Capcom, de jogos de luta baseados em equipes. Os jogadores selecionam um time de três personagens para competir em batalhas um-a-um, em oposição aos times de dois personagens do jogo anterior da série, Marvel vs. Capcom: Clash of Super Heroes.\r\n\r\nO jogo apresenta uma versão mais refinada do &quot;sistema de variáveis&quot; usado nos jogos anteriores, que permite aos jogadores convocar outros membros da equipe a qualquer momento durante a partida. Ligeiramente diferente de Clash of Super Heroes, que apresentava personagens parceiros não-jogáveis ​​que o jogador podia convocar à vontade.",
+  "ano": 2000,
+  "generos": [
+    "Luta",
+    "Luta / Versus"
+  ],
   "console": "web-arcade",
   "licenca": "autorizada",
+  "jogadores": 2,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 46788
 }

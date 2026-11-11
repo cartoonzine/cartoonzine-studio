@@ -3,11 +3,14 @@
   "links": [
     "https://gn-math.dev/?id=164"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/301157b6a5b40f4f831a6b5f4e6df97b.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/7294d3581ac26520d2ba77e6fb3fe527.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/fa41b70e7892771212779182921bd194.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

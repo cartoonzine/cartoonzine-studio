@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/deltatraveler/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/97c216cb25ce4c47de15d030c76fed39.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4bc839af0bc4976f89df82351a87547a.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/4ab7a904d853b6735bcb877cb07913b7.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/deltatraveler",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

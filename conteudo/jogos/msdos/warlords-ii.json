@@ -3,9 +3,9 @@
   "links": [
     "https://archive.org/details/msdos_Warlords_II_1993"
   ],
-  "capa": "https://archive.org/services/img/msdos_Warlords_II_1993",
-  "banner": "https://cdn2.steamgriddb.com/hero/c56ff9d8e9a0bcc230f64f66f918f6f7.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/07903696918181deac35e89ec86b6427.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii--logo.png",
   "fonte": "https://archive.org/details/msdos_Warlords_II_1993",
   "descricao": "Jogo de MS-DOS · Strategy/Tactics, RPG, Wargame (1993), de Strategic Studies Group Pty Ltd.. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -17,5 +17,7 @@
   "editora": "Strategic Studies Group Pty Ltd.",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157719
 }

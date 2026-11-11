@@ -3,11 +3,14 @@
   "links": [
     "https://kingof94.web.app/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/eb18a6c720d5e836aa260967c230f437.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/45d5c26cf369d90572e41f5bfb0896ae.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/0f7b2bb5d0c7e6209ecff113108f64cf.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · kingof94.web.app",
   "console": "web-outros",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

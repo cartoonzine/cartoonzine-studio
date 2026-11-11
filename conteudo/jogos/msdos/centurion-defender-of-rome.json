@@ -3,7 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Centurion_-_Defender_of_Rome_1990"
   ],
-  "capa": "https://archive.org/services/img/msdos_Centurion_-_Defender_of_Rome_1990",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--video.mp4",
   "fonte": "https://archive.org/details/msdos_Centurion_-_Defender_of_Rome_1990",
   "descricao": "Jogo de MS-DOS · Strategy/Tactics (1990), de Bits of Magic. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -12,6 +15,9 @@
   ],
   "editora": "Bits of Magic",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 158268
 }

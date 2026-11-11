@@ -3,6 +3,9 @@
   "links": [
     "http://xproger.info/projects/OpenLara/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/87368138229b6995db6b5c482f90a5bf.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/a7f0f550578261d8a0507e6972d5925c.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/5e4b3bf0d97e959f577e143845dd852d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/XProger/OpenLara",
   "descricao": "Port para navegador · xproger.info",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

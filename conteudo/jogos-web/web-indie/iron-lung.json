@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=705"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/42f29b6ed8389d3ce620faf11cd4070a.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/9ceb1bb7533da5123b053a38dea2516c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/e854a9943e3cb196a19532854feb684e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/iron-lung",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

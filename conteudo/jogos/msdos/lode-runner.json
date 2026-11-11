@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Lode_Runner_1983_1983"
   ],
-  "capa": "https://archive.org/services/img/msdos_Lode_Runner_1983_1983",
-  "banner": "https://cdn2.steamgriddb.com/hero/2396e9e42ef84c8636a66efd53094116.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/619e8a3f307ee54440745aefae343e33.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--video.mp4",
   "fonte": "https://archive.org/details/msdos_Lode_Runner_1983_1983",
   "descricao": "Jogo de MS-DOS · Action, Puzzle, Platform (1983), de Brøderbund Software. Do acervo do Internet Archive.",
   "ano": 1983,
@@ -16,6 +17,9 @@
   ],
   "editora": "Brøderbund Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188056
 }

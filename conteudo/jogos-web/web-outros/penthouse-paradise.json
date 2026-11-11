@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/8782-duke-penthouse/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/97b3af8bf09284fdc03b2ab8a20d698d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/15f48799d2fc7a70db6d74d6eb0627f0.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/91d7db8afb760680153b5ad771d46a3b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-outros",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

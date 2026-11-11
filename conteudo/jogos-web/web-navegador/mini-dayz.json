@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/minidayz/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b0b9693fffa8d35ba4d2f4c2f0340fbe.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/273448411df1962cba1db6c05b3213c9.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a28388ab4de3107161c5ca0152da126d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-navegador",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

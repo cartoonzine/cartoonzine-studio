@@ -3,14 +3,22 @@
   "links": [
     "https://petarov.github.io/alleycat.exe/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/f811ee27f4d3299d368cd26d28576041.jpg",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--capa.png",
   "banner": "https://cdn2.steamgriddb.com/hero/156d33030be5fe619195e5e76752aad4.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/d405ba4799c3c7ef483513a23c07aa2c.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/petarov/alleycat.exe",
-  "descricao": "Port para navegador · petarov.github.io",
+  "descricao": "Alley Cat is an action game consisting of several mini games tied together. You're a little black cat who wants to make love to a pretty lady cat that lives in an apartment complex. Play all kinds of cat-themed mini games in order to reach her and score as many points as you can while doing so.\n\nYou start out in an alley and need to get inside the apartment by climbing on garbage cans and a fence. Next, jump on a clothesline and through several open windows while big dogs try to eat you and people throw garbage at you. Outside of the apartment complex you can score points by eating the mice that run across the clotheslines. Once you've jumped through a window you enter a room where you play a randomly assigned mini game.\n\nThese mini games include: eating all the fish in a fish bowl, stealing milk from a bunch of bulldogs, pushing a birdcage from a table and eating the bird, catching mice inside a big cheese, pushing vases from a cabinet. To make things harder there's always a broom inside every room that tries to knock you around. You score points by completing the mini games within a certain time (the faster the better).\n\nAfter you've completed a mini game you're back in the alley. Make your way back inside the apartment complex and you get a chance to play the love-cat game: try to reach the lady cat on the top row of hearts while rival male cats and cupid's arrows knock you down. After you've mated, the difficulty gets cranked up a notch",
+  "ano": 1984,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-dos",
   "licenca": "autorizada",
+  "jogadores": 1,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187149
 }

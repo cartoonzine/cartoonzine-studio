@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Budokan_The_Martial_Spirit_1989"
   ],
-  "capa": "https://archive.org/services/img/msdos_Budokan_The_Martial_Spirit_1989",
-  "banner": "https://cdn2.steamgriddb.com/hero/1e3cad5329ca7d6266f2c620d37e9685.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/a5419b34e791ffdd85f5cc39993faf90.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--video.mp4",
   "fonte": "https://archive.org/details/msdos_Budokan_The_Martial_Spirit_1989",
   "descricao": "Jogo de MS-DOS · Simulation, Sports, Martial Arts (1989), de Electronic Arts. Do acervo do Internet Archive.",
   "ano": 1989,
@@ -16,6 +17,9 @@
   ],
   "editora": "Electronic Arts",
   "console": "msdos",
+  "jogadores": 2,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 171786
 }

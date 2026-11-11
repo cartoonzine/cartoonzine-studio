@@ -3,6 +3,7 @@
   "links": [
     "https://gn-math.dev/?id=734"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e70f04746e3766580096eb28c7386690.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/christmas-massacre",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +11,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

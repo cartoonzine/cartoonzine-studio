@@ -3,11 +3,12 @@
   "links": [
     "https://archive.org/details/msdos_Wolfenstein_3D_1992"
   ],
-  "capa": "https://archive.org/services/img/msdos_Wolfenstein_3D_1992",
-  "banner": "https://cdn2.steamgriddb.com/hero/3b5d4919c43697e04ae8f965bc07acd1.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/9d12d071c18b535cda26f47f20e5c7ae.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--video.mp4",
   "fonte": "https://archive.org/details/msdos_Wolfenstein_3D_1992",
-  "descricao": "Jogo de MS-DOS · Action, Shooter (1992), de id Software. Do acervo do Internet Archive.",
+  "descricao": "Em Wolfenstein 3D, o jogo é visto pelo ponto de vista do protagonista William &quot;B.J.&quot; Blazkowicz. O jogador circula pelos labirínticos níveis em busca de um elevador que serve de saída, matando inimigos com um arsenal de quatro armas (uma pistola, uma metralhadora, uma metralhadora giratória e uma Faca). Itens incluem comida e kit de primeiros socorros para restaurar saúde, chaves para abrir portas trancadas, e tesouros para acumular pontos. O jogador tem até 9 vidas (encontradas pelos níveis e conseguidas acumulando 40,000 pontos), e se morrer recomeça o nível com apenas uma pistola e oito balas. Certas paredes quando pressionadas com o botão de abrir portas revelam passagens escondidas, normalmente com itens mas também levando a fases secretas (uma em cada episódio - a do episódio 3 é uma paródia de Pac-Man).",
   "ano": 1992,
   "generos": [
     "Action",
@@ -15,6 +16,9 @@
   ],
   "editora": "id Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 152368
 }

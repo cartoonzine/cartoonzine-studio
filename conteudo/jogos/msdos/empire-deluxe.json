@@ -3,7 +3,9 @@
   "links": [
     "https://archive.org/details/msdos_Empire_Deluxe_1993"
   ],
-  "capa": "https://archive.org/services/img/msdos_Empire_Deluxe_1993",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--empire-deluxe--capa.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--empire-deluxe--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--empire-deluxe--video.mp4",
   "fonte": "https://archive.org/details/msdos_Empire_Deluxe_1993",
   "descricao": "Jogo de MS-DOS · Strategy/Tactics (1993), de White Wolf Productions. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -13,5 +15,7 @@
   "editora": "White Wolf Productions",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157660
 }

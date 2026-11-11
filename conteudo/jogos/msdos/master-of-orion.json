@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Master_of_Orion_1993"
   ],
-  "capa": "https://archive.org/services/img/msdos_Master_of_Orion_1993",
-  "banner": "https://cdn2.steamgriddb.com/hero/e6c19a87ef9e816e02ce247d4f41d38a.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/65dfa16ba6de9bdb34ea435c9fe2a425.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--video.mp4",
   "fonte": "https://archive.org/details/msdos_Master_of_Orion_1993",
   "descricao": "Jogo de MS-DOS · Strategy/Tactics, 4X, Turn-based strategy (1993), de SimTex. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -16,6 +17,9 @@
   ],
   "editora": "SimTex",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157439
 }

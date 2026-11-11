@@ -3,6 +3,9 @@
   "links": [
     "https://stelight.games/play/webports/stellite.games/stellite/vvvvvv/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/108c7bfcc061d2f1342fc1167f8fd600.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/980370881f8994f78f482ee04d3cce3e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9426c311e76888b3b2368150cd05f362.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/vvvvvv",
   "descricao": "Port para navegador · stelight.games",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

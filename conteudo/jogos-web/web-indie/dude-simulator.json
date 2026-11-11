@@ -3,11 +3,14 @@
   "links": [
     "https://dude-simulator-webgl.netlify.app/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/2e01a0325393a30dda806b00be911c5d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e0c7dc8357f2d2c886ff32518299f3af.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/26c9ed1948a59ca06b06cc575af58b92.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · dude-simulator-webgl.netlify.app",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

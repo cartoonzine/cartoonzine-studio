@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Dragons_Lair_1993_1993"
   ],
-  "capa": "https://archive.org/services/img/msdos_Dragons_Lair_1993_1993",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dragon-s-lair--capa.png",
   "banner": "https://cdn2.steamgriddb.com/hero/857bdf528d4ad868c1d1801a6da01660.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/530bed81e8e846e910fd06b1443f083d.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dragon-s-lair--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dragon-s-lair--video.mp4",
   "fonte": "https://archive.org/details/msdos_Dragons_Lair_1993_1993",
   "descricao": "Jogo de MS-DOS · Action, Timed Input (1993), de Sullivan Bluth Interactive Media. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -16,5 +17,7 @@
   "editora": "Sullivan Bluth Interactive Media",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 481652
 }

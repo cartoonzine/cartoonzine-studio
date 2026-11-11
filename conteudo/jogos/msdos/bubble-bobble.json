@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Bubble_Bobble_1988"
   ],
-  "capa": "https://archive.org/services/img/msdos_Bubble_Bobble_1988",
-  "banner": "https://cdn2.steamgriddb.com/hero/4d8bb121c305148c417a383070377063.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/0f3b266202a9e5e84c6b1229e21e1fa9.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--video.mp4",
   "fonte": "https://archive.org/details/msdos_Bubble_Bobble_1988",
   "descricao": "Jogo de MS-DOS · Action, Arcade, Platform (1988), de Taito Corporation. Do acervo do Internet Archive.",
   "ano": 1988,
@@ -16,6 +17,9 @@
   ],
   "editora": "Taito Corporation",
   "console": "msdos",
+  "jogadores": 2,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187340
 }

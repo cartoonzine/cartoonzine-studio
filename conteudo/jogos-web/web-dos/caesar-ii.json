@@ -3,13 +3,23 @@
   "links": [
     "https://second-impressions.github.io/caesar2-port/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/a4909f85df0007e75aa9378b3926b530.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/4183f64f3ab1929ac1c244f8fe0b9ba5.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--caesar-ii--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--caesar-ii--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--caesar-ii--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--caesar-ii--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · second-impressions.github.io",
+  "descricao": "Caesar II is set in the time of ancient Rome, and lets you try to be the next Caesar. You start with one province and have to build an efficient city. To do this you'll have to manage the water supply properly, make sure the city is policed well, and provide adequate education, entertainment, baths, and temples (which also hold your money and can be robbed if you don't have enough protection).\n\nAt some point, possibly more then once, you'll have to defend your province from invading tribes that don't really want you there. You also have to connect all the little villages in the province with roads and make some industry, like stone mining, grapes, etc. for which you can then create markets in your city. \n\nWhen you have achieved the necessary requirements, you'll be able to start all over again in a new and more challenging province. Do well enough and you can become the new Caesar.",
+  "ano": 1995,
+  "generos": [
+    "Simulação",
+    "Construção e Gestão"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155660
 }

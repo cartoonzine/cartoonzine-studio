@@ -3,11 +3,14 @@
   "links": [
     "https://fifa12.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f4b8af3fbd9742f2539c360961e6f3ac.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/a5cb18d6a1cc8ebc87cf6f39a5194fa5.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/72a18efb5f9cc44f119aeac6fe4bb42a.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · fifa12.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

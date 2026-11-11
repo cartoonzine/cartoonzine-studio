@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/yandere-simulator/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/bf1afd938852be319edfaaecd4cc4407.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/9cdf26568d166bc6793ef8da5afa0846.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d91caca74114d81fdfc578fca82f8d72.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/yandere-simulator",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

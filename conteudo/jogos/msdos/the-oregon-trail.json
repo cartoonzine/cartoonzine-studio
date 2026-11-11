@@ -3,14 +3,21 @@
   "links": [
     "https://archive.org/details/msdos_Oregon_Trail_The_1990"
   ],
-  "capa": "https://archive.org/services/img/msdos_Oregon_Trail_The_1990",
-  "banner": "https://cdn2.steamgriddb.com/hero/164b9d82149e90db2876f473a6d4ee9a.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/6d25adbe208ce5e99080da48d33e407a.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--video.mp4",
   "fonte": "https://archive.org/details/msdos_Oregon_Trail_The_1990",
-  "descricao": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+  "descricao": "Em uma caravana de pioneiros, você seguirá para o oeste de Independence, Michigan, até o rio Willamette no vale de Oregon. Você deve estocar provisões e durante a viagem, tomar decisões chave como quando descansar, racionar comida, entre outras. The Oregon Trail incorpora estratégia e planejamento com exploração e aventura, assim como ação (caçando para sobreviver e a descida no rio Dalles).",
   "ano": 1990,
+  "generos": [
+    "Aventura"
+  ],
   "editora": "MECC",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 156982
 }

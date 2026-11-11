@@ -3,11 +3,14 @@
   "links": [
     "https://webciv.org/webclient/?action=new&type=singleplayer"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0a4c93ddb993d7d200fa72c65c8e7239.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/cc56c95c41129f683230076e24a62145.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/009da52122d75bc3150aa17e5e515204.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · webciv.org",
   "console": "web-pc",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

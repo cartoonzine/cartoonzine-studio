@@ -3,6 +3,9 @@
   "links": [
     "https://cartoonzine.github.io/cartoonzine-jogos/powermanga/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b4dada50f3743aa50adb9a463820179e.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/9d3a54d0abf035859f2a910df9fe0640.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/06d2bff77eb0c7a5b0391754247bbb20.png",
   "site": "https://linux.tlk.fr/games/Powermanga/",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://linux.tlk.fr/games/Powermanga/",
@@ -18,5 +21,5 @@
   "licenca": "livre",
   "controles": "teclado",
   "_origem": "prateleira:cartoonzine-jogos",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

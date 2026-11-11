@@ -3,10 +3,13 @@
   "links": [
     "https://cod-webports.pages.dev/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/d50024a382b0bbae0ba02d1ef479b927.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/ddc2d6b4966c50ee8fa5885d10931758.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/1820c4b6fcbf5be5758bffe24c41fa6a.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · cod-webports.pages.dev",
   "console": "web-outros",
   "licenca": "autorizada",
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

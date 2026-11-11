@@ -3,9 +3,10 @@
   "links": [
     "https://cartoonzine.github.io/cartoonzine-jogos/abuse/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/044357042a997da5ca2f9f6e451dc364.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/ff413935bfae4f0e2d8dce0e0dacfdcd.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/eed054ecd7a0a544cf73292836023ffe.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--video.mp4",
   "site": "https://github.com/Xenoveritas/abuse",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/Xenoveritas/abuse",
@@ -19,6 +20,9 @@
   "console": "web-dos",
   "licenca": "livre",
   "controles": "teclado",
+  "jogadores": 1,
   "_origem": "prateleira:cartoonzine-jogos",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187109
 }

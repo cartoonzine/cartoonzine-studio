@@ -3,11 +3,13 @@
   "links": [
     "https://wasm.rip/files/cc/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/236299dcf26ad1a0ebb8ebee5655088d.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/df0d9940656343a7a8a4092f7bcbdfda.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wasm.rip",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

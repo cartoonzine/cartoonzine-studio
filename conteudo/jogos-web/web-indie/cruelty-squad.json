@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=825"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e1ca10fa5c0a39569518bd50c0638ad5.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/d5b56d906ef1225ffa32fd3a1138fe8a.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b686d8953d8298b91e0fd17873cae61b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/imt00dizzy/cruelty-squad",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

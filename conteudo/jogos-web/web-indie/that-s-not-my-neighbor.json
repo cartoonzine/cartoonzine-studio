@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/thats-not-my-neighbor/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/54eb33e117cd5731ac11b0d78e5dc2e4.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/b035079a536f5c18d4f67b9e074192f6.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3780e410986665b270501f4b7ed21afa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/thats-not-my-neighbor",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,6 +3,9 @@
   "links": [
     "https://loganwalkerdev.github.io/lugaru-web/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1a01f836b0c2494b9e95700f520f7df4.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/13dfe127c6d40641c7ad9fd60ef8701d.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ed1f65a161ee1de13bf41dac2781af4f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/loganwalkerdev/lugaru-web",
   "descricao": "Port para navegador · loganwalkerdev.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

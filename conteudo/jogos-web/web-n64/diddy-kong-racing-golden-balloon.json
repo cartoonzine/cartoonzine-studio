@@ -3,6 +3,9 @@
   "links": [
     "https://akratch.github.io/golden-balloon/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4c38b84197c2e1a8444814d95c2487a8.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/d0889e004cf23c71fbbe485591ccb636.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/caa89215e67b35d504b99a0b22f1c56d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/akratch/goldenballoon",
   "descricao": "Port para navegador · akratch.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

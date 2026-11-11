@@ -3,11 +3,14 @@
   "links": [
     "https://selenite.cc/resources/semag/ddlcplus/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/042f6e4fdc5db0324a811eb24ab0a4ad.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/38427015e9934ea855bd9adcdf32055f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ffb55afa1e1b9f61c3696cc12f69b6d2.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · selenite.cc",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,15 +3,23 @@
   "links": [
     "https://rgc.zone/ports/carmaweb/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/0b10574b8240b424056808b793bef04f.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/84c10b2211891c399469ee784cdb1987.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/0e19a8bac63f97a513063dcb9a64442b.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--carmageddon--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--carmageddon--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--carmageddon--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--carmageddon--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/Carter54git/dethrace-ported-to-web",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Motorized carnage. Ever wanted to hit pedestrians during a race? Now's your chance. Carmageddon is an ultra-violent racing game which caused much controversy during the '90s but was also very popular due to its fun factor. It was also one of the first batch of games to make use of 3D accelerated graphics (using OpenGL and 3dfx Voodoo cards).\n\nAt the beginning of the game the player only has one car and is ranked at #99. The overall objective is to race all the way to the top, collecting the opponents' cars on the way as trophies (and possibly replacements to his vehicle). In the race itself the player tries to damage opponents by driving into them, and can also kill pedestrians. Damage, kills and spectacular moves earn credits for the player which can be used for upgrades and even making repairs to the car at anytime during the race. If you wreck a certain car in 4 races or so, you get to drive it. There are many power-ups strewn around the courses which range from useful to fun to downright absurd. Though the player can win by racing fairly and normally, most players found it much more fun to wreck everything in sight.\n\nCarmageddon is a violent game which is probably not suitable for minors.",
+  "ano": 1997,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 190648
 }

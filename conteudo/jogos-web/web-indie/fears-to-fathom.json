@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/fears-to-fathom/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3fb372e8009599526e874eb98128ce7a.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/addbc9ce008a3fe8c5fa97a25e90db60.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/99665b901ab21d09dab51ca2f581d777.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/fears-to-fathom",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

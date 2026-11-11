@@ -8,6 +8,9 @@
    "year": 2023,
    "studio": "jogos-web/web-pc/bombermaaan",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/bombermaaan/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/c5b781ce025e8217c23f95f9569a0b96.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/3a06105cf87a4a0d2b22ca218aca4783.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/afb79a9be5cd9762572a008088d3153e.png",
    "console": "web-pc",
    "core": "web",
    "aparelhos": [
@@ -30,6 +33,9 @@
    ],
    "studio": "jogos-web/web-pc/powermanga",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/powermanga/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/b4dada50f3743aa50adb9a463820179e.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9d3a54d0abf035859f2a910df9fe0640.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/06d2bff77eb0c7a5b0391754247bbb20.png",
    "console": "web-pc",
    "core": "web",
    "aparelhos": [

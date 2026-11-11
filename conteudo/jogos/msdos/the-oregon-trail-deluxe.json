@@ -4,10 +4,17 @@
     "https://archive.org/details/msdos_Oregon_Trail_Deluxe_The_1992"
   ],
   "capa": "https://archive.org/services/img/msdos_Oregon_Trail_Deluxe_The_1992",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail-deluxe--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail-deluxe--logo.png",
   "fonte": "https://archive.org/details/msdos_Oregon_Trail_Deluxe_The_1992",
-  "descricao": "Jogo de MS-DOS (1992). Do acervo do Internet Archive.",
+  "descricao": "As a covered wagon party of pioneers, you head out west from Independence, MI to the Willamette River and valley in Oregon. You first must stock up on provisions, and then, while traveling, make decisions such as when to rest, how much food to eat, etc. The Oregon Trail incorporates strategy and planning ahead along with discovery and adventure as well as action (hunting and floating down the Dalles river).",
   "ano": 1992,
+  "generos": [
+    "Aventura"
+  ],
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 156912
 }

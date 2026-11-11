@@ -3,13 +3,20 @@
   "links": [
     "https://archive.org/details/msdos_SimCity_Classic_1994"
   ],
-  "capa": "https://archive.org/services/img/msdos_SimCity_Classic_1994",
-  "banner": "https://cdn2.steamgriddb.com/hero/40e244ce06f98f84c452989ca388b8a2.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/3a6c2c9231df58107434b942fa600b22.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--video.mp4",
   "fonte": "https://archive.org/details/msdos_SimCity_Classic_1994",
-  "descricao": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
+  "descricao": "SimCity Classic is a remake of the original SimCity. Compared to the original release it brings enhanced graphics, sound effects, a music track, a resized interface, and smooth scrolling across the map. Gameplay remains largely the same.",
   "ano": 1994,
+  "generos": [
+    "Simulação",
+    "Construção e Gestão"
+  ],
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157099
 }

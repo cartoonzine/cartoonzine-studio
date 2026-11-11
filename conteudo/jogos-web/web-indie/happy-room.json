@@ -3,6 +3,9 @@
   "links": [
     "https://wasm.rip/files/happy-room/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ef9b429a0d4d081a33c48b660249a063.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/3a09a524440d44d7f19870070a5ad42f.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/9a3f54913bf27e648d1759c18d007165.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/degloved-net/happy-room",
   "descricao": "Port para navegador · wasm.rip",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

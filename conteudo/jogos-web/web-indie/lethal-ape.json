@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=793"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/41e8cacde457725bc3785ad528cc26a7.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/33c807a331860c99942066de04a43127.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/e6864fa508999c74d0fadb604f2a4ad3.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/lethal-ape",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

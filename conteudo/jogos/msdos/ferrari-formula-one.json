@@ -3,9 +3,9 @@
   "links": [
     "https://archive.org/details/msdos_Ferrari_Formula_One_1989"
   ],
-  "capa": "https://archive.org/services/img/msdos_Ferrari_Formula_One_1989",
-  "banner": "https://cdn2.steamgriddb.com/hero/1b1aaf466f0bd1ebc4d91f0c42abfddf.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/f8e533347b0b2ac127391faaaae71357.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--logo.png",
   "fonte": "https://archive.org/details/msdos_Ferrari_Formula_One_1989",
   "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1989), de Electronic Arts. Do acervo do Internet Archive.",
   "ano": 1989,
@@ -17,5 +17,7 @@
   "editora": "Electronic Arts",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 171725
 }

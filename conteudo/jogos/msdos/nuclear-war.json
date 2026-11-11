@@ -3,7 +3,9 @@
   "links": [
     "https://archive.org/details/msdos_Nuclear_War_1989"
   ],
-  "capa": "https://archive.org/services/img/msdos_Nuclear_War_1989",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nuclear-war--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nuclear-war--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nuclear-war--logo.png",
   "fonte": "https://archive.org/details/msdos_Nuclear_War_1989",
   "descricao": "Jogo de MS-DOS · Strategy/Tactics (1989), de New World Computing. Do acervo do Internet Archive.",
   "ano": 1989,
@@ -13,5 +15,7 @@
   "editora": "New World Computing",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157898
 }

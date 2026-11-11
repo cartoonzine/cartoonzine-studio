@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/andys-apple-farm/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/271f3c5f5711963bae282922f5440a4a.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/8db711a4b99827db3e3047b928a4f8a8.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/f0d0e2941f084185a554f44960893460.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/andys-apple-farm",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

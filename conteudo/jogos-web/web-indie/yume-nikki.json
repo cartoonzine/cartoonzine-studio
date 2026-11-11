@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/yume-nikki/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/7159ee6744f7862015648fab47a5ef62.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/96de2547f44254c97f5f4f1f402711c1.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/1f36c15d6a3d18d52e8d493bc8187cb9.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/yume-nikki",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/baldi-remaster/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/92464dcf0889d4b6f1c8ef6fc5fa8b1e.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/1faaf2a85028c4eb1d6ac07ac6c39a4f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3111e81e07cbaa995b104cf34e1d2f78.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/baldi-remaster",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

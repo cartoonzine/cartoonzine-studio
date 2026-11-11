@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Digger_1983_1983"
   ],
-  "capa": "https://archive.org/services/img/msdos_Digger_1983_1983",
-  "banner": "https://cdn2.steamgriddb.com/hero/d4de0c9c151a319fd1d943300fd551f0.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/0e3f3bc74c1be637020f3e5d23d725fe.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--video.mp4",
   "fonte": "https://archive.org/details/msdos_Digger_1983_1983",
   "descricao": "Jogo de MS-DOS · Action, Arcade (1983), de Windmill Software. Do acervo do Internet Archive.",
   "ano": 1983,
@@ -15,6 +16,9 @@
   ],
   "editora": "Windmill Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 423407
 }

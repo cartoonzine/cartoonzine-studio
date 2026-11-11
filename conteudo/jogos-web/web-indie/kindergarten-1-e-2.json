@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/kindergarten/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/913ab8bcd9c1a9e027d12d97cc387266.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e3ae496cc2d0f8d5cd1a999eb14b2af6.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/f878e844bdf2022f29449b96f87026cb.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/kindergarten",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,13 +3,19 @@
   "links": [
     "https://archive.org/details/msdos_Number_Munchers_1990"
   ],
-  "capa": "https://archive.org/services/img/msdos_Number_Munchers_1990",
-  "logo": "https://cdn2.steamgriddb.com/logo/27c174bace8d8706ec65923cc8745255.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--number-munchers--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--number-munchers--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--number-munchers--logo.png",
   "fonte": "https://archive.org/details/msdos_Number_Munchers_1990",
-  "descricao": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+  "descricao": "Learn basic math skills with Number Munchers. Keep your Muncher away from the Troggles by munching on multiples, factors, prime numbers, equalities, and inequalities. If you can stay away from the Troggles and earn enough points, you'll be part of the Muncher Hall of Fame.",
   "ano": 1990,
+  "generos": [
+    "Educacional"
+  ],
   "editora": "MECC",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 171732
 }

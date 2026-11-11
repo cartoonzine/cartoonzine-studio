@@ -3,14 +3,22 @@
   "links": [
     "https://dk-browser.tiiny.site/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/5f9bc5f85547dad0c9b6d8777e412d25.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/5e872c352443e579d02e36e84878b503.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/a3545bd79d31f9a72d3a78690adf73fc.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dungeon-keeper--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dungeon-keeper--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dungeon-keeper--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dungeon-keeper--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · dk-browser.tiiny.site",
+  "descricao": "Dungeon Keeper takes real-time strategy into a fantasy setting. You command a dungeon and its hellish minions, and must take them to glory against the hated good guys. You must use your gold to build a fortress and weapons to attack. \n\nAs well as being able to rotate the 3D view, and control the light source, you can enter the direct viewpoints of your men, to see life through their eyes (one character's mode goes into black and white for this).",
+  "ano": 1997,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155668
 }

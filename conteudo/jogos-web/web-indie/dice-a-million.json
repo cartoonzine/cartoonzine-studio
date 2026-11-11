@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=759"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/962d677ffc317c107e093c74aa518e30.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/d135a79d61ec5a78d3b675fdbde19617.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/14f131e859406fae3c921ee66054b393.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/NotRexed/Unblocked-Games/tree/main/diceamillion",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_SimFarm_1993"
   ],
-  "capa": "https://archive.org/services/img/msdos_SimFarm_1993",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simfarm--capa.png",
   "banner": "https://cdn2.steamgriddb.com/hero/508087c9dd886b6a1a82cb805c2ee328.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/a3604090ad274ca07d94a2b34ec1cf65.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simfarm--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simfarm--video.mp4",
   "fonte": "https://archive.org/details/msdos_SimFarm_1993",
   "descricao": "Jogo de MS-DOS · Simulation, Strategy (1993), de Leaping Lizard Software. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -15,6 +16,9 @@
   ],
   "editora": "Leaping Lizard Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 158644
 }

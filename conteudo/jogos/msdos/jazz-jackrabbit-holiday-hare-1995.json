@@ -3,9 +3,9 @@
   "links": [
     "https://archive.org/details/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995"
   ],
-  "capa": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
-  "banner": "https://cdn2.steamgriddb.com/hero/061b7b3d5e2ee31c7875058883fbcce8.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/f5930695d180d30a1b0f358ab79cf115.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit-holiday-hare-1995--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit-holiday-hare-1995--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit-holiday-hare-1995--logo.png",
   "fonte": "https://archive.org/details/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
   "descricao": "Jogo de MS-DOS · Action, Platform, Shooter (1995), de Epic MegaGames. Do acervo do Internet Archive.",
   "ano": 1995,
@@ -17,5 +17,7 @@
   "editora": "Epic MegaGames",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187943
 }

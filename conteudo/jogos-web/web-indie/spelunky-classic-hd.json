@@ -3,11 +3,14 @@
   "links": [
     "https://yancharkin.itch.io/spelunky-classic-hd"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/596390d81aaf5217d0399df90891d8ac.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/eff273b8ff65204546e793d51f41ab68.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/428316522a9f0838ba03f36d85411bec.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · yancharkin.itch.io",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

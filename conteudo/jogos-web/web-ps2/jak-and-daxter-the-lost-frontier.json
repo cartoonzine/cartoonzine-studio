@@ -3,11 +3,14 @@
   "links": [
     "https://jakdaxterlostfrontier.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/dfaf693ee0b7e6c836875161bade2eaa.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/eddeb82df22554fa67c641e3f8a25566.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/062aaeb24e661688e2703821f368a258.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · jakdaxterlostfrontier.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

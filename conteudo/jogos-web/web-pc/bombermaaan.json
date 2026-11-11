@@ -3,6 +3,9 @@
   "links": [
     "https://cartoonzine.github.io/cartoonzine-jogos/bombermaaan/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/c5b781ce025e8217c23f95f9569a0b96.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/3a06105cf87a4a0d2b22ca218aca4783.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/afb79a9be5cd9762572a008088d3153e.png",
   "site": "https://github.com/midzer/Bombermaaan",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/midzer/Bombermaaan",
@@ -13,5 +16,5 @@
   "licenca": "livre",
   "controles": "teclado",
   "_origem": "prateleira:cartoonzine-jogos",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

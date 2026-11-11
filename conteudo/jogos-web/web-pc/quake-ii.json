@@ -3,7 +3,10 @@
   "links": [
     "https://q2.pieter.com/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/5e26badb3867ac7f26d3624ca39a9df4.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/c2ea9ab296477ed6346856f41c9aa5da.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/f874885e6c1552dfc93fc4ad9b3b3d5c.png",
   "console": "web-pc",
   "_rascunho": true,
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

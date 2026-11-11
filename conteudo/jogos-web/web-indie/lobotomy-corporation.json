@@ -3,6 +3,9 @@
   "links": [
     "https://wasm.rip/files/lob-corp/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/8e2568d07cfc39036f5d312247e39057.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ab6e6f39240d7dc6387a0f2e0efc148e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/7969a4cb55605f29d8af78244463f7dc.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/Reeyuki/lobcorp",
   "descricao": "Port para navegador · wasm.rip",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

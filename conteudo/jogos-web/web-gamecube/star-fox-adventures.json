@@ -3,11 +3,14 @@
   "links": [
     "https://foxhollow.dev/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e9176bfe821b41775162a9beb913909c.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c7175168a5229945c2d6426e9812d300.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9d94c8981a48d12adfeecfe1ae6e0ec1.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · foxhollow.dev",
   "console": "web-gamecube",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

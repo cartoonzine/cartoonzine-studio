@@ -3,8 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Rogue_1983"
   ],
-  "capa": "https://archive.org/services/img/msdos_Rogue_1983",
-  "logo": "https://cdn2.steamgriddb.com/logo/2776e8b512a15c438441cd4b58a24842.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--video.mp4",
   "fonte": "https://archive.org/details/msdos_Rogue_1983",
   "descricao": "Jogo de MS-DOS · Role-Playing (RPG), Roguelike (1983), de A.I. Design. Do acervo do Internet Archive.",
   "ano": 1983,
@@ -14,6 +16,9 @@
   ],
   "editora": "A.I. Design",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155946
 }

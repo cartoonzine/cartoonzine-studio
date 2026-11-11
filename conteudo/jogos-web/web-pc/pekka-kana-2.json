@@ -3,6 +3,8 @@
   "links": [
     "https://gmh-code.github.io/pk2/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4c034caf23923ab90db53369f99d0d56.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/1774650cd982ba1c762303e3641d3986.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/GMH-Code/PK2",
   "descricao": "Port para navegador · gmh-code.github.io",
@@ -10,5 +12,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

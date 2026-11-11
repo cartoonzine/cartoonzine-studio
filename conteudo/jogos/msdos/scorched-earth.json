@@ -4,12 +4,19 @@
     "https://archive.org/details/msdos_Scorched_Earth_1991"
   ],
   "capa": "https://archive.org/services/img/msdos_Scorched_Earth_1991",
-  "banner": "https://cdn2.steamgriddb.com/hero/550aae1e60740ba60f4dc8a255e0e960.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/6b22164c33a8cd4cd56da1c6bb1e0f5a.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--scorched-earth--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--scorched-earth--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--scorched-earth--video.mp4",
   "fonte": "https://archive.org/details/msdos_Scorched_Earth_1991",
-  "descricao": "Jogo de MS-DOS (1991). Do acervo do Internet Archive.",
+  "descricao": "É a guerra total em Scorched Earth, um &quot;shooter&quot; simples mas emocionante! Tu e até nove amigos podem lutar por montes e vales, destruindo-se uns aos outros nesta batalha de tanques por turnos.\r\nNo início de cada ronda, cada jogador compra o seu próprio armamento e, se quiser, escudos e pára-quedas para se defender e proteger de quedas longas. Depois, é hora da batalha! Aponta o teu canhão, tendo em conta a trajectória e o vento, e dispara as tuas armas para tentar eliminar os teus adversários. \r\nA variedade de armas é o verdadeiro ponto alto do jogo. Estas incluem as clássicas bombas nucleares, bombas de fragmentação, napalm ....",
   "ano": 1991,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "msdos",
+  "jogadores": 10,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157083
 }

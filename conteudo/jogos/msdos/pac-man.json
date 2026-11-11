@@ -3,11 +3,12 @@
   "links": [
     "https://archive.org/details/msdos_Pac-Man_1983"
   ],
-  "capa": "https://archive.org/services/img/msdos_Pac-Man_1983",
-  "banner": "https://cdn2.steamgriddb.com/hero/14e2478fdae5f8cbfe6f14cd046e5832.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/27669aadf5d036101d848837446edd3f.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--video.mp4",
   "fonte": "https://archive.org/details/msdos_Pac-Man_1983",
-  "descricao": "Jogo de MS-DOS · Action, Arcade (1983), de Namco Limited. Do acervo do Internet Archive.",
+  "descricao": "One of the most popular and influential games of the 1980's, Pac-Man stars a little, yellow dot-muncher who works his way around to clear a maze of the various dots and fruit which inhabit the board.\n\nPac-Man's goal is continually challenged by four ghosts: The shy blue ghost Bashful (Inky), the trailing red ghost Shadow (Blinky), the fast pink ghost Speedy (Pinky), and the forgetful orange ghost Pokey (Clyde). One touch from any of these ghosts means a loss of life for Pac-Man.\n\nPac-Man can turn the tables on his pursuers by eating of the four Energizers located within the maze. During this time, the ghosts turn blue, and Pac-Man can eat them for bonus points. This only lasts for a limited amount of time, as the ghost's eyes float back to their center box, and regenerate to chase after Pac-Man again.\n\nSurvive a few rounds of gameplay, and be treated to humorous intermissions between Pac-Man and the ghosts.",
   "ano": 1983,
   "generos": [
     "Action",
@@ -15,6 +16,9 @@
   ],
   "editora": "Namco Limited",
   "console": "msdos",
+  "jogadores": 2,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188280
 }

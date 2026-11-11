@@ -3,17 +3,21 @@
   "links": [
     "https://archive.org/details/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
-  "banner": "https://cdn2.steamgriddb.com/hero/970457cbb97508ef7dd348b6f987498d.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/481ed650e8902f0151be2983ddea2133.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--video.mp4",
   "fonte": "https://archive.org/details/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
-  "descricao": "Jogo de MS-DOS · Simulation (1991), de Maxis Software. Do acervo do Internet Archive.",
+  "descricao": "SimAnt explores the detail of the lives of ants, as you take full control of an ant colony. Build up your colony to conquer the other colonies in the yard. Foes include spiders and humans - make their lives a misery by invading their homes. A Quick Game option focuses on battles with other groups of ants, and a full Tutorial mode is provided. Biological detail of real ants is provided, to help make the package more educational.",
   "ano": 1991,
   "generos": [
     "Simulation"
   ],
   "editora": "Maxis Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157803
 }

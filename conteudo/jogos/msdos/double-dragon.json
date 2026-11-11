@@ -5,7 +5,8 @@
   ],
   "capa": "https://images.launchbox-app.com//18ef691b-4ff3-4fee-91cc-33fd79ca0974.jpg",
   "banner": "https://images.launchbox-app.com//fa3f20a2-5032-480a-bb59-8c5ffcfddde3.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/132af5e482483ff69c642974b3ec23a7.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--double-dragon--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--double-dragon--video.mp4",
   "fonte": "https://archive.org/details/msdos_Double_Dragon_1988",
   "descricao": "Jogo de MS-DOS · Action, Arcade, Beat 'em up / Brawler (1988), de Technos Japan Corp.. Do acervo do Internet Archive.",
   "ano": 1988,
@@ -16,7 +17,10 @@
   ],
   "editora": "Technos Japan Corp.",
   "console": "msdos",
+  "jogadores": 2,
   "posFundo": 58,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187595
 }

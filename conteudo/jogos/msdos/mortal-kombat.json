@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Mortal_Kombat_1993"
   ],
-  "capa": "https://archive.org/services/img/msdos_Mortal_Kombat_1993",
-  "banner": "https://cdn2.steamgriddb.com/hero/27ffcc21c5948f9b8595a1c79c4045ed.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/ced92d38d8fec10f1da779dfa44f8bbe.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--video.mp4",
   "fonte": "https://archive.org/details/msdos_Mortal_Kombat_1993",
   "descricao": "Jogo de MS-DOS · Action, Fighting, Martial Arts (1993), de Midway Manufacturing Company. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -16,6 +17,9 @@
   ],
   "editora": "Midway Manufacturing Company",
   "console": "msdos",
+  "jogadores": 2,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188169
 }

@@ -3,11 +3,14 @@
   "links": [
     "https://fifa11.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1040efd6fd230da455c16ab77faca0fb.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4eb46374176989fe644412deed5045ef.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/f334c47648f6c8f9eb0bc8c416f217a2.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · fifa11.online",
   "console": "web-ps2",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

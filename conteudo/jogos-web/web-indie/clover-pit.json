@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=716"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/36ff2914280a9d78e7a4a9f48b2e3e53.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/20203e0ada3c37f1ea334bd1e9df07c6.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a3ccc16bb1bee505c9b3746dcd734026.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/clover-pit",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

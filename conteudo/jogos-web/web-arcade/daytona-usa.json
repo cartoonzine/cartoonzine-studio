@@ -3,14 +3,23 @@
   "links": [
     "https://johannruiz.github.io/Daytona-USA-Web/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/a2062d9b9b1a226a52980c26c7083840.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/0aa1883c6411f7873cb83dacb17b0afc.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/80a8155eb153025ea1d513d0b2c4b675.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/johannruiz/Daytona-USA-Web",
-  "descricao": "Port para navegador · johannruiz.github.io",
+  "descricao": "Daytona USA é um jogo de corrida para arcades lançado pela Sega em 1993. Tomando por base a estrutura básica apresentada no jogo Virtua Racing de 1992, aproveitou-se de uma plataforma mais moderna para apresentar os gráficos com maior fluidez vistos até então. Sucesso de crítica, é considerado por muitos o jogo para arcades mais bem sucedido de todos os tempos.",
+  "ano": 1994,
+  "generos": [
+    "Corrida, Pilotagem",
+    "Corrida em 3ª pessoa"
+  ],
   "console": "web-arcade",
   "licenca": "autorizada",
+  "jogadores": 1,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 37453
 }

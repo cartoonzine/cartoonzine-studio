@@ -3,15 +3,24 @@
   "links": [
     "https://raz0red.github.io/webprboom/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/ef58f7ffe086514aa0164c7fc4f6cea8.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/442465f5282183631234848d916ce365.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/6a3b6ffa5dbf8a5abcad2135e5bc77d9.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--doom--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--doom--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--doom--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--doom--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/chocolate-doom",
-  "descricao": "Port para navegador · raz0red.github.io",
+  "descricao": "O jogador recebe o papel de um fuzileiro espacial (o nome do fuzileiro nunca é revelado pois ele supostamente representa o próprio jogador), &quot;um dos fuzileiros mais durões da Terra, endurecido em combate e treinado para a ação&quot; (one of Earth's toughest, hardened in combat and trained for action), que foi deportado para Marte por atirar num oficial superior quando este ordenou que ele matasse inocentes civis e desarmados. Ele é deste modo forçado a trabalhar para a Union Aerospace Corporation (UAC), um complexo militar industrial que está realizando experiências secretas em teletransportação entre as luas de Marte conhecidas como Phobos e Deimos. subitamente, algo dá errado e criaturas aparentemente vindas do inferno começam a surgir das áreas de teletransporte. Uma resposta defensiva da segurança da base falha em deter a invasão e é rapidamente dominada por demônios, com toda a guarnição morta ou transformada em zumbis ao mesmo tempo, Deimos desaparece inteiramente sem nenhuma explicação. Um time da UAC em Marte é enviado a Phobos para investigar o incidente, mas o contato pelo rádio cessa e apenas um deles permanece vivo : o jogador, cuja tarefa é escapar vivo.",
+  "ano": 1993,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 489155
 }

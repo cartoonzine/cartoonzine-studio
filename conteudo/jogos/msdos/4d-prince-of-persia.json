@@ -4,11 +4,20 @@
     "https://archive.org/details/msdos_4D_Prince_of_Persia_1994"
   ],
   "capa": "https://archive.org/services/img/msdos_4D_Prince_of_Persia_1994",
-  "logo": "https://cdn2.steamgriddb.com/logo/9aa32f677362a235a8ae39e011711f1b.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--4d-prince-of-persia--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--4d-prince-of-persia--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--4d-prince-of-persia--video.mp4",
   "fonte": "https://archive.org/details/msdos_4D_Prince_of_Persia_1994",
-  "descricao": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
+  "descricao": "4D Prince of Persia is an unofficial reworking of the original Prince of Persia game by Jordan Mechner. The levels have been rebuilt and made tougher. \n\nYou have to save the princess from the clutches of the evil Jaffar who has given her 60 minutes to marry him or die.",
   "ano": 1994,
+  "generos": [
+    "Plataforma",
+    "Plataforma / Corre e Pula"
+  ],
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187094
 }

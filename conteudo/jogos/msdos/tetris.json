@@ -4,8 +4,8 @@
     "https://archive.org/details/msdos_Tetris_1986"
   ],
   "capa": "https://archive.org/services/img/msdos_Tetris_1986",
-  "banner": "https://cdn2.steamgriddb.com/hero/7bf570282789f2798b7d6c1714e63ce9.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/08fcb5ead4e963a6f0bbdbc971f4a3ee.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--tetris--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--tetris--logo.png",
   "fonte": "https://archive.org/details/msdos_Tetris_1986",
   "descricao": "Jogo de MS-DOS · Action, Puzzle, Falling Block Puzzle (1986), de Spectrum Holobyte. Do acervo do Internet Archive.",
   "ano": 1986,
@@ -17,5 +17,7 @@
   "editora": "Spectrum Holobyte",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 157741
 }

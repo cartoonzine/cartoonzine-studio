@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=502"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/c21cf5e9103365de9f6d4584276ef9ac.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c525c5b4aeee6eafd496d0d0cc424ced.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/c56a4706337730e0e15da875405fa1c5.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/slqntdevss/StickWithItPort",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

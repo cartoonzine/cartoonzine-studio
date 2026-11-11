@@ -4,39 +4,51 @@
  "games": [
   {
    "title": "'Nam 1965-1975",
-   "desc": "Jogo de MS-DOS · Strategy/Tactics (1991), de Kremlin, The. Do acervo do Internet Archive.",
+   "desc": "'Nam 1965-1975 is a strategy game set during the Vietnam war. The player takes the role of both the President of the United States and the commander-in-chief, and the goal of the game is to prevent the South of Vietnam to fall in the hands of the Vietcong, managing its military resources and preventing the public opinion to reject the war. As President, the player has to manage the military resources, and as Commander in chief they can take direct decisions on the terrain, such as tactics or engaging enemies. \r\nThe game offers five different scenarios: Khe Sanh, Tet Offensive, 1975 offensive, Nixon and Johnson. The first three are some of the most decisive battles during the conflict, whereas choosing &quot;Nixon&quot; or &quot;Johnson&quot; changes the year (1964 or 1968) in which the player starts playing.",
    "year": 1991,
    "genre": [
     "Strategy/Tactics"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--video.mp4",
    "studio": "jogos/msdos/nam-1965-1975",
    "url": "https://archive.org/details/msdos_Nam_1965-1975_1991",
-   "thumb": "https://archive.org/services/img/msdos_Nam_1965-1975_1991",
-   "logo": "https://cdn2.steamgriddb.com/logo/086ee121fcc973f97e5fcfecfc4f2dad.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nam-1965-1975--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "3D Bomber",
-   "desc": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
+   "desc": "A freeware 3D version of Bomberman. You play as one of the ''Bombermen'' (cute spacesuit wearing anime characters) and your goal is to blow up the other Bomberman before he gets you. You run around a 3D maze laying time delayed bombs as you go. Each time you kill your opponent you score a point and visa versa and the first player to reach 5 points wins the match. Many of the walls are destructible and some hide special power ups. The game is controlled by keyboard and can be played either in single player against the computer AI or multi player over modem or serial cable.",
    "year": 1998,
    "studio": "jogos/msdos/3d-bomber",
    "url": "https://archive.org/details/msdos_3D_Bomber_1998",
    "thumb": "https://archive.org/services/img/msdos_3D_Bomber_1998",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/7cec85c75537840dad40251576e5b757.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/7fa37b4aadce3de52314aa3ff5c6673d.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--3d-bomber--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--3d-bomber--logo.png",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "4D Prince of Persia",
-   "desc": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
+   "desc": "4D Prince of Persia is an unofficial reworking of the original Prince of Persia game by Jordan Mechner. The levels have been rebuilt and made tougher. \n\nYou have to save the princess from the clutches of the evil Jaffar who has given her 60 minutes to marry him or die.",
    "year": 1994,
+   "genre": [
+    "Plataforma",
+    "Plataforma / Corre e Pula"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--4d-prince-of-persia--video.mp4",
    "studio": "jogos/msdos/4d-prince-of-persia",
    "url": "https://archive.org/details/msdos_4D_Prince_of_Persia_1994",
    "thumb": "https://archive.org/services/img/msdos_4D_Prince_of_Persia_1994",
-   "logo": "https://cdn2.steamgriddb.com/logo/9aa32f677362a235a8ae39e011711f1b.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--4d-prince-of-persia--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--4d-prince-of-persia--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--4d-prince-of-persia--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -48,12 +60,15 @@
     "Arcade",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--alley-cat--video.mp4",
    "studio": "jogos/msdos/alley-cat",
    "url": "https://archive.org/details/msdos_Alley_Cat_1984",
-   "thumb": "https://archive.org/services/img/msdos_Alley_Cat_1984",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--alley-cat--capa.png",
    "bannerThumb": "https://cdn2.steamgriddb.com/hero/156d33030be5fe619195e5e76752aad4.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/d405ba4799c3c7ef483513a23c07aa2c.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--alley-cat--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--alley-cat--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -64,11 +79,13 @@
     "Action",
     "Arcade"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--video.mp4",
    "studio": "jogos/msdos/back-to-the-future-part-iii",
    "url": "https://archive.org/details/msdos_Back_to_the_Future_Part_III_1991",
-   "thumb": "https://archive.org/services/img/msdos_Back_to_the_Future_Part_III_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/76103540cefd1d046c7c9ea56e225ca4.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/99c93540b23b44e6b1ef8c956c559b84.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
@@ -80,6 +97,7 @@
     "Action",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--batman-returns--video.mp4",
    "bannerSkin": "arcade",
    "bgImg": "banner",
    "bgPosY": 15,
@@ -87,8 +105,10 @@
    "url": "https://archive.org/details/msdos_Batman_Returns_1993",
    "thumb": "https://images.launchbox-app.com//e75fc659-d3ac-4d73-8dd5-a69754abb7e9.jpg",
    "bannerThumb": "https://images.launchbox-app.com//ac591503-062d-4b29-a4d8-62bc10d1459f.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/9d020a184d35c39e9b2a23c72fc0cb54.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--batman-returns--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--batman-returns--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -98,13 +118,15 @@
    "genre": [
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--brix--video.mp4",
    "bgImg": "banner",
    "bgPosY": 87,
    "studio": "jogos/msdos/brix",
    "url": "https://archive.org/download/brix-puzz-game-dos-1992/BRIX1.zip",
    "thumb": "https://images.launchbox-app.com/3489ebc6-d80d-4468-a974-312f87576246.jpg",
    "bannerThumb": "https://images.launchbox-app.com/ec51a18f-8159-4447-a3f8-053f4545938e.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/f1d8ba46eba3b647c1767b827d289ecf.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--brix--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--brix--video.mp4",
    "console": "msdos",
    "players": 2,
    "core": "dos"
@@ -118,12 +140,15 @@
     "Arcade",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--video.mp4",
    "studio": "jogos/msdos/bubble-bobble",
    "url": "https://archive.org/details/msdos_Bubble_Bobble_1988",
-   "thumb": "https://archive.org/services/img/msdos_Bubble_Bobble_1988",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/4d8bb121c305148c417a383070377063.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/0f3b266202a9e5e84c6b1229e21e1fa9.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bubble-bobble--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -135,12 +160,15 @@
     "Sports",
     "Martial Arts"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--video.mp4",
    "studio": "jogos/msdos/budokan-the-martial-spirit",
    "url": "https://archive.org/details/msdos_Budokan_The_Martial_Spirit_1989",
-   "thumb": "https://archive.org/services/img/msdos_Budokan_The_Martial_Spirit_1989",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1e3cad5329ca7d6266f2c620d37e9685.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/a5419b34e791ffdd85f5cc39993faf90.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--budokan-the-martial-spirit--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -155,36 +183,44 @@
    "studio": "jogos/msdos/bust-a-move",
    "url": "https://archive.org/details/msdos_Bust-A-Move_1997",
    "thumb": "https://archive.org/services/img/msdos_Bust-A-Move_1997",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1ecc6d0a3d0fd5a0f59932d1b60e1c99.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/97be5a231dbe5d419bd219ad5b08b499.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bust-a-move--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bust-a-move--logo.png",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "Carmageddon Max Pack",
-   "desc": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
+   "desc": "This compilation contains:\r\n\r\nCarmageddon (base game)\r\nCarmageddon: Splat Pack (expansion)",
    "year": 1998,
+   "genre": [
+    "Corrida, Pilotagem"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--video.mp4",
    "studio": "jogos/msdos/carmageddon-max-pack",
    "url": "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998",
-   "thumb": "https://archive.org/services/img/msdos_Carmageddon_Max_Pack_1998",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/b555f4a2901228cc826327079761e696.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/50acfcb158fa1373d01ae69c7236c946.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "Castle of Dr. Brain",
-   "desc": "Jogo de MS-DOS · Adventure (1991), de Sierra On-Line. Do acervo do Internet Archive.",
+   "desc": "Castle of Dr. Brain is a critically acclaimed, brain-bending game filled with off-beat humor and mind-boggling challenges.\r\n\r\nYour problem-solving skills will be stretched to the limits as you try to think your way through a gauntlet of science stampers, mazes, logic problems, codes, and math games on your quest to become Dr. Brain's assistant. If you succeed without blowing a mental fuse, you just might be as smart as you think you are.",
    "year": 1991,
    "genre": [
     "Adventure"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--video.mp4",
    "studio": "jogos/msdos/castle-of-dr-brain",
    "url": "https://archive.org/details/msdos_Castle_of_Dr._Brain_1991",
-   "thumb": "https://archive.org/services/img/msdos_Castle_of_Dr._Brain_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c6ad3c412b25ae3af6e6a94ebbdc25b2.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/56f9974a418d59299a4321dd2ffcde1a.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-of-dr-brain--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -198,9 +234,9 @@
    ],
    "studio": "jogos/msdos/castle-wolfenstein",
    "url": "https://archive.org/details/msdos_Castle_Wolfenstein_1984",
-   "thumb": "https://archive.org/services/img/msdos_Castle_Wolfenstein_1984",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ba519f55abc88b5d3652a2040f4216e2.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/2bd388f731f26312bfc0fe30da009595.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-wolfenstein--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-wolfenstein--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-wolfenstein--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -211,10 +247,15 @@
    "genre": [
     "Strategy/Tactics"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--video.mp4",
    "studio": "jogos/msdos/centurion-defender-of-rome",
    "url": "https://archive.org/details/msdos_Centurion_-_Defender_of_Rome_1990",
-   "thumb": "https://archive.org/services/img/msdos_Centurion_-_Defender_of_Rome_1990",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--centurion-defender-of-rome--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -227,14 +268,16 @@
    ],
    "studio": "jogos/msdos/championship-manager-93-94",
    "url": "https://archive.org/details/msdos_Championship_Manager_93-94_1993",
-   "thumb": "https://archive.org/services/img/msdos_Championship_Manager_93-94_1993",
-   "logo": "https://cdn2.steamgriddb.com/logo/23155780abc078337c84b1aee5ee2ed2.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--championship-manager-93-94--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--championship-manager-93-94--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--championship-manager-93-94--logo.png",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "Cool World",
-   "desc": "Jogo de MS-DOS · Action, Platform (1992), de Twilight. Do acervo do Internet Archive.",
+   "desc": "A licensed game based on the live action/animation movie ''Cool World''You play Frank Harris and your task is to stop Holli Would from entering the real world.You accomplish the levels by shooting doodles and collecting coins.Gameplay is set by 4 World with 4 levels each.Same as the movie, the game is based in cartoon graphics.",
    "year": 1992,
    "genre": [
     "Action",
@@ -242,21 +285,25 @@
    ],
    "studio": "jogos/msdos/cool-world",
    "url": "https://archive.org/details/msdos_Cool_World_1992",
-   "thumb": "https://archive.org/services/img/msdos_Cool_World_1992",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/a1395df0a1abc218eb63b3addbdd1693.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/7552663f68b5eba5b1e88899419a4a01.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--cool-world--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--cool-world--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--cool-world--logo.png",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "Crosscountry Canada",
-   "desc": "Jogo de MS-DOS (1991), de Didatech Software Ltd.. Do acervo do Internet Archive.",
+   "desc": "Another installment in the geographical educational Crosscountry series represents the map of Canada.\n\nPlayers drive an 18-wheel truck around the country picking up and delivering a variety of commodities with typed-in commands (TURN ON MOTOR, LOOK AT MAP, REST, REPAIR, GO TO GAS STATION, etc.). As players travel between the cities, they learn valuable skills such as problem solving, map reading, and decision making. They'll learn time management, decide when to eat and sleep, and watch road conditions.\n\nThe game is available for 1-2 players.",
    "year": 1991,
+   "genre": [
+    "Educacional"
+   ],
    "studio": "jogos/msdos/crosscountry-canada",
    "url": "https://archive.org/details/msdos_Crosscountry_Canada_1991",
    "thumb": "https://archive.org/services/img/msdos_Crosscountry_Canada_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/98311ab43a6b6e6c94a0d30e0f02f3ce.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/07dd4d5a72f5740ef0f035f201951476.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--crosscountry-canada--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--crosscountry-canada--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -269,12 +316,15 @@
     "Platform",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--video.mp4",
    "studio": "jogos/msdos/dangerous-dave-in-the-deserted-pirate-s-hideout",
    "url": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990",
-   "thumb": "https://archive.org/services/img/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/211edb8ed1d2dc425c4de130c0f5d383.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/a4623824aa20169e7feddccbe063b174.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -285,12 +335,15 @@
     "Action",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--video.mp4",
    "studio": "jogos/msdos/dangerous-dave-in-the-haunted-mansion",
    "url": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
-   "thumb": "https://archive.org/services/img/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/211edb8ed1d2dc425c4de130c0f5d383.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/a4623824aa20169e7feddccbe063b174.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -309,17 +362,19 @@
   },
   {
    "title": "Deluxe Ski Jump",
-   "desc": "Jogo de MS-DOS · Simulation, Sports (2000), de Mediamond. Do acervo do Internet Archive.",
+   "desc": "Deluxe Ski Jump is a shareware ski jumping simulation with full 3D graphics and excellently modelled real world physics. The game contains 32 different hills, which vary in size from the tiny K50 in England to the huge K250 in Slovenia. DSJ also allows for up to 16 players (computer or human controlled) to compete for the World Cup trophy simultaneously, using the same computer. \n\nThe actual jumping is performed using the mouse buttons (for jumping and landing) and by moving the mouse up and down (to angle your jumper in flight). This system works quite well, though it takes practice to master.\n\nThere are several factors that affect the outcome of a jump, of which the most important is timing. A poorly timed ''take off'' will most likely drag you down and force you to land prematurely. Other factors include wind strenght and direction as well as a certain knowledge of the hill you're jumping.",
    "year": 2000,
    "genre": [
     "Simulation",
     "Sports"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--deluxe-ski-jump--video.mp4",
    "studio": "jogos/msdos/deluxe-ski-jump",
    "url": "https://archive.org/details/msdos_Deluxe_Ski_Jump_2000",
    "thumb": "https://archive.org/services/img/msdos_Deluxe_Ski_Jump_2000",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/4810890bd129231235c4e324311cd0c1.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/86ae42e53deed0705cb6b6db11bd6ffb.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--deluxe-ski-jump--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--deluxe-ski-jump--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--deluxe-ski-jump--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
@@ -331,12 +386,15 @@
     "Action",
     "Arcade"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--video.mp4",
    "studio": "jogos/msdos/digger",
    "url": "https://archive.org/details/msdos_Digger_1983_1983",
-   "thumb": "https://archive.org/services/img/msdos_Digger_1983_1983",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/d4de0c9c151a319fd1d943300fd551f0.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/0e3f3bc74c1be637020f3e5d23d725fe.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--digger--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -347,12 +405,15 @@
     "Action",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-aladdin--video.mp4",
    "studio": "jogos/msdos/disney-s-aladdin",
    "url": "https://archive.org/details/msdos_Disneys_Aladdin_1994",
-   "thumb": "https://archive.org/services/img/msdos_Disneys_Aladdin_1994",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/a4f08f8b59aa3a316ddfa0e47884e118.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/75883741f77a612cdff0a828f94792d1.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-aladdin--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-aladdin--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-aladdin--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-aladdin--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -363,12 +424,15 @@
     "Action",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--video.mp4",
    "studio": "jogos/msdos/disney-s-duck-tales-the-quest-for-gold",
    "url": "https://archive.org/details/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
-   "thumb": "https://archive.org/services/img/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/420e7a59c4ccc0dbeb1d58e2126c42d5.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/4bf269bdf9a80bc227aa079d668e22c4.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -382,37 +446,46 @@
    ],
    "studio": "jogos/msdos/donkey-kong",
    "url": "https://archive.org/details/msdos_Donkey_Kong_1983",
-   "thumb": "https://archive.org/services/img/msdos_Donkey_Kong_1983",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/61aa5ce958748d92d1a26b56a9525730.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/9519548a7037700bc56dcd4ef0bca2dd.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--donkey-kong--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--donkey-kong--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--donkey-kong--logo.png",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "DOOM",
-   "desc": "Jogo de MS-DOS · Action, Shooter (1993), de id Software. Do acervo do Internet Archive.",
+   "desc": "O jogador recebe o papel de um fuzileiro espacial (o nome do fuzileiro nunca é revelado pois ele supostamente representa o próprio jogador), &quot;um dos fuzileiros mais durões da Terra, endurecido em combate e treinado para a ação&quot; (one of Earth's toughest, hardened in combat and trained for action), que foi deportado para Marte por atirar num oficial superior quando este ordenou que ele matasse inocentes civis e desarmados. Ele é deste modo forçado a trabalhar para a Union Aerospace Corporation (UAC), um complexo militar industrial que está realizando experiências secretas em teletransportação entre as luas de Marte conhecidas como Phobos e Deimos. subitamente, algo dá errado e criaturas aparentemente vindas do inferno começam a surgir das áreas de teletransporte. Uma resposta defensiva da segurança da base falha em deter a invasão e é rapidamente dominada por demônios, com toda a guarnição morta ou transformada em zumbis ao mesmo tempo, Deimos desaparece inteiramente sem nenhuma explicação. Um time da UAC em Marte é enviado a Phobos para investigar o incidente, mas o contato pelo rádio cessa e apenas um deles permanece vivo : o jogador, cuja tarefa é escapar vivo.",
    "year": 1993,
    "genre": [
     "Action",
     "Shooter"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom--video.mp4",
    "studio": "jogos/msdos/doom",
    "url": "https://archive.org/details/msdos_DOOM_1993",
-   "thumb": "https://archive.org/services/img/msdos_DOOM_1993",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/442465f5282183631234848d916ce365.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/6a3b6ffa5dbf8a5abcad2135e5bc77d9.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom--video.mp4",
    "console": "msdos",
+   "players": 4,
    "core": "dos"
   },
   {
    "title": "Doom - The Roguelike",
-   "desc": "Jogo de MS-DOS (2005). Do acervo do Internet Archive.",
+   "desc": "This game is a mix between two classic games: Rogue, the text-only dungeon crawl role-playing game that has spawned a whole genre of games, and Doom, one of the breakthrough games for 1st-person shooter genre.\n\nThe story is the same as in Doom: You are some soldier performing his monotonic duties in a space base on Phobos -- when suddenly your base is attacked. The only way out is through. Equipped only with a pistol, you start to shoot your way through the mazes.\n\nThe whole game is text-only, but made in a Doom-like style (the sound effects in the Windows version are the original Doom sounds). The only difference to Doom is that you haven't got a realistic 3D world. What you've got are simple 2D text graphics, like in Rogue, where @ denotes the player character, letters denote monsters and other characters denote items.\n\nApart from the style, this game is a straight Rogue-like dungeon crawler. The gameplay is turn-based, with each action taking a certain amount of time. As in a role-playing game, the character has different stats that increase with his experience -- he can reload faster, do more damage, shoot more accurately etc. During the game, you find different weapons and power-ups, all well-known to doom players (blue sphere power-ups, green armor etc.).\n\nThe game is freeware and was written in FreePascal, using the Valkyrie library by the same developer.",
    "year": 2005,
+   "genre": [
+    "Jogos de RPG"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom-the-roguelike--video.mp4",
    "studio": "jogos/msdos/doom-the-roguelike",
    "url": "https://archive.org/details/msdos_Doom_-_The_Roguelike_2005",
    "thumb": "https://archive.org/services/img/msdos_Doom_-_The_Roguelike_2005",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9424aa849c54613a0086d9003cb1e5f7.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/46a36a35a3c58cdc8cccceef67833b78.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom-the-roguelike--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom-the-roguelike--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--doom-the-roguelike--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
@@ -425,13 +498,16 @@
     "Arcade",
     "Beat 'em up / Brawler"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--double-dragon--video.mp4",
    "bgPosY": 58,
    "studio": "jogos/msdos/double-dragon",
    "url": "https://archive.org/details/msdos_Double_Dragon_1988",
    "thumb": "https://images.launchbox-app.com//18ef691b-4ff3-4fee-91cc-33fd79ca0974.jpg",
    "bannerThumb": "https://images.launchbox-app.com//fa3f20a2-5032-480a-bb59-8c5ffcfddde3.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/132af5e482483ff69c642974b3ec23a7.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--double-dragon--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--double-dragon--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -442,11 +518,13 @@
     "Action",
     "Timed Input"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dragon-s-lair--video.mp4",
    "studio": "jogos/msdos/dragon-s-lair",
    "url": "https://archive.org/details/msdos_Dragons_Lair_1993_1993",
-   "thumb": "https://archive.org/services/img/msdos_Dragons_Lair_1993_1993",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dragon-s-lair--capa.png",
    "bannerThumb": "https://cdn2.steamgriddb.com/hero/857bdf528d4ad868c1d1801a6da01660.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/530bed81e8e846e910fd06b1443f083d.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dragon-s-lair--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dragon-s-lair--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
@@ -473,37 +551,44 @@
    "genre": [
     "Strategy/Tactics"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--empire-deluxe--video.mp4",
    "studio": "jogos/msdos/empire-deluxe",
    "url": "https://archive.org/details/msdos_Empire_Deluxe_1993",
-   "thumb": "https://archive.org/services/img/msdos_Empire_Deluxe_1993",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--empire-deluxe--capa.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--empire-deluxe--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--empire-deluxe--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "European Championship 1992",
-   "desc": "Jogo de MS-DOS · Sports (1992), de Tecmo, Ltd.. Do acervo do Internet Archive.",
+   "desc": "Tecmo's World Cup '90 arcade game was remodeled based on the 1992 European Championships for its home computer release. The tournament's structure of the time (2 groups of 4 play each other once, top 2 go through to semi-finals followed by a final) is recreated, with any of Europe's soccer nations available to be chosen as those 8, and 1 or 2 human players choosing their team, playing on either keyboard or joystick.\n\nThe matches are played from a side-scrolling perspective. The ball sticks to the player's foot, and can be kicked or passed with a press of the fire button. The referee is fairly lenient when it comes to tough sliding tackles, although fierce contact will result in a free kick being given.",
    "year": 1992,
    "genre": [
     "Sports"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--european-championship-1992--video.mp4",
    "studio": "jogos/msdos/european-championship-1992",
    "url": "https://archive.org/details/msdos_European_Championship_1992_1992",
-   "thumb": "https://archive.org/services/img/msdos_European_Championship_1992_1992",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--european-championship-1992--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--european-championship-1992--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--european-championship-1992--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--european-championship-1992--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "Executive Suite",
-   "desc": "Jogo de MS-DOS · Simulation (1982), de Armonk Corporation. Do acervo do Internet Archive.",
+   "desc": "After a short job interview, you get hired to Mighty Microcomputer Corporation. You have only one goal in your mind: to become the president of the company as soon as possible!\n\nThe game presents you with situations and problems which you must solve by choosing from multiple choices. After a series of questions the game evaluates your performance. If you have made the right choices, you get to advance in your career, but if you have made the wrong decisions, you get fired from the company and the game ends.",
    "year": 1982,
    "genre": [
     "Simulation"
    ],
    "studio": "jogos/msdos/executive-suite",
    "url": "https://archive.org/details/msdos_Executive_Suite_1982",
-   "thumb": "https://archive.org/services/img/msdos_Executive_Suite_1982",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/bb17d16eaedc501f865a2dc57034a413.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/7a807be03d58378fe54cd908bcbb9454.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--executive-suite--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--executive-suite--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--executive-suite--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -518,9 +603,9 @@
    ],
    "studio": "jogos/msdos/ferrari-formula-one",
    "url": "https://archive.org/details/msdos_Ferrari_Formula_One_1989",
-   "thumb": "https://archive.org/services/img/msdos_Ferrari_Formula_One_1989",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1b1aaf466f0bd1ebc4d91f0c42abfddf.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/f8e533347b0b2ac127391faaaae71357.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -532,21 +617,29 @@
     "Action",
     "Beat 'em up / Brawler"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--video.mp4",
    "studio": "jogos/msdos/golden-axe",
    "url": "https://archive.org/details/msdos_Golden_Axe_1990",
-   "thumb": "https://archive.org/services/img/msdos_Golden_Axe_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/362e95a098223bb09b80ff75afd0150f.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/dc1913d422398c25c5f0b81cab94cc87.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--golden-axe--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
    "title": "Hugo 3",
-   "desc": "Jogo de MS-DOS (1995). Do acervo do Internet Archive.",
+   "desc": "New adventures with Hugo on CD-ROM! Hugo, the little troll, known by young and old through interactive television program of the same name, must rescue his wife Hugoline and his three children from the clutches of the evil witch Scylla in this new adventure. There's diverse mini-games: rafting, skateboarding and ice cave are waiting with many obstacles that Scylla has placed in the way for him with much cunning and malice. Has he finally reached the cave to free his family, Scylla is already there waiting for him!",
    "year": 1995,
+   "genre": [
+    "Plataforma"
+   ],
    "studio": "jogos/msdos/hugo-3",
    "url": "https://archive.org/details/msdos_Hugo_3_1995",
-   "thumb": "https://archive.org/services/img/msdos_Hugo_3_1995",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--hugo-3--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--hugo-3--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--hugo-3--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -559,12 +652,15 @@
     "Graphic Adventure",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--indiana-jones-and-the-last-crusade--video.mp4",
    "studio": "jogos/msdos/indiana-jones-and-the-last-crusade",
    "url": "https://archive.org/details/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
-   "thumb": "https://archive.org/services/img/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9a0ee0a9e7a42d2d69b8f86b3a0756b1.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/489d2e63af438bd79fa555e00ba73e2a.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--indiana-jones-and-the-last-crusade--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--indiana-jones-and-the-last-crusade--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--indiana-jones-and-the-last-crusade--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--indiana-jones-and-the-last-crusade--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -576,12 +672,15 @@
     "Platform",
     "Shooter"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--video.mp4",
    "studio": "jogos/msdos/jazz-jackrabbit",
    "url": "https://archive.org/details/msdos_Jazz_Jackrabbit_1994",
-   "thumb": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_1994",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/061b7b3d5e2ee31c7875058883fbcce8.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/f5930695d180d30a1b0f358ab79cf115.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -595,9 +694,9 @@
    ],
    "studio": "jogos/msdos/jazz-jackrabbit-holiday-hare-1995",
    "url": "https://archive.org/details/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
-   "thumb": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/061b7b3d5e2ee31c7875058883fbcce8.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/f5930695d180d30a1b0f358ab79cf115.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit-holiday-hare-1995--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit-holiday-hare-1995--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--jazz-jackrabbit-holiday-hare-1995--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -610,11 +709,15 @@
     "Beat 'em up / Brawler",
     "Martial Arts"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--video.mp4",
    "studio": "jogos/msdos/karateka",
    "url": "https://archive.org/details/msdos_Karateka_1986",
-   "thumb": "https://archive.org/services/img/msdos_Karateka_1986",
-   "logo": "https://cdn2.steamgriddb.com/logo/9c1202f4af69c9c722163a0f73d11c23.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -626,12 +729,15 @@
     "Puzzle",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--video.mp4",
    "studio": "jogos/msdos/lode-runner",
    "url": "https://archive.org/details/msdos_Lode_Runner_1983_1983",
-   "thumb": "https://archive.org/services/img/msdos_Lode_Runner_1983_1983",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/2396e9e42ef84c8636a66efd53094116.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/619e8a3f307ee54440745aefae343e33.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lode-runner--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -642,12 +748,15 @@
     "Racing / Driving",
     "Arcade"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lotus-the-ultimate-challenge--video.mp4",
    "studio": "jogos/msdos/lotus-the-ultimate-challenge",
    "url": "https://archive.org/details/msdos_Lotus_-_The_Ultimate_Challenge_1993",
-   "thumb": "https://archive.org/services/img/msdos_Lotus_-_The_Ultimate_Challenge_1993",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1a495bc86abe171f690e27192ea6c367.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/a2896cb11aed969ffec7bb02a7c772a8.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lotus-the-ultimate-challenge--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lotus-the-ultimate-challenge--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lotus-the-ultimate-challenge--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--lotus-the-ultimate-challenge--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -659,24 +768,28 @@
     "Graphic Adventure",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--video.mp4",
    "studio": "jogos/msdos/maniac-mansion",
    "url": "https://archive.org/details/msdos_Maniac_Mansion_1987",
-   "thumb": "https://archive.org/services/img/msdos_Maniac_Mansion_1987",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/56b68074a594752f33faa659f227ac65.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/1dcfee25dedf7c8e7e25a9b588299f84.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--maniac-mansion--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "Mario Brothers VGA",
-   "desc": "Jogo de MS-DOS (1990). Do acervo do Internet Archive.",
+   "desc": "Mario Brothers VGA is an unofficial remake of the classic Mario Bros. game of the arcade in VGA 16 colors.You control Mario who has to flip turtles coming out from two pipes at the top of the screen. The goal of the game is to defeat these turtles and score points by flipping them from underneath, not jumping on them. All gameplay is on one single screen, there are no scrolling levels like regular Mario games.The registered version also allows a second player as Luigi.",
    "year": 1990,
    "studio": "jogos/msdos/mario-brothers-vga",
    "url": "https://archive.org/details/msdos_Mario_Brothers_VGA_1990",
    "thumb": "https://archive.org/services/img/msdos_Mario_Brothers_VGA_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1bf50aaf147b3b0ddd26a820d2ed394d.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/98f0bf5318169643e61666d006bd3f96.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-brothers-vga--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-brothers-vga--logo.png",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -687,12 +800,15 @@
     "Strategy/Tactics",
     "Board Game"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-s-game-gallery--video.mp4",
    "studio": "jogos/msdos/mario-s-game-gallery",
    "url": "https://archive.org/details/msdos_Marios_Game_Gallery_1995",
-   "thumb": "https://archive.org/services/img/msdos_Marios_Game_Gallery_1995",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/40233563396f6508c47872052759b783.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/ef2fe012c85ae27b993679dfb5e7050b.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-s-game-gallery--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-s-game-gallery--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-s-game-gallery--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mario-s-game-gallery--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -704,12 +820,15 @@
     "4X",
     "Turn-based strategy"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--video.mp4",
    "studio": "jogos/msdos/master-of-orion",
    "url": "https://archive.org/details/msdos_Master_of_Orion_1993",
-   "thumb": "https://archive.org/services/img/msdos_Master_of_Orion_1993",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e6c19a87ef9e816e02ce247d4f41d38a.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/65dfa16ba6de9bdb34ea435c9fe2a425.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--master-of-orion--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -721,12 +840,15 @@
     "Graphic Adventure",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--video.mp4",
    "studio": "jogos/msdos/monkey-island-2-lechuck-s-revenge",
    "url": "https://archive.org/details/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
-   "thumb": "https://archive.org/services/img/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/8b5bd6d5eb424f179d84ab721ff03823.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/15114b232670d53c100a833d5b55946f.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monkey-island-2-lechuck-s-revenge--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -737,11 +859,13 @@
     "Strategy/Tactics",
     "Board Game"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--video.mp4",
    "studio": "jogos/msdos/monopoly-deluxe",
    "url": "https://archive.org/details/msdos_Monopoly_Deluxe_1992",
-   "thumb": "https://archive.org/services/img/msdos_Monopoly_Deluxe_1992",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/fd4eeaf6abdc74d8c3a37fbfbb055cd9.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/b8321cc2ef02a2823b92d06f2ea3e298.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
@@ -754,12 +878,15 @@
     "Fighting",
     "Martial Arts"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--video.mp4",
    "studio": "jogos/msdos/mortal-kombat",
    "url": "https://archive.org/details/msdos_Mortal_Kombat_1993",
-   "thumb": "https://archive.org/services/img/msdos_Mortal_Kombat_1993",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/27ffcc21c5948f9b8595a1c79c4045ed.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/ced92d38d8fec10f1da779dfa44f8bbe.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--mortal-kombat--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -770,12 +897,15 @@
     "Action",
     "Arcade"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--video.mp4",
    "studio": "jogos/msdos/ms-pac-man",
    "url": "https://archive.org/details/msdos_Ms._Pac-Man_1983",
-   "thumb": "https://archive.org/services/img/msdos_Ms._Pac-Man_1983",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ffd118594a87c765e72d11d803520149.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/7dd2ae7db7d18ee7c9425e38df1af5e2.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -787,50 +917,62 @@
    ],
    "studio": "jogos/msdos/nuclear-war",
    "url": "https://archive.org/details/msdos_Nuclear_War_1989",
-   "thumb": "https://archive.org/services/img/msdos_Nuclear_War_1989",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nuclear-war--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nuclear-war--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--nuclear-war--logo.png",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "Number Munchers",
-   "desc": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+   "desc": "Learn basic math skills with Number Munchers. Keep your Muncher away from the Troggles by munching on multiples, factors, prime numbers, equalities, and inequalities. If you can stay away from the Troggles and earn enough points, you'll be part of the Muncher Hall of Fame.",
    "year": 1990,
+   "genre": [
+    "Educacional"
+   ],
    "studio": "jogos/msdos/number-munchers",
    "url": "https://archive.org/details/msdos_Number_Munchers_1990",
-   "thumb": "https://archive.org/services/img/msdos_Number_Munchers_1990",
-   "logo": "https://cdn2.steamgriddb.com/logo/27c174bace8d8706ec65923cc8745255.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--number-munchers--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--number-munchers--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--number-munchers--logo.png",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "Pac-Man",
-   "desc": "Jogo de MS-DOS · Action, Arcade (1983), de Namco Limited. Do acervo do Internet Archive.",
+   "desc": "One of the most popular and influential games of the 1980's, Pac-Man stars a little, yellow dot-muncher who works his way around to clear a maze of the various dots and fruit which inhabit the board.\n\nPac-Man's goal is continually challenged by four ghosts: The shy blue ghost Bashful (Inky), the trailing red ghost Shadow (Blinky), the fast pink ghost Speedy (Pinky), and the forgetful orange ghost Pokey (Clyde). One touch from any of these ghosts means a loss of life for Pac-Man.\n\nPac-Man can turn the tables on his pursuers by eating of the four Energizers located within the maze. During this time, the ghosts turn blue, and Pac-Man can eat them for bonus points. This only lasts for a limited amount of time, as the ghost's eyes float back to their center box, and regenerate to chase after Pac-Man again.\n\nSurvive a few rounds of gameplay, and be treated to humorous intermissions between Pac-Man and the ghosts.",
    "year": 1983,
    "genre": [
     "Action",
     "Arcade"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--video.mp4",
    "studio": "jogos/msdos/pac-man",
    "url": "https://archive.org/details/msdos_Pac-Man_1983",
-   "thumb": "https://archive.org/services/img/msdos_Pac-Man_1983",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/14e2478fdae5f8cbfe6f14cd046e5832.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/27669aadf5d036101d848837446edd3f.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pac-man--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
    "title": "Paperboy 2",
-   "desc": "Jogo de MS-DOS · Action (1991), de Tengen. Do acervo do Internet Archive.",
+   "desc": "You're a paper boy. Get on your bicycle. Avoid obstacles on the road, such as dogs, cars, and basically everything you can imagine. Hell, some people shoot cannon balls at you! And you'd better be very sure to only throw papers at the right houses! (and at people, that's fun :)",
    "year": 1991,
    "genre": [
     "Action"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--video.mp4",
    "studio": "jogos/msdos/paperboy-2",
    "url": "https://archive.org/details/msdos_Paperboy_2_1991",
-   "thumb": "https://archive.org/services/img/msdos_Paperboy_2_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/61bf3af39b95fc0f4b6451f3f8affbc6.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/80177fe965b78111f4dfee80cfdc3689.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -842,10 +984,15 @@
     "Sports",
     "Strategy/Tactics"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pc-futbol-5-0--video.mp4",
    "studio": "jogos/msdos/pc-futbol-5-0",
    "url": "https://archive.org/details/msdos_PC_Futbol_5.0_1996",
-   "thumb": "https://archive.org/services/img/msdos_PC_Futbol_5.0_1996",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pc-futbol-5-0--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pc-futbol-5-0--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pc-futbol-5-0--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--pc-futbol-5-0--video.mp4",
    "console": "msdos",
+   "players": 16,
    "core": "dos"
   },
   {
@@ -856,12 +1003,15 @@
     "Action",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--video.mp4",
    "studio": "jogos/msdos/prehistorik",
    "url": "https://archive.org/details/msdos_Prehistorik_1991",
-   "thumb": "https://archive.org/services/img/msdos_Prehistorik_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/adab26689c26db511dbd0a4a55689cb2.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/0ddf1b440eaeb5732332bf2e58d2c7e8.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -872,12 +1022,15 @@
     "Action",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik-2--video.mp4",
    "studio": "jogos/msdos/prehistorik-2",
    "url": "https://archive.org/details/msdos_Prehistorik_2_1993",
-   "thumb": "https://archive.org/services/img/msdos_Prehistorik_2_1993",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9f49dca23c7e5057aa17a7c1b4ddf180.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/800ca77bf7ad76b2a830356569e524b7.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik-2--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik-2--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik-2--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prehistorik-2--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -890,7 +1043,9 @@
    ],
    "studio": "jogos/msdos/president-elect-1988-edition",
    "url": "https://archive.org/details/msdos_President_Elect_-_1988_Edition_1987",
-   "thumb": "https://archive.org/services/img/msdos_President_Elect_-_1988_Edition_1987",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--president-elect-1988-edition--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--president-elect-1988-edition--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--president-elect-1988-edition--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -903,12 +1058,15 @@
     "Platform",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--video.mp4",
    "studio": "jogos/msdos/prince-of-persia",
    "url": "https://archive.org/details/msdos_Prince_of_Persia_1990",
-   "thumb": "https://archive.org/services/img/msdos_Prince_of_Persia_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/b571ecea16a9824023ee1af16897a582.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/b6aef86083b784fdf8a5418bb69d66a1.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--prince-of-persia--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -936,11 +1094,13 @@
     "Action",
     "Platform"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--video.mp4",
    "studio": "jogos/msdos/rayman",
    "url": "https://archive.org/details/msdos_Rayman_1995",
-   "thumb": "https://archive.org/services/img/msdos_Rayman_1995",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c68f76664876f228e3cddf264e9ecb0d.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/977b33ace8251dd9bee913e7ba56eebc.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
@@ -952,23 +1112,33 @@
     "Role-Playing (RPG)",
     "Roguelike"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--video.mp4",
    "studio": "jogos/msdos/rogue",
    "url": "https://archive.org/details/msdos_Rogue_1983",
-   "thumb": "https://archive.org/services/img/msdos_Rogue_1983",
-   "logo": "https://cdn2.steamgriddb.com/logo/2776e8b512a15c438441cd4b58a24842.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rogue--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "Scorched Earth",
-   "desc": "Jogo de MS-DOS (1991). Do acervo do Internet Archive.",
+   "desc": "É a guerra total em Scorched Earth, um &quot;shooter&quot; simples mas emocionante! Tu e até nove amigos podem lutar por montes e vales, destruindo-se uns aos outros nesta batalha de tanques por turnos.\r\nNo início de cada ronda, cada jogador compra o seu próprio armamento e, se quiser, escudos e pára-quedas para se defender e proteger de quedas longas. Depois, é hora da batalha! Aponta o teu canhão, tendo em conta a trajectória e o vento, e dispara as tuas armas para tentar eliminar os teus adversários. \r\nA variedade de armas é o verdadeiro ponto alto do jogo. Estas incluem as clássicas bombas nucleares, bombas de fragmentação, napalm ....",
    "year": 1991,
+   "genre": [
+    "Estratégia"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--scorched-earth--video.mp4",
    "studio": "jogos/msdos/scorched-earth",
    "url": "https://archive.org/details/msdos_Scorched_Earth_1991",
    "thumb": "https://archive.org/services/img/msdos_Scorched_Earth_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/550aae1e60740ba60f4dc8a255e0e960.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/6b22164c33a8cd4cd56da1c6bb1e0f5a.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--scorched-earth--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--scorched-earth--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--scorched-earth--video.mp4",
    "console": "msdos",
+   "players": 10,
    "core": "dos"
   },
   {
@@ -980,52 +1150,68 @@
     "Strategy/Tactics",
     "4X"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--sid-meier-s-colonization--video.mp4",
    "studio": "jogos/msdos/sid-meier-s-colonization",
    "url": "https://archive.org/details/msdos_Sid_Meiers_Colonization_1994",
-   "thumb": "https://archive.org/services/img/msdos_Sid_Meiers_Colonization_1994",
-   "logo": "https://cdn2.steamgriddb.com/logo/a9ed0cdd23029e0981337ff9a45f6321.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--sid-meier-s-colonization--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--sid-meier-s-colonization--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--sid-meier-s-colonization--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--sid-meier-s-colonization--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "SimAnt - The Electronic Ant Colony",
-   "desc": "Jogo de MS-DOS · Simulation (1991), de Maxis Software. Do acervo do Internet Archive.",
+   "desc": "SimAnt explores the detail of the lives of ants, as you take full control of an ant colony. Build up your colony to conquer the other colonies in the yard. Foes include spiders and humans - make their lives a misery by invading their homes. A Quick Game option focuses on battles with other groups of ants, and a full Tutorial mode is provided. Biological detail of real ants is provided, to help make the package more educational.",
    "year": 1991,
    "genre": [
     "Simulation"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--video.mp4",
    "studio": "jogos/msdos/simant-the-electronic-ant-colony",
    "url": "https://archive.org/details/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
-   "thumb": "https://archive.org/services/img/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/970457cbb97508ef7dd348b6f987498d.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/481ed650e8902f0151be2983ddea2133.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simant-the-electronic-ant-colony--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "SimCity",
-   "desc": "Jogo de MS-DOS · Simulation (1989), de Maxis Software. Do acervo do Internet Archive.",
+   "desc": "SimCity 2000 is the successor to the ground breaking city simulation game Sim City. You are once again the mayor, but this time you can fully customize the terrain before building your city. The graphics are isometric, whereas the original had graphics displayed in a top-down fashion.\r\n\r\nThis title adds numerous features over the original such as the ability of building &quot;light&quot; zones, subways, hospitals, colleges, zoos, and arcos which are actually cities in cities. You can now give names to places, and your city is surrounded by neighboring towns with which you can make trade. Finally, instead of the poll in the first game you now have the option of reading several newspapers to get an idea of your progress.",
    "year": 1989,
    "genre": [
     "Simulation"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--video.mp4",
    "studio": "jogos/msdos/simcity",
    "url": "https://archive.org/details/msdos_SimCity_1989",
-   "thumb": "https://archive.org/services/img/msdos_SimCity_1989",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/40e244ce06f98f84c452989ca388b8a2.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/3a6c2c9231df58107434b942fa600b22.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "SimCity Classic",
-   "desc": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
+   "desc": "SimCity Classic is a remake of the original SimCity. Compared to the original release it brings enhanced graphics, sound effects, a music track, a resized interface, and smooth scrolling across the map. Gameplay remains largely the same.",
    "year": 1994,
+   "genre": [
+    "Simulação",
+    "Construção e Gestão"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--video.mp4",
    "studio": "jogos/msdos/simcity-classic",
    "url": "https://archive.org/details/msdos_SimCity_Classic_1994",
-   "thumb": "https://archive.org/services/img/msdos_SimCity_Classic_1994",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/40e244ce06f98f84c452989ca388b8a2.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/3a6c2c9231df58107434b942fa600b22.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simcity-classic--video.mp4",
    "console": "msdos",
    "core": "dos"
   },
@@ -1037,12 +1223,15 @@
     "Simulation",
     "Strategy"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simfarm--video.mp4",
    "studio": "jogos/msdos/simfarm",
    "url": "https://archive.org/details/msdos_SimFarm_1993",
-   "thumb": "https://archive.org/services/img/msdos_SimFarm_1993",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simfarm--capa.png",
    "bannerThumb": "https://cdn2.steamgriddb.com/hero/508087c9dd886b6a1a82cb805c2ee328.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/a3604090ad274ca07d94a2b34ec1cf65.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simfarm--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--simfarm--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -1053,12 +1242,15 @@
     "Sports",
     "Tricks / Stunts"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--video.mp4",
    "studio": "jogos/msdos/ski-or-die",
    "url": "https://archive.org/details/msdos_Ski_or_Die_1990",
-   "thumb": "https://archive.org/services/img/msdos_Ski_or_Die_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/03187c1828b4a98ed9f66691406245a5.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/3238b5fdacca32ae65f7486caf88ee59.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--video.mp4",
    "console": "msdos",
+   "players": 6,
    "core": "dos"
   },
   {
@@ -1070,12 +1262,15 @@
     "Arcade",
     "Rail Shooter"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--video.mp4",
    "studio": "jogos/msdos/star-wars",
    "url": "https://archive.org/details/msdos_Star_Wars_1988",
-   "thumb": "https://archive.org/services/img/msdos_Star_Wars_1988",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/8f32799a3ad36124c52d8420887c117d.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/15ce0440fd6ec8d847ac449dd238dbe8.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -1089,8 +1284,9 @@
    ],
    "studio": "jogos/msdos/stunt-driver",
    "url": "https://archive.org/details/msdos_Stunt_Driver_1990",
-   "thumb": "https://archive.org/services/img/msdos_Stunt_Driver_1990",
-   "logo": "https://cdn2.steamgriddb.com/logo/4467c5ebcc8206601625e713d31605f9.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunt-driver--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunt-driver--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunt-driver--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1103,36 +1299,41 @@
     "Tricks / Stunts",
     "Vehicle Simulator"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--video.mp4",
    "studio": "jogos/msdos/stunts",
    "url": "https://archive.org/details/msdos_Stunts_1990",
-   "thumb": "https://archive.org/services/img/msdos_Stunts_1990",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunts--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "Super Mario World DX",
-   "desc": "Jogo de MS-DOS (2002). Do acervo do Internet Archive.",
+   "desc": "Super Mario World DX is a Super Mario game released in 2002 by Roland Kuns from BB Software, which has good graphics and sound effects. In this game, you have only five levels available for playing and your main goal is to collect as many coins as possible, in order to get a higher score. In this DOS platform game, you have to defense against a big boss and destroy question blocks.",
    "year": 2002,
    "studio": "jogos/msdos/super-mario-world-dx",
    "url": "https://archive.org/details/msdos_Super_Mario_World_DX_2002",
    "thumb": "https://archive.org/services/img/msdos_Super_Mario_World_DX_2002",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1e0b98ffbf6e647bbcfb5f1032f21ce5.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/a14ac55a4f27472c5d894ec1c3c743d2.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--super-mario-world-dx--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--super-mario-world-dx--logo.png",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "Super Solvers Gizmos and Gadgets",
-   "desc": "Jogo de MS-DOS · Action (1993), de Learning Co., The. Do acervo do Internet Archive.",
+   "desc": "Morty Maxwell, the Master of Mischief, has moved into the Shady Glen Technology Center and taken over as the head scientist! Your job is to accept Morty's challenge and prove that you are a better scientist than he is. Morty has locked the doors in the warehouse with science puzzles. Show him how much you know about science by solving the puzzles. Then go through the doors, find the best vehicle parts, and build faster vehicles than Morty builds. To make your job more difficult, Morty's sneaky Cyber Chimps are collecting vehicle parts, too. Outsmart the Chimps by throwing bananas to them and making them take a nap. Race against Morty and win all 15 of the challenge races. You will reclaim the Technology Center and be the head scientist!",
    "year": 1993,
    "genre": [
     "Action"
    ],
    "studio": "jogos/msdos/super-solvers-gizmos-and-gadgets",
    "url": "https://archive.org/details/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
-   "thumb": "https://archive.org/services/img/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/715d23d4f13675a97f8c2294614e9126.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/f59787e6ee1a15750787a073f1806b20.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--super-solvers-gizmos-and-gadgets--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--super-solvers-gizmos-and-gadgets--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--super-solvers-gizmos-and-gadgets--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1164,8 +1365,8 @@
    "studio": "jogos/msdos/tetris",
    "url": "https://archive.org/details/msdos_Tetris_1986",
    "thumb": "https://archive.org/services/img/msdos_Tetris_1986",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/7bf570282789f2798b7d6c1714e63ce9.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/08fcb5ead4e963a6f0bbdbc971f4a3ee.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--tetris--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--tetris--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1195,23 +1396,34 @@
   },
   {
    "title": "The Oregon Trail",
-   "desc": "Jogo de MS-DOS (1990), de MECC. Do acervo do Internet Archive.",
+   "desc": "Em uma caravana de pioneiros, você seguirá para o oeste de Independence, Michigan, até o rio Willamette no vale de Oregon. Você deve estocar provisões e durante a viagem, tomar decisões chave como quando descansar, racionar comida, entre outras. The Oregon Trail incorpora estratégia e planejamento com exploração e aventura, assim como ação (caçando para sobreviver e a descida no rio Dalles).",
    "year": 1990,
+   "genre": [
+    "Aventura"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--video.mp4",
    "studio": "jogos/msdos/the-oregon-trail",
    "url": "https://archive.org/details/msdos_Oregon_Trail_The_1990",
-   "thumb": "https://archive.org/services/img/msdos_Oregon_Trail_The_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/164b9d82149e90db2876f473a6d4ee9a.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/6d25adbe208ce5e99080da48d33e407a.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "The Oregon Trail Deluxe",
-   "desc": "Jogo de MS-DOS (1992). Do acervo do Internet Archive.",
+   "desc": "As a covered wagon party of pioneers, you head out west from Independence, MI to the Willamette River and valley in Oregon. You first must stock up on provisions, and then, while traveling, make decisions such as when to rest, how much food to eat, etc. The Oregon Trail incorporates strategy and planning ahead along with discovery and adventure as well as action (hunting and floating down the Dalles river).",
    "year": 1992,
+   "genre": [
+    "Aventura"
+   ],
    "studio": "jogos/msdos/the-oregon-trail-deluxe",
    "url": "https://archive.org/details/msdos_Oregon_Trail_Deluxe_The_1992",
    "thumb": "https://archive.org/services/img/msdos_Oregon_Trail_Deluxe_The_1992",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail-deluxe--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-oregon-trail-deluxe--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1224,12 +1436,15 @@
     "Graphic Adventure",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-secret-of-monkey-island--video.mp4",
    "studio": "jogos/msdos/the-secret-of-monkey-island",
    "url": "https://archive.org/details/msdos_Secret_of_Monkey_Island_The_1990",
-   "thumb": "https://archive.org/services/img/msdos_Secret_of_Monkey_Island_The_1990",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/f93dad05756be0b6ecfd7e7ae641639c.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/d1f157379ea7e51d4a8c07aff102a43f.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-secret-of-monkey-island--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-secret-of-monkey-island--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-secret-of-monkey-island--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--the-secret-of-monkey-island--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -1242,9 +1457,9 @@
    ],
    "studio": "jogos/msdos/total-carnage",
    "url": "https://archive.org/details/msdos_Total_Carnage_1994",
-   "thumb": "https://archive.org/services/img/msdos_Total_Carnage_1994",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/aff48cd126513ba3cbcacb0d9b637f3d.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/6dd36e7dc260bc1beeb79a33da67b5df.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--total-carnage--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--total-carnage--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--total-carnage--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1267,10 +1482,15 @@
     "Puzzle",
     "Arcade"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--video.mp4",
    "studio": "jogos/msdos/volfied",
    "url": "https://archive.org/details/msdos_Volfied_1991",
-   "thumb": "https://archive.org/services/img/msdos_Volfied_1991",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--video.mp4",
    "console": "msdos",
+   "players": 2,
    "core": "dos"
   },
   {
@@ -1284,21 +1504,24 @@
    ],
    "studio": "jogos/msdos/warlords-ii",
    "url": "https://archive.org/details/msdos_Warlords_II_1993",
-   "thumb": "https://archive.org/services/img/msdos_Warlords_II_1993",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c56ff9d8e9a0bcc230f64f66f918f6f7.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/07903696918181deac35e89ec86b6427.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii--logo.png",
    "console": "msdos",
    "core": "dos"
   },
   {
    "title": "Warlords II Deluxe",
-   "desc": "Jogo de MS-DOS (1995). Do acervo do Internet Archive.",
+   "desc": "Warlords II Deluxe is an eight player game of conquest and empire. Different worlds are provided as a stage for your ambitions, and as a test of your capabilities. In the quest for final victory, you will assemble vast armies, conquer and loot mighty cities, undertake perilous quests, make and break alliances and wield magical artifacts of great power.\n\nWarlords II Deluxe is a sequel to the best selling Warlords II and boasts a wide range of additions and improvements. As well as the game itself, Warlords II Deluxe contains an improved version of the Warlords II Scenario Builder and a number of new scenarios.",
    "year": 1995,
+   "genre": [
+    "Estratégia"
+   ],
    "studio": "jogos/msdos/warlords-ii-deluxe",
    "url": "https://archive.org/details/msdos_Warlords_II_Deluxe_1995",
-   "thumb": "https://archive.org/services/img/msdos_Warlords_II_Deluxe_1995",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c56ff9d8e9a0bcc230f64f66f918f6f7.jpg",
-   "logo": "https://cdn2.steamgriddb.com/logo/07903696918181deac35e89ec86b6427.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii-deluxe--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii-deluxe--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--warlords-ii-deluxe--logo.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1310,12 +1533,15 @@
     "Adventure",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--video.mp4",
    "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego",
    "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_1985",
-   "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_1985",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/305ec2f907e0fcbb74f06fef40c9a4ac.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/019665ab81a95464a25e2bf069f942f9.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -1342,28 +1568,34 @@
     "Adventure",
     "Puzzle"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--video.mp4",
    "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego-enhanced",
    "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
-   "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/305ec2f907e0fcbb74f06fef40c9a4ac.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/019665ab81a95464a25e2bf069f942f9.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
    "title": "Wolfenstein 3D",
-   "desc": "Jogo de MS-DOS · Action, Shooter (1992), de id Software. Do acervo do Internet Archive.",
+   "desc": "Em Wolfenstein 3D, o jogo é visto pelo ponto de vista do protagonista William &quot;B.J.&quot; Blazkowicz. O jogador circula pelos labirínticos níveis em busca de um elevador que serve de saída, matando inimigos com um arsenal de quatro armas (uma pistola, uma metralhadora, uma metralhadora giratória e uma Faca). Itens incluem comida e kit de primeiros socorros para restaurar saúde, chaves para abrir portas trancadas, e tesouros para acumular pontos. O jogador tem até 9 vidas (encontradas pelos níveis e conseguidas acumulando 40,000 pontos), e se morrer recomeça o nível com apenas uma pistola e oito balas. Certas paredes quando pressionadas com o botão de abrir portas revelam passagens escondidas, normalmente com itens mas também levando a fases secretas (uma em cada episódio - a do episódio 3 é uma paródia de Pac-Man).",
    "year": 1992,
    "genre": [
     "Action",
     "Shooter"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--video.mp4",
    "studio": "jogos/msdos/wolfenstein-3d",
    "url": "https://archive.org/details/msdos_Wolfenstein_3D_1992",
-   "thumb": "https://archive.org/services/img/msdos_Wolfenstein_3D_1992",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/3b5d4919c43697e04ae8f965bc07acd1.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/9d12d071c18b535cda26f47f20e5c7ae.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--wolfenstein-3d--video.mp4",
    "console": "msdos",
+   "players": 1,
    "core": "dos"
   },
   {
@@ -1375,9 +1607,13 @@
     "Simulation",
     "Vehicle Simulator"
    ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--video.mp4",
    "studio": "jogos/msdos/world-circuit",
    "url": "https://archive.org/details/msdos_World_Circuit_1992",
-   "thumb": "https://archive.org/services/img/msdos_World_Circuit_1992",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--banner.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--video.mp4",
    "console": "msdos",
    "core": "dos"
   }

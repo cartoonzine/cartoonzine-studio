@@ -3,17 +3,21 @@
   "links": [
     "https://archive.org/details/msdos_Paperboy_2_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_Paperboy_2_1991",
-  "banner": "https://cdn2.steamgriddb.com/hero/61bf3af39b95fc0f4b6451f3f8affbc6.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/80177fe965b78111f4dfee80cfdc3689.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--paperboy-2--video.mp4",
   "fonte": "https://archive.org/details/msdos_Paperboy_2_1991",
-  "descricao": "Jogo de MS-DOS · Action (1991), de Tengen. Do acervo do Internet Archive.",
+  "descricao": "You're a paper boy. Get on your bicycle. Avoid obstacles on the road, such as dogs, cars, and basically everything you can imagine. Hell, some people shoot cannon balls at you! And you'd better be very sure to only throw papers at the right houses! (and at people, that's fun :)",
   "ano": 1991,
   "generos": [
     "Action"
   ],
   "editora": "Tengen",
   "console": "msdos",
+  "jogadores": 2,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188296
 }

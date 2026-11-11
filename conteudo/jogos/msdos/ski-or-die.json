@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Ski_or_Die_1990"
   ],
-  "capa": "https://archive.org/services/img/msdos_Ski_or_Die_1990",
-  "banner": "https://cdn2.steamgriddb.com/hero/03187c1828b4a98ed9f66691406245a5.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/3238b5fdacca32ae65f7486caf88ee59.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ski-or-die--video.mp4",
   "fonte": "https://archive.org/details/msdos_Ski_or_Die_1990",
   "descricao": "Jogo de MS-DOS · Sports, Tricks / Stunts (1990), de Electronic Arts. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -15,6 +16,9 @@
   ],
   "editora": "Electronic Arts",
   "console": "msdos",
+  "jogadores": 6,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 170647
 }

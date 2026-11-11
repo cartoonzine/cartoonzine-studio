@@ -3,11 +3,14 @@
   "links": [
     "https://truffled.lol/games/karlson2d/truffledkarlson2d/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3d6346e1a76d84396b0e6e06fc8a26c4.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/eb1e4e49423bf446d9ccc99322523f3c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d72b69c8e37aec662e13e39d929d6e3d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · truffled.lol",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

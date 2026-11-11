@@ -3,14 +3,21 @@
   "links": [
     "https://rgc.zone/ports/8780-duke-dc/run.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/d6f79574ce2d52937d75553a00b32c0b.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/6ff3d83296f53984bc1e55ce4d1cc95b.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/372dfb0a40d906361a899bd38ac0eb93.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-it-out-in-d-c--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-it-out-in-d-c--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-it-out-in-d-c--logo.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "This is an add-on episode for Duke Nukem 3D.Aliens have captured the President! Duke gets word that alien scum have landed in Washington D.C., laid it to waste, and imprisoned the leader of the free world.  Always up for a heroic deed, Duke heads to D.C. to rid the city of enemy dirtbags and return the president to power!Includes 9 new levels plus one secret level. Works with Duke 3D v1.3d or newer, and Duke Atomic.",
+  "ano": 1997,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187623
 }

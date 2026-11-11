@@ -3,11 +3,11 @@
   "links": [
     "https://archive.org/details/msdos_Executive_Suite_1982"
   ],
-  "capa": "https://archive.org/services/img/msdos_Executive_Suite_1982",
-  "banner": "https://cdn2.steamgriddb.com/hero/bb17d16eaedc501f865a2dc57034a413.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/7a807be03d58378fe54cd908bcbb9454.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--executive-suite--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--executive-suite--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--executive-suite--logo.png",
   "fonte": "https://archive.org/details/msdos_Executive_Suite_1982",
-  "descricao": "Jogo de MS-DOS · Simulation (1982), de Armonk Corporation. Do acervo do Internet Archive.",
+  "descricao": "After a short job interview, you get hired to Mighty Microcomputer Corporation. You have only one goal in your mind: to become the president of the company as soon as possible!\n\nThe game presents you with situations and problems which you must solve by choosing from multiple choices. After a series of questions the game evaluates your performance. If you have made the right choices, you get to advance in your career, but if you have made the wrong decisions, you get fired from the company and the game ends.",
   "ano": 1982,
   "generos": [
     "Simulation"
@@ -15,5 +15,7 @@
   "editora": "Armonk Corporation",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 156891
 }

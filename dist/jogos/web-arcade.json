@@ -4,13 +4,21 @@
  "games": [
   {
    "title": "Daytona USA",
-   "desc": "Port para navegador · johannruiz.github.io",
+   "desc": "Daytona USA é um jogo de corrida para arcades lançado pela Sega em 1993. Tomando por base a estrutura básica apresentada no jogo Virtua Racing de 1992, aproveitou-se de uma plataforma mais moderna para apresentar os gráficos com maior fluidez vistos até então. Sucesso de crítica, é considerado por muitos o jogo para arcades mais bem sucedido de todos os tempos.",
+   "year": 1994,
+   "genre": [
+    "Corrida, Pilotagem",
+    "Corrida em 3ª pessoa"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--video.mp4",
    "studio": "jogos-web/web-arcade/daytona-usa",
    "url": "https://johannruiz.github.io/Daytona-USA-Web/",
-   "thumb": "https://cdn2.steamgriddb.com/grid/a2062d9b9b1a226a52980c26c7083840.png",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/0aa1883c6411f7873cb83dacb17b0afc.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/80a8155eb153025ea1d513d0b2c4b675.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--video.mp4",
    "console": "web-arcade",
+   "players": 1,
    "core": "web",
    "aparelhos": [
     "tv",
@@ -22,13 +30,21 @@
   },
   {
    "title": "Marvel vs. Capcom 2",
-   "desc": "Port para navegador · marvelvscapcom2.online",
+   "desc": "Marvel vs. Capcom 2: New Age of Heroes é a quarta edição da série Marvel vs. Capcom, de jogos de luta baseados em equipes. Os jogadores selecionam um time de três personagens para competir em batalhas um-a-um, em oposição aos times de dois personagens do jogo anterior da série, Marvel vs. Capcom: Clash of Super Heroes.\r\n\r\nO jogo apresenta uma versão mais refinada do &quot;sistema de variáveis&quot; usado nos jogos anteriores, que permite aos jogadores convocar outros membros da equipe a qualquer momento durante a partida. Ligeiramente diferente de Clash of Super Heroes, que apresentava personagens parceiros não-jogáveis ​​que o jogador podia convocar à vontade.",
+   "year": 2000,
+   "genre": [
+    "Luta",
+    "Luta / Versus"
+   ],
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--video.mp4",
    "studio": "jogos-web/web-arcade/marvel-vs-capcom-2",
    "url": "https://marvelvscapcom2.online/",
-   "thumb": "https://cdn2.steamgriddb.com/grid/bc7b4e25f69535e8ff34363547ac09da.png",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ef67f7c2d86352c2c42e19d20f881f53.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/e81fef8820149d2910bc279001126f97.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--video.mp4",
    "console": "web-arcade",
+   "players": 2,
    "core": "web",
    "aparelhos": [
     "tv",

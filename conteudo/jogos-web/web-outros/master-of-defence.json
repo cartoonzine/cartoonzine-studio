@@ -3,11 +3,14 @@
   "links": [
     "https://nomadic-ua.itch.io/master-of-defence"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b0f0b71a4dba753b3c0373c1a6ffedc9.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/5ca05341418f09367540f05484d0b650.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/bf8d643e574588f2bdbbbcbee8af2466.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · nomadic-ua.itch.io",
   "console": "web-outros",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

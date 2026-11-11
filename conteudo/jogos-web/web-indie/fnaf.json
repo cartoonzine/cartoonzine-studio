@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/fnaf/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/53ba5bb19dddfe339330e09b2eeff372.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/59f6437b10a9d515ab7ac4679597b52d.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/64f07f012a35c83d7c556ba0b69ef64e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/fnaf",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,6 +3,9 @@
   "links": [
     "https://sh1ftmaker.github.io/katam-port/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/950f66a3fafa122488785a9728ae6f14.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/22764440b2c9f2fb903ce8957a2aa01f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ca3a856a28df7d77d948949206ff9fdf.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/sh1ftmaker/katam-port",
   "descricao": "Port para navegador · sh1ftmaker.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

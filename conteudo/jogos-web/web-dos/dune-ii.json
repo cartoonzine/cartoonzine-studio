@@ -3,15 +3,24 @@
   "links": [
     "https://dune2js.com/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/4774165006b1b56612265a02b527a12d.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/9f369b3d166fd7623b321cfe91ca4c9f.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/b236c744e94e72c48bb073c1e1fe4417.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dune-ii--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dune-ii--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dune-ii--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--dune-ii--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/OpenDUNE",
-  "descricao": "Port para navegador · dune2js.com",
+  "descricao": "Based on the legendary Frank Herbert novel of the same name and visually inspired by the 1984 David Lynch movie, Dune is a strategy-adventure hybrid where the player takes the role of young Paul Atreides, the son of Duke Leto. The Emperor Shaddam Corrino IV has given the Atreides House the rights to manage the extraction of the most precious substance in the entire universe - the Melange, commonly known as Spice in the desolate desert planet Arrakis (Dune), the only place in the universe capable of producing the substance. While everything indicates the offer is a trap orchestrated by their enemies the Harkonnen, the Atreides family agrees on moving, as he who controls the spice, controls the universe.\n\nThe player arrives in Arrakis with the mission of contacting and convincing the Fremen tribes residing in sietches (desert settlements) near the Atreides palace to harvest the spice. Harvesting is the most important part of the game, required to purchase equipment from the smugglers and appease the emperor. To speed up the process of harvesting, the player can equip the tribes with harvesters to increase production and ornis to protect them from the gigantic protectors of the planet: Shai-Hulud - the sandworms. \n\nHowever, the spice doesn't last forever and new sietches must be prospected before having a mining crew assigned, but the player cannot run Southwards forever, as the Harkonnen enemy controls the North of the Planet, dangerously close to the Atreides Palace. Soon after the initial batches are sent to the Empreror, the player will have to actively deal with the Harkonnen, who will try to take control of player Sietches. For those, Fremen tribes can be assigned to military training with Gurney Halleck, but before doing such work Paul must have a certain reputation, gained by the control of Arrakis.\n\nAs the game advances, the player will untap Paul's latent powers, as well as meeting other characters from the Dune universe, such as Duke Leto, Jessica, Thufir Hawat, Duncan Idaho, Harah, Chani, Stilgar and Liet Kynes, the mastermind behind the ecological plans on Dune - the ultimate goal.",
+  "ano": 1992,
+  "generos": [
+    "Estratégia",
+    "Aventura"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155666
 }

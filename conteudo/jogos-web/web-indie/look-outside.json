@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=649"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e5e796cf1284566bae0ce13bfd465d03.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/f8f8a28913da23c829b90fd42c545f74.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/5497a0f4058d523c955929ca6a14200a.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/look-outside",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -4,12 +4,14 @@
     "https://archive.org/details/msdos_3D_Bomber_1998"
   ],
   "capa": "https://archive.org/services/img/msdos_3D_Bomber_1998",
-  "banner": "https://cdn2.steamgriddb.com/hero/7cec85c75537840dad40251576e5b757.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/7fa37b4aadce3de52314aa3ff5c6673d.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--3d-bomber--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--3d-bomber--logo.png",
   "fonte": "https://archive.org/details/msdos_3D_Bomber_1998",
-  "descricao": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
+  "descricao": "A freeware 3D version of Bomberman. You play as one of the ''Bombermen'' (cute spacesuit wearing anime characters) and your goal is to blow up the other Bomberman before he gets you. You run around a 3D maze laying time delayed bombs as you go. Each time you kill your opponent you score a point and visa versa and the first player to reach 5 points wins the match. Many of the walls are destructible and some hide special power ups. The game is controlled by keyboard and can be played either in single player against the computer AI or multi player over modem or serial cable.",
   "ano": 1998,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187087
 }

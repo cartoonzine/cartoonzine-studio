@@ -3,11 +3,14 @@
   "links": [
     "https://stelight.games/play/webports/stellite.games/stellite/doom/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/579d0b9be3803e316b3201eba14413f9.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/1d178bbecb5fe472eabd360fd56134c6.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/f90c79a1010a21117db1266abcc46127.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · stelight.games",
   "console": "web-outros",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

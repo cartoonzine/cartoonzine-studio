@@ -4,12 +4,14 @@
     "https://archive.org/details/msdos_Super_Mario_World_DX_2002"
   ],
   "capa": "https://archive.org/services/img/msdos_Super_Mario_World_DX_2002",
-  "banner": "https://cdn2.steamgriddb.com/hero/1e0b98ffbf6e647bbcfb5f1032f21ce5.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/a14ac55a4f27472c5d894ec1c3c743d2.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--super-mario-world-dx--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--super-mario-world-dx--logo.png",
   "fonte": "https://archive.org/details/msdos_Super_Mario_World_DX_2002",
-  "descricao": "Jogo de MS-DOS (2002). Do acervo do Internet Archive.",
+  "descricao": "Super Mario World DX is a Super Mario game released in 2002 by Roland Kuns from BB Software, which has good graphics and sound effects. In this game, you have only five levels available for playing and your main goal is to collect as many coins as possible, in order to get a higher score. In this DOS platform game, you have to defense against a big boss and destroy question blocks.",
   "ano": 2002,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188699
 }

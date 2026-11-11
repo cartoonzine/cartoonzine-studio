@@ -3,15 +3,24 @@
   "links": [
     "https://vf1-recomp.pages.dev/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/ac279f547f662d776679cb629dc65227.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/144d7111b7126a9a938f3113403b15d6.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/0f0ca97dacf1e61f790dc8e6e138dd42.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--virtua-fighter--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--virtua-fighter--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--virtua-fighter--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--virtua-fighter--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/mr-finster/vf1-recomp",
-  "descricao": "Port para navegador · vf1-recomp.pages.dev",
+  "descricao": "In this 3-D fighting game, the game's battle system is simple, yet complex. There are 3 buttons: Punch, Kick and Guard. Movement is strictly confined to a horizontal plane.\r\n\r\nBattles are won by draining the energy bar of your opponent or by pushing your opponent off the edges of the ring (known as a 'Ring-out').",
+  "ano": 1993,
+  "generos": [
+    "Luta",
+    "Luta / Versus"
+  ],
   "console": "web-arcade",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 43935
 }

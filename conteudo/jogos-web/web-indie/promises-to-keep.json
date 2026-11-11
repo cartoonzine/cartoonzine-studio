@@ -3,11 +3,14 @@
   "links": [
     "https://gitea.mcalec.dev/mcalec/ptk"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e24f9acd7e7ee7f523f4ee19926a7a98.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/eca4b602800c4d7173e3248294187244.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d6b86155eaf97c9d610e44c7ac20d3fa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · gitea.mcalec.dev",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

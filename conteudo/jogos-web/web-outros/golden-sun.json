@@ -3,6 +3,9 @@
   "links": [
     "https://shmargus.github.io/GSRecomp/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/fc37c234a9b820027243ea2255da90b7.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e633e2ac7a14a4d56384f38df943792b.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/0e55ef5f7354c3851d022f15f418c8b1.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/shmargus/GSRecomp",
   "descricao": "Port para navegador · shmargus.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

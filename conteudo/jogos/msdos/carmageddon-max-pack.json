@@ -3,13 +3,19 @@
   "links": [
     "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998"
   ],
-  "capa": "https://archive.org/services/img/msdos_Carmageddon_Max_Pack_1998",
-  "banner": "https://cdn2.steamgriddb.com/hero/b555f4a2901228cc826327079761e696.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/50acfcb158fa1373d01ae69c7236c946.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--video.mp4",
   "fonte": "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998",
-  "descricao": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
+  "descricao": "This compilation contains:\r\n\r\nCarmageddon (base game)\r\nCarmageddon: Splat Pack (expansion)",
   "ano": 1998,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 170544
 }

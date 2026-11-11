@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.github.io/web-port/baldi-plus/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/df1c94655d309ffea0fcc1f3697099d9.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/d85d662af3bebc70b953f252b2740fbc.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9c42734a47eb2925b8b4cb5b4d06ce49.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/baldi-plus",
   "descricao": "Port para navegador · gn-math.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

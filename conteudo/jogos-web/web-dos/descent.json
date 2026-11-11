@@ -3,14 +3,23 @@
   "links": [
     "https://rgc.zone/ports/descentweb/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/60c7efb7622e3c9358694d5a643fe3b7.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/240ac9371ec2671ae99847c3ae2e6384.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/45ed8504b88d7ac1bebc122d9a4d1ab3.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--descent--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--descent--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--descent--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--descent--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Humanos e máquinas trabalham para PTMC em todo o sistema solar para aproveitar os recursos de todos os planetas. Tudo estava indo bem até que um hacker hackeou as máquinas que ajudam os humanos e os levou como reféns. O PTMC então contrata um mercenário, você, e o coloca a bordo do Pyro-GX, um antigo navio de manutenção transformado em uma arma de guerra. Esta é a história que espera por você em Descent, um jogo de acção para PC.",
+  "ano": 1995,
+  "generos": [
+    "Tiro",
+    "Tiro / Carro 1ª Pessoa"
+  ],
   "console": "web-dos",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 155664
 }

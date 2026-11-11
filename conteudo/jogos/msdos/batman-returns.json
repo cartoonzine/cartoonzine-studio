@@ -5,7 +5,8 @@
   ],
   "capa": "https://images.launchbox-app.com//e75fc659-d3ac-4d73-8dd5-a69754abb7e9.jpg",
   "banner": "https://images.launchbox-app.com//ac591503-062d-4b29-a4d8-62bc10d1459f.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/9d020a184d35c39e9b2a23c72fc0cb54.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--batman-returns--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--batman-returns--video.mp4",
   "fonte": "https://archive.org/details/msdos_Batman_Returns_1993",
   "descricao": "Jogo de MS-DOS · Action, Platform (1993), de Malibu Interactive. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -15,9 +16,12 @@
   ],
   "editora": "Malibu Interactive",
   "console": "msdos",
+  "jogadores": 1,
   "fundoImagem": "banner",
   "posFundo": 15,
   "bannerSkin": "arcade",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 156547
 }

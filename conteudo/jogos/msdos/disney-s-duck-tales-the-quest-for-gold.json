@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990"
   ],
-  "capa": "https://archive.org/services/img/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
-  "banner": "https://cdn2.steamgriddb.com/hero/420e7a59c4ccc0dbeb1d58e2126c42d5.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/4bf269bdf9a80bc227aa079d668e22c4.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--video.mp4",
   "fonte": "https://archive.org/details/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
   "descricao": "Jogo de MS-DOS · Action, Platform (1990), de Incredible Technologies. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -15,6 +16,9 @@
   ],
   "editora": "Incredible Technologies",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187585
 }

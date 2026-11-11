@@ -4,11 +4,14 @@
     "https://gn-math.dev/?id=805",
     "https://wasm.rip/files/plauge/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/da8a8e9cbcc29f7a06600fc7b6ce72ba.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/66bd62a58f2428c12c7e4ff0e1d67769.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/b2008aceaafd9e391fa285c4147095fd.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-mobile",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

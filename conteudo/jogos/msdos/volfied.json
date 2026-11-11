@@ -3,7 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Volfied_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_Volfied_1991",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--volfied--video.mp4",
   "fonte": "https://archive.org/details/msdos_Volfied_1991",
   "descricao": "Jogo de MS-DOS · Action, Puzzle, Arcade (1991), de Taito Corporation. Do acervo do Internet Archive.",
   "ano": 1991,
@@ -14,6 +17,9 @@
   ],
   "editora": "Taito Corporation",
   "console": "msdos",
+  "jogadores": 2,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 188890
 }

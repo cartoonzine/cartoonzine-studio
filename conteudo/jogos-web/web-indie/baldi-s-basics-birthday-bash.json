@@ -3,6 +3,9 @@
   "links": [
     "https://wasm.rip/files/birthdaybash/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/263d0a65a360c3cf6efe7e4de53299c7.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/fe13efb3ed0c3101973404345d5ddac2.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/0f43f9498ac00887d5e7cc2e9f149c80.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/woahhcrackers/BirthdayBashWeb",
   "descricao": "Port para navegador · wasm.rip",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

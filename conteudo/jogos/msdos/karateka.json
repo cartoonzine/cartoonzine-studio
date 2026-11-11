@@ -3,8 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Karateka_1986"
   ],
-  "capa": "https://archive.org/services/img/msdos_Karateka_1986",
-  "logo": "https://cdn2.steamgriddb.com/logo/9c1202f4af69c9c722163a0f73d11c23.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--karateka--video.mp4",
   "fonte": "https://archive.org/details/msdos_Karateka_1986",
   "descricao": "Jogo de MS-DOS · Action, Beat 'em up / Brawler, Martial Arts (1986), de Brøderbund Software. Do acervo do Internet Archive.",
   "ano": 1986,
@@ -15,6 +17,9 @@
   ],
   "editora": "Brøderbund Software",
   "console": "msdos",
+  "jogadores": 1,
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187982
 }

@@ -3,9 +3,10 @@
   "links": [
     "https://archive.org/details/msdos_Back_to_the_Future_Part_III_1991"
   ],
-  "capa": "https://archive.org/services/img/msdos_Back_to_the_Future_Part_III_1991",
-  "banner": "https://cdn2.steamgriddb.com/hero/76103540cefd1d046c7c9ea56e225ca4.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/99c93540b23b44e6b1ef8c956c559b84.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--back-to-the-future-part-iii--video.mp4",
   "fonte": "https://archive.org/details/msdos_Back_to_the_Future_Part_III_1991",
   "descricao": "Jogo de MS-DOS · Action, Arcade (1991), de Probe Software Ltd.. Do acervo do Internet Archive.",
   "ano": 1991,
@@ -16,5 +17,7 @@
   "editora": "Probe Software Ltd.",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 187217
 }
