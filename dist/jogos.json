@@ -448,6 +448,8 @@
    ],
    "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--video.mp4",
+   "bgImg": "banner",
+   "bgPosY": 73,
    "studio": "jogos/msdos/disney-s-duck-tales-the-quest-for-gold",
    "url": "https://archive.org/details/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
    "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--disney-s-duck-tales-the-quest-for-gold--capa.png",
