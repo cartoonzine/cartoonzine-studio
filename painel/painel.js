@@ -180,10 +180,10 @@
               <label class="rot" for="ch-omdb" style="margin-top:14px">OMDb — nota do IMDb</label>
               <input class="campo" id="ch-omdb" type="password" autocomplete="off" placeholder="Chave do OMDb" value="${esc(ch.omdb || '')}">
               <div class="dica">Grátis: peça em <a href="https://www.omdbapi.com/apikey.aspx" target="_blank" rel="noopener">omdbapi.com/apikey.aspx</a> (plano FREE) e confirme pelo e-mail.</div>
-              <label class="rot" for="ch-steamgrid" style="margin-top:14px">SteamGridDB — logos dos jogos retrô</label>
+              <label class="rot" for="ch-steamgrid" style="margin-top:14px">SteamGridDB — logo, capa e banner dos jogos</label>
               <input class="campo" id="ch-steamgrid" type="password" autocomplete="off" placeholder="Chave da API do SteamGridDB" value="${esc(ch.steamgrid || '')}">
               <div class="dica">Grátis: em <a href="https://www.steamgriddb.com/profile/preferences/api" target="_blank" rel="noopener">steamgriddb.com → Preferences → API</a>. Usada para baixar o logo dos jogos automaticamente.</div>
-              <label class="rot" style="margin-top:14px">ScreenScraper — logo "wheel" + vídeo snap dos jogos</label>
+              <label class="rot" style="margin-top:14px">ScreenScraper — só teste (desligado no catálogo: os links de mídia dele levam a sua senha)</label>
               <div class="dica" style="margin-bottom:8px">Login = seu usuário/senha do site. Dev ID / Dev password: peça no <a href="https://www.screenscraper.fr/forum.php" target="_blank" rel="noopener">fórum do ScreenScraper</a> (apps gratuitos). <a href="https://www.screenscraper.fr/webapi2.php" target="_blank" rel="noopener">doc da API</a>.</div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
                 <input class="campo" id="ch-ss-dev" type="text" autocomplete="off" placeholder="Dev ID" value="${esc((ch.screenscraper && ch.screenscraper.dev) || '')}">
@@ -1660,7 +1660,7 @@ https://archive.org/details/algum_desenho
                 const ch = chaves();
                 const r = await C.completarItem(it, { tmdb: ch.tmdb, omdb: ch.omdb, wiki, fetchFn: fetchExterno, tipoColecao: col.tipo });
                 it = r.item; avisos.push(...r.avisos);
-            } else if (col.tipo === 'jogo' && it.nome && (chaves().steamgrid || (chaves().screenscraper && chaves().screenscraper.dev)) && (!it.logo || !it.video)) {
+            } else if (col.tipo === 'jogo' && it.nome && chaves().steamgrid && (!it.logo || !it.capa || !it.banner)) {
                 const r = await C.completarItem(it, { steamgrid: chaves().steamgrid, screenscraper: chaves().screenscraper, fetchFn: fetchExterno, tipoColecao: 'jogo' });
                 it = r.item; avisos.push(...r.avisos);
             }
