@@ -6,6 +6,7 @@
   ],
   "capa": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
   "banner": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/858846e5d0a6816af8a75fe6fda40ca1.png",
   "site": "https://github.com/opentyrian/opentyrian",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/opentyrian/opentyrian",
@@ -23,5 +24,5 @@
   "fundoImagem": "banner",
   "posFundo": 39,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

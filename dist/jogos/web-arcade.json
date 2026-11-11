@@ -7,6 +7,9 @@
    "desc": "Port para navegador · johannruiz.github.io",
    "studio": "jogos-web/web-arcade/daytona-usa",
    "url": "https://johannruiz.github.io/Daytona-USA-Web/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/a2062d9b9b1a226a52980c26c7083840.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/0aa1883c6411f7873cb83dacb17b0afc.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/80a8155eb153025ea1d513d0b2c4b675.png",
    "console": "web-arcade",
    "core": "web",
    "aparelhos": [
@@ -22,6 +25,9 @@
    "desc": "Port para navegador · marvelvscapcom2.online",
    "studio": "jogos-web/web-arcade/marvel-vs-capcom-2",
    "url": "https://marvelvscapcom2.online/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/bc7b4e25f69535e8ff34363547ac09da.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ef67f7c2d86352c2c42e19d20f881f53.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/e81fef8820149d2910bc279001126f97.png",
    "console": "web-arcade",
    "core": "web",
    "aparelhos": [
@@ -36,6 +42,9 @@
    "desc": "Port para navegador · solid7s.github.io",
    "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
    "url": "https://solid7s.github.io/Virtual-On-Web/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/54bbc32dde48d6cae73213c6a21a0995.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e92ae67e4af9da61bbb3690018fa4f1e.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/03258e6ca69527cccd5313e56401d8fa.png",
    "console": "web-arcade",
    "core": "web",
    "aparelhos": [

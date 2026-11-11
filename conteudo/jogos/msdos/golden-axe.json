@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Golden_Axe_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Golden_Axe_1990",
+  "banner": "https://cdn2.steamgriddb.com/hero/362e95a098223bb09b80ff75afd0150f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/dc1913d422398c25c5f0b81cab94cc87.png",
   "fonte": "https://archive.org/details/msdos_Golden_Axe_1990",
   "descricao": "Jogo de MS-DOS · Action, Beat 'em up / Brawler (1990), de Team Shinobi. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -14,5 +16,5 @@
   "editora": "Team Shinobi",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

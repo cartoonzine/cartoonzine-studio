@@ -3,6 +3,9 @@
   "links": [
     "https://afd2025.srb2.org/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f655d686ece627fa58304aa1b6bf8b39.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/f9beb1e831faf6aaec2a5cecaf1af293.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/85353d3b2f39b9c9b5ee3576578c04b7.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/chromaticpipe/SRB2-WASM",
   "descricao": "Port para navegador · afd2025.srb2.org",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Lotus_-_The_Ultimate_Challenge_1993"
   ],
   "capa": "https://archive.org/services/img/msdos_Lotus_-_The_Ultimate_Challenge_1993",
+  "banner": "https://cdn2.steamgriddb.com/hero/1a495bc86abe171f690e27192ea6c367.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a2896cb11aed969ffec7bb02a7c772a8.png",
   "fonte": "https://archive.org/details/msdos_Lotus_-_The_Ultimate_Challenge_1993",
   "descricao": "Jogo de MS-DOS · Racing / Driving, Arcade (1993), de Magnetic Fields (Software Design) Ltd.. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -14,5 +16,5 @@
   "editora": "Magnetic Fields (Software Design) Ltd.",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

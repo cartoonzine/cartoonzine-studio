@@ -5,8 +5,10 @@
   ],
   "capa": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
   "banner": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
   "console": "web-windows",
   "licenca": "livre",
   "fundoImagem": "banner",
-  "posFundo": 70
+  "posFundo": 70,
+  "_completadoEm": "2026-11-11"
 }

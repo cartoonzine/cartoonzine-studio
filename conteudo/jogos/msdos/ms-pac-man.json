@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Ms._Pac-Man_1983"
   ],
   "capa": "https://archive.org/services/img/msdos_Ms._Pac-Man_1983",
+  "banner": "https://cdn2.steamgriddb.com/hero/ffd118594a87c765e72d11d803520149.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/7dd2ae7db7d18ee7c9425e38df1af5e2.png",
   "fonte": "https://archive.org/details/msdos_Ms._Pac-Man_1983",
   "descricao": "Jogo de MS-DOS · Action, Arcade (1983), de Midway Mfg. Co., General Computer Corporation. Do acervo do Internet Archive.",
   "ano": 1983,
@@ -14,5 +16,5 @@
   "editora": "Midway Mfg. Co., General Computer Corporation",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

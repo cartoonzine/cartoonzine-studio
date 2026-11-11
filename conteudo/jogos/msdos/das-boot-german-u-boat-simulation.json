@@ -4,6 +4,7 @@
     "https://archive.org/details/msdos_Das_Boot_German_U-Boat_Simulation_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Das_Boot_German_U-Boat_Simulation_1990",
+  "logo": "https://cdn2.steamgriddb.com/logo/b831f1542ffea17ccdf5d39900c663a1.png",
   "fonte": "https://archive.org/details/msdos_Das_Boot_German_U-Boat_Simulation_1990",
   "descricao": "Jogo de MS-DOS · Simulation (1990), de Artech Digital Entertainment, Ltd.. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -13,5 +14,5 @@
   "editora": "Artech Digital Entertainment, Ltd.",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

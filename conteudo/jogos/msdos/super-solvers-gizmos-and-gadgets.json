@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Super_Solvers_Gizmos_and_Gadgets_1993"
   ],
   "capa": "https://archive.org/services/img/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
+  "banner": "https://cdn2.steamgriddb.com/hero/715d23d4f13675a97f8c2294614e9126.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/f59787e6ee1a15750787a073f1806b20.png",
   "fonte": "https://archive.org/details/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
   "descricao": "Jogo de MS-DOS · Action (1993), de Learning Co., The. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -13,5 +15,5 @@
   "editora": "Learning Co., The",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

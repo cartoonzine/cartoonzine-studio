@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Cool_World_1992"
   ],
   "capa": "https://archive.org/services/img/msdos_Cool_World_1992",
+  "banner": "https://cdn2.steamgriddb.com/hero/a1395df0a1abc218eb63b3addbdd1693.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/7552663f68b5eba5b1e88899419a4a01.png",
   "fonte": "https://archive.org/details/msdos_Cool_World_1992",
   "descricao": "Jogo de MS-DOS · Action, Platform (1992), de Twilight. Do acervo do Internet Archive.",
   "ano": 1992,
@@ -14,5 +16,5 @@
   "editora": "Twilight",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

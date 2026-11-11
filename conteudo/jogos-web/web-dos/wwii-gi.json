@@ -3,11 +3,12 @@
   "links": [
     "https://rgc.zone/ports/ww2giweb/run.html"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/c7dfbbb2c4b908a2b8841c6ebbdfa8d6.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

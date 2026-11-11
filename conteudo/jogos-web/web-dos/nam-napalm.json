@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/namweb/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f666ac4d1722f92b026bc3c5361f65fe.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/73740ea85c4ec25f00f9acbd859f861d.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/5265743e081d60f9287ace7989077fd6.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

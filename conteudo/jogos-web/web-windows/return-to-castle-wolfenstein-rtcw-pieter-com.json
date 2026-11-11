@@ -3,10 +3,14 @@
   "links": [
     "http://rtcw.pieter.com"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/376fa4e9db29db031e42237b552e0dd1.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e517564e98c2825803fdf00b6c0d9ee7.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d68a18275455ae3eaa2c291eebb46e6d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rtcw.pieter.com",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

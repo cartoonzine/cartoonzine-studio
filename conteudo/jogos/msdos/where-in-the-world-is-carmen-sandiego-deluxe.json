@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990",
+  "banner": "https://cdn2.steamgriddb.com/hero/305ec2f907e0fcbb74f06fef40c9a4ac.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/019665ab81a95464a25e2bf069f942f9.png",
   "fonte": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990",
   "descricao": "Jogo de MS-DOS · Adventure, Puzzle (1990), de Brøderbund Software. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -14,5 +16,5 @@
   "editora": "Brøderbund Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

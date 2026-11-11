@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Prehistorik_2_1993"
   ],
   "capa": "https://archive.org/services/img/msdos_Prehistorik_2_1993",
+  "banner": "https://cdn2.steamgriddb.com/hero/9f49dca23c7e5057aa17a7c1b4ddf180.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/800ca77bf7ad76b2a830356569e524b7.png",
   "fonte": "https://archive.org/details/msdos_Prehistorik_2_1993",
   "descricao": "Jogo de MS-DOS · Action, Platform (1993), de Titus France SA. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -14,5 +16,5 @@
   "editora": "Titus France SA",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

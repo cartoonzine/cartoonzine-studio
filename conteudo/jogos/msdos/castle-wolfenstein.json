@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Castle_Wolfenstein_1984"
   ],
   "capa": "https://archive.org/services/img/msdos_Castle_Wolfenstein_1984",
+  "banner": "https://cdn2.steamgriddb.com/hero/ba519f55abc88b5d3652a2040f4216e2.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2bd388f731f26312bfc0fe30da009595.png",
   "fonte": "https://archive.org/details/msdos_Castle_Wolfenstein_1984",
   "descricao": "Jogo de MS-DOS · Action, Shooter, Stealth (1984), de Muse Software. Do acervo do Internet Archive.",
   "ano": 1984,
@@ -15,5 +17,5 @@
   "editora": "Muse Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

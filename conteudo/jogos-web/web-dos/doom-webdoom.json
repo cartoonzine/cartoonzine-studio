@@ -3,6 +3,9 @@
   "links": [
     "https://ustymukhman.github.io/WebDOOM/public/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ef58f7ffe086514aa0164c7fc4f6cea8.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/442465f5282183631234848d916ce365.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/6a3b6ffa5dbf8a5abcad2135e5bc77d9.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/UstymUkhman/WebDOOM",
   "descricao": "Port para navegador · ustymukhman.github.io",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

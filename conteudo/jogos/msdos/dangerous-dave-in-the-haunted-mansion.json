@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991"
   ],
   "capa": "https://archive.org/services/img/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
+  "banner": "https://cdn2.steamgriddb.com/hero/211edb8ed1d2dc425c4de130c0f5d383.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a4623824aa20169e7feddccbe063b174.png",
   "fonte": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
   "descricao": "Jogo de MS-DOS · Action, Platform (1991), de Gamer's Edge, id Software. Do acervo do Internet Archive.",
   "ano": 1991,
@@ -14,5 +16,5 @@
   "editora": "Gamer's Edge, id Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

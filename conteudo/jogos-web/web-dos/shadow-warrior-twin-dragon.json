@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/8787-sw-twindragon/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/037c2de02b0d16ce2c0a7c14ddaabdae.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e264bfffd059132b31ce3762134faa5f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/169779d3852b32ce8b1a1724dbf5217d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

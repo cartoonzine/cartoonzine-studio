@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/8784-witchaven2/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1e4f378254d1308be5bd97bf8f6ab083.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/a75f3b8f953f5654333d23effcafacf9.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/13d09790a7a7daee57741ad3cb6c3ec1.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

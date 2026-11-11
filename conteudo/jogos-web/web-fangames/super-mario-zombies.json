@@ -3,11 +3,14 @@
   "links": [
     "https://smz.fun/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e407ebda50100920810c87e64a79abd8.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/68f5f3544600e4839d80e3e5be1b9b09.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9d4ab7e058d08362d5afd12b6d4e146c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · smz.fun",
   "console": "web-fangames",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

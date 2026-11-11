@@ -18,6 +18,7 @@
    "url": "https://digitalcybersoft.github.io/eduke32-wasm/",
    "thumb": "https://images.launchbox-app.com//7a658a61-8276-49cd-bdf4-b760f749ee5f.jpg",
    "bannerThumb": "https://www.techspot.com/images2/news/bigimage/2026/01/2026-01-31-image-5.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/5f5c19fa671886b5f7f205d541157c1f.png",
    "console": "web-dos",
    "players": 1,
    "core": "web",
@@ -41,6 +42,9 @@
    ],
    "studio": "jogos-web/web-dos/abuse",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/abuse/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/044357042a997da5ca2f9f6e451dc364.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ff413935bfae4f0e2d8dce0e0dacfdcd.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/eed054ecd7a0a544cf73292836023ffe.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -58,6 +62,9 @@
    "desc": "Port para navegador · petarov.github.io",
    "studio": "jogos-web/web-dos/alley-cat",
    "url": "https://petarov.github.io/alleycat.exe/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/f811ee27f4d3299d368cd26d28576041.jpg",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/156d33030be5fe619195e5e76752aad4.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/d405ba4799c3c7ef483513a23c07aa2c.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -80,6 +87,7 @@
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/jumpnbump/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump.jpg",
    "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump-banner.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/5c424f254337185048bd994adca387d7.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -110,6 +118,7 @@
    ],
    "thumb": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
    "bannerThumb": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/858846e5d0a6816af8a75fe6fda40ca1.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [

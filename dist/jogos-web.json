@@ -70,6 +70,7 @@
    "url": "https://digitalcybersoft.github.io/eduke32-wasm/",
    "thumb": "https://images.launchbox-app.com//7a658a61-8276-49cd-bdf4-b760f749ee5f.jpg",
    "bannerThumb": "https://www.techspot.com/images2/news/bigimage/2026/01/2026-01-31-image-5.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/5f5c19fa671886b5f7f205d541157c1f.png",
    "console": "web-dos",
    "players": 1,
    "core": "web",
@@ -124,6 +125,7 @@
    "url": "https://degloved.net/games/public/gms/stardew-valley/index.html",
    "thumb": "https://images.launchbox-app.com//1f51c08a-3c0c-48ea-82a5-810454b95c87.jpg",
    "bannerThumb": "https://images.launchbox-app.com//ff60ab0c-64d5-491c-88de-932645577851.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a15612aee1f0b2fdf1768df0d2688bd1.png",
    "video": "http://cdn.akamai.steamstatic.com/steam/apps/256660296/movie_max.webm?t=1454099186",
    "console": "web-windows",
    "players": 8,
@@ -151,6 +153,7 @@
    "url": "https://cjdgrevival.com/",
    "thumb": "https://store-images.s-microsoft.com/image/apps.29856.13744419880759751.76c7be28-be8f-493a-80e6-4c0af4541010.1d928aed-e13a-47f7-9951-da8a72fabb3a",
    "bannerThumb": "https://cms-assets.xboxservices.com/assets/3b/47/3b473d87-7723-40fb-a75d-a39eb23a5dd9.png?n=XB_ww_TaikoDF_DLC_TMP_SuperHeroArt_3840x2160.png&q=90&o=f&w=480&h=270",
+   "logo": "https://cdn2.steamgriddb.com/logo/090eafc16f483e548c2417dadb193f8d.png",
    "console": "web-windows",
    "players": 2,
    "core": "web",
@@ -186,6 +189,9 @@
    ],
    "studio": "jogos-web/web-dos/abuse",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/abuse/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/044357042a997da5ca2f9f6e451dc364.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ff413935bfae4f0e2d8dce0e0dacfdcd.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/eed054ecd7a0a544cf73292836023ffe.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -221,6 +227,9 @@
    "desc": "Port para navegador · petarov.github.io",
    "studio": "jogos-web/web-dos/alley-cat",
    "url": "https://petarov.github.io/alleycat.exe/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/f811ee27f4d3299d368cd26d28576041.jpg",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/156d33030be5fe619195e5e76752aad4.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/d405ba4799c3c7ef483513a23c07aa2c.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -469,6 +478,9 @@
    "desc": "Port para navegador · johannruiz.github.io",
    "studio": "jogos-web/web-arcade/daytona-usa",
    "url": "https://johannruiz.github.io/Daytona-USA-Web/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/a2062d9b9b1a226a52980c26c7083840.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/0aa1883c6411f7873cb83dacb17b0afc.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/80a8155eb153025ea1d513d0b2c4b675.png",
    "console": "web-arcade",
    "core": "web",
    "aparelhos": [
@@ -605,6 +617,7 @@
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/jumpnbump/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump.jpg",
    "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump-banner.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/5c424f254337185048bd994adca387d7.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -641,6 +654,9 @@
    "desc": "Port para navegador · marvelvscapcom2.online",
    "studio": "jogos-web/web-arcade/marvel-vs-capcom-2",
    "url": "https://marvelvscapcom2.online/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/bc7b4e25f69535e8ff34363547ac09da.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ef67f7c2d86352c2c42e19d20f881f53.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/e81fef8820149d2910bc279001126f97.png",
    "console": "web-arcade",
    "core": "web",
    "aparelhos": [
@@ -733,6 +749,7 @@
    "url": "https://hedgeplays2.github.io/Sonic-Mania-Plus-WEB/",
    "thumb": "https://gamesdb-images.launchbox.gg/r2_587b9a87-9011-4ae5-b016-fdf0decb37c8.png",
    "bannerThumb": "https://images.launchbox-app.com//b3453545-543e-442c-80ec-305fec9d845e.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/59353e05a88e9b4e71bc0b989a81d75a.png",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
@@ -750,6 +767,7 @@
    "url": "https://playterraria.lol/game/",
    "thumb": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
    "bannerThumb": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
@@ -767,6 +785,7 @@
    "url": "https://shar-wasm.cjoseph.workers.dev/?skipmovie",
    "thumb": "https://m.media-amazon.com/images/M/MV5BMjkwMmY3ZmItYmJiYi00ZWNjLTlhOTEtMmJhODJiMGE2NjAwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
    "bannerThumb": "https://gaming-cdn.com/images/products/22895/orig/the-simpsons-hit-and-run-remake-pc-cover.jpg?v=1781086923",
+   "logo": "https://cdn2.steamgriddb.com/logo/1b12d60e85a7a2d7c03b9daad3d1959f.png",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
@@ -793,6 +812,7 @@
    ],
    "thumb": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
    "bannerThumb": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/858846e5d0a6816af8a75fe6fda40ca1.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -836,6 +856,9 @@
    "desc": "Port para navegador · solid7s.github.io",
    "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
    "url": "https://solid7s.github.io/Virtual-On-Web/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/54bbc32dde48d6cae73213c6a21a0995.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e92ae67e4af9da61bbb3690018fa4f1e.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/03258e6ca69527cccd5313e56401d8fa.png",
    "console": "web-arcade",
    "core": "web",
    "aparelhos": [

@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Prince_of_Persia_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Prince_of_Persia_1990",
+  "banner": "https://cdn2.steamgriddb.com/hero/b571ecea16a9824023ee1af16897a582.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b6aef86083b784fdf8a5418bb69d66a1.png",
   "fonte": "https://archive.org/details/msdos_Prince_of_Persia_1990",
   "descricao": "Jogo de MS-DOS · Action, Platform, Puzzle (1990), de Brøderbund Software. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -15,5 +17,5 @@
   "editora": "Brøderbund Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

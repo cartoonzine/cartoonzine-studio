@@ -4,10 +4,12 @@
     "https://archive.org/details/msdos_Doom_-_The_Roguelike_2005"
   ],
   "capa": "https://archive.org/services/img/msdos_Doom_-_The_Roguelike_2005",
+  "banner": "https://cdn2.steamgriddb.com/hero/9424aa849c54613a0086d9003cb1e5f7.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/46a36a35a3c58cdc8cccceef67833b78.png",
   "fonte": "https://archive.org/details/msdos_Doom_-_The_Roguelike_2005",
   "descricao": "Jogo de MS-DOS (2005). Do acervo do Internet Archive.",
   "ano": 2005,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

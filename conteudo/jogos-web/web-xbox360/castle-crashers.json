@@ -3,10 +3,14 @@
   "links": [
     "https://truffled.lol/games/castle/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1b0d89e02b7f1b1be28c36133af9ed96.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b20ec67004afcac446e4ee3294b9695c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/207437c32819716d0ecb62c7ffcee978.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · truffled.lol",
   "console": "web-xbox360",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

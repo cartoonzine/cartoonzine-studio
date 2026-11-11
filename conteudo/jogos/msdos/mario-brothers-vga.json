@@ -4,10 +4,12 @@
     "https://archive.org/details/msdos_Mario_Brothers_VGA_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Mario_Brothers_VGA_1990",
+  "banner": "https://cdn2.steamgriddb.com/hero/1bf50aaf147b3b0ddd26a820d2ed394d.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/98f0bf5318169643e61666d006bd3f96.png",
   "fonte": "https://archive.org/details/msdos_Mario_Brothers_VGA_1990",
   "descricao": "Jogo de MS-DOS (1990). Do acervo do Internet Archive.",
   "ano": 1990,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

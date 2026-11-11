@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Wolfenstein_3D_1992"
   ],
   "capa": "https://archive.org/services/img/msdos_Wolfenstein_3D_1992",
+  "banner": "https://cdn2.steamgriddb.com/hero/3b5d4919c43697e04ae8f965bc07acd1.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9d12d071c18b535cda26f47f20e5c7ae.png",
   "fonte": "https://archive.org/details/msdos_Wolfenstein_3D_1992",
   "descricao": "Jogo de MS-DOS · Action, Shooter (1992), de id Software. Do acervo do Internet Archive.",
   "ano": 1992,
@@ -14,5 +16,5 @@
   "editora": "id Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

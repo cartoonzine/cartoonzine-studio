@@ -4,10 +4,12 @@
     "https://archive.org/details/msdos_Super_Mario_World_DX_2002"
   ],
   "capa": "https://archive.org/services/img/msdos_Super_Mario_World_DX_2002",
+  "banner": "https://cdn2.steamgriddb.com/hero/1e0b98ffbf6e647bbcfb5f1032f21ce5.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a14ac55a4f27472c5d894ec1c3c743d2.png",
   "fonte": "https://archive.org/details/msdos_Super_Mario_World_DX_2002",
   "descricao": "Jogo de MS-DOS (2002). Do acervo do Internet Archive.",
   "ano": 2002,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

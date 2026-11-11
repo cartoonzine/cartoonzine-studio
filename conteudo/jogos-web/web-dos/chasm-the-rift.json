@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/chasmweb/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/c7d760f7e7c9287379ebf96fb2d5aaaf.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4d62641f70d72ee3d60a614d03288710.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/69c4bb19e942fea086d5fd85078695a0.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

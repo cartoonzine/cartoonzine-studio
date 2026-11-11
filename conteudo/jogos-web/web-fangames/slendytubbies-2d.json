@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=807"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0aa098704cbb23365fc3f609b1bd4fd9.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/5c651f725ebbdc7ade68e7a6a0482cad.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d72fc7120e28e5a50fbe5c27f5f9c80b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/slendytubbies/tree/main/2d",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

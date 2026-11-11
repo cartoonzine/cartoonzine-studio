@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Star_Wars_1988"
   ],
   "capa": "https://archive.org/services/img/msdos_Star_Wars_1988",
+  "banner": "https://cdn2.steamgriddb.com/hero/8f32799a3ad36124c52d8420887c117d.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/15ce0440fd6ec8d847ac449dd238dbe8.png",
   "fonte": "https://archive.org/details/msdos_Star_Wars_1988",
   "descricao": "Jogo de MS-DOS · Action, Arcade, Rail Shooter (1988), de Atari. Do acervo do Internet Archive.",
   "ano": 1988,
@@ -15,5 +17,5 @@
   "editora": "Atari",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

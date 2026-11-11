@@ -3,6 +3,9 @@
   "links": [
     "https://midzer.de/wasm/duke3d/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4fcf86be9106bf001cd5c131c72c5aae.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/bdddf7327677bbfc879f505df7122e2e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/5f5c19fa671886b5f7f205d541157c1f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/BelgianChocolateDuke3D",
   "descricao": "Port para navegador · midzer.de",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

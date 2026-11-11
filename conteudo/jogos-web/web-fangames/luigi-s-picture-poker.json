@@ -3,11 +3,14 @@
   "links": [
     "https://marcy4000.itch.io/luigis-picture-poker"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ac7c433007ac68a863d12dd75b2d13eb.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/eb163727917cbba1eea208541a643e74.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/c9d9edbf9b9e23eb5d4819bbcce9b078.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · marcy4000.itch.io",
   "console": "web-fangames",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

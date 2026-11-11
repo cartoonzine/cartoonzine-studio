@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/dune2tg/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4774165006b1b56612265a02b527a12d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/9f369b3d166fd7623b321cfe91ca4c9f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b236c744e94e72c48bb073c1e1fe4417.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

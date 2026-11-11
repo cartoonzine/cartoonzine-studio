@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Ski_or_Die_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Ski_or_Die_1990",
+  "banner": "https://cdn2.steamgriddb.com/hero/03187c1828b4a98ed9f66691406245a5.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3238b5fdacca32ae65f7486caf88ee59.png",
   "fonte": "https://archive.org/details/msdos_Ski_or_Die_1990",
   "descricao": "Jogo de MS-DOS · Sports, Tricks / Stunts (1990), de Electronic Arts. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -14,5 +16,5 @@
   "editora": "Electronic Arts",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

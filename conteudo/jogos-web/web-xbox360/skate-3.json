@@ -3,10 +3,14 @@
   "links": [
     "http://skate.aaddpp.lol"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/cb5afcadcac972f1c6d743c96936ebe3.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c255c05246a081654a0267cbb725f5a7.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a5ae86de28cfea2be65951dbb04567ee.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · skate.aaddpp.lol",
   "console": "web-xbox360",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

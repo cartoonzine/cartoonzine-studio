@@ -3,11 +3,12 @@
   "links": [
     "https://play.fatal.racing/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/2abe563a4339099ed869eb0de0a34a0d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · play.fatal.racing",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

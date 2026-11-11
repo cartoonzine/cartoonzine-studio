@@ -4,10 +4,12 @@
     "https://archive.org/details/msdos_SimCity_Classic_1994"
   ],
   "capa": "https://archive.org/services/img/msdos_SimCity_Classic_1994",
+  "banner": "https://cdn2.steamgriddb.com/hero/40e244ce06f98f84c452989ca388b8a2.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/3a6c2c9231df58107434b942fa600b22.png",
   "fonte": "https://archive.org/details/msdos_SimCity_Classic_1994",
   "descricao": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
   "ano": 1994,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

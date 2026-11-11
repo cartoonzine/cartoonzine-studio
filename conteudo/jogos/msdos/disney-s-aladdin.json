@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Disneys_Aladdin_1994"
   ],
   "capa": "https://archive.org/services/img/msdos_Disneys_Aladdin_1994",
+  "banner": "https://cdn2.steamgriddb.com/hero/a4f08f8b59aa3a316ddfa0e47884e118.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/75883741f77a612cdff0a828f94792d1.png",
   "fonte": "https://archive.org/details/msdos_Disneys_Aladdin_1994",
   "descricao": "Jogo de MS-DOS · Action, Platform (1994), de Virgin Interactive Entertainment. Do acervo do Internet Archive.",
   "ano": 1994,
@@ -14,5 +16,5 @@
   "editora": "Virgin Interactive Entertainment",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

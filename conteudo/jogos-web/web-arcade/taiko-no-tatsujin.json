@@ -3,11 +3,13 @@
   "links": [
     "https://cjdgrevival.com/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/9c586b99cdd2651d2bf3b70e0def0669.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/090eafc16f483e548c2417dadb193f8d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · cjdgrevival.com",
   "console": "web-arcade",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

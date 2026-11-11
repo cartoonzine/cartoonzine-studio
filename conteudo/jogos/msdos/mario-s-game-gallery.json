@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Marios_Game_Gallery_1995"
   ],
   "capa": "https://archive.org/services/img/msdos_Marios_Game_Gallery_1995",
+  "banner": "https://cdn2.steamgriddb.com/hero/40233563396f6508c47872052759b783.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ef2fe012c85ae27b993679dfb5e7050b.png",
   "fonte": "https://archive.org/details/msdos_Marios_Game_Gallery_1995",
   "descricao": "Jogo de MS-DOS · Strategy/Tactics, Board Game (1995), de Presage Software. Do acervo do Internet Archive.",
   "ano": 1995,
@@ -14,5 +16,5 @@
   "editora": "Presage Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

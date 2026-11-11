@@ -5,6 +5,7 @@
   ],
   "capa": "https://images.launchbox-app.com/3489ebc6-d80d-4468-a974-312f87576246.jpg",
   "banner": "https://images.launchbox-app.com/ec51a18f-8159-4447-a3f8-053f4545938e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/f1d8ba46eba3b647c1767b827d289ecf.png",
   "descricao": "Brix é um jogo de quebra-cabeça para MS-DOS , desenvolvido por Michael Riedel e produzido e publicado em 1991. Uma versão atualizada com gráficos e som aprimorados foi publicada pela Epic MegaGames em 1992. É um clone de Puzznic , da Taito , e, portanto, apresenta fortes semelhanças gráficas e algumas de jogabilidade com Plotting , também produzido pela Taito. \nUma versão aprimorada, Brix 2 Deluxe , foi lançada junto com a versão da Epic MegaGames, com dezenas de novos níveis e um editor de níveis.",
   "ano": 1992,
   "generos": [
@@ -14,5 +15,5 @@
   "jogadores": 2,
   "fundoImagem": "banner",
   "posFundo": 87,
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

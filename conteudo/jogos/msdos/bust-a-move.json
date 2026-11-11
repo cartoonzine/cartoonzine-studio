@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Bust-A-Move_1997"
   ],
   "capa": "https://archive.org/services/img/msdos_Bust-A-Move_1997",
+  "banner": "https://cdn2.steamgriddb.com/hero/1ecc6d0a3d0fd5a0f59932d1b60e1c99.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/97be5a231dbe5d419bd219ad5b08b499.png",
   "fonte": "https://archive.org/details/msdos_Bust-A-Move_1997",
   "descricao": "Jogo de MS-DOS · Puzzle, Arcade, Tile Matching Puzzle (1997), de Taito Corporation. Do acervo do Internet Archive.",
   "ano": 1997,
@@ -15,5 +17,5 @@
   "editora": "Taito Corporation",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

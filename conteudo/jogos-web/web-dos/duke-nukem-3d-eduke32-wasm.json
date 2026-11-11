@@ -5,6 +5,7 @@
   ],
   "capa": "https://images.launchbox-app.com//7a658a61-8276-49cd-bdf4-b760f749ee5f.jpg",
   "banner": "https://www.techspot.com/images2/news/bigimage/2026/01/2026-01-31-image-5.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/5f5c19fa671886b5f7f205d541157c1f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/digitalcybersoft/eduke32-wasm",
   "descricao": "Alienígenas aterrissaram na Los Angeles futurista e cabe ao Duke acabar com eles e expulsá-los de lá. Após os primeiros jogos de plataforma com rolagem lateral, Duke Nukem 3D introduz a perspectiva em primeira pessoa à série e transforma o jogo em um shooter completo com gráficos 2.5D.\n\nO arsenal de Duke inclui pistolas, bombas caseiras, minas terrestres a laser, metralhadoras Nordenfelt, uma metralhadora giratória e vários lançadores de foguetes, além de seu poderoso pé para chutar os inimigos. O jogo apresenta um alto nível de interatividade. Muitos objetos no ambiente podem ser quebrados ou interagidos, como mesas de bilhar, máquinas de fliperama, vidros, interruptores de luz e câmeras de segurança. O protagonista também pode dar dólares para as strippers para que elas tirem a blusa.\n\nO personagem principal comenta regularmente os eventos por meio de frases de efeito. Há vinte e oito fases, divididas em três episódios, ambientadas em locais como ruas, uma igreja, uma estação espacial, uma vila japonesa, um campo de futebol e diversos cenários modernos. Os inimigos incluem principalmente alienígenas, humanos mutantes e policiais transformados em Policiais Porcos. Além de armas, Duke também tem acesso a kits médicos, esteroides para aumentar sua velocidade, visão noturna, botas de proteção, um holograma conhecido como \"holoduke\" e um jetpack para alcançar áreas mais altas. A maior parte da jogabilidade é voltada para a ação, mas também há diversos quebra-cabeças necessários para progredir ou acessar áreas secretas.\n\nO jogo inclui modo de jogo em rede através do protocolo IPX, para partidas de combate até a morte e jogos cooperativos.",
@@ -23,5 +24,5 @@
   "posFundo": 23,
   "destaque": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

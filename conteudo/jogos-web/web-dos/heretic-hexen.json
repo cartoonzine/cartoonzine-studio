@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/heretichex/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/86aa6d1f7fa0f80b052b3b879eec8975.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/606e03bb3a5a0e08054903747f9715cd.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/cffa0ac083b13584b6017a5aee5adab3.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

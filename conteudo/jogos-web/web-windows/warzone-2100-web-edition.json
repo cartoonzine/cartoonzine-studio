@@ -3,10 +3,14 @@
   "links": [
     "https://wz2100.net/news/warzone-2100-web-edition/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/12b374902ba6c9db78b82030c4a064b7.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/90a5a12198b43cd185f76c1674f140ca.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/105f42dc7e4a525528246f056ff4dc1d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wz2100.net",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

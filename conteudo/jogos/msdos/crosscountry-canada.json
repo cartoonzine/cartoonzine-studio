@@ -4,11 +4,13 @@
     "https://archive.org/details/msdos_Crosscountry_Canada_1991"
   ],
   "capa": "https://archive.org/services/img/msdos_Crosscountry_Canada_1991",
+  "banner": "https://cdn2.steamgriddb.com/hero/98311ab43a6b6e6c94a0d30e0f02f3ce.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/07dd4d5a72f5740ef0f035f201951476.png",
   "fonte": "https://archive.org/details/msdos_Crosscountry_Canada_1991",
   "descricao": "Jogo de MS-DOS (1991), de Didatech Software Ltd.. Do acervo do Internet Archive.",
   "ano": 1991,
   "editora": "Didatech Software Ltd.",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

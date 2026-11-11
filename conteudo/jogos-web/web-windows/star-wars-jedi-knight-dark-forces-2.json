@@ -3,10 +3,14 @@
   "links": [
     "https://rgc.zone/ports/oswjkdf2/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/33326cedeb66cb0ac593d182ccd68bd0.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/100f962d991f6846fc9b3e6699ed9b13.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/6add07cf50424b14fdf649da87843d01.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

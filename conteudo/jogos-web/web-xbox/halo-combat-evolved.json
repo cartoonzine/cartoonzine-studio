@@ -3,11 +3,15 @@
   "links": [
     "https://mitchellhynes.com/halo/halo.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/09a146c8d1cfdbdb54ceb60ede93cdab.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/1a6d2e708873df49ad05540c37e8d36a.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d56b9fc4b0f1be8871f5e1c40c0067e7.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/ecumene/web-halo",
   "descricao": "Port para navegador · mitchellhynes.com",
   "console": "web-xbox",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

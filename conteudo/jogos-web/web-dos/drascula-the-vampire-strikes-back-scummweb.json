@@ -3,11 +3,14 @@
   "links": [
     "https://scummweb.tsilva.eu/drascula-the-vampire-strikes-back"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1035798f53439046cc703a4d13dd79d8.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c2385a5e739790f3b8c1d459abee3e5b.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/e335b7276aee3087b73ebfa5e3193655.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · scummweb.tsilva.eu",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

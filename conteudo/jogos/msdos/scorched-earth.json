@@ -4,10 +4,12 @@
     "https://archive.org/details/msdos_Scorched_Earth_1991"
   ],
   "capa": "https://archive.org/services/img/msdos_Scorched_Earth_1991",
+  "banner": "https://cdn2.steamgriddb.com/hero/550aae1e60740ba60f4dc8a255e0e960.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/6b22164c33a8cd4cd56da1c6bb1e0f5a.png",
   "fonte": "https://archive.org/details/msdos_Scorched_Earth_1991",
   "descricao": "Jogo de MS-DOS (1991). Do acervo do Internet Archive.",
   "ano": 1991,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

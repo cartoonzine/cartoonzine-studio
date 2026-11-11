@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/8774-powerslave/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/55575a1bfa43a48356c22fdd87c49d81.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/729f48eb079c2f9bd8aac4d8f6dfbfd5.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/34ac42f166aab43ce18d720c21903cda.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

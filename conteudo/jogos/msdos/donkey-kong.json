@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Donkey_Kong_1983"
   ],
   "capa": "https://archive.org/services/img/msdos_Donkey_Kong_1983",
+  "banner": "https://cdn2.steamgriddb.com/hero/61aa5ce958748d92d1a26b56a9525730.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9519548a7037700bc56dcd4ef0bca2dd.png",
   "fonte": "https://archive.org/details/msdos_Donkey_Kong_1983",
   "descricao": "Jogo de MS-DOS · Action, Arcade, Platform (1983), de Nintendo Co., Ltd.. Do acervo do Internet Archive.",
   "ano": 1983,
@@ -15,5 +17,5 @@
   "editora": "Nintendo Co., Ltd.",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

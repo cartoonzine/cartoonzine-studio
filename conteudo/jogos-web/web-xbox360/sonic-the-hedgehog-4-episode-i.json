@@ -3,10 +3,14 @@
   "links": [
     "https://wamwoowam.co.uk/sonic4/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b3999f2198b3a6ddc547b84352c90e9c.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/56705e032d3b13b849ca05bb7799013e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/0db2e204010400f5c506620adcd1ae68.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wamwoowam.co.uk",
   "console": "web-xbox360",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

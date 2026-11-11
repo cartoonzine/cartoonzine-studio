@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=504"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3d9ff59df3dc79697bddfeccecd79eaa.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/bd450ad2e153e8d8894edc59a40eed33.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2c137d1557b0053b7a6d4141f7a5ee59.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/fnac/tree/main/2",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

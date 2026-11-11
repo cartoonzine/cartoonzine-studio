@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=670"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0bb9bd4d3e2034da751b9bd8d0637da6.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/994b63ab0c526de54437fa6d2e5e937f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b142335dfb32663cf581639ecbb38293.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/woahhcrackers/RaldiWeb-LEGACY",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

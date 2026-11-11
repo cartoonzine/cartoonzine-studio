@@ -4,6 +4,7 @@
     "https://archive.org/details/msdos_Rogue_1983"
   ],
   "capa": "https://archive.org/services/img/msdos_Rogue_1983",
+  "logo": "https://cdn2.steamgriddb.com/logo/2776e8b512a15c438441cd4b58a24842.png",
   "fonte": "https://archive.org/details/msdos_Rogue_1983",
   "descricao": "Jogo de MS-DOS · Role-Playing (RPG), Roguelike (1983), de A.I. Design. Do acervo do Internet Archive.",
   "ano": 1983,
@@ -14,5 +15,5 @@
   "editora": "A.I. Design",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

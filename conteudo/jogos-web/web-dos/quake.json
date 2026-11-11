@@ -3,6 +3,9 @@
   "links": [
     "https://qwasm.m-h.org.uk/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/906fec3cca7ccc130fa2b1844aa10126.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/f3296629e5e4964de099e204626f32fd.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3a2a9aef4cbed81244820a091667c0bd.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/GMH-Code/Qwasm",
   "descricao": "Port para navegador · qwasm.m-h.org.uk",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

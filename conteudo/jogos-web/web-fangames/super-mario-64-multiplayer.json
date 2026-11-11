@@ -3,11 +3,13 @@
   "links": [
     "https://olivers.tools/play/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ffe5ee02472ae39c88facdd02945e22f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/7578c59fe5938a5955a73867d20d4809.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · olivers.tools",
   "console": "web-fangames",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

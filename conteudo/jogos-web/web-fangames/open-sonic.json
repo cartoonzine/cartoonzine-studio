@@ -3,11 +3,12 @@
   "links": [
     "https://clarkeadg.github.io/opensonic-js/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ca6b3a03ff85131141a80501ba7ca23b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · clarkeadg.github.io",
   "console": "web-fangames",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

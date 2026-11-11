@@ -4,10 +4,12 @@
     "https://archive.org/details/msdos_3D_Bomber_1998"
   ],
   "capa": "https://archive.org/services/img/msdos_3D_Bomber_1998",
+  "banner": "https://cdn2.steamgriddb.com/hero/7cec85c75537840dad40251576e5b757.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/7fa37b4aadce3de52314aa3ff5c6673d.png",
   "fonte": "https://archive.org/details/msdos_3D_Bomber_1998",
   "descricao": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
   "ano": 1998,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

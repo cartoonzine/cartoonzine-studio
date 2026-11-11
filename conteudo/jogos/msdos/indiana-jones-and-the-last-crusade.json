@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Indiana_Jones_and_The_Last_Crusade_1989"
   ],
   "capa": "https://archive.org/services/img/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
+  "banner": "https://cdn2.steamgriddb.com/hero/9a0ee0a9e7a42d2d69b8f86b3a0756b1.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/489d2e63af438bd79fa555e00ba73e2a.png",
   "fonte": "https://archive.org/details/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
   "descricao": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1989), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
   "ano": 1989,
@@ -15,5 +17,5 @@
   "editora": "Lucasfilm Games LLC",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

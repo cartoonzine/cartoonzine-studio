@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_DOOM_1993"
   ],
   "capa": "https://archive.org/services/img/msdos_DOOM_1993",
+  "banner": "https://cdn2.steamgriddb.com/hero/442465f5282183631234848d916ce365.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/6a3b6ffa5dbf8a5abcad2135e5bc77d9.png",
   "fonte": "https://archive.org/details/msdos_DOOM_1993",
   "descricao": "Jogo de MS-DOS · Action, Shooter (1993), de id Software. Do acervo do Internet Archive.",
   "ano": 1993,
@@ -14,5 +16,5 @@
   "editora": "id Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

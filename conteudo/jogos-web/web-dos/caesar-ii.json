@@ -3,11 +3,13 @@
   "links": [
     "https://second-impressions.github.io/caesar2-port/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/a4909f85df0007e75aa9378b3926b530.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/4183f64f3ab1929ac1c244f8fe0b9ba5.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · second-impressions.github.io",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

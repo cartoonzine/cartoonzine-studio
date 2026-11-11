@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Maniac_Mansion_1987"
   ],
   "capa": "https://archive.org/services/img/msdos_Maniac_Mansion_1987",
+  "banner": "https://cdn2.steamgriddb.com/hero/56b68074a594752f33faa659f227ac65.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/1dcfee25dedf7c8e7e25a9b588299f84.png",
   "fonte": "https://archive.org/details/msdos_Maniac_Mansion_1987",
   "descricao": "Jogo de MS-DOS · Adventure, Graphic Adventure, Puzzle (1987), de Lucasfilm Games LLC. Do acervo do Internet Archive.",
   "ano": 1987,
@@ -15,5 +17,5 @@
   "editora": "Lucasfilm Games LLC",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

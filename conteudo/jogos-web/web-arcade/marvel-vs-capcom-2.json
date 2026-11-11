@@ -3,10 +3,13 @@
   "links": [
     "https://marvelvscapcom2.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/bc7b4e25f69535e8ff34363547ac09da.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ef67f7c2d86352c2c42e19d20f881f53.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/e81fef8820149d2910bc279001126f97.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · marvelvscapcom2.online",
   "console": "web-arcade",
   "licenca": "autorizada",
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

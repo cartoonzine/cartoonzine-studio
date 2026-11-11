@@ -3,10 +3,14 @@
   "links": [
     "https://burnedpopcorn.github.io/SM-Kart-ZX-Web-Port/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/366db7a591a75efd125cb44641124f2e.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/b49363f7afa303c7c88feeda63de0c85.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/55b782d9f1c1765aac3cb3d51aae2430.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · burnedpopcorn.github.io",
   "console": "web-zxspectrum",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

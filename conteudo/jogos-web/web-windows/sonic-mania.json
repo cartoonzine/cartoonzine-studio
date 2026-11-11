@@ -3,11 +3,15 @@
   "links": [
     "https://gn-math.dev/?id=590"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/850dc71b17efabd2c38aa16820445433.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c9b61a2292fc05f975d48146c584ffcc.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/155f4603b76e476b3e0dec9a1d5b4c50.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/VinMannie/SonicManiaWeb",
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

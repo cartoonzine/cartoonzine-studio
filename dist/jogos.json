@@ -11,6 +11,7 @@
    "studio": "jogos/msdos/nam-1965-1975",
    "url": "https://archive.org/details/msdos_Nam_1965-1975_1991",
    "thumb": "https://archive.org/services/img/msdos_Nam_1965-1975_1991",
+   "logo": "https://cdn2.steamgriddb.com/logo/086ee121fcc973f97e5fcfecfc4f2dad.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -21,6 +22,8 @@
    "studio": "jogos/msdos/3d-bomber",
    "url": "https://archive.org/details/msdos_3D_Bomber_1998",
    "thumb": "https://archive.org/services/img/msdos_3D_Bomber_1998",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/7cec85c75537840dad40251576e5b757.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/7fa37b4aadce3de52314aa3ff5c6673d.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -31,6 +34,7 @@
    "studio": "jogos/msdos/4d-prince-of-persia",
    "url": "https://archive.org/details/msdos_4D_Prince_of_Persia_1994",
    "thumb": "https://archive.org/services/img/msdos_4D_Prince_of_Persia_1994",
+   "logo": "https://cdn2.steamgriddb.com/logo/9aa32f677362a235a8ae39e011711f1b.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -46,6 +50,8 @@
    "studio": "jogos/msdos/alley-cat",
    "url": "https://archive.org/details/msdos_Alley_Cat_1984",
    "thumb": "https://archive.org/services/img/msdos_Alley_Cat_1984",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/156d33030be5fe619195e5e76752aad4.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/d405ba4799c3c7ef483513a23c07aa2c.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -60,6 +66,8 @@
    "studio": "jogos/msdos/back-to-the-future-part-iii",
    "url": "https://archive.org/details/msdos_Back_to_the_Future_Part_III_1991",
    "thumb": "https://archive.org/services/img/msdos_Back_to_the_Future_Part_III_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/76103540cefd1d046c7c9ea56e225ca4.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/99c93540b23b44e6b1ef8c956c559b84.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -78,6 +86,7 @@
    "url": "https://archive.org/details/msdos_Batman_Returns_1993",
    "thumb": "https://images.launchbox-app.com//e75fc659-d3ac-4d73-8dd5-a69754abb7e9.jpg",
    "bannerThumb": "https://images.launchbox-app.com//ac591503-062d-4b29-a4d8-62bc10d1459f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/9d020a184d35c39e9b2a23c72fc0cb54.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -94,6 +103,7 @@
    "url": "https://archive.org/download/brix-puzz-game-dos-1992/BRIX1.zip",
    "thumb": "https://images.launchbox-app.com/3489ebc6-d80d-4468-a974-312f87576246.jpg",
    "bannerThumb": "https://images.launchbox-app.com/ec51a18f-8159-4447-a3f8-053f4545938e.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/f1d8ba46eba3b647c1767b827d289ecf.png",
    "console": "msdos",
    "players": 2,
    "core": "dos"
@@ -110,6 +120,8 @@
    "studio": "jogos/msdos/bubble-bobble",
    "url": "https://archive.org/details/msdos_Bubble_Bobble_1988",
    "thumb": "https://archive.org/services/img/msdos_Bubble_Bobble_1988",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/4d8bb121c305148c417a383070377063.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/0f3b266202a9e5e84c6b1229e21e1fa9.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -125,6 +137,8 @@
    "studio": "jogos/msdos/budokan-the-martial-spirit",
    "url": "https://archive.org/details/msdos_Budokan_The_Martial_Spirit_1989",
    "thumb": "https://archive.org/services/img/msdos_Budokan_The_Martial_Spirit_1989",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1e3cad5329ca7d6266f2c620d37e9685.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a5419b34e791ffdd85f5cc39993faf90.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -140,6 +154,8 @@
    "studio": "jogos/msdos/bust-a-move",
    "url": "https://archive.org/details/msdos_Bust-A-Move_1997",
    "thumb": "https://archive.org/services/img/msdos_Bust-A-Move_1997",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1ecc6d0a3d0fd5a0f59932d1b60e1c99.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/97be5a231dbe5d419bd219ad5b08b499.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -150,6 +166,8 @@
    "studio": "jogos/msdos/carmageddon-max-pack",
    "url": "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998",
    "thumb": "https://archive.org/services/img/msdos_Carmageddon_Max_Pack_1998",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/b555f4a2901228cc826327079761e696.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/50acfcb158fa1373d01ae69c7236c946.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -163,6 +181,8 @@
    "studio": "jogos/msdos/castle-of-dr-brain",
    "url": "https://archive.org/details/msdos_Castle_of_Dr._Brain_1991",
    "thumb": "https://archive.org/services/img/msdos_Castle_of_Dr._Brain_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c6ad3c412b25ae3af6e6a94ebbdc25b2.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/56f9974a418d59299a4321dd2ffcde1a.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -178,6 +198,8 @@
    "studio": "jogos/msdos/castle-wolfenstein",
    "url": "https://archive.org/details/msdos_Castle_Wolfenstein_1984",
    "thumb": "https://archive.org/services/img/msdos_Castle_Wolfenstein_1984",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ba519f55abc88b5d3652a2040f4216e2.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/2bd388f731f26312bfc0fe30da009595.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -205,6 +227,7 @@
    "studio": "jogos/msdos/championship-manager-93-94",
    "url": "https://archive.org/details/msdos_Championship_Manager_93-94_1993",
    "thumb": "https://archive.org/services/img/msdos_Championship_Manager_93-94_1993",
+   "logo": "https://cdn2.steamgriddb.com/logo/23155780abc078337c84b1aee5ee2ed2.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -219,6 +242,8 @@
    "studio": "jogos/msdos/cool-world",
    "url": "https://archive.org/details/msdos_Cool_World_1992",
    "thumb": "https://archive.org/services/img/msdos_Cool_World_1992",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/a1395df0a1abc218eb63b3addbdd1693.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/7552663f68b5eba5b1e88899419a4a01.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -229,6 +254,8 @@
    "studio": "jogos/msdos/crosscountry-canada",
    "url": "https://archive.org/details/msdos_Crosscountry_Canada_1991",
    "thumb": "https://archive.org/services/img/msdos_Crosscountry_Canada_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/98311ab43a6b6e6c94a0d30e0f02f3ce.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/07dd4d5a72f5740ef0f035f201951476.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -244,6 +271,8 @@
    "studio": "jogos/msdos/dangerous-dave-in-the-deserted-pirate-s-hideout",
    "url": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990",
    "thumb": "https://archive.org/services/img/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/211edb8ed1d2dc425c4de130c0f5d383.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a4623824aa20169e7feddccbe063b174.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -258,6 +287,8 @@
    "studio": "jogos/msdos/dangerous-dave-in-the-haunted-mansion",
    "url": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
    "thumb": "https://archive.org/services/img/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/211edb8ed1d2dc425c4de130c0f5d383.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a4623824aa20169e7feddccbe063b174.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -271,6 +302,7 @@
    "studio": "jogos/msdos/das-boot-german-u-boat-simulation",
    "url": "https://archive.org/details/msdos_Das_Boot_German_U-Boat_Simulation_1990",
    "thumb": "https://archive.org/services/img/msdos_Das_Boot_German_U-Boat_Simulation_1990",
+   "logo": "https://cdn2.steamgriddb.com/logo/b831f1542ffea17ccdf5d39900c663a1.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -285,6 +317,8 @@
    "studio": "jogos/msdos/deluxe-ski-jump",
    "url": "https://archive.org/details/msdos_Deluxe_Ski_Jump_2000",
    "thumb": "https://archive.org/services/img/msdos_Deluxe_Ski_Jump_2000",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/4810890bd129231235c4e324311cd0c1.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/86ae42e53deed0705cb6b6db11bd6ffb.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -299,6 +333,8 @@
    "studio": "jogos/msdos/digger",
    "url": "https://archive.org/details/msdos_Digger_1983_1983",
    "thumb": "https://archive.org/services/img/msdos_Digger_1983_1983",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/d4de0c9c151a319fd1d943300fd551f0.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/0e3f3bc74c1be637020f3e5d23d725fe.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -313,6 +349,8 @@
    "studio": "jogos/msdos/disney-s-aladdin",
    "url": "https://archive.org/details/msdos_Disneys_Aladdin_1994",
    "thumb": "https://archive.org/services/img/msdos_Disneys_Aladdin_1994",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/a4f08f8b59aa3a316ddfa0e47884e118.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/75883741f77a612cdff0a828f94792d1.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -327,6 +365,8 @@
    "studio": "jogos/msdos/disney-s-duck-tales-the-quest-for-gold",
    "url": "https://archive.org/details/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
    "thumb": "https://archive.org/services/img/msdos_Disneys_Duck_Tales_-_The_Quest_for_Gold_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/420e7a59c4ccc0dbeb1d58e2126c42d5.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/4bf269bdf9a80bc227aa079d668e22c4.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -342,6 +382,8 @@
    "studio": "jogos/msdos/donkey-kong",
    "url": "https://archive.org/details/msdos_Donkey_Kong_1983",
    "thumb": "https://archive.org/services/img/msdos_Donkey_Kong_1983",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/61aa5ce958748d92d1a26b56a9525730.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/9519548a7037700bc56dcd4ef0bca2dd.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -356,6 +398,8 @@
    "studio": "jogos/msdos/doom",
    "url": "https://archive.org/details/msdos_DOOM_1993",
    "thumb": "https://archive.org/services/img/msdos_DOOM_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/442465f5282183631234848d916ce365.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/6a3b6ffa5dbf8a5abcad2135e5bc77d9.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -366,6 +410,8 @@
    "studio": "jogos/msdos/doom-the-roguelike",
    "url": "https://archive.org/details/msdos_Doom_-_The_Roguelike_2005",
    "thumb": "https://archive.org/services/img/msdos_Doom_-_The_Roguelike_2005",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9424aa849c54613a0086d9003cb1e5f7.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/46a36a35a3c58cdc8cccceef67833b78.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -383,6 +429,7 @@
    "url": "https://archive.org/details/msdos_Double_Dragon_1988",
    "thumb": "https://images.launchbox-app.com//18ef691b-4ff3-4fee-91cc-33fd79ca0974.jpg",
    "bannerThumb": "https://images.launchbox-app.com//fa3f20a2-5032-480a-bb59-8c5ffcfddde3.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/132af5e482483ff69c642974b3ec23a7.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -397,6 +444,8 @@
    "studio": "jogos/msdos/dragon-s-lair",
    "url": "https://archive.org/details/msdos_Dragons_Lair_1993_1993",
    "thumb": "https://archive.org/services/img/msdos_Dragons_Lair_1993_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/857bdf528d4ad868c1d1801a6da01660.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/530bed81e8e846e910fd06b1443f083d.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -411,6 +460,8 @@
    "studio": "jogos/msdos/dune-2-the-building-of-a-dynasty",
    "url": "https://archive.org/details/msdos_Dune_2_-_The_Building_of_a_Dynasty_1992",
    "thumb": "https://archive.org/services/img/msdos_Dune_2_-_The_Building_of_a_Dynasty_1992",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9f369b3d166fd7623b321cfe91ca4c9f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/b236c744e94e72c48bb073c1e1fe4417.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -450,6 +501,8 @@
    "studio": "jogos/msdos/executive-suite",
    "url": "https://archive.org/details/msdos_Executive_Suite_1982",
    "thumb": "https://archive.org/services/img/msdos_Executive_Suite_1982",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/bb17d16eaedc501f865a2dc57034a413.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/7a807be03d58378fe54cd908bcbb9454.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -465,6 +518,8 @@
    "studio": "jogos/msdos/ferrari-formula-one",
    "url": "https://archive.org/details/msdos_Ferrari_Formula_One_1989",
    "thumb": "https://archive.org/services/img/msdos_Ferrari_Formula_One_1989",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1b1aaf466f0bd1ebc4d91f0c42abfddf.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/f8e533347b0b2ac127391faaaae71357.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -479,6 +534,8 @@
    "studio": "jogos/msdos/golden-axe",
    "url": "https://archive.org/details/msdos_Golden_Axe_1990",
    "thumb": "https://archive.org/services/img/msdos_Golden_Axe_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/362e95a098223bb09b80ff75afd0150f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/dc1913d422398c25c5f0b81cab94cc87.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -504,6 +561,8 @@
    "studio": "jogos/msdos/indiana-jones-and-the-last-crusade",
    "url": "https://archive.org/details/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
    "thumb": "https://archive.org/services/img/msdos_Indiana_Jones_and_The_Last_Crusade_1989",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9a0ee0a9e7a42d2d69b8f86b3a0756b1.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/489d2e63af438bd79fa555e00ba73e2a.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -519,6 +578,8 @@
    "studio": "jogos/msdos/jazz-jackrabbit",
    "url": "https://archive.org/details/msdos_Jazz_Jackrabbit_1994",
    "thumb": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_1994",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/061b7b3d5e2ee31c7875058883fbcce8.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/f5930695d180d30a1b0f358ab79cf115.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -534,6 +595,8 @@
    "studio": "jogos/msdos/jazz-jackrabbit-holiday-hare-1995",
    "url": "https://archive.org/details/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
    "thumb": "https://archive.org/services/img/msdos_Jazz_Jackrabbit_-_Holiday_Hare_1995_1995",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/061b7b3d5e2ee31c7875058883fbcce8.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/f5930695d180d30a1b0f358ab79cf115.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -549,6 +612,7 @@
    "studio": "jogos/msdos/karateka",
    "url": "https://archive.org/details/msdos_Karateka_1986",
    "thumb": "https://archive.org/services/img/msdos_Karateka_1986",
+   "logo": "https://cdn2.steamgriddb.com/logo/9c1202f4af69c9c722163a0f73d11c23.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -564,6 +628,8 @@
    "studio": "jogos/msdos/lode-runner",
    "url": "https://archive.org/details/msdos_Lode_Runner_1983_1983",
    "thumb": "https://archive.org/services/img/msdos_Lode_Runner_1983_1983",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/2396e9e42ef84c8636a66efd53094116.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/619e8a3f307ee54440745aefae343e33.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -578,6 +644,8 @@
    "studio": "jogos/msdos/lotus-the-ultimate-challenge",
    "url": "https://archive.org/details/msdos_Lotus_-_The_Ultimate_Challenge_1993",
    "thumb": "https://archive.org/services/img/msdos_Lotus_-_The_Ultimate_Challenge_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1a495bc86abe171f690e27192ea6c367.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a2896cb11aed969ffec7bb02a7c772a8.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -593,6 +661,8 @@
    "studio": "jogos/msdos/maniac-mansion",
    "url": "https://archive.org/details/msdos_Maniac_Mansion_1987",
    "thumb": "https://archive.org/services/img/msdos_Maniac_Mansion_1987",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/56b68074a594752f33faa659f227ac65.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/1dcfee25dedf7c8e7e25a9b588299f84.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -603,6 +673,8 @@
    "studio": "jogos/msdos/mario-brothers-vga",
    "url": "https://archive.org/details/msdos_Mario_Brothers_VGA_1990",
    "thumb": "https://archive.org/services/img/msdos_Mario_Brothers_VGA_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1bf50aaf147b3b0ddd26a820d2ed394d.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/98f0bf5318169643e61666d006bd3f96.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -617,6 +689,8 @@
    "studio": "jogos/msdos/mario-s-game-gallery",
    "url": "https://archive.org/details/msdos_Marios_Game_Gallery_1995",
    "thumb": "https://archive.org/services/img/msdos_Marios_Game_Gallery_1995",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/40233563396f6508c47872052759b783.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/ef2fe012c85ae27b993679dfb5e7050b.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -632,6 +706,8 @@
    "studio": "jogos/msdos/master-of-orion",
    "url": "https://archive.org/details/msdos_Master_of_Orion_1993",
    "thumb": "https://archive.org/services/img/msdos_Master_of_Orion_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e6c19a87ef9e816e02ce247d4f41d38a.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/65dfa16ba6de9bdb34ea435c9fe2a425.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -647,6 +723,8 @@
    "studio": "jogos/msdos/monkey-island-2-lechuck-s-revenge",
    "url": "https://archive.org/details/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
    "thumb": "https://archive.org/services/img/msdos_Monkey_Island_2_-_LeChucks_Revenge_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/8b5bd6d5eb424f179d84ab721ff03823.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/15114b232670d53c100a833d5b55946f.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -661,6 +739,8 @@
    "studio": "jogos/msdos/monopoly-deluxe",
    "url": "https://archive.org/details/msdos_Monopoly_Deluxe_1992",
    "thumb": "https://archive.org/services/img/msdos_Monopoly_Deluxe_1992",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/fd4eeaf6abdc74d8c3a37fbfbb055cd9.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/b8321cc2ef02a2823b92d06f2ea3e298.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -676,6 +756,8 @@
    "studio": "jogos/msdos/mortal-kombat",
    "url": "https://archive.org/details/msdos_Mortal_Kombat_1993",
    "thumb": "https://archive.org/services/img/msdos_Mortal_Kombat_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/27ffcc21c5948f9b8595a1c79c4045ed.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/ced92d38d8fec10f1da779dfa44f8bbe.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -690,6 +772,8 @@
    "studio": "jogos/msdos/ms-pac-man",
    "url": "https://archive.org/details/msdos_Ms._Pac-Man_1983",
    "thumb": "https://archive.org/services/img/msdos_Ms._Pac-Man_1983",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ffd118594a87c765e72d11d803520149.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/7dd2ae7db7d18ee7c9425e38df1af5e2.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -713,6 +797,7 @@
    "studio": "jogos/msdos/number-munchers",
    "url": "https://archive.org/details/msdos_Number_Munchers_1990",
    "thumb": "https://archive.org/services/img/msdos_Number_Munchers_1990",
+   "logo": "https://cdn2.steamgriddb.com/logo/27c174bace8d8706ec65923cc8745255.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -727,6 +812,8 @@
    "studio": "jogos/msdos/pac-man",
    "url": "https://archive.org/details/msdos_Pac-Man_1983",
    "thumb": "https://archive.org/services/img/msdos_Pac-Man_1983",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/14e2478fdae5f8cbfe6f14cd046e5832.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/27669aadf5d036101d848837446edd3f.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -740,6 +827,8 @@
    "studio": "jogos/msdos/paperboy-2",
    "url": "https://archive.org/details/msdos_Paperboy_2_1991",
    "thumb": "https://archive.org/services/img/msdos_Paperboy_2_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/61bf3af39b95fc0f4b6451f3f8affbc6.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/80177fe965b78111f4dfee80cfdc3689.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -769,6 +858,8 @@
    "studio": "jogos/msdos/prehistorik",
    "url": "https://archive.org/details/msdos_Prehistorik_1991",
    "thumb": "https://archive.org/services/img/msdos_Prehistorik_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/adab26689c26db511dbd0a4a55689cb2.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/0ddf1b440eaeb5732332bf2e58d2c7e8.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -783,6 +874,8 @@
    "studio": "jogos/msdos/prehistorik-2",
    "url": "https://archive.org/details/msdos_Prehistorik_2_1993",
    "thumb": "https://archive.org/services/img/msdos_Prehistorik_2_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/9f49dca23c7e5057aa17a7c1b4ddf180.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/800ca77bf7ad76b2a830356569e524b7.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -812,6 +905,8 @@
    "studio": "jogos/msdos/prince-of-persia",
    "url": "https://archive.org/details/msdos_Prince_of_Persia_1990",
    "thumb": "https://archive.org/services/img/msdos_Prince_of_Persia_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/b571ecea16a9824023ee1af16897a582.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/b6aef86083b784fdf8a5418bb69d66a1.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -827,6 +922,8 @@
    "studio": "jogos/msdos/prince-of-persia-2-the-shadow-e-the-flame",
    "url": "https://archive.org/details/msdos_Prince_of_Persia_2_-_The_Shadow__The_Flame_1993",
    "thumb": "https://archive.org/services/img/msdos_Prince_of_Persia_2_-_The_Shadow__The_Flame_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ab6cddd653e5a262cf9792179aafae7f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/e43e3fdcf035dc0dbff52eb64da61f79.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -841,6 +938,8 @@
    "studio": "jogos/msdos/rayman",
    "url": "https://archive.org/details/msdos_Rayman_1995",
    "thumb": "https://archive.org/services/img/msdos_Rayman_1995",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c68f76664876f228e3cddf264e9ecb0d.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/977b33ace8251dd9bee913e7ba56eebc.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -855,6 +954,7 @@
    "studio": "jogos/msdos/rogue",
    "url": "https://archive.org/details/msdos_Rogue_1983",
    "thumb": "https://archive.org/services/img/msdos_Rogue_1983",
+   "logo": "https://cdn2.steamgriddb.com/logo/2776e8b512a15c438441cd4b58a24842.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -865,6 +965,8 @@
    "studio": "jogos/msdos/scorched-earth",
    "url": "https://archive.org/details/msdos_Scorched_Earth_1991",
    "thumb": "https://archive.org/services/img/msdos_Scorched_Earth_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/550aae1e60740ba60f4dc8a255e0e960.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/6b22164c33a8cd4cd56da1c6bb1e0f5a.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -880,6 +982,7 @@
    "studio": "jogos/msdos/sid-meier-s-colonization",
    "url": "https://archive.org/details/msdos_Sid_Meiers_Colonization_1994",
    "thumb": "https://archive.org/services/img/msdos_Sid_Meiers_Colonization_1994",
+   "logo": "https://cdn2.steamgriddb.com/logo/a9ed0cdd23029e0981337ff9a45f6321.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -893,6 +996,8 @@
    "studio": "jogos/msdos/simant-the-electronic-ant-colony",
    "url": "https://archive.org/details/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
    "thumb": "https://archive.org/services/img/msdos_SimAnt_-_The_Electronic_Ant_Colony_1991",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/970457cbb97508ef7dd348b6f987498d.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/481ed650e8902f0151be2983ddea2133.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -906,6 +1011,8 @@
    "studio": "jogos/msdos/simcity",
    "url": "https://archive.org/details/msdos_SimCity_1989",
    "thumb": "https://archive.org/services/img/msdos_SimCity_1989",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/40e244ce06f98f84c452989ca388b8a2.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/3a6c2c9231df58107434b942fa600b22.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -916,6 +1023,8 @@
    "studio": "jogos/msdos/simcity-classic",
    "url": "https://archive.org/details/msdos_SimCity_Classic_1994",
    "thumb": "https://archive.org/services/img/msdos_SimCity_Classic_1994",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/40e244ce06f98f84c452989ca388b8a2.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/3a6c2c9231df58107434b942fa600b22.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -930,6 +1039,8 @@
    "studio": "jogos/msdos/simfarm",
    "url": "https://archive.org/details/msdos_SimFarm_1993",
    "thumb": "https://archive.org/services/img/msdos_SimFarm_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/508087c9dd886b6a1a82cb805c2ee328.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a3604090ad274ca07d94a2b34ec1cf65.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -944,6 +1055,8 @@
    "studio": "jogos/msdos/ski-or-die",
    "url": "https://archive.org/details/msdos_Ski_or_Die_1990",
    "thumb": "https://archive.org/services/img/msdos_Ski_or_Die_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/03187c1828b4a98ed9f66691406245a5.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/3238b5fdacca32ae65f7486caf88ee59.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -959,6 +1072,8 @@
    "studio": "jogos/msdos/star-wars",
    "url": "https://archive.org/details/msdos_Star_Wars_1988",
    "thumb": "https://archive.org/services/img/msdos_Star_Wars_1988",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/8f32799a3ad36124c52d8420887c117d.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/15ce0440fd6ec8d847ac449dd238dbe8.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -974,6 +1089,7 @@
    "studio": "jogos/msdos/stunt-driver",
    "url": "https://archive.org/details/msdos_Stunt_Driver_1990",
    "thumb": "https://archive.org/services/img/msdos_Stunt_Driver_1990",
+   "logo": "https://cdn2.steamgriddb.com/logo/4467c5ebcc8206601625e713d31605f9.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -999,6 +1115,8 @@
    "studio": "jogos/msdos/super-mario-world-dx",
    "url": "https://archive.org/details/msdos_Super_Mario_World_DX_2002",
    "thumb": "https://archive.org/services/img/msdos_Super_Mario_World_DX_2002",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1e0b98ffbf6e647bbcfb5f1032f21ce5.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a14ac55a4f27472c5d894ec1c3c743d2.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1012,6 +1130,8 @@
    "studio": "jogos/msdos/super-solvers-gizmos-and-gadgets",
    "url": "https://archive.org/details/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
    "thumb": "https://archive.org/services/img/msdos_Super_Solvers_Gizmos_and_Gadgets_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/715d23d4f13675a97f8c2294614e9126.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/f59787e6ee1a15750787a073f1806b20.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1027,6 +1147,7 @@
    "studio": "jogos/msdos/test-drive-iii-the-passion",
    "url": "https://archive.org/details/msdos_Test_Drive_III_The_Passion_1990",
    "thumb": "https://archive.org/services/img/msdos_Test_Drive_III_The_Passion_1990",
+   "logo": "https://cdn2.steamgriddb.com/logo/ebd01c23fb577ff6747ba88b6cce0cfa.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1042,6 +1163,8 @@
    "studio": "jogos/msdos/tetris",
    "url": "https://archive.org/details/msdos_Tetris_1986",
    "thumb": "https://archive.org/services/img/msdos_Tetris_1986",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/7bf570282789f2798b7d6c1714e63ce9.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/08fcb5ead4e963a6f0bbdbc971f4a3ee.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1076,6 +1199,8 @@
    "studio": "jogos/msdos/the-oregon-trail",
    "url": "https://archive.org/details/msdos_Oregon_Trail_The_1990",
    "thumb": "https://archive.org/services/img/msdos_Oregon_Trail_The_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/164b9d82149e90db2876f473a6d4ee9a.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/6d25adbe208ce5e99080da48d33e407a.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1101,6 +1226,8 @@
    "studio": "jogos/msdos/the-secret-of-monkey-island",
    "url": "https://archive.org/details/msdos_Secret_of_Monkey_Island_The_1990",
    "thumb": "https://archive.org/services/img/msdos_Secret_of_Monkey_Island_The_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/f93dad05756be0b6ecfd7e7ae641639c.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/d1f157379ea7e51d4a8c07aff102a43f.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1115,6 +1242,8 @@
    "studio": "jogos/msdos/total-carnage",
    "url": "https://archive.org/details/msdos_Total_Carnage_1994",
    "thumb": "https://archive.org/services/img/msdos_Total_Carnage_1994",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/aff48cd126513ba3cbcacb0d9b637f3d.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/6dd36e7dc260bc1beeb79a33da67b5df.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1155,6 +1284,8 @@
    "studio": "jogos/msdos/warlords-ii",
    "url": "https://archive.org/details/msdos_Warlords_II_1993",
    "thumb": "https://archive.org/services/img/msdos_Warlords_II_1993",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c56ff9d8e9a0bcc230f64f66f918f6f7.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/07903696918181deac35e89ec86b6427.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1165,6 +1296,8 @@
    "studio": "jogos/msdos/warlords-ii-deluxe",
    "url": "https://archive.org/details/msdos_Warlords_II_Deluxe_1995",
    "thumb": "https://archive.org/services/img/msdos_Warlords_II_Deluxe_1995",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c56ff9d8e9a0bcc230f64f66f918f6f7.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/07903696918181deac35e89ec86b6427.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1179,6 +1312,8 @@
    "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego",
    "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_1985",
    "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_1985",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/305ec2f907e0fcbb74f06fef40c9a4ac.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/019665ab81a95464a25e2bf069f942f9.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1193,6 +1328,8 @@
    "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego-deluxe",
    "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990",
    "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/305ec2f907e0fcbb74f06fef40c9a4ac.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/019665ab81a95464a25e2bf069f942f9.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1207,6 +1344,8 @@
    "studio": "jogos/msdos/where-in-the-world-is-carmen-sandiego-enhanced",
    "url": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
    "thumb": "https://archive.org/services/img/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/305ec2f907e0fcbb74f06fef40c9a4ac.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/019665ab81a95464a25e2bf069f942f9.png",
    "console": "msdos",
    "core": "dos"
   },
@@ -1221,6 +1360,8 @@
    "studio": "jogos/msdos/wolfenstein-3d",
    "url": "https://archive.org/details/msdos_Wolfenstein_3D_1992",
    "thumb": "https://archive.org/services/img/msdos_Wolfenstein_3D_1992",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/3b5d4919c43697e04ae8f965bc07acd1.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/9d12d071c18b535cda26f47f20e5c7ae.png",
    "console": "msdos",
    "core": "dos"
   },

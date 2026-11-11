@@ -3,10 +3,13 @@
   "links": [
     "https://solid7s.github.io/Virtual-On-Web/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/54bbc32dde48d6cae73213c6a21a0995.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e92ae67e4af9da61bbb3690018fa4f1e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/03258e6ca69527cccd5313e56401d8fa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · solid7s.github.io",
   "console": "web-arcade",
   "licenca": "autorizada",
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

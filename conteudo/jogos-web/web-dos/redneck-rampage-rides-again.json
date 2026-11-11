@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/rrridesagain/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4dd5d7f0839813f2856e2e2c69d4e0b0.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/085adb8958c578ea53c623c3029e72f2.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/7bc994dd3e582a767468b4fa61327ad0.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

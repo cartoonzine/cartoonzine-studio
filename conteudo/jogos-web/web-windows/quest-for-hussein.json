@@ -3,10 +3,14 @@
   "links": [
     "https://rgc.zone/ports/8789-quest-hussein/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/688c12c655956c135adc7564d36e48fe.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/cd6b73b67c77edeaff94e24b961119dd.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/122915b6774a4467be946ddae541af52.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

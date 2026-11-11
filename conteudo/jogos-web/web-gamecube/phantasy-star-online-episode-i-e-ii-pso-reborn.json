@@ -3,11 +3,14 @@
   "links": [
     "https://psoreborn.com/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ba8ece82c61f9f168a8cfa6a8073641d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/6a63a1ded4423c113fc5d44ce4f453ab.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/56f1a700e83803d8c9bc1c54a9af2adc.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · psoreborn.com",
   "console": "web-gamecube",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,11 +3,14 @@
   "links": [
     "https://vel.gg/bo1z/moon"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/5b1201398020c009fb6562599ee03f0e.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/2f30dffc83ad0193dac449abc7c6decc.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/034b5739b8815266824c8a8cb0a372d7.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · vel.gg",
   "console": "web-fangames",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

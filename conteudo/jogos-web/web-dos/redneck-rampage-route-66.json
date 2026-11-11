@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/rrroute66/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0a9ee853c0080f3a51a25f59352725c2.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b46b8ecaf8be2981fd8ce34240b49f53.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2207a93921fcf81cbb2956c9619d4e16.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,11 +3,15 @@
   "links": [
     "https://morrowind.virtastic.app/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1ac14644c9b40ddeb100f417af0e608b.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4b6538a44a1dfdc2b83477cd76dee98e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/fdc2262d34ab23978bb3d7998625157e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/Virtastic/openmw-web",
   "descricao": "Port para navegador · morrowind.virtastic.app",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

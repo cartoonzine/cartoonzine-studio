@@ -3,6 +3,9 @@
   "links": [
     "https://midzer.de/wasm/heroes2/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/574e04d3b783927e028982e71467bf13.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/fc910dce7e448dcd095ffe158fccd66b.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/d08155e24a46d6bbdac6c849cd26564f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/fheroes2",
   "descricao": "Port para navegador · midzer.de",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

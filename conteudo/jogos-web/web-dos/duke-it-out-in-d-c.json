@@ -3,11 +3,14 @@
   "links": [
     "https://rgc.zone/ports/8780-duke-dc/run.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/d6f79574ce2d52937d75553a00b32c0b.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/6ff3d83296f53984bc1e55ce4d1cc95b.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/372dfb0a40d906361a899bd38ac0eb93.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-dos",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

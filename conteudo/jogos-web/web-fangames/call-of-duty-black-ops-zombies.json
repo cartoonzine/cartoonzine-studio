@@ -3,11 +3,14 @@
   "links": [
     "http://vel.gg/bo1z"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/95ba032910fab49aff8a3582f8a171b8.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/239ce949b3bcb25a0c47779fe37c80e0.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/4e714dc795dc50b932e2a837e3efc472.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · vel.gg",
   "console": "web-fangames",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,11 +3,14 @@
   "links": [
     "https://residentevil4.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/46cc597bae1fee3cd19314f32c6cb4f0.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e2ccf95a7f2e1878fcafc8376649b6e8.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/5b658d2a925565f0755e035597f8d22f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · residentevil4.online",
   "console": "web-gamecube",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

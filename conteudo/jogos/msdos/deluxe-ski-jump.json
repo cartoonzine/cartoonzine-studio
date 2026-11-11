@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Deluxe_Ski_Jump_2000"
   ],
   "capa": "https://archive.org/services/img/msdos_Deluxe_Ski_Jump_2000",
+  "banner": "https://cdn2.steamgriddb.com/hero/4810890bd129231235c4e324311cd0c1.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/86ae42e53deed0705cb6b6db11bd6ffb.png",
   "fonte": "https://archive.org/details/msdos_Deluxe_Ski_Jump_2000",
   "descricao": "Jogo de MS-DOS · Simulation, Sports (2000), de Mediamond. Do acervo do Internet Archive.",
   "ano": 2000,
@@ -14,5 +16,5 @@
   "editora": "Mediamond",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

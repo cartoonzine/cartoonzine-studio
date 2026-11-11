@@ -3,6 +3,9 @@
   "links": [
     "https://gn-math.dev/?id=523"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/a05f13cf49bb8435a2fa2d1e310aac84.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/3de1c950a90a96a946d40f9445a4298e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/c38569036ad7bfb4020ef9f3bc9336f0.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/aukak/gameports/tree/main/touhou%20mother",
   "descricao": "Port para navegador · gn-math.dev",
@@ -10,5 +13,5 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,10 +3,14 @@
   "links": [
     "https://rgc.zone/ports/openjkspweb/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b3d97fc266bb8892b7d48aadd19aca31.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ab2481c9f93d0ed3033a3281d865ccb2.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/67e103b0761e60683e83c559be18d40c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

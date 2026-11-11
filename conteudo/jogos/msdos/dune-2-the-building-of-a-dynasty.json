@@ -4,6 +4,8 @@
     "https://archive.org/details/msdos_Dune_2_-_The_Building_of_a_Dynasty_1992"
   ],
   "capa": "https://archive.org/services/img/msdos_Dune_2_-_The_Building_of_a_Dynasty_1992",
+  "banner": "https://cdn2.steamgriddb.com/hero/9f369b3d166fd7623b321cfe91ca4c9f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b236c744e94e72c48bb073c1e1fe4417.png",
   "fonte": "https://archive.org/details/msdos_Dune_2_-_The_Building_of_a_Dynasty_1992",
   "descricao": "Jogo de MS-DOS · Strategy/Tactics, Real-time strategy (1992), de Westwood Studios. Do acervo do Internet Archive.",
   "ano": 1992,
@@ -14,5 +16,5 @@
   "editora": "Westwood Studios",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -4,6 +4,7 @@
     "https://archive.org/details/msdos_Test_Drive_III_The_Passion_1990"
   ],
   "capa": "https://archive.org/services/img/msdos_Test_Drive_III_The_Passion_1990",
+  "logo": "https://cdn2.steamgriddb.com/logo/ebd01c23fb577ff6747ba88b6cce0cfa.png",
   "fonte": "https://archive.org/details/msdos_Test_Drive_III_The_Passion_1990",
   "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1990), de Accolade. Do acervo do Internet Archive.",
   "ano": 1990,
@@ -15,5 +16,5 @@
   "editora": "Accolade",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

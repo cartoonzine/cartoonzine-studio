@@ -4,6 +4,7 @@
     "https://archive.org/details/msdos_Sid_Meiers_Colonization_1994"
   ],
   "capa": "https://archive.org/services/img/msdos_Sid_Meiers_Colonization_1994",
+  "logo": "https://cdn2.steamgriddb.com/logo/a9ed0cdd23029e0981337ff9a45f6321.png",
   "fonte": "https://archive.org/details/msdos_Sid_Meiers_Colonization_1994",
   "descricao": "Jogo de MS-DOS · Simulation, Strategy/Tactics, 4X (1994), de MicroProse Software. Do acervo do Internet Archive.",
   "ano": 1994,
@@ -15,5 +16,5 @@
   "editora": "MicroProse Software",
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

@@ -3,11 +3,15 @@
   "links": [
     "https://zonevm.btr.pm/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/c7d56aa2220b3443afb1e20fc81ab6ce.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/998c0c4fd994dc56798676eb8017a9b9.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/30848395e3aac5b2e2bf551544095a6a.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/x8BitRain/zone-vm",
   "descricao": "Port para navegador · zonevm.btr.pm",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

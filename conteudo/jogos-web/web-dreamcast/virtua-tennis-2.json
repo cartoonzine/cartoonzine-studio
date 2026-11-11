@@ -3,11 +3,14 @@
   "links": [
     "https://virtuatennis2.online/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/521b68201a1d00531c7350abc8c48a6d.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/511bccf59c39f3a2bb87057908dc708a.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/8bbd6ed02e5b1387ac5e61e03b1608fb.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · virtuatennis2.online",
   "console": "web-dreamcast",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

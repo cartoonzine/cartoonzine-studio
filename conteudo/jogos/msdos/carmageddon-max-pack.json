@@ -4,10 +4,12 @@
     "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998"
   ],
   "capa": "https://archive.org/services/img/msdos_Carmageddon_Max_Pack_1998",
+  "banner": "https://cdn2.steamgriddb.com/hero/b555f4a2901228cc826327079761e696.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/50acfcb158fa1373d01ae69c7236c946.png",
   "fonte": "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998",
   "descricao": "Jogo de MS-DOS (1998). Do acervo do Internet Archive.",
   "ano": 1998,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }

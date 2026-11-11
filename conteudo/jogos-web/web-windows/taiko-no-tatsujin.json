@@ -5,6 +5,7 @@
   ],
   "capa": "https://store-images.s-microsoft.com/image/apps.29856.13744419880759751.76c7be28-be8f-493a-80e6-4c0af4541010.1d928aed-e13a-47f7-9951-da8a72fabb3a",
   "banner": "https://cms-assets.xboxservices.com/assets/3b/47/3b473d87-7723-40fb-a75d-a39eb23a5dd9.png?n=XB_ww_TaikoDF_DLC_TMP_SuperHeroArt_3840x2160.png&q=90&o=f&w=480&h=270",
+  "logo": "https://cdn2.steamgriddb.com/logo/090eafc16f483e548c2417dadb193f8d.png",
   "descricao": "Acompanhe os carismáticos e coloridos tambores irmãos, Don-chan e Katsu-chan, em um universo vibrante onde o ritmo musical é a alma de tudo. O objetivo do jogador é simples, mas desafiador: dominar a arte do tradicional tambor japonês (Taiko) acertando notas frenéticas ao som de um catálogo musical massivo. O repertório mistura clássicos dos videogames, aberturas de animes famosos, músicas Vocaloid, clássicos da música erudita e sucessos do J-Pop.",
   "ano": 2022,
   "generos": [
@@ -16,5 +17,6 @@
   "jogadores": 2,
   "fundoImagem": "banner",
   "posFundo": 0,
-  "destaque": true
+  "destaque": true,
+  "_completadoEm": "2026-11-11"
 }

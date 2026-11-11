@@ -4,10 +4,11 @@
     "https://archive.org/details/msdos_4D_Prince_of_Persia_1994"
   ],
   "capa": "https://archive.org/services/img/msdos_4D_Prince_of_Persia_1994",
+  "logo": "https://cdn2.steamgriddb.com/logo/9aa32f677362a235a8ae39e011711f1b.png",
   "fonte": "https://archive.org/details/msdos_4D_Prince_of_Persia_1994",
   "descricao": "Jogo de MS-DOS (1994). Do acervo do Internet Archive.",
   "ano": 1994,
   "console": "msdos",
   "_origem": "auto:Internet Archive MS-DOS",
-  "_completadoEm": "2026-11-10"
+  "_completadoEm": "2026-11-11"
 }
