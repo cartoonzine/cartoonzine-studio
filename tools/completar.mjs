@@ -12,8 +12,7 @@
  * Precisa das chaves nas variáveis TMDB_TOKEN e/ou OMDB_KEY
  * (no GitHub: Settings → Secrets and variables → Actions). Sem TMDB_TOKEN usa a Wikipedia.
  *
- * JOGOS: com STEAMGRID_KEY e/ou SS_DEV_ID + SS_DEV_PASSWORD + SS_USER + SS_PASSWORD
- * (ScreenScraper), busca o LOGO (e o vídeo snap) dos jogos que ainda não têm.
+ * JOGOS: com STEAMGRID_KEY busca LOGO, CAPA (estilo DVD) e BANNER dos jogos que ainda não têm (SteamGridDB).
  *   node tools/completar.mjs --jogos               só os jogos
  *   node tools/completar.mjs --jogos --minutos 15  para sozinho depois de 15 minutos
  */
@@ -27,11 +26,11 @@ const ch = chavesExternas();
 const limite = parseInt(args.limite || '150', 10);
 const soNotas = !!args.notas;
 const soJogos = !!args.jogos;
-const temChaveJogo = !!(ch.steamgrid || ch.screenscraper);
+const temChaveJogo = !!ch.steamgrid;
 
 if (soNotas && !ch.omdb) { console.log('Sem OMDB_KEY: nada a fazer com --notas.'); process.exit(0); }
 if (!ch.tmdb && !soJogos) console.log('ℹ Sem TMDB_TOKEN: vou usar a Wikipedia (só sinopse e capa).');
-if (!temChaveJogo) console.log('ℹ Sem STEAMGRID_KEY / SS_DEV_ID: os logos dos jogos ficam como estão.');
+if (!temChaveJogo) console.log('ℹ Sem STEAMGRID_KEY: as artes dos jogos ficam como estão.');
 
 const fila = [];
 for (const colecao of config.colecoes) {
@@ -42,7 +41,7 @@ for (const colecao of config.colecoes) {
         for (const { caminho, item } of lerColecao(colecao).entradas) {
             if (item._travado || item._semLogo) continue;
             const n = Core.normalizarItem(item, colecao);
-            if (n.nome && (!n.logo || (ch.screenscraper && !n.video))) fila.push({ caminho, colecao, item: n });
+            if (n.nome && (!n.logo || !n.capa || !n.banner)) fila.push({ caminho, colecao, item: n });
         }
         continue;
     }

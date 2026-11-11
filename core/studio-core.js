@@ -694,9 +694,13 @@
      * quando pedido) e nota do IMDb (se tiver chave do OMDb).
      * Devolve { item, achados: ["TMDB: ...", ...], avisos: [...] }.
      */
-    /** Logo (PNG transparente) de um JOGO pelo SteamGridDB. Devolve '' quando não acha. */
-    async function buscarLogoSteamGrid(nome, chave, fetchFn) {
-        if (!nome || !chave) return '';
+    /**
+     * Artes de um JOGO pelo SteamGridDB (links públicos do CDN deles, sem senha):
+     *   logo (PNG transparente) · capa (grid vertical 600x900, estilo caixa/DVD) · banner (hero 1920x620).
+     * pedir: { logo, capa, banner } — só busca o que for pedido. Devolve { id, logo, capa, banner }.
+     */
+    async function buscarArtesSteamGrid(nome, chave, fetchFn, pedir = { logo: true }) {
+        if (!nome || !chave) return {};
         const f = fetchFn || ((...a) => fetch(...a));
         const h = { headers: { Authorization: 'Bearer ' + String(chave).trim() } };
         const base = 'https://www.steamgriddb.com/api/v2';
@@ -705,11 +709,22 @@
         if (!rb.ok) throw new Error('busca HTTP ' + rb.status);
         const jb = await rb.json();
         const id = jb && jb.data && jb.data[0] && jb.data[0].id;
-        if (!id) return '';
-        const rl = await f(base + '/logos/game/' + id, h);
-        if (!rl.ok) throw new Error('logos HTTP ' + rl.status);
-        const jl = await rl.json();
-        return (jl && jl.data && jl.data[0] && jl.data[0].url) || '';
+        if (!id) return {};
+        const primeiro = async (caminho) => {
+            const r = await f(base + caminho, h);
+            if (!r.ok) return '';
+            const j = await r.json();
+            return (j && j.data && j.data[0] && j.data[0].url) || '';
+        };
+        const out = { id };
+        if (pedir.logo) out.logo = await primeiro('/logos/game/' + id);
+        if (pedir.capa) out.capa = await primeiro('/grids/game/' + id + '?dimensions=600x900') || await primeiro('/grids/game/' + id + '?dimensions=342x482,660x930');
+        if (pedir.banner) out.banner = await primeiro('/heroes/game/' + id);
+        return out;
+    }
+    /** (compatível) só o logo */
+    async function buscarLogoSteamGrid(nome, chave, fetchFn) {
+        return (await buscarArtesSteamGrid(nome, chave, fetchFn, { logo: true })).logo || '';
     }
 
     /**
@@ -758,24 +773,22 @@
     async function completarItem(item, { tmdb, omdb, steamgrid, screenscraper, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
         let out = Object.assign({}, item);
         const achados = [], avisos = [];
-        // JOGOS: logo (SteamGridDB) + logo/vídeo snap (ScreenScraper). Nunca sobrescreve o que você pôs à mão.
+        // JOGOS: logo, capa (estilo DVD) e banner pelo SteamGridDB. Nunca sobrescreve o que você pôs à mão.
+        // (ScreenScraper fica DESLIGADO: os links de mídia dele levam o seu usuário e as senhas
+        //  dentro da URL — gravados no catálogo público, eles vazariam.)
         if (tipoColecao === 'jogo') {
-            if (steamgrid && !out.logo) {
+            const pedir = { logo: !out.logo, capa: !out.capa, banner: !out.banner };
+            if (steamgrid && (pedir.logo || pedir.capa || pedir.banner)) {
                 try {
-                    const url = await buscarLogoSteamGrid(out.nome, steamgrid, fetchFn);
-                    if (url) { out.logo = url; achados.push('SteamGridDB: logo'); }
-                    else avisos.push('SteamGridDB: logo não encontrado para "' + (out.nome || '') + '".');
+                    const a = await buscarArtesSteamGrid(out.nome, steamgrid, fetchFn, pedir);
+                    const nomes = { logo: 'logo', capa: 'capa', banner: 'banner' };
+                    const veio = [];
+                    for (const k of ['logo', 'capa', 'banner']) if (pedir[k] && a[k]) { out[k] = a[k]; veio.push(nomes[k]); }
+                    if (veio.length) achados.push('SteamGridDB: ' + veio.join(' + '));
+                    else avisos.push('SteamGridDB: nada encontrado para "' + (out.nome || '') + '".');
                 } catch (e) { avisos.push('SteamGridDB: ' + e.message); }
             }
-            if (screenscraper && screenscraper.dev && (!out.logo || !out.video)) {
-                try {
-                    const ss = await buscarScreenScraper(out.nome, screenscraper, fetchFn, out.console);
-                    if (ss.logo && !out.logo) { out.logo = ss.logo; achados.push('ScreenScraper: logo'); }
-                    if (ss.video && !out.video) { out.video = ss.video; achados.push('ScreenScraper: vídeo'); }
-                    if (ss.capa && !out.capa) { out.capa = ss.capa; }
-                    if (!ss.logo && !ss.video && !out.logo) avisos.push('ScreenScraper: nada encontrado para "' + (out.nome || '') + '".');
-                } catch (e) { avisos.push('ScreenScraper: ' + e.message); }
-            }
+            if (screenscraper && screenscraper.dev) avisos.push('ScreenScraper desligado (as URLs de mídia dele expõem a senha).');
             return { item: out, achados, avisos };
         }
         if (tipoColecao !== 'video') return { item: out, achados, avisos };
@@ -1613,7 +1626,7 @@
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
-        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
+        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever, coreDoConsole, CORE_PADRAO,

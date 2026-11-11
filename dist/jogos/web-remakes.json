@@ -29,7 +29,6 @@
    "title": "Maze of Galious",
    "desc": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2025,
-   "preview": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=2&jeuid=64907&media=video",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-remakes/maze-of-galious",
@@ -37,7 +36,6 @@
    "thumb": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co6o1w.jpg",
    "bannerThumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWsFTYEQ8bkNl-bTKTt1bUPfoVlxrILPC4yVNDUZY2g&s=10",
    "logo": "https://cdn2.steamgriddb.com/logo/0ba182b15b32ed456fbbcd29c28e72b0.png",
-   "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=2&jeuid=64907&media=video",
    "console": "web-remakes",
    "core": "web",
    "aparelhos": [

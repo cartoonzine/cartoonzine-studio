@@ -3,9 +3,7 @@
   "links": [
     "https://battle-city.berrry.app"
   ],
-  "capa": "https://neoclone.screenscraper.fr/api2/mediaJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=1&jeuid=124878&media=ss(wor)",
   "logo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
-  "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=1&jeuid=124878&media=video",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/vgrichina/battlecity",
   "descricao": "Port para navegador · battle-city.berrry.app",

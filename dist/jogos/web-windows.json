@@ -134,7 +134,6 @@
    "desc": "Port para navegador · ripleyxlr8.github.io",
    "studio": "jogos-web/web-windows/atlantis-the-lost-tales",
    "url": "https://ripleyxlr8.github.io/atlantis-native/",
-   "thumb": "https://neoclone.screenscraper.fr/api2/mediaJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=276102&media=mixrbv2(wor)",
    "logo": "https://cdn2.steamgriddb.com/logo/3bc34021d83bfb53cec7a5b12ea95753.png",
    "console": "web-windows",
    "core": "web",
@@ -153,7 +152,6 @@
     "Briga",
     "ação"
    ],
-   "preview": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=281166&media=video",
    "bgImg": "banner",
    "bgPosY": 90,
    "studio": "jogos-web/web-windows/brawlhalla-2",
@@ -161,7 +159,6 @@
    "thumb": "https://store-images.s-microsoft.com/image/apps.60631.66915708565277087.6939cc90-5cdd-45d0-b0cd-a485dca34280.160b949a-8de8-4012-9dad-bba0d534927d",
    "bannerThumb": "https://miro.medium.com/1*AV6_RGYjWyjousz9Jp8LXg.jpeg",
    "logo": "https://cdn2.steamgriddb.com/logo/d436cae949c81b9970593a225df2d479.png",
-   "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=281166&media=video",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
@@ -321,7 +318,6 @@
     "Ação",
     "Plataforma"
    ],
-   "preview": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=307580&media=video",
    "bgImg": "banner",
    "bgPosY": 100,
    "studio": "jogos-web/web-windows/hurrican",
@@ -329,7 +325,6 @@
    "thumb": "https://cdn.mobygames.com/covers/6495734-hurrican-windows-front-cover.jpg",
    "bannerThumb": "https://img.utdstc.com/screen/9ef/4bf/9ef4bf99b593acaec7b710c7d3cbf5379ff06ccb60713975cbe4e2d4f131fa65:600",
    "logo": "https://cdn2.steamgriddb.com/logo/16c989e0260cba02ec82e25dfeda3c57.png",
-   "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=307580&media=video",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
@@ -344,7 +339,6 @@
   },
   {
    "title": "Lego Island",
-   "preview": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=313658&media=video",
    "bgImg": "banner",
    "bgPosY": 8,
    "studio": "jogos-web/web-windows/lego-island-2",
@@ -352,7 +346,6 @@
    "thumb": "https://static.wikia.nocookie.net/dublagem/images/6/62/LegoIsland.Capa.jpg/revision/latest?cb=20250216003717&path-prefix=pt-br",
    "bannerThumb": "https://www.lego.com/cdn/cs/aboutus/assets/bltb00f011e70e8b028/LEGO_Island_-_Project_Island.png",
    "logo": "https://cdn2.steamgriddb.com/logo/91a0ac7c34ea63ffc3ef3e8d5ddd58bb.png",
-   "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=313658&media=video",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
