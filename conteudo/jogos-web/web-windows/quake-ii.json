@@ -3,10 +3,13 @@
   "links": [
     "https://rgc.zone/ports/Q2web/index.html"
   ],
+  "capa": "https://neoclone.screenscraper.fr/api2/mediaJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=295456&media=mixrbv2(wor)",
+  "logo": "https://cdn2.steamgriddb.com/logo/f874885e6c1552dfc93fc4ad9b3b3d5c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · rgc.zone",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

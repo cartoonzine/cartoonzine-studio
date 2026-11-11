@@ -3,11 +3,15 @@
   "links": [
     "https://gn-math.dev/?id=585"
   ],
+  "capa": "https://neoclone.screenscraper.fr/api2/mediaJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=297186&media=ss(wor)",
+  "logo": "https://cdn2.steamgriddb.com/logo/36c7cd34a5ba68f6e324133e2bff2a04.png",
+  "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=297186&media=video",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/fallout1-ce",
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

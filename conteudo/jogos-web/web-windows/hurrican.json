@@ -5,6 +5,8 @@
   ],
   "capa": "https://cdn.mobygames.com/covers/6495734-hurrican-windows-front-cover.jpg",
   "banner": "https://img.utdstc.com/screen/9ef/4bf/9ef4bf99b593acaec7b710c7d3cbf5379ff06ccb60713975cbe4e2d4f131fa65:600",
+  "logo": "https://cdn2.steamgriddb.com/logo/16c989e0260cba02ec82e25dfeda3c57.png",
+  "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=307580&media=video",
   "site": "https://github.com/HurricanGame/Hurrican",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/HurricanGame/Hurrican",
@@ -20,5 +22,6 @@
   "controles": "gamepad",
   "fundoImagem": "banner",
   "posFundo": 100,
-  "_origem": "prateleira:cartoonzine-jogos"
+  "_origem": "prateleira:cartoonzine-jogos",
+  "_completadoEm": "2026-11-11"
 }

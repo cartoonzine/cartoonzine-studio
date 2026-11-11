@@ -3,11 +3,13 @@
   "links": [
     "https://gn-math.dev/?id=842"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/9ac270230fcb62e226e01721389463fc.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/wszqkzqk/PvZ-Portable",
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

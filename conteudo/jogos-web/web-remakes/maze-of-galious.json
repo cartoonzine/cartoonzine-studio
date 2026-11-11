@@ -5,6 +5,8 @@
   ],
   "capa": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co6o1w.jpg",
   "banner": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWsFTYEQ8bkNl-bTKTt1bUPfoVlxrILPC4yVNDUZY2g&s=10",
+  "logo": "https://cdn2.steamgriddb.com/logo/0ba182b15b32ed456fbbcd29c28e72b0.png",
+  "video": "https://neoclone.screenscraper.fr/api2/mediaVideoJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=2&jeuid=64907&media=video",
   "site": "https://github.com/midzer/mazeofgalious",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/midzer/mazeofgalious",
@@ -16,5 +18,6 @@
   "controles": "teclado",
   "fundoImagem": "banner",
   "posFundo": 0,
-  "_origem": "prateleira:cartoonzine-jogos"
+  "_origem": "prateleira:cartoonzine-jogos",
+  "_completadoEm": "2026-11-11"
 }

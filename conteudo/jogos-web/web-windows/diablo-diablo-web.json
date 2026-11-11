@@ -3,11 +3,13 @@
   "links": [
     "https://johnimril.github.io/diablo_web/"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/ce943be8824807573e3d363d01058edb.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/johnimril/diablo_web",
   "descricao": "Port para navegador · johnimril.github.io",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

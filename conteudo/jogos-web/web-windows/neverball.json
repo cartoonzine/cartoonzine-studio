@@ -5,6 +5,7 @@
   ],
   "capa": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co9ugw.jpg",
   "banner": "https://images.igdb.com/igdb/image/upload/t_720p/sc80i3.webp",
+  "logo": "https://cdn2.steamgriddb.com/logo/a8ac75aabbfbe4781b90184495fb6a99.png",
   "site": "https://neverball.org",
   "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
   "repo": "https://github.com/Neverball/neverball",
@@ -19,5 +20,6 @@
   "licenca": "livre",
   "controles": "gamepad",
   "fundoImagem": "banner",
-  "posFundo": 0
+  "posFundo": 0,
+  "_completadoEm": "2026-11-11"
 }

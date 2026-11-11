@@ -18,5 +18,6 @@
   "teclas": "A=Space, START=Enter",
   "console": "web-remakes",
   "licenca": "livre",
-  "controles": "teclado"
+  "controles": "teclado",
+  "_completadoEm": "2026-11-11"
 }

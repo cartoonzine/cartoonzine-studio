@@ -5,8 +5,10 @@
   ],
   "capa": "https://www.dolby.com/siteassets/xf-site/content-detail-pages/cyberpunk-2077.jpg",
   "banner": "https://4kwallpapers.com/images/wallpapers/cyberpunk-2077-johnny-silverhand-character-v-xbox-series-x-2560x1440-1617.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/2b2e7393b05b5b52af65bf2ed7f4ad4f.png",
   "console": "web-windows",
   "licenca": "livre",
   "fundoImagem": "banner",
-  "posFundo": 8
+  "posFundo": 8,
+  "_completadoEm": "2026-11-11"
 }

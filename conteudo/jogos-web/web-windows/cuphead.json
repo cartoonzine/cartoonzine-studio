@@ -6,6 +6,7 @@
   ],
   "capa": "https://images.launchbox-app.com//23729ca1-f427-4f79-9bdc-8937bf485d2c.jpg",
   "banner": "https://images.launchbox-app.com//f452b0c3-7e3a-42fb-a575-4588257c97de.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/ff7a2112f8c3e3224ce8e3e26de1d932.png",
   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256894191/movie_max_vp9.webm?t=1656595223",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/cuphead",
@@ -24,5 +25,6 @@
   "posFundo": 100,
   "bannerLogo": "https://gamesdb-images.launchbox.gg/r2_7da76d1c-0c68-469b-ba6f-93ab5d52ee5d.png",
   "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256894191/movie_max_vp9.webm?t=1656595223",
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

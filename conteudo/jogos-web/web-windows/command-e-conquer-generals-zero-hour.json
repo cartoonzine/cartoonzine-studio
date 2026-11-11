@@ -3,11 +3,13 @@
   "links": [
     "https://generals.wasm.ltd"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/1b2ae1abc7405fb92168d400454c936c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/origami-ltd/wasm-generals",
   "descricao": "Port para navegador · generals.wasm.ltd",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

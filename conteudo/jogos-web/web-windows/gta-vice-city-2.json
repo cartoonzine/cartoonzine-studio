@@ -3,6 +3,7 @@
   "links": [
     "https://joncodeofficial.github.io/gta-vice-city-wasm/"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/faacdb296a134b8de87cf0f9fdaead7f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/joncodeofficial/gta-vice-city-wasm",
   "descricao": "Port para navegador · joncodeofficial.github.io",
@@ -11,5 +12,6 @@
   "fundoImagem": "banner",
   "posFundo": 0,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-11"
 }

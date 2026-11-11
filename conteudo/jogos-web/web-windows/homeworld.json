@@ -3,11 +3,14 @@
   "links": [
     "https://gardens-of-kadesh.gitlab.io/gardens-of-kadesh/"
   ],
+  "capa": "https://neoclone.screenscraper.fr/api2/mediaJeu.php?devid=archanjosc&devpassword=SzOYAaFMWqE&softname=cartoonzine&ssid=archanjosc&sspassword=Mizinho77&systemeid=138&jeuid=306750&media=mixrbv2(wor)",
+  "logo": "https://cdn2.steamgriddb.com/logo/dfed3fc4107b50b28438cb0684124f93.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/GardensOfKadesh/Homeworld",
   "descricao": "Port para navegador · gardens-of-kadesh.gitlab.io",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

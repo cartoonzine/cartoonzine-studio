@@ -3,10 +3,12 @@
   "links": [
     "https://wasmarcade.com/minecraft"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/a23b9c484c683e2092970a88b58b2e7d.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · wasmarcade.com",
   "console": "web-remakes",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

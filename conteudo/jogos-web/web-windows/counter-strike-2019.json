@@ -3,10 +3,12 @@
   "links": [
     "https://webstrike.me"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/f133a490edfc58c9d72b590b49a34bc5.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · webstrike.me",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

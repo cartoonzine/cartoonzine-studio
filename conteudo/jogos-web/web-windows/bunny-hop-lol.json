@@ -5,8 +5,10 @@
   ],
   "capa": "https://bunnyhop.lol/about/run-poster.webp",
   "banner": "https://bunnyhop.lol/about/ghost.webp",
+  "logo": "https://cdn2.steamgriddb.com/logo/772fc0e304e1b17271d3c9c8a816bab9.png",
   "console": "web-windows",
   "licenca": "livre",
   "fundoImagem": "banner",
-  "posFundo": 72
+  "posFundo": 72,
+  "_completadoEm": "2026-11-11"
 }

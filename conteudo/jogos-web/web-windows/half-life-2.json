@@ -3,11 +3,13 @@
   "links": [
     "https://hl2.slqnt.dev/"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/d71e13c019d57342db713bfbd1de0318.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/AlexBoops/half-life-2-port",
   "descricao": "Port para navegador · hl2.slqnt.dev",
   "console": "web-windows",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }

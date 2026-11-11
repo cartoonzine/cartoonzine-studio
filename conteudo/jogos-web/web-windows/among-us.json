@@ -5,6 +5,7 @@
   ],
   "capa": "https://images.launchbox-app.com//3dc82a78-8ab3-45c0-8fcb-c3fd3b00cdbe.jpg",
   "banner": "https://images.launchbox-app.com//7c08ede9-be23-4a0b-8899-5b3b967c40e4.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
   "generos": [
     "Suspense",
@@ -17,5 +18,6 @@
   "fundoImagem": "banner",
   "posFundo": 30,
   "destaque": true,
-  "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291"
+  "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
+  "_completadoEm": "2026-11-11"
 }

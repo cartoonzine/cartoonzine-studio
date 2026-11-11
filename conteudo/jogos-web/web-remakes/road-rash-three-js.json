@@ -3,10 +3,12 @@
   "links": [
     "https://roadrash.pages.dev/"
   ],
+  "logo": "https://cdn2.steamgriddb.com/logo/fb12595fe3e3854389114b43d8cbc620.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · roadrash.pages.dev",
   "console": "web-remakes",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11"
 }
