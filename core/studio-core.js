@@ -739,9 +739,34 @@
         megadrive: 1, genesis: 1, mastersystem: 2, nes: 3, snes: 4, gb: 9, gbc: 10, gba: 12, nds: 15,
         sega32x: 19, segacd: 20, gamegear: 21, saturn: 22, arcade: 75, 'web-arcade': 75, neogeo: 142
     };
-    async function buscarScreenScraper(nome, ss, fetchFn, consoleId) {
-        if (!nome || !ss || !ss.dev) return {};
+    /** Erro do ScreenScraper traduzido (ele explica em francês, em texto) */
+    async function erroScreenScraper(r) {
+        let txt = ''; try { txt = String(await r.text()).trim().slice(0, 160); } catch (e) { /* */ }
+        if (/d[ée]veloppeur|devid|developer/i.test(txt)) return new Error('Dev ID / Dev password recusados — peça os seus no fórum do ScreenScraper (HTTP ' + r.status + ')');
+        if (/identifiant|login|utilisateur|ssid|password/i.test(txt)) return new Error('usuário/senha do site recusados (HTTP ' + r.status + ')');
+        if (r.status === 429 || r.status === 430 || r.status === 431 || /quota|threads|maximum/i.test(txt)) return new Error('limite de consultas do ScreenScraper atingido; tente mais tarde (HTTP ' + r.status + ')');
+        return new Error('HTTP ' + r.status + (txt ? ' — ' + txt : ''));
+    }
+
+    /**
+     * Procura um JOGO no ScreenScraper pelo nome (jeuRecherche) e devolve a ficha inteira dele
+     * (nomes, sinopses, datas, gêneros, jogadores, mídias…) — ou null.
+     * Escolhe o resultado cujo nome mais bate com o pedido (nunca "qualquer um"); com o console
+     * conhecido, procura primeiro só nele.
+     * ⚠ As URLs de mídia da ficha levam as credenciais: NUNCA grave essas URLs — baixe o arquivo.
+     */
+    async function buscarJogoScreenScraper(nome, ss, fetchFn, consoleId) {
+        if (!nome || !ss || !ss.dev) return null;
         const f = fetchFn || ((...a) => fetch(...a));
+        const alvo = normText(nome).replace(/\s*\(.*?\)\s*/g, ' ').trim();
+        const nomesDe = (j) => (j.noms || []).map(n => normText(n.text || '').replace(/\s*\(.*?\)\s*/g, ' ').trim()).filter(Boolean);
+        const nota = (j) => {
+            const ns = nomesDe(j);
+            if (ns.includes(alvo)) return 3;
+            if (ns.some(n => n.startsWith(alvo) || alvo.startsWith(n))) return 2;
+            if (ns.some(n => n.includes(alvo) || alvo.includes(n))) return 1;
+            return 0;
+        };
         const pedir = async (sistema) => {
             const p = new URLSearchParams({
                 devid: ss.dev, devpassword: ss.devSenha || '', softname: ss.softname || 'cartoonzine',
@@ -750,24 +775,76 @@
             if (sistema) p.set('systemeid', String(sistema));
             const r = await f('https://www.screenscraper.fr/api2/jeuRecherche.php?' + p.toString());
             if (!r.ok) {
-                // o ScreenScraper explica o erro em texto (em francês): traduz os mais comuns
-                let txt = ''; try { txt = String(await r.text()).trim().slice(0, 160); } catch (e) { /* */ }
-                if (/d[ée]veloppeur|devid|developer/i.test(txt)) throw new Error('Dev ID / Dev password recusados — eles NÃO são o seu login do site: peça os seus no fórum do ScreenScraper (HTTP ' + r.status + ')');
-                if (/identifiant|login|utilisateur|ssid|password/i.test(txt)) throw new Error('usuário/senha do site recusados (HTTP ' + r.status + ')');
-                if (r.status === 404 || /non trouv|not found|aucun/i.test(txt)) return null;
-                if (r.status === 429 || r.status === 430 || /quota|threads/i.test(txt)) throw new Error('limite de consultas do ScreenScraper atingido; tente mais tarde (HTTP ' + r.status + ')');
-                throw new Error('HTTP ' + r.status + (txt ? ' — ' + txt : ''));
+                if (r.status === 404) return null;
+                throw await erroScreenScraper(r);
             }
             let j; try { j = await r.json(); } catch (e) { throw new Error('resposta inválida (confira as credenciais)'); }
             const jogos = ((j && j.response && j.response.jeux) || []).filter(x => x && x.id);
-            return jogos[0] || null;
+            let melhor = null, nm = 0;
+            for (const x of jogos) { const n = nota(x); if (n > nm) { nm = n; melhor = x; } }
+            return melhor;
         };
         const sis = SS_SISTEMAS[String(consoleId || '').toLowerCase()];
         let jeu = sis ? await pedir(sis) : null;
         if (!jeu) jeu = await pedir(null);
+        return jeu;
+    }
+
+    /** Escolhe as mídias de uma ficha do ScreenScraper (URLs COM credenciais — só para baixar). */
+    function midiasScreenScraper(jeu) {
         const medias = (jeu && jeu.medias) || [];
-        const achar = (re) => { const m = medias.find(x => re.test(x.type || '') && /(wor|br|us|eu|ss)/i.test(x.region || 'wor')) || medias.find(x => re.test(x.type || '')); return (m && (m.url || '')) || ''; };
-        return { logo: achar(/^(wheel|wheel-hd|wheel-carbon|wheel-steel|logo)/i), video: achar(/^video/i), capa: achar(/box-2D|box2d|mixrbv|ss$/i) };
+        const ordemRegiao = ['br', 'wor', 'us', 'eu', 'ss', 'jp'];
+        const achar = (tipos) => {
+            for (const t of tipos) {
+                const ms = medias.filter(m => (m.type || '') === t && m.url);
+                if (!ms.length) continue;
+                ms.sort((a, b) => {
+                    const ra = ordemRegiao.indexOf(a.region || 'wor'), rb = ordemRegiao.indexOf(b.region || 'wor');
+                    return (ra < 0 ? 99 : ra) - (rb < 0 ? 99 : rb);
+                });
+                return ms[0];
+            }
+            return null;
+        };
+        return {
+            capa: achar(['box-2D', 'box-3D']),
+            logo: achar(['wheel-hd', 'wheel', 'wheel-carbon', 'wheel-steel']),
+            banner: achar(['fanart', 'screenmarquee']),
+            video: achar(['video-normalized', 'video'])
+        };
+    }
+
+    /** Dados de texto de uma ficha do ScreenScraper (sem URLs): sinopse, ano, gêneros, jogadores. */
+    function dadosScreenScraper(jeu) {
+        if (!jeu) return {};
+        const porLingua = (arr, campo = 'text') => {
+            const a = Array.isArray(arr) ? arr : [];
+            const pt = a.find(x => /^pt/i.test(x.langue || '')), en = a.find(x => /^en/i.test(x.langue || ''));
+            const x = pt || en || a[0];
+            return x ? { texto: String(x[campo] || '').trim(), lingua: pt ? 'pt' : (en ? 'en' : (x.langue || '')) } : null;
+        };
+        const sin = porLingua(jeu.synopsis);
+        const datas = Array.isArray(jeu.dates) ? jeu.dates : [];
+        const data = ['wor', 'br', 'us', 'eu', 'jp'].map(r => datas.find(d => d.region === r)).find(Boolean) || datas[0];
+        const ano = data && /(\d{4})/.test(data.text || '') ? +RegExp.$1 : null;
+        const generos = (Array.isArray(jeu.genres) ? jeu.genres : [])
+            .sort((a, b) => (b.principale === '1') - (a.principale === '1'))
+            .map(g => { const n = porLingua(g.noms); return n && n.texto; })
+            .filter(Boolean).filter((g, i, a) => a.indexOf(g) === i).slice(0, 3);
+        const jog = jeu.joueurs && String(jeu.joueurs.text || '').match(/(\d+)\s*$/);
+        return {
+            sinopse: sin && sin.texto ? sin.texto : '', sinopseLingua: sin ? sin.lingua : '',
+            ano, generos, jogadores: jog ? +jog[1] : null,
+            nome: ((jeu.noms || []).find(n => n.region === 'wor') || (jeu.noms || [])[0] || {}).text || '',
+            sistema: jeu.systeme && jeu.systeme.text, id: jeu.id
+        };
+    }
+
+    /** (compatível com o teste da caixa de Chaves) logo/vídeo/capa encontrados — URLs com credenciais, NÃO grave. */
+    async function buscarScreenScraper(nome, ss, fetchFn, consoleId) {
+        const jeu = await buscarJogoScreenScraper(nome, ss, fetchFn, consoleId);
+        const m = midiasScreenScraper(jeu);
+        return { logo: (m.logo && m.logo.url) || '', video: (m.video && m.video.url) || '', capa: (m.capa && m.capa.url) || '' };
     }
 
     async function completarItem(item, { tmdb, omdb, steamgrid, screenscraper, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
@@ -1626,7 +1703,7 @@
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
-        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
+        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever, coreDoConsole, CORE_PADRAO,
