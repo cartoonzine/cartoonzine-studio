@@ -8,6 +8,7 @@
     "RPG"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
    "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
    "bgImg": "banner",
    "bgPosY": 30,
@@ -38,6 +39,7 @@
     "Guerra"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/4e714dc795dc50b932e2a837e3efc472.png",
    "bgImg": "banner",
    "bgPosY": 81,
    "studio": "jogos-web/web-windows/call-of-duty-black-ops-zombies",
@@ -64,6 +66,7 @@
     "Tiro"
    ],
    "destaque": true,
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--video.mp4",
    "bgImg": "banner",
    "bgPosY": 23,
@@ -96,6 +99,7 @@
     "simulador de carro"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d2ce0c8b91e51a6bbda34c4bdc43ee54.png",
    "bgImg": "banner",
    "bgPosY": 100,
    "studio": "jogos-web/web-ps2/gran-turismo-4",
@@ -121,6 +125,7 @@
     "role-playing"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a15612aee1f0b2fdf1768df0d2688bd1.png",
    "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256660296/movie_max.webm?t=1454099186",
    "bgImg": "banner",
    "bgPosY": 100,
@@ -150,6 +155,7 @@
     "Ritmo"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/090eafc16f483e548c2417dadb193f8d.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-windows/taiko-no-tatsujin",
@@ -170,6 +176,7 @@
   {
    "title": "20 Minutes Till Dawn",
    "desc": "Port para navegador · gn-math.dev",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/121892a5b8bf3e390a83dc0af8d5b3fd.png",
    "studio": "jogos-web/web-indie/20-minutes-till-dawn",
    "url": "https://gn-math.dev/?id=819",
    "thumb": "https://cdn2.steamgriddb.com/grid/c3c25f1f935df6a160e928e45c8afaa1.png",
@@ -193,6 +200,7 @@
     "Ação",
     "Plataforma"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--video.mp4",
    "studio": "jogos-web/web-dos/abuse",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/abuse/",
@@ -238,6 +246,7 @@
    "genre": [
     "Plataforma"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--video.mp4",
    "studio": "jogos-web/web-dos/alley-cat",
    "url": "https://petarov.github.io/alleycat.exe/",
@@ -259,6 +268,7 @@
   {
    "title": "Amanda The Adventurer",
    "desc": "Port para navegador · gn-math.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/2e6d8d70bfa9f6e15b1ff9908216aebf.png",
    "studio": "jogos-web/web-indie/amanda-the-adventurer",
    "url": "https://gn-math.github.io/web-port/amanda-the-adventurer/",
    "thumb": "https://cdn2.steamgriddb.com/grid/c1c0b89138dc2ca5eb6d0ffee4747854.png",
@@ -277,6 +287,7 @@
   {
    "title": "Among Us",
    "desc": "Port para navegador · wasm.rip",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
    "studio": "jogos-web/web-indie/among-us",
    "url": "https://wasm.rip/files/amongus/index.html",
    "thumb": "https://cdn2.steamgriddb.com/grid/09246ffb824ca2c5bc47a64cb302d3cb.jpg",
@@ -298,6 +309,7 @@
     "Shoot 'Em Up",
     "Navinha"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a918ac07ad91bcb420d84ed823623c10.png",
    "bgImg": "banner",
    "bgPosY": 29,
    "studio": "jogos-web/web-windows/astromenace",
@@ -316,6 +328,7 @@
   {
    "title": "Atlantis: The Lost Tales",
    "desc": "Port para navegador · ripleyxlr8.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/3bc34021d83bfb53cec7a5b12ea95753.png",
    "studio": "jogos-web/web-windows/atlantis-the-lost-tales",
    "url": "https://ripleyxlr8.github.io/atlantis-native/",
    "logo": "https://cdn2.steamgriddb.com/logo/3bc34021d83bfb53cec7a5b12ea95753.png",
@@ -352,6 +365,7 @@
    "title": "Bombermaaan",
    "desc": "Bombermaaan is inspired on the classic Bomberman game ported for the web. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2023,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/afb79a9be5cd9762572a008088d3153e.png",
    "studio": "jogos-web/web-pc/bombermaaan",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/bombermaaan/",
    "thumb": "https://cdn2.steamgriddb.com/grid/c5b781ce025e8217c23f95f9569a0b96.png",
@@ -376,6 +390,7 @@
     "Briga",
     "ação"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d436cae949c81b9970593a225df2d479.png",
    "bgImg": "banner",
    "bgPosY": 90,
    "studio": "jogos-web/web-windows/brawlhalla-2",
@@ -394,6 +409,7 @@
   },
   {
    "title": "Bunny Hop lol",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/772fc0e304e1b17271d3c9c8a816bab9.png",
    "bgImg": "banner",
    "bgPosY": 72,
    "studio": "jogos-web/web-windows/bunny-hop-lol",
@@ -413,6 +429,7 @@
   {
    "title": "Call of Duty Web Collection",
    "desc": "Port para navegador · cod-webports.pages.dev",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/1820c4b6fcbf5be5758bffe24c41fa6a.png",
    "studio": "jogos-web/web-outros/call-of-duty-web-collection",
    "url": "https://cod-webports.pages.dev/",
    "thumb": "https://cdn2.steamgriddb.com/grid/d50024a382b0bbae0ba02d1ef479b927.jpg",
@@ -436,6 +453,7 @@
     "Tiro",
     "Guerra"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/13d429db192fbc7b5cabf9b936cf78e1.png",
    "studio": "jogos-web/web-windows/counter-strike-e-half-life-2",
    "url": "https://pixelsuft.github.io/hl/",
    "logo": "https://cdn2.steamgriddb.com/logo/13d429db192fbc7b5cabf9b936cf78e1.png",
@@ -485,6 +503,7 @@
   },
   {
    "title": "Cyberpunk 2077 - Browser",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/2b2e7393b05b5b52af65bf2ed7f4ad4f.png",
    "bgImg": "banner",
    "bgPosY": 8,
    "studio": "jogos-web/web-windows/cyberpunk-2077-browser",
@@ -509,6 +528,7 @@
     "Corrida, Pilotagem",
     "Corrida em 3ª pessoa"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--video.mp4",
    "studio": "jogos-web/web-arcade/daytona-usa",
    "url": "https://johannruiz.github.io/Daytona-USA-Web/",
@@ -617,6 +637,7 @@
   {
    "title": "Heroes of Might and Magic II (fheroes2, rgc.zone)",
    "desc": "Port para navegador · rgc.zone",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d08155e24a46d6bbdac6c849cd26564f.png",
    "bgImg": "banner",
    "studio": "jogos-web/web-dos/heroes-of-might-and-magic-ii-fheroes2-rgc-zone",
    "url": "https://rgc.zone/ports/fheroes2weblast/index.html",
@@ -640,6 +661,7 @@
     "Ação",
     "Plataforma"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/16c989e0260cba02ec82e25dfeda3c57.png",
    "bgImg": "banner",
    "bgPosY": 100,
    "studio": "jogos-web/web-windows/hurrican",
@@ -667,6 +689,7 @@
     "Plataforma",
     "Multiplayer"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/5c424f254337185048bd994adca387d7.png",
    "studio": "jogos-web/web-dos/jump-n-bump",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/jumpnbump/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump.jpg",
@@ -687,6 +710,7 @@
   },
   {
    "title": "Lego Island",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/91a0ac7c34ea63ffc3ef3e8d5ddd58bb.png",
    "bgImg": "banner",
    "bgPosY": 8,
    "studio": "jogos-web/web-windows/lego-island-2",
@@ -711,6 +735,7 @@
     "Luta",
     "Luta / Versus"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--video.mp4",
    "studio": "jogos-web/web-arcade/marvel-vs-capcom-2",
    "url": "https://marvelvscapcom2.online/",
@@ -732,6 +757,7 @@
    "title": "Maze of Galious",
    "desc": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2025,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/0ba182b15b32ed456fbbcd29c28e72b0.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-remakes/maze-of-galious",
@@ -759,6 +785,7 @@
     "Puzzle",
     "Habilidade"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a8ac75aabbfbe4781b90184495fb6a99.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-windows/neverball",
@@ -786,6 +813,7 @@
     "Tiro",
     "Nave"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/06d2bff77eb0c7a5b0391754247bbb20.png",
    "studio": "jogos-web/web-pc/powermanga",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/powermanga/",
    "thumb": "https://cdn2.steamgriddb.com/grid/b4dada50f3743aa50adb9a463820179e.png",
@@ -807,6 +835,7 @@
   {
    "title": "Shadow Warrior",
    "desc": "Port para navegador · rgc.zone",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/169779d3852b32ce8b1a1724dbf5217d.png",
    "bgImg": "banner",
    "studio": "jogos-web/web-dos/shadow-warrior",
    "url": "https://rgc.zone/ports/8775-swarrior/run.html",
@@ -846,6 +875,7 @@
   {
    "title": "Street Fighter III: 3rd Strike",
    "desc": "Port para navegador · streetfighter3.online",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/22cf8d98dca2b9de5052ae9253bddef3.png",
    "studio": "jogos-web/web-arcade/street-fighter-iii-3rd-strike",
    "url": "https://streetfighter3.online/",
    "thumb": "https://cdn2.steamgriddb.com/grid/74795ed1eea8eff2d2ead49ad13475b3.png",
@@ -862,6 +892,7 @@
   },
   {
    "title": "Terraria",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
    "bgImg": "banner",
    "bgPosY": 70,
    "studio": "jogos-web/web-windows/terraria",
@@ -880,6 +911,7 @@
   },
   {
    "title": "The Simpsons: Hit & Run",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/1b12d60e85a7a2d7c03b9daad3d1959f.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-windows/the-simpsons-hit-e-run-2",
@@ -904,6 +936,7 @@
     "Tiro",
     "Nave"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/858846e5d0a6816af8a75fe6fda40ca1.png",
    "bgImg": "banner",
    "bgPosY": 39,
    "studio": "jogos-web/web-dos/tyrian-opentyrian",
@@ -955,6 +988,7 @@
   {
    "title": "Virtual On: Cyber Troopers",
    "desc": "Port para navegador · solid7s.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/03258e6ca69527cccd5313e56401d8fa.png",
    "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
    "url": "https://solid7s.github.io/Virtual-On-Web/",
    "thumb": "https://cdn2.steamgriddb.com/grid/54bbc32dde48d6cae73213c6a21a0995.png",

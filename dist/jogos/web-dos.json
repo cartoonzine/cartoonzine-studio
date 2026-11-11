@@ -12,6 +12,7 @@
     "Tiro"
    ],
    "destaque": true,
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--video.mp4",
    "bgImg": "banner",
    "bgPosY": 23,
@@ -42,6 +43,7 @@
     "Ação",
     "Plataforma"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--video.mp4",
    "studio": "jogos-web/web-dos/abuse",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/abuse/",
@@ -69,6 +71,7 @@
    "genre": [
     "Plataforma"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--logo.png",
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--video.mp4",
    "studio": "jogos-web/web-dos/alley-cat",
    "url": "https://petarov.github.io/alleycat.exe/",
@@ -90,6 +93,7 @@
   {
    "title": "Heroes of Might and Magic II (fheroes2, rgc.zone)",
    "desc": "Port para navegador · rgc.zone",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d08155e24a46d6bbdac6c849cd26564f.png",
    "bgImg": "banner",
    "studio": "jogos-web/web-dos/heroes-of-might-and-magic-ii-fheroes2-rgc-zone",
    "url": "https://rgc.zone/ports/fheroes2weblast/index.html",
@@ -113,6 +117,7 @@
     "Plataforma",
     "Multiplayer"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/5c424f254337185048bd994adca387d7.png",
    "studio": "jogos-web/web-dos/jump-n-bump",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/jumpnbump/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump.jpg",
@@ -134,6 +139,7 @@
   {
    "title": "Shadow Warrior",
    "desc": "Port para navegador · rgc.zone",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/169779d3852b32ce8b1a1724dbf5217d.png",
    "bgImg": "banner",
    "studio": "jogos-web/web-dos/shadow-warrior",
    "url": "https://rgc.zone/ports/8775-swarrior/run.html",
@@ -158,6 +164,7 @@
     "Tiro",
     "Nave"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/858846e5d0a6816af8a75fe6fda40ca1.png",
    "bgImg": "banner",
    "bgPosY": 39,
    "studio": "jogos-web/web-dos/tyrian-opentyrian",

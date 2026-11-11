@@ -9,6 +9,7 @@
     "RPG"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
    "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
    "bgImg": "banner",
    "bgPosY": 30,
@@ -39,6 +40,7 @@
     "Guerra"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/4e714dc795dc50b932e2a837e3efc472.png",
    "bgImg": "banner",
    "bgPosY": 81,
    "studio": "jogos-web/web-windows/call-of-duty-black-ops-zombies",
@@ -64,6 +66,7 @@
     "role-playing"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a15612aee1f0b2fdf1768df0d2688bd1.png",
    "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256660296/movie_max.webm?t=1454099186",
    "bgImg": "banner",
    "bgPosY": 100,
@@ -93,6 +96,7 @@
     "Ritmo"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/090eafc16f483e548c2417dadb193f8d.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-windows/taiko-no-tatsujin",
@@ -116,6 +120,7 @@
     "Shoot 'Em Up",
     "Navinha"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a918ac07ad91bcb420d84ed823623c10.png",
    "bgImg": "banner",
    "bgPosY": 29,
    "studio": "jogos-web/web-windows/astromenace",
@@ -134,6 +139,7 @@
   {
    "title": "Atlantis: The Lost Tales",
    "desc": "Port para navegador · ripleyxlr8.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/3bc34021d83bfb53cec7a5b12ea95753.png",
    "studio": "jogos-web/web-windows/atlantis-the-lost-tales",
    "url": "https://ripleyxlr8.github.io/atlantis-native/",
    "logo": "https://cdn2.steamgriddb.com/logo/3bc34021d83bfb53cec7a5b12ea95753.png",
@@ -154,6 +160,7 @@
     "Briga",
     "ação"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d436cae949c81b9970593a225df2d479.png",
    "bgImg": "banner",
    "bgPosY": 90,
    "studio": "jogos-web/web-windows/brawlhalla-2",
@@ -172,6 +179,7 @@
   },
   {
    "title": "Bunny Hop lol",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/772fc0e304e1b17271d3c9c8a816bab9.png",
    "bgImg": "banner",
    "bgPosY": 72,
    "studio": "jogos-web/web-windows/bunny-hop-lol",
@@ -197,6 +205,7 @@
     "Tiro",
     "Guerra"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/13d429db192fbc7b5cabf9b936cf78e1.png",
    "studio": "jogos-web/web-windows/counter-strike-e-half-life-2",
    "url": "https://pixelsuft.github.io/hl/",
    "logo": "https://cdn2.steamgriddb.com/logo/13d429db192fbc7b5cabf9b936cf78e1.png",
@@ -246,6 +255,7 @@
   },
   {
    "title": "Cyberpunk 2077 - Browser",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/2b2e7393b05b5b52af65bf2ed7f4ad4f.png",
    "bgImg": "banner",
    "bgPosY": 8,
    "studio": "jogos-web/web-windows/cyberpunk-2077-browser",
@@ -320,6 +330,7 @@
     "Ação",
     "Plataforma"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/16c989e0260cba02ec82e25dfeda3c57.png",
    "bgImg": "banner",
    "bgPosY": 100,
    "studio": "jogos-web/web-windows/hurrican",
@@ -341,6 +352,7 @@
   },
   {
    "title": "Lego Island",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/91a0ac7c34ea63ffc3ef3e8d5ddd58bb.png",
    "bgImg": "banner",
    "bgPosY": 8,
    "studio": "jogos-web/web-windows/lego-island-2",
@@ -365,6 +377,7 @@
     "Puzzle",
     "Habilidade"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a8ac75aabbfbe4781b90184495fb6a99.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-windows/neverball",
@@ -406,6 +419,7 @@
   },
   {
    "title": "Terraria",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
    "bgImg": "banner",
    "bgPosY": 70,
    "studio": "jogos-web/web-windows/terraria",
@@ -424,6 +438,7 @@
   },
   {
    "title": "The Simpsons: Hit & Run",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/1b12d60e85a7a2d7c03b9daad3d1959f.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-windows/the-simpsons-hit-e-run-2",

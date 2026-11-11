@@ -12,6 +12,7 @@
     "simulador de carro"
    ],
    "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d2ce0c8b91e51a6bbda34c4bdc43ee54.png",
    "bgImg": "banner",
    "bgPosY": 100,
    "studio": "jogos-web/web-ps2/gran-turismo-4",

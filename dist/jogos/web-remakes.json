@@ -29,6 +29,7 @@
    "title": "Maze of Galious",
    "desc": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2025,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/0ba182b15b32ed456fbbcd29c28e72b0.png",
    "bgImg": "banner",
    "bgPosY": 0,
    "studio": "jogos-web/web-remakes/maze-of-galious",

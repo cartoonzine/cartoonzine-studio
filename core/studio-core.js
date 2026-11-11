@@ -810,7 +810,8 @@
             capa: achar(['box-2D', 'box-3D']),
             logo: achar(['wheel-hd', 'wheel', 'wheel-carbon', 'wheel-steel']),
             banner: achar(['fanart', 'screenmarquee']),
-            video: achar(['video-normalized', 'video'])
+            video: achar(['video-normalized', 'video']),
+            previa: achar(['sstitle', 'ss'])          // tela de título (ou uma tela do jogo) para antes do vídeo
         };
     }
 
@@ -1179,6 +1180,7 @@
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'soPC', rotulo: 'Só PC (não aparece na TV)', tipo: 'bool', dica: 'marque nos jogos pesados ou que precisam de mouse/teclado' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
+                { k: 'previa', rotulo: 'Imagem da tela de prévia', tipo: 'url', imagem: true, avancado: true, dica: 'aparece no banner antes do vídeo (snap) começar — ex.: a tela de título do jogo · vazio = usa o banner' },
                 { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Arcade: fbneo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1 ou fbalpha2012_cps2 — todos ficam no card Arcade. Nos Jogos Web é sempre "web"' },
                 { k: 'comandoDos', rotulo: 'Comando do jogo (MS-DOS)', tipo: 'texto', avancado: true, dica: 'só MS-DOS: o programa que abre o jogo dentro do zip (ex.: KEEN4E.EXE). Vazio = AUTORUN.BAT do zip ou o .exe principal, escolhido sozinho' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
@@ -1220,7 +1222,7 @@
         if (Number.isFinite(nota)) out.notaImdb = nota;
         const votos = parseInt(b.votosImdb, 10);
         if (Number.isFinite(votos)) out.votosImdb = votos;
-        for (const k of ['capa', 'banner', 'logo', 'video', 'site', 'fonte', 'repo']) if (b[k]) out[k] = String(b[k]).trim();
+        for (const k of ['capa', 'banner', 'logo', 'video', 'previa', 'site', 'fonte', 'repo']) if (b[k]) out[k] = String(b[k]).trim();
         if (!out.capa && (b.thumb || b.poster)) out.capa = String(b.thumb || b.poster).trim();
         const desc = b.descricao || b.sinopse || b.desc;
         if (desc) out.descricao = String(desc).trim();
@@ -1416,7 +1418,8 @@
             case 'jogo': {
                 const o = Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
-                    logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
+                    logo: item.logo, video: item.video, preview: item.bannerVideo || item.video, previewThumb: item.previa,
+                    bannerlogo: item.bannerLogo || item.logo,   // o banner do app usa "bannerlogo" no lugar do nome do jogo   // logo + vídeo snap (ScreenScraper) para o banner
                     console: item.console, players: item.jogadores, core: item.core || coreDoConsole(item.console, config),
                     dosrun: item.comandoDos,                                                    // MS-DOS: programa do jogo dentro do zip
                     aparelhos: item.soPC ? ['pc'] : undefined                               // "Só PC": a TV não mostra
