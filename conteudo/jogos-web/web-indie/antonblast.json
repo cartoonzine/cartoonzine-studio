@@ -3,15 +3,24 @@
   "links": [
     "https://gn-math.dev/?id=711"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/629055cf2850ed39e2c4318f7cfa7d12.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/3b3d4710f25b714245d8fd5b4ea98edc.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/c6a93edd9967f8bd926adde5dca15870.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--antonblast--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--antonblast--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--antonblast--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--antonblast--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/antonblast",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "ANTONBLAST é um jogo de plataformas e ação explosiva a todo o gás em que a destruição é o elemento essencial. Encarna o irado Dynamite Anton ou a sua companheira de trabalho Annie, e usa o Mighty Hammer para arrasar mundos extravagantes, combate bosses intimidantes e recupera a tua coleção de Sprits das garras do Satan!",
+  "ano": 2025,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 506131,
+  "_ssPreviaEm": "2026-11-12"
 }

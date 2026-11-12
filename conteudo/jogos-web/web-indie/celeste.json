@@ -3,15 +3,25 @@
   "links": [
     "https://gn-math.dev/?id=623"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/074aed57c243ae7020971ca7c9fe0f29.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/c66e591693fd6e7b26fc5a60efb68817.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/2eace51d8f796d04991c831a07059758.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--celeste--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--celeste--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--celeste--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--celeste--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--celeste--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/MercuryWorkshop/celeste-wasm",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Ajude Madeline a sobreviver a seus demônios internos em sua jornada até o topo da montanha Celeste, neste jogo de plataformas super compacto e feito à mão dos criadores do clássico multijogador TowerFall.",
+  "ano": 2018,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 251509,
+  "_ssPreviaEm": "2026-11-12"
 }

@@ -3,15 +3,26 @@
   "links": [
     "https://gn-math.github.io/web-port/deltatraveler/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/97c216cb25ce4c47de15d030c76fed39.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/4bc839af0bc4976f89df82351a87547a.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/4ab7a904d853b6735bcb877cb07913b7.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--deltarune--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--deltarune--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--deltarune--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--deltarune--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--deltarune--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/deltatraveler",
-  "descricao": "Port para navegador · gn-math.github.io",
+  "descricao": "The next adventure in the UNDERTALE series has appeared!\r\n\r\nFight (or spare) alongside new characters in UNDERTALE's parallel story, DELTARUNE...!\r\n\r\nFeaturing\r\n- A massive soundtrack and story written by Toby Fox!\r\n- Meet new and endearing main characters, as well as familiar faces like Toriel, Sans, as more. Huh? Papyrus? No, he's busy. Sorry\r\n- Smooth and expressive pixel-animation by Temmie. She also has a new hat (in-game)\r\n- A linear, chapter-based system that you can pick up from anywhere.\r\n- Creative bullet-dodging based battles inspired by games like Touhou and Chrono Trigger.\r\n- Jevilishly difficult hidden bosses.\r\n- And...\r\n- ...\r\n- ... only 1 ending...?",
+  "ano": 2021,
+  "generos": [
+    "Jogos de RPG",
+    "RPG Japonês"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 290260,
+  "_ssPreviaEm": "2026-11-12"
 }

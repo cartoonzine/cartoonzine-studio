@@ -60,14 +60,22 @@
   },
   {
    "title": "Among Us",
-   "desc": "Port para navegador · wasm.rip",
-   "bannerlogo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
+   "desc": "Among Us passa-se num universo de ficção científica. Cada jogador assume o papel de um dos membros da tripulação de uma nave espacial, cada um dos quais pode ser um membro da tripulação ou um impostor. O objetivo da tripulação é identificar os impostores e eliminá-los enquanto realizam tarefas na nave, enquanto o objetivo dos impostores é matar todos os membros da tripulação sem serem identificados.",
+   "year": 2018,
+   "genre": [
+    "Simulação"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--video.mp4",
    "studio": "jogos-web/web-indie/among-us",
    "url": "https://wasm.rip/files/amongus/index.html",
-   "thumb": "https://cdn2.steamgriddb.com/grid/09246ffb824ca2c5bc47a64cb302d3cb.jpg",
-   "bannerThumb": "https://cdn2.steamgriddb.com/hero/4ce000edd5012969a87a83d06ea8f914.png",
-   "logo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--banner.jpg",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--logo.png",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--video.mp4",
+   "previewThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--previa.png",
    "console": "web-indie",
+   "players": 1,
    "core": "web",
    "aparelhos": [
     "tv",

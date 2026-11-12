@@ -3,15 +3,24 @@
   "links": [
     "https://gn-math.github.io/web-port/bendy/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/a4a39e8d061601e46f61ddc777113e8c.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/2c592c41a373aebaeee85b5b8a9b6e87.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/19bc9b90fe14c81fc36e9b36f6658663.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--bendy-and-the-ink-machine--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--bendy-and-the-ink-machine--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--bendy-and-the-ink-machine--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--bendy-and-the-ink-machine--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/bendy",
-  "descricao": "Port para navegador · gn-math.github.io",
+  "descricao": "Bendy and the Ink Machine is a first-person puzzle action horror game that begins in the far days past of animation and ends in a very dark future.\r\n  \r\nPlay as Henry as he revisits the demons of his past by exploring the abandoned animator's workshop of Joey Drew Studios. With twists and turns around every corner, Bendy and the Ink Machine™ is sure to thrill you... and decimate your childhood.\r\n  \r\nYou'll never look at cartoons the same way again.",
+  "ano": 2018,
+  "generos": [
+    "Aventura",
+    "Aventura / Survival Horror"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 278566,
+  "_ssPreviaEm": "2026-11-12"
 }

@@ -3,14 +3,24 @@
   "links": [
     "https://truffled.lol/games/limbo/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/97e147b55c7b8f6e9d79100fd40d68a0.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/7787ba9aa6e4ae662844adbb80ee310c.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/1272816c82a870622e4162dce4e08a4a.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--limbo--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--limbo--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--limbo--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--limbo--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--limbo--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · truffled.lol",
+  "descricao": "Limbo is a side-scrolling puzzle platformer set in a sinister, monochromatic world. The player controls a protagonist simply known as the The Boy, who is said to enter the world Limbo in search of his sister. However, the story as a whole can also be seen as a metaphor for the search for companionship and getting around in a new environment. Not a single clue is given at the start, there are no cut-scenes and the game starts right away. In that world filled with hazards and danger, his means are few and he is extremely vulnerable. Only two buttons are used, a feeble jump and one to perform an action, combined with movement. This allows him to explore the world and hang on ledges, slide down slopes, push objects, pull levers, and cling to ropes, but the player has to make most of what is present in the environment to get by, often with physics-based elements.",
+  "ano": 2011,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 314260,
+  "_ssPreviaEm": "2026-11-12"
 }

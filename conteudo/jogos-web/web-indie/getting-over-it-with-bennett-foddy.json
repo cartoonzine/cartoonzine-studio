@@ -3,14 +3,22 @@
   "links": [
     "https://gn-math.dev/?id=557"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/ef2e83d7af305391f3ffa6618660513e.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/5a2bc912fc6b096f36a10b4a75f4d495.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/58366cc25c833fe7ec47bdf70c996182.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--getting-over-it-with-bennett-foddy--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--getting-over-it-with-bennett-foddy--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--getting-over-it-with-bennett-foddy--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--getting-over-it-with-bennett-foddy--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Getting Over It with Bennett Foddy is a punishing climbing game, a homage to Jazzuo's 2002 B-Game classic 'Sexy Hiking'. You move the hammer with the mouse, and that's all there is. With practice, you'll be able to jump, swing, climb and fly. Great mysteries and a wonderful reward await the master hikers who reach the top of the mountain.\r\n\r\nTo quote Jazzuo himself: &quot;The hiking action is very similar to way you would do it in real life, remember that and you will do well&quot;.\r\n\r\nClimb up an enormous mountain with nothing but a hammer and a pot.",
+  "ano": 2017,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 301700,
+  "_ssPreviaEm": "2026-11-12"
 }

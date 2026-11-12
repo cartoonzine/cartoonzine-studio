@@ -3,15 +3,24 @@
   "links": [
     "https://gn-math.dev/?id=650"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/ee5f3b969669de2718f8b58e93576a4c.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/8b0fd168d954ed34a451cc305d9b58cf.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/667e0c30688ec02ee004ef7c13e65fd9.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--milk-inside-a-bag-of-milk-inside-a-bag-of-milk--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--milk-inside-a-bag-of-milk-inside-a-bag-of-milk--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--milk-inside-a-bag-of-milk-inside-a-bag-of-milk--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--milk-inside-a-bag-of-milk-inside-a-bag-of-milk--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/milk-bag-games/tree/main/inside",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Milk Inside a Bag of Milk Inside a Bag of Milk is a 2020 psychological horror visual novel game developed by Russian game developer Nikita Kryukov. The game centers around an unnamed female protagonist who visits a nearby grocery market to purchase a bag of milk, but is troubled with the challenges of suffering from severe trauma. The player plays as a voice inside her head with which she shares an inner monologue.",
+  "ano": 2020,
+  "generos": [
+    "Aventura",
+    "Aventura / Novela Visual"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 318700,
+  "_ssPreviaEm": "2026-11-12"
 }

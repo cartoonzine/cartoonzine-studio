@@ -4,14 +4,23 @@
     "https://gn-math.dev/?id=41"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/12cc97842f39de60ed91cd3740d551b2.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/ebc03fa648c2cd7da9d63b9ed835664e.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--five-nights-at-freddy-s-4--banner.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/0a521f4b3f184d3e27654212e38c7b76.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/irv77/hd_fnaf/tree/main/4",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Five Nights at Freddy's 4 is the fourth and final game in the Five Nights at Freddy's series. The player controls a child in his own home, who needs to survive several horrific nights while being plagued by nightmarish versions of the original animatronics.\r\n\r\nThe main action takes place in the child's bedroom, which is divided into four sections: the bed, the closet, and two doors to the hall. The child needs to check each area and listen for the animatronics. If they are not too close, he can use his flashlight to keep them away, but using it when they are nearby is instant death. He can also temporarily hold the doors closed to keep nearby animatronics from reaching him. Each of the four areas will need to be checked frequently if the boy is to survive the night.",
+  "ano": 2015,
+  "generos": [
+    "Aventura",
+    "Aventura / Survival Horror"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 298846,
+  "_ssPreviaEm": "2026-11-12"
 }

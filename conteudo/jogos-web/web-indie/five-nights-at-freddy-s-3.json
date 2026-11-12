@@ -4,14 +4,23 @@
     "https://gn-math.dev/?id=40"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/ee60c22e4bfe1543ac99218d9376d56f.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/aca704179243b072a128766eb67ad4ab.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--five-nights-at-freddy-s-3--banner.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/5f26cc984eaa1376b07fc0439d531dba.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/irv77/hd_fnaf/tree/main/3",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Thirty years after Freddy Fazbear's Pizza closed it's doors, the events that took place there have become nothing more than a rumor and a childhood memory, but the owners of &quot;Fazbear's Fright: The Horror Attraction&quot; are determined to revive the legend and make the experience as authentic as possible for patrons, going to great lengths to find anything that might have survived decades of neglect and ruin.\r\nAt first there were only empty shells, a hand, a hook, an old paper-plate doll, but then a remarkable discovery was made...\r\nThe attraction now has one animatronic.",
+  "ano": 2015,
+  "generos": [
+    "Aventura",
+    "Aventura / Survival Horror"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 298844,
+  "_ssPreviaEm": "2026-11-12"
 }

@@ -3,15 +3,26 @@
   "links": [
     "https://gn-math.github.io/web-port/hotline-miami/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/9fad6725914cafe948673da493a02c5b.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/ee49fef85e1bed67b9f530391b9c74d9.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/1b96773a6c08eb3441a9827be8972ea2.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--hotline-miami--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--hotline-miami--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--hotline-miami--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--hotline-miami--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--hotline-miami--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/hotline-miami",
-  "descricao": "Port para navegador · gn-math.github.io",
+  "descricao": "Hotline Miami is a violent top-down action game set in Miami, Florida in 1989. The protagonist is a hitman, nicknamed Jacket by the fans, who receives messages on his answering machine from mysterious employers. Most of the game consists of various missions that always start in the killer's own apartment. He receives a new task through his phone and then hops in his DeLorean to drive to the location and do the job. After each mission there is a short story sequence where he stops by a shop. \r\n\r\nMissions are always set in buildings with one or more storeys. Jacket has to enter and kill everyone inside. This can either be done in a silent way, taking out opponents one by one, or as a hectic sequence where everyone is attacked at once. When alarmed, usually all opponents on a single level will be drawn to Jacket. There are various ways to approach opponents. Enemies can be taken out with melee weapons or guns. They can also be knocked out by punching them or slamming a door in their face, but they will get up. When they are only stunned, Jacket can perform a brutal finisher or pick them up to use them as a human shield.",
+  "ano": 2012,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 3ª pessoa"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 307016,
+  "_ssPreviaEm": "2026-11-12"
 }

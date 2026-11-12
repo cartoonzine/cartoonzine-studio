@@ -4,14 +4,23 @@
     "https://gn-math.dev/?id=185"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/23dffbf33210f39533159a591bea1615.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/0f7a3e9f4a5a415ee8d01aa7ad65ab7a.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--five-nights-at-freddy-s-sister-location--banner.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/e546594ad40b116388b50d48c6955f2b.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/irv77/hd_fnaf/tree/main/sl",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Welcome to your first night as the late night technician at Circus Baby's Pizza World! We have the latest in animatronic entertainers and customized pizza catering! Please be advised that Circus Baby's Pizza World is not responsible for death or dismemberment of employees.\r\n\r\nIn Five Nights at Freddy's: Sister Location, you are a late night technician at a Freddy Fazbear's sister location, Circus Baby's Pizza World. As such, you must check on the various animatronic characters, to make sure they are in their places. If they are not, you must &quot;encouraged&quot; them with a mild electric shock button. Unlike most FNaF games, in this game, you go from one location to another via ducts. You will also have to deal with power outages and restoring breakers.",
+  "ano": 2016,
+  "generos": [
+    "Aventura",
+    "Aventura / Survival Horror"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 298850,
+  "_ssPreviaEm": "2026-11-12"
 }

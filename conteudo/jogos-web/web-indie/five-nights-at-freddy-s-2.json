@@ -4,14 +4,23 @@
     "https://gn-math.dev/?id=39"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/89b80e69d47933b3b13f3526d10baeb2.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/ea33b4fd0fc1ea0a40344be8a8641123.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--five-nights-at-freddy-s-2--banner.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/2298d2d15377df1b320d007677c07a07.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/irv77/hd_fnaf/tree/main/2",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Welcome, Jeremy Fitzgerald, to your new summer job at the new and improved Freddy Fazbear's Pizza! Mike Schmidt requested to be moved to the day shift. He said something about the animatronic characters walking about and threatening him. Now, you may have heard some negative things about Freddy's but don't you worry! The building has been redesigned, the old characters have been given new software and there are all new characters so everything should be just fine!\r\nFive Nights at Freddy's 2 is a direct sequel to Five Nights at Freddy's with some slight modifications. You still have security cameras so you can keep track of who is where. You no longer have hall lights or doors. There is now only one way into your office and you have a flashlight to see if there are any characters approaching. Now, if you see an enemy approaching, you have an empty Freddy Fazbear mask to put on to disguise you, hopefully, from the characters when they are in your office.",
+  "ano": 2014,
+  "generos": [
+    "Aventura",
+    "Aventura / Survival Horror"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 298842,
+  "_ssPreviaEm": "2026-11-12"
 }

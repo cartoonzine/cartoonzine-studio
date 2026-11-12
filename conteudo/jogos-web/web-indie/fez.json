@@ -3,15 +3,26 @@
   "links": [
     "https://wasm.rip/files/FEZ/fez.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/45aea7db0f03fecc77f969bd296cdc62.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/e5cb9cf7a3b66aed15faba79d226a332.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/bbed151258e4bc1d73aaddc255760961.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--fez--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--fez--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--fez--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--fez--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--fez--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/degloved-net/FEZ",
-  "descricao": "Port para navegador · wasm.rip",
+  "descricao": "Gomez was a two-dimensional creature, living happily in his two-dimensional village in a two-dimensional world, until one day he is shown a great secret: the existence of a third dimension. However, something goes wrong, the great Cube explodes, and Gomez wakes up in his room now able to traverse this mysterious third dimension. He is greeted by a curious entity named Dot, who claims to be his guide, telling Gomez that it's up to him to find all the pieces of the Cube, and restore the world before the very fabric of existence collapses.\r\n\r\nFez is a side-scrolling puzzle platformer with a twist: the world exists in 3D space, but is always viewed as a 2D plane. The player can switch the perspective at any time between four different views; in a similar manner to Crush or Super Paper Mario, Gomez traverses the world as he sees it. Two platforms may be quite far apart, but suddenly appear right next to each other when viewed from the proper direction. Similarly, a hazard may be blocking Gomez' path, but when rotated out of view, it will no longer harm him.",
+  "ano": 2013,
+  "generos": [
+    "Plataforma",
+    "Quebra-cabeças"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 298098,
+  "_ssPreviaEm": "2026-11-12"
 }

@@ -3,15 +3,25 @@
   "links": [
     "https://gn-math.dev/?id=723"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/6d6af712d02a059b358636645c036915.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/1e677710886739dfc0f00e06b9679874.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/aa899e69d5b4fe6d4ff580d127d52835.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--brotato--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--brotato--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--brotato--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--brotato--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--brotato--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/BlueGameMC/BrotatoWeb",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Brotato é um jogo de tiro de arena estilo roguelite e com visão aérea no qual você controla uma batata portando até 6 armas e enfrenta hordas de alienígenas. Escolha dentre uma variedade de características e itens para criar sua estratégia e sobreviver até a ajuda chegar.\r\nUma espaçonave de Tubercópolis caiu em um planeta alienígena. O único sobrevivente: Brotato, a única batata capaz de usar 6 armas ao mesmo tempo. Brotato precisa sobreviver neste ambiente hostil enquanto espera o resgate.",
+  "ano": 2024,
+  "generos": [
+    "Tiro"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 464471,
+  "_ssPreviaEm": "2026-11-12"
 }

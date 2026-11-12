@@ -4,15 +4,25 @@
     "https://rgc.zone/ports/cavestory/index.html",
     "https://midzer.de/wasm/cavestory/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/e646e2fec7dcbe33111f4481a96523af.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/97d0145823aeb8ed80617be62e08bdcc.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/c02064e6a401f91134e124c48970862c.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/nxengine-evo",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Sem dúvida o jogo indie mais conhecido de todos os tempos, Cave Story contém um enredo completamente original repleto de personalidade, mistério e horas de diversão frenética. Cave Story é um jogo de ação e aventura do aclamado designer independente Daisuke Amaya ou Pixel para os fãs. Lotado de um charme e personagens incomparáveis, Cave Story te leva para um mundo raro onde uma curiosa raça de criaturas parecidas com coelhos, conhecidas como Mimigas, são livres.\r\nVocê acorda em uma escura caverna sem lembrar quem você é, de onde você veio e o motivo de estar no lugar que está. Ao encontrar a Vila Mimiga você descobre que os antes despreocupados Mimigas estão em perigo nas mãos de um cientista louco. A única esperança dos Mimigas está nas mãos de um garoto quieto e amnésico que não lembra de seu próprio nome.\r\nCorra, pule, atire, voe e explore por todo o caminho em um jogo de ação e aventura gigantesco que lembra os clássicos jogos das era 8-bits e 16-bits. Controle e aprenda as origens do poder deste mundo, pare o vilão alucinado e salve os Mimiga!",
+  "ano": 2004,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 106532,
+  "_ssPreviaEm": "2026-11-12"
 }

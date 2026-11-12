@@ -3,15 +3,24 @@
   "links": [
     "https://gn-math.dev/?id=667"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/15e3df87735cf560ce4ee001a3dae5d8.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/93dd7c576149e317876624615b6008c3.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/5a6a5cdb24ec6da85d4fd8352cb4a9f4.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--in-stars-and-time--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--in-stars-and-time--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--in-stars-and-time--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--in-stars-and-time--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/Reeyuki/InStarsAndTime",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "O que farias se tivesses de reviver os teus fracassos vezes sem conta?\r\nIn Stars and Time conta a história de Siffrin e dos seus amigos aventureiros, uma família escolhida, unida pelo destino para acabar com o reinado tirânico de um rei malvado. Mas, quando a vitória está ao alcance do grupo, ocorre uma tragédia, o tempo volta ao início e têm de fazer tudo outra vez.\r\nComo apenas Siffrin repara neste ciclo, cada novo começo desgasta a sua postura alegre, no entanto continua na esperança de conseguir acabar de uma vez por todas com esta tragédia temporal.\r\nIn Stars and Time é umaaventura RPG com um ciclo temporal. Com cada ciclo, Siffrin ganha uma nova perspetiva sobre o mundo à sua volta, o que revela novas soluções para quebra-cabeças e permite escolher melhores opções em conversas. Equipa memórias como armadura, reza ao Deus da Mudança para melhorar as habilidades da tua equipa com cada ciclo e desafia inimigos mortíferos para u, jogo de Pedra, Papel, Tesoura enquanto Siffrin procura a verdade.",
+  "ano": 2025,
+  "generos": [
+    "Jogos de RPG"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 491057,
+  "_ssPreviaEm": "2026-11-12"
 }
