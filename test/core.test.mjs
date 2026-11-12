@@ -320,7 +320,10 @@ test('Bookzine: livro com formato pela extensão, estante e índice', () => {
     assert.equal(dom.format, 'EPUB'); assert.equal(dom.author, 'Machado de Assis'); assert.equal(dom.pages, 256); assert.equal(dom.categoryType, 'livro');
     assert.equal(tex.format, 'CBZ'); assert.equal(tex.series, 'Tex'); assert.equal(tex.volume, 1); assert.equal(tex.category, 'Livros');
     assert.deepEqual(tex.mirrors, ['https://x.org/tex1.pdf']);
-    assert.deepEqual(r.fontes, []);                                                    // fora do cloud até a view existir
+    // vai para o cloud na lista "livros" do app; sem targetCategory: a Estante de cada livro vira a fileira
+    assert.equal(r.fontes.length, 1);
+    assert.equal(r.fontes[0].destino, 'livros'); assert.equal(r.fontes[0].tipo, 'vod_json'); assert.equal(r.fontes[0].targetCategory, undefined);
+    assert.ok(/\/dist\/bookzine\.json$/.test(r.fontes[0].url));
     const ind = JSON.parse(r.arquivos['bookzine/indice.json']);
     assert.equal(ind.formatos.EPUB, 1); assert.equal(ind.estantes['Clássicos da Literatura'], 1);
     assert.equal(C.normalizarItem({ nome: 'Tex 1.cbz' }, bz).nome, 'Tex 1.cbz');      // o nome digitado não é mexido
