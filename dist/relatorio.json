@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-13T05:11:12.692Z",
+  "geradoEm": "2026-11-13T05:48:39.783Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 532,
+      "total": 533,
       "publicados": 45,
       "erros": [
         {
@@ -1752,6 +1752,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-windows/call-of-duty-modern-warfare-2.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-windows/cave-story.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
