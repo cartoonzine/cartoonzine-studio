@@ -9,7 +9,7 @@
   "descricao": "Jogo livre (MIT), hospedado sem propaganda no Cartoonzine Jogos.",
   "ano": 2026,
   "engine": "Emscripten",
-  "console": "web-pc",
+  "console": "web-windows",
   "licenca": "livre",
   "controles": "teclado",
   "_origem": "prateleira:cartoonzine-jogos"
