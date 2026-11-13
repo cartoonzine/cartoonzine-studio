@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-12T17:13:10.725Z",
+  "geradoEm": "2026-11-13T05:05:18.387Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,8 +133,8 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 531,
-      "publicados": 44,
+      "total": 532,
+      "publicados": 45,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -2091,7 +2091,7 @@
         "web-fangames": 0,
         "web-indie": 5,
         "web-remakes": 4,
-        "web-pc": 2,
+        "web-pc": 3,
         "web-n64": 0,
         "web-gamecube": 0,
         "web-wii": 0,
