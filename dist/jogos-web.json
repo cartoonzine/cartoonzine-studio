@@ -1033,9 +1033,9 @@
    "title": "Web Terraria",
    "desc": "Jogo livre (MIT), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2026,
-   "studio": "jogos-web/web-pc/web-terraria",
+   "studio": "jogos-web/web-windows/web-terraria",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/web-terraria/",
-   "console": "web-pc",
+   "console": "web-windows",
    "core": "web",
    "aparelhos": [
     "tv",

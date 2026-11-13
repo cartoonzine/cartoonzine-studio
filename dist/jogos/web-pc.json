@@ -50,24 +50,6 @@
    "controls": "teclado",
    "keys": "A=Space, B=Ctrl, START=Enter, SELECT=Escape",
    "repo": "https://linux.tlk.fr/games/Powermanga/"
-  },
-  {
-   "title": "Web Terraria",
-   "desc": "Jogo livre (MIT), hospedado sem propaganda no Cartoonzine Jogos.",
-   "year": 2026,
-   "studio": "jogos-web/web-pc/web-terraria",
-   "url": "https://cartoonzine.github.io/cartoonzine-jogos/web-terraria/",
-   "console": "web-pc",
-   "core": "web",
-   "aparelhos": [
-    "tv",
-    "pc"
-   ],
-   "web": true,
-   "engine": "Emscripten",
-   "license": "livre",
-   "controls": "teclado",
-   "repo": "https://github.com/cartoonzine/Web-Terraria"
   }
  ]
 }
