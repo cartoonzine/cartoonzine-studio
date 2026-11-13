@@ -1,0 +1,16 @@
+{
+  "nome": "Web Terraria",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/web-terraria/"
+  ],
+  "site": "https://github.com/cartoonzine/Web-Terraria",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/cartoonzine/Web-Terraria",
+  "descricao": "Jogo livre (MIT), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 2026,
+  "engine": "Emscripten",
+  "console": "web-pc",
+  "licenca": "livre",
+  "controles": "teclado",
+  "_origem": "prateleira:cartoonzine-jogos"
+}
