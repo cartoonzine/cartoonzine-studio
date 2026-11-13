@@ -1,0 +1,20 @@
+{
+  "nome": "Cave Story",
+  "links": [
+    "https://thelongestyard.link/cave-story/"
+  ],
+  "capa": "https://images.launchbox-app.com//0fac2729-9161-4385-b863-054041be49d9.jpg",
+  "banner": "https://images.launchbox-app.com//643e3db5-81fd-4fe8-8c2a-660737a29367.jpg",
+  "previa": "https://images.launchbox-app.com//41bf92f6-9750-48b7-a8dc-7ba829995dd7.jpg",
+  "descricao": "Considerado por muitos o jogo indie mais famoso de todos os tempos, Cave Story é um jogo de ação e aventura com uma história completamente original, repleta de personalidade, mistério e horas de diversão frenética.\n\nVocê acorda em uma caverna escura sem se lembrar de quem é, de onde veio ou por que está em tal lugar. Ao explorar a Vila Mimiga, você descobre que os outrora despreocupados Mimigas estão em perigo nas mãos de um cientista maníaco. A única esperança dos Mimigas repousa sobre os ombros de um garoto quieto e amnésico que não consegue se lembrar do próprio nome.",
+  "ano": 2004,
+  "generos": [
+    "Plataforma de ação e aventura"
+  ],
+  "console": "web-windows",
+  "jogadores": 1,
+  "fundoImagem": "banner",
+  "posFundo": 100,
+  "bannerLogo": "https://gamesdb-images.launchbox.gg/r2_66b6f2bb-e75d-450b-a146-695396d53363.png",
+  "_rascunho": true
+}
