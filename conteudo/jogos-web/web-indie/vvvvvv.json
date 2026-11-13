@@ -4,14 +4,24 @@
     "https://stelight.games/play/webports/stellite.games/stellite/vvvvvv/"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/108c7bfcc061d2f1342fc1167f8fd600.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/980370881f8994f78f482ee04d3cce3e.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/9426c311e76888b3b2368150cd05f362.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--vvvvvv--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--vvvvvv--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--vvvvvv--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--vvvvvv--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/midzer/vvvvvv",
-  "descricao": "Port para navegador · stelight.games",
+  "descricao": "VVVVVV is a challenging 2D action/platformer with one deceptively simple gameplay mechanic: Without the ability to jump, Captain Viridian must rely on inverting gravity to advance through hundreds of rooms and solve the puzzles he encounters therein.",
+  "ano": 2010,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 351940,
+  "_ssPreviaEm": "2026-11-13"
 }

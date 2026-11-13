@@ -3,14 +3,26 @@
   "links": [
     "https://medabots-ax.meme.ar/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/2c09e47a931795292f363b58bf176163.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/900e9a6cea0b0ddfecbfba02cc20b13f.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/9a5d1781b5a5cb66c99703c5dee81a1a.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--medabots-ax--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--medabots-ax--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--medabots-ax--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--medabots-ax--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--medabots-ax--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · medabots-ax.meme.ar",
+  "descricao": "Every four years the greatest Medafighters around the world come together for the World Robattle Tournament. Join Ikki and Metabee as they take on the toughest Medafighters and their Medabots to prove who is the best of the best! But beware...rumor has it the menacing band of crooks known as the Rubberobo Gang is out to steal the prize!\r\nTeamwork and strategy are essential to hope for victory. Modify your Medabots and win rare and precious parts by winning battles to improve your chances of success. On the other hand, if you lose, your Medabot could end up in a pile of junk!\r\nThe Metabee version includes Medapieces and medals not available in the Rokusho version.",
+  "ano": 2002,
+  "generos": [
+    "Plataforma",
+    "Luta",
+    "Luta / 2D"
+  ],
   "console": "web-outros",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 84140,
+  "_ssPreviaEm": "2026-11-13"
 }

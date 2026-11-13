@@ -3,15 +3,25 @@
   "links": [
     "https://wasm.rip/files/oneshot-wme/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/3aa79f8a103d510b16eb9b57edd1a66c.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/6834356a80c942d4cae1eda95221cb81.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/bf6dba1ce0a53ec28c2d73733bfb6707.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--oneshot-world-machine-edition--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--oneshot-world-machine-edition--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--oneshot-world-machine-edition--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--oneshot-world-machine-edition--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/MercuryWorkshop/webshot",
-  "descricao": "Port para navegador · wasm.rip",
+  "descricao": "Descobre uma aventura repleta de quebra-cabeças que vão muito para lá da sua própria janela e estabelece uma relação única com a personagem principal.\r\nEm OneShot: World Machine Edition descobres um estranho sistema operativo informático com um mundo autónomo instalado. Explora este mundo para desvendares os seus mistérios e ajudares a guiar uma criança na sua missão para restaurar um Sol há muito desaparecido.\r\nFicas a saber que já não é possível salvar o mundo, mas pensas que mesmo assim vale a pena tentar... Agora com conteúdos colecionáveis e opções exclusivas da World Machine Edition!",
+  "ano": 2023,
+  "generos": [
+    "Jogos de RPG",
+    "Aventura"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 434925,
+  "_ssPreviaEm": "2026-11-13"
 }

@@ -4,13 +4,23 @@
     "https://gn-math.dev/?id=752"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/4687a3fcf9bd18c0e2cc3e83ea58a410.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/d2a2619455160e361c0fb30f074c01a2.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/86db3b646f1bf959eb7fbefcf4ed02d2.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--bad-piggies--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--bad-piggies--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--bad-piggies--video.mp4",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Bad Piggies is a game of skill on Android. The pigs of Angry Birds are trying to take their revenge on the catapult-savvy birds. The idea is to build a vehicle that must move according to the laws of physics while collecting as many stars as possible.",
+  "ano": 2012,
+  "generos": [
+    "Quebra-cabeças",
+    "Ação"
+  ],
   "console": "web-mobile",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 31710,
+  "_ssPreviaEm": "2026-11-13"
 }

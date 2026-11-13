@@ -3,14 +3,25 @@
   "links": [
     "https://perfectdark.royal-cake-5abc.workers.dev/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/f2eaa301f9c53bb10fb8e5b9d3d0ea9c.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/eb454ad6be830064d49727814426bb6e.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/5590ca803d2831d2a3dff3fa3eaca6f4.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-n64--perfect-dark--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-n64--perfect-dark--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-n64--perfect-dark--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-n64--perfect-dark--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-n64--perfect-dark--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · perfectdark.royal-cake-5abc.workers.dev",
+  "descricao": "Perfect Dark é um jogo desenvolvido para Nintendo 64; lançado pela Rare, em lançado pela Rare em 2000.\r\nJoanna Dark é uma agente do Instituto Carrington, uma organização secreta financiada por fontes anônimas e dedicada a proteger o mundo. Através de seus agentes altamente treinados e dispositivos especiais (gadgets), Carrington fica de olho em terroristas, poderes mundiais e acontecimentos estranhos. \r\n\r\nA velocidade na qual a corporação dataDyne se estabeleceu através do desenvolvimento de novas tecnologias está começando a preocupar o instituto. Então, quando Carrington recebe uma mensagem do Dr. Caroll, um cientista que deseja escapar do dataDyne, eles enviam sua melhor agente, Joanna, para se infiltrar na sede da empresa ...",
+  "ano": 2000,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-n64",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 5403,
+  "_ssPreviaEm": "2026-11-13"
 }

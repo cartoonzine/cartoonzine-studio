@@ -6,12 +6,19 @@
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/da8a8e9cbcc29f7a06600fc7b6ce72ba.jpg",
   "banner": "https://cdn2.steamgriddb.com/hero/66bd62a58f2428c12c7e4ff0e1d67769.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/b2008aceaafd9e391fa285c4147095fd.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--plague-inc--logo.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Plague Inc. est un jeu de stratégie plutôt original sur Android. En effet, après avoir créé un virus, vous allez devoir non pas l'éradiquer mais aider à sa propagation à travers le monde. Ainsi, pour infecter la cinquantaine de pays disponibles, vous disposerez de 11 maladies.",
+  "ano": 2012,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "web-mobile",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 31476,
+  "_ssPreviaEm": "2026-11-13"
 }

@@ -3,14 +3,23 @@
   "links": [
     "https://stelight.games/play/webports/stellite.games/stellite/rain-world/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/a2fc588e4a3cdf2bcf988f7c0371e2b1.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/de4c0e1e8fd7c7ad6e54605f09f0f175.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/44374c1f0ebad6dc48951e6c20c25806.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--rain-world--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--rain-world--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--rain-world--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--rain-world--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--rain-world--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · stelight.games",
+  "descricao": "You are a slugcat. The world around you is full of danger, and you must face it – alone. Separated from your family in a devastating flood, you must hunt for food and shelter between terrifying torrential downpours that threaten to drown all life. Climb through the ruins of an ancient civilization, evade the jaws of vicious predators, and discover new lands teeming with strange creatures and buried mysteries. Find your family before death finds you!\r\n\r\nInspired by the simplicity and aesthetics of 16-bit classics, this survival platformer requires fast-paced sneaking, both upon your own prey and past the jaws of hungry predators.",
+  "ano": 2017,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 330606,
+  "_ssPreviaEm": "2026-11-13"
 }

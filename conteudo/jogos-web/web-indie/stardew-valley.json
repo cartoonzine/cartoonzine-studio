@@ -4,15 +4,27 @@
     "https://gn-math.dev/?id=789",
     "https://wasm.rip/files/stardewvalley/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/cf30b40a1573a32248fcd0ba94e67652.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/d44c78dcad9de0aed2f37902ea02cef2.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/a15612aee1f0b2fdf1768df0d2688bd1.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--stardew-valley--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--stardew-valley--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--stardew-valley--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--stardew-valley--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--stardew-valley--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/degloved-net/stardew-wasm",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Herdaste a velha quinta do teu avô em Stardew Valley. Usa algumas ferramentas antigas e algumas moedas para começar uma nova vida no campo.\r\nConseguirás transformar este pedaço de terra abandonado numa terra próspera? A agricultura, a criação de animais e a exploração mineira são as principais actividades que ocuparão o teu dia a dia. Desde a chegada da Joja Corporation, tudo mudou e a tua tarefa não será fácil. O centro comunitário, outrora o local mais animado da aldeia, está agora em ruínas. Mas o vale está cheio de oportunidades.\r\nCom um pouco de perseverança, poderás ser tu a restaurar Stardew Valley à sua antiga glória!",
+  "ano": 2016,
+  "generos": [
+    "Jogos de RPG",
+    "Simulação",
+    "Construção e Gestão"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 341554,
+  "_ssPreviaEm": "2026-11-13"
 }

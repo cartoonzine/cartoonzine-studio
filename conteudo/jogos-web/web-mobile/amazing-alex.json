@@ -5,10 +5,18 @@
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/2d0a4474027f156967a2db19b27bffc0.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · nomadic-ua.itch.io",
+  "descricao": "Amazing Alex est un jeu de réflexion sur Android. Il s'agit d'utiliser les lois de la physique pour remplir des objectifs simples, comme mettre une balle dans un panier ou aider un ballon à s'envoler. 112 énigmes sont à votre disposition, sans compter la possibilité de créer ses propres niveaux et d'en télécharger des nouveaux sur le net.",
+  "ano": 2012,
+  "generos": [
+    "Quebra-cabeças"
+  ],
   "console": "web-mobile",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-12"
+  "_completadoEm": "2026-11-13",
+  "_ssEm": "2026-11-13",
+  "_ssId": 31954,
+  "_ssPreviaEm": "2026-11-13"
 }

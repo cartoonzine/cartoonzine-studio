@@ -3,14 +3,25 @@
   "links": [
     "https://kingof94.web.app/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/eb18a6c720d5e836aa260967c230f437.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/45d5c26cf369d90572e41f5bfb0896ae.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/0f7b2bb5d0c7e6209ecff113108f64cf.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--nhl-94--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--nhl-94--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--nhl-94--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--nhl-94--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--nhl-94--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · kingof94.web.app",
+  "descricao": "Para os amantes do esporte de tacos no gelo, essa versão manteve o modo de câmera vertical, facilitando o controle e a visualização da ação na partida. É possível salvar seus avanços durante a temporada, trazendo ao jogador a possibilidade de disputar quatro modos de jogo: a temporada regular, os playoffs, um melhor de sete e o shootout, ou as famosas penalidades máximas, como as conhecemos no futebol. Arme sua estratégia e encare os jogadores mais feras nesse esporte em que a atenção precisa estar redobrada o tempo todo.",
+  "ano": 1993,
+  "generos": [
+    "Esporte",
+    "Esporte / Hóquei"
+  ],
   "console": "web-outros",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 417,
+  "_ssPreviaEm": "2026-11-13"
 }

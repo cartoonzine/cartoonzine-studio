@@ -3,15 +3,24 @@
   "links": [
     "https://gn-math.github.io/web-port/yume-nikki/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/7159ee6744f7862015648fab47a5ef62.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/96de2547f44254c97f5f4f1f402711c1.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/1f36c15d6a3d18d52e8d493bc8187cb9.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--yume-nikki--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--yume-nikki--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--yume-nikki--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--yume-nikki--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/yume-nikki",
-  "descricao": "Port para navegador · gn-math.github.io",
+  "descricao": "Yume Nikki is a 2004 adventure game created by pseudonymous Japanese developer Kikiyama. The player controls a girl named Madotsuki and explores her dreams, collecting 24 effects that change her appearance and equipment. Random events also occur throughout the game in the form of cutscenes and unique gameplay sequences. The game was developed using RPG Maker 2003 without a traditional plot or battle system. Gameplay instead focuses on exploration of the dream world.",
+  "ano": 2004,
+  "generos": [
+    "Aventura"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 355998,
+  "_ssPreviaEm": "2026-11-13"
 }

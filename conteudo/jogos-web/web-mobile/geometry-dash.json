@@ -3,15 +3,25 @@
   "links": [
     "https://gn-math.dev/?id=785"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/818d9d1eaede1c656acf1db6a10d9866.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/a9f7b62f1fa0212d6809420dc83023e8.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/0950ca92a4dcf426067cfd2246bb5ff3.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--geometry-dash--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--geometry-dash--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--geometry-dash--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--geometry-dash--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--geometry-dash--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/AlexBoops/geometry-dash-webport",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "This is a fan made version of Geometry Dash by Yerson Games. It was created with Game Maker 8.1 and ported to the PSP.",
+  "ano": 2023,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-mobile",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 496214,
+  "_ssPreviaEm": "2026-11-13"
 }

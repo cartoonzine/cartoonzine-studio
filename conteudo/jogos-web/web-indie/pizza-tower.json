@@ -3,15 +3,24 @@
   "links": [
     "https://gn-math.github.io/web-port/pizza-tower/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/9008c97d188e49dbfac5af1952734f63.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/54a64b2e4c5969a0449a82b1ef1ecf70.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/ae0918118b489c3ee3d1e44a1e0d8798.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--pizza-tower--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--pizza-tower--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--pizza-tower--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--pizza-tower--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/pizza-tower",
-  "descricao": "Port para navegador · gn-math.github.io",
+  "descricao": "Peppino Spaghetti, um italiano robusto, calvo, mas surpreendentemente ágil e poderoso, tem uma missão: acabar com a Pizza Tower para salvar o seu restaurante da destruição. Acompanha-o na sua tresloucada viagem pelos pisos da torre enquanto reúne ingredientes e derrota os monstros.",
+  "ano": 2024,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 497873,
+  "_ssPreviaEm": "2026-11-13"
 }

@@ -3,15 +3,24 @@
   "links": [
     "https://gn-math.dev/?id=708"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/e485557eaf06681716a645fcb6d3775c.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/805f28c4c4c4692dcfc7375101b9f223.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/23f1d2f439d269b31ad4633ca6032c81.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--needy-streamer-overload--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--needy-streamer-overload--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--needy-streamer-overload--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--needy-streamer-overload--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/needy-streamer-overload",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "NEEDY STREAMER OVERLOAD is a “multi-ending ADV” depicting the daily life with “OMGkawaiiAngel”, a young girl with a rather extreme need for approval attempting to become the #1 “Internet Angel” (streamer). Gradually build up OMGkawaiiAngel’s number of followers as she spends her days streaming, using various ”stress relievers”, and generally being kinda messed up. Experience all the different crazy ups and downs (like rock bottom!) and find out for yourself whether this story is even capable of having a happy ending.",
+  "ano": 2024,
+  "generos": [
+    "Simulação"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 481166,
+  "_ssPreviaEm": "2026-11-13"
 }

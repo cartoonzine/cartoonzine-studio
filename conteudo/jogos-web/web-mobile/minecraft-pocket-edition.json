@@ -4,13 +4,23 @@
     "https://gn-math.dev/?id=754"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/1a249a848852ea2608bb26a18471f90e.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/239d2d749714cc0cc400152beb20c991.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/8be3f111c1336aa9a7bd670c74d2fbbf.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--minecraft-pocket-edition--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--minecraft-pocket-edition--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--minecraft-pocket-edition--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--minecraft-pocket-edition--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Dive into an open world of 3D building, crafting and survival in the ultimate sandbox block builder. Gather resources, survive the night, and build an epic adventure one block at a time. Explore and craft your way through a completely open world where you can play with friends, build a block city, start a farm, mine deep into the ground, face mysterious enemies, or just experiment to the limits of your imagination with our building games!",
+  "ano": 2011,
+  "generos": [
+    "Aventura"
+  ],
   "console": "web-mobile",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 31454,
+  "_ssPreviaEm": "2026-11-13"
 }

@@ -3,12 +3,25 @@
   "links": [
     "https://rgc.zone/ports/bumpyweb/openbumpy.html"
   ],
-  "logo": "https://cdn2.steamgriddb.com/logo/4797a47988ea2c4d5fb04fc55bb4ee31.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--bumpy-s-arcade-fantasy--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--bumpy-s-arcade-fantasy--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--bumpy-s-arcade-fantasy--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--bumpy-s-arcade-fantasy--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--bumpy-s-arcade-fantasy--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Mixture of action and puzzle elements. Collect items by jumping back and forth between several platforms. In later levels shape and function of these platforms changes and obstacles are added.",
+  "ano": 1992,
+  "generos": [
+    "Quebra-cabeças",
+    "Plataforma"
+  ],
   "console": "web-outros",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-12"
+  "_completadoEm": "2026-11-12",
+  "_ssEm": "2026-11-13",
+  "_ssId": 33894,
+  "_ssPreviaEm": "2026-11-13"
 }

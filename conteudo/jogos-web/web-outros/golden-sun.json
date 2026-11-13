@@ -3,15 +3,25 @@
   "links": [
     "https://shmargus.github.io/GSRecomp/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/fc37c234a9b820027243ea2255da90b7.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/e633e2ac7a14a4d56384f38df943792b.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/0e55ef5f7354c3851d022f15f418c8b1.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--golden-sun--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--golden-sun--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--golden-sun--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--golden-sun--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--golden-sun--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/shmargus/GSRecomp",
-  "descricao": "Port para navegador · shmargus.github.io",
+  "descricao": "O mal está lentamente se alastrando pelo mundo. Forças das trevas perseguem a arte perdida da Alquimia e, à medida que se aproximam de seus propósitos malignos, a humanidade fica por um fio. Você e seus companheiros são a última esperança: armados com armas nobres, Psynergy mágica e uma horda de criaturas elementais, vocês devem encontrar uma maneira de conter a maré do mal.",
+  "ano": 2001,
+  "generos": [
+    "Jogos de RPG"
+  ],
   "console": "web-outros",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 3753,
+  "_ssPreviaEm": "2026-11-13"
 }

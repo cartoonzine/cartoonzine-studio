@@ -4,8 +4,9 @@
     "https://gn-math.dev/?id=90"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/31ac2e7a7ffdb7b171f9de6fc556fad7.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/c625e524ec59839f5fbc5918b80ce3c8.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/d2fa46f6c1bfcb3900b1484eebd554a7.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--granny--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--granny--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--granny--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/granny",
   "descricao": "Port para navegador · gn-math.dev",
@@ -13,5 +14,8 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 302918,
+  "_ssPreviaEm": "2026-11-13"
 }

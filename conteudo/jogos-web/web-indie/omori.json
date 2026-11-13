@@ -4,7 +4,7 @@
     "https://gn-math.github.io/web-port/omori-fixed/"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/ef65c4bcbd82e8ec29d3a7f9a8d4445c.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/b6fb195cd80c0e13f03cb75d7f1c51ca.jpg",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--omori--banner.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/03da11bcf3f19cb55f1bc0edb4e6ec6f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/genizy/web-port/tree/main/omori-fixed",
@@ -13,5 +13,8 @@
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 324222,
+  "_ssPreviaEm": "2026-11-13"
 }

@@ -3,14 +3,24 @@
   "links": [
     "https://gn-math.dev/?id=591"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/b96cec2e96704669eac3785f45f38cb7.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/2528242a42d15858f02248a1fd475db9.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/3a24b25a7b092a252166a1641ae953e7.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slime-rancher--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slime-rancher--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slime-rancher--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slime-rancher--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slime-rancher--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Slime Rancher é uma encantadora experiência sandbox na primeira pessoa. Jogas como Beatrix LeBeau, uma jovem e corajosa rancheira Slime, que parte para viver a sua vida a mais de mil anos-luz da Terra, em Far, Far West.\r\nCada dia trará novos desafios e oportunidades arriscadas enquanto tentas fazer fortuna no negócio da criação de Slimes. Recolhe slimes coloridos, cultiva, colhe recursos e explora a natureza selvagem com a perícia do teu Aspipack multifunções.",
+  "ano": 2016,
+  "generos": [
+    "Jogos de RPG"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 338928,
+  "_ssPreviaEm": "2026-11-13"
 }

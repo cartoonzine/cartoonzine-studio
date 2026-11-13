@@ -3,15 +3,25 @@
   "links": [
     "https://gn-math.dev/?id=718"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/df22702ab8f59eac4fa981a5ae651a6b.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/d46ff96021119a2a3aa74e920f541b5a.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/b28d8e3ccb1ff9d46fa2d9e70222c9e7.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--untitled-goose-game--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--untitled-goose-game--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--untitled-goose-game--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--untitled-goose-game--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--untitled-goose-game--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/untitled-goose-game",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Untitled Goose Game is a 2019 indie puzzle stealth game developed by House House and published by Panic Inc. Players control a goose who bothers the inhabitants of an English village. Players must use the goose's abilities to manipulate objects and non-player characters to complete objectives.",
+  "ano": 2019,
+  "generos": [
+    "Quebra-cabeças"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 350422,
+  "_ssPreviaEm": "2026-11-13"
 }
