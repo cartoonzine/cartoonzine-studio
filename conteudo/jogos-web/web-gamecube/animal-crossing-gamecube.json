@@ -10,9 +10,10 @@
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-gamecube",
   "licenca": "nao-verificada",
-  "_rascunho": true,
+  "posFundo": 100,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
   "_completadoEm": "2026-11-11",
   "_ssEm": "2026-11-11",
-  "_ssId": 0
+  "_ssId": 0,
+  "_rascunho": true
 }
