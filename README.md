@@ -240,6 +240,10 @@ O Studio grava a linha em `consolesWeb` no `studio.config.json`, o cloud pega a 
 
 Nintendo 64, DOS, PlayStation, Arcade e Neo Geo levam "(Web)" no nome para não confundir com os consoles do emulador.
 
+- **🔗 Link test** (no editor, embaixo do Link da ROM): abre o link numa janela antes de editar. Jogo web roda ali
+  mesmo (com Recarregar, tela cheia e Abrir em nova aba; com vários links, escolha o reserva). ROM de emulador só é
+  checada. Com o painel no PC (`node tools/painel.mjs`) ele também diz se o link está **quebrado** (404, sem resposta),
+  se o site **bloqueia** abrir dentro de outra página (aí o cartucho web do app também não abre), se redireciona e o tamanho.
 - **☑ Só PC**: marque no jogo (ou em vários de uma vez, na seleção em massa) e ele **não aparece na TV**.
   Vale para qualquer jogo, inclusive ROM pesada de emulador.
 - **Licença**: um jogo web só é publicado com a licença conferida (`livre`, `autorizada` ou `precisa-original`).

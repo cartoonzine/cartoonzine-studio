@@ -74,6 +74,27 @@ export function criarServidor({ raiz = RAIZ } = {}) {
                 const r = build({ raiz, log: () => {} });
                 return json(res, 200, { ok: true, publicados: r.index.colecoes.reduce((n, c) => n + c.publicados, 0), erros: r.totalErros });
             }
+            // 🔗 Link test: o link responde? deixa abrir dentro de outra página (cartucho web)?
+            if (url.pathname === '/api/checar-link') {
+                let alvo; try { alvo = new URL(url.searchParams.get('url') || ''); } catch (e) { return json(res, 400, { erro: 'link inválido' }); }
+                if (!/^https?:$/.test(alvo.protocol)) return json(res, 400, { erro: 'só links http(s)' });
+                if (/^(localhost|0\.0\.0\.0|127\.|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.|\[?::1\]?$|\[?f[cd])/i.test(alvo.hostname)) return json(res, 403, { erro: 'endereço interno não é testado' });
+                const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 15000);
+                try {
+                    const r = await fetch(alvo, { redirect: 'follow', signal: ctl.signal, headers: { 'User-Agent': 'Mozilla/5.0 (cartoonzine-studio link test)', Range: 'bytes=0-0' } });
+                    try { await r.body?.cancel(); } catch (e) { /* */ }
+                    const xfo = (r.headers.get('x-frame-options') || '').trim();
+                    const csp = r.headers.get('content-security-policy') || '';
+                    const fa = /frame-ancestors\s+([^;]+)/i.exec(csp);
+                    let bloqueia = '';
+                    if (/deny|sameorigin/i.test(xfo)) bloqueia = 'X-Frame-Options: ' + xfo;
+                    else if (fa && !/(^|\s)\*(\s|$)/.test(fa[1])) bloqueia = 'frame-ancestors ' + fa[1].trim();
+                    const faixa = /\/(\d+)\s*$/.exec(r.headers.get('content-range') || '');
+                    return json(res, 200, { status: r.status === 206 ? 200 : r.status, final: r.url, tipo: (r.headers.get('content-type') || '').split(';')[0], tamanho: faixa ? +faixa[1] : (+r.headers.get('content-length') || 0), bloqueiaQuadro: bloqueia });
+                } catch (e) {
+                    return json(res, 200, { erro: e.name === 'AbortError' ? 'sem resposta em 15 s' : (e.cause && e.cause.code) || e.message });
+                } finally { clearTimeout(t); }
+            }
             if (url.pathname === '/api/proxy') {
                 const alvo = new URL(url.searchParams.get('url') || '');
                 if (alvo.protocol !== 'https:' || !HOSTS_PROXY.test(alvo.hostname)) return json(res, 403, { erro: 'host não permitido' });

@@ -705,8 +705,12 @@
         switch (c.tipo) {
             case 'textarea':
                 return `<div class="cheio">${rot}<textarea class="campo" id="${id}" data-k="${c.k}" rows="4">${esc(valor || '')}</textarea>${dica}</div>`;
-            case 'links':
-                return `<div class="cheio">${rot}<textarea class="campo" id="${id}" data-k="${c.k}" rows="2" placeholder="https://…  (um por linha)">${esc((valor || []).join('\n'))}</textarea>${dica}</div>`;
+            case 'links': {
+                // jogos: botão "Link test" abre o link numa janela para ver se o jogo carrega antes de editar
+                const teste = prefixo === 'f' && colecaoAtual().tipo === 'jogo'
+                    ? `<div class="linha-teste-link"><button type="button" class="btn fantasma" data-teste-link="${id}">🔗 Link test</button><span class="dica">abre o link numa janela para ver se o jogo abre ou está quebrado</span></div>` : '';
+                return `<div class="cheio">${rot}<textarea class="campo" id="${id}" data-k="${c.k}" rows="2" placeholder="https://…  (um por linha)">${esc((valor || []).join('\n'))}</textarea>${teste}${dica}</div>`;
+            }
             case 'lista':
                 return `<div>${rot}<input class="campo" id="${id}" data-k="${c.k}" value="${esc((valor || []).join(', '))}">${dica}</div>`;
             case 'bool':
@@ -1837,6 +1841,99 @@ https://archive.org/details/algum_desenho
     // ==================================================================
     // Links publicados
     // ==================================================================
+    // ==================================================================
+    // 🔗 Link test: abre o link do jogo numa janela (jogo web roda ali mesmo; ROM só é checada)
+    // ==================================================================
+    document.addEventListener('click', (ev) => {
+        const b = ev.target.closest('[data-teste-link]'); if (!b) return;
+        const caixa = document.getElementById(b.dataset.testeLink);
+        const links = String(caixa ? caixa.value : '').split(/\s*\n\s*/).map(x => x.trim()).filter(Boolean);
+        if (!links.length) { aviso('Coloque o link no campo antes de testar.', 'ruim'); if (caixa) caixa.focus(); return; }
+        const gaveta = b.closest('.gaveta');
+        const sel = gaveta && gaveta.querySelector('[data-k="console"]');
+        abrirTesteLink(links, sel ? sel.value : '');
+    });
+    async function checarLink(u) {
+        if (!(estado.repo && estado.repo.usaProxy)) return null;              // online (GitHub Pages) não tem servidor para checar
+        try { const r = await fetch('/api/checar-link?url=' + encodeURIComponent(u)); return await r.json(); }
+        catch (e) { return { erro: e.message }; }
+    }
+    function abrirTesteLink(links, consoleId) {
+        const web = C.consoleWeb(consoleId, estado.config) || !consoleId && /\.html?(\?|#|$)|\/$/.test(links[0]);
+        const fundo = document.createElement('div');
+        fundo.className = 'fundo-modal teste-link-fundo';
+        fundo.innerHTML = `
+          <div class="teste-link" role="dialog" aria-modal="true" aria-labelledby="tl-t">
+            <div class="tl-topo">
+              <b id="tl-t">🔗 Link test</b>
+              ${links.length > 1 ? `<select class="campo" id="tl-qual" aria-label="Qual link">${links.map((u, i) => `<option value="${i}">Link ${i + 1}${i ? ' (reserva)' : ''}</option>`).join('')}</select>` : ''}
+              <code class="tl-url" id="tl-url"></code>
+              <div class="espaco"></div>
+              ${web ? '<button class="btn fantasma" id="tl-recarregar" title="Carregar de novo">↻ Recarregar</button><button class="btn fantasma" id="tl-cheia" title="Tela cheia">⛶</button>' : ''}
+              <a class="btn fantasma" id="tl-aba" target="_blank" rel="noopener noreferrer">Abrir em nova aba ↗</a>
+              <button class="btn" id="tl-fechar">Fechar</button>
+            </div>
+            <div class="tl-status" id="tl-status"></div>
+            <div class="tl-palco" id="tl-palco"></div>
+          </div>`;
+        document.body.appendChild(fundo);
+        const fechar = () => { fundo.remove(); document.removeEventListener('keydown', tecla, true); };
+        const tecla = (e) => { if (e.key === 'Escape' && !document.fullscreenElement) { e.stopPropagation(); fechar(); } };
+        document.addEventListener('keydown', tecla, true);
+        $('#tl-fechar', fundo).onclick = fechar;
+        fundo.addEventListener('mousedown', ev => { if (ev.target === fundo) fechar(); });
+        let atual = 0, vez = 0;
+        const status = (html, tipo) => { const el = $('#tl-status', fundo); el.className = 'tl-status ' + (tipo || ''); el.innerHTML = html; };
+        async function carregar() {
+            const minha = ++vez, u = links[atual];
+            $('#tl-url', fundo).textContent = u;
+            $('#tl-aba', fundo).href = u;
+            const palco = $('#tl-palco', fundo);
+            if (!/^https?:\/\//i.test(u)) { palco.innerHTML = ''; return status('❌ Isso não é um link http(s) — o jogo não vai abrir no app.', 'ruim'); }
+            // duas coisas chegam em qualquer ordem: a página carregando no quadro e a checagem do servidor local
+            const est = { carregou: null, chec: undefined };
+            const pintar = () => {
+                if (minha !== vez || !fundo.isConnected) return;
+                const r = est.chec;
+                const carregouTxt = est.carregou != null ? `A página carregou em ${est.carregou < 0.1 ? 'menos de 0,1' : est.carregou.toFixed(1).replace('.', ',')} s — veja se o jogo aparece e responde ao teclado/controle (clique nele primeiro).` : '';
+                if (r === undefined) return status(web ? (carregouTxt ? '✅ ' + carregouTxt : '⏳ Abrindo o jogo…') : '⏳ Checando o link…', carregouTxt ? 'ok' : '');
+                if (r === null) return status(web
+                    ? (carregouTxt ? '✅ ' + carregouTxt : '⏳ Abrindo o jogo…') + '<br><span class="dica">Se ficar em branco ou aparecer "recusou a conexão", o site não deixa abrir dentro de outra página (o cartucho web do app também não vai conseguir). A checagem completa (link quebrado, bloqueio) funciona com o painel no PC: node tools/painel.mjs</span>'
+                    : 'ℹ Online não dá para checar daqui (o navegador bloqueia). Rode o painel no PC (node tools/painel.mjs) para a checagem completa, ou abra em nova aba.', carregouTxt ? 'ok' : '');
+                if (r.erro) return status('❌ O link não respondeu: ' + esc(r.erro), 'ruim');
+                const tam = r.tamanho ? ' · ' + (r.tamanho > 1048576 ? (r.tamanho / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(r.tamanho / 1024)) + ' KB') : '';
+                const info = `HTTP ${r.status}${r.tipo ? ' · ' + esc(r.tipo) : ''}${tam}${r.final && r.final !== u ? ' · redireciona para <code>' + esc(r.final) + '</code>' : ''}`;
+                if (r.status >= 400) return status(`❌ Link quebrado (${info}).`, 'ruim');
+                if (web && r.bloqueiaQuadro) return status(`⚠ O link funciona (${info}), mas o site <b>não deixa abrir dentro de outra página</b> (${esc(r.bloqueiaQuadro)}). No app ele não abre no cartucho web — só em janela própria no PC.`, 'aviso');
+                if (web && r.tipo && !/html/i.test(r.tipo)) return status(`⚠ O link responde (${info}), mas não é uma página: o jogo web precisa do link da página (…/index.html).`, 'aviso');
+                if (!web && /html/i.test(r.tipo || '')) return status(`⚠ O link responde (${info}), mas é uma página, não o arquivo da ROM.`, 'aviso');
+                status(`✅ Link no ar (${info}).` + (carregouTxt ? '<br>' + carregouTxt : web ? '<br>⏳ Abrindo o jogo…' : ''), 'ok');
+            };
+            if (web) {
+                // o quadro já nasce com o link (sem o "about:blank" que dispararia um load falso)
+                const q = document.createElement('iframe');
+                q.id = 'tl-quadro'; q.title = 'Jogo em teste'; q.allowFullscreen = true; q.referrerPolicy = 'no-referrer-when-downgrade';
+                q.setAttribute('allow', 'autoplay; fullscreen; gamepad; pointer-lock; clipboard-write');
+                q.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-popups allow-modals allow-downloads');
+                const t0 = performance.now();
+                q.addEventListener('load', () => { est.carregou = (performance.now() - t0) / 1000; pintar(); }, { once: true });
+                q.src = u;
+                palco.innerHTML = ''; palco.appendChild(q);
+            } else {
+                palco.innerHTML = '<div class="tl-rom">🕹️ ROM de emulador: o link baixa o arquivo, então aqui ele só é <b>checado</b>.<br>Use "Abrir em nova aba" para baixar e conferir.</div>';
+            }
+            pintar();
+            est.chec = await checarLink(u);
+            pintar();
+        }
+        if ($('#tl-qual', fundo)) $('#tl-qual', fundo).onchange = (e) => { atual = +e.target.value; carregar(); };
+        if (web) {
+            $('#tl-recarregar', fundo).onclick = carregar;
+            $('#tl-cheia', fundo).onclick = () => { const q = $('#tl-quadro', fundo); if (q && q.requestFullscreen) q.requestFullscreen().catch(() => {}); };
+        }
+        carregar();
+    }
+
     function mostrarPublicacao() {
         const cfg = estado.config;
         const base = cfg.publicacao.baseUrl;
