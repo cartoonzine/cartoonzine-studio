@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/half-life/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/10f16ffcd88e1cf00e43178442437763.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4deadd2b5c1adeb99765177dab2c9001.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/82367463300c6d423d4bf86699b0d20b.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

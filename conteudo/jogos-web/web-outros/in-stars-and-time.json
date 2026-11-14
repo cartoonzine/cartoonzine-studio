@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/in-stars-and-time/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/15e3df87735cf560ce4ee001a3dae5d8.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/93dd7c576149e317876624615b6008c3.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/5a6a5cdb24ec6da85d4fd8352cb4a9f4.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

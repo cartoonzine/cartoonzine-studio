@@ -3,6 +3,21 @@
   "links": [
     "https://degloved.net/games/public/gms/hotline-miami/index.html"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hotline-miami--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hotline-miami--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hotline-miami--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hotline-miami--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hotline-miami--previa.jpg",
+  "descricao": "Hotline Miami is a high-intensity game, brimming with brutality, guns and skull-crushing close-combat. Set in an alternative Miami of 1989, you take on the role of a mysterious anti-hero who goes on a killing spree. You'll soon find it hard to understand what's going on and why you're inclined to commit these acts of violence.\r\nRely on your wits to find your way through seemingly impossible situations, as you find yourself constantly outnumbered by vicious enemies. The action is non-stop and every shot is lethal. So every move must be quick and decisive if you hope to survive and uncover the sinister forces behind the bloodshed.",
+  "ano": 2013,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 3ª pessoa"
+  ],
   "console": "web-outros",
-  "_rascunho": true
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 24887,
+  "_ssPreviaEm": "2026-11-14"
 }

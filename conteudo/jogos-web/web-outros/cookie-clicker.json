@@ -3,6 +3,14 @@
   "links": [
     "https://degloved.net/games/public/gms/cookie-clicker/index.html"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--cookie-clicker--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--cookie-clicker--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--cookie-clicker--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--cookie-clicker--previa.png",
+  "descricao": "This game clicker is a copy of the original browser game Cookie Clicker. The goal in this game is to collect as many cookies as possible and improve the pumping level to the highest level. For this, you can either just invite a lot of cookies, or pump the furnace to the maximum level in this game. \r\n\r\nThere are 3 improvements: the cursor, which increases the number of cookies produced per click, the lucky cursor, which increases the chance of Golden cookies falling down (which gives several times more cookies than normal), and another furnace, which gives a small number of cookies per second.",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 195179,
+  "_ssPreviaEm": "2026-11-14"
 }

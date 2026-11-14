@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/do-not-take-this-cat-home/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/049265106c33a5828b2428c7d311c04a.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/9faa173f6528b8cdcfb880a8a8322b48.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3cd3818efa21ba347c146481cab894c0.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

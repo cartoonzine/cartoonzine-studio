@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/brawlhala/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/820b5138a91b4a3ef9a7024cbbcc9af9.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4ffdf96aa5173b68aa3ab0bdea4125f0.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/d436cae949c81b9970593a225df2d479.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

@@ -3,6 +3,21 @@
   "links": [
     "https://degloved.net/games/public/gms/castle-crashers/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1b0d89e02b7f1b1be28c36133af9ed96.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--castle-crashers--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--castle-crashers--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--castle-crashers--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--castle-crashers--previa.jpg",
+  "descricao": "Castle Crashers is a beat'em all game for four players in multiplayer on Xbox 360. An arena mode allows human opponents to fight each other. Each character can unlock over 40 different weapons, adopt animal companions, go treasure hunting and spend their gold in a multitude of shops with various contents.",
+  "ano": 2008,
+  "generos": [
+    "Briga de rua"
+  ],
   "console": "web-outros",
-  "_rascunho": true
+  "jogadores": 4,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 16154,
+  "_ssPreviaEm": "2026-11-14",
+  "_completadoEm": "2026-11-14"
 }

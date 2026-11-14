@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/jetpack-joyride/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/fd5693a5277fc5a1dbd31dbb4af9a1d8.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c69cbea888b54a03652e945125f05653.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/813b55971c67156836f1bc15e45726d2.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

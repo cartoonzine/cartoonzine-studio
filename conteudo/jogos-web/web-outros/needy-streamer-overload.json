@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/needy-streamer-overload/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/e485557eaf06681716a645fcb6d3775c.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/805f28c4c4c4692dcfc7375101b9f223.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/23f1d2f439d269b31ad4633ca6032c81.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

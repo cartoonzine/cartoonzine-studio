@@ -3,6 +3,21 @@
   "links": [
     "https://degloved.net/games/public/gms/fez/index.html"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fez--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fez--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fez--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fez--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fez--previa.jpg",
+  "descricao": "O pequeno Gomez, vivendo no mundo bidimensional, está determinado a desvendar o segredo dos mundos tridimensionais, mas Gomez só pode se mover na visão lateral. Cabe a você virar a tela e direcionar Gomez para alcançar os mundos acima.",
+  "ano": 2012,
+  "generos": [
+    "Quebra-cabeças",
+    "Plataforma"
+  ],
   "console": "web-outros",
-  "_rascunho": true
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 16076,
+  "_ssPreviaEm": "2026-11-14"
 }

@@ -3,6 +3,11 @@
   "links": [
     "https://degloved.net/games/public/gms/a-day-in-the-office/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/7ded1822222c2b03945265069d1df199.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/6d213f61a8035a421648f18036ee4092.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

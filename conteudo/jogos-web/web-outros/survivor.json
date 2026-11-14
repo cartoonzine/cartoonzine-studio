@@ -3,6 +3,9 @@
   "links": [
     "https://degloved.net/games/public/gms/survivor/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0e7b4eff5e67b94dd1ee3b521e0d6c7c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/59fd223a8dd5c3330270343842c0daa6.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

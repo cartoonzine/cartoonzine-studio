@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/arco/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/a9246bf3f51cda272f4778a45c3e420c.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/6df9da662db7fb28873e3c33b06a5751.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2906675f674db117fd0eed6bf3270923.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

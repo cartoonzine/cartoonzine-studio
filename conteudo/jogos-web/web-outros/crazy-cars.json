@@ -3,6 +3,19 @@
   "links": [
     "https://degloved.net/games/public/gms/crazy-cars/index.html"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--crazy-cars--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--crazy-cars--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--crazy-cars--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--crazy-cars--previa.png",
+  "descricao": "Crazy Cars for Sega Mega Drive is a fan-made port of the 1988 Amstrad CPC racing game developed by Titus. Created in 2013 using the BasiEgaXorz BASIC toolset, this version aims to replicate the original's look and feel as faithfully as possible — down to its limitations.\r\n\r\nGameplay involves racing across different U.S. regions in high-end sports cars, avoiding traffic and roadside hazards while beating the clock.",
+  "ano": 2013,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-outros",
-  "_rascunho": true
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 554732,
+  "_ssPreviaEm": "2026-11-14"
 }

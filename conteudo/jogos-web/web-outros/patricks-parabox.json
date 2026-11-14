@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/patricks-parabox/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/dd78828ec7e54af7c3eada0bd70c2421.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/852a109a9c41e95d4afd7cfe8e754004.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/cb679a99294d19c66e6173a42575a6c6.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

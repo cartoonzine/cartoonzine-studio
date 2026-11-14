@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/plants-vs-zombies-2/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/7047aa6c111e3fb2b2a6d5ece2d394c4.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/f2258c61a8b46c0620005f5949fb11b8.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/0df14e389d1efd15e8548355af52bca1.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

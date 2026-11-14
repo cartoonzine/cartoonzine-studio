@@ -3,6 +3,11 @@
   "links": [
     "https://degloved.net/games/public/gms/ages-of-conflict/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/d7b0e26cad60cc84a88365140e802474.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/8fb06948e1e830ddc2d2199ce995ac42.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

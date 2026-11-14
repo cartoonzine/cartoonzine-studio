@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/just-shapes-and-beats/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3377ec9c655841041c34bec210df6743.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/6f3b949f557f503a6de82e4f8dad5fc4.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/f81398ac7249eab440df0219892f3dd5.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

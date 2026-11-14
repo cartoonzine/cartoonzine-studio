@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/slendytubbies/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/5bad9f05c80c4d996c2b39b4062d30cd.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/7a96a023560f0d135d0025202ea237e0.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/50834b785deef13b93d67c01e6a8dada.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

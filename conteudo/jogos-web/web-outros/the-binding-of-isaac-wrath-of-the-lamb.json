@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/the-binding-of-isaac-wrath-of-the-lamb/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/638d4c2c3136af06f3158fbcec38e7fb.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/90067edaa1a5fd3244571b6d71522b61.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ec2324256bdb9d5159c9195b002f851b.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

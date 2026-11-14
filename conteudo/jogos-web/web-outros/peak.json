@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/peak/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/fbf3321aabbfb52b9361463b92a3b84b.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/697c22e48e9cb0207d3e5d7560c971f6.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/4e3d6212dd67def76238cdbf47055e6a.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

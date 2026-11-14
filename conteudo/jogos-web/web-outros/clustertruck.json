@@ -3,6 +3,13 @@
   "links": [
     "https://degloved.net/games/public/gms/clustertruck/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f395ac2685e649ba0523852fe159d6a5.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b169037388372dcbd818fd7b24c23062.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/fca7a9a39563f62e67a0018690b0d4c9.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 216837,
+  "_ssPreviaEm": "2026-11-14",
+  "_completadoEm": "2026-11-14"
 }

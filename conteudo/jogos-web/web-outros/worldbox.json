@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/worldbox/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/ca7324689f3e3cd53ef200c5223a5769.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/29ac2cd8c9463697d28f46c7af743395.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/881998ec2722f28d25e49611c9d4fc24.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

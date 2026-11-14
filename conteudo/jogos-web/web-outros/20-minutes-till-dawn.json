@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/20-minutes-till-dawn/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/c3c25f1f935df6a160e928e45c8afaa1.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/e585e21c1b435f760995e9e586875ecd.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/121892a5b8bf3e390a83dc0af8d5b3fd.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/raft/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1fda541638af3f204f2493bbfbbc771e.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4ca0d95c86f2ee0ebd3a49b6f448efc8.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/be16d5d77fc088f250f94227280ec528.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

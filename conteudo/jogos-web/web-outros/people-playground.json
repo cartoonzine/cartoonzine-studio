@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/people-playground/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/c4d245ccd50808ad80abfbeb542c3394.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/df1587ed91223bcb29b80f5bdcb9f3fa.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/e9a4374f21f8617757cd3bdea15efa3e.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

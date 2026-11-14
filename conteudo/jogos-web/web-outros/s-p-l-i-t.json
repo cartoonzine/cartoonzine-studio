@@ -3,6 +3,9 @@
   "links": [
     "https://degloved.net/games/public/gms/s/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/8058a091c086a149e6bc99a716807393.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/99979b287fe7f91ba35ff69b8fd14233.jpg",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

@@ -3,6 +3,9 @@
   "links": [
     "https://degloved.net/games/public/gms/soundboard/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/be75ceeb8e31fcaa1abb4aa17dd87631.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ba8ac229945424bf1f81190e2718b78a.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

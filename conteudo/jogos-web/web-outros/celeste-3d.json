@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/celeste-3d/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/074aed57c243ae7020971ca7c9fe0f29.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c66e591693fd6e7b26fc5a60efb68817.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2eace51d8f796d04991c831a07059758.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

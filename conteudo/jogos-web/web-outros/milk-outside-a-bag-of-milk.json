@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/milk-outside-a-bag-of-milk/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/a7b2cac3a72acdc14f1cfb863330dbef.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b79850c1310417e3ce582e3d303dad98.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/82cef356cc74224ba3d60303f7dd40b6.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

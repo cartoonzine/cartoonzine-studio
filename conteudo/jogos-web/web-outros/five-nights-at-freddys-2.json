@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/five-nights-at-freddys-2/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/89b80e69d47933b3b13f3526d10baeb2.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/ea33b4fd0fc1ea0a40344be8a8641123.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2298d2d15377df1b320d007677c07a07.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

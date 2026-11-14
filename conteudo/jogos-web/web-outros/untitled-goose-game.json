@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/untitled-goose-game/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/df22702ab8f59eac4fa981a5ae651a6b.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/d46ff96021119a2a3aa74e920f541b5a.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/b28d8e3ccb1ff9d46fa2d9e70222c9e7.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

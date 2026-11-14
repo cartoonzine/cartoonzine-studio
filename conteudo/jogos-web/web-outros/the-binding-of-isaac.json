@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/the-binding-of-isaac/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/9de4daf39d31cf4f464f452ac8278991.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/918c41a9e89d653596efd5df9c35b90b.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/e0c7ccc47b2613c82d1073a4214deecc.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

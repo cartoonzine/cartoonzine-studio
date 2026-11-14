@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/gambonanza/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/c6c2e936cba0808044d0acfd349ed5c1.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ad95400850a8f42970884b2172e149e8.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/25f0b3f820c95b9fc4eb2ea1d40c8e5b.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

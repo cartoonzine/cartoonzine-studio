@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/inscryption/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/0e8db479ccde6f74f7e23d2bd71c47bb.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/d471ba80482c93d408c57f0974b23a1e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/5ef8cf77201dc48f2a2f22cd14ec648c.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

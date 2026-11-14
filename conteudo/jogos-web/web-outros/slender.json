@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/slender/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/28c5146fc0182283749ca4d410b4f5c1.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/1e08cd15a323345f075c5e3b9d3b7a3a.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/d98a21fafb57e4eddaa388566611b16b.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/dumb-ways-to-die/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/a2d5738fca132832fdb50719b24d7a15.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/33502717d5b81686a45501f3ff3cc3f0.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/c0134808a1b50638580f0c901a2e013d.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

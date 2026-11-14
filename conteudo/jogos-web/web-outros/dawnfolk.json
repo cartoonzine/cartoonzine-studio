@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/dawnfolk/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/d08e00b3cebed85f70d40d7e284b3d0a.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/97828b9fe11184ca640835ecd080e142.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/62617f44c2bcfbb748e20812463119eb.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

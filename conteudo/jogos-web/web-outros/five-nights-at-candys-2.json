@@ -3,6 +3,12 @@
   "links": [
     "https://degloved.net/games/public/gms/five-nights-at-candys-2/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3d9ff59df3dc79697bddfeccecd79eaa.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/bd450ad2e153e8d8894edc59a40eed33.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2c137d1557b0053b7a6d4141f7a5ee59.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-14"
 }

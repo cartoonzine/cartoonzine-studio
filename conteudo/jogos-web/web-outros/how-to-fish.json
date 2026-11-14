@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/how-to-fish/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/3088bd4c563700823649c4cb6d4fcba2.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/8bb288e41bf950a183fa0900a47bf1d1.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/6687b79b1711e61cca077a1a03c9d9bd.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }

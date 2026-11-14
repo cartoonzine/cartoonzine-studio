@@ -3,6 +3,10 @@
   "links": [
     "https://degloved.net/games/public/gms/sonic/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4d9138913d9c9835783374772a88310f.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/7c4bbe3b40bfbd75077c9b6fc69c43e8.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/3292a73c68dfe2d1244b14cdfb7fc26a.png",
   "console": "web-outros",
-  "_rascunho": true
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14"
 }
