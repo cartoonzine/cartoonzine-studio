@@ -128,6 +128,7 @@ textarea.campo { resize: vertical; min-height: 80px; }
 .selo { position: absolute; top: 8px; left: 8px; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: rgba(0, 0, 0, .7); border: 1px solid var(--borda); }
 .selo.rasc { color: var(--amarelo); }
 .selo.auto { color: var(--azul); left: auto; right: 8px; }
+.tabela .selo { position: static; display: inline-block; margin: 2px 0 0 4px; white-space: nowrap; }
 .vazio { text-align: center; padding: 60px 20px; color: var(--suave); border: 1px dashed var(--borda); border-radius: var(--raio); margin-top: 16px; }
 .vazio b { color: var(--texto); display: block; font-size: 17px; margin-bottom: 6px; }
 
@@ -174,6 +175,17 @@ details.avancado summary { cursor: pointer; color: var(--suave); font-size: 13px
 /* ---------- adição rápida ---------- */
 .rapido textarea { min-height: 170px; font-family: "Share Tech Mono", ui-monospace, monospace; font-size: 13.5px; }
 .exemplos { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+.r-arquivos-linha { margin-top: 10px; flex-wrap: wrap; }
+.r-arquivos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.r-arquivos:empty { display: none; }
+.r-arq { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; background: var(--vidro); border: 1px solid var(--borda); border-radius: 10px; padding: 4px 6px 4px 10px; }
+.r-arq small { color: var(--suave); }
+.r-arq button { border: 0; background: transparent; color: var(--suave); cursor: pointer; font-size: 13px; padding: 2px 6px; border-radius: 6px; }
+.r-arq button:hover { color: inherit; background: var(--borda); }
+.r-opcoes { margin-top: 10px; font-size: 14px; }
+.r-opcoes summary { cursor: pointer; color: var(--suave); }
+.r-opcoes[open] summary { margin-bottom: 6px; }
+textarea.soltando { outline: 2px dashed currentColor; outline-offset: 2px; }
 .exemplos span { font-size: 12px; color: var(--suave); background: var(--vidro); border: 1px solid var(--borda); border-radius: 99px; padding: 2px 10px; }
 .padroes { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 14px; }
 .tabela { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }

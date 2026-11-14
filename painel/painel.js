@@ -1630,7 +1630,7 @@
     // ==================================================================
     // Adição rápida
     // ==================================================================
-    const rapido = { texto: '', previa: null };
+    const rapido = { texto: '', previa: null, arquivos: [] };
 
     function desenharRapido() {
         const col = colecaoAtual();
@@ -1647,16 +1647,49 @@ https://…/Naruto%20S01E01.mp4
 https://archive.org/details/algum_desenho
 (ou uma lista M3U inteira, ou as mensagens do @CZStreamBot)">${esc(rapido.texto)}</textarea>
             <div class="exemplos"><span>Nome | link | capa</span><span>links soltos</span><span>lista M3U</span><span>mensagens do @CZStreamBot</span><span>archive.org</span><span>"Série S01E02" vira episódio</span></div>
+            <div class="linha-acoes r-arquivos-linha">
+              <label class="btn fantasma" for="r-arquivo" style="cursor:pointer">📂 Abrir lista em arquivo</label>
+              <input type="file" id="r-arquivo" multiple accept=".txt,.m3u,.m3u8,.json,.csv,.tsv,.lpl,.xml" hidden>
+              <span class="dica">TXT · JSON · CSV/TSV · M3U · RetroArch .lpl · gamelist.xml — ou arraste os arquivos para a caixa acima</span>
+            </div>
+            <div id="r-arquivos" class="r-arquivos"></div>
+            <details class="r-opcoes"${salvos._base ? ' open' : ''}><summary>Lista com caminhos locais (./roms/jogo.sfc)?</summary>
+              <label class="rot" for="r-base">Endereço base dos arquivos</label>
+              <input class="campo" id="r-base" placeholder="https://archive.org/download/minha-colecao/" value="${esc(salvos._base || '')}">
+              <div class="dica">Completa os caminhos relativos das listas do RetroArch/EmulationStation. Links completos (https://…) ficam como estão.</div>
+            </details>
             ${padroes.length ? `<div class="padroes">${padroes.map(c => campoHtml(Object.assign({}, c, { obrigatorio: false }), salvos[c.k], 'r')).join('')}</div>
               <div class="dica">Esses valores valem para todos os itens colados que não trouxerem o seu próprio.</div>` : ''}
             <div class="linha-acoes">
               ${col.tipo === 'video' ? `<label class="check"><input type="checkbox" id="r-wiki" ${salvos._wiki ? 'checked' : ''}> Buscar sinopse, capas e episódios ${chaves().tmdb ? '(TMDB' + (chaves().omdb ? ' + nota IMDb' : '') + ')' : '(Wikipedia — <a href="#" id="r-chaves">ponha a chave do TMDB</a> para mais)'}</label>` : '<input type="checkbox" id="r-wiki" hidden>'}
+              <label class="check"><input type="checkbox" id="r-rasc" ${(salvos._rasc !== undefined ? salvos._rasc : col.tipo === 'jogo') ? 'checked' : ''}> Salvar tudo como <b>rascunho</b> (confira e publique depois — filtro "Só rascunhos")</label>
+              ${col.tipo === 'jogo' && chaves().steamgrid ? `<label class="check"><input type="checkbox" id="r-artes" ${salvos._artes ? 'checked' : ''}> Buscar capas agora (SteamGridDB, mais lento)</label>` : ''}
               <div class="espaco"></div>
               <button class="btn principal" id="r-analisar">Analisar</button>
             </div>
           </div>
+          ${col.tipo === 'jogo' ? `<div class="dica" style="margin-top:8px">${col.consoles === 'consolesWeb'
+                ? '🌐 Jogos web em massa: cada linha vira um <b>rascunho</b> com a licença por conferir. Depois use o filtro "Só rascunhos" e "☑ Mudar vários" para conferir licença e publicar.'
+                : '🕹️ ROMs em massa: o console vem da extensão (.sfc, .gba, .md…); para .zip, .bin, .iso e .chd escolha o console acima. Sem nome na lista, o nome sai do arquivo e o robô troca pelo <b>nome oficial</b> identificando a ROM no ScreenScraper — e baixa capa, logo, banner, tela e vídeo.'}</div>` : ''}
           <div id="r-previa"></div>`;
         $('#r-texto').addEventListener('input', e => { rapido.texto = e.target.value; });
+        const lerArquivos = async (files) => {
+            for (const f of Array.from(files || [])) {
+                if (f.size > 20 * 1024 * 1024) { aviso(f.name + ': arquivo grande demais (máx. 20 MB)', 'ruim'); continue; }
+                rapido.arquivos = rapido.arquivos.filter(a => a.nome !== f.name).concat([{ nome: f.name, texto: await f.text(), tam: f.size }]);
+            }
+            desenharArquivos();
+        };
+        const desenharArquivos = () => {
+            $('#r-arquivos').innerHTML = rapido.arquivos.map((a, i) => `<span class="r-arq">📄 ${esc(a.nome)} <small>${a.tam < 1024 ? a.tam + ' B' : Math.round(a.tam / 1024) + ' KB'}</small><button type="button" data-tira="${i}" aria-label="Tirar ${esc(a.nome)}">✕</button></span>`).join('');
+            $$('[data-tira]').forEach(b => b.onclick = () => { rapido.arquivos.splice(+b.dataset.tira, 1); desenharArquivos(); });
+        };
+        desenharArquivos();
+        $('#r-arquivo').addEventListener('change', e => { lerArquivos(e.target.files); e.target.value = ''; });
+        const caixa = $('#r-texto');
+        caixa.addEventListener('dragover', e => { if (e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files')) { e.preventDefault(); caixa.classList.add('soltando'); } });
+        caixa.addEventListener('dragleave', () => caixa.classList.remove('soltando'));
+        caixa.addEventListener('drop', e => { if (e.dataTransfer && e.dataTransfer.files.length) { e.preventDefault(); caixa.classList.remove('soltando'); lerArquivos(e.dataTransfer.files); } });
         $('#r-analisar').addEventListener('click', () => analisarRapido(col, padroes));
         const linkChaves = $('#r-chaves');
         if (linkChaves) linkChaves.addEventListener('click', ev => { ev.preventDefault(); mostrarChaves(); });
@@ -1667,19 +1700,27 @@ https://archive.org/details/algum_desenho
         const btn = $('#r-analisar');
         const pad = lerCampos($('#conteudo-aba'), padroes.map(c => Object.assign({}, c)));
         const wiki = $('#r-wiki').checked;
-        guardar.gravar('czs-padroes-' + col.id, Object.assign({}, pad, { _wiki: wiki }));
-        const entradas = C.lerTextoColado(rapido.texto);
-        if (!entradas.length) { aviso('Não achei nenhum link no texto colado.', 'ruim'); return; }
+        const rasc = $('#r-rasc').checked, artes = !!($('#r-artes') && $('#r-artes').checked), base = $('#r-base').value.trim();
+        guardar.gravar('czs-padroes-' + col.id, Object.assign({}, pad, { _wiki: wiki, _rasc: rasc, _artes: artes, _base: base }));
+        const entradas = rapido.texto.trim() ? C.lerTextoColado(rapido.texto) : [];
+        for (const a of rapido.arquivos) {
+            try { entradas.push(...C.lerListaArquivo(a.nome, a.texto, { base })); }
+            catch (e) { aviso(e.message, 'ruim'); }
+        }
+        if (!entradas.length) { aviso('Não achei nenhum link no texto colado nem nos arquivos.', 'ruim'); return; }
         let itens = C.agruparEntradas(entradas, { series: col.tipo === 'video' });
         btn.disabled = true;
         const linhas = [];
         for (let i = 0; i < itens.length; i++) {
             btn.textContent = `Analisando ${i + 1}/${itens.length}…`;
             let it = itens[i];
+            const avisos = [];
             if (it.categoria) it.categoria = C.traduzirCategoria(it.categoria);
+            // jogos: console pela extensão da ROM / pelo sistema da lista, nome limpo do arquivo
+            if (col.tipo === 'jogo') { const r = C.prepararJogoEmMassa(it, col, estado.config, pad.console); it = r.item; avisos.push(...r.avisos); }
             for (const [k, v] of Object.entries(pad)) if (it[k] === undefined || it[k] === '') it[k] = v;
             if (col.tipo !== 'video') delete it.audio;
-            const avisos = [];
+            if (rasc) it._rascunho = true;
             if (it.archive && !(it.links || []).length) {
                 try {
                     const a = await C.importarArchive(it.archive, fetchExterno, { torrent: !!col.torrent, livro: col.tipo === 'livro' });
@@ -1693,7 +1734,7 @@ https://archive.org/details/algum_desenho
                 const ch = chaves();
                 const r = await C.completarItem(it, { tmdb: ch.tmdb, omdb: ch.omdb, wiki, fetchFn: fetchExterno, tipoColecao: col.tipo });
                 it = r.item; avisos.push(...r.avisos);
-            } else if (col.tipo === 'jogo' && it.nome && chaves().steamgrid && (!it.logo || !it.capa || !it.banner)) {
+            } else if (col.tipo === 'jogo' && artes && it.nome && chaves().steamgrid && (!it.logo || !it.capa || !it.banner)) {
                 const r = await C.completarItem(it, { steamgrid: chaves().steamgrid, screenscraper: chaves().screenscraper, fetchFn: fetchExterno, tipoColecao: 'jogo' });
                 it = r.item; avisos.push(...r.avisos);
             }
@@ -1740,7 +1781,7 @@ https://archive.org/details/algum_desenho
                     ${l.erros.length ? `<div class="erros">${l.erros.map(esc).join('<br>')}</div>` : ''}
                     ${l.avisos.length ? `<div class="dica">${l.avisos.map(esc).join('<br>')}</div>` : ''}</td>
                   <td>${esc(resumo(l))}${l.item.ano ? ' · ' + l.item.ano : ''}</td>
-                  <td>${l.erros.length ? '<span class="tag erro">com erro</span>' : l.existente ? `<span class="tag junta" title="${esc(l.existente.caminho)}">junta com o existente</span>` : '<span class="tag novo">novo</span>'}</td>
+                  <td>${l.erros.length ? '<span class="tag erro">com erro</span>' : l.existente ? `<span class="tag junta" title="${esc(l.existente.caminho)}">junta com o existente</span>` : '<span class="tag novo">novo</span>'}${!l.erros.length && l.item._rascunho && !l.existente ? ' <span class="selo rasc">rascunho</span>' : ''}${l.item._nomeDoArquivo ? ' <span class="selo auto" title="O robô troca pelo nome oficial quando identificar a ROM">nome do arquivo</span>' : ''}</td>
                 </tr>`).join('')}</tbody>
             </table></div>
           </div>`;
@@ -1748,6 +1789,7 @@ https://archive.org/details/algum_desenho
         $$('[data-nome]').forEach(c => c.onchange = () => {
             const l = linhas[+c.dataset.nome];
             l.item.nome = c.value.trim();
+            delete l.item._nomeDoArquivo;            // nome escrito à mão: o robô não troca
             l.erros = C.validarItem(l.item, col, estado.config).erros;
             l.existente = acharExistente(col, l.item);
             l.incluir = !l.erros.length;
@@ -1768,7 +1810,9 @@ https://archive.org/details/algum_desenho
                 const existente = l.existente || null;
                 if (existente) {
                     const atual = porCaminho.get(existente.caminho) || C.normalizarItem(await estado.repo.ler(existente.caminho), col);
-                    porCaminho.set(existente.caminho, C.mesclarItem(atual, l.item));
+                    // juntar com um item que já existe nunca o devolve para rascunho nem troca o nome dele
+                    const extra = Object.assign({}, l.item); delete extra._rascunho; delete extra._nomeDoArquivo;
+                    porCaminho.set(existente.caminho, C.mesclarItem(atual, extra));
                     continue;
                 }
                 const novoNoLote = [...porCaminho.entries()].find(([c, it]) => !ocupados.has(c) && C.normText(it.nome) === C.normText(l.item.nome) && C.caminhoItem(col, it).split('/').slice(0, -1).join('/') === C.caminhoItem(col, l.item).split('/').slice(0, -1).join('/'));
@@ -1780,8 +1824,9 @@ https://archive.org/details/algum_desenho
                 porCaminho.set(caminho, l.item);
             }
             for (const [caminho, item] of porCaminho) mudancas.push({ caminho, conteudo: C.serializar(item) });
-            await gravar(mudancas, `Studio: +${mudancas.length} em ${col.nome} (adição rápida)`, btn);
-            rapido.previa = null; rapido.texto = '';
+            const emRasc = escolhidos.filter(l => l.item._rascunho && !l.existente).length;
+            await gravar(mudancas, `Studio: +${mudancas.length} em ${col.nome} (adição ${rapido.arquivos.length || mudancas.length > 30 ? 'em massa' : 'rápida'}${emRasc ? ', ' + emRasc + ' como rascunho' : ''})`, btn);
+            rapido.previa = null; rapido.texto = ''; rapido.arquivos = [];
             estado.aba = 'itens';
             desenharArea();
         } catch (e) {

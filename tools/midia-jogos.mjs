@@ -17,6 +17,7 @@
  *   node tools/midia-jogos.mjs --refazer             ignora a data da última busca
  */
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { Core, RAIZ, lerConfig, lerColecao, lerArgs } from './lib.mjs';
 
@@ -88,6 +89,21 @@ async function baixar(media, extra = {}) {
     return { buf, tipo, ext: EXT[tipo] };
 }
 
+// ---------- ROM: md5 + tamanho (só arquivos pequenos e sem compressão; ajuda o ScreenScraper a achar a versão exata) ----------
+const ROM_MAX = 16 * 1024 * 1024;
+async function impressaoDaRom(link) {
+    if (!/^https?:\/\//i.test(link || '') || /\.(zip|7z|rar|gz|iso|chd|cue|cso|pbp|img|jsdos)(\?|#|$)/i.test(link)) return {};
+    try {
+        const h = await fetch(link, { method: 'HEAD', redirect: 'follow' });
+        const tam = +h.headers.get('content-length') || 0;
+        if (!h.ok || !tam || tam > ROM_MAX) return tam ? { tamanho: tam } : {};
+        const r = await fetch(link, { redirect: 'follow' });
+        if (!r.ok) return { tamanho: tam };
+        const buf = Buffer.from(await r.arrayBuffer());
+        return { tamanho: buf.length, md5: crypto.createHash('md5').update(buf).digest('hex') };
+    } catch (e) { return {}; }
+}
+
 // ---------- fila ----------
 // trocável: vazio, veio do SteamGridDB ou é a miniatura automática do Internet Archive (quase sempre
 //   uma tela do jogo, não a caixa)
@@ -121,14 +137,22 @@ if (!simular) await prepararRelease();
 let mudou = 0, achou = 0, naoAchou = 0;
 for (const { caminho, colecao, item } of lote) {
     if (Date.now() > prazo) { console.log(`⏱ Tempo de ${args.minutos} min esgotado: o resto fica para a próxima rodada.`); break; }
-    let jeu;
-    try { jeu = await Core.buscarJogoScreenScraper(item.nome, ss, null, item.console); }
+    let jeu = null, porRom = false;
+    try {
+        // ROM adicionada em massa: identifica pelo ARQUIVO (nome do arquivo + sistema, e md5/tamanho se der) — acha o nome oficial
+        if (item._romArquivo && item.console && !item._ssRomEm) {
+            jeu = await Core.buscarJogoPorRomScreenScraper(item._romArquivo, ss, null, item.console, await impressaoDaRom((item.links || [])[0]));
+            porRom = !!jeu;
+        }
+        if (!jeu) jeu = await Core.buscarJogoScreenScraper(item.nome, ss, null, item.console);
+    }
     catch (e) {
         console.log(`⚠ ${caminho}  ScreenScraper: ${e.message}`);
         if (/limite de consultas|recusad/i.test(e.message)) break;   // não adianta insistir hoje
         continue;
     }
     const novo = Object.assign({}, item, { _ssEm: hoje });
+    if (item._romArquivo) novo._ssRomEm = hoje;
     const feito = [];
     if (!jeu) {
         naoAchou++;
@@ -137,8 +161,15 @@ for (const { caminho, colecao, item } of lote) {
     } else {
         achou++;
         novo._ssId = Number(jeu.id) || jeu.id;
+        // nome que veio do arquivo da ROM → nome oficial (só quando a ROM foi identificada ou o nome bate)
+        if (item._nomeDoArquivo) {
+            const oficial = Core.nomeScreenScraper(jeu);
+            const limpo = (t) => Core.normText(String(t || '').replace(/\s*\(.*?\)\s*/g, ' '));
+            const bate = oficial && (porRom || limpo(oficial) === limpo(item.nome) || limpo(oficial).startsWith(limpo(item.nome)) || limpo(item.nome).startsWith(limpo(oficial)));
+            if (bate) { if (oficial !== item.nome) feito.push('nome oficial: ' + oficial); novo.nome = oficial; delete novo._nomeDoArquivo; }
+        }
         const m = Core.midiasScreenScraper(jeu);
-        const base = `${colecao.id}--${Core.slugify(item.console || 'jogo')}--${Core.slugify(item.nome)}`.slice(0, 120);
+        const base = `${colecao.id}--${Core.slugify(item.console || 'jogo')}--${Core.slugify(novo.nome)}`.slice(0, 120);
         const pegar = async (campo, media, extra, rotulo) => {
             if (!media || !trocavel(item[campo])) return;
             if (simular) { feito.push(rotulo + ' (simulação)'); return; }
@@ -161,7 +192,7 @@ for (const { caminho, colecao, item } of lote) {
         if (d.ano && !item.ano) { novo.ano = d.ano; feito.push('ano'); }
         if (d.generos && d.generos.length && !(item.generos && item.generos.length)) { novo.generos = d.generos; feito.push('gêneros'); }
         if (d.jogadores && !item.jogadores) { novo.jogadores = d.jogadores; feito.push('jogadores'); }
-        console.log(`${feito.length ? '✅' : '·'} ${caminho}  [${d.nome || '?'} · ${d.sistema || '?'}]  ${feito.join(' · ') || 'nada novo'}`);
+        console.log(`${feito.length ? '✅' : '·'} ${caminho}  [${d.nome || '?'} · ${d.sistema || '?'}${porRom ? ' · pela ROM' : ''}]  ${feito.join(' · ') || 'nada novo'}`);
     }
     if (!simular) {
         const normal = Core.normalizarItem(novo, colecao);
