@@ -1,7 +1,7 @@
 {
   "nome": "A Difficult Game About Climbing",
   "links": [
-    "https://gn-math.dev/?id=672"
+    "https://gn-math.dev/s/EE0_FEFXflkgVgdiHT0MUT4GRx40BDFYHjgfOgwXKAtfQjcEN1ISORMnFlw4Fx0FJRs-GB0tEzpXD3xWHws4DmAZGDgXOA/?__gn_view=1"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/4d0ef325824a817d249f4e38054e5e69.png",
   "banner": "https://cdn2.steamgriddb.com/hero/f29fc25ced73683fe373669f22259cdb.jpg",
@@ -11,9 +11,9 @@
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-indie",
   "licenca": "nao-verificada",
-  "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
   "_completadoEm": "2026-11-11",
   "_ssEm": "2026-11-12",
-  "_ssId": 0
+  "_ssId": 0,
+  "_rascunho": true
 }
