@@ -410,6 +410,9 @@
         for (const k of ['capa', 'banner', 'logo', 'video']) { const v = campoDaLista(o, k); if (v) e[k] = completar(v); }
         for (const k of ['descricao', 'licenca', 'pais', 'idioma']) { const v = campoDaLista(o, k); if (v) e[k] = String(v).trim(); }
         const c = campoDaLista(o, 'console'); if (c) e.console = String(c).trim();
+        // "core" da lista (ex.: lista-por-core.csv do cartoonzine-jogos: mame_capcom) vira o "Core do emulador" do jogo
+        const core = Object.entries(o).find(([k, v]) => chaveSimples(k) === 'core' && v);
+        if (core && /^[a-z0-9_]+$/i.test(String(core[1]).trim()) && !/^_/.test(String(core[1]).trim())) e.core = String(core[1]).trim();
         const a = campoDaLista(o, 'ano'); if (a && /(\d{4})/.test(String(a))) e.ano = +RegExp.$1;
         const g = campoDaLista(o, 'generos'); if (g) e.generos = Array.isArray(g) ? g.map(String) : String(g).split(/[,;/]+/).map(x => x.trim()).filter(Boolean);
         const j = campoDaLista(o, 'jogadores'); if (j && /(\d+)\s*$/.test(String(j))) e.jogadores = +RegExp.$1;
@@ -525,6 +528,7 @@
                 else it.nome = String(it.nome || '').replace(/\s*\((USA|Europe|Japan|World|Brazil|Brasil|Korea|Asia|Spain|France|Germany|Italy|En|Ja|Fr|De|Es|It|Pt|Rev|Beta|Proto|Demo|Sample|Unl|v\d)[^)]*\)|\s*\[[^\]]*\]/gi, '').trim() || it.nome;
             }
         }
+        if (!it.console && /^mame_/.test(it.core || '') && ids.includes('arcade')) it.console = 'arcade';   // core do MAME = card Arcade
         if (!it.console && consolePadrao) it.console = consolePadrao;
         delete it._nomeInformado;
         return { item: it, avisos };
@@ -565,7 +569,7 @@
                     headers: e.headers, archive: e.archive, tmdb: e.tmdb, imdb: e.imdb,
                     // vindos das listas em arquivo (JSON/CSV/gamelist): o resto da ficha
                     banner: e.banner, video: e.video, descricao: e.descricao, generos: e.generos, jogadores: e.jogadores,
-                    licenca: e.licenca, console: e.console, _nomeInformado: e._nomeInformado
+                    licenca: e.licenca, console: e.console, core: e.core, _nomeInformado: e._nomeInformado
                 });
                 itens.push(item);
             }
