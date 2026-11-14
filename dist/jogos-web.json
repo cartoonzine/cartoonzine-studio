@@ -176,13 +176,19 @@
   {
    "title": "20 Minutes Till Dawn",
    "desc": "Port para navegador · gn-math.dev",
+   "genre": [
+    "Plataforma",
+    "Tiro"
+   ],
    "bannerlogo": "https://cdn2.steamgriddb.com/logo/121892a5b8bf3e390a83dc0af8d5b3fd.png",
+   "bgImg": "banner",
    "studio": "jogos-web/web-indie/20-minutes-till-dawn",
-   "url": "https://gn-math.dev/?id=819",
+   "url": "https://degloved.net/games/public/gms/20-minutes-till-dawn/index.html",
    "thumb": "https://cdn2.steamgriddb.com/grid/c3c25f1f935df6a160e928e45c8afaa1.png",
    "bannerThumb": "https://cdn2.steamgriddb.com/hero/e585e21c1b435f760995e9e586875ecd.png",
    "logo": "https://cdn2.steamgriddb.com/logo/121892a5b8bf3e390a83dc0af8d5b3fd.png",
    "console": "web-indie",
+   "players": 1,
    "core": "web",
    "aparelhos": [
     "tv",
