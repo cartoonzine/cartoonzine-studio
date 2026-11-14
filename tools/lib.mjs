@@ -64,7 +64,9 @@ export function salvarItem(colecao, novo, { raiz = RAIZ, substituir = false } = 
     const existente = acharPorNome(colecao, item, raiz);
     if (existente) {
         if (existente.item._travado && item._origem) return { caminho: existente.caminho, acao: 'travado' };
-        const final = substituir ? item : Core.mesclarItem(Core.normalizarItem(existente.item, colecao), item);
+        // juntar com um item que já existe nunca o devolve para rascunho nem troca o nome dele
+        const extra = Object.assign({}, item); if (!existente.item._rascunho) delete extra._rascunho; delete extra._nomeDoArquivo;
+        const final = substituir ? item : Core.mesclarItem(Core.normalizarItem(existente.item, colecao), extra);
         // item feito à mão continua sendo "à mão": a sincronização automática nunca vai apagá-lo
         if (!existente.item._origem) delete final._origem;
         const antes = Core.serializar(existente.item), depois = Core.serializar(final);
@@ -156,14 +158,20 @@ export function aplicarPadroes(item, args) {
  * Importa texto (M3U, lista de links, mensagens do bot, links do archive.org) para uma coleção.
  * Devolve [{caminho, acao, nome}] e os erros por item.
  */
-export async function importarTexto(colecao, texto, { args = {}, raiz = RAIZ, origem, config = lerConfig(raiz), log = () => {}, simular = false, filtroNome } = {}) {
-    const entradas = Core.lerTextoColado(texto);
+export async function importarTexto(colecao, texto, { args = {}, raiz = RAIZ, origem, config = lerConfig(raiz), log = () => {}, simular = false, filtroNome, nomeArquivo } = {}) {
+    // arquivo .json/.csv/.tsv/.lpl/.xml: leitor de listas; o resto (txt, m3u, colado): o leitor de sempre
+    const entradas = nomeArquivo ? Core.lerListaArquivo(nomeArquivo, texto, { base: args.base && args.base !== true ? args.base : '' }) : Core.lerTextoColado(texto);
     const itens = Core.agruparEntradas(entradas, { series: colecao.tipo === 'video' });
     const resultado = [], falhas = [];
     for (let item of itens) {
         if (filtroNome && !filtroNome(item.nome)) continue;
         if (item.categoria !== undefined) item.categoria = Core.traduzirCategoria(item.categoria);
+        if (colecao.tipo === 'jogo') {
+            const r = Core.prepararJogoEmMassa(item, colecao, config, args.console && args.console !== true ? String(args.console) : '');
+            item = r.item; r.avisos.forEach(a => log('  ⚠ ' + a));
+        }
         item = aplicarPadroes(Core.limparVazios(item), args);
+        if (args.rascunho) item._rascunho = true;
         if (colecao.tipo !== 'video') { delete item.audio; }
         if (origem) item._origem = origem;
         log(`• ${item.nome}`);
