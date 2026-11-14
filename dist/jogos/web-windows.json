@@ -374,6 +374,30 @@
    "license": "livre"
   },
   {
+   "title": "Minecraft Cow Tools",
+   "genre": [
+    "Plataforma de aventura sandbox"
+   ],
+   "bannerlogo": "https://images.launchbox-app.com//e313fed4-ade9-46fb-965e-bd90c9158680.png",
+   "bgImg": "banner",
+   "bgPosY": 56,
+   "studio": "jogos-web/web-windows/minecraft-cow-tools",
+   "url": "https://eag.pages.dev/?server=wss://clever-teaching.com",
+   "thumb": "https://images.launchbox-app.com//bd5f9eea-510f-48d7-9356-cf95447b1d75.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//bf55c382-69cf-4ae8-b40b-bde207671992.jpg",
+   "previewThumb": "https://images.launchbox-app.com//01197796-3a19-47b0-a98f-1b5c0d071bd3.jpg",
+   "console": "web-windows",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "WebAssembly",
+   "license": "livre"
+  },
+  {
    "title": "Neverball",
    "desc": "Incline o tabuleiro e leve a bola até a saída pegando as moedas. Mais de 100 fases. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2003,
