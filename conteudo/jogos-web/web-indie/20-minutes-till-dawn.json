@@ -1,7 +1,7 @@
 {
   "nome": "20 Minutes Till Dawn",
   "links": [
-    "https://gn-math.dev/?id=819"
+    "https://degloved.net/games/public/gms/20-minutes-till-dawn/index.html"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/c3c25f1f935df6a160e928e45c8afaa1.png",
   "banner": "https://cdn2.steamgriddb.com/hero/e585e21c1b435f760995e9e586875ecd.png",
@@ -9,8 +9,14 @@
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/20-minutes",
   "descricao": "Port para navegador · gn-math.dev",
+  "generos": [
+    "Plataforma",
+    "Tiro"
+  ],
   "console": "web-indie",
   "licenca": "livre",
+  "jogadores": 1,
+  "fundoImagem": "banner",
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
   "_completadoEm": "2026-11-11",
   "_ssEm": "2026-11-11",
