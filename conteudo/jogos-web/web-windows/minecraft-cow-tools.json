@@ -1,0 +1,19 @@
+{
+  "nome": "Minecraft Cow Tools",
+  "links": [
+    "https://eag.pages.dev/?server=wss://clever-teaching.com"
+  ],
+  "capa": "https://images.launchbox-app.com//bd5f9eea-510f-48d7-9356-cf95447b1d75.jpg",
+  "banner": "https://images.launchbox-app.com//bf55c382-69cf-4ae8-b40b-bde207671992.jpg",
+  "previa": "https://images.launchbox-app.com//01197796-3a19-47b0-a98f-1b5c0d071bd3.jpg",
+  "generos": [
+    "Plataforma de aventura sandbox"
+  ],
+  "engine": "WebAssembly",
+  "console": "web-windows",
+  "licenca": "livre",
+  "jogadores": 1,
+  "fundoImagem": "banner",
+  "posFundo": 56,
+  "bannerLogo": "https://images.launchbox-app.com//e313fed4-ade9-46fb-965e-bd90c9158680.png"
+}
