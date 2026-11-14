@@ -167,3 +167,17 @@ test('massa: linha de comando importa lista JSON como rascunho', async () => {
     assert.equal(rom._romArquivo, 'Contra (USA).nes');
     fs.rmSync(raiz, { recursive: true, force: true });
 });
+
+test('massa: lista-por-core.csv do cartoonzine-jogos (romset, core, arquivo) com endereço base', () => {
+    const csv = 'romset,core,arquivo\nsf2,mame_capcom,mame_capcom/sf2.zip\nneogeo,_sem-core,_sem-core/neogeo.zip\n';
+    const l = C.lerListaArquivo('lista-por-core.csv', csv, { base: 'https://archive.org/download/meu-mame/' });
+    assert.equal(l[0].links[0], 'https://archive.org/download/meu-mame/mame_capcom/sf2.zip');
+    assert.equal(l[0].core, 'mame_capcom');
+    assert.equal(l[1].core, undefined);                       // _sem-core não é core
+    const [item] = C.agruparEntradas([l[0]], { series: false });
+    const p = C.prepararJogoEmMassa(item, col('jogos'), config, '').item;
+    assert.equal(p.console, 'arcade');
+    assert.equal(p.core, 'mame_capcom');
+    assert.equal(p._romArquivo, 'sf2.zip');
+    assert.equal(C.normalizarItem(p, col('jogos')).core, 'mame_capcom');
+});
