@@ -555,3 +555,12 @@ test('imagem do fundo do topo: capa (padrão) ou banner; vai para o app como bgI
     const campos = C.TIPOS.video.campos.map(c => c.k);
     assert.ok(campos.indexOf('fundoImagem') === campos.indexOf('posFundo') - 1);   // o seletor fica logo acima da prévia
 });
+
+test('jogo: CHD do MAME vai para o app como lista "chd"', () => {
+    const retro = config.colecoes.find(c => c.id === 'jogos') || config.colecoes.find(c => (c.campos || []).some(k => k.k === 'console'));
+    const it = C.normalizarItem({ nome: 'SF3', console: 'arcade', core: 'mame_capcom', links: ['https://r.x/sfiii.zip'], chd: 'https://r.x/sfiii/cap-sf3-3.chd  https://r.x/nada.txt' }, retro);
+    assert.equal(it.chd, 'https://r.x/sfiii/cap-sf3-3.chd');
+    const o = C.paraCloud(it, retro, 'jogos/x', config);
+    assert.deepEqual(o.chd, ['https://r.x/sfiii/cap-sf3-3.chd']);
+    assert.equal(C.paraCloud(C.normalizarItem({ nome: 'SF2', console: 'arcade', links: ['https://r.x/sf2.zip'] }, retro), retro, 'jogos/x', config).chd, undefined);
+});
