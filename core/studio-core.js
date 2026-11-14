@@ -410,6 +410,9 @@
         for (const k of ['capa', 'banner', 'logo', 'video']) { const v = campoDaLista(o, k); if (v) e[k] = completar(v); }
         for (const k of ['descricao', 'licenca', 'pais', 'idioma']) { const v = campoDaLista(o, k); if (v) e[k] = String(v).trim(); }
         const c = campoDaLista(o, 'console'); if (c) e.console = String(c).trim();
+        // "chd" da lista (lista-por-core.csv do separar-roms.py: mame_capcom/sfiii/cap-sf3-3.chd) vira o disco do jogo
+        const chd = Object.entries(o).find(([k, v]) => chaveSimples(k) === 'chd' && v);
+        if (chd) { const d = discosChd(chd[1]).map(completar).filter(Boolean); if (d.length) e.chd = d.join(' '); }
         // "core" da lista (ex.: lista-por-core.csv do cartoonzine-jogos: mame_capcom) vira o "Core do emulador" do jogo
         const core = Object.entries(o).find(([k, v]) => chaveSimples(k) === 'core' && v);
         if (core && /^[a-z0-9_]+$/i.test(String(core[1]).trim()) && !/^_/.test(String(core[1]).trim())) e.core = String(core[1]).trim();
@@ -538,7 +541,31 @@
      * Junta entradas soltas em itens: episódios da mesma série viram UM item com
      * temporadas; o resto vira item avulso (filme, canal, rádio, jogo).
      */
+    /** Links de disco (CHD) do MAME: aceita texto (espaço, vírgula, linha, |) ou lista; só os .chd */
+    function discosChd(v) {
+        const l = Array.isArray(v) ? v : String(v || '').split(/[\s,;|]+/);
+        return unicos(l.map(x => String(x || '').trim()).filter(x => /\.chd([?#]|$)/i.test(x)));
+    }
+    /** Romset de um link (…/sfiii.zip → sfiii) e a pasta de um .chd (…/sfiii/cap-sf3-3.chd → sfiii) */
+    const romsetDoLink = (u) => { try { return decodeURIComponent(String(u).split(/[?#]/)[0].split('/').pop()).replace(/\.(zip|7z)$/i, '').toLowerCase(); } catch (e) { return ''; } };
+    const pastaDoChd = (u) => { try { const p = String(u).split(/[?#]/)[0].split('/'); return decodeURIComponent(p[p.length - 2] || '').toLowerCase(); } catch (e) { return ''; } };
+
     function agruparEntradas(entradas, opts = {}) {
+        // .chd soltos na lista (colados junto com os .zip): vão para o jogo do mesmo romset (pasta do disco = romset)
+        entradas = entradas || [];
+        const soltos = entradas.filter(e => e && e.links && e.links.length && e.links.every(u => /\.chd([?#]|$)/i.test(u)));
+        if (soltos.length) {
+            const porRomset = new Map();
+            entradas.forEach(e => { if (e && e.links && !soltos.includes(e)) e.links.forEach(u => { const r = romsetDoLink(u); if (r && /\.(zip|7z)([?#]|$)/i.test(u) && !porRomset.has(r)) porRomset.set(r, e); }); });
+            const usados = new Set();
+            soltos.forEach(s => s.links.forEach(u => {
+                const dono = porRomset.get(pastaDoChd(u));
+                if (!dono) return;
+                dono.chd = discosChd([...discosChd(dono.chd), u]).join(' ');
+                usados.add(s);
+            }));
+            entradas = entradas.filter(e => !usados.has(e));
+        }
         const itens = [];
         const series = new Map();
         for (const e of entradas || []) {
@@ -569,7 +596,7 @@
                     headers: e.headers, archive: e.archive, tmdb: e.tmdb, imdb: e.imdb,
                     // vindos das listas em arquivo (JSON/CSV/gamelist): o resto da ficha
                     banner: e.banner, video: e.video, descricao: e.descricao, generos: e.generos, jogadores: e.jogadores,
-                    licenca: e.licenca, console: e.console, core: e.core, _nomeInformado: e._nomeInformado
+                    licenca: e.licenca, console: e.console, core: e.core, chd: e.chd, _nomeInformado: e._nomeInformado
                 });
                 itens.push(item);
             }
@@ -1438,6 +1465,7 @@
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
                 { k: 'previa', rotulo: 'Imagem da tela de prévia', tipo: 'url', imagem: true, avancado: true, dica: 'aparece no banner antes do vídeo (snap) começar — ex.: a tela de título do jogo · vazio = usa o banner' },
                 { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Arcade: fbneo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1 ou fbalpha2012_cps2 — todos ficam no card Arcade. Nos Jogos Web é sempre "web"' },
+                { k: 'chd', rotulo: 'Disco do jogo (CHD) — MAME', tipo: 'texto', avancado: true, dica: 'só arcade MAME com disco (CPS3, Konami 573, Naomi GD-ROM…): link(s) do .chd, separados por espaço, com o nome EXATO do MAME (ex.: …/sfiii/cap-sf3-3.chd). O jogo baixa o disco junto com o .zip · mesma versão do MAME dos cores (0.289)' },
                 { k: 'comandoDos', rotulo: 'Comando do jogo (MS-DOS)', tipo: 'texto', avancado: true, dica: 'só MS-DOS: o programa que abre o jogo dentro do zip (ex.: KEEN4E.EXE). Vazio = AUTORUN.BAT do zip ou o .exe principal, escolhido sozinho' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
                 { k: 'licenca', rotulo: 'Licença (Web Games)', tipo: 'escolha', opcoes: ['', ...LICENCAS_WEB], avancado: true, dica: 'livre = jogo/código aberto ou gratuito · autorizada = demo oficial ou o dono liberou · precisa-original = o jogador carrega os arquivos do próprio jogo · jogo web só é publicado com a licença conferida' },
@@ -1489,6 +1517,7 @@
         for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas', 'comandoDos']) {
             if (b[k] !== undefined && b[k] !== '') out[k] = String(b[k]).trim();
         }
+        if (b.chd) { const d = discosChd(b.chd); if (d.length) out.chd = d.join(' '); }   // MAME: discos (CHD)
         if (b.pais) out.pais = codigoPais(b.pais);
         if (out.categoria) { out.categoria = traduzirCategoria(out.categoria); if (!out.categoria) delete out.categoria; }
         if (b.console) out.console = String(b.console).trim().toLowerCase();
@@ -1678,6 +1707,7 @@
                     bannerlogo: item.bannerLogo || item.logo,   // o banner do app usa "bannerlogo" no lugar do nome do jogo   // logo + vídeo snap (ScreenScraper) para o banner
                     console: item.console, players: item.jogadores, core: item.core || coreDoConsole(item.console, config),
                     dosrun: item.comandoDos,                                                    // MS-DOS: programa do jogo dentro do zip
+                    chd: discosChd(item.chd).length ? discosChd(item.chd) : undefined,          // MAME: discos do jogo (o cartucho baixa junto)
                     aparelhos: item.soPC ? ['pc'] : undefined                               // "Só PC": a TV não mostra
                 });
                 // cartucho web: o app abre a página do jogo no cartucho-web.html (core "web")
@@ -1960,7 +1990,7 @@
         VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, contarEpisodios, resumoItem,
         slugify, normText, semAcento, limparHtml, lista,
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
-        analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
+        analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
         lerListaArquivo, consoleDoNomeSistema, consoleDaExtensao, limparNomeRom, prepararJogoEmMassa, buscarJogoPorRomScreenScraper, nomeScreenScraper,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
         refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,

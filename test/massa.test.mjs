@@ -181,3 +181,21 @@ test('massa: lista-por-core.csv do cartoonzine-jogos (romset, core, arquivo) com
     assert.equal(p._romArquivo, 'sf2.zip');
     assert.equal(C.normalizarItem(p, col('jogos')).core, 'mame_capcom');
 });
+
+test('massa: CHD do MAME — coluna "chd" do lista-por-core.csv e .chd soltos vão para o jogo certo', () => {
+    const csv = 'romset,core,arquivo,chd\nsf2,mame_capcom,mame_capcom/sf2.zip,\nsfiii,mame_capcom,mame_capcom/sfiii.zip,mame_capcom/sfiii/cap-sf3-3.chd\n';
+    const l = C.lerListaArquivo('lista-por-core.csv', csv, { base: 'https://h.x/mame/' });
+    assert.equal(l[0].chd, undefined);
+    assert.equal(l[1].chd, 'https://h.x/mame/mame_capcom/sfiii/cap-sf3-3.chd');
+    const itens = C.agruparEntradas(l);
+    assert.equal(itens[1].chd, 'https://h.x/mame/mame_capcom/sfiii/cap-sf3-3.chd');
+    // colados juntos: o .chd não vira jogo, entra no sfiii (a pasta do disco é o romset)
+    const soltos = C.agruparEntradas([
+        { nome: 'sfiii', links: ['https://h.x/sfiii.zip'] },
+        { nome: 'cap-sf3-3', links: ['https://h.x/sfiii/cap-sf3-3.chd'] },
+        { nome: 'Crash', links: ['https://h.x/psx/crash.chd'] }          // CHD de console (PS1): continua sendo jogo
+    ]);
+    assert.equal(soltos.length, 2);
+    assert.equal(soltos[0].chd, 'https://h.x/sfiii/cap-sf3-3.chd');
+    assert.deepEqual(C.discosChd('https://a/x.chd, https://a/y.zip https://a/x.chd|https://a/z.chd'), ['https://a/x.chd', 'https://a/z.chd']);
+});
