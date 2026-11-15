@@ -1,9 +1,7 @@
 {
   "nome": "Terraria",
   "links": [
-    "sandboxworld.online",
-    "https://degloved.net/games/public/gms/terraria/index.html",
-    "https://playterraria.lol/game/"
+    "https://sandboxworld.online/"
   ],
   "capa": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
   "banner": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
@@ -12,6 +10,5 @@
   "licenca": "livre",
   "fundoImagem": "banner",
   "posFundo": 70,
-  "_completadoEm": "2026-11-11",
-  "_rascunho": true
+  "_completadoEm": "2026-11-11"
 }
