@@ -6,6 +6,6 @@
   "capa": "https://cdn.combos.fun/uploads/1000005196/ede5966f-82f2-46ac-8cea-74e96a3c78ca.png?x-oss-process=image/format,webp/quality,Q_90/resize,w_1120",
   "banner": "https://cdn.combos.fun/uploads/1000005196/ede5966f-82f2-46ac-8cea-74e96a3c78ca.png?x-oss-process=image/format,webp/quality,Q_90/resize,w_1120",
   "console": "web-indie",
-  "posFundo": 100,
-  "_rascunho": true
+  "licenca": "livre",
+  "posFundo": 100
 }
