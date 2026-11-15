@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-15T16:05:51.040Z",
+  "geradoEm": "2026-11-15T16:20:46.948Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 729,
-      "publicados": 47,
+      "publicados": 48,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -188,10 +188,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-dos/doom-i-e-ii.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-dos/doom-joeheyming-classic-and-mods.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2869,7 +2865,7 @@
       ],
       "porConsole": {
         "web-fangames": 0,
-        "web-indie": 6,
+        "web-indie": 7,
         "web-remakes": 4,
         "web-pc": 2,
         "web-n64": 0,
