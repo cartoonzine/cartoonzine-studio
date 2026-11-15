@@ -3,6 +3,25 @@
  "nome": "Remakes",
  "games": [
   {
+   "title": "Battle City",
+   "desc": "Port para navegador · battle-city.berrry.app",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
+   "studio": "jogos-web/web-remakes/battle-city",
+   "url": "https://battle-city.berrry.app",
+   "thumb": "https://cdn2.steamgriddb.com/grid/9b06c290e92cdb39f68f6581921c56e9.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/0129a222fe10c9896db191c537694699.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
+   "console": "web-remakes",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "repo": "https://github.com/vgrichina/battlecity"
+  },
+  {
    "title": "Freegemas",
    "desc": "Junte 3 joias iguais. No estilo Bejeweled, ótimo para a família. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2010,

@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-15T16:20:46.948Z",
+  "geradoEm": "2026-11-15T19:47:39.072Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 729,
-      "publicados": 48,
+      "publicados": 49,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -2467,10 +2467,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-remakes/battle-city.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-remakes/eaglercraft.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2866,7 +2862,7 @@
       "porConsole": {
         "web-fangames": 0,
         "web-indie": 7,
-        "web-remakes": 4,
+        "web-remakes": 5,
         "web-pc": 2,
         "web-n64": 0,
         "web-gamecube": 0,
