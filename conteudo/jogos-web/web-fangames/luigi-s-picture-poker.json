@@ -1,6 +1,7 @@
 {
   "nome": "Luigi's Picture Poker",
   "links": [
+    "https://html-classic.itch.zone/html/15352391/index.html",
     "https://marcy4000.itch.io/luigis-picture-poker"
   ],
   "capa": "https://cdn2.steamgriddb.com/grid/ac7c433007ac68a863d12dd75b2d13eb.png",
@@ -10,9 +11,9 @@
   "descricao": "Port para navegador · marcy4000.itch.io",
   "console": "web-fangames",
   "licenca": "nao-verificada",
-  "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
   "_completadoEm": "2026-11-11",
   "_ssEm": "2026-11-11",
-  "_ssId": 0
+  "_ssId": 0,
+  "_rascunho": true
 }
