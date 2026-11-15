@@ -3,7 +3,22 @@
   "links": [
     "https://degloved.net/games/public/gms/tabs/index.html"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--tabs--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--tabs--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--tabs--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--tabs--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--tabs--previa.jpg",
+  "descricao": "Veja-os lutar em simulações feitas com o sistema de física mais molenga já criado.\r\nQuando se cansar dos mais de 100 molengas à sua disposição, você poderá criar novos com o criador de unidade.\r\nVocê também pode enviar seus molengas para lutar contra seus amigos e outros jogadores no modo multijogador online!",
+  "ano": 2023,
+  "generos": [
+    "Simulação",
+    "Luta"
+  ],
   "console": "web-outros",
+  "jogadores": 2,
   "_rascunho": true,
-  "_completadoEm": "2026-11-14"
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 431288,
+  "_ssPreviaEm": "2026-11-15"
 }

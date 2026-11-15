@@ -3,16 +3,25 @@
   "links": [
     "https://vinmannie.github.io/Sonic-1-WASM/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/6babf6559ebc185d02860ca79b1088a5.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/9fe06b33ea459f011178ef3156ff09c7.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/47c95199b010148056eda6ac6f961c63.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--sonic-the-hedgehog--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--sonic-the-hedgehog--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--sonic-the-hedgehog--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--sonic-the-hedgehog--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--sonic-the-hedgehog--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/VinMannie/Sonic-1-WASM",
-  "descricao": "Port para navegador · vinmannie.github.io",
+  "descricao": "Sonic the Hedgehog é o primeiro de muitos jogos estrelando o principal roedor da SEGA, Sonic. É um jogo de plataforma side scrolling com uma diferença: velocidade. Sonic corre através dos níveis com incrível velocidade, o permitindo atravessar loops e saltos com facilidade.\r\n\r\nO enredo do jogo é simples. O malvado Dr. Robotnik capturou muitos dos amigos animais de Sonic em South Island, e os prendeu dentro de robôs. Felizmente, Sonic pode libertar seus amigos destruindo os robôs com seu Spin Attack. Enquanto isso, o Dr. Robotnik está tentando controlar as toda-poderosas Chaos Emeralds. Sonic deve pegá-las antes dele nas fases especiais giratórias.",
   "ano": 2013,
+  "generos": [
+    "Plataforma"
+  ],
   "console": "web-outros",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-15",
+  "_ssId": 5,
+  "_ssPreviaEm": "2026-11-15"
 }

@@ -3,10 +3,22 @@
   "links": [
     "https://degloved.net/games/public/gms/jetpack-joyride/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/fd5693a5277fc5a1dbd31dbb4af9a1d8.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/c69cbea888b54a03652e945125f05653.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/813b55971c67156836f1bc15e45726d2.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--jetpack-joyride--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--jetpack-joyride--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--jetpack-joyride--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--jetpack-joyride--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--jetpack-joyride--previa.jpg",
+  "descricao": "Barry Steakfries, um empresário, vê as suas vendas diminuírem consideravelmente. À beira da falência, ele vê apenas uma solução: perguntar a um laboratório secreto se ele pode criar algo para aumentar os seus lucros. Quando vai para o laboratório, encontra uma criação secreta: um jetpack. Pensando em todas as coisas que podia fazer com ele, ele entra no laboratório, quebra uma parede, rouba o jetpack e foge.O objectivo do jogo é percorrer a maior distância no seu jetpack, evitando zappers, mísseis e lasers, e recolher o maior número possível de moedas e desenhar fichas. Há também missões a completar, a nivelar, e a ganhar dinheiro para gastar na loja.",
+  "ano": 2012,
+  "generos": [
+    "Plataforma",
+    "Plataforma / Corre e Pula com rolagem"
+  ],
   "console": "web-outros",
+  "jogadores": 1,
   "_rascunho": true,
-  "_completadoEm": "2026-11-14"
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 25289,
+  "_ssPreviaEm": "2026-11-15"
 }

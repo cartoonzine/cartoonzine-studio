@@ -3,9 +3,22 @@
   "links": [
     "https://degloved.net/games/public/gms/survivor/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/0e7b4eff5e67b94dd1ee3b521e0d6c7c.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/59fd223a8dd5c3330270343842c0daa6.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--survivor--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--survivor--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--survivor--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--survivor--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--survivor--previa.png",
+  "descricao": "After 30 hours of travel, 16 candidates find themselves in the heart of a paradise. However, the discovery of this distant place quickly leaves the pain of physical tests. Without fire, food or shelter present, only the toughest will survive this adventure for 40 days.",
+  "ano": 2008,
+  "generos": [
+    "Aventura",
+    "Quebra-cabeças"
+  ],
   "console": "web-outros",
+  "jogadores": 2,
   "_rascunho": true,
-  "_completadoEm": "2026-11-14"
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 5999,
+  "_ssPreviaEm": "2026-11-15"
 }

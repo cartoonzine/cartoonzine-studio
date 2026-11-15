@@ -3,10 +3,21 @@
   "links": [
     "https://degloved.net/games/public/gms/peak/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/fbf3321aabbfb52b9361463b92a3b84b.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/697c22e48e9cb0207d3e5d7560c971f6.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/4e3d6212dd67def76238cdbf47055e6a.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--peak--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--peak--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--peak--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--peak--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--peak--previa.png",
+  "descricao": "PEAK PERFORMANCE is a racing game based on the Chevrolet Pikes Peak International Hill Climb. The signature course, Pikes Peak Hill Climb, is a solitary climb up a mountain, with more turns on one track than most have in an entire game. This track, as with half of the other four courses, features a combination of dirt and pavement in both urban and rural settings, providing enough variety and difficulty to keep things interesting. Each of the game's 25 cars has its own feel, giving the game a good amount of depth and keeping the replay value high. Each car can also be colored, named, and completely customized, right down to the wheels.",
+  "ano": 1997,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-outros",
+  "jogadores": 2,
   "_rascunho": true,
-  "_completadoEm": "2026-11-14"
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 105200,
+  "_ssPreviaEm": "2026-11-15"
 }

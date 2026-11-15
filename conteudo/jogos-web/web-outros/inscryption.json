@@ -3,10 +3,15 @@
   "links": [
     "https://degloved.net/games/public/gms/inscryption/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/0e8db479ccde6f74f7e23d2bd71c47bb.jpg",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--inscryption--capa.png",
   "banner": "https://cdn2.steamgriddb.com/hero/d471ba80482c93d408c57f0974b23a1e.png",
   "logo": "https://cdn2.steamgriddb.com/logo/5ef8cf77201dc48f2a2f22cd14ec648c.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--inscryption--previa.png",
+  "descricao": "Which Scrybe will you replace?",
   "console": "web-outros",
   "_rascunho": true,
-  "_completadoEm": "2026-11-14"
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 540371,
+  "_ssPreviaEm": "2026-11-15"
 }

@@ -6,7 +6,12 @@
   "capa": "https://cdn2.steamgriddb.com/grid/05b5f43841bf592510e90dffa4bf2177.png",
   "banner": "https://cdn2.steamgriddb.com/hero/ae8827ca4cf6e82f03d09bdfb4cd5e8f.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/2686b822a1b95a0940e608accafd292a.png",
+  "descricao": "Postal sur Android est un jeu d'action qui vous fera semer le chaos dans un petit coin tranquille des États-Unis. Vos ennemis ne sont ici ni zombies ni monstres, mais bien des citoyens lambda et habitants de la ville dans laquelle vous ferez parler votre panel d'armes. Tout ceci dans une ambiance de mauvais goût prononcée et volontaire.",
+  "ano": 2015,
   "console": "web-outros",
   "_rascunho": true,
-  "_completadoEm": "2026-11-14"
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 32887,
+  "_ssPreviaEm": "2026-11-15"
 }

@@ -3,10 +3,20 @@
   "links": [
     "https://degloved.net/games/public/gms/needy-streamer-overload/index.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/e485557eaf06681716a645fcb6d3775c.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/805f28c4c4c4692dcfc7375101b9f223.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/23f1d2f439d269b31ad4633ca6032c81.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--needy-streamer-overload--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--needy-streamer-overload--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--needy-streamer-overload--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--needy-streamer-overload--previa.jpg",
+  "descricao": "NEEDY STREAMER OVERLOAD is a “multi-ending ADV” depicting the daily life with “OMGkawaiiAngel”, a young girl with a rather extreme need for approval attempting to become the #1 “Internet Angel” (streamer). Gradually build up OMGkawaiiAngel’s number of followers as she spends her days streaming, using various ”stress relievers”, and generally being kinda messed up. Experience all the different crazy ups and downs (like rock bottom!) and find out for yourself whether this story is even capable of having a happy ending.",
+  "ano": 2024,
+  "generos": [
+    "Simulação"
+  ],
   "console": "web-outros",
+  "jogadores": 1,
   "_rascunho": true,
-  "_completadoEm": "2026-11-14"
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 481166,
+  "_ssPreviaEm": "2026-11-15"
 }

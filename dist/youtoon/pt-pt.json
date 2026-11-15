@@ -203,7 +203,7 @@
    ],
    "studio": "youtoon/portugues-portugal/cartoonito-portugal-grizzy-e-os-lemingues",
    "url": "https://www.youtube.com/playlist?list=PLSz9ifLtWXQmb6Uphk4D8Dll780q8t3Ru",
-   "logo": "https://i.ytimg.com/vi/RBMwBxc9CmE/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/immE9ikfrm4/hqdefault.jpg",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
@@ -424,6 +424,18 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Masha e o Urso EU 24H",
+   "desc": "🔴 LIVE 👧🐻 Masha e o Urso ⭐ Premiere ⭐ O mundo perdido ❄️👣😱 Masha and the Bear",
+   "genre": [
+    "Infantil"
+   ],
+   "studio": "youtoon/portugues-portugal/masha-e-o-urso-eu-24h",
+   "url": "https://www.youtube.com/channel/UCu-ouRRIRwKHqEGXbLMftVw/live",
+   "logo": "https://i.ytimg.com/vi/6rgc81Rxhdc/hqdefault.jpg?v=6af35988",
+   "idioma": "pt-PT",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Mr Bean No.1 Portugal",
    "desc": "Canal oficial de Mr Bean No.1 Portugal no YouTube: episódios sem parar.",
    "genre": [
@@ -444,18 +456,6 @@
    "studio": "youtoon/portugues-portugal/nick-jr-em-portugues",
    "url": "https://www.youtube.com/channel/UCxmK61Geo08axWQP_BPdvlw",
    "logo": "https://yt3.ggpht.com/xs_NHPdUbCntjif-I2CrITeu-voAwG3Gpn04MluTh3NlPBdNmvMUFq4_wzPU5jgYWNl_zK_OEA=s800-c-k-c0x00ffffff-no-rj",
-   "idioma": "pt-PT",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Nick Jr. em Português 24H",
-   "desc": "🔴AO VIVO: Resgates, Aventuras e Jogos com Robôs do Blaze! 🤖",
-   "genre": [
-    "Pré-escolar"
-   ],
-   "studio": "youtoon/portugues-portugal/nick-jr-em-portugues-24h",
-   "url": "https://www.youtube.com/channel/UCxmK61Geo08axWQP_BPdvlw/live",
-   "logo": "https://i.ytimg.com/vi/Z9Nm2wVYczY/hqdefault.jpg?v=6908f3f5",
    "idioma": "pt-PT",
    "group": "Desenhos 24H"
   },
