@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-15T04:20:03.038Z",
+  "geradoEm": "2026-11-15T04:38:40.367Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,7 +133,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 727,
+      "total": 728,
       "publicados": 46,
       "erros": [
         {
@@ -2660,6 +2660,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-windows/homeworld.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-windows/idle-craft.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
