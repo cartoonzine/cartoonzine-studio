@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-15T04:18:43.926Z",
+  "geradoEm": "2026-11-15T04:20:03.038Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,8 +133,8 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 728,
-      "publicados": 47,
+      "total": 727,
+      "publicados": 46,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -2874,7 +2874,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 7,
-        "web-windows": 21,
+        "web-windows": 20,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
