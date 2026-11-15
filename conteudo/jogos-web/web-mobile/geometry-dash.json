@@ -1,7 +1,7 @@
 {
   "nome": "Geometry Dash",
   "links": [
-    "https://gn-math.dev/?id=785"
+    "https://gn-math.dev/s/EE0_FEFXflkgVgdiHT0MUT4GRx40BDFYHjgfOgwXKAtfQjcEN1ISORMnFlw4Fx0FJRs-GB0tEzpXAX1cHytiWDpDHSA/?__gn_view=1"
   ],
   "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--geometry-dash--capa.png",
   "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-mobile--geometry-dash--banner.jpg",
@@ -18,10 +18,10 @@
   "console": "web-mobile",
   "licenca": "nao-verificada",
   "jogadores": 1,
-  "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
   "_completadoEm": "2026-11-11",
   "_ssEm": "2026-11-13",
   "_ssId": 496214,
-  "_ssPreviaEm": "2026-11-13"
+  "_ssPreviaEm": "2026-11-13",
+  "_rascunho": true
 }
