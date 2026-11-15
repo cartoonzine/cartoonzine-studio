@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-15T16:04:45.545Z",
+  "geradoEm": "2026-11-15T16:05:01.627Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,7 +134,7 @@
     {
       "colecao": "jogos-web",
       "total": 729,
-      "publicados": 46,
+      "publicados": 47,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -648,10 +648,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-indie/bergentruck-201x.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-indie/blockcraft-kart-rush.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2873,7 +2869,7 @@
       ],
       "porConsole": {
         "web-fangames": 0,
-        "web-indie": 6,
+        "web-indie": 7,
         "web-remakes": 4,
         "web-pc": 2,
         "web-n64": 0,
