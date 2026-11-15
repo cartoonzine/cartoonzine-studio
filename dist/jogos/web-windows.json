@@ -447,6 +447,25 @@
    "license": "livre"
   },
   {
+   "title": "Terraria",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
+   "bgImg": "banner",
+   "bgPosY": 70,
+   "studio": "jogos-web/web-windows/terraria",
+   "url": "https://sandboxworld.online/",
+   "thumb": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
+   "bannerThumb": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
+   "logo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "The Simpsons: Hit & Run",
    "bannerlogo": "https://cdn2.steamgriddb.com/logo/1b12d60e85a7a2d7c03b9daad3d1959f.png",
    "bgImg": "banner",

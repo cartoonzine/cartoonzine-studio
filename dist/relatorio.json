@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-15T04:08:06.533Z",
+  "geradoEm": "2026-11-15T04:09:29.673Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -134,15 +134,11 @@
     {
       "colecao": "jogos-web",
       "total": 728,
-      "publicados": 46,
+      "publicados": 47,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
           "msg": "Falta: Console"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-windows/terraria.json",
-          "msg": "Link inválido: sandboxworld.online"
         }
       ],
       "avisos": [
@@ -2878,7 +2874,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 7,
-        "web-windows": 20,
+        "web-windows": 21,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
