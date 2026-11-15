@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-15T16:05:01.627Z",
+  "geradoEm": "2026-11-15T16:05:51.040Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -648,6 +648,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-indie/bergentruck-201x.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-indie/blockcraft-kart-rush.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2675,10 +2679,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-windows/minecraft-story-mode.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-windows/need-for-speed-most-wanted-2005-dezm0n-web-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2869,7 +2869,7 @@
       ],
       "porConsole": {
         "web-fangames": 0,
-        "web-indie": 7,
+        "web-indie": 6,
         "web-remakes": 4,
         "web-pc": 2,
         "web-n64": 0,
@@ -2878,7 +2878,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 7,
-        "web-windows": 20,
+        "web-windows": 21,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
