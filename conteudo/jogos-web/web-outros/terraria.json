@@ -8,6 +8,7 @@
   "banner": "https://cdn2.steamgriddb.com/hero/32e8e6c03f3fa46eb672dc5680bff7da.png",
   "logo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
   "console": "web-outros",
+  "fundoImagem": "banner",
   "_completadoEm": "2026-11-14",
   "_rascunho": true
 }
