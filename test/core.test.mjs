@@ -564,3 +564,19 @@ test('jogo: CHD do MAME vai para o app como lista "chd"', () => {
     assert.deepEqual(o.chd, ['https://r.x/sfiii/cap-sf3-3.chd']);
     assert.equal(C.paraCloud(C.normalizarItem({ nome: 'SF2', console: 'arcade', links: ['https://r.x/sf2.zip'] }, retro), retro, 'jogos/x', config).chd, undefined);
 });
+
+test('TMDB: logo do título — idioma pedido, depois inglês, PNG antes de SVG; exportado como logo e bannerlogo', () => {
+    const L = [
+        { file_path: '/en.png', iso_639_1: 'en', vote_average: 9 },
+        { file_path: '/pt.svg', iso_639_1: 'pt', vote_average: 5 },
+        { file_path: '/pt.png', iso_639_1: 'pt', vote_average: 3 },
+        { file_path: '/x.png', iso_639_1: null, vote_average: 10 }
+    ];
+    assert.equal(C.logoDoTMDB(L, 'pt'), 'https://image.tmdb.org/t/p/w500/pt.png');
+    assert.equal(C.logoDoTMDB(L.filter(x => x.iso_639_1 !== 'pt'), 'pt'), 'https://image.tmdb.org/t/p/w500/en.png');
+    assert.equal(C.logoDoTMDB([{ file_path: '/s.svg', iso_639_1: 'pt' }], 'pt'), 'https://image.tmdb.org/t/p/original/s.svg');
+    assert.equal(C.logoDoTMDB([], 'pt'), undefined);
+    const filmes = config.colecoes.find(c => c.tipo === 'video');
+    const o = C.paraCloud(C.normalizarItem({ nome: 'F', links: ['https://v.x/a.mp4'], capa: 'https://i.x/c.jpg', bannerLogo: 'https://i.x/l.png' }, filmes), filmes, 'x', config);
+    assert.equal(o.logo, 'https://i.x/l.png'); assert.equal(o.bannerlogo, 'https://i.x/l.png');
+});

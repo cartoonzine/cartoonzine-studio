@@ -800,6 +800,16 @@
 
     const TMDB_IMG = 'https://image.tmdb.org/t/p/';
 
+    /** Melhor logo do título no TMDB: no idioma pedido, depois inglês, depois sem idioma; PNG antes de SVG; mais votado. */
+    function logoDoTMDB(logos, idi) {
+        const l = (logos || []).filter(x => x && x.file_path);
+        if (!l.length) return undefined;
+        const peso = (x) => (x.iso_639_1 === idi ? 0 : x.iso_639_1 === 'en' ? 1 : x.iso_639_1 == null ? 2 : 3);
+        l.sort((a, b) => peso(a) - peso(b) || (/\.png$/i.test(b.file_path) - /\.png$/i.test(a.file_path)) || (b.vote_average || 0) - (a.vote_average || 0) || (b.width || 0) - (a.width || 0));
+        const m = l[0];
+        return TMDB_IMG + (/\.svg$/i.test(m.file_path) ? 'original' : 'w500') + m.file_path;
+    }
+
     /** Aceita o "Token de leitura da API" (longo, v4) ou a "Chave da API" (32 letras, v3). */
     function clienteTMDB(chave, fetchFn) {
         const f = fetchFn || fetch;
@@ -855,7 +865,8 @@
         }
         if (!ref) return null;
         const [tipo, id] = ref.split('/');
-        const d = await api('/' + ref, { language: lang, append_to_response: 'external_ids' });
+        const idi = lang.split('-')[0];
+        const d = await api('/' + ref, { language: lang, append_to_response: 'external_ids,images', include_image_language: `${idi},en,null` });
         if (!d) return null;
         let sinopse = d.overview;
         if (!sinopse) { const en = await api('/' + ref, { language: 'en-US' }); sinopse = en && en.overview; }
@@ -868,6 +879,7 @@
             banner: d.backdrop_path ? TMDB_IMG + 'w1280' + d.backdrop_path : undefined,
             ano: /^\d{4}/.test(data) ? parseInt(data, 10) : undefined,
             generos: (d.genres || []).map(g => g.name).filter(Boolean),
+            bannerLogo: logoDoTMDB(d.images && d.images.logos, idi),   // logo PNG do título (o banner e o CZ-HUD usam no lugar do nome)
             tmdb: ref,
             imdb: normImdb(d.imdb_id || (d.external_ids && d.external_ids.imdb_id)) || imdb,
             porBusca: porBusca || undefined
@@ -1649,6 +1661,7 @@
             destaque: item.destaque || undefined,
             destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
             bannerlogo: item.bannerLogo, preview: item.bannerVideo,
+            logo: item.bannerLogo,                           // filmes/séries: o CZ-HUD e o banner leem "logo" (PNG do título)
             bannerSkin: item.bannerSkin, bannerFx: item.bannerFx,
             bgImg: item.fundoImagem === 'banner' ? 'banner' : undefined,   // fundo do topo: o banner no lugar da capa
             bgPosY: item.posFundo,                         // altura da imagem no fundo do topo (0–100 %)
@@ -1993,7 +2006,7 @@
         analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
         lerListaArquivo, consoleDoNomeSistema, consoleDaExtensao, limparNomeRom, prepararJogoEmMassa, buscarJogoPorRomScreenScraper, nomeScreenScraper,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
-        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,
+        refDoLink, normTmdb, normImdb, buscarTMDB, logoDoTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever, coreDoConsole, CORE_PADRAO,
