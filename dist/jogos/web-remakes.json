@@ -4,7 +4,12 @@
  "games": [
   {
    "title": "Battle City",
-   "desc": "Port para navegador · battle-city.berrry.app",
+   "desc": "Adaptação da versão de NES do jogo Battle City.\r\nSeu objetivo principal é destruir todos os tanques inimigos antes que eles se aproximem de sua base. Depois de ter destruído 20 tanques, você vai para a próxima fase. Muitos elementos de decoração podem ser usados para sua vantagem. Um modo de construção será desbloqueado uma vez que você tenha completado todas as fases.",
+   "year": 2018,
+   "genre": [
+    "Ação",
+    "Ação / Labirinto"
+   ],
    "bannerlogo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
    "logo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
    "studio": "jogos-web/web-remakes/battle-city",
@@ -12,6 +17,7 @@
    "thumb": "https://cdn2.steamgriddb.com/grid/9b06c290e92cdb39f68f6581921c56e9.png",
    "bannerThumb": "https://cdn2.steamgriddb.com/hero/0129a222fe10c9896db191c537694699.jpg",
    "console": "web-remakes",
+   "players": 2,
    "core": "web",
    "aparelhos": [
     "tv",

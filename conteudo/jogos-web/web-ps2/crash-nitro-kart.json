@@ -3,14 +3,24 @@
   "links": [
     "https://crashnitrokart.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/305b4101de6e18dd7bf1ca14f0f534eb.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/7d0576cbd93947fa6a3ffaae450ff8b7.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/b1ab8aea23da706493a95512b29c7dd7.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--crash-nitro-kart--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--crash-nitro-kart--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--crash-nitro-kart--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--crash-nitro-kart--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--crash-nitro-kart--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · crashnitrokart.online",
+  "descricao": "Crash Bandicoot, o marsupial maluco, está de volta, mas desta vez com uma diferença: em vez de estar sobre duas pernas, está de volta sobre quatro rodas. No Crash Nitro Kart, será capaz de queimar o asfalto com Crash ou qualquer outro amigo do Bandicoot em 17 pistas emocionantes. Inacreditável como pode parecer para um título de corrida, o jogo segue um enredo. Raptado pelo maléfico Imperador Velo, Crash tem de correr contra inimigos antigos e novos para salvar a Terra. Se ele falhar, o nosso amado planeta deixará de existir. Prepare-se, porque Crash, Coco, Dr. Cortex e o resto das personagens já têm os seus capacetes postos para correr através de intrincadas selvas, vulcões fumegantes, céus de ficção científica e até estações espaciais.",
+  "ano": 2003,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22176,
+  "_ssPreviaEm": "2026-11-16"
 }

@@ -8,10 +8,17 @@
   "logo": "https://cdn2.steamgriddb.com/logo/da422e857721f964a2550ba7b98f29a6.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/OpenTTD/OpenTTD",
-  "descricao": "Port para navegador · openttdonline.com",
+  "descricao": "OpenTTD (&quot;Open Transport Tycoon Deluxe&quot;) is a freeware, open-source remake of the traffic simulator from 1995. It greatly expands the original game, featuring lots of new additions and maps several times larger in size. The version available requires separate graphics and sounds resource files to work. The player can use the assets from the original game, or download the free custom sets created specifically for the remake.\r\n\r\nThe main objective remains the same, to create and maintain a complex infrastructure of transport units and connect the industry installations of a region. The map is randomly generated at the start, where several initial parameters can be tweaked to produce unique environments. Custom maps and scenarios can also be built with the integrated editor.",
+  "ano": 2004,
+  "generos": [
+    "Simulação"
+  ],
   "console": "web-remakes",
   "licenca": "nao-verificada",
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 324508,
+  "_ssPreviaEm": "2026-11-16"
 }

@@ -3,15 +3,25 @@
   "links": [
     "http://xproger.info/projects/OpenLara/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/87368138229b6995db6b5c482f90a5bf.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/a7f0f550578261d8a0507e6972d5925c.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/5e4b3bf0d97e959f577e143845dd852d.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--tomb-raider--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--tomb-raider--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--tomb-raider--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--tomb-raider--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--tomb-raider--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/XProger/OpenLara",
-  "descricao": "Port para navegador · xproger.info",
+  "descricao": "A aventureira Lara Croft acaba de ser contratada por um poderoso sindicato para recuperar fragmentos de uma antiga relíquia conhecida como o Scion.\r\nNo seu intrépido estilo acrobático, ela corre, salta, nada e sobe em busca da origem e dos poderes do Scion. Lara vai depressa e só deixa sepulturas saqueadas e cartuchos vazios no seu caminho.",
+  "ano": 1996,
+  "generos": [
+    "Aventura"
+  ],
   "console": "web-ps1",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 19268,
+  "_ssPreviaEm": "2026-11-16"
 }

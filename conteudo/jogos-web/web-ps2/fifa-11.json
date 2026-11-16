@@ -3,14 +3,25 @@
   "links": [
     "https://fifa11.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/1040efd6fd230da455c16ab77faca0fb.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/4eb46374176989fe644412deed5045ef.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/f334c47648f6c8f9eb0bc8c416f217a2.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-11--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-11--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-11--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-11--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-11--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · fifa11.online",
+  "descricao": "FIFA 11 reinvents player authenticity - on and off the ball - for every player and at every position on the pitch with Personality+, an all-new feature that sees individual abilities reflected in game, enabling clear differentiation for every player.",
+  "ano": 2010,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 8,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 21936,
+  "_ssPreviaEm": "2026-11-16"
 }

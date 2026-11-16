@@ -3,15 +3,26 @@
   "links": [
     "https://nbastreet3.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/d8385c155d3bd3e645aecde003c1930c.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/df132656c11853d6118fe9d36eaba5e1.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/5c939751a356d66af37a9e339980c9b7.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nba-street-v3--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nba-street-v3--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nba-street-v3--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nba-street-v3--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nba-street-v3--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/recomp-code/street-recomp-v3",
-  "descricao": "Port para navegador · nbastreet3.online",
+  "descricao": "The third installment of NBA Street advances the series by adding more customization, different game modes, and new gameplay features. Now you can build both your reputation and show-stopping Gamebreakers on the streets by performing all-new flashy dunks, dribble tricks, and combos. Step into the shoes of NBA legends, current basketball stars, and original characters from previous games. Play in familiar courts, such as The Cage and Rucker Park, or create your own court from the ground up. NBA Street V3 also features a new dunk contest and online multiplayer modes.",
+  "ano": 2005,
+  "generos": [
+    "Esporte",
+    "Esporte / Basquete"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 6,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22743,
+  "_ssPreviaEm": "2026-11-16"
 }

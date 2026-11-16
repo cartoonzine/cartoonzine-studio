@@ -3,14 +3,26 @@
   "links": [
     "https://tekken4.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/1e85d0d9a89f4bd0de7b22c2cf5ff906.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/cd28198825c7b15514b85396f1b0f7bf.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/c5c1bda1194f9423d744e0ef67df94ee.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tekken-4--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tekken-4--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tekken-4--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tekken-4--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tekken-4--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · tekken4.online",
+  "descricao": "Em Tekken 4 para PS2, assuma o papel de Heihachi Mishima em sua jornada implacável por vingança contra seu filho, Kazuya. Domine um sistema de combate complexo com combos devastadores e lute contra personagens icônicos como Jin Kazama e Paul Phoenix em cenários vibrantes. Explore diversos modos de jogo, desvende uma história envolvente e viva a intensidade de combates épicos em alta definição. Prepare-se para uma experiência de luta inesquecível!",
+  "ano": 2002,
+  "generos": [
+    "Luta",
+    "Luta / 2.5D",
+    "Luta / Versus"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22112,
+  "_ssPreviaEm": "2026-11-16"
 }

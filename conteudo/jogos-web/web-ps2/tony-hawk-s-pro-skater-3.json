@@ -3,14 +3,25 @@
   "links": [
     "https://tonyhawkpro3.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/bcc3bc4b265dd4f13ba2296293cec2d9.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/b458201027eb55a7a6dcb41b0af61993.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/fa003a753346e732d8f02d6199dd2d2c.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tony-hawk-s-pro-skater-3--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tony-hawk-s-pro-skater-3--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tony-hawk-s-pro-skater-3--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tony-hawk-s-pro-skater-3--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--tony-hawk-s-pro-skater-3--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · tonyhawkpro3.online",
+  "descricao": "This game saw the introduction of the revert, a trick that enabled vert combos to be tied together with a manual, by tapping a button when landing in a quarterpipe. This allowed for much longer combos than in the previous two games, where landing in a quarterpipe would finish a combo. The game also added hidden combos. These were variations on standard tricks that could be performed as grab, flip, lip, or grind tricks. For example, double-tapping the kickflip button would, naturally, make the character perform a double kickflip.",
+  "ano": 2001,
+  "generos": [
+    "Esporte",
+    "Esporte / Skate"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22164,
+  "_ssPreviaEm": "2026-11-16"
 }

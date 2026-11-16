@@ -7,10 +7,18 @@
   "banner": "https://cdn2.steamgriddb.com/hero/bb44c2e24438b59f0d2109fec67f6b20.jpg",
   "logo": "https://cdn2.steamgriddb.com/logo/e10d2c6778afa7e23b9f5db6b1b55d9e.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · crisiscorefinalfantasy7.online",
+  "descricao": "Découvrez l'histoire de Zack Fair, membre du SOLDAT et jeune guerrier qui dévoile peu à peu la vérité derrière les expériences secrètes de son employeur.  Rencontrez des habitants de Midgar familiers, apprenez à maîtriser de nouvelles matérias et déchaînez le plein potentiel de Zack avec le système de combat amélioré.\r\n\r\nLa remastérisation des graphismes et du doublage (en anglais et en japonais), ainsi que l'interprétation inédite de la bande-son du compositeur original, Takeharu Ishimoto, insufflent une nouvelle vie à cette histoire passionnante.",
+  "ano": 2022,
+  "generos": [
+    "Jogos de RPG"
+  ],
   "console": "web-psp",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 472223,
+  "_ssPreviaEm": "2026-11-16"
 }

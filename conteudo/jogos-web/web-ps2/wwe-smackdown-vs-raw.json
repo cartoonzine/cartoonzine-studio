@@ -3,14 +3,24 @@
   "links": [
     "https://smackdownvsraw.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/63d2780d05c0a77a61453e5232e8553c.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/e00f6641db244178c8a42f440b8939c4.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/abed055602b7914eb78ef39fbe35ef90.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · smackdownvsraw.online",
+  "descricao": "WWE Smackdown! vs Raw para PS2 é um jogo de luta que reúne lutadores dessas duas competições. O título se propõe a encenar lutas com até 6 participantes ao mesmo tempo, em modalidades como Hell in the Cell, Slobber Knocker, Table Matches, First Blood ou mesmo as boas e velhas lutas em estacionamentos desertos.",
+  "ano": 2004,
+  "generos": [
+    "Luta"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 6,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22211,
+  "_ssPreviaEm": "2026-11-16"
 }

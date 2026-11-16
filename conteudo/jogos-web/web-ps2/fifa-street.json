@@ -3,14 +3,25 @@
   "links": [
     "https://fifastreet.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/2fb32ee97983c0b45a77ed7ff618bd94.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/75341373eb85cb53e7abe2b42ed38f74.jpg",
-  "logo": "https://cdn2.steamgriddb.com/logo/780261c4b9a55cd803080619d0cc3e11.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · fifastreet.online",
+  "descricao": "FIFA Street é uma combinação de ação arcade com a cultura do futebol de rua freestyle. Ao remover as regras da experiência de simulação de futebol, o FIFA Street expõe o coração do mais belo jogo do mundo, o brilho na bola e o estilo individual. Liderando esse movimento estão os melhores jogadores profissionais do mundo, mostrando suas habilidades e estilo individual em partidas de 4 contra 4 contra o pano de fundo de locais globais que representam a verdadeira cultura do futebol de rua.",
+  "ano": 2005,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22082,
+  "_ssPreviaEm": "2026-11-16"
 }

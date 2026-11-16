@@ -3,15 +3,25 @@
   "links": [
     "https://andrewaltimit.github.io/legend-of-legaia-re/play.html"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/70b4d3e0b3d5c9c9869bf1fee1aebe19.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/b84a25d15d9d44f58640a485c1387df8.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/2232f30cfb819b91b49e55a1b29841dc.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--legend-of-legaia--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--legend-of-legaia--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--legend-of-legaia--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--legend-of-legaia--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--legend-of-legaia--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/AndrewAltimit/legend-of-legaia-re",
-  "descricao": "Port para navegador · andrewaltimit.github.io",
+  "descricao": "After creating a massive world with vast oceans, landscapes and an infinite universe, God instituted human beings to keep his creation in order. Upon realization that man was mortally flawed with weaknesses and feelings, he created a mysterious force known as the Seru; these stone objects would aid humans in decisions and day to day functions. Worn as an apparel item, they granted the wearer many strengths and abilities ranging from the movement of heavy objects to flying capabilities. Thus, human life was made easier -- the Seru would forever obey their masters.\r\n And then the Mist arrived.\r\n Filled with destructive means and hatred, the Mist covered the human's cultivated lands and destroyed a seemingly eternal bond with the Seru. Instead of loyally helping their masters, the mysterious stones turned against the humans; they became maniacal tools of evil, controlling minds and ruining innocent lives. The human existence was reduced tremendously with few survivors fleeing to uncharted territories. Perhaps the Mist wouldn't find them wherever they ran.",
+  "ano": 1999,
+  "generos": [
+    "Jogos de RPG"
+  ],
   "console": "web-ps1",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 19427,
+  "_ssPreviaEm": "2026-11-16"
 }

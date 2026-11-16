@@ -3,14 +3,24 @@
   "links": [
     "https://ydubr-gt2.surge.sh/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/47cd68598781647f7bd34ebb8428d5a0.jpg",
-  "banner": "https://cdn2.steamgriddb.com/hero/e7fbb55818def36977ba4a90d82958af.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/ce7c0dcb707083a5953857be0416db44.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--gran-turismo-2--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--gran-turismo-2--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--gran-turismo-2--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--gran-turismo-2--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--gran-turismo-2--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · ydubr-gt2.surge.sh",
+  "descricao": "Gran Turismo 2 é essencialmente um jogo de corrida no qual o jogador deve conduzir um automóvel e competir contra adversários controlados pela inteligência artificial em diferentes pistas.\r\nO jogo oferece dois modos distintos: Arcade e Simulação. No modo Arcade, o jogador pode escolher livremente os circuitos e veículos que deseja utilizar. Já no modo Simulação, é necessário obter licenças de pilotagem, comprar veículos e conquistar troféus para desbloquear novos circuitos.\r\nGran Turismo 2 conta com quase 650 automóveis e 27 pistas de corrida.",
+  "ano": 1999,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-ps1",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 19304,
+  "_ssPreviaEm": "2026-11-16"
 }

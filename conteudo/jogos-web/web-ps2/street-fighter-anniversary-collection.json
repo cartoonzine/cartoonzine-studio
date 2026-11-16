@@ -3,14 +3,25 @@
   "links": [
     "https://streetfighteranniversary.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/0ebff905f1fc1fdbb6d4e201e7d9f970.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/64063a9bafbf19f37ef32a222116bcf1.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/251acb95df0a0ca3b68be0e9e1f0836e.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--street-fighter-anniversary-collection--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--street-fighter-anniversary-collection--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--street-fighter-anniversary-collection--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--street-fighter-anniversary-collection--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--street-fighter-anniversary-collection--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · streetfighteranniversary.online",
+  "descricao": "Street Fighter Anniversary Collection commemorates the 15th anniversary of Capcom's series of fighting games. The compilation includes Hyper Street Fighter II, which combines previous Street Fighter II features and character variations from previous Street Fighter II editions, and Street Fighter III: Third Strike. Hyper Street Fighter II lets you mix and match characters from the different versions for a variety of matchups. Street Fighter III: Third Strike offers a total of 19 different playable characters, a Grade Judge System, and a Progressive Hit Frame System.",
+  "ano": 2004,
+  "generos": [
+    "Luta",
+    "Compilação"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22896,
+  "_ssPreviaEm": "2026-11-16"
 }

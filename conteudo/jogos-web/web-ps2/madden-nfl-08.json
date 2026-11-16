@@ -3,14 +3,25 @@
   "links": [
     "https://maddennfl08.online/"
   ],
-  "capa": "https://cdn2.steamgriddb.com/grid/88c3d892fc789e8d6071b564b37c5ea5.png",
-  "banner": "https://cdn2.steamgriddb.com/hero/0cac8ef0217411b26be6840a65e14e88.png",
-  "logo": "https://cdn2.steamgriddb.com/logo/0e78a1b0be474c86f804095d2909c141.png",
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--madden-nfl-08--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--madden-nfl-08--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--madden-nfl-08--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--madden-nfl-08--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--madden-nfl-08--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · maddennfl08.online",
+  "descricao": "Feel what it's like to be a field general making key personnel decisions on both sides of the ball during the game's biggest moments in Madden NFL 08. Quickly identify your strongest players on the field before every snap then move them into position to make game-changing, momentum-altering plays. Play to your team's strengths by immediately reading your opponent's schemes and reacting to the action as soon as the ball is snapped.",
+  "ano": 2007,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol americano"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22601,
+  "_ssPreviaEm": "2026-11-16"
 }
