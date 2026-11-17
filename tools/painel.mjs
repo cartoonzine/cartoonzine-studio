@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Core, RAIZ, lerConfig, lerColecao, lerArgs } from './lib.mjs';
 import { build } from './build.mjs';
+import { testarCanal, baixarLista, tunel } from './linkedit-rede.mjs';
 
 const TIPOS_MIME = {
     '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
@@ -74,6 +75,17 @@ export function criarServidor({ raiz = RAIZ } = {}) {
                 const r = build({ raiz, log: () => {} });
                 return json(res, 200, { ok: true, publicados: r.index.colecoes.reduce((n, c) => n + c.publicados, 0), erros: r.totalErros });
             }
+            // 🔗 Link Edit: testar canal de verdade, baixar lista sem CORS e o túnel do visualizador
+            if (url.pathname === '/api/linkedit/testar') {
+                const alvo = url.searchParams.get('url') || '';
+                const r = await testarCanal(alvo, { modo: url.searchParams.get('modo') || 'completo', ua: url.searchParams.get('ua') || undefined, referer: url.searchParams.get('ref') || undefined });
+                return json(res, 200, r);
+            }
+            if (url.pathname === '/api/linkedit/lista') {
+                try { return json(res, 200, await baixarLista(url.searchParams.get('url') || '')); }
+                catch (e) { return json(res, 200, { erro: e.message }); }
+            }
+            if (url.pathname === '/api/linkedit/tunel') return await tunel(req, res, '/api/linkedit/tunel');
             // 🔗 Link test: o link responde? deixa abrir dentro de outra página (cartucho web)?
             if (url.pathname === '/api/checar-link') {
                 let alvo; try { alvo = new URL(url.searchParams.get('url') || ''); } catch (e) { return json(res, 400, { erro: 'link inválido' }); }
