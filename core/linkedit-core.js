@@ -229,6 +229,10 @@
         const g = norm(c.grupo), n = norm(c.nome);
         for (const [tipo, re] of TIPOS) if (re.test(g)) return tipo;
         for (const [tipo, re] of TIPOS) if (re.test(n)) return tipo;
+        // VOD: episódio (S01E02, 1x02, /series/) ou filme (/movie/)
+        const u = String(c.url || '').toLowerCase();
+        if (/\bs\d{1,2}\s?e\d{1,3}\b|\b\d{1,2}x\d{2}\b|\b(episodio|ep)\s?\d/.test(n) || /\/series\//.test(u)) return 'Séries';
+        if (/\/(movie|movies)\//.test(u)) return 'Filmes';
         return 'Variados';
     }
 
@@ -243,13 +247,26 @@
         if (/\.mpd$/.test(p) || /format=(mpd|dash)/.test(u)) return 'dash';
         if (/\.(ts|m2ts)$/.test(p) || /[?&](output|extension)=(ts|mpegts)/.test(u) || /\/live\/[^/]+\/[^/]+\/\d+\/?$/.test(p)) return 'mpegts';
         if (/\.flv$/.test(p)) return 'flv';
-        if (/\.(mp4|m4v|webm|mkv|mov|avi|ogv|mp3|aac|m4a|ogg|opus)$/.test(p)) return 'arquivo';
+        if (/\.(mp4|m4v|webm|mkv|mov|avi|wmv|asf|mpe?g|vob|3gp|ogv|divx|xvid|rmvb|rm|mp3|aac|m4a|ogg|opus|flac|wav)$/.test(p)) return 'arquivo';
+        // filme/episódio de lista Xtream (/movie/usuario/senha/123), Google Drive e Dropbox: arquivo inteiro
+        if (/\/(movie|movies|series|vod)\/[^/]+\/[^/]+\/\d+/.test(p) || /drive\.google\.com|drive\.usercontent\.google\.com|dropbox(usercontent)?\.com/.test(u)) return 'arquivo';
         return 'desconhecido';
+    }
+
+    /** Link de "ver arquivo" vira link direto do vídeo (Google Drive, Dropbox). Os outros ficam iguais. */
+    function linkDireto(url) {
+        const s = String(url || '').trim();
+        const d = /drive\.google\.com\/(?:file\/d\/|open\?(?:[^#]*&)?id=|uc\?(?:[^#]*&)?id=)([\w-]{20,})/i.exec(s);
+        if (d) return 'https://drive.usercontent.google.com/download?id=' + d[1] + '&export=download&confirm=t';
+        if (/^https?:\/\/(www\.)?dropbox\.com\//i.test(s)) return s.replace(/([?&])dl=0\b/, '$1raw=1') + (/[?&](raw|dl)=1/.test(s) || /[?&]dl=0/.test(s) ? '' : (s.includes('?') ? '&' : '?') + 'raw=1');
+        return s;
     }
 
     /** Preenche o que dá para descobrir sozinho; nunca apaga o que veio da lista. */
     function completar(c) {
         const o = Object.assign({ headers: {}, reservas: [] }, c);
+        const direto = linkDireto(o.url);
+        if (direto !== o.url) { o.urlOriginal = o.urlOriginal || o.url; o.url = direto; }
         o.nomeOriginal = o.nomeOriginal || o.nome || o.tvgNome || '';
         o.nome = limparNome(o.nomeOriginal) || o.tvgNome || nomeDoLink(o.url);
         // país no fim ou no começo do nome ("Cartoon Network BR", "PT: SIC") vira o país e sai do nome
@@ -398,7 +415,7 @@
     }
 
     return {
-        lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });

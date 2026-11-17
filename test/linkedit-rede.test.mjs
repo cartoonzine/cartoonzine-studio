@@ -71,3 +71,18 @@ test('túnel: repassa User-Agent, reescreve a lista HLS e entrega o pedaço; rec
     assert.equal((await baixarLista('http://iptv.exemplo/lista.m3u', { fetchFn })).texto.split('\n').length, 4);
     } finally { painel.closeAllConnections(); painel.close(); srv.closeAllConnections(); srv.close(); }
 });
+
+test('arquivos de vídeo: formato real pelos bytes e se o navegador toca', async () => {
+    const { containerDe, TOCA_NO_NAVEGADOR } = await import('../tools/linkedit-rede.mjs');
+    const B = (s, extra = []) => Buffer.concat([Buffer.from(s, 'latin1'), Buffer.from(extra)]);
+    assert.equal(containerDe(B('\0\0\0\x20ftypisom')), 'mp4');
+    assert.equal(containerDe(B('\0\0\0\x14ftypqt  ')), 'mov');
+    assert.equal(containerDe(Buffer.concat([Buffer.from([0x1a, 0x45, 0xdf, 0xa3]), B('....matroska')])), 'mkv');
+    assert.equal(containerDe(Buffer.concat([Buffer.from([0x1a, 0x45, 0xdf, 0xa3]), B('....webm')])), 'webm');
+    assert.equal(containerDe(B('RIFF\0\0\0\0AVI LIST')), 'avi');
+    assert.equal(containerDe(B('FLV\x01')), 'flv');
+    assert.equal(containerDe(Buffer.from([0x30, 0x26, 0xb2, 0x75, 0x8e])), 'wmv');
+    assert.equal(containerDe(Buffer.from([0, 0, 1, 0xba, 0x44])), 'mpeg');
+    assert.equal(containerDe(B('ID3\x04')), 'mp3');
+    assert.equal(TOCA_NO_NAVEGADOR.avi, 'nao'); assert.equal(TOCA_NO_NAVEGADOR.mkv, 'talvez');
+});

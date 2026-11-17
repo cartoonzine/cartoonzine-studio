@@ -106,3 +106,15 @@ test('Link de canal .m3u8: stream HLS não vira lista; nome sai do link', () => 
     const c = L.canalDoLink('http://1.2.3.4:8080/discovery_kids/mono.m3u8');
     assert.equal(c.formato, 'hls'); assert.equal(c.tipo, 'Infantil'); assert.ok(c.chave && c.id);
 });
+
+test('Vídeos de listas de streaming: formatos, VOD Xtream, Drive/Dropbox e Filmes/Séries', () => {
+    for (const u of ['http://x/a.mkv', 'http://x/a.avi', 'http://x/a.wmv', 'http://x/a.mpg', 'http://x/a.mov?t=1', 'http://srv:8080/movie/u/p/123.mkv', 'http://srv:8080/series/u/p/456']) assert.equal(L.formatoDe(u), 'arquivo', u);
+    assert.equal(L.formatoDe('http://srv:8080/live/u/p/7'), 'mpegts', 'canal ao vivo continua TS');
+    const d = L.canalDoLink('https://drive.google.com/file/d/1AbCdEfGhIjKlMnOpQrStUvWxYz123/view?usp=sharing', 'Filme');
+    assert.equal(d.url, 'https://drive.usercontent.google.com/download?id=1AbCdEfGhIjKlMnOpQrStUvWxYz123&export=download&confirm=t');
+    assert.equal(d.formato, 'arquivo'); assert.ok(d.urlOriginal.includes('/view'));
+    assert.equal(L.linkDireto('https://www.dropbox.com/s/abc/filme.mp4?dl=0'), 'https://www.dropbox.com/s/abc/filme.mp4?raw=1');
+    assert.equal(L.linkDireto('https://www.dropbox.com/scl/fi/abc/filme.mp4?rlkey=x'), 'https://www.dropbox.com/scl/fi/abc/filme.mp4?rlkey=x&raw=1');
+    assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,Dark S01E02\nhttp://s/series/u/p/9.mkv\n').canais[0].tipo, 'Séries');
+    assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,O Auto da Compadecida (2000)\nhttp://s/movie/u/p/8.mp4\n').canais[0].tipo, 'Filmes');
+});

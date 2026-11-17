@@ -209,7 +209,7 @@
     }
     function aplicarTeste(c, r) {
         if (!r || !r.status) return;
-        c.teste = { status: r.status, ms: r.ms, motivo: r.motivo || '', tipo: r.tipo || '', resolucao: r.resolucao || c.teste && c.teste.resolucao || '', em: Date.now() };
+        c.teste = { status: r.status, ms: r.ms, motivo: r.motivo || '', tipo: r.tipo || '', resolucao: r.resolucao || c.teste && c.teste.resolucao || '', tamanho: r.tamanho || c.teste && c.teste.tamanho || 0, em: Date.now() };
         if (r.ua) c.headers = Object.assign({}, c.headers, { 'User-Agent': r.ua });
         if (r.status !== 'desconhecido') {
             c.historico = (c.historico || []).concat(r.status === 'vivo' || r.status === 'lento' || r.status === 'pede-ua').slice(-10);
@@ -277,7 +277,11 @@
         const status = (t) => { if (msg) { msg.textContent = t || ''; msg.hidden = !t; } };
         status('Abrindo…');
         player.t0 = performance.now();
-        const fmt = c.formato;
+        const tt = (c.teste && c.teste.tipo) || '';
+        // o teste viu o formato real pelos bytes: ele manda (link sem extensão, .mp4 que na verdade é TS etc.)
+        const fmt = ({ hls: 'hls', mpegts: 'mpegts', flv: 'flv' })[tt] || c.formato;
+        const NAO_TOCA = { avi: 'AVI', wmv: 'WMV', mpeg: 'MPEG', rmvb: 'RMVB' };
+        if (NAO_TOCA[tt]) return status(`Vídeo ${NAO_TOCA[tt]}: o link está vivo, mas o navegador não toca este formato. No app (VLC/ExoPlayer) toca.`);
         if (fmt === 'torrent' || fmt === 'protocolo' || fmt === 'youtube') return status(fmt === 'torrent' ? 'Torrent: teste no app (o Studio não baixa torrent).' : fmt === 'youtube' ? 'YouTube: abra no app.' : 'RTMP/RTSP/UDP: o navegador não toca; teste no app do PC.');
         const url = viaTunel(c, c.url);
         v.muted = true;
@@ -291,8 +295,19 @@
             if (!c.teste || c.teste.status !== 'vivo') { aplicarTeste(c, { status: ms > 4000 ? 'lento' : 'vivo', ms, tipo: fmt }); salvar(); agendarTabela(); pintarFicha(c); }
         };
         v.onplaying = aoTocar;
+        v.onloadedmetadata = () => {
+            const d = $('#le-ficha-dur');
+            if (d && isFinite(v.duration) && v.duration > 0) { const m = Math.round(v.duration / 60); d.textContent = v.duration < 60 ? Math.round(v.duration) + ' s' : m >= 60 ? Math.floor(m / 60) + ' h ' + String(m % 60).padStart(2, '0') : m + ' min'; }
+        };
         const MOTIVO_MIDIA = { 1: 'a abertura foi interrompida', 2: 'erro de rede', 3: 'o vídeo veio com defeito', 4: 'o link não é um vídeo que o navegador abre (formato, página ou link fora do ar)' };
-        v.onerror = () => { if (meu === player.token) { status('Não tocou: ' + (MOTIVO_MIDIA[v.error && v.error.code] || 'formato ou link com problema')); aplicarTeste(c, { status: 'morto', motivo: 'não tocou no visualizador' }); salvar(); agendarTabela(); pintarFicha(c); } };
+        v.onerror = () => {
+            if (meu !== player.token) return;
+            const cod = v.error && v.error.code;
+            // arquivo que o servidor entrega (teste vivo) mas o navegador não decodifica: o link NÃO está morto
+            if ((cod === 3 || cod === 4) && c.formato === 'arquivo' && c.teste && ['vivo', 'lento', 'pede-ua'].includes(c.teste.status)) {
+                return status('O link está vivo, mas o navegador não toca este vídeo (codec ' + ((tt || 'do arquivo').toUpperCase()) + '). No app (VLC/ExoPlayer) toca.');
+            }
+            if (meu === player.token) { status('Não tocou: ' + (MOTIVO_MIDIA[v.error && v.error.code] || 'formato ou link com problema')); aplicarTeste(c, { status: 'morto', motivo: 'não tocou no visualizador' }); salvar(); agendarTabela(); pintarFicha(c); } };
         try {
             if (fmt === 'hls' || (fmt === 'desconhecido' && /m3u8/i.test(c.url))) {
                 if (v.canPlayType('application/vnd.apple.mpegurl') && !window.MediaSource) { v.src = url; }
@@ -305,7 +320,7 @@
                 }
             } else if (fmt === 'mpegts' || fmt === 'flv') {
                 if (!(await carregarLib('mpegts')) || meu !== player.token) return status('Não consegui carregar o mpegts.js.');
-                const m = player.mpegts = window.mpegts.createPlayer({ type: fmt === 'flv' ? 'flv' : 'mpegts', isLive: true, url: new URL(url, location.href).href }, { enableStashBuffer: false, liveBufferLatencyChasing: true });
+                const m = player.mpegts = window.mpegts.createPlayer({ type: fmt === 'flv' ? 'flv' : 'mpegts', isLive: c.formato !== 'arquivo', url: new URL(url, location.href).href }, { enableStashBuffer: false, liveBufferLatencyChasing: true });
                 m.on(window.mpegts.Events.ERROR, (t, d) => { if (meu === player.token) { status('Não tocou: ' + d); aplicarTeste(c, { status: 'morto', motivo: 'TS: ' + d }); salvar(); agendarTabela(); pintarFicha(c); } });
                 m.attachMediaElement(v); m.load();
             } else {
@@ -358,6 +373,8 @@
             <div><span>Status</span><b style="color:${COR_STATUS[t.status || 'nao-testado']}">${esc(ROTULO_STATUS[t.status || 'nao-testado'])}</b></div>
             <div><span>Idioma</span><b>${esc(c.idioma || '?')}</b></div>
             <div><span>Confiança</span><b>${esc(conf)}</b></div>
+            ${c.formato === 'arquivo' || t.tamanho ? `<div><span>Tamanho</span><b>${t.tamanho ? (t.tamanho >= 1073741824 ? (t.tamanho / 1073741824).toFixed(1).replace('.', ',') + ' GB' : t.tamanho >= 1048576 ? Math.round(t.tamanho / 1048576) + ' MB' : Math.max(1, Math.round(t.tamanho / 1024)) + ' KB') : '—'}</b></div>
+            <div><span>Duração</span><b id="le-ficha-dur">—</b></div>` : ''}
           </div>
           ${t.motivo ? `<div class="le-motivo">${esc(t.motivo)}</div>` : ''}
           <div class="le-url" title="${esc(c.url)}">${esc(c.url)}</div>`;
