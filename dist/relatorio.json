@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-16T18:57:13.637Z",
+  "geradoEm": "2026-11-17T15:37:43.297Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -133,11 +133,15 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 729,
+      "total": 730,
       "publicados": 49,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
+          "msg": "Falta: Console"
+        },
+        {
+          "caminho": "conteudo/jogos-web/outros/urban-terror.json",
           "msg": "Falta: Console"
         }
       ],
