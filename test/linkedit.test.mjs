@@ -93,3 +93,16 @@ test('Nomes: tudo maiúsculo vira normal, siglas ficam; tags e qualidade saem', 
     assert.equal(L.formatoDe('https://x/a.mpd?t=1'), 'dash');
     assert.equal(L.formatoDe('rtmp://x/live'), 'protocolo');
 });
+
+test('Link de canal .m3u8: stream HLS não vira lista; nome sai do link', () => {
+    const master = '#EXTM3U\n#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360\nlow/index.m3u8\n#EXT-X-STREAM-INF:BANDWIDTH=3000000\nhi/index.m3u8\n';
+    const pedacos = '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-TARGETDURATION:6\n#EXT-X-MEDIA-SEQUENCE:120\n#EXTINF:6.0,\nseg120.ts\n#EXTINF:6.0,\nseg121.ts\n';
+    assert.ok(L.ehStreamHLS(master)); assert.ok(L.ehStreamHLS(pedacos));
+    assert.ok(!L.ehStreamHLS(M3U), 'lista de canais continua lista');
+    assert.ok(L.ehLinkDeCanal('http://x/live/u/p/123')); assert.ok(L.ehLinkDeCanal('https://x/f.mp4'));
+    assert.ok(!L.ehLinkDeCanal('https://x/a.m3u8'), '.m3u8 se confirma pelo conteúdo'); assert.ok(!L.ehLinkDeCanal('https://x/lista.m3u'));
+    assert.equal(L.nomeDoLink('https://cdn.x.com/live/tv-cultura/index.m3u8'), 'TV Cultura');
+    assert.equal(L.nomeDoLink('http://1.2.3.4:8080/discovery_kids/mono.m3u8'), 'Discovery Kids');
+    const c = L.canalDoLink('http://1.2.3.4:8080/discovery_kids/mono.m3u8');
+    assert.equal(c.formato, 'hls'); assert.equal(c.tipo, 'Infantil'); assert.ok(c.chave && c.id);
+});

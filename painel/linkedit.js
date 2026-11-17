@@ -94,25 +94,56 @@
         [...E.sel].forEach(s => { if (!E.canais.some(c => c.id === s)) E.sel.delete(s); });
         salvar(); desenharTudo();
     }
-    async function abrirLink(url) {
-        url = String(url || '').trim();
-        if (!/^https?:\/\//i.test(url)) return S.aviso('Cole um link http(s) da lista.', 'ruim');
-        const nome = (() => { try { const u = new URL(url); return (u.pathname.split('/').filter(Boolean).pop() || u.hostname); } catch (e) { return url; } })();
-        try {
-            let texto;
-            if (local()) {
-                const r = await (await fetch('/api/linkedit/lista?url=' + encodeURIComponent(url))).json();
-                if (r.erro) throw new Error(r.erro);
-                texto = r.texto;
-            } else {
-                const r = await fetch(url);                 // online: só funciona se o site liberar (CORS)
-                if (!r.ok) throw new Error('HTTP ' + r.status);
-                texto = await r.text();
-            }
-            adicionarLista(texto, nome);
-        } catch (e) {
-            S.aviso('Não consegui abrir a lista: ' + e.message + (local() ? '' : ' — no painel local (node tools/painel.mjs) qualquer link abre.'), 'ruim');
+    /** Canais soltos (.m3u8, .ts, .mp4...) vão todos para uma lista fixa "Links avulsos". */
+    function adicionarAvulsos(canais) {
+        let lista = E.listas.find(l => l.id === 'avulsos');
+        if (!lista) { lista = { id: 'avulsos', nome: 'Links avulsos', formato: 'links', epg: '' }; E.listas.push(lista); }
+        lembrar();
+        let n = 0;
+        canais.forEach((c) => {
+            if (E.canais.some(x => x.lista === 'avulsos' && x.url === c.url)) return;
+            const igual = E.canais.find(x => x.url === c.url && x.teste);
+            if (igual) { c.teste = igual.teste; c.historico = (igual.historico || []).slice(); }
+            c.lista = 'avulsos'; c.id = 'avulsos-' + Date.now().toString(36) + '-' + (seqLista++);
+            E.canais.push(c); n++;
+        });
+        salvar(); desenharTudo();
+        if (!n) return S.aviso('Esse canal já está em "Links avulsos".', 'ok');
+        S.aviso(n === 1 ? `Canal "${canais[0].nome}" adicionado em "Links avulsos". Clique nele para ver e testar.` : `${n} canais adicionados em "Links avulsos".`, 'ok');
+        const ultimo = E.canais[E.canais.length - 1];
+        if (n === 1 && ultimo) focar(ultimo.id);            // já abre no visualizador
+    }
+
+    async function baixarTexto(url) {
+        if (local()) {
+            const r = await (await fetch('/api/linkedit/lista?url=' + encodeURIComponent(url))).json();
+            if (r.erro) throw new Error(r.erro);
+            return r.texto;
         }
+        const r = await fetch(url);                 // online: só funciona se o site liberar (CORS)
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+    }
+
+    /** Campo de link: aceita link de LISTA (M3U/JSON/TXT) ou de CANAL (.m3u8, .ts, .mp4...), um ou vários de uma vez. */
+    async function abrirLink(entrada) {
+        const links = String(entrada || '').match(/(?:https?|rtmpe?|rtsp|udp|srt):\/\/[^\s"'<>]+|magnet:\?[^\s"'<>]+/gi) || [];
+        if (!links.length) return S.aviso('Cole um link de lista ou de canal (http, .m3u8...).', 'ruim');
+        const soltos = [];
+        for (const url of links) {
+            if (L.ehLinkDeCanal(url)) { soltos.push(L.canalDoLink(url)); continue; }
+            const nome = (() => { try { const u = new URL(url); return (u.pathname.split('/').filter(Boolean).pop() || u.hostname); } catch (e) { return url; } })();
+            try {
+                const texto = await baixarTexto(url);
+                // .m3u8 de UM canal (master ou pedaços): entra como canal, não como lista
+                if (L.ehStreamHLS(texto)) soltos.push(L.canalDoLink(url));
+                else adicionarLista(texto, nome);
+            } catch (e) {
+                if (L.formatoDe(url) === 'hls') { soltos.push(L.canalDoLink(url)); continue; }   // não baixou: entra assim mesmo, o teste diz se está vivo
+                S.aviso('Não consegui abrir: ' + e.message + (local() ? '' : ' — no painel local (node tools/painel.mjs) qualquer link abre.'), 'ruim');
+            }
+        }
+        if (soltos.length) adicionarAvulsos(soltos);
     }
 
     // ---------------------------------------------------------------- filtros
@@ -419,7 +450,7 @@
             <aside class="le-esq" aria-label="Listas e filtros">
               <div class="le-rot">Abrir lista</div>
               <div class="le-add">
-                <input id="le-url" placeholder="Link da lista (M3U, JSON, TXT…)" aria-label="Link da lista">
+                <input id="le-url" placeholder="Link da lista ou do canal (.m3u, .m3u8, .ts, JSON…)" aria-label="Link da lista ou do canal">
                 <div style="display:flex;gap:6px"><button class="le-bt p" id="le-abrir" style="flex:1">Abrir link</button><label class="le-bt" style="display:inline-flex;align-items:center;cursor:pointer">Arquivo<input type="file" id="le-arquivo" accept=".m3u,.m3u8,.json,.txt,text/*" multiple hidden></label></div>
                 <textarea id="le-colar" placeholder="…ou cole qualquer texto com links (lista, página, conversa)" aria-label="Colar texto"></textarea>
                 <button class="le-bt" id="le-ler-colado">Ler o texto colado</button>

@@ -123,6 +123,35 @@
         return { canais, epg: '' };
     }
 
+    /** O texto baixado é o PRÓPRIO stream HLS (master ou pedaços), não uma lista de canais? */
+    function ehStreamHLS(texto) {
+        const t = String(texto || '');
+        if (!/#EXT-X-(STREAM-INF|TARGETDURATION|MEDIA-SEQUENCE|MEDIA:|KEY|ENDLIST)/i.test(t)) return false;
+        return !/#EXTINF:\s*-1|tvg-(id|name|logo)=|group-title=/i.test(t);
+    }
+
+    /** Link que é um canal (stream/arquivo/protocolo), e não uma lista para baixar. .m3u8 só se confirma pelo conteúdo. */
+    function ehLinkDeCanal(url) {
+        return ['mpegts', 'dash', 'flv', 'arquivo', 'torrent', 'protocolo', 'youtube'].includes(formatoDe(url));
+    }
+
+    /** Nome legível tirado do próprio link: pula pedaços genéricos (index, playlist, live, hls, números...). */
+    function nomeDoLink(url) {
+        let u; try { u = new URL(url); } catch (e) { return String(url || "").slice(0, 40) || "Canal"; }
+        const gen = /^(index|playlist|master|chunklist|chunks?|mono|live|hls|stream|streams|tracks?|video|v\d|play|manifest|output|media|\d+p?|[0-9a-f]{16,}|[a-z0-9_-]{24,})$/i;
+        const partes = u.pathname.split('/').filter(Boolean).map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } })
+            .map(x => x.replace(/\.(m3u8?|ts|mpd|flv|mp4|mkv|webm|php)$/i, '')).filter(x => x && !gen.test(x));
+        const ehIP = /^[\d.:[\]]+$/.test(u.hostname);
+        const bruto = partes.pop() || (ehIP ? 'Canal ' + u.hostname.split('.').pop() + (u.port ? ' ' + u.port : '') : u.hostname.replace(/^(www|cdn\d*|live\d*|stream\d*|hls\d*)\./i, '').split('.')[0]);
+        const limpo = bruto.replace(/[_\-.]+/g, ' ').trim();
+        return limparNome(limpo === limpo.toLowerCase() ? limpo.toUpperCase() : limpo) || 'Canal';   // "tv-cultura" → "Tv Cultura" (siglas curtas ficam: "TV")
+    }
+
+    /** Um canal só, a partir de um link solto. */
+    function canalDoLink(url, nome, origem = '') {
+        return completar({ nome: nome || nomeDoLink(url), url: String(url).trim(), headers: {}, origem, ordem: 0 });
+    }
+
     /** Descobre o formato pelo conteúdo e lê. origem = nome da lista (vai em cada canal). */
     function lerLista(texto, origem = '') {
         const t = String(texto || '').replace(/^﻿/, '').trimStart();
@@ -235,10 +264,6 @@
         o.chave = chaveDe(o);
         if (!o.id) o.id = idDe(o.url);
         return o;
-    }
-    function nomeDoLink(url) {
-        try { const u = new URL(url); const f = decodeURIComponent(u.pathname.split('/').filter(Boolean).pop() || u.hostname); return f.replace(/\.(m3u8?|ts|mp4|mpd|flv)$/i, '').replace(/[._-]+/g, ' ').trim() || u.hostname; }
-        catch (e) { return String(url || '').slice(0, 40); }
     }
     /** id estável do canal pelo link (mesmo link = mesmo id em qualquer lista). */
     function idDe(url) {
@@ -373,7 +398,7 @@
     }
 
     return {
-        lerLista, lerM3U, lerJSON, lerTexto, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });
