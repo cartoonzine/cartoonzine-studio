@@ -4,6 +4,8 @@
  "games": [
   {
    "title": "Among Us",
+   "desc": "Among Us passa-se num universo de ficção científica. Cada jogador assume o papel de um dos membros da tripulação de uma nave espacial, cada um dos quais pode ser um membro da tripulação ou um impostor. O objetivo da tripulação é identificar os impostores e eliminá-los enquanto realizam tarefas na nave, enquanto o objetivo dos impostores é matar todos os membros da tripulação sem serem identificados.",
+   "year": 2018,
    "genre": [
     "Suspense",
     "RPG"
@@ -60,6 +62,7 @@
   {
    "title": "Stardew Valley",
    "desc": "Stardew Valley é um videogame RPG de simulação desenvolvido por Eric \"ConcernedApe\" Barone. Os jogadores assumem o papel de um personagem que herda a fazenda dilapidada de seu falecido avô em um lugar conhecido como Stardew Valley. O jogo foi lançado para Windows em fevereiro de 2016 antes de ser portado para outras plataformas. Stardew Valley é aberto, permitindo aos jogadores cultivar, criar gado, pescar, cozinhar, minerar, forragear e socializar com os habitantes da cidade, incluindo a capacidade de casar e ter filhos. Ele permite que até quatro jogadores joguem online juntos.\n\nBarone desenvolveu Stardew Valley sozinho ao longo de quatro anos e meio. Ele foi fortemente inspirado pela série Story of Seasons e pelo jogo Harvest Moon, com acréscimos para resolver algumas das deficiências desses jogos. Ele usou isso como um exercício para melhorar suas próprias habilidades de programação e design de jogos. O estúdio britânico Chucklefish abordou Barone no meio do desenvolvimento com a oferta de publicar o jogo, permitindo que ele se concentrasse mais em completá-lo.\n\nStardew Valley foi citado como um dos maiores videogames de todos os tempos, com elogios direcionados à sua música, personagens e qualidades relaxantes. Yasuhiro Wada, o criador de Story of Seasons, também elogiou o jogo por reter a liberdade que entradas posteriores de sua série haviam perdido. O jogo foi um sucesso comercial, vendendo mais de 41 milhões de cópias até dezembro de 2024.",
+   "year": 2016,
    "genre": [
     "RPG",
     "Simulação",
@@ -188,6 +191,8 @@
   },
   {
    "title": "Brawlhalla",
+   "desc": "Brawlhalla: An eternal battle arena where the greatest warriors in history brawl to prove who's the best that ever was, is, or will be. Every match is an epic test of skill, speed, and strength, and every victory brings additional glory and bragging rights to the winners.\r\n\r\nThese slugfests are salted with powerful weapons and gadgets. Fighters scramble to grab swords, axes, hammers, blasters, rocket lances and more! Every weapon changes your play style and your options. Gadgets like mines, bombs, and spiked spheres add even more danger into the mix, letting fighters change the course of battle with a well timed-throw or carefully laid trap.",
+   "year": 2014,
    "genre": [
     "Luta",
     "Briga",
@@ -202,6 +207,7 @@
    "thumb": "https://store-images.s-microsoft.com/image/apps.60631.66915708565277087.6939cc90-5cdd-45d0-b0cd-a485dca34280.160b949a-8de8-4012-9dad-bba0d534927d",
    "bannerThumb": "https://miro.medium.com/1*AV6_RGYjWyjousz9Jp8LXg.jpeg",
    "console": "web-windows",
+   "players": 8,
    "core": "web",
    "aparelhos": [
     "tv",
@@ -256,7 +262,8 @@
   },
   {
    "title": "Cuphead",
-   "desc": "Port para navegador · gn-math.github.io",
+   "desc": "Cuphead é um jogo clássico de corrida e tiro fortemente focado em batalhas contra chefes. Inspirado nos desenhos animados da década de 1930, o visual e o áudio são cuidadosamente criados com as mesmas técnicas da época, ou seja, animação celulósica tradicional desenhada à mão, fundos em aquarela e gravações originais de jazz.\r\n\r\nJogue como Cuphead ou Mugman (no modo single player ou local co-op) enquanto atravessa mundos estranhos, adquire novas armas, aprende super-movimentos poderosos e descobre segredos escondidos enquanto tenta pagar sua dívida com o diabo!",
+   "year": 2017,
    "genre": [
     "Plataforma",
     "Tiro"
@@ -310,6 +317,7 @@
   {
    "title": "Doki Doki Literature Club",
    "desc": "Bem-vindo(a) ao clube! Escreva poemas para a pessoa por quem você tem uma queda e vivencie o terror do romance escolar nesta história de terror psicológico aclamada pela crítica.",
+   "year": 2017,
    "genre": [
     "RPG",
     "Visual Novel",
@@ -374,6 +382,7 @@
    "thumb": "https://cdn.mobygames.com/covers/6495734-hurrican-windows-front-cover.jpg",
    "bannerThumb": "https://img.utdstc.com/screen/9ef/4bf/9ef4bf99b593acaec7b710c7d3cbf5379ff06ccb60713975cbe4e2d4f131fa65:600",
    "console": "web-windows",
+   "players": 2,
    "core": "web",
    "aparelhos": [
     "tv",
@@ -387,6 +396,11 @@
   },
   {
    "title": "Lego Island",
+   "desc": "Aventures sur l'île LEGO est un jeu d'action-aventure sur PC en vue à la première personne. Ce jeu, destiné aux plus jeunes, vous propose de pénétrer dans un monde en 3D dans lequel vous devez rassembler des pièces pour construire plusieurs types de véhicules comme une voiture ou un Jet-Ski. Ensuite vous pouvez circuler librement sur l'île à bord du véhicule que vous avez construit.",
+   "year": 1997,
+   "genre": [
+    "Aventura"
+   ],
    "bannerlogo": "https://cdn2.steamgriddb.com/logo/91a0ac7c34ea63ffc3ef3e8d5ddd58bb.png",
    "logo": "https://cdn2.steamgriddb.com/logo/91a0ac7c34ea63ffc3ef3e8d5ddd58bb.png",
    "bgImg": "banner",
@@ -480,6 +494,10 @@
   {
    "title": "Sonic Mania Plus",
    "desc": "Vivencie a celebração definitiva do passado e do futuro em Sonic Mania, uma aventura 2D inédita do Sonic rodando a 60 FPS com gráficos retrô em alta definição impressionantes. Diversos personagens jogáveis ​​permitem que você acelere explosivamente como Sonic, voe como Tails ou supere obstáculos difíceis com a força bruta de Knuckles. Você pode reviver o Sonic do passado com uma nova e emocionante abordagem das fases clássicas enquanto luta contra novos chefões e o exército de robôs malignos do Dr. Eggman. Dispute partidas com outros jogadores no Modo Competição ou jogue no Modo Cooperativo com um amigo. Sonic Mania foi desenvolvido por Christian Whitehead, Headcannon e PagodaWest Games em colaboração com a Sonic Team. Bem-vindo ao Sonic Mania!\n\nSonic Mania Encore DLC - Experimente uma nova versão de fases familiares com o novíssimo Modo Encore, jogue com dois novos personagens com habilidades únicas: Mighty, o Tatu, e Ray, o Esquilo Voador, e dispute com até quatro amigos no Modo Competição expandido!",
+   "genre": [
+    "Plataforma",
+    "Plataforma / Corre e Pula com rolagem"
+   ],
    "bannerlogo": "https://images.launchbox-app.com//bdb3c23d-e5e6-4f00-9b3b-8e2e65332868.png",
    "logo": "https://cdn2.steamgriddb.com/logo/59353e05a88e9b4e71bc0b989a81d75a.png",
    "bgImg": "banner",

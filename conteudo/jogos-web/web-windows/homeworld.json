@@ -9,9 +9,17 @@
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/GardensOfKadesh/Homeworld",
   "descricao": "Port para navegador · gardens-of-kadesh.gitlab.io",
+  "ano": 1999,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 8,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 306750,
+  "_ssPreviaEm": "2026-11-17"
 }

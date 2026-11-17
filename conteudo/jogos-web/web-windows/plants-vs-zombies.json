@@ -7,10 +7,18 @@
   "banner": "https://cdn2.steamgriddb.com/hero/adc94733dd4f96f1e64ac4874e909215.png",
   "logo": "https://cdn2.steamgriddb.com/logo/9ac270230fcb62e226e01721389463fc.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · rgc.zone",
+  "descricao": "Plants vs. Zombies pertence ao subgênero &quot;defesa da torre&quot; de jogos casuais, onde o objetivo é implantar uma série de armas fixas para proteger uma estrutura contra hordas de inimigos. As plantas fornecem a artilharia e podem ser compradas com a energia solar, a moeda do jogo. Os inimigos são zumbis invadindo um gramado suburbano. No início de cada nível, o jogador começa a plantar as sementes disponíveis no gramado de forma estratégica. Zumbis lentamente começam a aparecer da rua do lado direito, apenas alguns inicialmente, e devem ser destruídos antes que possam chegar à casa do outro lado. Ícones de energia solar caem do céu aleatoriamente e devem ser coletados com o mouse para aumentar os fundos. O girassol pode ser plantado para gerar unidades extras de poder solar, mas não tem nenhum poder de ataque contra os mortos-vivos invasores. Além do custo, as embalagens de sementes demoram um pouco para recarregar após o uso.",
+  "ano": 2009,
+  "generos": [
+    "Estratégia"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 251499,
+  "_ssPreviaEm": "2026-11-17"
 }

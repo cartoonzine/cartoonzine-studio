@@ -6,6 +6,8 @@
   "capa": "https://store-images.s-microsoft.com/image/apps.60631.66915708565277087.6939cc90-5cdd-45d0-b0cd-a485dca34280.160b949a-8de8-4012-9dad-bba0d534927d",
   "banner": "https://miro.medium.com/1*AV6_RGYjWyjousz9Jp8LXg.jpeg",
   "logo": "https://cdn2.steamgriddb.com/logo/d436cae949c81b9970593a225df2d479.png",
+  "descricao": "Brawlhalla: An eternal battle arena where the greatest warriors in history brawl to prove who's the best that ever was, is, or will be. Every match is an epic test of skill, speed, and strength, and every victory brings additional glory and bragging rights to the winners.\r\n\r\nThese slugfests are salted with powerful weapons and gadgets. Fighters scramble to grab swords, axes, hammers, blasters, rocket lances and more! Every weapon changes your play style and your options. Gadgets like mines, bombs, and spiked spheres add even more danger into the mix, letting fighters change the course of battle with a well timed-throw or carefully laid trap.",
+  "ano": 2014,
   "generos": [
     "Luta",
     "Briga",
@@ -13,7 +15,11 @@
   ],
   "console": "web-windows",
   "licenca": "livre",
+  "jogadores": 8,
   "fundoImagem": "banner",
   "posFundo": 90,
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 281166,
+  "_ssPreviaEm": "2026-11-17"
 }

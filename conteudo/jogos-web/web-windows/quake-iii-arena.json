@@ -7,10 +7,19 @@
   "banner": "https://cdn2.steamgriddb.com/hero/8cca6e1f00335c0d496ed52b24f23f9e.png",
   "logo": "https://cdn2.steamgriddb.com/logo/504b7f668328dab60570f03ecfe47918.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Mate ou Morra!\r\nEnfrente 4 ou mais jogadores nos emocionantes modos Split, Quad-Screen e Internet Gameplay (disponível a partir de 2001).\r\nEscolha um entre mais de 30 guerreiros e teste seus nervos na mais violenta e alucinante batalha virtual!\r\nGráficos e efeitos sonoros incríveis!\r\nMais de 30 arenas de combate, algumas delas especialmente projetadas para o Dreamcast!\r\nBatalhe nos modos Free-for-all, Team Deathmatch, Capture the Flag e Tournament!",
+  "ano": 2000,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 13509,
+  "_ssPreviaEm": "2026-11-17"
 }

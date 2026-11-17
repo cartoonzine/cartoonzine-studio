@@ -8,10 +8,19 @@
   "logo": "https://cdn2.steamgriddb.com/logo/155f4603b76e476b3e0dec9a1d5b4c50.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/VinMannie/SonicManiaWeb",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Experience the ultimate celebration of past and future in Sonic Mania, an all-new 2D Sonic adventure running at a crisp 60FPS with stunning HD retro-style graphics. Multiple playable characters give you the ability to go explosively fast as Sonic, soar as Tails, or power through tough obstacles with Knuckles' brute strength. You can re-live the Sonic of the past with an exciting new twist on classic zones while fighting against new bosses and Dr. Eggman's evil robot army. Go head-to-head with players in Competition Mode or play in Co-Op Mode with a friend. Sonic Mania was developed by Christian Whitehead, Headcannon, and PagodaWest Games in collaboration with Sonic Team. Welcome to Sonic Mania",
+  "ano": 2017,
+  "generos": [
+    "Plataforma",
+    "Plataforma / Corre e Pula com rolagem"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 339870,
+  "_ssPreviaEm": "2026-11-17"
 }

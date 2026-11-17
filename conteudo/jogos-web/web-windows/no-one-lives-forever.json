@@ -7,10 +7,19 @@
   "banner": "https://cdn2.steamgriddb.com/hero/36597855fca55b54f30f55d8820a2f8b.png",
   "logo": "https://cdn2.steamgriddb.com/logo/bcee0a5d14d3d569e298b58e46191139.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · playnolf.com",
+  "descricao": "Cate Archer, the fearless and fashionable secret agent, returns to save the world from H.A.R.M. Armed with an assortment of superspy weaponry and gadgets, Cate must explore exotic locales, avoid devious traps, and defeat deadly agents to foil a Soviet project.\r\n\r\nAs Cate, it's up to you to avert a nuclear holocaust through 40 single-player missions. No One Lives Forever 2 also features a multiplayer mode that lets you play cooperatively with your friend over the Internet.",
+  "ano": 2002,
+  "generos": [
+    "Ação",
+    "Ação / Aventura"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 323392,
+  "_ssPreviaEm": "2026-11-17"
 }

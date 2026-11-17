@@ -5,9 +5,19 @@
   ],
   "capa": "https://store-images.s-microsoft.com/image/apps.7992.66084178781808662.5cbdeec6-594f-44e2-ab1a-acbdbbe8e331.4b46fba6-08dd-4c43-88b4-d5a76ec0e723",
   "banner": "https://hu3br.b-cdn.net/wp-content/uploads/2015/10/kingdom-6.jpg",
+  "descricao": "WayForward, o estúdio por detrás desta adaptação Adventure Time, optou de facto por transpor o universo dos desenhos animados para um jogo tipo Zelda que é bastante bem sucedido à primeira vista. Adoptando um estilo gráfico 2D com uma vista de cima, The Secret of the Nameless Kingdom refere-se directamente ao famoso A Link to the Past, um piscar de olhos apoiado pelo mapa do mundo que segue as mesmas linhas que o de Zelda 3 e oferece quase os mesmos lugares: um castelo, uma floresta, um cemitério, um deserto, ... O jogo é jogado como um Zelda. A introdução ao jogo, que funciona como um tutorial, estabelece as bases que são bem conhecidas dos fãs do mundo de Hyrule: um botão para a espada, a possibilidade de usar o seu escudo (aqui Jake, transformado para a ocasião) com um gatilho, e ranhuras no inventário reservado para os itens habituais que Finn irá recolher durante a sua busca.",
+  "ano": 2014,
+  "generos": [
+    "Ação",
+    "Ação / Aventura"
+  ],
   "console": "web-windows",
+  "jogadores": 1,
   "fundoImagem": "banner",
   "posFundo": 74,
   "_rascunho": true,
-  "_completadoEm": "2026-11-16"
+  "_completadoEm": "2026-11-17",
+  "_ssEm": "2026-11-17",
+  "_ssId": 271478,
+  "_ssPreviaEm": "2026-11-17"
 }

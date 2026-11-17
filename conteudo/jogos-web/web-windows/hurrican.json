@@ -19,8 +19,12 @@
   "console": "web-windows",
   "licenca": "livre",
   "controles": "gamepad",
+  "jogadores": 2,
   "fundoImagem": "banner",
   "posFundo": 100,
   "_origem": "prateleira:cartoonzine-jogos",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 307580,
+  "_ssPreviaEm": "2026-11-17"
 }

@@ -8,10 +8,19 @@
   "logo": "https://cdn2.steamgriddb.com/logo/8512ca31b3df709713364fc8510ace73.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/weliveinhell/source-engine",
-  "descricao": "Port para navegador · yikes.pw",
+  "descricao": "No Portal, o jogador controla uma personagem chamada Chell numa vista em primeira pessoa que deve atravessar uma série de salas utilizando um gerador de portal. Este gerador cria dois portais distintos, um laranja e um azul, sobre uma superfície plana de partículas lunares. Nem é necessariamente a entrada nem a saída, e qualquer objecto que passe por um portal sairá pelo outro, mantendo a sua velocidade. Os portais não podem ser criados em todas as superfícies, mas uma tentativa falhada de criar um portal não irá afectar os portais já criados. O jogador também pode apanhar objectos, mas não os pode atirar a longas distâncias. Estes itens, frequentemente cubos de armazenamento, podem ser utilizados para premir interruptores que activam plataformas ou portas abertas, ou para proteger contra fogo de torre, mas estes cubos não podem ser transportados de sala para sala.",
+  "ano": 2008,
+  "generos": [
+    "Quebra-cabeças",
+    "Plataforma"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 328284,
+  "_ssPreviaEm": "2026-11-17"
 }
