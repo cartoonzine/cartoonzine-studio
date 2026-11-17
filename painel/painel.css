@@ -85,6 +85,10 @@ a { color: var(--azul); }
 .colecao .nm { flex: 1; }
 .colecao .ct { font-size: 12px; color: var(--suave); background: var(--vidro); padding: 1px 8px; border-radius: 99px; }
 .principal-area { padding: 22px clamp(16px, 3vw, 34px) 60px; min-width: 0; }
+/* telas que precisam da largura toda (Link Edit): sem a lista de coleções ao lado */
+.app.tela-cheia { grid-template-columns: 1fr; }
+.app.tela-cheia > .lateral { display: none; }
+.app.tela-cheia > .principal-area { padding: 12px 14px 14px; }
 
 @media (max-width: 820px) {
   .app { grid-template-columns: 1fr; }

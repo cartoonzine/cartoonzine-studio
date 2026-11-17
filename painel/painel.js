@@ -256,7 +256,7 @@
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
 
-    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : 'colecoes';
+    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : location.hash === '#linkedit' ? 'linkedit' : 'colecoes';
 
     async function conectar(repo) {
         estado.repo = await repo.iniciar();
@@ -270,6 +270,7 @@
         $('#btn-chaves').hidden = false;
         $('#btn-vitrine').hidden = false;
         $('#btn-prateleira').hidden = false;
+        $('#btn-linkedit').hidden = false;
         estado.tela = telaDoHash();
         await recarregarIndice();
         desenharApp();
@@ -334,7 +335,7 @@
     function desenharApp() {
         const cfg = estado.config;
         $('#raiz').innerHTML = `
-        <div class="app">
+        <div class="app${estado.tela === 'linkedit' ? ' tela-cheia' : ''}">
           <nav class="lateral" aria-label="Coleções">
             <h2>Coleções</h2>
             ${cfg.colecoes.map(c => `
@@ -354,7 +355,10 @@
         }));
         $('#btn-vitrine').classList.toggle('ativo', estado.tela === 'vitrine');
         $('#btn-prateleira').classList.toggle('ativo', estado.tela === 'prateleira');
+        $('#btn-linkedit').classList.toggle('ativo', estado.tela === 'linkedit');
+        if (estado.tela !== 'linkedit' && window.CZLinkEdit) window.CZLinkEdit.parar();     // saiu do Link Edit: o visualizador para
         if (estado.tela === 'vitrine') desenharVitrine();
+        else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy) });
         else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
             RepoGitHub, aviso, esc, guardar,
             indice: () => estado.indice,
@@ -1974,6 +1978,7 @@ https://archive.org/details/algum_desenho
     // 🎬 Vitrine: endereço próprio (…/painel/#vitrine), dá para favoritar e abrir direto
     $('#btn-vitrine').addEventListener('click', () => { if (location.hash !== '#vitrine') location.hash = 'vitrine'; });
     $('#btn-prateleira').addEventListener('click', () => { if (location.hash !== '#prateleira') location.hash = 'prateleira'; });
+    $('#btn-linkedit').addEventListener('click', () => { if (location.hash !== '#linkedit') location.hash = 'linkedit'; });
     window.addEventListener('hashchange', () => {
         if (!estado.repo) return;
         const quer = telaDoHash();
@@ -1987,7 +1992,7 @@ https://archive.org/details/algum_desenho
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true;
         vit.lista = null; limparAjustes();
         telaConectar();
     });
