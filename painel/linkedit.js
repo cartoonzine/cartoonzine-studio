@@ -777,12 +777,13 @@
         const config = S.config();
         const cols = (config.colecoes || []).filter(c => TIPOS_CANAL.includes(c.tipo) || c.tipo === 'video');
         if (!cols.length) return S.aviso('O studio.config.json não tem coleções de canais nem de vídeo.', 'ruim');
-        if (!E.nova.itens.length && !E.sel.size) return S.aviso('Monte a lista nova (ou marque canais) antes de enviar.', 'ruim');
-        if (!E.nova.itens.length) ENV.origem = 'marcados';
+        if (ENV.origem === 'externa' && !ENV.externa) ENV.origem = 'nova';
+        if (!E.nova.itens.length && !E.sel.size && !ENV.externa) return S.aviso('Monte a lista nova (ou marque canais) antes de enviar.', 'ruim');
+        if (!E.nova.itens.length && ENV.origem === 'nova') ENV.origem = ENV.externa ? 'externa' : 'marcados';
         if (aba) ENV.aba = aba;
         if (ENV.aba !== 'tudo' && !cols.some(c => c.id === ENV.aba)) ENV.aba = 'tudo';
         const familia = (c) => (c && c.tipo === 'video' ? 'vod' : 'canal');
-        const base = () => (ENV.origem === 'marcados' && E.sel.size ? selecionados() : E.nova.itens);
+        const base = () => (ENV.origem === 'externa' && ENV.externa ? ENV.externa.itens : ENV.origem === 'marcados' && E.sel.size ? selecionados() : E.nova.itens);
         const planejar = () => {
             const itens = base().filter(it => !ENV.soVivos || !it.teste || ['vivo', 'lento', 'pede-ua'].includes(it.teste.status));
             const forcada = cols.find(c => c.id === ENV.forcar);
@@ -796,10 +797,10 @@
             return canais.concat(vods);
         };
         const paises = S.C.opcoesDe('paises', config);
-        const j = janela(`<h3>Enviar ao Studio</h3>
+        const j = janela(`<h3>Enviar ao Studio${ENV.origem === 'externa' && ENV.externa ? ' · ' + esc(ENV.externa.nome) : ''}</h3>
           <div class="le-abas le-env-abas" id="le-env-abas" role="tablist"></div>
           <div class="le-imp-op">
-            <label>Enviar <select class="le-campo" id="le-imp-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option></select></label>
+            <label>Enviar <select class="le-campo" id="le-imp-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option>${ENV.externa ? `<option value="externa">a lista importada: ${esc(ENV.externa.nome)} (${ENV.externa.itens.length})</option>` : ''}</select></label>
             <label title="Canais sem país não entram no TVzine">País para quem não tem <select class="le-campo" id="le-imp-pais"><option value="">— nenhum —</option>${paises.map(p => `<option value="${esc(p.v)}">${esc(p.r)}</option>`).join('')}</select></label>
             <label><input type="checkbox" id="le-imp-vivos"> só os vivos</label>
             <label title="Entra no Studio mas não vai para o app até você conferir"><input type="checkbox" id="le-imp-rasc"> como rascunho</label>
@@ -829,7 +830,14 @@
             j.querySelector('#le-env-acoes').innerHTML = `
               ${col ? `<button class="le-bt${ENV.forcar === col.id ? ' p' : ''}" id="le-env-forcar" title="Ignora o destino automático: todos os itens da lista vão para ${esc(col.nome)}">${ENV.forcar === col.id ? '✓ A lista inteira vai para ' : 'Mandar a lista inteira para '}${esc(col.icone || '')} ${esc(col.nome)}</button>` : ''}
               ${ENV.forcar ? '<button class="le-bt" id="le-env-auto">↺ Voltar ao destino automático</button>' : ''}
-              ${vis.some(r => r.fam === 'vod' && r.col) ? '<button class="le-bt p" id="le-env-tmdb" title="Capa, banner, sinopse, ano, gêneros e episódios — só onde está vazio">🔎 Completar no TMDB (só o que falta)</button>' : ''}
+              ${(() => {
+                  const v = vis.filter(r => r.fam === 'vod' && r.col);
+                  if (!v.length) return '';
+                  const falta = v.filter(r => !ENV.achados.has(r.chave) && (!r.item.capa || !r.item.descricao || (r.eps && !r.item.banner)));
+                  const pedidos = falta.reduce((n, r) => n + 3 + (r.item.temporadas ? r.item.temporadas.length : 0), 0);
+                  return `<button class="le-bt p" id="le-env-tmdb" title="Capa, banner, sinopse, ano, gêneros, nota, classificação e episódios — só onde está vazio" ${falta.length ? '' : 'disabled'}>🔎 Completar no TMDB (${falta.length} sem dados)</button>
+                    <span class="le-dica" title="Os que já têm capa e sinopse ficam como estão">${v.length - falta.length} já completos${falta.length ? ` · ~${pedidos} pedidos à API` : ''}</span>`;
+              })()}
               <span class="le-imp-resumo">
                 ${conta(r => r.eps) ? `<span class="le-chip">${conta(r => r.eps)} séries · ${vis.reduce((k, r) => k + (r.eps || 0), 0)} ep.</span>` : ''}
                 ${conta(r => r.fam === 'vod' && !r.eps) ? `<span class="le-chip">${conta(r => r.fam === 'vod' && !r.eps)} filmes</span>` : ''}
@@ -881,16 +889,25 @@
             if (!faltam.length) return S.aviso('Todos já têm capa e sinopse.', 'ok');
             if (!S.temTmdb()) S.aviso('Sem a chave do TMDB (Chaves, no topo do Studio) a busca usa a Wikipedia, que acha menos coisa.', 'ruim');
             b.disabled = true;
-            let k = 0;
-            for (const r of faltam) {
-                if (!j.isConnected) return;
-                b.textContent = `Buscando ${++k}/${faltam.length}…`;
-                try {
-                    const x = await S.completar(r.item);
-                    ENV.dados.set(r.chave, x.item);
-                    ENV.achados.set(r.chave, { ok: !!x.achados.length, texto: x.achados.concat(x.avisos).join(' · ') || 'nada' });
-                } catch (er) { ENV.achados.set(r.chave, { ok: false, texto: er.message }); }
-            }
+            let k = 0, prox = 0, parar = false;
+            const um = async () => {
+                while (!parar && prox < faltam.length) {
+                    const r = faltam[prox++];
+                    if (!j.isConnected) { parar = true; return; }
+                    try {
+                        const x = await S.completar(r.item);
+                        ENV.dados.set(r.chave, x.item);
+                        ENV.achados.set(r.chave, { ok: !!x.achados.length, texto: x.achados.concat(x.avisos).join(' · ') || 'nada' });
+                    } catch (er) {
+                        ENV.achados.set(r.chave, { ok: false, texto: er.message });
+                        if (/inválida/.test(er.message)) { parar = true; S.aviso(er.message, 'ruim'); }
+                        if (/devagar|limite/.test(er.message)) await esperar(3000);
+                    }
+                    b.textContent = `Buscando ${++k}/${faltam.length}…`;
+                }
+            };
+            await Promise.all([um(), um(), um(), um()]);      // 4 de cada vez (o TMDB aceita ~40 pedidos/s)
+            if (!j.isConnected) return;
             pintar();
             S.aviso(`TMDB: ${[...ENV.achados.values()].filter(a => a.ok).length} achados. Os com "?" foram achados pelo nome ou não acharam — confira antes de gravar.`, 'ok');
         };
@@ -919,6 +936,53 @@
         pintar();
     }
     const abrirImportadorVOD = () => abrirImportador('tudo');
+
+    // ---------------------------------------------------------------- IMPORTAR LISTA INTEIRA (lista que já está pronta)
+    // Para listas que você já sabe que estão completas e funcionando: lê a lista inteira e manda para o Studio sem passar
+    // pela mesa (as ferramentas continuam lá para os imprevistos). Cada item vai para a coleção certa, ou todos para uma só.
+    function abrirImportarLista() {
+        const config = S.config ? S.config() : null;
+        if (!config || !S.gravar) return S.aviso('Abra o Link Edit pelo Studio para gravar nas coleções.', 'ruim');
+        const cols = (config.colecoes || []).filter(c => TIPOS_CANAL.includes(c.tipo) || c.tipo === 'video');
+        const j = janela(`<h3>⚡ Importar lista inteira</h3>
+          <p class="le-dica">Para listas que você já sabe que estão completas e funcionando: a lista inteira vai direto para o Studio, sem passar pela mesa. Antes de gravar você vê tudo separado por coleção (e ainda pode buscar no TMDB só o que falta).</p>
+          <div style="display:flex;gap:6px"><input class="le-campo" id="le-il-url" placeholder="Link da lista (M3U, JSON, TXT, .pages.dev…)" style="flex:1"><label class="le-bt" style="display:inline-flex;align-items:center;cursor:pointer">Arquivo<input type="file" id="le-il-arq" accept=".m3u,.m3u8,.json,.txt,text/*" hidden></label></div>
+          <div class="le-imp-op" style="margin-top:8px">
+            <label>A lista é de <select class="le-campo" id="le-il-col"><option value="">Automático — cada item na sua coleção</option>${cols.map(c => `<option value="${esc(c.id)}">${esc(c.icone || '')} só ${esc(c.nome)}</option>`).join('')}</select></label>
+            <label title="Lista só de filmes/episódios em .m3u8 (sem isso, .m3u8 é tratado como canal ao vivo)"><input type="checkbox" id="le-il-vod"> tudo é filme/série (mesmo .m3u8)</label>
+          </div>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-il-ler">Ler a lista</button></div>
+          <p class="le-dica" id="le-il-info"></p>`);
+        let arquivo = null;
+        j.querySelector('#le-il-arq').onchange = async (e) => { const f = e.target.files[0]; if (f) { arquivo = { nome: f.name, texto: await f.text() }; j.querySelector('#le-il-url').value = f.name; } };
+        j.querySelector('#le-il-ler').onclick = async (e) => {
+            const b = e.target, url = j.querySelector('#le-il-url').value.trim();
+            let texto, nome;
+            b.disabled = true; b.textContent = 'Lendo…';
+            try {
+                if (arquivo && url === arquivo.nome) { texto = arquivo.texto; nome = arquivo.nome; }
+                else {
+                    if (!/^https?:\/\//i.test(url)) throw new Error('cole um link http(s) ou escolha um arquivo');
+                    texto = await baixarTexto(url);
+                    nome = (() => { try { const u = new URL(url); return u.pathname.split('/').filter(Boolean).pop() || u.hostname; } catch (er) { return url; } })();
+                }
+                const r = L.lerLista(texto, nome);
+                if (!r.canais.length) throw new Error('não achei itens nessa lista');
+                const forcar = j.querySelector('#le-il-col').value, tudoVod = j.querySelector('#le-il-vod').checked;
+                r.canais.forEach((c, i) => { c.id = 'imp-' + i + '-' + c.id; if (r.epg && !c.epgGuia && c.tvgId) c.epgGuia = r.epg; if (tudoVod && !L.ehVOD(c)) c.formato = 'arquivo'; });
+                ENV.externa = { nome, itens: r.canais };
+                ENV.origem = 'externa'; ENV.forcar = forcar; ENV.aba = forcar || 'tudo';
+                ENV.destCanal = new Map(); ENV.destVod = new Map();
+                fecharJanela();
+                abrirImportador(ENV.aba);
+                S.aviso(`${r.canais.length.toLocaleString('pt-BR')} itens lidos de "${nome}" (${r.formato.toUpperCase()}).`, 'ok');
+            } catch (er) {
+                b.disabled = false; b.textContent = 'Ler a lista';
+                j.querySelector('#le-il-info').textContent = 'Não consegui ler: ' + er.message + (local() ? '' : ' — no painel do PC (node tools/painel.mjs) qualquer link abre.');
+            }
+        };
+        j.querySelector('#le-il-url').focus();
+    }
 
     // ---------------------------------------------------------------- assets: banco de logos salvos (vale para todas as listas)
     const GUARDA_ASSETS = 'czs-linkedit-assets-v1';
@@ -1456,6 +1520,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <div class="le-logo"><b>LINK</b><i>EDIT</i></div>
             <span class="chip ${local() ? 'ok' : ''}" title="${local() ? 'Testes e túnel do visualizador pelo painel do seu PC' : 'Online: o Scan e o túnel precisam do painel local (node tools/painel.mjs)'}">${local() ? 'painel local' : 'online'}</span>
             <div style="flex:1"></div>
+            <button class="le-bt" id="le-importar" title="Lista que já está pronta: vai inteira para o Studio, cada item na coleção certa">⚡ Importar lista inteira</button>
             <button class="le-bt" id="le-assets" title="Banco de logos salvos, para usar em qualquer lista (B)">★ Assets</button>
             <button class="le-bt" id="le-desfazer" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
             <button class="le-bt" id="le-sair" title="Sair do Link Edit e voltar para as coleções do Studio (o que você fez aqui fica guardado)">📚 Coleções</button>
@@ -1630,6 +1695,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-desfazer').onclick = desfazer;
         $('#le-sair').onclick = () => { pararVideo(); if (window.CZStudio && window.CZStudio.irParaColecoes) window.CZStudio.irParaColecoes(); else location.hash = ''; };
         $('#le-assets').onclick = () => abrirAssets();
+        $('#le-importar').onclick = () => abrirImportarLista();
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };
         $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });
