@@ -210,3 +210,26 @@ https://live.exemplo.com/news.m3u8
     const outro = L.planejarVOD(cs.slice(3, 4), C, { config, destinos: new Map([[plano.find(r => r.item.nome === 'Matrix').chave, 'series']]) });
     assert.equal(outro[0].col.id, 'series', 'destino trocado na mão vale');
 });
+
+test('Busca fina no envio: qualidade e áudios das cópias; mesmo código do TMDB junta nomes diferentes e acha o que já existe', () => {
+    const C = require('../core/studio-core.js');
+    const config = JSON.parse(require('node:fs').readFileSync(new URL('../studio.config.json', import.meta.url), 'utf8'));
+    const cs = L.lerLista(`#EXTM3U
+#EXTINF:-1 group-title="Filmes",Matrix (1999) Dublado
+https://vod.exemplo.com/movie/u/p/1.mp4
+#EXTINF:-1 group-title="Filmes",Matrix 1999 1080p Legendado
+https://vod.exemplo.com/movie/u/p/2.mp4
+#EXTINF:-1 group-title="Filmes",The Matrix (1999) 720p
+https://vod.exemplo.com/movie/u/p/3.mp4
+`).canais;
+    let plano = L.planejarVOD(cs, C, { config });
+    assert.equal(plano.length, 2, 'sem TMDB: "The Matrix" ainda é outro');
+    const m = plano.find(r => r.item.nome === 'Matrix');
+    assert.deepEqual(m.item.audios.sort(), ['dublado', 'legendado']); assert.equal(m.item.qualidade, 'FHD');
+    // depois do TMDB os dois têm o mesmo código: viram um só, e o Studio já tem esse filme com outro nome
+    const dados = new Map(plano.map(r => [r.chave, { nome: r.item.nome, tmdb: 'movie/603' }]));
+    plano = L.planejarVOD(cs, C, { config, dados, indice: [{ caminho: 'conteudo/filmes/matrix-1999.json', nome: 'Matrix (filme)', tmdb: 'movie/603' }] });
+    assert.equal(plano.length, 1);
+    assert.equal(plano[0].item.links.length, 3); assert.equal(plano[0].acao, 'juntar'); assert.equal(plano[0].caminho, 'conteudo/filmes/matrix-1999.json');
+    assert.ok(plano[0].avisos.some(a => /TMDB/.test(a)));
+});
