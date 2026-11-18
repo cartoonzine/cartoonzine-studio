@@ -56,7 +56,7 @@
         } catch (e) { /* */ }
     }
     function lembrar() {                      // antes de mudar algo: guarda como estava (Desfazer)
-        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '']) }));
+        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual]) }));
         if (E.desfazer.length > 60) E.desfazer.shift();
     }
     function desfazer() {
@@ -65,7 +65,7 @@
         const d = JSON.parse(ult);
         E.nova = d.nova;
         const m = new Map(d.flags.map(f => [f[0], f]));
-        E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; } });
+        E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; if (f.length > 6) { c.idioma = f[4]; c.pais = f[5]; c.chave = f[6]; c.idiomaManual = f[7]; } } });
         salvar(); desenharTudo();
     }
 
@@ -371,11 +371,11 @@
     }
 
     // ---------------------------------------------------------------- janelas (salvar, logo, atalhos)
-    function janela(html) {
+    function janela(html, classe = '') {
         fecharJanela();
         const d = document.createElement('div');
         d.className = 'le-jan-fundo';
-        d.innerHTML = `<div class="le-jan" role="dialog" aria-modal="true">${html}<button class="le-jan-x" data-fechar aria-label="Fechar">✕</button></div>`;
+        d.innerHTML = `<div class="le-jan ${classe}" role="dialog" aria-modal="true">${html}<button class="le-jan-x" data-fechar aria-label="Fechar">✕</button></div>`;
         d.addEventListener('click', (e) => { if (e.target === d || e.target.closest('[data-fechar]')) fecharJanela(); });
         raiz.appendChild(d);
         return d;
@@ -387,7 +387,7 @@
             ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
-            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['M · + −', 'som · volume'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['B', 'banco de logos (Assets)'], ['M · + −', 'som · volume'],
             ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
@@ -474,29 +474,39 @@
     async function acharLogosQueFaltam() {
         const alvo = (E.sel.size ? selecionados() : E.visiveis).filter(c => !ehImagem(c.logo));
         if (!alvo.length) return S.aviso('Todos esses canais já têm logo.', 'ok');
-        S.aviso('Procurando logos no banco aberto do iptv-org…', 'ok');
-        let banco;
-        try { banco = await carregarBancoLogos(); } catch (e) { return S.aviso('Não consegui abrir o banco de logos: ' + e.message, 'ruim'); }
+        S.aviso('Procurando logos (seu banco de Assets primeiro, depois o iptv-org)…', 'ok');
+        await carregarAssets();
+        let banco = [], erroBanco = '';
+        try { banco = await carregarBancoLogos(); } catch (e) { erroBanco = e.message; }
         lembrar();
         let n = 0;
         const feitos = new Set();
         alvo.forEach(c => {
             if (feitos.has(c.chave)) { const irmao = E.canais.find(x => x.chave === c.chave && ehImagem(x.logo)); if (irmao) { c.logo = irmao.logo; n++; } return; }
+            const [meu] = logosDoBanco(c, true);
+            if (meu) { copiasDe(c).forEach(x => { if (!ehImagem(x.logo)) x.logo = meu.url; }); feitos.add(c.chave); n++; return; }
             const [m] = acharLogos(banco, c, 1);
             // só o que é certeza (mesmo tvg-id, ou mesmo nome no mesmo país); o resto você escolhe no logo do canal
             if (m && m.pontos >= 85) { copiasDe(c).forEach(x => { if (!ehImagem(x.logo)) x.logo = m.canal.logos[0]; }); feitos.add(c.chave); n++; }
         });
         salvar(); agendarTabela(); desenharFiltros();
+        if (erroBanco && !n) return S.aviso('Não consegui abrir o banco do iptv-org (' + erroBanco + ') e o seu banco de Assets não tem esses canais.', 'ruim');
         S.aviso(n ? `${n} logos colocados. Os que faltam: clique no quadrinho do logo e escolha na busca.` : 'Não achei logo certeiro para esses canais. Clique no quadrinho do logo para buscar e escolher.', n ? 'ok' : 'ruim');
     }
     function abrirLogo(c) {
         if (!c) return;
         const img = ehImagem(c.logo) ? c.logo : '';
         const nCopias = copiasDe(c).length;
+        // canais com o mesmo nome (de outras listas/países) que ainda estão sem logo
+        const iguais = img ? E.canais.filter(x => x.chave !== c.chave && L.norm(x.nome) === L.norm(c.nome) && !ehImagem(x.logo)) : [];
+        const noBanco = img && A.logos.some(l => l.url === img);
+        carregarAssets().then(() => { const b = raiz.querySelector('#le-logo-guardar'); if (b && img && A.logos.some(l => l.url === img)) { b.disabled = true; b.textContent = '★ Já está no banco'; } });
         const j = janela(`<h3>Logo · ${esc(c.nome)}</h3>
           <div class="le-logo-grande">${img ? `<img id="le-logo-img" src="${esc(img)}" alt="Logo de ${esc(c.nome)}">` : '<span>Sem logo</span>'}</div>
           <p class="le-dica" id="le-logo-info" style="text-align:center">${img ? '' : 'Este canal ainda não tem logo. Escolha um abaixo.'}</p>
           ${img ? `<div class="le-jan-botoes" style="justify-content:center"><button class="le-bt p" id="le-logo-baixar">⤓ Baixar imagem</button><a class="le-bt" style="display:inline-flex;align-items:center;text-decoration:none" href="${esc(img.startsWith('data:') ? '#' : img)}" target="_blank" rel="noopener" ${img.startsWith('data:') ? 'hidden' : ''}>Abrir em aba nova</a><button class="le-bt" id="le-logo-tirar">Remover logo</button></div>` : ''}
+          ${img ? `<div class="le-logo-link"><code title="${esc(img.startsWith('data:') ? '' : img)}">${esc(img.startsWith('data:') ? '(imagem enviada do computador — sem link)' : img)}</code>${img.startsWith('data:') ? '' : '<button class="le-bt" id="le-logo-copiar">Copiar link</button>'}</div>
+          <div class="le-jan-botoes" style="justify-content:center">${iguais.length ? `<button class="le-bt" id="le-logo-iguais" title="${esc(iguais.slice(0, 8).map(x => x.nome).join(', '))}">Colocar nos ${iguais.length} iguais sem logo</button>` : ''}<button class="le-bt" id="le-logo-guardar" ${noBanco ? 'disabled' : ''}>${noBanco ? '★ Já está no banco' : '★ Salvar no banco (Assets)'}</button><button class="le-bt" id="le-logo-assets">Abrir banco de logos</button></div>` : `<div class="le-jan-botoes" style="justify-content:center"><button class="le-bt" id="le-logo-assets">Abrir banco de logos</button></div>`}
           <div class="le-rot" style="margin-top:14px">${img ? 'Trocar o logo' : 'Inserir logo'}</div>
           <div style="display:flex;gap:6px;margin-top:6px"><input class="le-campo" id="le-logo-url" placeholder="Cole o link da imagem (PNG, JPG, SVG…)" style="flex:1"><button class="le-bt p" id="le-logo-usar">Usar</button></div>
           <div class="le-jan-botoes"><label class="le-bt" style="display:inline-flex;align-items:center;cursor:pointer">Enviar do computador<input type="file" id="le-logo-arq" accept="image/*" hidden></label>
@@ -511,6 +521,10 @@
             im.onload = () => { const i = j.querySelector('#le-logo-info'); if (i) i.textContent = im.naturalWidth + ' × ' + im.naturalHeight + ' px' + (img.startsWith('data:') ? ' · enviada do computador' : ''); };
             im.onerror = () => { const i = j.querySelector('#le-logo-info'); if (i) i.textContent = 'A imagem não abriu (link quebrado?). Troque abaixo.'; };
         }
+        const cp = j.querySelector('#le-logo-copiar'); if (cp) cp.onclick = () => copiarTexto(img, 'Link do logo copiado.');
+        const ig = j.querySelector('#le-logo-iguais'); if (ig) ig.onclick = () => { lembrar(); iguais.forEach(x => { x.logo = img; }); salvar(); agendarTabela(); desenharFiltros(); S.aviso(`Logo colocado em ${iguais.length} canais iguais.`, 'ok'); abrirLogo(c); };
+        const gd = j.querySelector('#le-logo-guardar'); if (gd) gd.onclick = async () => { await carregarAssets(); if (guardarLogo(c.nome, img, c.pais, (E.listas.find(l => l.id === c.lista) || {}).nome)) { await gravarAssets(); S.aviso('Logo salvo no banco (Assets).', 'ok'); } gd.disabled = true; gd.textContent = '★ Já está no banco'; };
+        j.querySelector('#le-logo-assets').onclick = () => abrirAssets(c.nome);
         const bx = j.querySelector('#le-logo-baixar'); if (bx) bx.onclick = () => baixarImagem(img, c.nome);
         const tr = j.querySelector('#le-logo-tirar'); if (tr) tr.onclick = () => aplicar('', 'Logo removido (Ctrl+Z volta).');
         const campo = j.querySelector('#le-logo-url');
@@ -524,17 +538,170 @@
         };
         j.querySelector('#le-logo-buscar').onclick = async () => {
             const res = j.querySelector('#le-logo-res');
-            res.innerHTML = '<p class="le-dica">Procurando no banco aberto do iptv-org (a primeira busca baixa o banco, alguns segundos)…</p>';
+            res.innerHTML = '<p class="le-dica">Procurando no seu banco e no banco aberto do iptv-org (a primeira busca baixa o banco, alguns segundos)…</p>';
+            await carregarAssets();
+            const meus = logosDoBanco(c).slice(0, 9).map(l => ({ u: l.url, rot: '★ ' + l.nome + (l.pais ? ' · ' + l.pais : '') }));
             try {
-                const achados = acharLogos(await carregarBancoLogos(), c);
+                let achados = [];
+                try { achados = acharLogos(await carregarBancoLogos(), c); } catch (er) { if (!meus.length) throw er; }
                 if (!res.isConnected) return;
-                const opcoes = [];
+                const opcoes = meus.slice();
                 achados.forEach(a => a.canal.logos.slice(0, 3).forEach(u => opcoes.push({ u, rot: a.canal.nome + (a.canal.pais ? ' · ' + a.canal.pais : '') })));
                 res.innerHTML = opcoes.length ? opcoes.slice(0, 18).map(o => `<button class="le-logo-op" data-url="${esc(o.u)}" title="${esc(o.rot)}"><img src="${esc(o.u)}" alt="" loading="lazy"><small>${esc(o.rot)}</small></button>`).join('')
                     : '<p class="le-dica">Nada no banco com esse nome. Tente "Procurar no Google" e cole o link da imagem acima.</p>';
                 res.querySelectorAll('[data-url]').forEach(b => { b.onclick = () => aplicar(b.dataset.url); });
             } catch (er) { res.innerHTML = `<p class="le-dica">Não consegui abrir o banco de logos (${esc(er.message)}). Use "Procurar no Google".</p>`; }
         };
+    }
+
+    // ---------------------------------------------------------------- idioma (na mão, um ou vários)
+    const bandeira = (p) => /^[A-Z]{2}$/.test(p || '') ? String.fromCodePoint(...[...p].map(ch => 127397 + ch.charCodeAt(0))) : '🌐';
+    let idiomasRecentes = [];
+    try { idiomasRecentes = JSON.parse(localStorage.getItem(GUARDA + '-idiomas') || '[]'); } catch (e) { /* */ }
+    /** Abre a escolha de idioma. Se o canal clicado estiver marcado junto com outros, vale para todos os marcados. */
+    function escolherIdioma(c) {
+        const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
+        if (!alvo.length) return S.aviso('Clique no idioma de um canal (ou marque vários e aperte I).', 'ruim');
+        const atual = alvo.length === 1 ? alvo[0].idioma : '';
+        const ordem = idiomasRecentes.map(cod => L.IDIOMAS.find(i => i.cod === cod)).filter(Boolean);
+        const lista = ordem.concat(L.IDIOMAS.filter(i => !idiomasRecentes.includes(i.cod)));
+        const j = janela(`<h3>Idioma · ${alvo.length === 1 ? esc(alvo[0].nome) : alvo.length + ' canais marcados'}</h3>
+          <p class="le-dica">${alvo.length === 1 ? `Agora: <b>${esc(atual || 'sem idioma')}</b>${alvo[0].pais ? ' · país ' + esc(alvo[0].pais) : ''}. ` : ''}O código com região (pt-BR, es-MX…) é o que o TVzine/Cloud lê para pôr o canal no país certo.</p>
+          <input class="le-campo" id="le-idi-busca" placeholder="Filtrar: portugu, mx, inglês…" autocomplete="off">
+          <div class="le-idi-lista" id="le-idi-lista"></div>
+          <label class="le-dica" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="le-idi-pais" checked> mudar o país junto (tvg-country) — recomendado para o seletor de países do TVzine</label>
+          <div class="le-jan-botoes"><button class="le-bt" id="le-idi-limpar">Tirar o idioma</button><button class="le-bt" data-fechar>Cancelar</button></div>`);
+        const caixa = j.querySelector('#le-idi-lista'), busca = j.querySelector('#le-idi-busca');
+        const pintar = () => {
+            const q = L.norm(busca.value);
+            const vis = lista.filter(i => !q || L.norm(i.nome + ' ' + i.cod + ' ' + i.pais).includes(q));
+            caixa.innerHTML = vis.map(i => `<button class="le-idi-op${i.cod === atual ? ' on' : ''}" data-cod="${esc(i.cod)}"><span>${bandeira(i.pais)}</span><b>${esc(i.cod)}</b><small>${esc(i.nome)}</small></button>`).join('') || '<p class="le-dica">Nenhum idioma com esse nome.</p>';
+        };
+        const aplicar = (cod) => {
+            const junto = j.querySelector('#le-idi-pais').checked;
+            lembrar();
+            alvo.forEach(x => {
+                const antes = x.url;
+                if (cod) L.definirIdioma(x, cod, junto); else { x.idioma = ''; if (junto) x.pais = ''; x.idiomaManual = true; x.chave = L.chaveDe(x); }
+                E.nova.itens.forEach(it => { if (it.url === antes) { it.idioma = x.idioma; it.pais = x.pais; it.chave = x.chave; } });
+            });
+            if (cod) { idiomasRecentes = [cod].concat(idiomasRecentes.filter(k => k !== cod)).slice(0, 5); try { localStorage.setItem(GUARDA + '-idiomas', JSON.stringify(idiomasRecentes)); } catch (e) { /* */ } }
+            salvar(); fecharJanela(); desenharFiltros(); desenharTabela(); desenharNova();
+            pintarFicha(E.canais.find(x => x.id === E.foco));
+            const op = L.IDIOMAS.find(i => i.cod === cod);
+            S.aviso(cod ? `${cod} em ${alvo.length} canal(is)${junto && op && op.pais ? ' — no TVzine vão para ' + bandeira(op.pais) + ' ' + op.pais : ''}. Ctrl+Z desfaz.` : `Idioma tirado de ${alvo.length} canal(is).`, 'ok');
+        };
+        pintar();
+        busca.oninput = pintar;
+        busca.onkeydown = (e) => { if (e.key === 'Enter') { const b = caixa.querySelector('[data-cod]'); if (b) aplicar(b.dataset.cod); } };
+        caixa.onclick = (e) => { const b = e.target.closest('[data-cod]'); if (b) aplicar(b.dataset.cod); };
+        j.querySelector('#le-idi-limpar').onclick = () => aplicar('');
+        busca.focus();
+    }
+
+    // ---------------------------------------------------------------- assets: banco de logos salvos (vale para todas as listas)
+    const GUARDA_ASSETS = 'czs-linkedit-assets-v1';
+    const A = { logos: [], pronto: null };
+    function carregarAssets() {
+        if (!A.pronto) {
+            A.pronto = (async () => {
+                let d = null;
+                if (local()) { try { d = await (await fetch('/api/linkedit/assets')).json(); } catch (e) { /* */ } }
+                if (!d || !d.logos || !d.logos.length) { try { d = JSON.parse(localStorage.getItem(GUARDA_ASSETS) || 'null') || d; } catch (e) { /* */ } }
+                A.logos = (d && d.logos) || [];
+                return A.logos;
+            })();
+        }
+        return A.pronto;
+    }
+    async function gravarAssets() {
+        try { localStorage.setItem(GUARDA_ASSETS, JSON.stringify({ versao: 1, logos: A.logos })); } catch (e) { /* imagens enviadas demais: fica só no arquivo */ }
+        if (local()) {
+            try { await fetch('/api/linkedit/assets', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ logos: A.logos }) }); }
+            catch (e) { S.aviso('Não consegui gravar o banco de logos no PC: ' + e.message, 'ruim'); }
+        }
+    }
+    /** Guarda um logo no banco (sem repetir o mesmo link). true = entrou. */
+    function guardarLogo(nome, url, pais, origem) {
+        if (!ehImagem(url) || A.logos.some(l => l.url === url)) return false;
+        A.logos.unshift({ nome: String(nome || 'Sem nome').trim(), n: L.norm(nome), pais: pais || '', url, origem: origem || '', em: Date.now() });
+        return true;
+    }
+    async function salvarLogosEmMassa(canais) {
+        await carregarAssets();
+        let n = 0;
+        canais.forEach(c => { if (ehImagem(c.logo) && guardarLogo(c.nome, c.logo, c.pais, (E.listas.find(l => l.id === c.lista) || {}).nome)) n++; });
+        if (n) await gravarAssets();
+        S.aviso(n ? `${n} logos salvos no banco (Assets).` : 'Nenhum logo novo: esses já estão no banco (ou os canais não têm logo).', n ? 'ok' : 'ruim');
+        return n;
+    }
+    /** Logos do banco para este canal: mesmo nome (mesmo país primeiro), depois nomes parecidos. */
+    function logosDoBanco(c, soCerteza = false) {
+        const n = L.norm(c.nome);
+        if (!n) return [];
+        const r = [];
+        A.logos.forEach(l => {
+            let p = l.n === n ? 80 : (!soCerteza && n.length >= 3 && (l.n.startsWith(n + ' ') || n.startsWith(l.n + ' ') || l.n.includes(n))) ? 30 : 0;
+            if (!p) return;
+            if (c.pais && l.pais === c.pais) p += 15; else if (c.pais && l.pais && soCerteza) return;
+            r.push([p, l]);
+        });
+        return r.sort((a, b) => b[0] - a[0]).map(x => x[1]);
+    }
+    async function abrirAssets(filtro = '') {
+        await carregarAssets();
+        const c = E.canais.find(x => x.id === E.foco);
+        const fonte = (E.sel.size ? selecionados() : E.visiveis).filter(x => ehImagem(x.logo));
+        const j = janela(`<h3>Assets · banco de logos <small style="color:var(--s);font-weight:600">${A.logos.length} logos</small></h3>
+          <p class="le-dica">${local() ? 'Guardado na pasta do Studio (<b>dados/linkedit-assets.json</b>): vale para todas as listas e dá para fazer commit.' : 'Guardado neste navegador. Use <b>Exportar</b> para não perder (no painel local ele vira um arquivo).'}</p>
+          <div class="le-jan-botoes" style="justify-content:flex-start">
+            <button class="le-bt p" id="le-as-massa" ${fonte.length ? '' : 'disabled'}>★ Salvar logos ${E.sel.size ? 'dos marcados' : 'dos visíveis'} (${fonte.length})</button>
+            <button class="le-bt" id="le-as-exp">Exportar</button>
+            <label class="le-bt" style="display:inline-flex;align-items:center;cursor:pointer">Importar<input type="file" id="le-as-imp" accept=".json,application/json" hidden></label>
+          </div>
+          <input class="le-campo" id="le-as-busca" placeholder="Buscar logo pelo nome do canal…" value="${esc(filtro)}" autocomplete="off">
+          <div class="le-as-cab"><span>Logo</span><span>Canal</span><span>Link</span><span></span></div>
+          <div class="le-as-lista" id="le-as-lista"></div>`, 'larga');
+        const caixa = j.querySelector('#le-as-lista'), busca = j.querySelector('#le-as-busca');
+        const pintar = () => {
+            const q = L.norm(busca.value);
+            const vis = A.logos.filter(l => !q || l.n.includes(q) || L.norm(l.pais).includes(q)).slice(0, 400);
+            caixa.innerHTML = vis.length ? vis.map(l => `<div class="le-as-linha">
+                <span class="le-as-img"><img src="${esc(l.url)}" alt="" loading="lazy"></span>
+                <span><b>${esc(l.nome)}</b><small>${l.pais ? bandeira(l.pais) + ' ' + esc(l.pais) : ''}${l.origem ? ' · ' + esc(l.origem) : ''}</small></span>
+                <code title="${esc(l.url.startsWith('data:') ? 'imagem enviada do computador' : l.url)}">${esc(l.url.startsWith('data:') ? '(imagem enviada do computador)' : l.url)}</code>
+                <span class="le-as-acoes">${c ? `<button class="le-bt p" data-as-usar="${esc(l.url)}" title="Usar no canal do visualizador (${esc(c.nome)})">Usar</button>` : ''}<button class="le-bt" data-as-copiar="${esc(l.url)}" ${l.url.startsWith('data:') ? 'disabled' : ''}>Copiar</button><button class="le-bt" data-as-apagar="${esc(l.url)}" aria-label="Apagar ${esc(l.nome)}">✕</button></span>
+              </div>`).join('') + (A.logos.length > 400 && !q ? '<p class="le-dica">Mostrando 400. Use a busca.</p>' : '')
+                : `<p class="le-dica" style="padding:12px 0">${A.logos.length ? 'Nada com esse nome.' : 'O banco está vazio. Abra uma lista antiga e clique em "Salvar logos" para guardar os logos dela.'}</p>`;
+        };
+        pintar();
+        busca.oninput = pintar;
+        caixa.onclick = async (e) => {
+            const b = e.target.closest('button'); if (!b) return;
+            if (b.dataset.asCopiar) copiarTexto(b.dataset.asCopiar, 'Link do logo copiado.');
+            if (b.dataset.asUsar && c) { usarLogo(c, b.dataset.asUsar, true); S.aviso('Logo colocado em ' + c.nome + '.', 'ok'); }
+            if (b.dataset.asApagar) { A.logos = A.logos.filter(l => l.url !== b.dataset.asApagar); await gravarAssets(); pintar(); j.querySelector('h3 small').textContent = A.logos.length + ' logos'; }
+        };
+        j.querySelector('#le-as-massa').onclick = async () => { await salvarLogosEmMassa(fonte); abrirAssets(busca.value); };
+        j.querySelector('#le-as-exp').onclick = () => {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([JSON.stringify({ versao: 1, logos: A.logos }, null, 1)], { type: 'application/json' }));
+            a.download = 'linkedit-logos.json'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        };
+        j.querySelector('#le-as-imp').onchange = async (e) => {
+            const f = e.target.files[0]; if (!f) return;
+            try {
+                const d = JSON.parse(await f.text());
+                const lista = Array.isArray(d) ? d : d.logos || [];
+                let n = 0; lista.forEach(l => { if (l && guardarLogo(l.nome || l.name, l.url || l.logo, l.pais || l.country, l.origem || f.name)) n++; });
+                await gravarAssets(); S.aviso(`${n} logos importados.`, 'ok'); abrirAssets();
+            } catch (er) { S.aviso('Arquivo de logos inválido: ' + er.message, 'ruim'); }
+        };
+        busca.focus();
+    }
+    async function copiarTexto(t, msg) {
+        try { await navigator.clipboard.writeText(t); S.aviso(msg || 'Copiado.', 'ok'); }
+        catch (e) { window.prompt('Copie o link:', t); }
     }
 
     /** Caixinha/linha clicada: Shift marca o trecho desde a última clicada (com o estado dela). */
@@ -597,7 +764,7 @@
             <div><span>Imagem</span><b id="le-ficha-img">${esc(t.resolucao || '—')}</b></div>
             <div><span>Abriu em</span><b id="le-ficha-abriu">${t.ms ? (t.ms / 1000).toFixed(1).replace('.', ',') + ' s' : '—'}</b></div>
             <div><span>Status</span><b style="color:${COR_STATUS[t.status || 'nao-testado']}">${esc(ROTULO_STATUS[t.status || 'nao-testado'])}</b></div>
-            <div><span>Idioma</span><b>${esc(c.idioma || '?')}</b></div>
+            <div><span>Idioma</span><button class="le-idi${c.idioma ? '' : ' vazio'}" data-idioma="${esc(c.id)}" title="Trocar o idioma (I)">${esc(c.idioma || '+ idioma')}${c.pais ? ' ' + bandeira(c.pais) : ''}</button></div>
             <div><span>Confiança</span><b>${esc(conf)}</b></div>
             ${c.formato === 'arquivo' || t.tamanho ? `<div><span>Tamanho</span><b>${t.tamanho ? (t.tamanho >= 1073741824 ? (t.tamanho / 1073741824).toFixed(1).replace('.', ',') + ' GB' : t.tamanho >= 1048576 ? Math.round(t.tamanho / 1048576) + ' MB' : Math.max(1, Math.round(t.tamanho / 1024)) + ' KB') : '—'}</b></div>
             <div><span>Duração</span><b id="le-ficha-dur">—</b></div>` : ''}
@@ -692,6 +859,24 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-logo-op{background:#11141b;border:1px solid #2a3140;border-radius:10px;padding:8px;display:flex;flex-direction:column;align-items:center;gap:6px;color:#cbd5e1}
 .le-logo-op:hover,.le-logo-op:focus-visible{border-color:var(--c);outline:none}.le-logo-op img{height:54px;max-width:100%;object-fit:contain}
 .le-logo-op small{font-size:10.5px;color:var(--s);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.le-idi{background:none;border:0;padding:2px 4px;margin-left:-4px;border-radius:5px;font-family:'JetBrains Mono','Share Tech Mono',monospace;font-size:12px;color:#cbd5e1;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.le-idi:hover,.le-idi:focus-visible{background:#102a31;color:#67e8f9;outline:none}.le-idi.vazio{color:#fbbf24}.le-idi.manual{color:#67e8f9}
+.le-ficha-grade .le-idi{font-weight:800;display:block;padding:0;margin:0}
+.le-idi-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;max-height:330px;overflow:auto}
+.le-idi-op{display:grid;grid-template-columns:22px 52px 1fr;align-items:center;gap:6px;text-align:left;padding:8px 10px;border-radius:8px;background:#11141b;border:1px solid #2a3140;color:#e5e7eb}
+.le-idi-op:hover,.le-idi-op:focus-visible{border-color:var(--c);outline:none}.le-idi-op.on{border-color:var(--c);background:#102a31}
+.le-idi-op b{font-family:'JetBrains Mono',monospace;font-size:12px;color:#67e8f9}.le-idi-op small{font-size:12px;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-logo-link{display:flex;gap:6px;align-items:center}.le-logo-link code{flex:1;min-width:0;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#9aa3ad;background:#0d1016;border:1px solid #2a3140;border-radius:8px;padding:9px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-jan.larga{width:min(900px,100%);height:min(720px,100%)}
+.le-as-cab,.le-as-linha{display:grid;grid-template-columns:70px minmax(120px,1fr) minmax(0,1.4fr) auto;gap:10px;align-items:center}
+.le-as-cab{font-size:10.5px;font-weight:800;letter-spacing:.12em;color:#8b95a3;text-transform:uppercase;padding:6px 4px 4px;border-bottom:1px solid var(--b)}
+.le-as-lista{flex:1;overflow:auto;min-height:120px}
+.le-as-linha{padding:6px 4px;border-bottom:1px solid #141821;font-size:13px}
+.le-as-linha b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.le-as-linha small{font-size:11.5px;color:var(--s)}
+.le-as-linha code{font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-as-img{height:40px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:repeating-conic-gradient(#141821 0 25%,#0f1218 0 50%) 0 0/12px 12px}
+.le-as-img img{max-width:62px;max-height:34px;object-fit:contain}
+.le-as-acoes{display:flex;gap:4px}.le-as-acoes .le-bt{height:30px;padding:0 10px;font-size:12px}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
@@ -708,6 +893,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <div class="le-logo"><b>LINK</b><i>EDIT</i></div>
             <span class="chip ${local() ? 'ok' : ''}" title="${local() ? 'Testes e túnel do visualizador pelo painel do seu PC' : 'Online: o Scan e o túnel precisam do painel local (node tools/painel.mjs)'}">${local() ? 'painel local' : 'online'}</span>
             <div style="flex:1"></div>
+            <button class="le-bt" id="le-assets" title="Banco de logos salvos, para usar em qualquer lista (B)">★ Assets</button>
             <button class="le-bt" id="le-desfazer" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
           </div>
           <div class="le-cols">
@@ -836,7 +1022,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               <button class="le-logo-c${logo ? '' : ' vazio'}" style="${logo}" data-logo="${esc(c.id)}" title="${logo ? 'Ver, baixar ou trocar o logo (L)' : 'Inserir logo (L)'}" aria-label="Logo de ${esc(c.nome)}"></button>
               <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${esc(c.nome)}</span>
               <span class="le-g" title="${esc(c.grupo)}">${esc(c.grupo || c.tipo)}</span>
-              <span class="le-mono">${esc(c.idioma || '—')}</span>
+              <button class="le-idi${c.idioma ? '' : ' vazio'}${c.idiomaManual ? ' manual' : ''}" data-idioma="${esc(c.id)}" title="${c.idioma ? 'Trocar o idioma (I)' : 'Sem idioma: clique para escolher (I)'}${c.pais ? ' · país ' + esc(c.pais) : ''}">${esc(c.idioma || '+ idioma')}</button>
               <span class="le-st" style="color:${COR_STATUS[st]}" title="${esc((c.teste && c.teste.motivo) || '')}">${esc(ROTULO_STATUS[st])}</span>
               <span class="le-mono" style="color:#9aa3ad">${c.teste && c.teste.ms && /vivo|lento|pede-ua/.test(c.teste.status) ? (c.teste.ms / 1000).toFixed(1).replace('.', ',') + ' s' : '—'}</span>
             </div>`;
@@ -870,6 +1056,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-arquivo').onchange = async (e) => { for (const f of e.target.files) adicionarLista(await f.text(), f.name); e.target.value = ''; };
         $('#le-ler-colado').onclick = () => { const t = $('#le-colar').value; if (t.trim()) { adicionarLista(t, 'Texto colado ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })); $('#le-colar').value = ''; } };
         $('#le-desfazer').onclick = desfazer;
+        $('#le-assets').onclick = () => abrirAssets();
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };
         $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });
@@ -895,6 +1082,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (!t) return;
             if (t.dataset.tirarLista) return removerLista(t.dataset.tirarLista);
             if (t.dataset.sel) return marcar(t.dataset.sel, e.shiftKey);
+            if (t.dataset.idioma) { const ci = E.canais.find(c => c.id === t.dataset.idioma); if (ci && !E.sel.has(ci.id)) E.ancora = ci.id; return escolherIdioma(ci); }
             if (t.dataset.logo) return abrirLogo(E.canais.find(c => c.id === t.dataset.logo));
             if (t.dataset.f) { const s = E.f[t.dataset.f]; s.has(t.dataset.v) ? s.delete(t.dataset.v) : s.add(t.dataset.v); desenharFiltros(); desenharTabela(); return; }
             if (t.dataset.t) { E.f[t.dataset.t] = !E.f[t.dataset.t]; desenharFiltros(); desenharTabela(); return; }
@@ -936,6 +1124,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 'x' && c) { e.preventDefault(); marcar(c.id, false); }
             else if (!ctrl && k === 't') { e.preventDefault(); scan(E.sel.size ? selecionados() : E.visiveis); }
             else if (!ctrl && k === 'l' && c) { e.preventDefault(); abrirLogo(c); }
+            else if (!ctrl && k === 'i' && (c || E.sel.size)) { e.preventDefault(); escolherIdioma(E.sel.size > 1 ? null : c); }
+            else if (!ctrl && k === 'b') { e.preventDefault(); abrirAssets(); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
             else if (!ctrl && (k === '-' || k === '_')) { e.preventDefault(); mudarSom({ vol: E.som.vol - 0.1 }); }

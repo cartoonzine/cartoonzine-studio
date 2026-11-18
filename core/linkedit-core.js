@@ -190,6 +190,30 @@
     const IDIOMA_DO_PAIS = { BR: 'pt-BR', PT: 'pt-PT', AO: 'pt-AO', MZ: 'pt-MZ', US: 'en', GB: 'en', ES: 'es-ES', MX: 'es-MX', AR: 'es-AR', CO: 'es-CO', CL: 'es-CL', PE: 'es-PE', LAT: 'es', FR: 'fr', DE: 'de', IT: 'it', JP: 'ja' };
     const IDIOMAS_NOME = { portugues: 'pt', portuguese: 'pt', por: 'pt', pt: 'pt', 'pt-br': 'pt-BR', 'pt br': 'pt-BR', english: 'en', ingles: 'en', eng: 'en', en: 'en', espanol: 'es', spanish: 'es', espanhol: 'es', spa: 'es', es: 'es', frances: 'fr', french: 'fr', fr: 'fr', japones: 'ja', japanese: 'ja', ja: 'ja', italiano: 'it', italian: 'it', alemao: 'de', german: 'de' };
 
+    /**
+     * Idiomas para escolher na mão (código BCP-47 com região: é o que o Cloud/TVzine lê — "pt-BR" põe o canal no Brasil).
+     * pais = país que vai junto no tvg-country ('' = idioma sem país: o canal fica em Categorias/Global).
+     */
+    const IDIOMAS = [
+        ['pt-BR', 'Português (Brasil)', 'BR'], ['pt-PT', 'Português (Portugal)', 'PT'], ['pt-AO', 'Português (Angola)', 'AO'], ['pt-MZ', 'Português (Moçambique)', 'MZ'],
+        ['es-MX', 'Espanhol (México)', 'MX'], ['es-AR', 'Espanhol (Argentina)', 'AR'], ['es-ES', 'Espanhol (Espanha)', 'ES'], ['es-CO', 'Espanhol (Colômbia)', 'CO'],
+        ['es-CL', 'Espanhol (Chile)', 'CL'], ['es-PE', 'Espanhol (Peru)', 'PE'], ['es-US', 'Espanhol (EUA)', 'US'], ['es', 'Espanhol (Latino, sem país)', ''],
+        ['en-US', 'Inglês (EUA)', 'US'], ['en-GB', 'Inglês (Reino Unido)', 'GB'], ['en-CA', 'Inglês (Canadá)', 'CA'], ['en-AU', 'Inglês (Austrália)', 'AU'], ['en', 'Inglês (sem país)', ''],
+        ['fr-FR', 'Francês (França)', 'FR'], ['fr-CA', 'Francês (Canadá)', 'CA'], ['it-IT', 'Italiano', 'IT'], ['de-DE', 'Alemão', 'DE'], ['nl-NL', 'Holandês', 'NL'],
+        ['ja-JP', 'Japonês', 'JP'], ['ko-KR', 'Coreano', 'KR'], ['zh-CN', 'Chinês', 'CN'], ['ru-RU', 'Russo', 'RU'], ['ar', 'Árabe (sem país)', ''],
+        ['tr-TR', 'Turco', 'TR'], ['pl-PL', 'Polonês', 'PL'], ['hi-IN', 'Hindi', 'IN'], ['pt', 'Português (sem país)', '']
+    ].map(([cod, nome, pais]) => ({ cod, nome, pais }));
+
+    /** Troca o idioma (e o país junto) de um canal escolhido na mão. Devolve o canal. */
+    function definirIdioma(c, cod, paisJunto = true) {
+        const op = IDIOMAS.find(i => i.cod === cod);
+        c.idioma = cod || '';
+        if (paisJunto && op) c.pais = op.pais;
+        c.idiomaManual = true;
+        c.chave = chaveDe(c);
+        return c;
+    }
+
     /** País pelo tvg-country, pelo tvg-id ("Globo.br"), por [BR] no nome, pelo grupo ("Brasil | Abertos") ou pelo domínio (.com.br). */
     function paisDe(c) {
         const de = (t) => { const k = norm(t); return PAISES_TAG[k] || null; };
@@ -415,7 +439,7 @@
     }
 
     return {
-        lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        IDIOMAS, definirIdioma, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });
