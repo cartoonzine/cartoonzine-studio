@@ -601,3 +601,17 @@ test('busca fina: TMDB traz nota, popularidade, duração e classificação do B
     assert.equal(outro.classificacao, '12'); assert.equal(outro.qualidade, 'HD'); assert.deepEqual(outro.audios, ['legendado']);
     assert.equal(C.paraCloud(outro, col('series'), 'series/s', config).qualidadeMax, 'HD', 'a qualidade escrita vale');
 });
+
+test('cópias: ordem pela qualidade, dublado, https e teste; empate vai para "olhar"; desativadas ficam guardadas', () => {
+    const L = ['http://a.exemplo.com/filme-720p.mp4', 'https://b.exemplo.com/filme.1080p.dublado.mp4', 'http://c.exemplo.com/filme-1080p-leg.mkv'];
+    let r = C.ordenarCopias(L);
+    assert.deepEqual(r.ordem.map(x => x.url[7] === '/' ? x.url[8] : x.url[7]), ['b', 'c', 'a']); assert.equal(r.certeza, true);
+    r = C.ordenarCopias(L, { teste: new Map([[L[1], { ok: false }]]) });
+    assert.equal(r.ordem[2].url, L[1], 'morto no teste vai para o fim');
+    r = C.ordenarCopias(['http://x.exemplo.com/1.mp4', 'http://y.exemplo.com/2.mp4']);
+    assert.equal(r.certeza, false, 'nada se sabe: você olha');
+    const it = C.normalizarItem({ nome: 'F', links: ['https://a.exemplo.com/1.mp4'], linksDesativados: ['https://b.exemplo.com/2.mp4', 'https://a.exemplo.com/1.mp4'] }, col('filmes'));
+    assert.deepEqual(it.linksDesativados, ['https://b.exemplo.com/2.mp4']);
+    assert.equal(C.paraCloud(it, col('filmes'), 'filmes/f', config).mirrors, undefined, 'desativada não vai para o app');
+    assert.equal(C.resumoItem('conteudo/filmes/f.json', { nome: 'F', links: L }).links, 3);
+});
