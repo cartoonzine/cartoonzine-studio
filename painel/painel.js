@@ -271,6 +271,7 @@
         $('#btn-vitrine').hidden = false;
         $('#btn-prateleira').hidden = false;
         $('#btn-linkedit').hidden = false;
+        $('#btn-colecoes').hidden = false;
         estado.tela = telaDoHash();
         await recarregarIndice();
         desenharApp();
@@ -356,6 +357,7 @@
         $('#btn-vitrine').classList.toggle('ativo', estado.tela === 'vitrine');
         $('#btn-prateleira').classList.toggle('ativo', estado.tela === 'prateleira');
         $('#btn-linkedit').classList.toggle('ativo', estado.tela === 'linkedit');
+        $('#btn-colecoes').classList.toggle('ativo', estado.tela === 'colecoes');
         if (estado.tela !== 'linkedit' && window.CZLinkEdit) window.CZLinkEdit.parar();     // saiu do Link Edit: o visualizador para
         if (estado.tela === 'vitrine') desenharVitrine();
         else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), temTmdb: () => !!chaves().tmdb, completar: (it) => C.completarItem(it, { tmdb: chaves().tmdb, omdb: chaves().omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: 'video' }) });
@@ -1979,6 +1981,16 @@ https://archive.org/details/algum_desenho
     $('#btn-vitrine').addEventListener('click', () => { if (location.hash !== '#vitrine') location.hash = 'vitrine'; });
     $('#btn-prateleira').addEventListener('click', () => { if (location.hash !== '#prateleira') location.hash = 'prateleira'; });
     $('#btn-linkedit').addEventListener('click', () => { if (location.hash !== '#linkedit') location.hash = 'linkedit'; });
+    // volta para as coleções (de qualquer tela: Link Edit, Vitrine, Prateleira)
+    const irParaColecoes = () => {
+        if (!estado.repo || estado.tela === 'colecoes') return;
+        if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
+        history.pushState(null, '', location.pathname + location.search);
+        estado.tela = 'colecoes';
+        desenharApp();
+    };
+    $('#btn-colecoes').addEventListener('click', irParaColecoes);
+    window.CZStudio = Object.assign(window.CZStudio || {}, { irParaColecoes });
     window.addEventListener('hashchange', () => {
         if (!estado.repo) return;
         const quer = telaDoHash();
@@ -1992,7 +2004,7 @@ https://archive.org/details/algum_desenho
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true; $('#btn-colecoes').hidden = true;
         vit.lista = null; limparAjustes();
         telaConectar();
     });
