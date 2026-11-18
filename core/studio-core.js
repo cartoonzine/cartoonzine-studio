@@ -1430,6 +1430,7 @@
                 { k: 'categoria', rotulo: 'Categoria', tipo: 'escolha', opcoesDe: 'categoriasCanais', livre: true, obrigatorio: true },
                 { k: 'logo', rotulo: 'Logo', tipo: 'url', imagem: true },
                 { k: 'tvgId', rotulo: 'ID do guia (tvg-id)', tipo: 'texto', dica: 'opcional, para a programação (EPG)' },
+                { k: 'epg', rotulo: 'Guia de programação (link XMLTV)', tipo: 'url', avancado: true, dica: 'o guia onde está o tvg-id acima (.xml ou .xml.gz) — o Link Edit preenche sozinho' },
                 { k: 'userAgent', rotulo: 'User-Agent', tipo: 'texto', avancado: true },
                 { k: 'referer', rotulo: 'Referer', tipo: 'texto', avancado: true }
             ]
@@ -1526,7 +1527,7 @@
         if (ano) out.ano = ano;
         const gen = lista(b.generos || b.genero || b.genre || b.estilos);
         if (gen.length) out.generos = gen;
-        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas', 'comandoDos']) {
+        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'epg', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas', 'comandoDos']) {
             if (b[k] !== undefined && b[k] !== '') out[k] = String(b[k]).trim();
         }
         if (b.chd) { const d = discosChd(b.chd); if (d.length) out.chd = d.join(' '); }   // MAME: discos (CHD)
@@ -1703,7 +1704,7 @@
                 if (item.userAgent) headers['User-Agent'] = item.userAgent;
                 if (item.referer) headers['Referer'] = item.referer;
                 return limparVazios(Object.assign(base, {
-                    url, mirrors: espelhos, logo: item.logo, group: item.categoria, tvgId: item.tvgId,
+                    url, mirrors: espelhos, logo: item.logo, group: item.categoria, tvgId: item.tvgId, epg: item.epg,
                     country: item.pais, countryName: PAISES[item.pais], language: item.idioma,
                     headers: Object.keys(headers).length ? headers : undefined
                 }));
@@ -1749,8 +1750,13 @@
         return s + o.url + '\n';
     }
 
+    /** Guias (XMLTV) usados pelos canais: vão no url-tvg da M3U e no "epg" do JSON (o Cloud junta no manifest). */
+    function guiasDe(registros) {
+        return unicos(registros.flatMap(r => String(r.epg || '').split(',').map(x => x.trim())).filter(u => /^https?:\/\//i.test(u)));
+    }
     function gerarM3U(registros, extra) {
-        return '#EXTM3U\n' + registros.filter(o => o.url).map(o => linhaM3U(o, extra)).join('');
+        const guias = guiasDe(registros);
+        return '#EXTM3U' + (guias.length ? ' url-tvg="' + guias.join(',').replace(/"/g, '') + '"' : '') + '\n' + registros.filter(o => o.url).map(o => linhaM3U(o, extra)).join('');
     }
 
     function ordenar(a, b) {
@@ -1809,7 +1815,8 @@
         }
 
         const chaveLista = { canal: 'channels', canal24h: 'channels', radio: 'items' }[colecao.tipo] || 'items';
-        arquivos[`${colecao.id}.json`] = JSON.stringify({ colecao: colecao.id, nome: colecao.nome, [chaveLista]: regs }, null, 1);
+        const guiasCol = guiasDe(regs);
+        arquivos[`${colecao.id}.json`] = JSON.stringify(Object.assign({ colecao: colecao.id, nome: colecao.nome }, guiasCol.length ? { epg: guiasCol } : {}, { [chaveLista]: regs }), null, 1);
 
         // Uma lista por idioma (YouToon): youtoon/pt-br.json, youtoon/es.json… e uma fonte do cloud para cada uma.
         // Cada lista é publicada mesmo vazia, para a fonte do cloud nunca dar 404.
@@ -1856,7 +1863,8 @@
             for (const [p, lst] of [...porPais.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))) {
                 const cc = p.toLowerCase();
                 arquivos[`${colecao.id}/pais/${cc}.m3u`] = gerarM3U(lst, colecao.tipo === 'radio' ? { grupo: colecao.nome } : null);
-                arquivos[`${colecao.id}/pais/${cc}.json`] = JSON.stringify({ pais: p, nome: PAISES[p] || p, [chaveLista]: lst }, null, 1);
+                const gp = guiasDe(lst);
+                arquivos[`${colecao.id}/pais/${cc}.json`] = JSON.stringify(Object.assign({ pais: p, nome: PAISES[p] || p }, gp.length ? { epg: gp } : {}, { [chaveLista]: lst }), null, 1);
                 rel.porPais[p] = lst.length;
                 const cats = {};
                 for (const r of lst) if (r.group) cats[r.group] = (cats[r.group] || 0) + 1;

@@ -325,25 +325,107 @@
      * Categorias padrão do Cartoonzine/TVzine: viram o group-title da lista exportada, que é a categoria
      * que o Cloud usa no app. Nome sempre igual = o app fica organizado (nada de "KIDS", "Infantis", "INFANTIL").
      */
-    const CATEGORIAS = ['Abertos', 'Infantil', 'Desenhos 24H', 'Anime', 'Filmes', 'Séries', 'Esportes', 'Notícias', 'Documentários',
-        'Variedades', 'Música', 'Gospel', 'Religiosos', 'Culinária', 'Reality', 'Novelas', 'Humor', 'Educativos', 'Rádios', 'Adulto'];
-    const CAT_DO_TIPO = { Infantil: 'Infantil', Anime: 'Anime', Filmes: 'Filmes', Séries: 'Séries', Esportes: 'Esportes', Notícias: 'Notícias',
-        Documentários: 'Documentários', Música: 'Música', Religioso: 'Religiosos', Abertos: 'Abertos', Adulto: 'Adulto' };
+    // a lista oficial fica no studio.config.json (categoriasCanais); o painel troca esta pela de lá (usarCategorias)
+    const CATEGORIAS = ['TV Aberta', 'Notícias', 'Esportes', 'Infantil', 'Filmes e Séries', 'Documentários', 'Variedades', 'Música', 'Religioso', '24 Horas', 'Culinária', 'Educativo'];
+    // não são categorias do TVzine: mandam o canal para OUTRA coleção do Studio (Desenhos 24H, Rádios)
+    const DESTINOS_ESPECIAIS = ['Desenhos 24H', 'Rádios'];
+    // nomes de outras listas → o nome oficial do TVzine ("Filmes e Séries" = canais ao vivo de filmes/séries)
+    const APELIDOS_CAT = { abertos: 'TV Aberta', 'tv aberta': 'TV Aberta', 'canais abertos': 'TV Aberta', religiosos: 'Religioso', gospel: 'Religioso', evangelicos: 'Religioso', catolicos: 'Religioso',
+        educativos: 'Educativo', '24 horas': '24 Horas', '24h': '24 Horas', filmes: 'Filmes e Séries', series: 'Filmes e Séries', 'filmes series': 'Filmes e Séries', cinema: 'Filmes e Séries',
+        kids: 'Infantil', infantis: 'Infantil', criancas: 'Infantil', noticias: 'Notícias', news: 'Notícias', esporte: 'Esportes', sports: 'Esportes', musica: 'Música', music: 'Música',
+        documentario: 'Documentários', documentarios: 'Documentários', variedade: 'Variedades', entretenimento: 'Variedades', novelas: 'Variedades', culinaria: 'Culinária',
+        'desenhos 24 horas': 'Desenhos 24H', 'desenhos 24h': 'Desenhos 24H', radios: 'Rádios', radio: 'Rádios' };
+    const oficial = (cat) => { const n = norm(cat); return CATEGORIAS.concat(DESTINOS_ESPECIAIS).find(k => norm(k) === n) || APELIDOS_CAT[n] || ''; };
+    function usarCategorias(lista) { if (Array.isArray(lista) && lista.length) CATEGORIAS.splice(0, CATEGORIAS.length, ...lista); }
+    const CAT_DO_TIPO = { Infantil: 'Infantil', Anime: 'Infantil', Filmes: 'Filmes e Séries', Séries: 'Filmes e Séries', Esportes: 'Esportes', Notícias: 'Notícias',
+        Documentários: 'Documentários', Música: 'Música', Religioso: 'Religioso', Abertos: 'TV Aberta', '24 horas': '24 Horas' };
     /** Categoria sugerida: o grupo da lista já é uma padrão? senão, pelo tipo descoberto. '' = sem palpite. */
     function categoriaSugerida(c) {
         const g = norm(c.grupo).replace(/^[a-z]{2}\s*[|:\-–]\s*/, '');
-        const igual = CATEGORIAS.find(k => norm(k) === g);
+        const igual = oficial(g);
         if (igual) return igual;
-        if (/\b(gospel|evangel)/.test(g + ' ' + norm(c.nome))) return 'Gospel';
+        if (/\b(gospel|evangel)/.test(g + ' ' + norm(c.nome))) return 'Religioso';
         if (/\b(desenho|cartoon|toon)/.test(g) && /\b24\s?h|24 horas/.test(g + ' ' + norm(c.nome))) return 'Desenhos 24H';
-        if (/\b(novela)/.test(g)) return 'Novelas';
         if (/\b(culinaria|gastronom|food)/.test(g)) return 'Culinária';
-        return CAT_DO_TIPO[c.tipo] || '';
+        if (/\b(radio|fm\b)/.test(g)) return 'Rádios';
+        const t = CAT_DO_TIPO[c.tipo] || '';
+        return t && (CATEGORIAS.includes(t) ? t : oficial(t));
     }
     /** Categoria escolhida (vai no group-title da lista exportada). '' tira e volta ao grupo original. */
     function definirCategoria(c, cat) {
-        if (cat) { c.grupoSaida = String(cat).trim(); c.categoriaManual = true; } else { delete c.grupoSaida; delete c.categoriaManual; }
+        if (cat) { c.grupoSaida = oficial(cat) || String(cat).trim(); c.categoriaManual = true; } else { delete c.grupoSaida; delete c.categoriaManual; }
         return c;
+    }
+
+    // ---------------------------------------------------------------- IMPORTADOR: lista do Link Edit → coleções do Studio
+    // idioma do Link Edit (pt-BR, es-MX…) → o nome que o Studio usa ("Português", "Espanhol"…)
+    const IDIOMA_STUDIO = { pt: 'Português', 'pt-br': 'Português', 'pt-pt': 'Português (Portugal)', 'pt-ao': 'Português (Portugal)', 'pt-mz': 'Português (Portugal)',
+        es: 'Espanhol', en: 'Inglês', fr: 'Francês', it: 'Italiano', de: 'Alemão', ja: 'Japonês', ko: 'Coreano', zh: 'Chinês', ru: 'Russo', ar: 'Árabe',
+        hi: 'Hindi', nl: 'Holandês', tr: 'Turco', pl: 'Polonês' };
+    function idiomaStudio(cod) {
+        const k = String(cod || '').toLowerCase();
+        return IDIOMA_STUDIO[k] || IDIOMA_STUDIO[k.split('-')[0]] || '';
+    }
+    const categoriaDe = (it) => it.grupoSaida || categoriaSugerida(it) || '';
+    /** Coleção do Studio para onde o item vai (id) — '' = fica de fora (ex.: filme/série em arquivo: importador de filmes). */
+    function destinoPadrao(it, colecoes) {
+        const de = (tipo) => colecoes.filter(c => c.tipo === tipo);
+        const cat = categoriaDe(it);
+        if (cat === 'Rádios') return (de('radio')[0] || {}).id || '';      // rádio é stream de áudio (.mp3/.aac): vem antes do "arquivo"
+        if (it.formato === 'arquivo' || it.formato === 'torrent') return '';
+        if (cat === 'Desenhos 24H' || cat === '24 Horas' && it.tipo === 'Infantil') {
+            const h = de('canal24h');
+            const yt = it.formato === 'youtube' && h.find(c => c.id === 'youtoon');
+            return (yt || h.find(c => c.id === 'desenhos-24h') || h[0] || {}).id || '';
+        }
+        if (it.formato === 'youtube') return (de('canal24h').find(c => c.id === 'youtoon') || {}).id || '';
+        return (de('canal')[0] || {}).id || '';
+    }
+    /** O item no formato do Studio (antes do normalizarItem). */
+    function itemParaStudio(it, col) {
+        const links = [it.url].concat((it.reservas || []).map(r => (typeof r === 'string' ? r : r && r.url))).filter(Boolean);
+        const h = it.headers || {};
+        const o = { nome: it.nome, links, logo: it.logo || undefined };
+        const idi = idiomaStudio(it.idioma);
+        if (col.tipo === 'canal') Object.assign(o, { pais: it.pais || undefined, idioma: idi || undefined, categoria: categoriaDe(it) || undefined, tvgId: it.tvgId || undefined, epg: it.epgGuia || undefined, userAgent: h['User-Agent'], referer: h.Referer });
+        else if (col.tipo === 'canal24h') Object.assign(o, { idioma: idi || undefined });
+        else if (col.tipo === 'radio') Object.assign(o, { pais: it.pais || undefined, idioma: idi || undefined });
+        Object.keys(o).forEach(k => o[k] === undefined && delete o[k]);
+        return o;
+    }
+    /**
+     * Plano da importação (nada é gravado aqui). C = StudioCore.
+     * opts: { config, caminhos (Set dos arquivos que já existem), destinos (Map id→colecao), paisPadrao, soVivos, rascunho }
+     * → [{ it, col, item, caminho, acao: 'novo'|'juntar'|'erro'|'fora', erros, avisos, motivo }]
+     */
+    function planejarImportacao(itens, C, opts = {}) {
+        const config = opts.config || {}, cols = (config.colecoes || []).filter(c => ['canal', 'canal24h', 'radio'].includes(c.tipo));
+        const caminhos = opts.caminhos || new Set(), destinos = opts.destinos || new Map();
+        const noLote = new Map();
+        return itens.map((it) => {
+            const vivo = !it.teste || ['vivo', 'lento', 'pede-ua'].includes(it.teste.status);
+            const colId = destinos.has(it.id) ? destinos.get(it.id) : destinoPadrao(it, cols);
+            const col = cols.find(c => c.id === colId);
+            if (!col) return { it, acao: 'fora', motivo: it.formato === 'arquivo' ? 'filme/série em arquivo: vai no importador de filmes' : 'sem destino', erros: [], avisos: [] };
+            if (opts.soVivos && !vivo) return { it, col, acao: 'fora', motivo: 'não está vivo no último teste', erros: [], avisos: [] };
+            const bruto = itemParaStudio(it, col);
+            if (col.tipo !== 'canal24h' && !bruto.pais && opts.paisPadrao) bruto.pais = opts.paisPadrao;
+            if (opts.rascunho) bruto._rascunho = true;
+            const item = C.normalizarItem(bruto, col);
+            const { erros, avisos } = C.validarItem(item, col, config);
+            const caminho = C.caminhoItem(col, item);
+            const r = { it, col, item, caminho, erros, avisos };
+            if (erros.length && !opts.rascunho) r.acao = 'erro';
+            else if (noLote.has(caminho)) { r.acao = 'mesmo'; r.motivo = 'mesmo canal de outra linha: entra como reserva dele'; noLote.get(caminho).extras.push(item); }
+            else { r.acao = caminhos.has(caminho) ? 'juntar' : 'novo'; r.extras = []; noLote.set(caminho, r); }
+            return r;
+        });
+    }
+    /** Junta as linhas repetidas do lote (mesmo arquivo) e, se já existe no Studio, o que já estava lá. */
+    function itemFinal(r, C, existente) {
+        let item = r.item;
+        (r.extras || []).forEach(x => { item = C.mesclarItem(item, x); });
+        return existente ? C.mesclarItem(existente, item) : item;
     }
 
     /** País pelo tvg-country, pelo tvg-id ("Globo.br"), por [BR] no nome, pelo grupo ("Brasil | Abertos") ou pelo domínio (.com.br). */
@@ -577,7 +659,7 @@
     }
 
     return {
-        IDIOMAS, definirIdioma, CATEGORIAS, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });

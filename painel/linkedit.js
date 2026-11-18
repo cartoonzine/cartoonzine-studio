@@ -609,7 +609,7 @@
         const um = alvo.length === 1 ? alvo[0] : null;
         const uso = new Map();
         E.canais.forEach(x => { if (x.grupoSaida) uso.set(x.grupoSaida, (uso.get(x.grupoSaida) || 0) + 1); });
-        const todas = () => [...new Set(L.CATEGORIAS.concat(A.categorias, [...uso.keys()]))];
+        const todas = () => [...new Set(L.CATEGORIAS.concat(A.categorias, [...uso.keys()], L.DESTINOS_ESPECIAIS))];
         const sug = um ? L.categoriaSugerida(um) : '';
         const comSug = alvo.filter(x => !x.grupoSaida && L.categoriaSugerida(x)).length;   // quem já tem categoria escolhida fica como está
         const j = janela(`<h3>Categoria · ${um ? esc(um.nome) : alvo.length + ' canais marcados'}</h3>
@@ -634,7 +634,7 @@
             const vis = todas().filter(k => !nq || L.norm(k).includes(nq));
             const atual = um && um.grupoSaida;
             const nova = q && !todas().some(k => L.norm(k) === nq) ? `<button class="le-idi-op le-cat-nova" data-cat="${esc(q)}"><span>＋</span><b>Criar</b><small>“${esc(q)}”</small></button>` : '';
-            caixa.innerHTML = (sug && !nq ? [sug].concat(vis.filter(k => k !== sug)) : vis).map(k => `<button class="le-idi-op${k === atual ? ' on' : ''}" data-cat="${esc(k)}"><span>${k === sug ? '★' : ''}</span><b>${esc(k)}</b><small>${uso.get(k) ? uso.get(k) + ' canais' : L.CATEGORIAS.includes(k) ? '' : 'sua'}</small></button>`).join('') + nova;
+            caixa.innerHTML = (sug && !nq ? [sug].concat(vis.filter(k => k !== sug)) : vis).map(k => `<button class="le-idi-op${k === atual ? ' on' : ''}" data-cat="${esc(k)}"><span>${k === sug ? '★' : ''}</span><b>${esc(k)}</b><small>${L.DESTINOS_ESPECIAIS.includes(k) ? '→ coleção ' + esc(k) : uso.get(k) ? uso.get(k) + ' canais' : L.CATEGORIAS.includes(k) ? '' : 'sua'}</small></button>`).join('') + nova;
         };
         pintar();
         busca.oninput = pintar;
@@ -643,6 +643,87 @@
         const au = j.querySelector('#le-cat-auto'); if (au) au.onclick = () => aplicar(x => { const k = !x.grupoSaida && L.categoriaSugerida(x); if (k) L.definirCategoria(x, k); }, `Sugestão aplicada em ${comSug} canais.`);
         const ti = j.querySelector('#le-cat-tirar'); if (ti) ti.onclick = () => aplicar(x => L.definirCategoria(x, ''), 'Voltou ao grupo original.');
         busca.focus();
+    }
+
+    // ---------------------------------------------------------------- IMPORTADOR: lista nova → coleções do Studio
+    const ROT_ACAO = { novo: ['Novo', '#4ade80'], juntar: ['Junta com o que já existe', '#67e8f9'], mesmo: ['Repetido no lote → reserva', '#a78bfa'], erro: ['Falta dado', '#f87171'], fora: ['Fica de fora', '#64748b'] };
+    const IMP = { destinos: new Map(), paisPadrao: '', soVivos: false, rascunho: false, origem: 'nova' };
+    function abrirImportador() {
+        if (!S.config || !S.gravar || !S.C) return S.aviso('Abra o Link Edit pelo Studio para gravar nas coleções.', 'ruim');
+        const config = S.config();
+        const cols = (config.colecoes || []).filter(c => ['canal', 'canal24h', 'radio'].includes(c.tipo));
+        if (!cols.length) return S.aviso('O studio.config.json não tem coleção de canais.', 'ruim');
+        const fonte = () => IMP.origem === 'marcados' && E.sel.size ? selecionados() : E.nova.itens;
+        if (!E.nova.itens.length && !E.sel.size) return S.aviso('Monte a lista nova (ou marque canais) antes de enviar.', 'ruim');
+        if (!E.nova.itens.length) IMP.origem = 'marcados';
+        const plano = () => L.planejarImportacao(fonte(), S.C, { config, caminhos: new Set((S.indice() || []).map(i => i.caminho)), destinos: IMP.destinos, paisPadrao: IMP.paisPadrao, soVivos: IMP.soVivos, rascunho: IMP.rascunho });
+        const paises = S.C.opcoesDe('paises', config);
+        const j = janela(`<h3>Enviar ao Studio</h3>
+          <p class="le-dica">Cada canal vai para a coleção certa no formato do Studio: <b>Canais (TVzine)</b> separados por país, <b>Desenhos 24H</b> e <b>Rádios</b> (pela categoria). Quem já existe no Studio ganha os links novos como reserva — nada é apagado. Filmes/séries em arquivo ficam para o importador de filmes.</p>
+          <div class="le-imp-op">
+            <label>Enviar <select class="le-campo" id="le-imp-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option></select></label>
+            <label>País para quem não tem <select class="le-campo" id="le-imp-pais"><option value="">— nenhum (fica com erro) —</option>${paises.map(p => `<option value="${esc(p.v)}">${esc(p.r)}</option>`).join('')}</select></label>
+            <label><input type="checkbox" id="le-imp-vivos"> só os vivos</label>
+            <label title="Entra no Studio mas não vai para o app até você conferir"><input type="checkbox" id="le-imp-rasc"> como rascunho</label>
+          </div>
+          <div id="le-imp-resumo" class="le-imp-resumo"></div>
+          <div class="le-imp-cab"><span>Destino</span><span></span><span>Canal</span><span>País</span><span>Categoria</span><span>Idioma</span><span>Guia</span><span>Situação</span></div>
+          <div class="le-as-lista" id="le-imp-lista"></div>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-imp-gravar">Gravar no Studio</button></div>`, 'larga');
+        j.querySelector('#le-imp-origem').value = IMP.origem;
+        j.querySelector('#le-imp-pais').value = IMP.paisPadrao;
+        j.querySelector('#le-imp-vivos').checked = IMP.soVivos;
+        j.querySelector('#le-imp-rasc').checked = IMP.rascunho;
+        let P = [];
+        const pintar = () => {
+            P = plano();
+            const conta = (f) => P.filter(f).length;
+            const porCol = cols.map(c => [c, conta(r => r.col === c && ['novo', 'juntar', 'mesmo'].includes(r.acao))]).filter(x => x[1]);
+            const porPais = new Map(); P.forEach(r => { if (r.col && r.col.tipo !== 'canal24h' && ['novo', 'juntar'].includes(r.acao)) { const k = r.item.pais || '?'; porPais.set(k, (porPais.get(k) || 0) + 1); } });
+            const ok = conta(r => r.acao === 'novo' || r.acao === 'juntar');
+            j.querySelector('#le-imp-resumo').innerHTML = `${porCol.map(([c, n]) => `<span class="le-chip on">${esc(c.icone || '')} ${esc(c.nome)} <small>${n}</small></span>`).join('')}
+              ${[...porPais.entries()].sort((a, b) => b[1] - a[1]).map(([p, n]) => `<span class="le-chip">${bandeira(p)} ${esc(p)} <small>${n}</small></span>`).join('')}
+              ${conta(r => r.acao === 'erro') ? `<span class="le-chip" style="color:#f87171">${conta(r => r.acao === 'erro')} com falta de dado</span>` : ''}${conta(r => r.acao === 'fora') ? `<span class="le-chip">${conta(r => r.acao === 'fora')} de fora</span>` : ''}`;
+            j.querySelector('#le-imp-gravar').textContent = ok ? `Gravar no Studio (${conta(r => r.acao === 'novo')} novos · ${conta(r => r.acao === 'juntar')} juntam)` : 'Nada para gravar';
+            j.querySelector('#le-imp-gravar').disabled = !ok;
+            const lista = P.slice(0, 600);
+            j.querySelector('#le-imp-lista').innerHTML = lista.map((r, i) => {
+                const it = r.it, item = r.item || {}, [rot, cor] = ROT_ACAO[r.acao];
+                const msg = r.acao === 'erro' ? r.erros.join(' · ') : r.motivo || (r.avisos && r.avisos[0]) || '';
+                const logo = item.logo || it.logo;
+                return `<div class="le-imp-linha">
+                  <select class="le-campo" data-imp-dest="${i}" title="Para onde vai"><option value="">— fica de fora —</option>${cols.map(c => `<option value="${esc(c.id)}" ${r.col === c ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}</select>
+                  <span class="le-as-img">${ehImagem(logo) ? `<img src="${esc(logo)}" alt="" loading="lazy">` : ''}</span>
+                  <span title="${esc(r.caminho || '')}"><b>${esc(it.nome)}</b><small>${esc(r.caminho ? r.caminho.replace(/^conteudo\//, '') : '')}</small></span>
+                  <span>${item.pais ? bandeira(item.pais) + ' ' + esc(item.pais) : r.col && r.col.tipo === 'canal24h' ? '—' : '<b style="color:#f87171">?</b>'}</span>
+                  <span>${esc(item.categoria || (r.col && r.col.tipo !== 'canal' ? r.col.nome : '—'))}</span>
+                  <span>${esc(item.idioma || '—')}</span>
+                  <span style="color:${item.tvgId && item.epg ? '#4ade80' : '#64748b'}">${item.tvgId && item.epg ? '✓' : '—'}</span>
+                  <span style="color:${cor}" title="${esc(msg)}"><b>${esc(rot)}</b>${msg ? `<small>${esc(msg)}</small>` : ''}</span>
+                </div>`;
+            }).join('') + (P.length > 600 ? `<p class="le-dica">Mostrando 600 de ${P.length}. Todos entram na gravação.</p>` : '');
+            j.querySelectorAll('[data-imp-dest]').forEach(sel => { sel.onchange = () => { IMP.destinos.set(lista[+sel.dataset.impDest].it.id, sel.value); pintar(); }; });
+        };
+        j.querySelector('#le-imp-origem').onchange = (e) => { IMP.origem = e.target.value; pintar(); };
+        j.querySelector('#le-imp-pais').onchange = (e) => { IMP.paisPadrao = e.target.value; pintar(); };
+        j.querySelector('#le-imp-vivos').onchange = (e) => { IMP.soVivos = e.target.checked; pintar(); };
+        j.querySelector('#le-imp-rasc').onchange = (e) => { IMP.rascunho = e.target.checked; pintar(); };
+        j.querySelector('#le-imp-gravar').onclick = async (e) => {
+            const b = e.target, ok = P.filter(r => r.acao === 'novo' || r.acao === 'juntar');
+            b.disabled = true; b.textContent = 'Gravando…';
+            try {
+                const mudancas = [];
+                for (const r of ok) {
+                    let existente = null;
+                    if (r.acao === 'juntar') { try { existente = await S.ler(r.caminho); } catch (er) { /* sumiu: grava como novo */ } }
+                    mudancas.push({ caminho: r.caminho, conteudo: S.C.serializar(L.itemFinal(r, S.C, existente)) });
+                }
+                await S.gravar(mudancas, `Link Edit: ${ok.length} canais (${E.nova.nome})`);
+                fecharJanela();
+                S.aviso(`${ok.length} canais gravados no Studio${IMP.rascunho ? ' como rascunho' : ''}.`, 'ok');
+            } catch (er) { b.disabled = false; b.textContent = 'Tentar de novo'; }
+        };
+        pintar();
     }
 
     // ---------------------------------------------------------------- assets: banco de logos salvos (vale para todas as listas)
@@ -1140,6 +1221,13 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-cat:hover,.le-cat:focus-visible{background:#102a31;color:#67e8f9;outline:none}.le-cat.ok{color:#67e8f9;font-weight:700}
 .le-cat-lista .le-idi-op{grid-template-columns:16px 1fr auto}.le-cat-lista .le-idi-op b{font-family:Inter,sans-serif;font-size:13px;color:#e5e7eb}
 .le-cat-lista .le-idi-op span{color:#fbbf24}.le-cat-nova b{color:#67e8f9!important}
+.le-imp-op{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:12.5px;color:#cbd5e1}.le-imp-op label{display:flex;gap:6px;align-items:center}.le-imp-op .le-campo{height:32px;padding:0 8px;max-width:240px}
+.le-imp-resumo{display:flex;flex-wrap:wrap;gap:6px}
+.le-imp-cab,.le-imp-linha{display:grid;grid-template-columns:170px 56px minmax(140px,1.4fr) 56px minmax(80px,1fr) 90px 38px minmax(120px,1.1fr);gap:8px;align-items:center}
+.le-imp-cab{font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#8b95a3;text-transform:uppercase;padding:6px 4px 4px;border-bottom:1px solid var(--b)}
+.le-imp-linha{padding:5px 4px;border-bottom:1px solid #141821;font-size:12.5px}.le-imp-linha .le-campo{height:30px;padding:0 6px;font-size:12px;width:100%}
+.le-imp-linha b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.le-imp-linha small{display:block;font-size:11px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-imp-linha .le-as-img{height:30px}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
@@ -1149,6 +1237,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     function desenhar(area, ferramentas) {
         S = ferramentas;
         css();
+        const cfg = S.config && S.config();
+        if (cfg && cfg.categoriasCanais) L.usarCategorias(cfg.categoriasCanais);   // a lista oficial é a do Studio (TVzine)
         if (!E.listas.length && !E.canais.length) carregar();
         area.innerHTML = `
         <div id="le-raiz" tabindex="-1">
@@ -1208,6 +1298,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <div class="le-saida">
                   <button class="le-bt p" data-baixar="m3u">M3U</button><button class="le-bt" data-baixar="json">JSON</button><button class="le-bt" data-baixar="txt">TXT</button><button class="le-bt" id="le-copiar">Copiar</button>
                 </div>
+                <button class="le-bt r" id="le-studio" title="Grava a lista nova nas coleções do Studio: Canais (TVzine) por país, Desenhos 24H, Rádios">➜ Enviar ao Studio</button>
                 <p class="le-dica">Atalhos: <b>↑ ↓</b> canal · <b>Shift+clique</b> trecho · <b>Espaço</b> testar · <b>→</b> lista nova · <b>Del</b> quarentena · <b>Ctrl+Z</b> desfazer · <b>?</b> todos</p>
               </div>
             </aside>
@@ -1336,6 +1427,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-prox').onclick = () => andar(1);
         $('#le-vai').onclick = () => { const c = E.canais.find(x => x.id === E.foco); if (c) { jogarNaLista([c]); andar(1); } };
         $('#le-copiar').onclick = copiar;
+        $('#le-studio').onclick = () => abrirImportador();
         $('#le-nova-nome').onchange = (e) => { E.nova.nome = e.target.value.trim() || 'Lista nova'; salvar(); };
         raiz.querySelectorAll('[data-baixar]').forEach(b => { b.onclick = () => pedirNomeEBaixar(b.dataset.baixar); });
         $('#le-cab-todos').onclick = marcarTodos;

@@ -358,7 +358,7 @@
         $('#btn-linkedit').classList.toggle('ativo', estado.tela === 'linkedit');
         if (estado.tela !== 'linkedit' && window.CZLinkEdit) window.CZLinkEdit.parar();     // saiu do Link Edit: o visualizador para
         if (estado.tela === 'vitrine') desenharVitrine();
-        else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy) });
+        else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg) });
         else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
             RepoGitHub, aviso, esc, guardar,
             indice: () => estado.indice,
