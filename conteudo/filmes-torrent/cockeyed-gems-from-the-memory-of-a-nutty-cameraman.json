@@ -7,6 +7,9 @@
   "tmdb": "movie/184458",
   "imdb": "tt0463457",
   "notaImdb": 6.8,
+  "notaTmdb": 6.9,
+  "popularidade": 0.2,
+  "duracao": 3,
   "votosImdb": 81,
   "capa": "https://archive.org/services/img/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman",
   "fonte": "https://archive.org/details/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman",
@@ -14,5 +17,5 @@
   "ano": 1925,
   "posFundo": 54,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-17"
+  "_completadoEm": "2026-11-18"
 }

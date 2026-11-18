@@ -21,6 +21,8 @@
    "tmdbId": 166611,
    "tmdbTipo": "movie",
    "rating": 5.1,
+   "popularity": 0.5,
+   "runtime": 75,
    "url": "https://archive.org/download/africa_speaks/africa_speaks_archive.torrent",
    "mirrors": [
     "https://archive.org/download/africa_speaks/africa_speaks.mp4"
@@ -49,6 +51,8 @@
    "tmdbId": 3059,
    "tmdbTipo": "movie",
    "rating": 7.6,
+   "popularity": 2.4,
+   "runtime": 197,
    "url": "https://archive.org/download/Intolerance/Intolerance_archive.torrent",
    "mirrors": [
     "https://archive.org/download/Intolerance/Intolerance_512kb.mp4"
@@ -75,6 +79,8 @@
    "tmdbId": 79761,
    "tmdbTipo": "movie",
    "rating": 7,
+   "popularity": 1.9,
+   "runtime": 103,
    "url": "https://archive.org/download/iron_mask/iron_mask_archive.torrent",
    "mirrors": [
     "https://archive.org/download/iron_mask/iron_mask_256kb.mp4"
@@ -101,6 +107,8 @@
    "tmdbId": 2981,
    "tmdbTipo": "movie",
    "rating": 7,
+   "popularity": 1.5,
+   "runtime": 104,
    "url": "https://archive.org/download/lost_world/lost_world_archive.torrent",
    "mirrors": [
     "https://archive.org/download/lost_world/lost_world.mp4"
@@ -127,6 +135,8 @@
    "tmdbId": 42657,
    "tmdbTipo": "movie",
    "rating": 7.1,
+   "popularity": 1.4,
+   "runtime": 107,
    "url": "https://archive.org/download/markofzorro-1920/markofzorro-1920_archive.torrent",
    "mirrors": [
     "https://archive.org/download/markofzorro-1920/markofzorro.mp4"
@@ -154,6 +164,8 @@
    "tmdbId": 23282,
    "tmdbTipo": "movie",
    "rating": 8.1,
+   "popularity": 1.4,
+   "runtime": 25,
    "url": "https://archive.org/download/OneWeek/OneWeek_archive.torrent",
    "mirrors": [
     "https://archive.org/download/OneWeek/One_Week_512kb.mp4"
@@ -201,6 +213,8 @@
    "tmdbId": 51360,
    "tmdbTipo": "movie",
    "rating": 7.7,
+   "popularity": 0.8,
+   "runtime": 23,
    "url": "https://archive.org/download/TheGoat/TheGoat_archive.torrent",
    "mirrors": [
     "https://archive.org/download/TheGoat/The_Goat_512kb.mp4"
@@ -229,6 +243,9 @@
    "tmdbId": 964,
    "tmdbTipo": "movie",
    "rating": 7.5,
+   "age": "14",
+   "popularity": 3.1,
+   "runtime": 101,
    "url": "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ThePhantomoftheOpera/Phantom_of_the_Opera_512kb.mp4"
@@ -254,6 +271,8 @@
    "tmdbId": 107294,
    "tmdbTipo": "movie",
    "rating": 5.6,
+   "popularity": 0.5,
+   "runtime": 22,
    "url": "https://archive.org/download/westofhotdog/westofhotdog_archive.torrent",
    "mirrors": [
     "https://archive.org/download/westofhotdog/WestOfHotDog.mp4"
@@ -278,6 +297,8 @@
    "tmdbId": 30266,
    "tmdbTipo": "movie",
    "rating": 6.1,
+   "popularity": 1.2,
+   "runtime": 99,
    "url": "https://archive.org/download/20000LeaguesUndertheSea/20000LeaguesUndertheSea_archive.torrent",
    "mirrors": [
     "https://archive.org/download/20000LeaguesUndertheSea/20000_Leagues_Under_the_Sea_512kb.mp4"
@@ -317,6 +338,8 @@
    "tmdbId": 84270,
    "tmdbTipo": "movie",
    "rating": 6,
+   "popularity": 0.7,
+   "runtime": 13,
    "url": "https://archive.org/download/AChristmasCarol/AChristmasCarol_archive.torrent",
    "mirrors": [
     "https://archive.org/download/AChristmasCarol/AChristmasCarol.mp4"
@@ -342,6 +365,8 @@
    "tmdbId": 53412,
    "tmdbTipo": "movie",
    "rating": 6.4,
+   "popularity": 0.8,
+   "runtime": 24,
    "url": "https://archive.org/download/ANightintheShow/ANightintheShow_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ANightintheShow/A_Night_in_the_Show_512kb.mp4"
@@ -363,6 +388,8 @@
    "tmdbId": 130816,
    "tmdbTipo": "movie",
    "rating": 5.6,
+   "popularity": 0.9,
+   "runtime": 83,
    "url": "https://archive.org/download/abraham_lincoln/abraham_lincoln_archive.torrent",
    "mirrors": [
     "https://archive.org/download/abraham_lincoln/abraham_lincoln.mp4"
@@ -416,6 +443,8 @@
    "tmdbId": 643,
    "tmdbTipo": "movie",
    "rating": 7.9,
+   "popularity": 4.2,
+   "runtime": 72,
    "url": "https://archive.org/download/BattleshipPotemkin/BattleshipPotemkin_archive.torrent",
    "mirrors": [
     "https://archive.org/download/BattleshipPotemkin/Battleship_Potemkin_512kb.mp4"
@@ -729,6 +758,8 @@
    "tmdbId": 26317,
    "tmdbTipo": "movie",
    "rating": 8.3,
+   "popularity": 2.9,
+   "runtime": 68,
    "url": "https://archive.org/download/ChelovekskinoapparatomManWithAMovieCamera/ChelovekskinoapparatomManWithAMovieCamera_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ChelovekskinoapparatomManWithAMovieCamera/Chelovek_s_kino-apparatom_512kb.mp4"
@@ -747,6 +778,8 @@
    "tmdbId": 184458,
    "tmdbTipo": "movie",
    "rating": 6.8,
+   "popularity": 0.2,
+   "runtime": 3,
    "url": "https://archive.org/download/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman_archive.torrent",
    "mirrors": [
     "https://archive.org/download/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman/Cockeyed%3A%20Gems%20from%20the%20Memory%20of%20a%20Nutty%20Cameraman.mp4"
@@ -773,6 +806,8 @@
    "tmdbId": 234,
    "tmdbTipo": "movie",
    "rating": 8,
+   "popularity": 3.6,
+   "runtime": 78,
    "url": "https://archive.org/download/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari_archive.torrent",
    "mirrors": [
     "https://archive.org/download/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari/The_Cabinet_of_Dr._Caligari_512kb.mp4"
@@ -797,6 +832,8 @@
    "tmdbId": 3016,
    "tmdbTipo": "movie",
    "rating": 6.9,
+   "popularity": 1.8,
+   "runtime": 79,
    "url": "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_archive.torrent",
    "mirrors": [
     "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_512kb.mp4"
@@ -836,6 +873,8 @@
    "tmdbId": 228696,
    "tmdbTipo": "movie",
    "rating": 5,
+   "popularity": 0.6,
+   "runtime": 11,
    "url": "https://archive.org/download/silent-episodes-in-the-life-of-a-gin-bottle/silent-episodes-in-the-life-of-a-gin-bottle_archive.torrent",
    "mirrors": [
     "https://archive.org/download/silent-episodes-in-the-life-of-a-gin-bottle/Episodes%20in%20the%20Life%20of%20a%20Gin%20Bottle.mp4"
@@ -860,6 +899,8 @@
    "tmdbId": 2929,
    "tmdbTipo": "movie",
    "rating": 6.4,
+   "popularity": 1.2,
+   "runtime": 16,
    "url": "https://archive.org/download/FrankensteinfullMovie/FrankensteinfullMovie_archive.torrent",
    "mirrors": [
     "https://archive.org/download/FrankensteinfullMovie/Frankenstein1910.mp4"
@@ -909,6 +950,8 @@
    "tmdbId": 71065,
    "tmdbTipo": "movie",
    "rating": 6.7,
+   "popularity": 1.2,
+   "runtime": 73,
    "url": "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_1920_archive.torrent",
    "mirrors": [
     "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_silent.mp4"
@@ -963,6 +1006,8 @@
    "tmdbId": 71066,
    "tmdbTipo": "movie",
    "rating": 7,
+   "popularity": 1.1,
+   "runtime": 133,
    "url": "https://archive.org/download/FairbanksRobinHood1922/FairbanksRobinHood1922_archive.torrent",
    "mirrors": [
     "https://archive.org/download/FairbanksRobinHood1922/FairbanksRobinHood1922/FairbanksRobinHood1922_64kb.mp4"
@@ -984,6 +1029,8 @@
    "tmdbId": 67466,
    "tmdbTipo": "movie",
    "rating": 6.5,
+   "popularity": 0.3,
+   "runtime": 29,
    "url": "https://archive.org/download/silent-santa-claus/silent-santa-claus_archive.torrent",
    "mirrors": [
     "https://archive.org/download/silent-santa-claus/Santa%20Claus.mp4"
@@ -1026,6 +1073,8 @@
    "tmdbId": 76951,
    "tmdbTipo": "movie",
    "rating": 5.8,
+   "popularity": 1.4,
+   "runtime": 60,
    "url": "https://archive.org/download/TarzanoftheApes1918AndyDivx/TarzanoftheApes1918AndyDivx_archive.torrent",
    "mirrors": [
     "https://archive.org/download/TarzanoftheApes1918AndyDivx/TarzanoftheApes1918AndyDivx.mp4"
@@ -1052,6 +1101,9 @@
    "tmdbId": 961,
    "tmdbTipo": "movie",
    "rating": 8.1,
+   "age": "L",
+   "popularity": 3.8,
+   "runtime": 79,
    "url": "https://archive.org/download/TheGeneral/TheGeneral_archive.torrent",
    "mirrors": [
     "https://archive.org/download/TheGeneral/The_General_512kb.mp4"
@@ -1094,6 +1146,8 @@
    "tmdbId": 71065,
    "tmdbTipo": "movie",
    "rating": 6.7,
+   "popularity": 1.2,
+   "runtime": 73,
    "url": "https://archive.org/download/PublicdomainTheLastoftheMohicans/PublicdomainTheLastoftheMohicans_archive.torrent",
    "mirrors": [
     "https://archive.org/download/PublicdomainTheLastoftheMohicans/Last_of_the_Mohicans.mp4"
@@ -1118,6 +1172,8 @@
    "tmdbId": 53759,
    "tmdbTipo": "movie",
    "rating": 5.7,
+   "popularity": 0.9,
+   "runtime": 13,
    "url": "https://archive.org/download/The_Wonderful_Wizard_of_Oz/The_Wonderful_Wizard_of_Oz_archive.torrent",
    "mirrors": [
     "https://archive.org/download/The_Wonderful_Wizard_of_Oz/WizardOfOz1910.mp4"
@@ -1177,6 +1233,8 @@
    "tmdbId": 28963,
    "tmdbTipo": "movie",
    "rating": 7.7,
+   "popularity": 2,
+   "runtime": 149,
    "url": "https://archive.org/download/ThiefOfBagdad1924/ThiefOfBagdad1924_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ThiefOfBagdad1924/ThiefofBagdad1924_512kb.mp4"

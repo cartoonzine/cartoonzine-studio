@@ -7,10 +7,19 @@
   "banner": "https://cdn2.steamgriddb.com/hero/c6e9701b682ec8f4cc3f8923c1dbb1f8.png",
   "logo": "https://cdn2.steamgriddb.com/logo/44b4596c7a979aa7e4fc820c07fd78fe.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · tf2.riddy.workers.dev",
+  "descricao": "Team Fortress 2 is the successor of Team Fortress Classic and is also a class-based multiplayer team shooter.\r\n\r\nThe game features nine classes which cover all the classics from the original game including the Heavy Weapons Guy, the Pyro and the Spy. Each class has a different set of weapons and abilities. While the Heavy Weapons Guy has his mini-gun and moves slowly over the map, the medic stays in the background and uses his healing beam to assist the Heavy. If he does so long enough the medic can then trigger an Übercharge which makes both targets invulnerable for a few seconds. The spy is instead more of a loner and disguises himself as the enemy in order to infiltrate them and make instant melee-kills.",
+  "ano": 2007,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
-  "_completadoEm": "2026-11-11"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 345592,
+  "_ssPreviaEm": "2026-11-18"
 }

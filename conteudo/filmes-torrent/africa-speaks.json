@@ -20,5 +20,8 @@
   "destaque": true,
   "destaqueOrdem": 1,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15"
+  "_completadoEm": "2026-11-15",
+  "notaTmdb": 7,
+  "popularidade": 0.5,
+  "duracao": 75
 }
