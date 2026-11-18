@@ -16,9 +16,11 @@
    "thumb": "https://archive.org/services/img/africa_speaks",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/wdgPNKPez9b37cyETmqaP64eN8O.jpg",
    "imdbId": "tt0174450",
-   "tmdbId": "movie/166611",
    "imdbRating": 5.1,
    "imdbVotes": 143,
+   "tmdbId": 166611,
+   "tmdbTipo": "movie",
+   "rating": 5.1,
    "url": "https://archive.org/download/africa_speaks/africa_speaks_archive.torrent",
    "mirrors": [
     "https://archive.org/download/africa_speaks/africa_speaks.mp4"
@@ -42,9 +44,11 @@
    "thumb": "https://archive.org/services/img/Intolerance",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/5s5Vau1tCvoQaaTTTGk4Qux8CcH.jpg",
    "imdbId": "tt0006864",
-   "tmdbId": "movie/3059",
    "imdbRating": 7.6,
    "imdbVotes": 18184,
+   "tmdbId": 3059,
+   "tmdbTipo": "movie",
+   "rating": 7.6,
    "url": "https://archive.org/download/Intolerance/Intolerance_archive.torrent",
    "mirrors": [
     "https://archive.org/download/Intolerance/Intolerance_512kb.mp4"
@@ -66,9 +70,11 @@
    "thumb": "https://archive.org/services/img/iron_mask",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/l6dxdIQMsqTzKlWBCVk3AdB7Dv5.jpg",
    "imdbId": "tt0020030",
-   "tmdbId": "movie/79761",
    "imdbRating": 7,
    "imdbVotes": 1587,
+   "tmdbId": 79761,
+   "tmdbTipo": "movie",
+   "rating": 7,
    "url": "https://archive.org/download/iron_mask/iron_mask_archive.torrent",
    "mirrors": [
     "https://archive.org/download/iron_mask/iron_mask_256kb.mp4"
@@ -90,9 +96,11 @@
    "thumb": "https://archive.org/services/img/lost_world",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/mdNae6nOlJ7iKxFgsWSAgxU9shS.jpg",
    "imdbId": "tt0016039",
-   "tmdbId": "movie/2981",
    "imdbRating": 7,
    "imdbVotes": 6707,
+   "tmdbId": 2981,
+   "tmdbTipo": "movie",
+   "rating": 7,
    "url": "https://archive.org/download/lost_world/lost_world_archive.torrent",
    "mirrors": [
     "https://archive.org/download/lost_world/lost_world.mp4"
@@ -114,9 +122,11 @@
    "thumb": "https://archive.org/services/img/markofzorro-1920",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/oNEY4mX0C9bO1KaVWYf9kTsq9oS.jpg",
    "imdbId": "tt0011439",
-   "tmdbId": "movie/42657",
    "imdbRating": 7.1,
    "imdbVotes": 2866,
+   "tmdbId": 42657,
+   "tmdbTipo": "movie",
+   "rating": 7.1,
    "url": "https://archive.org/download/markofzorro-1920/markofzorro-1920_archive.torrent",
    "mirrors": [
     "https://archive.org/download/markofzorro-1920/markofzorro.mp4"
@@ -139,9 +149,11 @@
    "thumb": "https://archive.org/services/img/OneWeek",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/fgKoKVw0f2X2ajilfoyra3LFrwo.jpg",
    "imdbId": "tt0011541",
-   "tmdbId": "movie/23282",
    "imdbRating": 8.1,
    "imdbVotes": 9535,
+   "tmdbId": 23282,
+   "tmdbTipo": "movie",
+   "rating": 8.1,
    "url": "https://archive.org/download/OneWeek/OneWeek_archive.torrent",
    "mirrors": [
     "https://archive.org/download/OneWeek/One_Week_512kb.mp4"
@@ -163,7 +175,8 @@
    "thumb": "https://media.themoviedb.org/t/p/w220_and_h330_face/rKJvZkOtswkIdwBlLUGRbUo1YEt.jpg",
    "bannerThumb": "https://image.tmdb.org/t/p/original/ycAUFNGzzyEJv8iMACD5snGeS6G.jpg",
    "imdbId": "tt30782714",
-   "tmdbId": "movie/1187759",
+   "tmdbId": 1187759,
+   "tmdbTipo": "movie",
    "url": "https:www.banner-fixo-capa-teste-cz.com"
   },
   {
@@ -183,9 +196,11 @@
    "thumb": "https://archive.org/services/img/TheGoat",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/eziqblxAI8YNrMCVmCZml6Daibv.jpg",
    "imdbId": "tt0012224",
-   "tmdbId": "movie/51360",
    "imdbRating": 7.7,
    "imdbVotes": 5655,
+   "tmdbId": 51360,
+   "tmdbTipo": "movie",
+   "rating": 7.7,
    "url": "https://archive.org/download/TheGoat/TheGoat_archive.torrent",
    "mirrors": [
     "https://archive.org/download/TheGoat/The_Goat_512kb.mp4"
@@ -209,9 +224,11 @@
    "thumb": "https://archive.org/services/img/ThePhantomoftheOpera",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/6FSs7jMimg1PBYdhZtPNQhtKtEc.jpg",
    "imdbId": "tt0016220",
-   "tmdbId": "movie/964",
    "imdbRating": 7.5,
    "imdbVotes": 22519,
+   "tmdbId": 964,
+   "tmdbTipo": "movie",
+   "rating": 7.5,
    "url": "https://archive.org/download/ThePhantomoftheOpera/ThePhantomoftheOpera_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ThePhantomoftheOpera/Phantom_of_the_Opera_512kb.mp4"
@@ -232,9 +249,11 @@
    "thumb": "https://archive.org/services/img/westofhotdog",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/xJX2H9RwzCThVksWgrIxGRTFpDh.jpg",
    "imdbId": "tt0015477",
-   "tmdbId": "movie/107294",
    "imdbRating": 5.6,
    "imdbVotes": 305,
+   "tmdbId": 107294,
+   "tmdbTipo": "movie",
+   "rating": 5.6,
    "url": "https://archive.org/download/westofhotdog/westofhotdog_archive.torrent",
    "mirrors": [
     "https://archive.org/download/westofhotdog/WestOfHotDog.mp4"
@@ -254,9 +273,11 @@
    "thumb": "https://archive.org/services/img/20000LeaguesUndertheSea",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/hneezj5OLYwjtZ3Efj3j4nCgiEG.jpg",
    "imdbId": "tt0006333",
-   "tmdbId": "movie/30266",
    "imdbRating": 6.1,
    "imdbVotes": 2294,
+   "tmdbId": 30266,
+   "tmdbTipo": "movie",
+   "rating": 6.1,
    "url": "https://archive.org/download/20000LeaguesUndertheSea/20000LeaguesUndertheSea_archive.torrent",
    "mirrors": [
     "https://archive.org/download/20000LeaguesUndertheSea/20000_Leagues_Under_the_Sea_512kb.mp4"
@@ -291,9 +312,11 @@
    "thumb": "https://archive.org/services/img/AChristmasCarol",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/aGdmJZjoaY4Q6CShloN25CFLVVw.jpg",
    "imdbId": "tt0001544",
-   "tmdbId": "movie/84270",
    "imdbRating": 6,
    "imdbVotes": 965,
+   "tmdbId": 84270,
+   "tmdbTipo": "movie",
+   "rating": 6,
    "url": "https://archive.org/download/AChristmasCarol/AChristmasCarol_archive.torrent",
    "mirrors": [
     "https://archive.org/download/AChristmasCarol/AChristmasCarol.mp4"
@@ -314,9 +337,11 @@
    "thumb": "https://archive.org/services/img/ANightintheShow",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/n5oOMwzemLd81OARilBWDh2XR9A.jpg",
    "imdbId": "tt0005812",
-   "tmdbId": "movie/53412",
    "imdbRating": 6.4,
    "imdbVotes": 2446,
+   "tmdbId": 53412,
+   "tmdbTipo": "movie",
+   "rating": 6.4,
    "url": "https://archive.org/download/ANightintheShow/ANightintheShow_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ANightintheShow/A_Night_in_the_Show_512kb.mp4"
@@ -333,9 +358,11 @@
    "thumb": "https://archive.org/services/img/abraham_lincoln",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/uhPHNGd4PHMoXnhda2s0zm2ddDy.jpg",
    "imdbId": "tt0020620",
-   "tmdbId": "movie/130816",
    "imdbRating": 5.6,
    "imdbVotes": 1747,
+   "tmdbId": 130816,
+   "tmdbTipo": "movie",
+   "rating": 5.6,
    "url": "https://archive.org/download/abraham_lincoln/abraham_lincoln_archive.torrent",
    "mirrors": [
     "https://archive.org/download/abraham_lincoln/abraham_lincoln.mp4"
@@ -384,9 +411,11 @@
    "thumb": "https://archive.org/services/img/BattleshipPotemkin",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/3RH61Z7BP3f215936PJBEG2qQrT.jpg",
    "imdbId": "tt0015648",
-   "tmdbId": "movie/643",
    "imdbRating": 7.9,
    "imdbVotes": 65711,
+   "tmdbId": 643,
+   "tmdbTipo": "movie",
+   "rating": 7.9,
    "url": "https://archive.org/download/BattleshipPotemkin/BattleshipPotemkin_archive.torrent",
    "mirrors": [
     "https://archive.org/download/BattleshipPotemkin/Battleship_Potemkin_512kb.mp4"
@@ -695,9 +724,11 @@
    "thumb": "https://archive.org/services/img/ChelovekskinoapparatomManWithAMovieCamera",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/xPuGtHPc1aADsfXds87noXVz2Hh.jpg",
    "imdbId": "tt0019760",
-   "tmdbId": "movie/26317",
    "imdbRating": 8.3,
    "imdbVotes": 30786,
+   "tmdbId": 26317,
+   "tmdbTipo": "movie",
+   "rating": 8.3,
    "url": "https://archive.org/download/ChelovekskinoapparatomManWithAMovieCamera/ChelovekskinoapparatomManWithAMovieCamera_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ChelovekskinoapparatomManWithAMovieCamera/Chelovek_s_kino-apparatom_512kb.mp4"
@@ -711,9 +742,11 @@
    "studio": "filmes-torrent/cockeyed-gems-from-the-memory-of-a-nutty-cameraman",
    "thumb": "https://archive.org/services/img/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman",
    "imdbId": "tt0463457",
-   "tmdbId": "movie/184458",
    "imdbRating": 6.8,
    "imdbVotes": 81,
+   "tmdbId": 184458,
+   "tmdbTipo": "movie",
+   "rating": 6.8,
    "url": "https://archive.org/download/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman_archive.torrent",
    "mirrors": [
     "https://archive.org/download/silent-cockeyed-gems-from-the-memory-of-a-nutty-cameraman/Cockeyed%3A%20Gems%20from%20the%20Memory%20of%20a%20Nutty%20Cameraman.mp4"
@@ -735,9 +768,11 @@
    "thumb": "https://archive.org/services/img/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/sLq72hBx8Xs2IISVsZJqgjOd31b.jpg",
    "imdbId": "tt0010323",
-   "tmdbId": "movie/234",
    "imdbRating": 8,
    "imdbVotes": 77116,
+   "tmdbId": 234,
+   "tmdbTipo": "movie",
+   "rating": 8,
    "url": "https://archive.org/download/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari_archive.torrent",
    "mirrors": [
     "https://archive.org/download/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari/The_Cabinet_of_Dr._Caligari_512kb.mp4"
@@ -757,9 +792,11 @@
    "thumb": "https://archive.org/services/img/DrJekyllandMrHyde",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/tQRHrssevbysfmDG9FbA86qesCH.jpg",
    "imdbId": "tt0011130",
-   "tmdbId": "movie/3016",
    "imdbRating": 6.9,
    "imdbVotes": 6744,
+   "tmdbId": 3016,
+   "tmdbTipo": "movie",
+   "rating": 6.9,
    "url": "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_archive.torrent",
    "mirrors": [
     "https://archive.org/download/DrJekyllandMrHyde/DrJekyllandMrHyde_512kb.mp4"
@@ -794,9 +831,11 @@
    "thumb": "https://archive.org/services/img/silent-episodes-in-the-life-of-a-gin-bottle",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/ecaVw0FXrKzwIjl2tGN0pAohwmM.jpg",
    "imdbId": "tt1727500",
-   "tmdbId": "movie/228696",
    "imdbRating": 5,
    "imdbVotes": 59,
+   "tmdbId": 228696,
+   "tmdbTipo": "movie",
+   "rating": 5,
    "url": "https://archive.org/download/silent-episodes-in-the-life-of-a-gin-bottle/silent-episodes-in-the-life-of-a-gin-bottle_archive.torrent",
    "mirrors": [
     "https://archive.org/download/silent-episodes-in-the-life-of-a-gin-bottle/Episodes%20in%20the%20Life%20of%20a%20Gin%20Bottle.mp4"
@@ -816,9 +855,11 @@
    "thumb": "https://archive.org/services/img/FrankensteinfullMovie",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/vqZEHv2KxjyVXjbtMhIDIZ6xoLf.jpg",
    "imdbId": "tt0001223",
-   "tmdbId": "movie/2929",
    "imdbRating": 6.4,
    "imdbVotes": 5451,
+   "tmdbId": 2929,
+   "tmdbTipo": "movie",
+   "rating": 6.4,
    "url": "https://archive.org/download/FrankensteinfullMovie/FrankensteinfullMovie_archive.torrent",
    "mirrors": [
     "https://archive.org/download/FrankensteinfullMovie/Frankenstein1910.mp4"
@@ -863,9 +904,11 @@
    "thumb": "https://archive.org/services/img/last_of_the_mohicans_1920",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/tmlQiAYNdYmyGBZfcWIKhmwbBA7.jpg",
    "imdbId": "tt0011387",
-   "tmdbId": "movie/71065",
    "imdbRating": 6.7,
    "imdbVotes": 1472,
+   "tmdbId": 71065,
+   "tmdbTipo": "movie",
+   "rating": 6.7,
    "url": "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_1920_archive.torrent",
    "mirrors": [
     "https://archive.org/download/last_of_the_mohicans_1920/last_of_the_mohicans_silent.mp4"
@@ -897,6 +940,7 @@
    "bgPosY": 22,
    "studio": "filmes-torrent/ptp-the-ten-commandments-cecil-b-demille-mkv-180770",
    "thumb": "https://archive.org/services/img/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770",
+   "qualidadeMax": "HD",
    "url": "https://archive.org/download/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770/The.Ten.Commandments.1923.720p.BluRay.x264-GABE.mp4"
@@ -914,9 +958,11 @@
    "thumb": "https://archive.org/services/img/FairbanksRobinHood1922",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/le215ALRyvc19s6jfrVjRO371YY.jpg",
    "imdbId": "tt0013556",
-   "tmdbId": "movie/71066",
    "imdbRating": 7,
    "imdbVotes": 2736,
+   "tmdbId": 71066,
+   "tmdbTipo": "movie",
+   "rating": 7,
    "url": "https://archive.org/download/FairbanksRobinHood1922/FairbanksRobinHood1922_archive.torrent",
    "mirrors": [
     "https://archive.org/download/FairbanksRobinHood1922/FairbanksRobinHood1922/FairbanksRobinHood1922_64kb.mp4"
@@ -933,9 +979,11 @@
    "studio": "filmes-torrent/santa-claus",
    "thumb": "https://archive.org/services/img/silent-santa-claus",
    "imdbId": "tt0236708",
-   "tmdbId": "movie/67466",
    "imdbRating": 6.5,
    "imdbVotes": 223,
+   "tmdbId": 67466,
+   "tmdbTipo": "movie",
+   "rating": 6.5,
    "url": "https://archive.org/download/silent-santa-claus/silent-santa-claus_archive.torrent",
    "mirrors": [
     "https://archive.org/download/silent-santa-claus/Santa%20Claus.mp4"
@@ -973,9 +1021,11 @@
    "thumb": "https://archive.org/services/img/TarzanoftheApes1918AndyDivx",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/k6pIZczOD0u8K8Scow1aqFiLmhM.jpg",
    "imdbId": "tt0009682",
-   "tmdbId": "movie/76951",
    "imdbRating": 5.8,
    "imdbVotes": 951,
+   "tmdbId": 76951,
+   "tmdbTipo": "movie",
+   "rating": 5.8,
    "url": "https://archive.org/download/TarzanoftheApes1918AndyDivx/TarzanoftheApes1918AndyDivx_archive.torrent",
    "mirrors": [
     "https://archive.org/download/TarzanoftheApes1918AndyDivx/TarzanoftheApes1918AndyDivx.mp4"
@@ -997,9 +1047,11 @@
    "thumb": "https://archive.org/services/img/TheGeneral",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/mzox4HbcV9W42MH2dB1QsdDVGo3.jpg",
    "imdbId": "tt0017925",
-   "tmdbId": "movie/961",
    "imdbRating": 8.1,
    "imdbVotes": 106379,
+   "tmdbId": 961,
+   "tmdbTipo": "movie",
+   "rating": 8.1,
    "url": "https://archive.org/download/TheGeneral/TheGeneral_archive.torrent",
    "mirrors": [
     "https://archive.org/download/TheGeneral/The_General_512kb.mp4"
@@ -1037,9 +1089,11 @@
    "thumb": "https://archive.org/services/img/PublicdomainTheLastoftheMohicans",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/tmlQiAYNdYmyGBZfcWIKhmwbBA7.jpg",
    "imdbId": "tt0011387",
-   "tmdbId": "movie/71065",
    "imdbRating": 6.7,
    "imdbVotes": 1472,
+   "tmdbId": 71065,
+   "tmdbTipo": "movie",
+   "rating": 6.7,
    "url": "https://archive.org/download/PublicdomainTheLastoftheMohicans/PublicdomainTheLastoftheMohicans_archive.torrent",
    "mirrors": [
     "https://archive.org/download/PublicdomainTheLastoftheMohicans/Last_of_the_Mohicans.mp4"
@@ -1059,9 +1113,11 @@
    "thumb": "https://archive.org/services/img/The_Wonderful_Wizard_of_Oz",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/2i80DCpZri8XoB8JGA949FosIkv.jpg",
    "imdbId": "tt0001463",
-   "tmdbId": "movie/53759",
    "imdbRating": 5.7,
    "imdbVotes": 1652,
+   "tmdbId": 53759,
+   "tmdbTipo": "movie",
+   "rating": 5.7,
    "url": "https://archive.org/download/The_Wonderful_Wizard_of_Oz/The_Wonderful_Wizard_of_Oz_archive.torrent",
    "mirrors": [
     "https://archive.org/download/The_Wonderful_Wizard_of_Oz/WizardOfOz1910.mp4"
@@ -1116,9 +1172,11 @@
    "thumb": "https://archive.org/services/img/ThiefOfBagdad1924",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/cuMvdjZVYKeCLBtWFc2FDiNAsUR.jpg",
    "imdbId": "tt0015400",
-   "tmdbId": "movie/28963",
    "imdbRating": 7.7,
    "imdbVotes": 7803,
+   "tmdbId": 28963,
+   "tmdbTipo": "movie",
+   "rating": 7.7,
    "url": "https://archive.org/download/ThiefOfBagdad1924/ThiefOfBagdad1924_archive.torrent",
    "mirrors": [
     "https://archive.org/download/ThiefOfBagdad1924/ThiefofBagdad1924_512kb.mp4"

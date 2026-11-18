@@ -580,3 +580,24 @@ test('TMDB: logo do título — idioma pedido, depois inglês, PNG antes de SVG;
     const o = C.paraCloud(C.normalizarItem({ nome: 'F', links: ['https://v.x/a.mp4'], capa: 'https://i.x/c.jpg', bannerLogo: 'https://i.x/l.png' }, filmes), filmes, 'x', config);
     assert.equal(o.logo, 'https://i.x/l.png'); assert.equal(o.bannerlogo, 'https://i.x/l.png');
 });
+
+test('busca fina: TMDB traz nota, popularidade, duração e classificação do Brasil; a saída leva tmdbId/tmdbTipo, áudios e qualidade', async () => {
+    const f = async (url) => {
+        const u = new URL(url);
+        const j = u.pathname === '/3/search/movie' ? { results: [{ id: 1306368 }] }
+            : u.pathname === '/3/movie/1306368' ? { title: 'Dinheiro Suspeito', overview: 'Policiais…', release_date: '2026-03-01', vote_average: 7.13, vote_count: 900, popularity: 11.04, runtime: 112,
+                genres: [{ name: 'Ação' }], release_dates: { results: [{ iso_3166_1: 'US', release_dates: [{ certification: 'R' }] }, { iso_3166_1: 'BR', release_dates: [{ certification: '' }, { certification: '16' }] }] } } : null;
+        return { ok: !!j, status: j ? 200 : 404, json: async () => j };
+    };
+    const r = await C.completarItem({ nome: 'Dinheiro Suspeito', audio: 'Dual Áudio', links: ['https://v.exemplo.com/Dinheiro.2026.1080p.mp4', 'https://v.exemplo.com/d-720p.mp4'] }, { tmdb: 'a'.repeat(32), fetchFn: f });
+    const it = C.normalizarItem(r.item, col('filmes'));
+    assert.equal(it.notaTmdb, 7.1); assert.equal(it.popularidade, 11); assert.equal(it.duracao, 112); assert.equal(it.classificacao, '16'); assert.equal(it.tmdb, 'movie/1306368');
+    const o = C.paraCloud(it, col('filmes'), 'filmes/x', config);
+    assert.equal(o.tmdbId, 1306368); assert.equal(o.tmdbTipo, 'movie');
+    assert.equal(o.rating, 7.1); assert.equal(o.age, '16'); assert.equal(o.popularity, 11); assert.equal(o.runtime, 112);
+    assert.deepEqual(o.audios, ['dublado', 'legendado']); assert.equal(o.qualidadeMax, 'FHD', 'a melhor dos links (1080p)');
+    // a nota/popularidade novas atualizam; o resto que você escreveu fica
+    const outro = C.normalizarItem({ nome: 'S', classificacao: '12 anos', qualidade: 'hd', audios: ['Legendado', 'x'], temporadas: [{ numero: 1, episodios: [{ numero: 1, links: ['https://v.exemplo.com/s01e01.2160p.mkv'] }] }] }, col('series'));
+    assert.equal(outro.classificacao, '12'); assert.equal(outro.qualidade, 'HD'); assert.deepEqual(outro.audios, ['legendado']);
+    assert.equal(C.paraCloud(outro, col('series'), 'series/s', config).qualidadeMax, 'HD', 'a qualidade escrita vale');
+});

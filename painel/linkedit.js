@@ -1330,6 +1330,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <div style="flex:1"></div>
             <button class="le-bt" id="le-assets" title="Banco de logos salvos, para usar em qualquer lista (B)">★ Assets</button>
             <button class="le-bt" id="le-desfazer" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
+            <button class="le-bt" id="le-sair" title="Sair do Link Edit e voltar para as coleções do Studio (o que você fez aqui fica guardado)">📚 Coleções</button>
           </div>
           <div class="le-cols">
             <aside class="le-esq" aria-label="Listas e filtros">
@@ -1496,6 +1497,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-arquivo').onchange = async (e) => { for (const f of e.target.files) adicionarLista(await f.text(), f.name); e.target.value = ''; };
         $('#le-ler-colado').onclick = () => { const t = $('#le-colar').value; if (t.trim()) { adicionarLista(t, 'Texto colado ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })); $('#le-colar').value = ''; } };
         $('#le-desfazer').onclick = desfazer;
+        $('#le-sair').onclick = () => { pararVideo(); if (window.CZStudio && window.CZStudio.irParaColecoes) window.CZStudio.irParaColecoes(); else location.hash = ''; };
         $('#le-assets').onclick = () => abrirAssets();
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };

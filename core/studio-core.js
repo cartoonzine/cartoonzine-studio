@@ -866,7 +866,7 @@
         if (!ref) return null;
         const [tipo, id] = ref.split('/');
         const idi = lang.split('-')[0];
-        const d = await api('/' + ref, { language: lang, append_to_response: 'external_ids,images', include_image_language: `${idi},en,null` });
+        const d = await api('/' + ref, { language: lang, append_to_response: 'external_ids,images,' + (tipo === 'tv' ? 'content_ratings' : 'release_dates'), include_image_language: `${idi},en,null` });
         if (!d) return null;
         let sinopse = d.overview;
         if (!sinopse) { const en = await api('/' + ref, { language: 'en-US' }); sinopse = en && en.overview; }
@@ -882,6 +882,11 @@
             bannerLogo: logoDoTMDB(d.images && d.images.logos, idi),   // logo PNG do título (o banner e o CZ-HUD usam no lugar do nome)
             tmdb: ref,
             imdb: normImdb(d.imdb_id || (d.external_ids && d.external_ids.imdb_id)) || imdb,
+            // para a busca fina do app (Filtros+): nota, popularidade, duração e classificação indicativa do Brasil
+            notaTmdb: d.vote_count > 0 && d.vote_average ? Math.round(d.vote_average * 10) / 10 : undefined,
+            popularidade: d.popularity ? Math.round(d.popularity * 10) / 10 : undefined,
+            duracao: d.runtime || (Array.isArray(d.episode_run_time) && d.episode_run_time[0]) || undefined,
+            classificacao: classificacaoBR(d, tipo),
             porBusca: porBusca || undefined
         });
         if (tipo === 'tv' && temEps && opts.episodios !== false) {
@@ -908,6 +913,34 @@
         return out;
     }
 
+    /** Classificação indicativa do Brasil (L, 10, 12, 14, 16, 18) no detalhe do TMDB. */
+    function classificacaoBR(d, tipo) {
+        const lista = tipo === 'tv' ? ((d.content_ratings && d.content_ratings.results) || []) : ((d.release_dates && d.release_dates.results) || []);
+        const br = lista.find(r => r.iso_3166_1 === 'BR');
+        if (!br) return undefined;
+        const c = tipo === 'tv' ? br.rating : ((br.release_dates || []).map(x => x.certification).find(Boolean));
+        const v = String(c || '').trim().toUpperCase().replace(/^AL$/, 'L').replace(/\s*ANOS?$/, '');
+        return CLASSIFICACOES.includes(v) ? v : undefined;
+    }
+    const CLASSIFICACOES = ['L', '10', '12', '14', '16', '18'];
+    const QUALIDADES = ['4K', 'FHD', 'HD', 'SD'];
+    /** Qualidade pelo texto (nome do arquivo, link): 4K, FHD, HD ou SD — '' se não der para saber. */
+    function qualidadeDoTexto(t) {
+        let s = String(t || ''); try { s = decodeURIComponent(s); } catch (e) { /* */ }
+        return /\b(2160p|4k|uhd)\b/i.test(s) ? '4K' : /\b(1080p|full ?hd|fhd)\b/i.test(s) ? 'FHD' : /\b(720p|hd)\b/i.test(s) ? 'HD' : /\b(480p|360p|sd|dvdrip)\b/i.test(s) ? 'SD' : '';
+    }
+    const melhorQualidade = (lista) => QUALIDADES.find(q => lista.includes(q)) || '';
+    /** Áudios do título para os filtros: o campo Áudio + a lista "audios" (dublado, legendado, original). */
+    function audiosDo(item) {
+        const out = new Set((item.audios || []).map(a => String(a).toLowerCase()));
+        const a = String(item.audio || '').toLowerCase();
+        if (/dual/.test(a)) { out.add('dublado'); out.add('legendado'); }
+        else if (/dub/.test(a)) out.add('dublado');
+        else if (/leg/.test(a)) out.add('legendado');
+        else if (/orig/.test(a)) out.add('original');
+        return [...out].filter(x => ['dublado', 'legendado', 'original'].includes(x));
+    }
+
     /** Nota do IMDb pelo OMDb (chave grátis em omdbapi.com). */
     async function buscarNotaIMDb(imdb, chave, fetchFn) {
         const f = fetchFn || fetch;
@@ -929,8 +962,11 @@
     /** Coloca no item o que veio de fora, sem apagar o que você escreveu (a nota sempre atualiza). */
     function aplicarDadosExternos(item, achado) {
         if (!achado) return item;
-        const { temporadasMeta, tituloTMDB, porBusca, nome, notaImdb, votosImdb, ...resto } = achado;
+        const { temporadasMeta, tituloTMDB, porBusca, nome, notaImdb, votosImdb, notaTmdb, popularidade, ...resto } = achado;
         const out = mesclarSemSobrescrever(item, resto);
+        // nota e popularidade mudam com o tempo: sempre atualizam (como a nota do IMDb)
+        if (notaTmdb !== undefined) out.notaTmdb = notaTmdb;
+        if (popularidade !== undefined) out.popularidade = popularidade;
         // mesmo nome escrito diferente ("Serie X" x "Série X"): fica a grafia oficial, com acentos
         if (!out.nome || (nome && normText(out.nome) === normText(nome))) out.nome = nome || out.nome;
         if (notaImdb !== undefined) { out.notaImdb = notaImdb; if (votosImdb) out.votosImdb = votosImdb; }
@@ -1401,6 +1437,9 @@
                 { k: 'links', rotulo: 'Link do vídeo (filme/desenho avulso)', tipo: 'links', dica: '1º link = principal; os outros viram reserva. Série? Deixe vazio e use as temporadas.' },
                 ...CAMPOS_COMUNS_MIDIA,
                 { k: 'audio', rotulo: 'Áudio', tipo: 'escolha', opcoes: ['', 'Dublado', 'Legendado', 'Dual Áudio', 'Original'] },
+                { k: 'qualidade', rotulo: 'Qualidade', tipo: 'escolha', opcoes: ['', ...QUALIDADES], dica: 'a melhor que tem · vazio = descobre pelo nome do arquivo/link (1080p = FHD)' },
+                { k: 'classificacao', rotulo: 'Classificação indicativa', tipo: 'escolha', opcoes: ['', ...CLASSIFICACOES], dica: 'o TMDB preenche (Brasil)' },
+                { k: 'duracao', rotulo: 'Duração (min)', tipo: 'numero', avancado: true, dica: 'o TMDB preenche' },
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'temporadas', rotulo: 'Temporadas e episódios', tipo: 'temporadas' },
                 ...CAMPOS_BANNER
@@ -1517,6 +1556,15 @@
         if (im) out.imdb = im;
         const nota = parseFloat(b.notaImdb);
         if (Number.isFinite(nota)) out.notaImdb = nota;
+        for (const k of ['notaTmdb', 'popularidade']) { const n = parseFloat(b[k]); if (Number.isFinite(n) && n > 0) out[k] = n; }
+        const dur = inteiro(b.duracao || b.runtime);
+        if (dur) out.duracao = dur;
+        const cl = String(b.classificacao || b.age || '').trim().toUpperCase().replace(/\s*ANOS?|\+/g, '');
+        if (CLASSIFICACOES.includes(cl)) out.classificacao = cl;
+        const ql = String(b.qualidade || '').trim().toUpperCase();
+        if (QUALIDADES.includes(ql)) out.qualidade = ql;
+        const aus = lista(b.audios).map(x => String(x).trim().toLowerCase()).filter(x => ['dublado', 'legendado', 'original'].includes(x));
+        if (aus.length) out.audios = unicos(aus);
         const votos = parseInt(b.votosImdb, 10);
         if (Number.isFinite(votos)) out.votosImdb = votos;
         for (const k of ['capa', 'banner', 'logo', 'video', 'previa', 'site', 'fonte', 'repo']) if (b[k]) out[k] = String(b[k]).trim();
@@ -1652,6 +1700,11 @@
     // ------------------------------------------------------------------
     // Compilação: itens do Studio -> formato do cartoonzine-cloud
     // ------------------------------------------------------------------
+    /** Melhor qualidade pelos links do filme ou dos episódios (quando o campo Qualidade está vazio). */
+    function qualidadeDoItem(item) {
+        const links = (item.links || []).concat(...(item.temporadas || []).flatMap(t => t.episodios.map(e => e.links || [])));
+        return melhorQualidade(links.slice(0, 60).map(qualidadeDoTexto).concat(qualidadeDoTexto(item.nome))) || undefined;
+    }
     function paraCloud(item, colecao, chave, config) {
         const [url, ...espelhos] = item.links || [];
         const base = {
@@ -1672,7 +1725,14 @@
             case 'video': {
                 const o = Object.assign(base, {
                     thumb: item.capa, bannerThumb: item.banner, audio: item.audio,
-                    imdbId: item.imdb, tmdbId: item.tmdb, imdbRating: item.notaImdb, imdbVotes: item.votosImdb
+                    imdbId: item.imdb, imdbRating: item.notaImdb, imdbVotes: item.votosImdb,
+                    // busca fina (Filtros+): código do TMDB (o mesmo filme de listas diferentes vira um card),
+                    // nota, classificação, popularidade, duração, áudios e a melhor qualidade
+                    tmdbId: item.tmdb ? +String(item.tmdb).split('/')[1] || undefined : undefined,
+                    tmdbTipo: item.tmdb ? String(item.tmdb).split('/')[0] : undefined,
+                    rating: item.notaImdb != null ? item.notaImdb : item.notaTmdb,
+                    age: item.classificacao, popularity: item.popularidade, runtime: item.duracao,
+                    audios: audiosDo(item), qualidadeMax: item.qualidade || qualidadeDoItem(item)
                 });
                 if (item.temporadas && item.temporadas.length) {
                     o.seasons = item.temporadas.map(t => ({
@@ -1994,7 +2054,7 @@
             destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
             nota: item.notaImdb,
             eps: contarEpisodios(item) || undefined,
-            pais: item.pais, console: item.console, categoria: item.categoria,
+            pais: item.pais, console: item.console, categoria: item.categoria, tmdb: item.tmdb,
             licenca: item.licenca,
             soPC: item.soPC ? true : undefined,
             rascunho: item._rascunho ? true : undefined,
@@ -2011,7 +2071,7 @@
         VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, contarEpisodios, resumoItem,
         slugify, normText, semAcento, limparHtml, lista,
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
-        analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
+        qualidadeDoTexto, audiosDo, CLASSIFICACOES, QUALIDADES, analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
         lerListaArquivo, consoleDoNomeSistema, consoleDaExtensao, limparNomeRom, prepararJogoEmMassa, buscarJogoPorRomScreenScraper, nomeScreenScraper,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
         refDoLink, normTmdb, normImdb, buscarTMDB, logoDoTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,
