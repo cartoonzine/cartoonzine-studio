@@ -1549,6 +1549,9 @@
         const out = {};
         out.nome = String(b.nome || b.titulo || b.title || b.name || '').trim();
         out.links = unicos(lista(b.links || b.link || b.url || b.urls || b.rom).map(limparLink));
+        // cópias desativadas na tela "Cópias": ficam guardadas aqui (não vão para o app)
+        const desat = unicos(lista(b.linksDesativados).map(limparLink)).filter(u => !out.links.includes(u));
+        if (desat.length) out.linksDesativados = desat;
         // link do TMDB/IMDb colado no campo de vídeo vira referência
         out.links = out.links.filter(u => { const r = refDoLink(u); if (r) { Object.assign(b, Object.assign({}, r, b.tmdb ? { tmdb: b.tmdb } : {}, b.imdb ? { imdb: b.imdb } : {})); return false; } return true; });
         const tm = normTmdb(b.tmdb), im = normImdb(b.imdb);
@@ -1704,6 +1707,32 @@
     function qualidadeDoItem(item) {
         const links = (item.links || []).concat(...(item.temporadas || []).flatMap(t => t.episodios.map(e => e.links || [])));
         return melhorQualidade(links.slice(0, 60).map(qualidadeDoTexto).concat(qualidadeDoTexto(item.nome))) || undefined;
+    }
+    /**
+     * Ordem das cópias de um título (aba Cópias). Nota de cada link pelos critérios, na ordem de importância:
+     *   qualidade (4K > FHD > HD > SD, pelo nome do arquivo/link) · dublado · https · abre rápido (teste do painel)
+     * teste: Map(url → { ok, ms }). Devolve { ordem:[{url, nota, qualidade, audio, https, teste}], certeza }
+     * certeza = false quando as primeiras empatam ou nada se sabe (vai para "Para olhar").
+     */
+    const CRITERIOS_COPIAS = ['qualidade', 'dublado', 'https', 'rapido'];
+    function ordenarCopias(links, opts = {}) {
+        const crit = opts.criterios || CRITERIOS_COPIAS, teste = opts.teste || new Map();
+        const QN = { '4K': 4, FHD: 3, HD: 2, SD: 1 };
+        const info = links.map((url, i) => {
+            let txt = url; try { txt = decodeURIComponent(url); } catch (e) { /* */ }
+            const t = teste.get(url) || null;
+            return { url, i, qualidade: qualidadeDoTexto(url), audio: /\b(dub|dublado|ptbr|pt-br|dual)\b/i.test(txt) ? 'dublado' : /\b(leg|legendado|sub)\b/i.test(txt) ? 'legendado' : '',
+                https: /^https:/i.test(url), teste: t };
+        });
+        const pesoDe = (x, c) => c === 'qualidade' ? (QN[x.qualidade] || 0) : c === 'dublado' ? (x.audio === 'dublado' ? 1 : 0) : c === 'https' ? (x.https ? 1 : 0)
+            : c === 'rapido' ? (x.teste ? (x.teste.ok ? 100000 - Math.min(99999, x.teste.ms || 99999) : -1) : 0) : 0;
+        // link que o teste deu como morto vai sempre para o fim
+        const chave = (x) => [x.teste && !x.teste.ok ? 0 : 1].concat(crit.map(c => pesoDe(x, c)));
+        const cmp = (a, b) => { const ka = chave(a), kb = chave(b); for (let k = 0; k < ka.length; k++) if (ka[k] !== kb[k]) return kb[k] - ka[k]; return a.i - b.i; };
+        const ordem = info.slice().sort(cmp);
+        const sabe = ordem.some(x => x.qualidade || x.audio || x.teste);
+        const certeza = ordem.length < 2 || (sabe && cmp(ordem[0], ordem[1]) !== 0 && chave(ordem[0]).join() !== chave(ordem[1]).join());
+        return { ordem, certeza };
     }
     function paraCloud(item, colecao, chave, config) {
         const [url, ...espelhos] = item.links || [];
@@ -2056,6 +2085,7 @@
             eps: contarEpisodios(item) || undefined,
             pais: item.pais, console: item.console, categoria: item.categoria, tmdb: item.tmdb,
             licenca: item.licenca,
+            links: (item.links || []).length > 1 ? item.links.length : undefined,     // cópias (aba Cópias)
             soPC: item.soPC ? true : undefined,
             rascunho: item._rascunho ? true : undefined,
             auto: item._origem ? true : undefined
@@ -2071,7 +2101,7 @@
         VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, contarEpisodios, resumoItem,
         slugify, normText, semAcento, limparHtml, lista,
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
-        qualidadeDoTexto, audiosDo, CLASSIFICACOES, QUALIDADES, analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
+        qualidadeDoTexto, audiosDo, ordenarCopias, CRITERIOS_COPIAS, CLASSIFICACOES, QUALIDADES, analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
         lerListaArquivo, consoleDoNomeSistema, consoleDaExtensao, limparNomeRom, prepararJogoEmMassa, buscarJogoPorRomScreenScraper, nomeScreenScraper,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
         refDoLink, normTmdb, normImdb, buscarTMDB, logoDoTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,

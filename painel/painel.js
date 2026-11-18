@@ -380,6 +380,9 @@
         else desenharArea();
     }
 
+    // aba "Cópias": coleções cujos itens têm links (filmes, canais, rádios)
+    const temCopias = (col) => ['video', 'canal', 'canal24h', 'radio'].includes(col.tipo);
+    const nCopias = (col) => itensDaColecao(col.id).filter(i => i.links > 1).length;
     function desenharArea() {
         const col = colecaoAtual();
         const tipo = C.TIPOS[col.tipo];
@@ -394,6 +397,7 @@
             <div class="abas" role="tablist">
               <button class="aba ${estado.aba === 'itens' ? 'ativa' : ''}" data-aba="itens" role="tab">Itens</button>
               <button class="aba ${estado.aba === 'rapido' ? 'ativa' : ''}" data-aba="rapido" role="tab">⚡ Adicionar rápido</button>
+              ${temCopias(col) ? `<button class="aba ${estado.aba === 'copias' ? 'ativa' : ''}" data-aba="copias" role="tab" title="Títulos com mais de um link: escolha a principal e as reservas">🎞️ Cópias${nCopias(col) ? ` <span class="ct">${nCopias(col)}</span>` : ''}</button>` : ''}
             </div>
             ${col.consoles === 'consolesWeb' ? '<button class="btn" id="btn-novo-sistema" title="Cria um DB novo de sistema (vira um card no app)">+ Novo sistema</button>' : ''}
             <button class="btn principal" id="btn-novo">+ Novo</button>
@@ -402,7 +406,10 @@
         $$('.aba').forEach(b => b.addEventListener('click', () => { estado.aba = b.dataset.aba; desenharArea(); }));
         $('#btn-novo').addEventListener('click', () => abrirEditor(null));
         const bSis = $('#btn-novo-sistema'); if (bSis) bSis.addEventListener('click', () => abrirNovoSistema());
-        if (estado.aba === 'rapido') desenharRapido(); else desenharLista();
+        if (estado.aba === 'copias' && !temCopias(col)) estado.aba = 'itens';
+        if (estado.aba === 'rapido') desenharRapido();
+        else if (estado.aba === 'copias' && window.CZCopias) window.CZCopias.desenhar($('#conteudo-aba'), { C, col, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), esc, aviso, local: () => !!(estado.repo && estado.repo.usaProxy) });
+        else desenharLista();
     }
 
     // filtros da lista: todos · rascunhos · publicados · (jogos) sem licença conferida

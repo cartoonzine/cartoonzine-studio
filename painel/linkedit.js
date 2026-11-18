@@ -73,7 +73,7 @@
 
     // ---------------------------------------------------------------- listas
     let seqLista = 0;
-    function adicionarLista(texto, nome) {
+    function adicionarLista(texto, nome, url) {
         const id = 'l' + Date.now().toString(36) + (seqLista++);
         const r = L.lerLista(texto, nome);
         if (!r.canais.length) return S.aviso('Não achei nenhum link de canal nisso.', 'ruim');
@@ -88,7 +88,7 @@
             c.id = id + '-' + (n++);
             E.canais.push(c);
         });
-        E.listas.push({ id, nome: nome || 'Lista ' + E.listas.length + 1, formato: r.formato, epg: r.epg });
+        E.listas.push({ id, nome: nome || 'Lista ' + E.listas.length + 1, formato: r.formato, epg: r.epg, url: url || undefined });
         salvar(); desenharTudo();
         S.aviso(`${n} canais lidos de "${nome}" (${r.formato.toUpperCase()}).`, 'ok');
     }
@@ -142,7 +142,7 @@
                 const texto = await baixarTexto(url);
                 // .m3u8 de UM canal (master ou pedaços): entra como canal, não como lista
                 if (L.ehStreamHLS(texto)) soltos.push(L.canalDoLink(url));
-                else adicionarLista(texto, nome);
+                else adicionarLista(texto, nome, url);
             } catch (e) {
                 if (L.formatoDe(url) === 'hls') { soltos.push(L.canalDoLink(url)); continue; }   // não baixou: entra assim mesmo, o teste diz se está vivo
                 S.aviso('Não consegui abrir: ' + e.message + (local() ? '' : ' — no painel local (node tools/painel.mjs) qualquer link abre.'), 'ruim');
@@ -241,30 +241,149 @@
             c.historico = (c.historico || []).concat(r.status === 'vivo' || r.status === 'lento' || r.status === 'pede-ua').slice(-10);
         }
     }
-    async function scan(lista) {
-        if (!local()) return S.aviso('O Scan testa os canais pelo painel no seu PC (node tools/painel.mjs). Online, teste um por um no visualizador.', 'ruim');
-        if (E.scan) return;
+    // ---------------------------------------------------------------- SCAN EM LOTE
+    // Testa centenas/milhares de canais pelo painel do PC: N ao mesmo tempo, pausar/continuar/parar, tempo restante,
+    // contadores, gráfico do tempo de abertura e, no fim, ações de um clique. Na quarentena, o canal que morre
+    // 3 vezes seguidas pode ser apagado de vez; o que volta a abrir sai da quarentena sozinho.
+    const VIVO = (st) => st === 'vivo' || st === 'lento' || st === 'pede-ua';
+    const esperar = (ms) => new Promise(r => setTimeout(r, ms));
+    let velocidadeScan = 8;
+    try { velocidadeScan = +localStorage.getItem(GUARDA + '-vel') || 8; } catch (e) { /* */ }
+    async function scan(lista, opts = {}) {
+        if (!local()) return abrirScan();
+        if (E.scan) return S.aviso('Já tem um scan rodando (barra acima da tabela).', 'ruim');
         const alvo = lista.filter(c => !/^(magnet|rtmp|rtsp|udp|srt|mms)/i.test(c.url));
         if (!alvo.length) return S.aviso('Nada para testar aqui.', 'ruim');
-        const sc = E.scan = { total: alvo.length, feitos: 0, parar: false, vivos: 0, mortos: 0 };
-        desenharScan();
+        const sc = E.scan = { total: alvo.length, feitos: 0, parar: false, pausado: false, t0: Date.now(), pausaMs: 0,
+            n: { vivo: 0, lento: 0, 'pede-ua': 0, bloqueado: 0, morto: 0 }, ultimos: [], alvo, rotulo: opts.rotulo || '', quarentena: !!opts.quarentena };
+        desenharScan(); pintarScanJanela();
         let i = 0;
-        const LIMITE = 8;
         const trabalhar = async () => {
             while (!sc.parar && i < alvo.length) {
+                while (sc.pausado && !sc.parar) await esperar(250);
+                if (sc.parar) break;
                 const c = alvo[i++];
                 c.testando = true;
                 const r = await testarUm(c);
                 c.testando = false;
                 sc.feitos++;
-                if (r && (r.status === 'vivo' || r.status === 'lento' || r.status === 'pede-ua')) sc.vivos++; else if (r) sc.mortos++;
-                if (sc.feitos % 4 === 0 || sc.feitos === sc.total) { desenharScan(); agendarTabela(); }
+                if (r && r.status) {
+                    sc.n[r.status] = (sc.n[r.status] || 0) + 1;
+                    if (sc.quarentena) {
+                        if (VIVO(r.status)) { c.quarentena = false; c.mortesSeguidas = 0; }
+                        else c.mortesSeguidas = (c.mortesSeguidas || 0) + 1;
+                    }
+                    sc.ultimos.unshift({ nome: c.nome, st: r.status, txt: VIVO(r.status) ? [r.tipo && String(r.tipo).toUpperCase(), r.resolucao, r.ms ? (r.ms / 1000).toFixed(1).replace('.', ',') + ' s' : ''].filter(Boolean).join(' · ') : (r.motivo || '') });
+                    sc.ultimos.length = Math.min(sc.ultimos.length, 8);
+                }
+                if (sc.feitos % 4 === 0 || sc.feitos === sc.total) { desenharScan(); agendarTabela(); pintarScanJanela(); }
+                if (sc.feitos % 50 === 0) salvar();
             }
         };
-        await Promise.all(Array.from({ length: Math.min(LIMITE, alvo.length) }, trabalhar));
+        await Promise.all(Array.from({ length: Math.min(velocidadeScan, alvo.length) }, trabalhar));
+        sc.fim = Date.now();
         E.scan = null;
-        salvar(); desenharTudo();
-        S.aviso(`Scan: ${sc.feitos} testados · ${sc.vivos} vivos · ${sc.mortos} com problema.`, 'ok');
+        E.ultimoScan = sc;
+        salvar(); desenharTudo(); pintarScanJanela();
+        const vivos = sc.n.vivo + sc.n.lento + sc.n['pede-ua'];
+        S.aviso(`Scan${sc.parar ? ' parado' : ''}: ${sc.feitos} testados · ${vivos} vivos · ${sc.feitos - vivos} com problema.`, 'ok');
+    }
+    const tempoTxt = (ms) => { const s = Math.round(ms / 1000); return s < 60 ? s + ' s' : s < 3600 ? Math.floor(s / 60) + ' min ' + String(s % 60).padStart(2, '0') + ' s' : Math.floor(s / 3600) + ' h ' + String(Math.floor(s % 3600 / 60)).padStart(2, '0') + ' min'; };
+    function pausarScan(sim) { const sc = E.scan; if (!sc) return; if (sim && !sc.pausado) sc.pausadoEm = Date.now(); if (!sim && sc.pausado && sc.pausadoEm) sc.pausaMs += Date.now() - sc.pausadoEm; sc.pausado = sim; desenharScan(); pintarScanJanela(); }
+    /** Janela do Scan: o que testar, como, velocidade; acompanha ao vivo e, no fim, as ações de um clique. */
+    function abrirScan() {
+        const conta = (f) => E.canais.filter(c => !c.quarentena && f(c)).length;
+        const vis = E.visiveis.length ? E.visiveis : E.canais.filter(c => !c.quarentena);
+        const ALVOS = [
+            ['marcados', `Os marcados`, () => selecionados()],
+            ['visiveis', `Os que aparecem agora (filtros)`, () => vis],
+            ['nunca', `Só os que nunca foram testados`, () => E.canais.filter(c => !c.quarentena && !c.teste)],
+            ['mortos', `Retestar os mortos e bloqueados`, () => E.canais.filter(c => !c.quarentena && c.teste && !VIVO(c.teste.status))],
+            ['quarentena', `A quarentena (volta quem abrir)`, () => E.canais.filter(c => c.quarentena)]
+        ];
+        const padrao = E.sel.size ? 'marcados' : conta(c => !c.teste) ? 'nunca' : 'visiveis';
+        const j = janela(`<h3>Scan em lote</h3>
+          ${local() ? '' : `<div class="le-aviso-scan"><b>O Scan precisa do painel do seu PC.</b> O navegador sozinho não abre a maioria dos canais (links <code>http://</code> numa página <code>https://</code> e servidores que não deixam outra página ler). Na pasta do Studio rode <code>node tools/painel.mjs</code> e abra <code>http://localhost:4321</code> — lá o Scan testa vários canais ao mesmo tempo.</div>`}
+          <div id="le-sj-config">
+            <div class="le-rot" style="margin-top:4px">O que testar</div>
+            <div class="le-sj-alvos">${ALVOS.map(([k, rot, f]) => { const n = f().length; return `<label class="le-sj-op${n ? '' : ' vazia'}"><input type="radio" name="le-sj-alvo" value="${k}" ${k === padrao ? 'checked' : ''} ${n ? '' : 'disabled'}> ${esc(rot)} <small>${n}</small></label>`; }).join('')}</div>
+            <div class="le-imp-op" style="margin-top:10px">
+              <label>Como <select class="le-campo" id="le-sj-modo"><option value="rapido">Rápido — só confere se responde</option><option value="completo">Completo — abre o stream (resolução, 1º pedaço)</option></select></label>
+              <label>Ao mesmo tempo <select class="le-campo" id="le-sj-vel">${[4, 8, 16, 24, 32].map(v => `<option value="${v}" ${v === velocidadeScan ? 'selected' : ''}>${v} canais</option>`).join('')}</select></label>
+              <button class="le-bt p" id="le-sj-ir" ${local() ? '' : 'disabled'}>▶ Começar</button>
+            </div>
+            <p class="le-dica">Dica: comece no <b>Rápido</b> com 16 ou 24 (milhares em poucos minutos) e passe o <b>Completo</b> só nos vivos. Muitos ao mesmo tempo podem fazer alguns servidores recusarem.</p>
+          </div>
+          <div id="le-sj-vivo"></div>`, 'larga');
+        j.querySelector('#le-sj-modo').value = E.modoTeste;
+        j.querySelector('#le-sj-ir').onclick = () => {
+            const k = (j.querySelector('input[name="le-sj-alvo"]:checked') || {}).value;
+            const a = ALVOS.find(x => x[0] === k);
+            if (!a) return S.aviso('Escolha o que testar.', 'ruim');
+            E.modoTeste = j.querySelector('#le-sj-modo').value;
+            velocidadeScan = +j.querySelector('#le-sj-vel').value || 8;
+            try { localStorage.setItem(GUARDA + '-vel', String(velocidadeScan)); } catch (e) { /* */ }
+            salvar();
+            scan(a[2](), { rotulo: a[1], quarentena: k === 'quarentena' });
+        };
+        pintarScanJanela();
+    }
+    function pintarScanJanela() {
+        const el = raiz && raiz.querySelector('#le-sj-vivo'); if (!el) return;
+        const sc = E.scan || E.ultimoScan;
+        const cfg = raiz.querySelector('#le-sj-config'); if (cfg) cfg.hidden = !!E.scan;
+        if (!sc) { el.innerHTML = ''; return; }
+        const rodando = !!E.scan;
+        const gasto = (sc.fim || Date.now()) - sc.t0 - sc.pausaMs - (sc.pausado && sc.pausadoEm ? Date.now() - sc.pausadoEm : 0);
+        const resta = sc.feitos ? gasto / sc.feitos * (sc.total - sc.feitos) : 0;
+        const vivos = sc.n.vivo + sc.n.lento + sc.n['pede-ua'];
+        const CARDS = [['vivo', 'Vivos', '#4ade80', 'abre rápido'], ['lento', 'Lentos', '#fbbf24', 'mais de 4 s'], ['pede-ua', 'Pedem UA', '#67e8f9', 'só com User-Agent de player (guardado)'], ['bloqueado', 'Bloqueados', '#a78bfa', 'país, app ou link vencido'], ['morto', 'Mortos', '#f87171', 'não abrem']];
+        // tempo para abrir (só vivos do alvo)
+        const faixas = [[0, 1000, '< 1 s'], [1000, 2000, '1–2 s'], [2000, 4000, '2–4 s'], [4000, 8000, '4–8 s'], [8000, 1e12, '> 8 s']];
+        const ms = sc.alvo.filter(c => c.teste && VIVO(c.teste.status) && c.teste.ms).map(c => c.teste.ms);
+        const cont = faixas.map(([a, b]) => ms.filter(x => x >= a && x < b).length), max = Math.max(1, ...cont);
+        const ICO = { vivo: ['✓', '#4ade80'], lento: ['◔', '#fbbf24'], 'pede-ua': ['!', '#67e8f9'], bloqueado: ['◐', '#a78bfa'], morto: ['✗', '#f87171'] };
+        const vivosLista = sc.alvo.filter(c => c.teste && VIVO(c.teste.status));
+        const mortosLista = sc.alvo.filter(c => !c.quarentena && c.teste && !VIVO(c.teste.status));
+        const semLogo = vivosLista.filter(c => !c.logo).length, semGuia = vivosLista.filter(c => !c.epgId).length;
+        const apagar = E.canais.filter(c => c.quarentena && (c.mortesSeguidas || 0) >= 3);
+        el.innerHTML = `
+          <div class="le-sj-topo"><b>${rodando ? (sc.pausado ? '⏸ Pausado' : 'Testando') : sc.parar ? 'Parado' : 'Pronto'}</b> · ${esc(sc.rotulo)} · <b style="color:#e5e7eb">${sc.feitos.toLocaleString('pt-BR')}</b> de ${sc.total.toLocaleString('pt-BR')}
+            <span style="margin-left:auto">${rodando ? (sc.feitos ? 'falta ~' + tempoTxt(resta) : 'começando…') : 'levou ' + tempoTxt(gasto)}</span></div>
+          <div class="le-scan" style="border:0;padding:6px 0"><span class="trilho"><b style="width:${Math.round(sc.feitos / sc.total * 100)}%"></b></span>
+            ${rodando ? `<button class="le-bt" id="le-sj-pausa">${sc.pausado ? '▶ Continuar' : '❚❚ Pausar'}</button><button class="le-bt" id="le-sj-parar">■ Parar</button>` : ''}</div>
+          <div class="le-sj-cards">${CARDS.map(([k, rot, cor, dica]) => `<div class="le-sj-card" title="${esc(dica)}"><b style="color:${cor}">${(sc.n[k] || 0).toLocaleString('pt-BR')}</b><span>${rot}</span></div>`).join('')}</div>
+          <div class="le-sj-meio">
+            <div><div class="le-rot">Tempo para abrir (vivos)</div>
+              <div class="le-sj-barras">${faixas.map(([, , rot], k) => `<div><span>${rot}</span><i style="width:${Math.round(cont[k] / max * 100)}%"></i><b>${cont[k]}</b></div>`).join('')}</div></div>
+            <div><div class="le-rot">Últimos</div>
+              <div class="le-sj-ult">${sc.ultimos.map(u => `<div><b style="color:${ICO[u.st] ? ICO[u.st][1] : '#9aa3ad'}">${ICO[u.st] ? ICO[u.st][0] : '?'}</b><span>${esc(u.nome)}</span><small>${esc(u.txt)}</small></div>`).join('') || '<p class="le-dica">…</p>'}</div></div>
+          </div>
+          ${rodando ? '<p class="le-dica">Pode fechar esta janela: o scan continua (barra acima da tabela).</p>' : `
+          <div class="le-rot" style="margin-top:6px">Depois do scan, num clique</div>
+          <div class="le-jan-botoes" style="justify-content:flex-start">
+            <button class="le-bt r" data-sj="vivos" ${vivosLista.length ? '' : 'disabled'}>➜ Vivos para a lista nova (${vivosLista.length})</button>
+            <button class="le-bt" data-sj="mortos" ${mortosLista.length ? '' : 'disabled'}>Mortos para a quarentena (${mortosLista.length})</button>
+            <button class="le-bt" data-sj="logos" ${semLogo ? '' : 'disabled'}>Buscar logos que faltam (${semLogo})</button>
+            <button class="le-bt" data-sj="guias" ${semGuia ? '' : 'disabled'}>Ligar guias (${semGuia})</button>
+            <button class="le-bt" data-sj="vivosSo">Mostrar só os vivos</button>
+            ${apagar.length ? `<button class="le-bt" data-sj="apagar" title="Morreram 3 vezes seguidas na quarentena">Apagar de vez os que morreram 3× (${apagar.length})</button>` : ''}
+            <button class="le-bt" data-sj="novo">Novo scan</button>
+          </div>`}`;
+        const pa = el.querySelector('#le-sj-pausa'); if (pa) pa.onclick = () => pausarScan(!E.scan.pausado);
+        const pr = el.querySelector('#le-sj-parar'); if (pr) pr.onclick = () => { if (E.scan) { E.scan.parar = true; E.scan.pausado = false; } };
+        el.querySelectorAll('[data-sj]').forEach(b => {
+            b.onclick = () => {
+                const k = b.dataset.sj;
+                if (k === 'vivos') { jogarNaLista(vivosLista); fecharJanela(); }
+                else if (k === 'mortos') { quarentena(mortosLista, true); S.aviso(`${mortosLista.length} na quarentena. Teste a quarentena de novo mais tarde: quem voltar sai sozinho.`, 'ok'); fecharJanela(); }
+                else if (k === 'logos') { fecharJanela(); E.sel = new Set(vivosLista.filter(c => !c.logo).map(c => c.id)); acharLogosQueFaltam(); }
+                else if (k === 'guias') { fecharJanela(); ligarGuiasAuto(vivosLista); }
+                else if (k === 'vivosSo') { E.f.soVivos = true; fecharJanela(); desenharFiltros(); desenharTabela(); }
+                else if (k === 'apagar') { lembrar(); const ids = new Set(apagar.map(c => c.id)); E.canais = E.canais.filter(c => !ids.has(c.id)); salvar(); desenharTudo(); S.aviso(`${ids.size} canais apagados de vez (Ctrl+Z não volta estes).`, 'ok'); fecharJanela(); }
+                else if (k === 'novo') { E.ultimoScan = null; abrirScan(); }
+            };
+        });
     }
     function quarentena(canais, sim = true) {
         if (!canais.length) return;
@@ -645,193 +764,361 @@
         busca.focus();
     }
 
-    // ---------------------------------------------------------------- IMPORTADOR: lista nova → coleções do Studio
+    // ---------------------------------------------------------------- ENVIAR AO STUDIO: um caminho para cada coleção
+    // Canais ao vivo (TVzine por país, Desenhos 24H, Rádios) e filmes/séries (Filmes, Séries, Animes, Cartoons) numa
+    // janela só, com uma aba por coleção. Cada item já vem com o destino certo; dá para trocar por linha ou mandar a
+    // lista inteira para uma coleção ("lista só de filmes em .m3u8" → tudo para 🎬 Filmes).
     const ROT_ACAO = { novo: ['Novo', '#4ade80'], juntar: ['Junta com o que já existe', '#67e8f9'], mesmo: ['Repetido no lote → reserva', '#a78bfa'], erro: ['Falta dado', '#f87171'], fora: ['Fica de fora', '#64748b'] };
-    const IMP = { destinos: new Map(), paisPadrao: '', soVivos: false, rascunho: false, origem: 'nova' };
-    function abrirImportador() {
+    const ENV = { aba: 'tudo', origem: 'nova', paisPadrao: '', soVivos: false, rascunho: false, forcar: '', destCanal: new Map(), destVod: new Map(), dados: new Map(), achados: new Map() };
+    const TIPOS_CANAL = ['canal', 'canal24h', 'radio'];
+    const todosPara = (id) => ({ has: () => true, get: () => id });      // "mandar a lista inteira para…"
+    function abrirImportador(aba) {
         if (!S.config || !S.gravar || !S.C) return S.aviso('Abra o Link Edit pelo Studio para gravar nas coleções.', 'ruim');
         const config = S.config();
-        const cols = (config.colecoes || []).filter(c => ['canal', 'canal24h', 'radio'].includes(c.tipo));
-        if (!cols.length) return S.aviso('O studio.config.json não tem coleção de canais.', 'ruim');
-        const fonte = () => IMP.origem === 'marcados' && E.sel.size ? selecionados() : E.nova.itens;
-        if (!E.nova.itens.length && !E.sel.size) return S.aviso('Monte a lista nova (ou marque canais) antes de enviar.', 'ruim');
-        if (!E.nova.itens.length) IMP.origem = 'marcados';
-        const plano = () => L.planejarImportacao(fonte(), S.C, { config, caminhos: new Set((S.indice() || []).map(i => i.caminho)), destinos: IMP.destinos, paisPadrao: IMP.paisPadrao, soVivos: IMP.soVivos, rascunho: IMP.rascunho });
+        const cols = (config.colecoes || []).filter(c => TIPOS_CANAL.includes(c.tipo) || c.tipo === 'video');
+        if (!cols.length) return S.aviso('O studio.config.json não tem coleções de canais nem de vídeo.', 'ruim');
+        if (ENV.origem === 'externa' && !ENV.externa) ENV.origem = 'nova';
+        if (!E.nova.itens.length && !E.sel.size && !ENV.externa) return S.aviso('Monte a lista nova (ou marque canais) antes de enviar.', 'ruim');
+        if (!E.nova.itens.length && ENV.origem === 'nova') ENV.origem = ENV.externa ? 'externa' : 'marcados';
+        if (aba) ENV.aba = aba;
+        if (ENV.aba !== 'tudo' && !cols.some(c => c.id === ENV.aba)) ENV.aba = 'tudo';
+        const familia = (c) => (c && c.tipo === 'video' ? 'vod' : 'canal');
+        const base = () => (ENV.origem === 'externa' && ENV.externa ? ENV.externa.itens : ENV.origem === 'marcados' && E.sel.size ? selecionados() : E.nova.itens);
+        const planejar = () => {
+            const itens = base().filter(it => !ENV.soVivos || !it.teste || ['vivo', 'lento', 'pede-ua'].includes(it.teste.status));
+            const forcada = cols.find(c => c.id === ENV.forcar);
+            const vodItens = forcada ? (familia(forcada) === 'vod' ? itens : []) : itens.filter(L.ehVOD);
+            const canalItens = forcada ? (familia(forcada) === 'canal' ? itens : []) : itens.filter(it => !L.ehVOD(it));
+            const canais = L.planejarImportacao(canalItens, S.C, { config, caminhos: new Set((S.indice() || []).map(i => i.caminho)),
+                destinos: forcada ? todosPara(forcada.id) : ENV.destCanal, paisPadrao: ENV.paisPadrao, rascunho: ENV.rascunho })
+                .map(r => Object.assign(r, { fam: 'canal', chaveLinha: 'c:' + r.it.id }));
+            const vods = L.planejarVOD(vodItens, S.C, { config, indice: S.indice() || [], destinos: forcada ? todosPara(forcada.id) : ENV.destVod, dados: ENV.dados, rascunho: ENV.rascunho })
+                .map(r => Object.assign(r, { fam: 'vod', chaveLinha: 'v:' + r.chave }));
+            return canais.concat(vods);
+        };
         const paises = S.C.opcoesDe('paises', config);
-        const j = janela(`${abasEnviar('canais')}<h3>Enviar ao Studio · canais ao vivo</h3>
-          <p class="le-dica">Cada canal vai para a coleção certa no formato do Studio: <b>Canais (TVzine)</b> separados por país, <b>Desenhos 24H</b> e <b>Rádios</b> (pela categoria). Quem já existe no Studio ganha os links novos como reserva — nada é apagado. Filmes/séries em arquivo ficam para o importador de filmes.</p>
+        const j = janela(`<h3>Enviar ao Studio${ENV.origem === 'externa' && ENV.externa ? ' · ' + esc(ENV.externa.nome) : ''}</h3>
+          <div class="le-abas le-env-abas" id="le-env-abas" role="tablist"></div>
           <div class="le-imp-op">
-            <label>Enviar <select class="le-campo" id="le-imp-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option></select></label>
-            <label>País para quem não tem <select class="le-campo" id="le-imp-pais"><option value="">— nenhum (fica com erro) —</option>${paises.map(p => `<option value="${esc(p.v)}">${esc(p.r)}</option>`).join('')}</select></label>
+            <label>Enviar <select class="le-campo" id="le-imp-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option>${ENV.externa ? `<option value="externa">a lista importada: ${esc(ENV.externa.nome)} (${ENV.externa.itens.length})</option>` : ''}</select></label>
+            <label title="Canais sem país não entram no TVzine">País para quem não tem <select class="le-campo" id="le-imp-pais"><option value="">— nenhum —</option>${paises.map(p => `<option value="${esc(p.v)}">${esc(p.r)}</option>`).join('')}</select></label>
             <label><input type="checkbox" id="le-imp-vivos"> só os vivos</label>
             <label title="Entra no Studio mas não vai para o app até você conferir"><input type="checkbox" id="le-imp-rasc"> como rascunho</label>
           </div>
-          <div id="le-imp-resumo" class="le-imp-resumo"></div>
-          <div class="le-imp-cab"><span>Destino</span><span></span><span>Canal</span><span>País</span><span>Categoria</span><span>Idioma</span><span>Guia</span><span>Situação</span></div>
+          <div id="le-env-acoes" class="le-env-acoes"></div>
+          <div class="le-imp-cab le-env"><span>Destino</span><span></span><span>Título / canal</span><span>O que é</span><span>Dados</span><span>Situação</span></div>
           <div class="le-as-lista" id="le-imp-lista"></div>
           <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-imp-gravar">Gravar no Studio</button></div>`, 'larga');
-        ligarAbasEnviar(j);
-        j.querySelector('#le-imp-origem').value = IMP.origem;
-        j.querySelector('#le-imp-pais').value = IMP.paisPadrao;
-        j.querySelector('#le-imp-vivos').checked = IMP.soVivos;
-        j.querySelector('#le-imp-rasc').checked = IMP.rascunho;
-        let P = [];
+        j.querySelector('#le-imp-origem').value = ENV.origem;
+        j.querySelector('#le-imp-pais').value = ENV.paisPadrao;
+        j.querySelector('#le-imp-vivos').checked = ENV.soVivos;
+        j.querySelector('#le-imp-rasc').checked = ENV.rascunho;
+        let P = [], vis = [];
+        const vai = (r) => r.acao === 'novo' || r.acao === 'juntar';
+        const naAba = (r) => ENV.aba === 'tudo' || (r.col && r.col.id === ENV.aba);
         const pintar = () => {
-            P = plano();
-            const conta = (f) => P.filter(f).length;
-            const porCol = cols.map(c => [c, conta(r => r.col === c && ['novo', 'juntar', 'mesmo'].includes(r.acao))]).filter(x => x[1]);
-            const porPais = new Map(); P.forEach(r => { if (r.col && r.col.tipo !== 'canal24h' && ['novo', 'juntar'].includes(r.acao)) { const k = r.item.pais || '?'; porPais.set(k, (porPais.get(k) || 0) + 1); } });
-            const ok = conta(r => r.acao === 'novo' || r.acao === 'juntar');
-            j.querySelector('#le-imp-resumo').innerHTML = `${porCol.map(([c, n]) => `<span class="le-chip on">${esc(c.icone || '')} ${esc(c.nome)} <small>${n}</small></span>`).join('')}
-              ${[...porPais.entries()].sort((a, b) => b[1] - a[1]).map(([p, n]) => `<span class="le-chip">${bandeira(p)} ${esc(p)} <small>${n}</small></span>`).join('')}
-              ${conta(r => r.acao === 'erro') ? `<span class="le-chip" style="color:#f87171">${conta(r => r.acao === 'erro')} com falta de dado</span>` : ''}${conta(r => r.acao === 'fora') ? `<span class="le-chip">${conta(r => r.acao === 'fora')} de fora</span>` : ''}`;
-            j.querySelector('#le-imp-gravar').textContent = ok ? `Gravar no Studio (${conta(r => r.acao === 'novo')} novos · ${conta(r => r.acao === 'juntar')} juntam)` : 'Nada para gravar';
-            j.querySelector('#le-imp-gravar').disabled = !ok;
-            const lista = P.slice(0, 600);
-            j.querySelector('#le-imp-lista').innerHTML = lista.map((r, i) => {
-                const it = r.it, item = r.item || {}, [rot, cor] = ROT_ACAO[r.acao];
+            P = planejar();
+            vis = P.filter(naAba);
+            // abas: Tudo + uma por coleção (as que não recebem nada ficam apagadas, mas clicáveis)
+            const n = (c) => P.filter(r => r.col === c && r.acao !== 'fora').length;
+            j.querySelector('#le-env-abas').innerHTML = `<button class="le-aba${ENV.aba === 'tudo' ? ' on' : ''}" data-env-aba="tudo">Tudo <small>${P.filter(r => r.acao !== 'fora').length}</small></button>`
+                + cols.map(c => `<button class="le-aba${ENV.aba === c.id ? ' on' : ''}${n(c) ? '' : ' vazia'}" data-env-aba="${esc(c.id)}" title="${esc(c.nome)}">${esc(c.icone || '')} ${esc(c.nome)} <small>${n(c)}</small></button>`).join('');
+            const col = cols.find(c => c.id === ENV.aba);
+            const conta = (f) => vis.filter(f).length;
+            const porPais = new Map(); vis.forEach(r => { if (r.fam === 'canal' && r.col && r.col.tipo !== 'canal24h' && vai(r)) { const k = r.item.pais || '?'; porPais.set(k, (porPais.get(k) || 0) + 1); } });
+            const fora = P.filter(r => r.acao === 'fora').length;
+            j.querySelector('#le-env-acoes').innerHTML = `
+              ${col ? `<button class="le-bt${ENV.forcar === col.id ? ' p' : ''}" id="le-env-forcar" title="Ignora o destino automático: todos os itens da lista vão para ${esc(col.nome)}">${ENV.forcar === col.id ? '✓ A lista inteira vai para ' : 'Mandar a lista inteira para '}${esc(col.icone || '')} ${esc(col.nome)}</button>` : ''}
+              ${ENV.forcar ? '<button class="le-bt" id="le-env-auto">↺ Voltar ao destino automático</button>' : ''}
+              ${(() => {
+                  const v = vis.filter(r => r.fam === 'vod' && r.col);
+                  if (!v.length) return '';
+                  const falta = v.filter(r => !ENV.achados.has(r.chave) && (!r.item.capa || !r.item.descricao || (r.eps && !r.item.banner)));
+                  const pedidos = falta.reduce((n, r) => n + 3 + (r.item.temporadas ? r.item.temporadas.length : 0), 0);
+                  return `<button class="le-bt p" id="le-env-tmdb" title="Capa, banner, sinopse, ano, gêneros, nota, classificação e episódios — só onde está vazio" ${falta.length ? '' : 'disabled'}>🔎 Completar no TMDB (${falta.length} sem dados)</button>
+                    <span class="le-dica" title="Os que já têm capa e sinopse ficam como estão">${v.length - falta.length} já completos${falta.length ? ` · ~${pedidos} pedidos à API` : ''}</span>`;
+              })()}
+              <span class="le-imp-resumo">
+                ${conta(r => r.eps) ? `<span class="le-chip">${conta(r => r.eps)} séries · ${vis.reduce((k, r) => k + (r.eps || 0), 0)} ep.</span>` : ''}
+                ${conta(r => r.fam === 'vod' && !r.eps) ? `<span class="le-chip">${conta(r => r.fam === 'vod' && !r.eps)} filmes</span>` : ''}
+                ${conta(r => r.fam === 'canal' && r.acao !== 'fora') ? `<span class="le-chip">${conta(r => r.fam === 'canal' && r.acao !== 'fora')} canais</span>` : ''}
+                ${[...porPais.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([p, k]) => `<span class="le-chip">${bandeira(p)} ${esc(p)} <small>${k}</small></span>`).join('')}
+                ${conta(r => r.acao === 'erro') ? `<span class="le-chip" style="color:#f87171">${conta(r => r.acao === 'erro')} com falta de dado</span>` : ''}
+                ${ENV.aba === 'tudo' && fora ? `<span class="le-chip" title="Sem coleção certa: escolha o destino na linha">${fora} de fora</span>` : ''}
+              </span>`;
+            const ok = vis.filter(vai);
+            const g = j.querySelector('#le-imp-gravar');
+            g.textContent = ok.length ? `Gravar ${col ? 'em ' + (col.icone || '') + ' ' + col.nome : 'tudo'} (${ok.filter(r => r.acao === 'novo').length} novos · ${ok.filter(r => r.acao === 'juntar').length} juntam)` : 'Nada para gravar aqui';
+            g.disabled = !ok.length;
+            const lista = vis.slice(0, 600);
+            j.querySelector('#le-imp-lista').innerHTML = lista.length ? lista.map((r, i) => {
+                const item = r.item || {}, it = r.it || {}, [rot, cor] = ROT_ACAO[r.acao];
                 const msg = r.acao === 'erro' ? r.erros.join(' · ') : r.motivo || (r.avisos && r.avisos[0]) || '';
-                const logo = item.logo || it.logo;
-                return `<div class="le-imp-linha">
-                  <select class="le-campo" data-imp-dest="${i}" title="Para onde vai"><option value="">— fica de fora —</option>${cols.map(c => `<option value="${esc(c.id)}" ${r.col === c ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}</select>
-                  <span class="le-as-img">${ehImagem(logo) ? `<img src="${esc(logo)}" alt="" loading="lazy">` : ''}</span>
-                  <span title="${esc(r.caminho || '')}"><b>${esc(it.nome)}</b><small>${esc(r.caminho ? r.caminho.replace(/^conteudo\//, '') : '')}</small></span>
-                  <span>${item.pais ? bandeira(item.pais) + ' ' + esc(item.pais) : r.col && r.col.tipo === 'canal24h' ? '—' : '<b style="color:#f87171">?</b>'}</span>
-                  <span>${esc(item.categoria || (r.col && r.col.tipo !== 'canal' ? r.col.nome : '—'))}</span>
-                  <span>${esc(item.idioma || '—')}</span>
-                  <span style="color:${item.tvgId && item.epg ? '#4ade80' : '#64748b'}">${item.tvgId && item.epg ? '✓' : '—'}</span>
+                const img = r.fam === 'vod' ? item.capa : (item.logo || it.logo);
+                const mesmas = cols.filter(c => familia(c) === r.fam);
+                const que = r.fam === 'vod' ? (r.eps ? `série · ${item.temporadas.length} temp. · ${r.eps} ep.` : 'filme' + (item.ano ? ' · ' + item.ano : '')) + (item.audio ? ' · ' + item.audio : '')
+                    : [item.pais ? bandeira(item.pais) + ' ' + item.pais : r.col && r.col.tipo === 'canal' ? '<b style="color:#f87171">sem país</b>' : '', item.categoria, item.idioma].filter(Boolean).join(' · ') || 'canal';
+                const dado = r.fam === 'vod' ? ENV.achados.get(r.chave) : null;
+                const dados = r.fam === 'vod' ? `<span style="color:${dado ? (dado.ok ? '#4ade80' : '#fbbf24') : '#64748b'}" title="${esc(dado ? dado.texto : 'Ainda não buscado no TMDB')}">${dado ? (dado.ok ? '✓ TMDB' : '?') : item.descricao ? '✓' : '—'}</span>`
+                    : `<span style="color:${item.tvgId && item.epg ? '#4ade80' : '#64748b'}" title="Guia de programação">${item.tvgId && item.epg ? '✓ guia' : '—'}</span>`;
+                return `<div class="le-imp-linha le-env">
+                  <select class="le-campo" data-env-dest="${i}" title="${r.fam === 'vod' ? 'Filme/série: Filmes, Séries, Animes ou Cartoons' : 'Canal: TVzine, Desenhos 24H ou Rádios'}"><option value="">— fica de fora —</option>${mesmas.map(c => `<option value="${esc(c.id)}" ${r.col === c ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}</select>
+                  <span class="le-as-img">${ehImagem(img) ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}</span>
+                  <span title="${esc(r.caminho || '')}"><b>${esc(item.nome || it.nome)}</b><small>${esc(r.caminho ? r.caminho.replace(/^conteudo\//, '') : '')}${r.fam === 'vod' && !r.eps && (item.links || []).length > 1 ? ' · ' + item.links.length + ' links' : ''}</small></span>
+                  <span>${que}</span>
+                  ${dados}
                   <span style="color:${cor}" title="${esc(msg)}"><b>${esc(rot)}</b>${msg ? `<small>${esc(msg)}</small>` : ''}</span>
                 </div>`;
-            }).join('') + (P.length > 600 ? `<p class="le-dica">Mostrando 600 de ${P.length}. Todos entram na gravação.</p>` : '');
-            j.querySelectorAll('[data-imp-dest]').forEach(sel => { sel.onchange = () => { IMP.destinos.set(lista[+sel.dataset.impDest].it.id, sel.value); pintar(); }; });
+            }).join('') + (vis.length > 600 ? `<p class="le-dica">Mostrando 600 de ${vis.length}. Todos entram na gravação.</p>` : '')
+                : `<p class="le-dica" style="padding:12px 0">${col ? `Nada da lista vai para ${esc(col.nome)}. Se a lista inteira é disso, clique em "Mandar a lista inteira para ${esc(col.nome)}".` : 'Nada para enviar.'}</p>`;
+            j.querySelectorAll('[data-env-dest]').forEach(sel => {
+                sel.onchange = () => {
+                    const r = lista[+sel.dataset.envDest];
+                    if (ENV.forcar) { ENV.forcar = ''; }
+                    (r.fam === 'vod' ? ENV.destVod : ENV.destCanal).set(r.fam === 'vod' ? r.chave : r.it.id, sel.value);
+                    pintar();
+                };
+            });
+            const fz = j.querySelector('#le-env-forcar'); if (fz) fz.onclick = () => { ENV.forcar = ENV.forcar === col.id ? '' : col.id; pintar(); };
+            const au = j.querySelector('#le-env-auto'); if (au) au.onclick = () => { ENV.forcar = ''; pintar(); };
+            const tm = j.querySelector('#le-env-tmdb'); if (tm) tm.onclick = () => completarTMDB(tm);
         };
-        j.querySelector('#le-imp-origem').onchange = (e) => { IMP.origem = e.target.value; pintar(); };
-        j.querySelector('#le-imp-pais').onchange = (e) => { IMP.paisPadrao = e.target.value; pintar(); };
-        j.querySelector('#le-imp-vivos').onchange = (e) => { IMP.soVivos = e.target.checked; pintar(); };
-        j.querySelector('#le-imp-rasc').onchange = (e) => { IMP.rascunho = e.target.checked; pintar(); };
+        const completarTMDB = async (b) => {
+            if (!S.completar) return S.aviso('A busca no TMDB precisa do Studio.', 'ruim');
+            const faltam = vis.filter(r => r.fam === 'vod' && r.col && !ENV.achados.has(r.chave) && (!r.item.capa || !r.item.descricao || (r.eps && !r.item.banner)));
+            if (!faltam.length) return S.aviso('Todos já têm capa e sinopse.', 'ok');
+            if (!S.temTmdb()) S.aviso('Sem a chave do TMDB (Chaves, no topo do Studio) a busca usa a Wikipedia, que acha menos coisa.', 'ruim');
+            b.disabled = true;
+            let k = 0, prox = 0, parar = false;
+            const um = async () => {
+                while (!parar && prox < faltam.length) {
+                    const r = faltam[prox++];
+                    if (!j.isConnected) { parar = true; return; }
+                    try {
+                        const x = await S.completar(r.item);
+                        ENV.dados.set(r.chave, x.item);
+                        ENV.achados.set(r.chave, { ok: !!x.achados.length, texto: x.achados.concat(x.avisos).join(' · ') || 'nada' });
+                    } catch (er) {
+                        ENV.achados.set(r.chave, { ok: false, texto: er.message });
+                        if (/inválida/.test(er.message)) { parar = true; S.aviso(er.message, 'ruim'); }
+                        if (/devagar|limite/.test(er.message)) await esperar(3000);
+                    }
+                    b.textContent = `Buscando ${++k}/${faltam.length}…`;
+                }
+            };
+            await Promise.all([um(), um(), um(), um()]);      // 4 de cada vez (o TMDB aceita ~40 pedidos/s)
+            if (!j.isConnected) return;
+            pintar();
+            S.aviso(`TMDB: ${[...ENV.achados.values()].filter(a => a.ok).length} achados. Os com "?" foram achados pelo nome ou não acharam — confira antes de gravar.`, 'ok');
+        };
+        j.querySelector('#le-env-abas').onclick = (e) => { const b = e.target.closest('[data-env-aba]'); if (b) { ENV.aba = b.dataset.envAba; pintar(); } };
+        j.querySelector('#le-imp-origem').onchange = (e) => { ENV.origem = e.target.value; pintar(); };
+        j.querySelector('#le-imp-pais').onchange = (e) => { ENV.paisPadrao = e.target.value; pintar(); };
+        j.querySelector('#le-imp-vivos').onchange = (e) => { ENV.soVivos = e.target.checked; pintar(); };
+        j.querySelector('#le-imp-rasc').onchange = (e) => { ENV.rascunho = e.target.checked; pintar(); };
         j.querySelector('#le-imp-gravar').onclick = async (e) => {
-            const b = e.target, ok = P.filter(r => r.acao === 'novo' || r.acao === 'juntar');
+            const b = e.target, ok = vis.filter(vai);
             b.disabled = true; b.textContent = 'Gravando…';
             try {
                 const mudancas = [];
                 for (const r of ok) {
                     let existente = null;
                     if (r.acao === 'juntar') { try { existente = await S.ler(r.caminho); } catch (er) { /* sumiu: grava como novo */ } }
-                    mudancas.push({ caminho: r.caminho, conteudo: S.C.serializar(L.itemFinal(r, S.C, existente)) });
+                    const final = r.fam === 'vod' ? (existente ? S.C.mesclarItem(existente, r.item) : r.item) : L.itemFinal(r, S.C, existente);
+                    mudancas.push({ caminho: r.caminho, conteudo: S.C.serializar(final) });
                 }
-                await S.gravar(mudancas, `Link Edit: ${ok.length} canais (${E.nova.nome})`);
+                const porCol = [...new Set(ok.map(r => r.col.nome))].join(', ');
+                await S.gravar(mudancas, `Link Edit: ${ok.length} itens → ${porCol} (${E.nova.nome})`);
                 fecharJanela();
-                S.aviso(`${ok.length} canais gravados no Studio${IMP.rascunho ? ' como rascunho' : ''}.`, 'ok');
+                S.aviso(`${ok.length} itens gravados em ${porCol}${ENV.rascunho ? ' como rascunho' : ''}.`, 'ok');
             } catch (er) { b.disabled = false; b.textContent = 'Tentar de novo'; }
         };
         pintar();
     }
+    const abrirImportadorVOD = () => abrirImportador('tudo');
 
-    const abasEnviar = (aba) => {
-        const n = (E.nova.itens.length ? E.nova.itens : selecionados()).filter(L.ehVOD).length;
-        return `<div class="le-abas" role="tablist"><button class="le-aba${aba === 'canais' ? ' on' : ''}" data-env="canais">📡 Canais ao vivo</button><button class="le-aba${aba === 'vod' ? ' on' : ''}" data-env="vod">🎬 Filmes e séries${n ? ` <small>${n}</small>` : ''}</button></div>`;
+    // ---------------------------------------------------------------- RECEITAS (listas que se refazem sozinhas)
+    const ARQ_RECEITAS = 'receitas/receitas.json', ARQ_INDICE_REC = 'listas/indice.json';
+    const RC = { lista: null, indice: null, atual: null, resultado: null };
+    async function lerReceitas() {
+        if (!S.ler) return { receitas: [] };
+        try { RC.lista = (await S.ler(ARQ_RECEITAS)).receitas || []; } catch (e) { RC.lista = []; }
+        try { RC.indice = (await S.ler(ARQ_INDICE_REC)).receitas || []; } catch (e) { RC.indice = []; }
+    }
+    const linkReceita = (id, ext) => {
+        const x = (RC.indice || []).find(i => i.id === id);
+        if (x && x[ext]) return x[ext];
+        const pub = (S.config && S.config().publicacao) || {};
+        return pub.repo ? `https://raw.githubusercontent.com/${pub.repo}/${pub.branch || 'main'}/listas/${id}.${ext}` : '';
     };
-    function ligarAbasEnviar(j) { j.querySelectorAll('[data-env]').forEach(b => { b.onclick = () => (b.dataset.env === 'vod' ? abrirImportadorVOD() : abrirImportador()); }); }
-
-    // ---------------------------------------------------------------- IMPORTADOR de FILMES e SÉRIES
-    const VOD = { destinos: new Map(), dados: new Map(), achados: new Map(), todos: false, rascunho: false, origem: 'nova' };
-    function abrirImportadorVOD() {
-        if (!S.config || !S.gravar || !S.C) return S.aviso('Abra o Link Edit pelo Studio para gravar nas coleções.', 'ruim');
-        const config = S.config();
-        const cols = (config.colecoes || []).filter(c => c.tipo === 'video');
-        if (!E.nova.itens.length && E.sel.size) VOD.origem = 'marcados';
-        const base = () => (VOD.origem === 'marcados' && E.sel.size ? selecionados() : E.nova.itens);
-        const fonte = () => base().filter(it => VOD.todos || L.ehVOD(it));
-        const plano = () => L.planejarVOD(fonte(), S.C, { config, indice: S.indice() || [], destinos: VOD.destinos, dados: VOD.dados, rascunho: VOD.rascunho });
-        const j = janela(`${abasEnviar('vod')}<h3>Enviar ao Studio · filmes e séries</h3>
-          <p class="le-dica">Episódios (<b>S01E02</b>, <b>1x02</b>, <b>Episódio 2</b>) viram <b>uma série com temporadas</b>; cópias do mesmo filme viram <b>um</b> item com as outras de reserva. Destino pelo tipo: Animes, Cartoons, Séries, Filmes (torrent → Filmes torrent). O que já existe no Studio só ganha o que falta.</p>
-          <div class="le-imp-op">
-            <label>Enviar <select class="le-campo" id="le-vod-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option></select></label>
-            <label title="Para listas só de filmes em .m3u8: sem isso, só entram arquivos (mp4, mkv…), torrents e links /movie/ /series/"><input type="checkbox" id="le-vod-todos"> tratar todos como filme/série</label>
-            <label title="Entra no Studio mas não vai para o app até você conferir"><input type="checkbox" id="le-vod-rasc"> como rascunho</label>
-            <button class="le-bt p" id="le-vod-tmdb" title="Capa, banner, sinopse, ano, gêneros e episódios — só onde está vazio">🔎 Completar no TMDB (só o que falta)</button>
-          </div>
-          <div id="le-imp-resumo" class="le-imp-resumo"></div>
-          <div class="le-imp-cab le-vod"><span>Destino</span><span></span><span>Título</span><span>O que é</span><span>Links</span><span>Dados</span><span>Situação</span></div>
-          <div class="le-as-lista" id="le-vod-lista"></div>
-          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-vod-gravar">Gravar no Studio</button></div>`, 'larga');
-        ligarAbasEnviar(j);
-        j.querySelector('#le-vod-origem').value = VOD.origem;
-        j.querySelector('#le-vod-todos').checked = VOD.todos;
-        j.querySelector('#le-vod-rasc').checked = VOD.rascunho;
-        let P = [];
-        const pintar = () => {
-            P = plano();
-            const conta = (f) => P.filter(f).length;
-            const porCol = cols.map(c => [c, conta(r => r.col === c && r.acao !== 'erro')]).filter(x => x[1]);
-            const ok = conta(r => r.acao === 'novo' || r.acao === 'juntar');
-            const semVOD = base().length - fonte().length;
-            j.querySelector('#le-imp-resumo').innerHTML = (P.length ? `${porCol.map(([c, n]) => `<span class="le-chip on">${esc(c.icone || '')} ${esc(c.nome)} <small>${n}</small></span>`).join('')}
-              <span class="le-chip">${conta(r => r.eps)} séries · ${P.reduce((n, r) => n + (r.eps || 0), 0)} episódios</span><span class="le-chip">${conta(r => !r.eps)} filmes</span>
-              ${conta(r => r.copias > 1) ? `<span class="le-chip">${conta(r => r.copias > 1)} com cópias juntadas</span>` : ''}${conta(r => r.acao === 'erro') ? `<span class="le-chip" style="color:#f87171">${conta(r => r.acao === 'erro')} com problema</span>` : ''}` : '')
-              + (semVOD ? `<span class="le-chip" title="Canais ao vivo vão pela aba Canais. Lista de filmes em .m3u8? Marque 'tratar todos como filme/série'.">${semVOD} ao vivo (aba Canais)</span>` : '');
-            const g = j.querySelector('#le-vod-gravar');
-            g.textContent = ok ? `Gravar no Studio (${conta(r => r.acao === 'novo')} novos · ${conta(r => r.acao === 'juntar')} juntam)` : 'Nada para gravar';
-            g.disabled = !ok;
-            const lista = P.slice(0, 500);
-            j.querySelector('#le-vod-lista').innerHTML = lista.length ? lista.map((r, i) => {
-                const it = r.item, [rot, cor] = ROT_ACAO[r.acao];
-                const msg = r.acao === 'erro' ? r.erros.join(' · ') : r.motivo || (r.avisos && r.avisos[0]) || '';
-                const dado = VOD.achados.get(r.chave);
-                const que = r.eps ? `série · ${it.temporadas.length} temp. · ${r.eps} ep.` : 'filme' + (it.ano ? ' · ' + it.ano : '');
-                return `<div class="le-imp-linha le-vod">
-                  <select class="le-campo" data-vod-dest="${i}"><option value="">— fica de fora —</option>${cols.map(c => `<option value="${esc(c.id)}" ${r.col === c ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}</select>
-                  <span class="le-as-img">${ehImagem(it.capa) ? `<img src="${esc(it.capa)}" alt="" loading="lazy">` : ''}</span>
-                  <span title="${esc(r.caminho || '')}"><b>${esc(it.nome)}</b><small>${esc(r.caminho ? r.caminho.replace(/^conteudo\//, '') : '')}</small></span>
-                  <span>${esc(que)}${it.audio ? ' · ' + esc(it.audio) : ''}</span>
-                  <span class="le-mono" title="links do filme (o 1º é o principal, os outros são reserva)">${r.eps ? '—' : (it.links || []).length}</span>
-                  <span style="color:${dado ? (dado.ok ? '#4ade80' : '#fbbf24') : '#64748b'}" title="${esc(dado ? dado.texto : 'Ainda não buscado no TMDB')}">${dado ? (dado.ok ? '✓ TMDB' : '?') : it.descricao ? '✓' : '—'}</span>
-                  <span style="color:${cor}" title="${esc(msg)}"><b>${esc(rot)}</b>${msg ? `<small>${esc(msg)}</small>` : ''}</span>
-                </div>`;
-            }).join('') + (P.length > 500 ? `<p class="le-dica">Mostrando 500 de ${P.length}. Todos entram na gravação.</p>` : '')
-                : `<p class="le-dica" style="padding:12px 0">Nenhum filme ou série nessa lista. ${base().length ? 'Se for uma lista de filmes em .m3u8, marque "tratar todos como filme/série".' : 'Monte a lista nova primeiro.'}</p>`;
-            j.querySelectorAll('[data-vod-dest]').forEach(sel => { sel.onchange = () => { VOD.destinos.set(lista[+sel.dataset.vodDest].chave, sel.value); pintar(); }; });
+    const haQuanto = (iso) => { const m = Math.round((Date.now() - new Date(iso)) / 60000); return m < 60 ? `há ${m} min` : m < 1440 ? `há ${Math.round(m / 60)} h` : `há ${Math.round(m / 1440)} dia(s)`; };
+    async function abrirReceitas(id) {
+        if (!S.ler || !S.gravar) return S.aviso('Abra o Link Edit pelo Studio para salvar receitas.', 'ruim');
+        if (!RC.lista) await lerReceitas();
+        const r = RC.atual = L.receitaPadrao(id ? (RC.lista.find(x => x.id === id) || {}) : id === null ? {} : RC.atual || {});
+        if (!r.id && !r.listas.length) r.listas = E.listas.filter(l => l.url).map(l => l.url);   // receita nova: começa com as listas abertas
+        const chips = (campo, ops, rot = (x) => x) => `<div class="le-chips">${ops.map(v => `<button class="le-chip ${r[campo].includes(v) ? 'on' : ''}" data-rc-c="${campo}" data-v="${esc(v)}">${esc(rot(v))}</button>`).join('')}</div>`;
+        const idiomasUsados = [...new Set(['pt-BR', 'pt-PT', 'pt', 'es', 'en'].concat(E.canais.map(c => c.idioma).filter(Boolean)))].slice(0, 16);
+        const res = RC.indice.find(i => i.id === r.id);
+        const j = janela(`<h3>📋 Receitas — listas que se refazem sozinhas</h3>
+          <p class="le-dica">A receita guarda <b>de onde pegar</b> e <b>que canais entram</b>. O robô do GitHub refaz a lista a cada 6 h: testa os canais, tira os mortos e a reserva viva assume — a lista publicada nunca fica velha. O link dela não muda: cole no Cloud uma vez.</p>
+          <div class="le-rc">
+            <div class="le-rc-lista">
+              <div class="le-rot">Receitas salvas</div>
+              ${RC.lista.map(x => { const i = RC.indice.find(k => k.id === x.id); return `<button class="le-rc-item${x.id === r.id ? ' on' : ''}" data-rc-abrir="${esc(x.id)}"><b>${esc(x.nome)}</b><small>${i ? `${i.total} canais · ${haQuanto(i.atualizadaEm)}` : 'ainda não rodou no robô'}${x.ativo === false ? ' · desligada' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhuma ainda.</p>'}
+              <button class="le-bt" data-rc-abrir="" style="margin-top:6px">+ Nova receita</button>
+            </div>
+            <div class="le-rc-form">
+              <label class="le-dica">Nome</label><input class="le-campo" id="le-rc-nome" value="${esc(r.nome)}">
+              <label class="le-dica" style="margin-top:8px">Pegar das listas <small>(um link por linha)</small></label>
+              <textarea class="le-campo" id="le-rc-listas" style="height:74px;resize:vertical">${esc(r.listas.join('\n'))}</textarea>
+              ${E.listas.some(l => l.url && !r.listas.includes(l.url)) ? `<div class="le-chips" style="margin-top:4px">${E.listas.filter(l => l.url && !r.listas.includes(l.url)).map(l => `<button class="le-chip" data-rc-add="${esc(l.url)}">+ ${esc(l.nome)}</button>`).join('')}</div>` : ''}
+              <div class="le-rot" style="margin-top:10px">Só os canais que</div>
+              <div class="le-dica">Idioma</div>${chips('idiomas', idiomasUsados)}
+              <div class="le-dica">Tipo</div>${chips('tipos', L.TIPOS.filter(t => t !== 'Adulto'))}
+              <div class="le-dica">Categoria (TVzine)</div>${chips('categorias', L.CATEGORIAS)}
+              <div class="le-imp-op" style="margin-top:6px">
+                <label>País <input class="le-campo" id="le-rc-paises" value="${esc(r.paises.join(', '))}" placeholder="BR, PT…" style="width:110px"></label>
+                <label>Nome contém <input class="le-campo" id="le-rc-busca" value="${esc(r.busca)}" placeholder="ex.: cartoon" style="width:140px"></label>
+                <label><input type="checkbox" id="le-rc-vivos" ${r.soVivos ? 'checked' : ''}> só vivos</label>
+                <label>Confiança mínima <select class="le-campo" id="le-rc-conf">${[[0, 'qualquer'], [5, '5 de 10'], [7, '7 de 10'], [9, '9 de 10']].map(([v, t]) => `<option value="${v}" ${+r.confiancaMin === v ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+                <label><input type="checkbox" id="le-rc-adulto" ${r.excluirTipos.includes('Adulto') ? 'checked' : ''}> fora sempre: Adulto</label>
+                <label title="Desligada: o robô não refaz (a lista publicada fica como está)"><input type="checkbox" id="le-rc-ativo" ${r.ativo !== false ? 'checked' : ''}> ligada no robô</label>
+              </div>
+              <p class="le-dica">Arruma sozinho: nomes limpos, cópias do mesmo canal viram reserva, os mais confiáveis primeiro.</p>
+              ${r.id ? `<div class="le-rc-pub"><b>Lista publicada</b> ${res ? `· ${res.total} canais · ${res.comReserva} com reserva · atualizada ${haQuanto(res.atualizadaEm)} pelo robô` : '· sai na próxima rodada do robô (depois de salvar e fazer o push)'}
+                <div style="display:flex;gap:6px;margin-top:6px"><code>${esc(linkReceita(r.id, 'json'))}</code><button class="le-bt" data-rc-copiar="json" title="Para o Cloud: leva as reservas">Copiar link JSON</button><button class="le-bt" data-rc-copiar="m3u" title="Para players de IPTV">M3U</button></div>
+                <small class="le-dica">No Cloud: cole o link JSON em <b>listas → canais</b> do sources.json (ou no país certo do sources-idioma.json).</small></div>` : ''}
+              <div id="le-rc-res"></div>
+              <div class="le-jan-botoes">
+                ${r.id ? '<button class="le-bt" id="le-rc-apagar">Apagar receita</button>' : ''}
+                <button class="le-bt" id="le-rc-rodar" title="${local() ? 'Lê as listas, testa e monta agora, aqui' : 'Online só filtra (o teste precisa do painel do PC)'}">▶ Rodar agora aqui</button>
+                <button class="le-bt r" id="le-rc-salvar">💾 Salvar receita</button>
+              </div>
+            </div>
+          </div>`, 'larga');
+        const lerForm = () => {
+            r.nome = j.querySelector('#le-rc-nome').value.trim() || 'Receita';
+            r.listas = j.querySelector('#le-rc-listas').value.split(/\s+/).map(x => x.trim()).filter(x => /^https?:\/\//i.test(x));
+            r.paises = j.querySelector('#le-rc-paises').value.toUpperCase().split(/[^A-Z]+/).filter(x => x.length === 2);
+            r.busca = j.querySelector('#le-rc-busca').value.trim();
+            r.soVivos = j.querySelector('#le-rc-vivos').checked;
+            r.confiancaMin = +j.querySelector('#le-rc-conf').value || 0;
+            r.excluirTipos = j.querySelector('#le-rc-adulto').checked ? ['Adulto'] : [];
+            r.ativo = j.querySelector('#le-rc-ativo').checked;
+            return r;
         };
-        j.querySelector('#le-vod-origem').onchange = (e) => { VOD.origem = e.target.value; pintar(); };
-        j.querySelector('#le-vod-todos').onchange = (e) => { VOD.todos = e.target.checked; pintar(); };
-        j.querySelector('#le-vod-rasc').onchange = (e) => { VOD.rascunho = e.target.checked; pintar(); };
-        j.querySelector('#le-vod-tmdb').onclick = async (e) => {
-            if (!S.completar) return S.aviso('A busca no TMDB precisa do Studio.', 'ruim');
-            const b = e.target, faltam = P.filter(r => r.col && r.acao !== 'fora' && !VOD.achados.has(r.chave) && (!r.item.capa || !r.item.descricao || (r.eps && !r.item.banner)));
-            if (!faltam.length) return S.aviso('Todos já têm capa e sinopse.', 'ok');
-            if (!S.temTmdb()) S.aviso('Sem a chave do TMDB (Chaves, no topo do Studio) a busca usa a Wikipedia, que acha menos coisa.', 'ruim');
-            b.disabled = true;
-            let n = 0;
-            for (const r of faltam) {
-                if (!j.isConnected) return;
-                b.textContent = `Buscando ${++n}/${faltam.length}…`;
-                try {
-                    const x = await S.completar(r.item);
-                    VOD.dados.set(r.chave, x.item);
-                    VOD.achados.set(r.chave, { ok: !!x.achados.length, texto: x.achados.concat(x.avisos).join(' · ') || 'nada' });
-                } catch (er) { VOD.achados.set(r.chave, { ok: false, texto: er.message }); }
-                if (n % 5 === 0) pintar();
+        j.addEventListener('click', async (e) => {
+            const b = e.target.closest('button'); if (!b) return;
+            if (b.dataset.rcC) { lerForm(); const a = r[b.dataset.rcC]; const k = a.indexOf(b.dataset.v); if (k >= 0) a.splice(k, 1); else a.push(b.dataset.v); b.classList.toggle('on'); }
+            else if (b.dataset.rcAdd) { const t = j.querySelector('#le-rc-listas'); t.value = (t.value.trim() + '\n' + b.dataset.rcAdd).trim(); b.remove(); }
+            else if (b.dataset.rcAbrir != null) { RC.resultado = null; abrirReceitas(b.dataset.rcAbrir || null); }
+            else if (b.dataset.rcCopiar) copiarTexto(linkReceita(r.id, b.dataset.rcCopiar), 'Link da lista copiado.');
+            else if (b.dataset.rcNova) {
+                const lst = RC.resultado || [];
+                lembrar();
+                E.nova = { nome: r.nome, itens: lst.map(c => ({ id: c.id, chave: c.chave, nome: c.nome, nomeOriginal: c.nomeOriginal, formato: c.formato, teste: c.teste, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, grupoSaida: c.grupoSaida, headers: c.headers || {} })) };
+                salvar(); desenharNova(); fecharJanela(); S.aviso(`Lista nova "${r.nome}" com ${lst.length} canais.`, 'ok');
             }
-            b.disabled = false; b.textContent = '🔎 Completar no TMDB (só o que falta)';
-            pintar();
-            S.aviso(`TMDB: ${[...VOD.achados.values()].filter(a => a.ok).length} achados. Os com "?" foram achados pelo nome ou não acharam — confira antes de gravar.`, 'ok');
-        };
-        j.querySelector('#le-vod-gravar').onclick = async (e) => {
-            const b = e.target, ok = P.filter(r => r.acao === 'novo' || r.acao === 'juntar');
-            b.disabled = true; b.textContent = 'Gravando…';
+            else if (b.dataset.rcBaixar) {
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(new Blob([L.gerarM3U(RC.resultado || [])], { type: 'text/plain;charset=utf-8' }));
+                a.download = (r.id || L.idReceita(r.nome)) + '.m3u'; document.body.appendChild(a); a.click(); a.remove();
+            }
+        });
+        j.querySelector('#le-rc-salvar').onclick = async () => {
+            lerForm();
+            if (!r.listas.length) return S.aviso('Coloque pelo menos um link de lista.', 'ruim');
+            if (!r.id) { let id = L.idReceita(r.nome), n = 2; while (RC.lista.some(x => x.id === id)) id = L.idReceita(r.nome) + '-' + n++; r.id = id; }
+            const lista = RC.lista.filter(x => x.id !== r.id).concat(Object.assign({}, r));
             try {
-                const mudancas = [];
-                for (const r of ok) {
-                    let item = r.item;
-                    if (r.acao === 'juntar') { try { item = S.C.mesclarItem(await S.ler(r.caminho), item); } catch (er) { /* sumiu: grava como novo */ } }
-                    mudancas.push({ caminho: r.caminho, conteudo: S.C.serializar(item) });
-                }
-                await S.gravar(mudancas, `Link Edit: ${ok.length} filmes/séries (${E.nova.nome})`);
-                fecharJanela();
-                S.aviso(`${ok.length} filmes/séries gravados no Studio${VOD.rascunho ? ' como rascunho' : ''}.`, 'ok');
-            } catch (er) { b.disabled = false; b.textContent = 'Tentar de novo'; }
+                await S.gravar([{ caminho: ARQ_RECEITAS, conteudo: JSON.stringify({ versao: 1, receitas: lista }, null, 2) + '\n' }], `Receita: ${r.nome}`);
+                RC.lista = lista;
+                S.aviso(local() ? `Receita salva. Faça o commit/push: o robô do GitHub monta a lista e depois refaz a cada 6 h.` : 'Receita salva: o robô do GitHub monta a lista em alguns minutos e depois refaz a cada 6 h.', 'ok');
+                abrirReceitas(r.id);
+            } catch (er) { /* o aviso já apareceu */ }
         };
-        pintar();
+        const ap = j.querySelector('#le-rc-apagar');
+        if (ap) ap.onclick = async () => {
+            const lista = RC.lista.filter(x => x.id !== r.id);
+            try { await S.gravar([{ caminho: ARQ_RECEITAS, conteudo: JSON.stringify({ versao: 1, receitas: lista }, null, 2) + '\n' }], `Receita apagada: ${r.nome}`); RC.lista = lista; RC.atual = null; abrirReceitas(null); }
+            catch (er) { /* */ }
+        };
+        j.querySelector('#le-rc-rodar').onclick = async (e) => {
+            const b = e.target; lerForm();
+            if (!r.listas.length) return S.aviso('Coloque pelo menos um link de lista.', 'ruim');
+            const out = j.querySelector('#le-rc-res');
+            b.disabled = true;
+            try {
+                const canais = [];
+                for (const u of r.listas) {
+                    b.textContent = 'Lendo as listas…';
+                    try { canais.push(...L.lerLista(await baixarTexto(u), u.split('/').filter(Boolean).pop()).canais); }
+                    catch (er) { S.aviso(`Não abriu ${u}: ${er.message}`, 'ruim'); }
+                }
+                const cand = canais.filter(c => L.passaReceita(c, r));
+                // aproveita o teste do que já está aberto na mesa; testa o resto (painel do PC)
+                const ja = new Map(E.canais.filter(c => c.teste).map(c => [c.url, c]));
+                cand.forEach(c => { const x = ja.get(c.url); if (x) { c.teste = x.teste; c.historico = (x.historico || []).slice(); } });
+                const falta = cand.filter(c => !c.teste);
+                if (r.soVivos && falta.length && local()) {
+                    let k = 0, feitos = 0;
+                    await Promise.all(Array.from({ length: 16 }, async () => { while (k < falta.length) { const c = falta[k++]; await testarUm(c); b.textContent = `Testando ${++feitos}/${falta.length}…`; } }));
+                }
+                const rr = r.soVivos && !local() ? Object.assign({}, r, { soVivos: false }) : r;
+                const lst = RC.resultado = L.montarReceita(cand, rr);
+                out.innerHTML = `<div class="le-rc-pub"><b>Resultado agora: ${lst.length} canais</b> · ${lst.filter(c => c.reservas.length).length} com reserva · ${cand.length} candidatos de ${canais.length} itens${r.soVivos && !local() ? ' · <span style="color:#fbbf24">online: sem teste (só filtrou)</span>' : ''}
+                  <div class="le-rc-amostra">${lst.slice(0, 40).map(c => `<span>${esc(c.nome)}${c.reservas.length ? ` <small>+${c.reservas.length}</small>` : ''}</span>`).join('')}${lst.length > 40 ? `<span>… +${lst.length - 40}</span>` : ''}</div>
+                  <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" data-rc-nova="1" ${lst.length ? '' : 'disabled'}>➜ Usar como lista nova</button><button class="le-bt" data-rc-baixar="1" ${lst.length ? '' : 'disabled'}>Baixar M3U</button></div></div>`;
+            } finally { b.disabled = false; b.textContent = '▶ Rodar agora aqui'; }
+        };
+    }
+
+    // ---------------------------------------------------------------- IMPORTAR LISTA INTEIRA (lista que já está pronta)
+    // Para listas que você já sabe que estão completas e funcionando: lê a lista inteira e manda para o Studio sem passar
+    // pela mesa (as ferramentas continuam lá para os imprevistos). Cada item vai para a coleção certa, ou todos para uma só.
+    function abrirImportarLista() {
+        const config = S.config ? S.config() : null;
+        if (!config || !S.gravar) return S.aviso('Abra o Link Edit pelo Studio para gravar nas coleções.', 'ruim');
+        const cols = (config.colecoes || []).filter(c => TIPOS_CANAL.includes(c.tipo) || c.tipo === 'video');
+        const j = janela(`<h3>⚡ Importar lista inteira</h3>
+          <p class="le-dica">Para listas que você já sabe que estão completas e funcionando: a lista inteira vai direto para o Studio, sem passar pela mesa. Antes de gravar você vê tudo separado por coleção (e ainda pode buscar no TMDB só o que falta).</p>
+          <div style="display:flex;gap:6px"><input class="le-campo" id="le-il-url" placeholder="Link da lista (M3U, JSON, TXT, .pages.dev…)" style="flex:1"><label class="le-bt" style="display:inline-flex;align-items:center;cursor:pointer">Arquivo<input type="file" id="le-il-arq" accept=".m3u,.m3u8,.json,.txt,text/*" hidden></label></div>
+          <div class="le-imp-op" style="margin-top:8px">
+            <label>A lista é de <select class="le-campo" id="le-il-col"><option value="">Automático — cada item na sua coleção</option>${cols.map(c => `<option value="${esc(c.id)}">${esc(c.icone || '')} só ${esc(c.nome)}</option>`).join('')}</select></label>
+            <label title="Lista só de filmes/episódios em .m3u8 (sem isso, .m3u8 é tratado como canal ao vivo)"><input type="checkbox" id="le-il-vod"> tudo é filme/série (mesmo .m3u8)</label>
+          </div>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-il-ler">Ler a lista</button></div>
+          <p class="le-dica" id="le-il-info"></p>`);
+        let arquivo = null;
+        j.querySelector('#le-il-arq').onchange = async (e) => { const f = e.target.files[0]; if (f) { arquivo = { nome: f.name, texto: await f.text() }; j.querySelector('#le-il-url').value = f.name; } };
+        j.querySelector('#le-il-ler').onclick = async (e) => {
+            const b = e.target, url = j.querySelector('#le-il-url').value.trim();
+            let texto, nome;
+            b.disabled = true; b.textContent = 'Lendo…';
+            try {
+                if (arquivo && url === arquivo.nome) { texto = arquivo.texto; nome = arquivo.nome; }
+                else {
+                    if (!/^https?:\/\//i.test(url)) throw new Error('cole um link http(s) ou escolha um arquivo');
+                    texto = await baixarTexto(url);
+                    nome = (() => { try { const u = new URL(url); return u.pathname.split('/').filter(Boolean).pop() || u.hostname; } catch (er) { return url; } })();
+                }
+                const r = L.lerLista(texto, nome);
+                if (!r.canais.length) throw new Error('não achei itens nessa lista');
+                const forcar = j.querySelector('#le-il-col').value, tudoVod = j.querySelector('#le-il-vod').checked;
+                r.canais.forEach((c, i) => { c.id = 'imp-' + i + '-' + c.id; if (r.epg && !c.epgGuia && c.tvgId) c.epgGuia = r.epg; if (tudoVod && !L.ehVOD(c)) c.formato = 'arquivo'; });
+                ENV.externa = { nome, itens: r.canais };
+                ENV.origem = 'externa'; ENV.forcar = forcar; ENV.aba = forcar || 'tudo';
+                ENV.destCanal = new Map(); ENV.destVod = new Map();
+                fecharJanela();
+                abrirImportador(ENV.aba);
+                S.aviso(`${r.canais.length.toLocaleString('pt-BR')} itens lidos de "${nome}" (${r.formato.toUpperCase()}).`, 'ok');
+            } catch (er) {
+                b.disabled = false; b.textContent = 'Ler a lista';
+                j.querySelector('#le-il-info').textContent = 'Não consegui ler: ' + er.message + (local() ? '' : ' — no painel do PC (node tools/painel.mjs) qualquer link abre.');
+            }
+        };
+        j.querySelector('#le-il-url').focus();
     }
 
     // ---------------------------------------------------------------- assets: banco de logos salvos (vale para todas as listas)
@@ -1336,9 +1623,30 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-imp-linha{padding:5px 4px;border-bottom:1px solid #141821;font-size:12.5px}.le-imp-linha .le-campo{height:30px;padding:0 6px;font-size:12px;width:100%}
 .le-imp-linha b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.le-imp-linha small{display:block;font-size:11px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .le-imp-linha .le-as-img{height:30px}
+.le-imp-cab.le-env,.le-imp-linha.le-env{grid-template-columns:170px 44px minmax(160px,1.5fr) minmax(130px,1.1fr) 60px minmax(130px,1fr)}
+.le-imp-linha.le-env .le-as-img{height:40px}.le-imp-linha.le-env .le-as-img img{max-height:38px}
+.le-env-abas{flex-wrap:wrap;margin:0}.le-aba.vazia{opacity:.55}
+.le-env-acoes{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.le-env-acoes .le-bt{height:32px;font-size:12px}
 .le-imp-cab.le-vod,.le-imp-linha.le-vod{grid-template-columns:170px 40px minmax(160px,1.6fr) minmax(110px,1fr) 56px 60px minmax(130px,1.1fr)}
 .le-imp-linha.le-vod .le-as-img{height:52px}.le-imp-linha.le-vod .le-as-img img{max-height:50px}
 .le-aba small{color:var(--s);margin-left:4px}
+.le-aviso-scan{padding:10px 12px;border-radius:10px;background:#2a1f0a;border:1px solid #5a4410;color:#fde68a;font-size:12.5px;line-height:1.5}.le-aviso-scan code{background:#0d1016;padding:1px 5px;border-radius:4px;color:#67e8f9}
+.le-sj-alvos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px;margin-top:6px}
+.le-sj-op{display:flex;gap:8px;align-items:center;padding:9px 11px;border-radius:9px;background:#11141b;border:1px solid #2a3140;font-size:13px;cursor:pointer}.le-sj-op small{margin-left:auto;color:var(--s)}.le-sj-op.vazia{opacity:.45;cursor:default}
+.le-sj-topo{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--s);margin-top:4px}
+.le-sj-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.le-sj-card{padding:10px 12px;border-radius:10px;background:#11141b;border:1px solid var(--b)}.le-sj-card b{display:block;font-size:22px;font-weight:900}.le-sj-card span{font-size:11.5px;color:var(--s)}
+.le-sj-meio{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:6px}
+.le-sj-barras div{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;font-size:12px;margin-top:5px}.le-sj-barras i{display:block;height:10px;border-radius:5px;background:var(--c);min-width:2px}.le-sj-barras b{color:#cbd5e1;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.le-sj-ult div{display:grid;grid-template-columns:16px minmax(0,1fr) minmax(0,1.3fr);gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid #141821}.le-sj-ult span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}.le-sj-ult small{color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-rc{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px;min-height:0}
+.le-rc-lista{display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--b);padding-right:12px}
+.le-rc-item{text-align:left;padding:9px 10px;border-radius:9px;background:#11141b;border:1px solid #2a3140;color:#e5e7eb}.le-rc-item b{display:block;font-size:13px}.le-rc-item small{font-size:11.5px;color:var(--s)}
+.le-rc-item.on,.le-rc-item:hover{border-color:var(--c)}
+.le-rc-form{display:flex;flex-direction:column;gap:4px;min-width:0}.le-rc-form .le-chips{margin:2px 0 6px}
+.le-rc-pub{margin-top:8px;padding:10px 12px;border-radius:10px;background:#0d1a1f;border:1px solid #1f5560;font-size:12.5px}.le-rc-pub code{flex:1;min-width:0;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9aa3ad;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:8px;border-radius:7px;background:#0d1016}
+.le-rc-amostra{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;max-height:120px;overflow:auto}.le-rc-amostra span{font-size:12px;padding:3px 8px;border-radius:99px;background:#161b24}.le-rc-amostra small{color:#a78bfa}
+@media (max-width:900px){.le-rc{grid-template-columns:1fr}.le-rc-lista{border:0;padding:0}}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
@@ -1357,6 +1665,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <div class="le-logo"><b>LINK</b><i>EDIT</i></div>
             <span class="chip ${local() ? 'ok' : ''}" title="${local() ? 'Testes e túnel do visualizador pelo painel do seu PC' : 'Online: o Scan e o túnel precisam do painel local (node tools/painel.mjs)'}">${local() ? 'painel local' : 'online'}</span>
             <div style="flex:1"></div>
+            <button class="le-bt" id="le-importar" title="Lista que já está pronta: vai inteira para o Studio, cada item na coleção certa">⚡ Importar lista inteira</button>
+            <button class="le-bt" id="le-receitas" title="Listas que se refazem sozinhas (robô do GitHub a cada 6 h)">📋 Receitas</button>
             <button class="le-bt" id="le-assets" title="Banco de logos salvos, para usar em qualquer lista (B)">★ Assets</button>
             <button class="le-bt" id="le-desfazer" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
             <button class="le-bt" id="le-sair" title="Sair do Link Edit e voltar para as coleções do Studio (o que você fez aqui fica guardado)">📚 Coleções</button>
@@ -1513,8 +1823,11 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         const b = $('#le-scan'); if (b) b.textContent = sc ? 'Scan…' : 'Scan';
         if (!sc) { el.hidden = true; return; }
         el.hidden = false;
-        el.innerHTML = `<span>Testando <b style="color:#e5e7eb">${sc.feitos}</b> de ${sc.total} · <b style="color:#4ade80">${sc.vivos}</b> vivos · <b style="color:#f87171">${sc.mortos}</b> com problema</span><span class="trilho"><b style="width:${Math.round(sc.feitos / sc.total * 100)}%"></b></span><button class="le-bt" id="le-scan-parar">Parar</button>`;
-        const p = $('#le-scan-parar'); if (p) p.onclick = () => { sc.parar = true; };
+        const vivos = sc.n.vivo + sc.n.lento + sc.n['pede-ua'];
+        el.innerHTML = `<span>${sc.pausado ? '⏸ Pausado' : 'Testando'} <b style="color:#e5e7eb">${sc.feitos}</b> de ${sc.total} · <b style="color:#4ade80">${vivos}</b> vivos · <b style="color:#f87171">${sc.feitos - vivos}</b> com problema</span><span class="trilho"><b style="width:${Math.round(sc.feitos / sc.total * 100)}%"></b></span><button class="le-bt" id="le-scan-pausa">${sc.pausado ? '▶ Continuar' : '❚❚ Pausar'}</button><button class="le-bt" id="le-scan-parar">■ Parar</button><button class="le-bt" id="le-scan-ver">Ver</button>`;
+        const p = $('#le-scan-parar'); if (p) p.onclick = () => { sc.parar = true; sc.pausado = false; };
+        const pa = $('#le-scan-pausa'); if (pa) pa.onclick = () => pausarScan(!sc.pausado);
+        const v = $('#le-scan-ver'); if (v) v.onclick = () => abrirScan();
     }
 
     // ---------------------------------------------------------------- eventos
@@ -1528,12 +1841,14 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-desfazer').onclick = desfazer;
         $('#le-sair').onclick = () => { pararVideo(); if (window.CZStudio && window.CZStudio.irParaColecoes) window.CZStudio.irParaColecoes(); else location.hash = ''; };
         $('#le-assets').onclick = () => abrirAssets();
+        $('#le-importar').onclick = () => abrirImportarLista();
+        $('#le-receitas').onclick = () => abrirReceitas(RC.atual && RC.atual.id ? RC.atual.id : undefined);
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };
         $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });
         $('#le-sel-todos').onclick = () => { const todos = E.visiveis.every(c => E.sel.has(c.id)); E.visiveis.forEach(c => (todos ? E.sel.delete(c.id) : E.sel.add(c.id))); desenharTabela(); };
         $('#le-sel-vivos').onclick = () => { E.visiveis.forEach(c => { if (c.teste && /vivo|lento|pede-ua/.test(c.teste.status)) E.sel.add(c.id); }); desenharTabela(); };
-        $('#le-scan').onclick = () => scan(E.sel.size ? selecionados() : E.visiveis);
+        $('#le-scan').onclick = () => abrirScan();
         $('#le-quarentena').onclick = () => { const l = E.sel.size ? selecionados() : []; if (!l.length) return S.aviso('Selecione os canais (ou use Del no canal do visualizador).', 'ruim'); quarentena(l, !E.f.quarentena); };
         $('#le-jogar').onclick = () => { const l = selecionados(); if (!l.length) return S.aviso('Selecione os canais primeiro (a caixinha à esquerda de cada um).', 'ruim'); jogarNaLista(l); E.sel.clear(); desenharTabela(); };
         $('#le-ant').onclick = () => andar(-1);
@@ -1597,7 +1912,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (ctrl && k === 's') { e.preventDefault(); pedirNomeEBaixar('m3u'); }
             else if (e.key === 'Escape') { if (E.sel.size) { E.sel.clear(); desenharTabela(); } }
             else if (!ctrl && k === 'x' && c) { e.preventDefault(); marcar(c.id, false); }
-            else if (!ctrl && k === 't') { e.preventDefault(); scan(E.sel.size ? selecionados() : E.visiveis); }
+            else if (!ctrl && k === 't') { e.preventDefault(); if (local()) scan(E.sel.size ? selecionados() : E.visiveis, { rotulo: E.sel.size ? 'os marcados' : 'os visíveis' }); else abrirScan(); }
             else if (!ctrl && k === 'l' && c) { e.preventDefault(); abrirLogo(c); }
             else if (!ctrl && k === 'i' && (c || E.sel.size)) { e.preventDefault(); escolherIdioma(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'c' && (c || E.sel.size)) { e.preventDefault(); escolherCategoria(E.sel.size > 1 ? null : c); }
