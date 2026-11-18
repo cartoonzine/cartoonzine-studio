@@ -93,7 +93,7 @@ export function criarServidor({ raiz = RAIZ } = {}) {
                     const d = await corpo(req);
                     if (!d || !Array.isArray(d.logos)) return json(res, 400, { erro: 'formato inválido' });
                     fs.mkdirSync(path.dirname(arq), { recursive: true });
-                    fs.writeFileSync(arq, JSON.stringify({ versao: 1, logos: d.logos, guias: Array.isArray(d.guias) ? d.guias : [] }, null, 1));
+                    fs.writeFileSync(arq, JSON.stringify({ versao: 1, logos: d.logos, guias: Array.isArray(d.guias) ? d.guias : [], categorias: Array.isArray(d.categorias) ? d.categorias : [] }, null, 1));
                     return json(res, 200, { ok: true, total: d.logos.length });
                 }
                 try { return json(res, 200, JSON.parse(fs.readFileSync(arq, 'utf8'))); } catch (e) { return json(res, 200, { versao: 1, logos: [] }); }
