@@ -447,9 +447,16 @@
      */
     function planejarVOD(itens, C, opts = {}) {
         const config = opts.config || {}, cols = (config.colecoes || []).filter(c => c.tipo === 'video');
-        const dicas = new Map();
+        const dicas = new Map(), quals = new Map(), auds = new Map();
         const entradas = itens.map((it) => {
             const a = C.analisarNome(it.nomeOriginal || it.nome);
+            // qualidade e áudio de cada cópia (pelo nome e pelo teste): o título fica com a melhor e com todos os áudios
+            const kq = C.normText(a.serie || a.nome);
+            const q = (it.teste && it.teste.resolucao && (+String(it.teste.resolucao).split('x')[1] >= 2000 ? '4K' : +String(it.teste.resolucao).split('x')[1] >= 1000 ? 'FHD' : +String(it.teste.resolucao).split('x')[1] >= 700 ? 'HD' : 'SD'))
+                || (C.qualidadeDoTexto && (C.qualidadeDoTexto(it.nomeOriginal || it.nome) || C.qualidadeDoTexto(it.url))) || '';
+            if (q) quals.set(kq, (quals.get(kq) || []).concat(q));
+            const au = /dual/i.test(a.audio || '') ? ['dublado', 'legendado'] : /dub/i.test(a.audio || '') ? ['dublado'] : /leg/i.test(a.audio || '') ? ['legendado'] : [];
+            if (au.length) auds.set(kq, [...new Set((auds.get(kq) || []).concat(au))]);
             const links = [it.url].concat((it.reservas || []).map(r => (typeof r === 'string' ? r : r && r.url))).filter(Boolean);
             const e = Object.assign({}, a, { links, capa: it.logo || undefined });
             const k = C.normText(a.serie || a.nome);
@@ -464,8 +471,27 @@
             if (ja) { ja.item = C.mesclarItem(ja.item, item); ja.copias++; } else porChave.set(k, { item, copias: 1 });
         });
         const indice = opts.indice || [], usados = new Set(indice.map(i => i.caminho));
-        return [...porChave.entries()].map(([chave, { item: bruto, copias }]) => {
+        const QS = ['4K', 'FHD', 'HD', 'SD'];
+        // dados do TMDB já buscados + qualidade/áudios; depois junta quem tem o MESMO código do TMDB ("Matrix" = "The Matrix")
+        const linhas = [];
+        const porTmdb = new Map();
+        for (const [chave, { item: bruto, copias }] of porChave.entries()) {
             let item0 = opts.dados && opts.dados.get(chave) ? C.mesclarItem(opts.dados.get(chave), bruto) : bruto;
+            const kq = C.normText(bruto.nome);
+            const q = QS.find(x => (quals.get(kq) || []).includes(x));
+            if (q && !item0.qualidade) item0 = Object.assign({}, item0, { qualidade: q });
+            if (auds.get(kq)) item0 = Object.assign({}, item0, { audios: [...new Set((item0.audios || []).concat(auds.get(kq)))] });
+            const ja = item0.tmdb && porTmdb.get(item0.tmdb);
+            if (ja) {
+                const aus = [...new Set((ja.item0.audios || []).concat(item0.audios || []))], qs = [ja.item0.qualidade, item0.qualidade];
+                ja.item0 = Object.assign(C.mesclarItem(ja.item0, item0), aus.length ? { audios: aus } : {}, QS.find(x => qs.includes(x)) ? { qualidade: QS.find(x => qs.includes(x)) } : {});
+                ja.copias += copias; ja.juntou = (ja.juntou || []).concat(bruto.nome); continue;
+            }
+            const l = { chave, bruto, item0, copias };
+            if (item0.tmdb) porTmdb.set(item0.tmdb, l);
+            linhas.push(l);
+        }
+        return linhas.map(({ chave, bruto, item0, copias, juntou }) => {
             const colId = opts.destinos && opts.destinos.has(chave) ? opts.destinos.get(chave) : destinoVOD(item0, dicas.get(C.normText(item0.nome)) || dicas.get(C.normText(bruto.nome)) || '', cols);
             const col = cols.find(c => c.id === colId);
             const eps = C.contarEpisodios(item0);
@@ -475,7 +501,9 @@
             const { erros, avisos } = C.validarItem(item, col, config);
             // já existe nessa coleção (mesmo nome)? junta nele
             const alvo = C.normText(item.nome);
-            const existe = indice.find(i => i.caminho.startsWith('conteudo/' + col.id + '/') && C.normText(i.nome) === alvo);
+            const daCol = (i) => i.caminho.startsWith('conteudo/' + col.id + '/');
+            // já existe? primeiro pelo código do TMDB (exato), depois pelo nome
+            const existe = (item.tmdb && indice.find(i => daCol(i) && i.tmdb === item.tmdb)) || indice.find(i => daCol(i) && C.normText(i.nome) === alvo);
             let caminho;
             if (existe) caminho = existe.caminho;
             else {
@@ -484,6 +512,7 @@
                 caminho = C.caminhoItem(col, item, C.slugLivre(C.slugify(item.nome), nomes));
             }
             usados.add(caminho);
+            if (juntou) avisos.push('mesmo filme no TMDB: juntou com ' + juntou.join(', '));
             return { chave, item, col, caminho, erros, avisos, copias, eps, acao: erros.length && !opts.rascunho ? 'erro' : existe ? 'juntar' : 'novo' };
         });
     }
