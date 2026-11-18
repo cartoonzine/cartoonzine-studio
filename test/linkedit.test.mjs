@@ -118,3 +118,15 @@ test('Vídeos de listas de streaming: formatos, VOD Xtream, Drive/Dropbox e Film
     assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,Dark S01E02\nhttp://s/series/u/p/9.mkv\n').canais[0].tipo, 'Séries');
     assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,O Auto da Compadecida (2000)\nhttp://s/movie/u/p/8.mp4\n').canais[0].tipo, 'Filmes');
 });
+
+test('Idioma na mão: código com região muda o país junto (TVzine põe no país certo) e sai no M3U', () => {
+    const c = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="Kids",Tooncast\nhttp://x/t.m3u8\n').canais[0];
+    assert.equal(c.idioma, ''); assert.equal(c.pais, '');
+    L.definirIdioma(c, 'pt-BR');
+    assert.equal(c.idioma, 'pt-BR'); assert.equal(c.pais, 'BR'); assert.ok(c.chave.endsWith('|BR'));
+    const m3u = L.gerarM3U([c]);
+    assert.match(m3u, /tvg-country="BR"/); assert.match(m3u, /tvg-language="pt-BR"/);
+    L.definirIdioma(c, 'es-MX', false);
+    assert.equal(c.pais, 'BR', 'sem "país junto" o país fica');
+    assert.ok(L.IDIOMAS.length > 20 && L.IDIOMAS.every(i => i.cod && i.nome));
+});

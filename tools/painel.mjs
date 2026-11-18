@@ -85,6 +85,18 @@ export function criarServidor({ raiz = RAIZ } = {}) {
                 try { return json(res, 200, await baixarLista(url.searchParams.get('url') || '')); }
                 catch (e) { return json(res, 200, { erro: e.message }); }
             }
+            // banco de assets do Link Edit (logos salvos): um arquivo na pasta do Studio, vale para todas as listas
+            if (url.pathname === '/api/linkedit/assets') {
+                const arq = path.join(raiz, 'dados', 'linkedit-assets.json');
+                if (req.method === 'POST') {
+                    const d = await corpo(req);
+                    if (!d || !Array.isArray(d.logos)) return json(res, 400, { erro: 'formato inválido' });
+                    fs.mkdirSync(path.dirname(arq), { recursive: true });
+                    fs.writeFileSync(arq, JSON.stringify({ versao: 1, logos: d.logos }, null, 1));
+                    return json(res, 200, { ok: true, total: d.logos.length });
+                }
+                try { return json(res, 200, JSON.parse(fs.readFileSync(arq, 'utf8'))); } catch (e) { return json(res, 200, { versao: 1, logos: [] }); }
+            }
             if (url.pathname === '/api/linkedit/tunel') return await tunel(req, res, '/api/linkedit/tunel');
             // 🔗 Link test: o link responde? deixa abrir dentro de outra página (cartucho web)?
             if (url.pathname === '/api/checar-link') {
