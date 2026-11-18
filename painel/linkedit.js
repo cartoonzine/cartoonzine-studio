@@ -10,6 +10,7 @@
     const L = window.CZLinkEditCore;
     const GUARDA = 'czs-linkedit-v1';
     const ALTURA_LINHA = 40;
+    const BANCO_LOGOS = 'https://iptv-org.github.io/api/';   // banco aberto de canais e logos (iptv-org)
     const LIBS = {
         hls: 'https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js',
         mpegts: 'https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.min.js'
@@ -28,7 +29,9 @@
         desfazer: [],
         scan: null,            // { total, feitos, parar, modo }
         modoTeste: 'completo',
-        visiveis: [], cont: null
+        visiveis: [], cont: null,
+        som: { mudo: true, vol: 0.6 },   // som da prévia
+        ancora: null           // última caixinha clicada (Shift+clique marca o trecho)
     };
     let S = null;              // ferramentas do painel (aviso, esc, estado.repo…)
     let raiz = null;
@@ -40,7 +43,7 @@
     function salvar() {
         try {
             localStorage.setItem(GUARDA, JSON.stringify({
-                listas: E.listas, nova: E.nova, modoTeste: E.modoTeste,
+                listas: E.listas, nova: E.nova, modoTeste: E.modoTeste, som: E.som,
                 canais: E.canais.map(c => { const o = Object.assign({}, c); delete o.testando; return o; })
             }));
         } catch (e) { /* lista grande demais para o navegador: fica só nesta sessão */ }
@@ -49,11 +52,11 @@
         try {
             const d = JSON.parse(localStorage.getItem(GUARDA) || 'null');
             if (!d) return;
-            E.listas = d.listas || []; E.canais = d.canais || []; E.nova = d.nova || E.nova; E.modoTeste = d.modoTeste || 'completo';
+            E.listas = d.listas || []; E.canais = d.canais || []; E.nova = d.nova || E.nova; E.modoTeste = d.modoTeste || 'completo'; if (d.som) E.som = d.som;
         } catch (e) { /* */ }
     }
     function lembrar() {                      // antes de mudar algo: guarda como estava (Desfazer)
-        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo]) }));
+        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '']) }));
         if (E.desfazer.length > 60) E.desfazer.shift();
     }
     function desfazer() {
@@ -62,7 +65,7 @@
         const d = JSON.parse(ult);
         E.nova = d.nova;
         const m = new Map(d.flags.map(f => [f[0], f]));
-        E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; } });
+        E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; } });
         salvar(); desenharTudo();
     }
 
@@ -179,6 +182,27 @@
         salvar(); desenharNova();
     }
     function tirarDaNova(i) { lembrar(); E.nova.itens.splice(i, 1); salvar(); desenharNova(); desenharTabela(); }
+    /** Antes de salvar: janela para dar nome à lista (vira o nome do arquivo). */
+    function pedirNomeEBaixar(formato) {
+        if (!E.nova.itens.length) return S.aviso('A lista nova está vazia.', 'ruim');
+        const ext = formato === 'json' ? 'json' : formato === 'txt' ? 'txt' : 'm3u';
+        const arq = (n) => (L.norm(n).replace(/ /g, '-') || 'lista') + '.' + ext;
+        const j = janela(`<h3>Salvar lista</h3>
+          <label class="le-dica" for="le-salvar-nome">Nome da lista</label>
+          <input class="le-campo" id="le-salvar-nome" value="${esc(E.nova.nome)}" maxlength="80">
+          <p class="le-dica">Arquivo: <b id="le-salvar-arq">${esc(arq(E.nova.nome))}</b> · ${E.nova.itens.length} canais</p>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-salvar-ok">Salvar ${ext.toUpperCase()}</button></div>`);
+        const inp = j.querySelector('#le-salvar-nome');
+        inp.focus(); inp.select();
+        inp.oninput = () => { j.querySelector('#le-salvar-arq').textContent = arq(inp.value); };
+        const ok = () => {
+            E.nova.nome = inp.value.trim() || 'Lista nova';
+            const campo = $('#le-nova-nome'); if (campo) campo.value = E.nova.nome;
+            salvar(); fecharJanela(); baixar(formato);
+        };
+        inp.onkeydown = (e) => { if (e.key === 'Enter') ok(); };
+        j.querySelector('#le-salvar-ok').onclick = ok;
+    }
     function baixar(formato) {
         if (!E.nova.itens.length) return S.aviso('A lista nova está vazia.', 'ruim');
         const epg = (E.listas.find(l => l.epg) || {}).epg;
@@ -284,7 +308,7 @@
         if (NAO_TOCA[tt]) return status(`Vídeo ${NAO_TOCA[tt]}: o link está vivo, mas o navegador não toca este formato. No app (VLC/ExoPlayer) toca.`);
         if (fmt === 'torrent' || fmt === 'protocolo' || fmt === 'youtube') return status(fmt === 'torrent' ? 'Torrent: teste no app (o Studio não baixa torrent).' : fmt === 'youtube' ? 'YouTube: abra no app.' : 'RTMP/RTSP/UDP: o navegador não toca; teste no app do PC.');
         const url = viaTunel(c, c.url);
-        v.muted = true;
+        v.muted = E.som.mudo; v.volume = E.som.vol;
         const aoTocar = () => {
             if (meu !== player.token) return;
             status('');
@@ -326,8 +350,210 @@
             } else {
                 v.src = url;
             }
-            const p = v.play(); if (p && p.catch) p.catch(() => {});
+            const p = v.play();
+            // o navegador às vezes não deixa começar COM som sem um clique: começa mudo e avisa no botão
+            if (p && p.catch) p.catch((e) => { if (e && e.name === 'NotAllowedError' && !v.muted) { v.muted = true; pintarSom(); v.play().catch(() => {}); } });
         } catch (e) { status('Não tocou: ' + e.message); }
+    }
+    // ---------------------------------------------------------------- som da prévia
+    function pintarSom() {
+        const v = $('#le-video'), b = $('#le-mudo'), r = $('#le-vol');
+        const mudo = v ? v.muted : E.som.mudo;
+        if (b) { b.textContent = mudo || !E.som.vol ? '🔇' : E.som.vol < 0.5 ? '🔉' : '🔊'; b.title = (mudo ? 'Ligar o som' : 'Tirar o som') + ' (M)'; b.setAttribute('aria-pressed', String(!mudo)); }
+        if (r) r.value = String(E.som.vol);
+        const n = $('#le-vol-n'); if (n) n.textContent = Math.round(E.som.vol * 100) + '%';
+    }
+    function mudarSom({ mudo, vol } = {}) {
+        if (vol != null) { E.som.vol = Math.max(0, Math.min(1, Math.round(vol * 100) / 100)); if (E.som.vol > 0 && mudo == null) mudo = false; }
+        if (mudo != null) E.som.mudo = mudo;
+        const v = $('#le-video'); if (v) { v.volume = E.som.vol; v.muted = E.som.mudo; }
+        pintarSom(); salvar();
+    }
+
+    // ---------------------------------------------------------------- janelas (salvar, logo, atalhos)
+    function janela(html) {
+        fecharJanela();
+        const d = document.createElement('div');
+        d.className = 'le-jan-fundo';
+        d.innerHTML = `<div class="le-jan" role="dialog" aria-modal="true">${html}<button class="le-jan-x" data-fechar aria-label="Fechar">✕</button></div>`;
+        d.addEventListener('click', (e) => { if (e.target === d || e.target.closest('[data-fechar]')) fecharJanela(); });
+        raiz.appendChild(d);
+        return d;
+    }
+    function fecharJanela() { const d = raiz && raiz.querySelector('.le-jan-fundo'); if (d) { d.remove(); raiz.focus(); } }
+
+    function mostrarAtalhos() {
+        const A = [['↑ ↓', 'canal anterior / próximo'], ['Shift + ↑ ↓', 'marca enquanto anda'], ['PgUp PgDn · Home End', 'pula 10 · primeiro / último'],
+            ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
+            ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
+            ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['M · + −', 'som · volume'],
+            ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['?', 'esta ajuda']];
+        janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
+    }
+
+    // ---------------------------------------------------------------- logos
+    const ehImagem = (u) => /^(https?:|data:image\/)/i.test(String(u || ''));
+    function copiasDe(c) { return E.canais.filter(x => x.chave === c.chave); }
+    function usarLogo(c, url, todas) {
+        lembrar();
+        (todas ? copiasDe(c) : [c]).forEach(x => { x.logo = url || ''; });
+        E.nova.itens.forEach(it => { if (it.chave === c.chave) it.logo = url || ''; });
+        salvar(); agendarTabela(); desenharFiltros();
+    }
+    async function baixarImagem(url, nome) {
+        try {
+            const r = await fetch(url.startsWith('data:') ? url : local() ? viaTunel({}, url) : url);
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            const b = await r.blob();
+            const ext = (/image\/(png|jpe?g|gif|webp|svg)/.exec(b.type) || [, (/\.(png|jpe?g|gif|webp|svg)(\?|$)/i.exec(url) || [, 'png'])[1]])[1].replace('jpeg', 'jpg').replace('svg', 'svg');
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(b); a.download = (L.norm(nome).replace(/ /g, '-') || 'logo') + '-logo.' + ext;
+            document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        } catch (e) {
+            window.open(url, '_blank', 'noopener');
+            S.aviso('O site da imagem não deixou baixar direto; abri numa aba nova — lá use "Salvar imagem como".', 'ok');
+        }
+    }
+    /** Imagem enviada do computador: reduz para no máximo 400 px (a lista não fica pesada) e vira PNG. */
+    function lerImagemDoPC(arquivo) {
+        return new Promise((ok, erro) => {
+            const fr = new FileReader();
+            fr.onerror = () => erro(new Error('não li o arquivo'));
+            fr.onload = () => {
+                if (/svg/.test(arquivo.type) && fr.result.length < 60000) return ok(fr.result);
+                const img = new Image();
+                img.onerror = () => erro(new Error('não é uma imagem'));
+                img.onload = () => {
+                    const k = Math.min(1, 400 / Math.max(img.width, img.height));
+                    const cv = document.createElement('canvas'); cv.width = Math.round(img.width * k); cv.height = Math.round(img.height * k);
+                    cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+                    ok(cv.toDataURL('image/png'));
+                };
+                img.src = fr.result;
+            };
+            fr.readAsDataURL(arquivo);
+        });
+    }
+    // banco aberto de canais do iptv-org (nome, outros nomes, país, logo) — baixado uma vez por sessão
+    let bancoLogos = null;
+    async function pegarJSON(url) {
+        try { const r = await fetch(url); if (r.ok) return await r.json(); } catch (e) { /* sem CORS: tenta pelo painel local */ }
+        if (local()) { const r = await (await fetch('/api/linkedit/lista?url=' + encodeURIComponent(url))).json(); if (!r.erro) return JSON.parse(r.texto); }
+        throw new Error('não consegui baixar ' + url.split('/').pop());
+    }
+    function carregarBancoLogos() {
+        if (!bancoLogos) {
+            bancoLogos = Promise.all([pegarJSON(BANCO_LOGOS + 'channels.json'), pegarJSON(BANCO_LOGOS + 'logos.json').catch(() => [])]).then(([canais, logos]) => {
+                const porCanal = new Map();
+                (logos || []).forEach(l => { if (l && l.channel && l.url && !l.feed) { const a = porCanal.get(l.channel) || []; a.push(l); porCanal.set(l.channel, a); } });
+                return (canais || []).map(ch => ({
+                    id: ch.id, nome: ch.name, pais: ch.country, nomes: [ch.name].concat(ch.alt_names || []).map(L.norm),
+                    logos: (porCanal.get(ch.id) || []).sort((a, b) => (b.width || 0) - (a.width || 0)).map(l => l.url).concat(ch.logo ? [ch.logo] : [])
+                })).filter(x => x.logos.length);
+            }).catch((e) => { bancoLogos = null; throw e; });
+        }
+        return bancoLogos;
+    }
+    /** Logos que combinam: mesmo tvg-id > mesmo nome no mesmo país > mesmo nome > nome parecido. */
+    function acharLogos(banco, c, max = 12) {
+        const id = String(c.tvgId || '').toLowerCase().split('@')[0];
+        const n = L.norm(c.nome);
+        const pts = [];
+        for (const x of banco) {
+            let p = 0;
+            if (id && x.id.toLowerCase() === id) p = 100;
+            else if (x.nomes.includes(n)) p = 70;
+            else if (n.length >= 4 && x.nomes.some(m => m.startsWith(n + ' ') || n.startsWith(m + ' '))) p = 35;
+            else continue;
+            if (c.pais && x.pais === c.pais) p += 15;
+            pts.push([p, x]);
+        }
+        return pts.sort((a, b) => b[0] - a[0]).slice(0, max).map(([p, x]) => ({ pontos: p, canal: x }));
+    }
+    async function acharLogosQueFaltam() {
+        const alvo = (E.sel.size ? selecionados() : E.visiveis).filter(c => !ehImagem(c.logo));
+        if (!alvo.length) return S.aviso('Todos esses canais já têm logo.', 'ok');
+        S.aviso('Procurando logos no banco aberto do iptv-org…', 'ok');
+        let banco;
+        try { banco = await carregarBancoLogos(); } catch (e) { return S.aviso('Não consegui abrir o banco de logos: ' + e.message, 'ruim'); }
+        lembrar();
+        let n = 0;
+        const feitos = new Set();
+        alvo.forEach(c => {
+            if (feitos.has(c.chave)) { const irmao = E.canais.find(x => x.chave === c.chave && ehImagem(x.logo)); if (irmao) { c.logo = irmao.logo; n++; } return; }
+            const [m] = acharLogos(banco, c, 1);
+            // só o que é certeza (mesmo tvg-id, ou mesmo nome no mesmo país); o resto você escolhe no logo do canal
+            if (m && m.pontos >= 85) { copiasDe(c).forEach(x => { if (!ehImagem(x.logo)) x.logo = m.canal.logos[0]; }); feitos.add(c.chave); n++; }
+        });
+        salvar(); agendarTabela(); desenharFiltros();
+        S.aviso(n ? `${n} logos colocados. Os que faltam: clique no quadrinho do logo e escolha na busca.` : 'Não achei logo certeiro para esses canais. Clique no quadrinho do logo para buscar e escolher.', n ? 'ok' : 'ruim');
+    }
+    function abrirLogo(c) {
+        if (!c) return;
+        const img = ehImagem(c.logo) ? c.logo : '';
+        const nCopias = copiasDe(c).length;
+        const j = janela(`<h3>Logo · ${esc(c.nome)}</h3>
+          <div class="le-logo-grande">${img ? `<img id="le-logo-img" src="${esc(img)}" alt="Logo de ${esc(c.nome)}">` : '<span>Sem logo</span>'}</div>
+          <p class="le-dica" id="le-logo-info" style="text-align:center">${img ? '' : 'Este canal ainda não tem logo. Escolha um abaixo.'}</p>
+          ${img ? `<div class="le-jan-botoes" style="justify-content:center"><button class="le-bt p" id="le-logo-baixar">⤓ Baixar imagem</button><a class="le-bt" style="display:inline-flex;align-items:center;text-decoration:none" href="${esc(img.startsWith('data:') ? '#' : img)}" target="_blank" rel="noopener" ${img.startsWith('data:') ? 'hidden' : ''}>Abrir em aba nova</a><button class="le-bt" id="le-logo-tirar">Remover logo</button></div>` : ''}
+          <div class="le-rot" style="margin-top:14px">${img ? 'Trocar o logo' : 'Inserir logo'}</div>
+          <div style="display:flex;gap:6px;margin-top:6px"><input class="le-campo" id="le-logo-url" placeholder="Cole o link da imagem (PNG, JPG, SVG…)" style="flex:1"><button class="le-bt p" id="le-logo-usar">Usar</button></div>
+          <div class="le-jan-botoes"><label class="le-bt" style="display:inline-flex;align-items:center;cursor:pointer">Enviar do computador<input type="file" id="le-logo-arq" accept="image/*" hidden></label>
+            <button class="le-bt" id="le-logo-buscar">🔎 Buscar no banco de logos</button>
+            <a class="le-bt" style="display:inline-flex;align-items:center;text-decoration:none" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(c.nome + ' logo png')}">Procurar no Google</a></div>
+          <div id="le-logo-res" class="le-logo-res"></div>
+          ${nCopias > 1 ? `<label class="le-dica" style="display:flex;gap:6px;align-items:center;margin-top:10px"><input type="checkbox" id="le-logo-todas" checked> usar também nas outras ${nCopias - 1} cópias deste canal</label>` : ''}`);
+        const todas = () => { const k = j.querySelector('#le-logo-todas'); return !k || k.checked; };
+        const aplicar = (url, msg) => { usarLogo(c, url, todas()); S.aviso(msg || 'Logo trocado.', 'ok'); abrirLogo(c); };
+        const im = j.querySelector('#le-logo-img');
+        if (im) {
+            im.onload = () => { const i = j.querySelector('#le-logo-info'); if (i) i.textContent = im.naturalWidth + ' × ' + im.naturalHeight + ' px' + (img.startsWith('data:') ? ' · enviada do computador' : ''); };
+            im.onerror = () => { const i = j.querySelector('#le-logo-info'); if (i) i.textContent = 'A imagem não abriu (link quebrado?). Troque abaixo.'; };
+        }
+        const bx = j.querySelector('#le-logo-baixar'); if (bx) bx.onclick = () => baixarImagem(img, c.nome);
+        const tr = j.querySelector('#le-logo-tirar'); if (tr) tr.onclick = () => aplicar('', 'Logo removido (Ctrl+Z volta).');
+        const campo = j.querySelector('#le-logo-url');
+        const usarCampo = () => { const u = campo.value.trim(); if (!ehImagem(u)) return S.aviso('Cole um link http(s) de imagem.', 'ruim'); aplicar(u); };
+        j.querySelector('#le-logo-usar').onclick = usarCampo;
+        campo.onkeydown = (e) => { if (e.key === 'Enter') usarCampo(); };
+        j.querySelector('#le-logo-arq').onchange = async (e) => {
+            const f = e.target.files[0]; if (!f) return;
+            try { aplicar(await lerImagemDoPC(f), 'Logo enviado. Ele vai embutido na lista; se puder, prefira um link (lista fica mais leve).'); }
+            catch (er) { S.aviso('Não consegui usar essa imagem: ' + er.message, 'ruim'); }
+        };
+        j.querySelector('#le-logo-buscar').onclick = async () => {
+            const res = j.querySelector('#le-logo-res');
+            res.innerHTML = '<p class="le-dica">Procurando no banco aberto do iptv-org (a primeira busca baixa o banco, alguns segundos)…</p>';
+            try {
+                const achados = acharLogos(await carregarBancoLogos(), c);
+                if (!res.isConnected) return;
+                const opcoes = [];
+                achados.forEach(a => a.canal.logos.slice(0, 3).forEach(u => opcoes.push({ u, rot: a.canal.nome + (a.canal.pais ? ' · ' + a.canal.pais : '') })));
+                res.innerHTML = opcoes.length ? opcoes.slice(0, 18).map(o => `<button class="le-logo-op" data-url="${esc(o.u)}" title="${esc(o.rot)}"><img src="${esc(o.u)}" alt="" loading="lazy"><small>${esc(o.rot)}</small></button>`).join('')
+                    : '<p class="le-dica">Nada no banco com esse nome. Tente "Procurar no Google" e cole o link da imagem acima.</p>';
+                res.querySelectorAll('[data-url]').forEach(b => { b.onclick = () => aplicar(b.dataset.url); });
+            } catch (er) { res.innerHTML = `<p class="le-dica">Não consegui abrir o banco de logos (${esc(er.message)}). Use "Procurar no Google".</p>`; }
+        };
+    }
+
+    /** Caixinha/linha clicada: Shift marca o trecho desde a última clicada (com o estado dela). */
+    function marcar(id, trecho) {
+        const lista = E.visiveis;
+        const i = lista.findIndex(c => c.id === id), a = lista.findIndex(c => c.id === E.ancora);
+        if (trecho && a >= 0 && i >= 0) {
+            const ligar = E.sel.has(E.ancora) || !E.sel.size;
+            for (let k = Math.min(a, i); k <= Math.max(a, i); k++) ligar ? E.sel.add(lista[k].id) : E.sel.delete(lista[k].id);
+        } else {
+            E.sel.has(id) ? E.sel.delete(id) : E.sel.add(id);
+            E.ancora = id;
+        }
+        desenharTabela();
+    }
+    function marcarTodos() {
+        const todos = E.visiveis.length && E.visiveis.every(c => E.sel.has(c.id));
+        E.visiveis.forEach(c => (todos ? E.sel.delete(c.id) : E.sel.add(c.id)));
+        desenharTabela();
     }
     function focar(id, tocarJa = true) {
         E.foco = id;
@@ -447,6 +673,27 @@
 .le-item button{background:none;border:0;color:#8b95a3;font-size:13px;padding:2px 5px}.le-item button:hover{color:#fff}
 .le-saida{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
 .le-dica{font-size:12px;color:#8b95a3;margin:0}
+#le-raiz{position:relative}
+.le-linha{user-select:none}
+.le-caixa.meio{border-color:var(--c);background:linear-gradient(var(--c),var(--c)) center/8px 2px no-repeat}
+button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button.le-logo-c:focus-visible{outline:1px solid var(--c)}
+.le-logo-c.vazio{cursor:pointer;color:#3a4352;font-weight:900;font-size:14px;line-height:22px}.le-logo-c.vazio::after{content:'+'}
+.le-som{display:flex;align-items:center;gap:8px;margin-top:8px}.le-som .le-bt{height:32px;width:40px;padding:0;font-size:15px}
+.le-som input{flex:1;accent-color:var(--c)}.le-som span{width:38px;text-align:right;color:var(--s)}
+.le-jan-fundo{position:absolute;inset:0;z-index:30;background:rgba(3,4,8,.72);display:flex;align-items:center;justify-content:center;padding:20px}
+.le-jan{position:relative;width:min(560px,100%);max-height:100%;overflow:auto;background:#0b0d13;border:1px solid var(--c);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.le-jan h3{margin:0 30px 4px 0;font-size:16px;font-weight:900}
+.le-jan-x{position:absolute;top:10px;right:10px;background:none;border:0;color:#8b95a3;font-size:16px}
+.le-jan-botoes{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;margin-top:6px}
+.le-campo{border-radius:8px;border:1px solid #2a3140;background:#0d1016;color:#e5e7eb;padding:9px 11px;font:500 13px Inter,sans-serif;height:38px}
+.le-logo-grande{height:200px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:repeating-conic-gradient(#141821 0 25%,#0f1218 0 50%) 0 0/18px 18px;border:1px solid var(--b)}
+.le-logo-grande img{max-width:92%;max-height:180px;object-fit:contain}.le-logo-grande span{color:#64748b;font-weight:800}
+.le-logo-res{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:8px}
+.le-logo-op{background:#11141b;border:1px solid #2a3140;border-radius:10px;padding:8px;display:flex;flex-direction:column;align-items:center;gap:6px;color:#cbd5e1}
+.le-logo-op:hover,.le-logo-op:focus-visible{border-color:var(--c);outline:none}.le-logo-op img{height:54px;max-width:100%;object-fit:contain}
+.le-logo-op small{font-size:10.5px;color:var(--s);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
+.le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
         document.head.appendChild(s);
     }
@@ -484,16 +731,19 @@
                 <button class="le-bt" id="le-sel-vivos">Selecionar vivos</button>
                 <button class="le-bt" id="le-scan" title="Testa os selecionados (ou todos os visíveis)">Scan</button>
                 <button class="le-bt" id="le-quarentena" title="Tira da lista principal (pode voltar depois)">Quarentena</button>
+                <button class="le-bt" id="le-logos" title="Coloca o logo que falta nos marcados (ou visíveis), pelo banco aberto do iptv-org">Achar logos</button>
                 <button class="le-bt r" id="le-jogar">➜ Jogar na lista nova</button>
+                <button class="le-bt" id="le-ajuda" title="Atalhos do teclado (?)" aria-label="Atalhos do teclado">?</button>
               </div>
               <div class="le-scan" id="le-scan-barra" hidden></div>
-              <div class="le-cab" role="row"><span></span><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span>Status</span><span>Abre em</span></div>
+              <div class="le-cab" role="row"><button class="le-caixa" id="le-cab-todos" title="Marcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span>Status</span><span>Abre em</span></div>
               <div id="le-corpo" role="table" aria-label="Canais"><div id="le-alto" style="position:relative"></div></div>
               <div class="le-rodape" id="le-rodape"></div>
             </main>
             <aside class="le-dir" aria-label="Visualizador e lista nova">
               <div style="padding:14px 16px">
-                <div class="le-tela"><video id="le-video" muted playsinline></video><div id="le-tela-msg">PRÉVIA · MUDO</div></div>
+                <div class="le-tela"><video id="le-video" muted playsinline></video><div id="le-tela-msg">PRÉVIA</div></div>
+                <div class="le-som"><button class="le-bt" id="le-mudo" aria-label="Som da prévia">🔇</button><input type="range" id="le-vol" min="0" max="1" step="0.05" aria-label="Volume da prévia"><span id="le-vol-n" class="le-mono"></span></div>
                 <div id="le-ficha"></div>
                 <div class="le-nav">
                   <button class="le-bt" id="le-ant">◀ Anterior</button>
@@ -508,7 +758,7 @@
                 <div class="le-saida">
                   <button class="le-bt p" data-baixar="m3u">M3U</button><button class="le-bt" data-baixar="json">JSON</button><button class="le-bt" data-baixar="txt">TXT</button><button class="le-bt" id="le-copiar">Copiar</button>
                 </div>
-                <p class="le-dica">Atalhos: <b>↑ ↓</b> canal · <b>Espaço</b> testar · <b>→</b> lista nova · <b>Del</b> quarentena · <b>Ctrl+Z</b> desfazer</p>
+                <p class="le-dica">Atalhos: <b>↑ ↓</b> canal · <b>Shift+clique</b> trecho · <b>Espaço</b> testar · <b>→</b> lista nova · <b>Del</b> quarentena · <b>Ctrl+Z</b> desfazer · <b>?</b> todos</p>
               </div>
             </aside>
           </div>
@@ -558,6 +808,12 @@
         E.visiveis = filtrados();
         alto.style.height = E.visiveis.length * ALTURA_LINHA + 'px';
         pintarJanela();
+        const ct = $('#le-cab-todos');
+        if (ct) {
+            const n = E.visiveis.filter(c => E.sel.has(c.id)).length;
+            ct.classList.toggle('on', !!n && n === E.visiveis.length); ct.classList.toggle('meio', !!n && n < E.visiveis.length);
+            ct.setAttribute('aria-pressed', n && n === E.visiveis.length ? 'true' : n ? 'mixed' : 'false');
+        }
         const r = $('#le-rodape');
         if (r) {
             const s = E.cont.status;
@@ -574,10 +830,10 @@
         for (let i = de; i < ate; i++) {
             const c = E.visiveis[i];
             const st = c.testando ? 'testando' : (c.teste && c.teste.status) || 'nao-testado';
-            const logo = c.logo && /^https?:/i.test(c.logo) ? `background-image:url('${esc(c.logo.replace(/'/g, '%27'))}')` : '';
+            const logo = ehImagem(c.logo) ? `background-image:url('${esc(c.logo.replace(/'/g, '%27'))}')` : '';
             h += `<div class="le-linha${c.id === E.foco ? ' foco' : ''}${naNova.has(c.chave) ? ' na-nova' : ''}" role="row" data-id="${esc(c.id)}" style="top:${i * ALTURA_LINHA}px">
               <button class="le-caixa ${E.sel.has(c.id) ? 'on' : ''}" data-sel="${esc(c.id)}" aria-label="Selecionar ${esc(c.nome)}" aria-pressed="${E.sel.has(c.id)}"></button>
-              <span class="le-logo-c" style="${logo}"></span>
+              <button class="le-logo-c${logo ? '' : ' vazio'}" style="${logo}" data-logo="${esc(c.id)}" title="${logo ? 'Ver, baixar ou trocar o logo (L)' : 'Inserir logo (L)'}" aria-label="Logo de ${esc(c.nome)}"></button>
               <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${esc(c.nome)}</span>
               <span class="le-g" title="${esc(c.grupo)}">${esc(c.grupo || c.tipo)}</span>
               <span class="le-mono">${esc(c.idioma || '—')}</span>
@@ -607,6 +863,7 @@
 
     // ---------------------------------------------------------------- eventos
     function selecionados() { return E.canais.filter(c => E.sel.has(c.id)); }
+    let tecladoLigado = false;
     function ligar() {
         $('#le-abrir').onclick = () => abrirLink($('#le-url').value);
         $('#le-url').onkeydown = (e) => { if (e.key === 'Enter') abrirLink(e.target.value); };
@@ -626,24 +883,66 @@
         $('#le-vai').onclick = () => { const c = E.canais.find(x => x.id === E.foco); if (c) { jogarNaLista([c]); andar(1); } };
         $('#le-copiar').onclick = copiar;
         $('#le-nova-nome').onchange = (e) => { E.nova.nome = e.target.value.trim() || 'Lista nova'; salvar(); };
-        raiz.querySelectorAll('[data-baixar]').forEach(b => { b.onclick = () => baixar(b.dataset.baixar); });
+        raiz.querySelectorAll('[data-baixar]').forEach(b => { b.onclick = () => pedirNomeEBaixar(b.dataset.baixar); });
+        $('#le-cab-todos').onclick = marcarTodos;
+        $('#le-logos').onclick = acharLogosQueFaltam;
+        $('#le-ajuda').onclick = mostrarAtalhos;
+        $('#le-mudo').onclick = () => { const v = $('#le-video'); mudarSom({ mudo: !(v ? v.muted : E.som.mudo), vol: !E.som.vol ? 0.6 : undefined }); };
+        $('#le-vol').oninput = (e) => mudarSom({ vol: +e.target.value });
+        pintarSom();
         raiz.addEventListener('click', (e) => {
             const t = e.target.closest('button, .le-linha');
             if (!t) return;
             if (t.dataset.tirarLista) return removerLista(t.dataset.tirarLista);
-            if (t.dataset.sel) { E.sel.has(t.dataset.sel) ? E.sel.delete(t.dataset.sel) : E.sel.add(t.dataset.sel); t.classList.toggle('on'); t.setAttribute('aria-pressed', E.sel.has(t.dataset.sel)); desenharTabela(); return; }
+            if (t.dataset.sel) return marcar(t.dataset.sel, e.shiftKey);
+            if (t.dataset.logo) return abrirLogo(E.canais.find(c => c.id === t.dataset.logo));
             if (t.dataset.f) { const s = E.f[t.dataset.f]; s.has(t.dataset.v) ? s.delete(t.dataset.v) : s.add(t.dataset.v); desenharFiltros(); desenharTabela(); return; }
             if (t.dataset.t) { E.f[t.dataset.t] = !E.f[t.dataset.t]; desenharFiltros(); desenharTabela(); return; }
             if (t.dataset.subir) return moverNaNova(+t.dataset.subir, -1);
             if (t.dataset.descer) return moverNaNova(+t.dataset.descer, 1);
             if (t.dataset.tirar) return tirarDaNova(+t.dataset.tirar);
-            if (t.classList.contains('le-linha')) focar(t.dataset.id);
+            if (t.classList.contains('le-linha')) {
+                if (e.shiftKey && E.ancora) return marcar(t.dataset.id, true);
+                if (e.ctrlKey || e.metaKey) return marcar(t.dataset.id, false);
+                E.ancora = t.dataset.id; focar(t.dataset.id);
+            }
         });
-        raiz.addEventListener('keydown', (e) => {
-            if (/INPUT|TEXTAREA/.test(e.target.tagName)) return;
+        // no documento (uma vez só): a tabela se redesenha e o foco do clique some; o atalho tem que continuar valendo
+        if (tecladoLigado) return;
+        tecladoLigado = true;
+        document.addEventListener('keydown', (e) => {
+            if (!raiz || !raiz.isConnected) return;
+            if (e.target !== document.body && e.target !== document.documentElement && !raiz.contains(e.target)) return;
+            if (raiz.querySelector('.le-jan-fundo')) { if (e.key === 'Escape') { e.preventDefault(); fecharJanela(); } return; }
+            if (/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) { if (e.key === 'Escape') e.target.blur(); return; }
             const c = E.canais.find(x => x.id === E.foco);
-            if (e.key === 'ArrowDown') { e.preventDefault(); andar(1); }
+            const ctrl = e.ctrlKey || e.metaKey, k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+            if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && e.shiftKey) {
+                e.preventDefault();
+                if (c) E.sel.add(c.id);
+                andar(e.key === 'ArrowDown' ? 1 : -1);
+                const n = E.canais.find(x => x.id === E.foco); if (n) { E.sel.add(n.id); E.ancora = n.id; }
+                desenharTabela();
+            }
+            else if (e.key === 'ArrowDown') { e.preventDefault(); andar(1); }
             else if (e.key === 'ArrowUp') { e.preventDefault(); andar(-1); }
+            else if (e.key === 'PageDown') { e.preventDefault(); andar(10); }
+            else if (e.key === 'PageUp') { e.preventDefault(); andar(-10); }
+            else if (e.key === 'Home') { e.preventDefault(); andar(-1e9); }
+            else if (e.key === 'End') { e.preventDefault(); andar(1e9); }
+            else if (ctrl && k === 'a') { e.preventDefault(); marcarTodos(); }
+            else if (ctrl && k === 's') { e.preventDefault(); pedirNomeEBaixar('m3u'); }
+            else if (e.key === 'Escape') { if (E.sel.size) { E.sel.clear(); desenharTabela(); } }
+            else if (!ctrl && k === 'x' && c) { e.preventDefault(); marcar(c.id, false); }
+            else if (!ctrl && k === 't') { e.preventDefault(); scan(E.sel.size ? selecionados() : E.visiveis); }
+            else if (!ctrl && k === 'l' && c) { e.preventDefault(); abrirLogo(c); }
+            else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
+            else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
+            else if (!ctrl && (k === '-' || k === '_')) { e.preventDefault(); mudarSom({ vol: E.som.vol - 0.1 }); }
+            else if (!ctrl && k === '/') { e.preventDefault(); const b = $('#le-busca'); if (b) { b.focus(); b.select(); } }
+            else if (!ctrl && k === '?') { e.preventDefault(); mostrarAtalhos(); }
+            else if (e.key === 'Enter' && E.sel.size) { e.preventDefault(); jogarNaLista(selecionados()); E.sel.clear(); desenharTabela(); }
+            else if (e.key === 'Delete' && e.shiftKey && E.sel.size) { e.preventDefault(); quarentena(selecionados(), !E.f.quarentena); }
             else if (e.key === 'ArrowRight' && c) { e.preventDefault(); jogarNaLista([c]); andar(1); }
             else if (e.key === ' ' && c) { e.preventDefault(); tocar(c); testarUm(c).then(() => { salvar(); agendarTabela(); pintarFicha(c); }); }
             else if ((e.key === 'Delete' || e.key === 'Backspace') && c) { e.preventDefault(); const prox = vizinhoDoFoco(1); quarentena([c], !c.quarentena); if (prox && prox !== c) focar(prox.id); }
