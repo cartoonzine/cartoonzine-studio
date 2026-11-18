@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-18T07:13:54.718Z",
+  "geradoEm": "2026-11-18T07:18:53.979Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -106,14 +106,18 @@
       "nome": "Canais (TVzine)",
       "tipo": "canal",
       "app": "tvzine",
-      "publicados": 0,
+      "publicados": 6,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.m3u",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais/pais/br.m3u",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais/pais/br.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais/paises.json"
       ],
-      "porPais": {}
+      "porPais": {
+        "BR": 6
+      }
     },
     {
       "id": "bookzine",

@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-18T07:13:54.718Z",
+  "geradoEm": "2026-11-18T07:18:53.979Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -66,11 +66,13 @@
     },
     {
       "colecao": "canais",
-      "total": 0,
-      "publicados": 0,
+      "total": 6,
+      "publicados": 6,
       "erros": [],
       "avisos": [],
-      "porPais": {}
+      "porPais": {
+        "BR": 6
+      }
     },
     {
       "colecao": "bookzine",
