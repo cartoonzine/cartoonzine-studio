@@ -170,7 +170,7 @@
                 [c.url].concat(c.reservas).forEach(u => { if (u !== ja.url && !ja.reservas.includes(u)) { ja.reservas.push(u); reservas++; } });
                 continue;
             }
-            E.nova.itens.push({ id: c.id, chave: c.chave, nome: c.nome, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, epgShift: c.epgShift, grupoSaida: c.grupoSaida, headers: c.headers || {} });
+            E.nova.itens.push({ id: c.id, chave: c.chave, nome: c.nome, nomeOriginal: c.nomeOriginal, formato: c.formato, teste: c.teste, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, epgShift: c.epgShift, grupoSaida: c.grupoSaida, headers: c.headers || {} });
             novos++;
         }
         salvar(); desenharNova(); desenharTabela();
@@ -658,7 +658,7 @@
         if (!E.nova.itens.length) IMP.origem = 'marcados';
         const plano = () => L.planejarImportacao(fonte(), S.C, { config, caminhos: new Set((S.indice() || []).map(i => i.caminho)), destinos: IMP.destinos, paisPadrao: IMP.paisPadrao, soVivos: IMP.soVivos, rascunho: IMP.rascunho });
         const paises = S.C.opcoesDe('paises', config);
-        const j = janela(`<h3>Enviar ao Studio</h3>
+        const j = janela(`${abasEnviar('canais')}<h3>Enviar ao Studio · canais ao vivo</h3>
           <p class="le-dica">Cada canal vai para a coleção certa no formato do Studio: <b>Canais (TVzine)</b> separados por país, <b>Desenhos 24H</b> e <b>Rádios</b> (pela categoria). Quem já existe no Studio ganha os links novos como reserva — nada é apagado. Filmes/séries em arquivo ficam para o importador de filmes.</p>
           <div class="le-imp-op">
             <label>Enviar <select class="le-campo" id="le-imp-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option></select></label>
@@ -670,6 +670,7 @@
           <div class="le-imp-cab"><span>Destino</span><span></span><span>Canal</span><span>País</span><span>Categoria</span><span>Idioma</span><span>Guia</span><span>Situação</span></div>
           <div class="le-as-lista" id="le-imp-lista"></div>
           <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-imp-gravar">Gravar no Studio</button></div>`, 'larga');
+        ligarAbasEnviar(j);
         j.querySelector('#le-imp-origem').value = IMP.origem;
         j.querySelector('#le-imp-pais').value = IMP.paisPadrao;
         j.querySelector('#le-imp-vivos').checked = IMP.soVivos;
@@ -721,6 +722,113 @@
                 await S.gravar(mudancas, `Link Edit: ${ok.length} canais (${E.nova.nome})`);
                 fecharJanela();
                 S.aviso(`${ok.length} canais gravados no Studio${IMP.rascunho ? ' como rascunho' : ''}.`, 'ok');
+            } catch (er) { b.disabled = false; b.textContent = 'Tentar de novo'; }
+        };
+        pintar();
+    }
+
+    const abasEnviar = (aba) => {
+        const n = (E.nova.itens.length ? E.nova.itens : selecionados()).filter(L.ehVOD).length;
+        return `<div class="le-abas" role="tablist"><button class="le-aba${aba === 'canais' ? ' on' : ''}" data-env="canais">📡 Canais ao vivo</button><button class="le-aba${aba === 'vod' ? ' on' : ''}" data-env="vod">🎬 Filmes e séries${n ? ` <small>${n}</small>` : ''}</button></div>`;
+    };
+    function ligarAbasEnviar(j) { j.querySelectorAll('[data-env]').forEach(b => { b.onclick = () => (b.dataset.env === 'vod' ? abrirImportadorVOD() : abrirImportador()); }); }
+
+    // ---------------------------------------------------------------- IMPORTADOR de FILMES e SÉRIES
+    const VOD = { destinos: new Map(), dados: new Map(), achados: new Map(), todos: false, rascunho: false, origem: 'nova' };
+    function abrirImportadorVOD() {
+        if (!S.config || !S.gravar || !S.C) return S.aviso('Abra o Link Edit pelo Studio para gravar nas coleções.', 'ruim');
+        const config = S.config();
+        const cols = (config.colecoes || []).filter(c => c.tipo === 'video');
+        if (!E.nova.itens.length && E.sel.size) VOD.origem = 'marcados';
+        const base = () => (VOD.origem === 'marcados' && E.sel.size ? selecionados() : E.nova.itens);
+        const fonte = () => base().filter(it => VOD.todos || L.ehVOD(it));
+        const plano = () => L.planejarVOD(fonte(), S.C, { config, indice: S.indice() || [], destinos: VOD.destinos, dados: VOD.dados, rascunho: VOD.rascunho });
+        const j = janela(`${abasEnviar('vod')}<h3>Enviar ao Studio · filmes e séries</h3>
+          <p class="le-dica">Episódios (<b>S01E02</b>, <b>1x02</b>, <b>Episódio 2</b>) viram <b>uma série com temporadas</b>; cópias do mesmo filme viram <b>um</b> item com as outras de reserva. Destino pelo tipo: Animes, Cartoons, Séries, Filmes (torrent → Filmes torrent). O que já existe no Studio só ganha o que falta.</p>
+          <div class="le-imp-op">
+            <label>Enviar <select class="le-campo" id="le-vod-origem"><option value="nova">a lista nova (${E.nova.itens.length})</option><option value="marcados" ${E.sel.size ? '' : 'disabled'}>os marcados (${E.sel.size})</option></select></label>
+            <label title="Para listas só de filmes em .m3u8: sem isso, só entram arquivos (mp4, mkv…), torrents e links /movie/ /series/"><input type="checkbox" id="le-vod-todos"> tratar todos como filme/série</label>
+            <label title="Entra no Studio mas não vai para o app até você conferir"><input type="checkbox" id="le-vod-rasc"> como rascunho</label>
+            <button class="le-bt p" id="le-vod-tmdb" title="Capa, banner, sinopse, ano, gêneros e episódios — só onde está vazio">🔎 Completar no TMDB (só o que falta)</button>
+          </div>
+          <div id="le-imp-resumo" class="le-imp-resumo"></div>
+          <div class="le-imp-cab le-vod"><span>Destino</span><span></span><span>Título</span><span>O que é</span><span>Links</span><span>Dados</span><span>Situação</span></div>
+          <div class="le-as-lista" id="le-vod-lista"></div>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-vod-gravar">Gravar no Studio</button></div>`, 'larga');
+        ligarAbasEnviar(j);
+        j.querySelector('#le-vod-origem').value = VOD.origem;
+        j.querySelector('#le-vod-todos').checked = VOD.todos;
+        j.querySelector('#le-vod-rasc').checked = VOD.rascunho;
+        let P = [];
+        const pintar = () => {
+            P = plano();
+            const conta = (f) => P.filter(f).length;
+            const porCol = cols.map(c => [c, conta(r => r.col === c && r.acao !== 'erro')]).filter(x => x[1]);
+            const ok = conta(r => r.acao === 'novo' || r.acao === 'juntar');
+            const semVOD = base().length - fonte().length;
+            j.querySelector('#le-imp-resumo').innerHTML = (P.length ? `${porCol.map(([c, n]) => `<span class="le-chip on">${esc(c.icone || '')} ${esc(c.nome)} <small>${n}</small></span>`).join('')}
+              <span class="le-chip">${conta(r => r.eps)} séries · ${P.reduce((n, r) => n + (r.eps || 0), 0)} episódios</span><span class="le-chip">${conta(r => !r.eps)} filmes</span>
+              ${conta(r => r.copias > 1) ? `<span class="le-chip">${conta(r => r.copias > 1)} com cópias juntadas</span>` : ''}${conta(r => r.acao === 'erro') ? `<span class="le-chip" style="color:#f87171">${conta(r => r.acao === 'erro')} com problema</span>` : ''}` : '')
+              + (semVOD ? `<span class="le-chip" title="Canais ao vivo vão pela aba Canais. Lista de filmes em .m3u8? Marque 'tratar todos como filme/série'.">${semVOD} ao vivo (aba Canais)</span>` : '');
+            const g = j.querySelector('#le-vod-gravar');
+            g.textContent = ok ? `Gravar no Studio (${conta(r => r.acao === 'novo')} novos · ${conta(r => r.acao === 'juntar')} juntam)` : 'Nada para gravar';
+            g.disabled = !ok;
+            const lista = P.slice(0, 500);
+            j.querySelector('#le-vod-lista').innerHTML = lista.length ? lista.map((r, i) => {
+                const it = r.item, [rot, cor] = ROT_ACAO[r.acao];
+                const msg = r.acao === 'erro' ? r.erros.join(' · ') : r.motivo || (r.avisos && r.avisos[0]) || '';
+                const dado = VOD.achados.get(r.chave);
+                const que = r.eps ? `série · ${it.temporadas.length} temp. · ${r.eps} ep.` : 'filme' + (it.ano ? ' · ' + it.ano : '');
+                return `<div class="le-imp-linha le-vod">
+                  <select class="le-campo" data-vod-dest="${i}"><option value="">— fica de fora —</option>${cols.map(c => `<option value="${esc(c.id)}" ${r.col === c ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}</select>
+                  <span class="le-as-img">${ehImagem(it.capa) ? `<img src="${esc(it.capa)}" alt="" loading="lazy">` : ''}</span>
+                  <span title="${esc(r.caminho || '')}"><b>${esc(it.nome)}</b><small>${esc(r.caminho ? r.caminho.replace(/^conteudo\//, '') : '')}</small></span>
+                  <span>${esc(que)}${it.audio ? ' · ' + esc(it.audio) : ''}</span>
+                  <span class="le-mono" title="links do filme (o 1º é o principal, os outros são reserva)">${r.eps ? '—' : (it.links || []).length}</span>
+                  <span style="color:${dado ? (dado.ok ? '#4ade80' : '#fbbf24') : '#64748b'}" title="${esc(dado ? dado.texto : 'Ainda não buscado no TMDB')}">${dado ? (dado.ok ? '✓ TMDB' : '?') : it.descricao ? '✓' : '—'}</span>
+                  <span style="color:${cor}" title="${esc(msg)}"><b>${esc(rot)}</b>${msg ? `<small>${esc(msg)}</small>` : ''}</span>
+                </div>`;
+            }).join('') + (P.length > 500 ? `<p class="le-dica">Mostrando 500 de ${P.length}. Todos entram na gravação.</p>` : '')
+                : `<p class="le-dica" style="padding:12px 0">Nenhum filme ou série nessa lista. ${base().length ? 'Se for uma lista de filmes em .m3u8, marque "tratar todos como filme/série".' : 'Monte a lista nova primeiro.'}</p>`;
+            j.querySelectorAll('[data-vod-dest]').forEach(sel => { sel.onchange = () => { VOD.destinos.set(lista[+sel.dataset.vodDest].chave, sel.value); pintar(); }; });
+        };
+        j.querySelector('#le-vod-origem').onchange = (e) => { VOD.origem = e.target.value; pintar(); };
+        j.querySelector('#le-vod-todos').onchange = (e) => { VOD.todos = e.target.checked; pintar(); };
+        j.querySelector('#le-vod-rasc').onchange = (e) => { VOD.rascunho = e.target.checked; pintar(); };
+        j.querySelector('#le-vod-tmdb').onclick = async (e) => {
+            if (!S.completar) return S.aviso('A busca no TMDB precisa do Studio.', 'ruim');
+            const b = e.target, faltam = P.filter(r => r.col && r.acao !== 'fora' && !VOD.achados.has(r.chave) && (!r.item.capa || !r.item.descricao || (r.eps && !r.item.banner)));
+            if (!faltam.length) return S.aviso('Todos já têm capa e sinopse.', 'ok');
+            if (!S.temTmdb()) S.aviso('Sem a chave do TMDB (Chaves, no topo do Studio) a busca usa a Wikipedia, que acha menos coisa.', 'ruim');
+            b.disabled = true;
+            let n = 0;
+            for (const r of faltam) {
+                if (!j.isConnected) return;
+                b.textContent = `Buscando ${++n}/${faltam.length}…`;
+                try {
+                    const x = await S.completar(r.item);
+                    VOD.dados.set(r.chave, x.item);
+                    VOD.achados.set(r.chave, { ok: !!x.achados.length, texto: x.achados.concat(x.avisos).join(' · ') || 'nada' });
+                } catch (er) { VOD.achados.set(r.chave, { ok: false, texto: er.message }); }
+                if (n % 5 === 0) pintar();
+            }
+            b.disabled = false; b.textContent = '🔎 Completar no TMDB (só o que falta)';
+            pintar();
+            S.aviso(`TMDB: ${[...VOD.achados.values()].filter(a => a.ok).length} achados. Os com "?" foram achados pelo nome ou não acharam — confira antes de gravar.`, 'ok');
+        };
+        j.querySelector('#le-vod-gravar').onclick = async (e) => {
+            const b = e.target, ok = P.filter(r => r.acao === 'novo' || r.acao === 'juntar');
+            b.disabled = true; b.textContent = 'Gravando…';
+            try {
+                const mudancas = [];
+                for (const r of ok) {
+                    let item = r.item;
+                    if (r.acao === 'juntar') { try { item = S.C.mesclarItem(await S.ler(r.caminho), item); } catch (er) { /* sumiu: grava como novo */ } }
+                    mudancas.push({ caminho: r.caminho, conteudo: S.C.serializar(item) });
+                }
+                await S.gravar(mudancas, `Link Edit: ${ok.length} filmes/séries (${E.nova.nome})`);
+                fecharJanela();
+                S.aviso(`${ok.length} filmes/séries gravados no Studio${VOD.rascunho ? ' como rascunho' : ''}.`, 'ok');
             } catch (er) { b.disabled = false; b.textContent = 'Tentar de novo'; }
         };
         pintar();
@@ -1228,6 +1336,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-imp-linha{padding:5px 4px;border-bottom:1px solid #141821;font-size:12.5px}.le-imp-linha .le-campo{height:30px;padding:0 6px;font-size:12px;width:100%}
 .le-imp-linha b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.le-imp-linha small{display:block;font-size:11px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .le-imp-linha .le-as-img{height:30px}
+.le-imp-cab.le-vod,.le-imp-linha.le-vod{grid-template-columns:170px 40px minmax(160px,1.6fr) minmax(110px,1fr) 56px 60px minmax(130px,1.1fr)}
+.le-imp-linha.le-vod .le-as-img{height:52px}.le-imp-linha.le-vod .le-as-img img{max-height:50px}
+.le-aba small{color:var(--s);margin-left:4px}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;

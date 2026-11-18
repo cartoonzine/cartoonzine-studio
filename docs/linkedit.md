@@ -24,6 +24,14 @@ Botão **➜ Enviar ao Studio** na lista nova (ou os marcados). Mostra tudo ante
 - **Categorias:** a lista oficial é `categoriasCanais` do `studio.config.json` (a do TVzine). Nomes de outras listas viram o oficial ("Abertos" → TV Aberta, "Gospel" → Religioso, "Filmes" → Filmes e Séries).
 - **Guias:** o canal guarda o link do guia (`epg`); o DB publicado leva `epg` no topo e a M3U o `url-tvg`.
 
+## Parte 2 — Enviar ao Studio (filmes e séries)
+Aba **🎬 Filmes e séries** na mesma janela:
+- Entram arquivos (mp4, mkv…), torrents e links `/movie/` `/series/` do Xtream; lista de filmes em .m3u8 → "tratar todos como filme/série".
+- **Episódios** (S01E02, 1x02, Episódio 2) viram **uma série com temporadas**; **cópias** do mesmo filme (nome + ano) viram um item com as outras de reserva.
+- **Destino pelo tipo:** Animes, Cartoons (desenho/infantil), Séries, Filmes (torrent → Filmes torrent); trocável por linha.
+- **🔎 Completar no TMDB (só o que falta):** capa, banner, sinopse, ano, gêneros e episódios — nunca troca o que já tem (sem chave do TMDB usa a Wikipedia).
+- Já existe no Studio (mesmo nome na coleção) → junta: episódios novos na temporada certa, links novos de reserva.
+
 ## Próximas fases
 2. Tela de Scan com gráfico de tempo de abertura e ações em massa; quarentena com reteste automático.
 3. Receitas (listas que se refazem sozinhas no robô do Cloud) e envio direto para o Cloud (`sources-idioma.json`).
