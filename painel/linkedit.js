@@ -241,30 +241,149 @@
             c.historico = (c.historico || []).concat(r.status === 'vivo' || r.status === 'lento' || r.status === 'pede-ua').slice(-10);
         }
     }
-    async function scan(lista) {
-        if (!local()) return S.aviso('O Scan testa os canais pelo painel no seu PC (node tools/painel.mjs). Online, teste um por um no visualizador.', 'ruim');
-        if (E.scan) return;
+    // ---------------------------------------------------------------- SCAN EM LOTE
+    // Testa centenas/milhares de canais pelo painel do PC: N ao mesmo tempo, pausar/continuar/parar, tempo restante,
+    // contadores, gráfico do tempo de abertura e, no fim, ações de um clique. Na quarentena, o canal que morre
+    // 3 vezes seguidas pode ser apagado de vez; o que volta a abrir sai da quarentena sozinho.
+    const VIVO = (st) => st === 'vivo' || st === 'lento' || st === 'pede-ua';
+    const esperar = (ms) => new Promise(r => setTimeout(r, ms));
+    let velocidadeScan = 8;
+    try { velocidadeScan = +localStorage.getItem(GUARDA + '-vel') || 8; } catch (e) { /* */ }
+    async function scan(lista, opts = {}) {
+        if (!local()) return abrirScan();
+        if (E.scan) return S.aviso('Já tem um scan rodando (barra acima da tabela).', 'ruim');
         const alvo = lista.filter(c => !/^(magnet|rtmp|rtsp|udp|srt|mms)/i.test(c.url));
         if (!alvo.length) return S.aviso('Nada para testar aqui.', 'ruim');
-        const sc = E.scan = { total: alvo.length, feitos: 0, parar: false, vivos: 0, mortos: 0 };
-        desenharScan();
+        const sc = E.scan = { total: alvo.length, feitos: 0, parar: false, pausado: false, t0: Date.now(), pausaMs: 0,
+            n: { vivo: 0, lento: 0, 'pede-ua': 0, bloqueado: 0, morto: 0 }, ultimos: [], alvo, rotulo: opts.rotulo || '', quarentena: !!opts.quarentena };
+        desenharScan(); pintarScanJanela();
         let i = 0;
-        const LIMITE = 8;
         const trabalhar = async () => {
             while (!sc.parar && i < alvo.length) {
+                while (sc.pausado && !sc.parar) await esperar(250);
+                if (sc.parar) break;
                 const c = alvo[i++];
                 c.testando = true;
                 const r = await testarUm(c);
                 c.testando = false;
                 sc.feitos++;
-                if (r && (r.status === 'vivo' || r.status === 'lento' || r.status === 'pede-ua')) sc.vivos++; else if (r) sc.mortos++;
-                if (sc.feitos % 4 === 0 || sc.feitos === sc.total) { desenharScan(); agendarTabela(); }
+                if (r && r.status) {
+                    sc.n[r.status] = (sc.n[r.status] || 0) + 1;
+                    if (sc.quarentena) {
+                        if (VIVO(r.status)) { c.quarentena = false; c.mortesSeguidas = 0; }
+                        else c.mortesSeguidas = (c.mortesSeguidas || 0) + 1;
+                    }
+                    sc.ultimos.unshift({ nome: c.nome, st: r.status, txt: VIVO(r.status) ? [r.tipo && String(r.tipo).toUpperCase(), r.resolucao, r.ms ? (r.ms / 1000).toFixed(1).replace('.', ',') + ' s' : ''].filter(Boolean).join(' · ') : (r.motivo || '') });
+                    sc.ultimos.length = Math.min(sc.ultimos.length, 8);
+                }
+                if (sc.feitos % 4 === 0 || sc.feitos === sc.total) { desenharScan(); agendarTabela(); pintarScanJanela(); }
+                if (sc.feitos % 50 === 0) salvar();
             }
         };
-        await Promise.all(Array.from({ length: Math.min(LIMITE, alvo.length) }, trabalhar));
+        await Promise.all(Array.from({ length: Math.min(velocidadeScan, alvo.length) }, trabalhar));
+        sc.fim = Date.now();
         E.scan = null;
-        salvar(); desenharTudo();
-        S.aviso(`Scan: ${sc.feitos} testados · ${sc.vivos} vivos · ${sc.mortos} com problema.`, 'ok');
+        E.ultimoScan = sc;
+        salvar(); desenharTudo(); pintarScanJanela();
+        const vivos = sc.n.vivo + sc.n.lento + sc.n['pede-ua'];
+        S.aviso(`Scan${sc.parar ? ' parado' : ''}: ${sc.feitos} testados · ${vivos} vivos · ${sc.feitos - vivos} com problema.`, 'ok');
+    }
+    const tempoTxt = (ms) => { const s = Math.round(ms / 1000); return s < 60 ? s + ' s' : s < 3600 ? Math.floor(s / 60) + ' min ' + String(s % 60).padStart(2, '0') + ' s' : Math.floor(s / 3600) + ' h ' + String(Math.floor(s % 3600 / 60)).padStart(2, '0') + ' min'; };
+    function pausarScan(sim) { const sc = E.scan; if (!sc) return; if (sim && !sc.pausado) sc.pausadoEm = Date.now(); if (!sim && sc.pausado && sc.pausadoEm) sc.pausaMs += Date.now() - sc.pausadoEm; sc.pausado = sim; desenharScan(); pintarScanJanela(); }
+    /** Janela do Scan: o que testar, como, velocidade; acompanha ao vivo e, no fim, as ações de um clique. */
+    function abrirScan() {
+        const conta = (f) => E.canais.filter(c => !c.quarentena && f(c)).length;
+        const vis = E.visiveis.length ? E.visiveis : E.canais.filter(c => !c.quarentena);
+        const ALVOS = [
+            ['marcados', `Os marcados`, () => selecionados()],
+            ['visiveis', `Os que aparecem agora (filtros)`, () => vis],
+            ['nunca', `Só os que nunca foram testados`, () => E.canais.filter(c => !c.quarentena && !c.teste)],
+            ['mortos', `Retestar os mortos e bloqueados`, () => E.canais.filter(c => !c.quarentena && c.teste && !VIVO(c.teste.status))],
+            ['quarentena', `A quarentena (volta quem abrir)`, () => E.canais.filter(c => c.quarentena)]
+        ];
+        const padrao = E.sel.size ? 'marcados' : conta(c => !c.teste) ? 'nunca' : 'visiveis';
+        const j = janela(`<h3>Scan em lote</h3>
+          ${local() ? '' : `<div class="le-aviso-scan"><b>O Scan precisa do painel do seu PC.</b> O navegador sozinho não abre a maioria dos canais (links <code>http://</code> numa página <code>https://</code> e servidores que não deixam outra página ler). Na pasta do Studio rode <code>node tools/painel.mjs</code> e abra <code>http://localhost:4321</code> — lá o Scan testa vários canais ao mesmo tempo.</div>`}
+          <div id="le-sj-config">
+            <div class="le-rot" style="margin-top:4px">O que testar</div>
+            <div class="le-sj-alvos">${ALVOS.map(([k, rot, f]) => { const n = f().length; return `<label class="le-sj-op${n ? '' : ' vazia'}"><input type="radio" name="le-sj-alvo" value="${k}" ${k === padrao ? 'checked' : ''} ${n ? '' : 'disabled'}> ${esc(rot)} <small>${n}</small></label>`; }).join('')}</div>
+            <div class="le-imp-op" style="margin-top:10px">
+              <label>Como <select class="le-campo" id="le-sj-modo"><option value="rapido">Rápido — só confere se responde</option><option value="completo">Completo — abre o stream (resolução, 1º pedaço)</option></select></label>
+              <label>Ao mesmo tempo <select class="le-campo" id="le-sj-vel">${[4, 8, 16, 24, 32].map(v => `<option value="${v}" ${v === velocidadeScan ? 'selected' : ''}>${v} canais</option>`).join('')}</select></label>
+              <button class="le-bt p" id="le-sj-ir" ${local() ? '' : 'disabled'}>▶ Começar</button>
+            </div>
+            <p class="le-dica">Dica: comece no <b>Rápido</b> com 16 ou 24 (milhares em poucos minutos) e passe o <b>Completo</b> só nos vivos. Muitos ao mesmo tempo podem fazer alguns servidores recusarem.</p>
+          </div>
+          <div id="le-sj-vivo"></div>`, 'larga');
+        j.querySelector('#le-sj-modo').value = E.modoTeste;
+        j.querySelector('#le-sj-ir').onclick = () => {
+            const k = (j.querySelector('input[name="le-sj-alvo"]:checked') || {}).value;
+            const a = ALVOS.find(x => x[0] === k);
+            if (!a) return S.aviso('Escolha o que testar.', 'ruim');
+            E.modoTeste = j.querySelector('#le-sj-modo').value;
+            velocidadeScan = +j.querySelector('#le-sj-vel').value || 8;
+            try { localStorage.setItem(GUARDA + '-vel', String(velocidadeScan)); } catch (e) { /* */ }
+            salvar();
+            scan(a[2](), { rotulo: a[1], quarentena: k === 'quarentena' });
+        };
+        pintarScanJanela();
+    }
+    function pintarScanJanela() {
+        const el = raiz && raiz.querySelector('#le-sj-vivo'); if (!el) return;
+        const sc = E.scan || E.ultimoScan;
+        const cfg = raiz.querySelector('#le-sj-config'); if (cfg) cfg.hidden = !!E.scan;
+        if (!sc) { el.innerHTML = ''; return; }
+        const rodando = !!E.scan;
+        const gasto = (sc.fim || Date.now()) - sc.t0 - sc.pausaMs - (sc.pausado && sc.pausadoEm ? Date.now() - sc.pausadoEm : 0);
+        const resta = sc.feitos ? gasto / sc.feitos * (sc.total - sc.feitos) : 0;
+        const vivos = sc.n.vivo + sc.n.lento + sc.n['pede-ua'];
+        const CARDS = [['vivo', 'Vivos', '#4ade80', 'abre rápido'], ['lento', 'Lentos', '#fbbf24', 'mais de 4 s'], ['pede-ua', 'Pedem UA', '#67e8f9', 'só com User-Agent de player (guardado)'], ['bloqueado', 'Bloqueados', '#a78bfa', 'país, app ou link vencido'], ['morto', 'Mortos', '#f87171', 'não abrem']];
+        // tempo para abrir (só vivos do alvo)
+        const faixas = [[0, 1000, '< 1 s'], [1000, 2000, '1–2 s'], [2000, 4000, '2–4 s'], [4000, 8000, '4–8 s'], [8000, 1e12, '> 8 s']];
+        const ms = sc.alvo.filter(c => c.teste && VIVO(c.teste.status) && c.teste.ms).map(c => c.teste.ms);
+        const cont = faixas.map(([a, b]) => ms.filter(x => x >= a && x < b).length), max = Math.max(1, ...cont);
+        const ICO = { vivo: ['✓', '#4ade80'], lento: ['◔', '#fbbf24'], 'pede-ua': ['!', '#67e8f9'], bloqueado: ['◐', '#a78bfa'], morto: ['✗', '#f87171'] };
+        const vivosLista = sc.alvo.filter(c => c.teste && VIVO(c.teste.status));
+        const mortosLista = sc.alvo.filter(c => !c.quarentena && c.teste && !VIVO(c.teste.status));
+        const semLogo = vivosLista.filter(c => !c.logo).length, semGuia = vivosLista.filter(c => !c.epgId).length;
+        const apagar = E.canais.filter(c => c.quarentena && (c.mortesSeguidas || 0) >= 3);
+        el.innerHTML = `
+          <div class="le-sj-topo"><b>${rodando ? (sc.pausado ? '⏸ Pausado' : 'Testando') : sc.parar ? 'Parado' : 'Pronto'}</b> · ${esc(sc.rotulo)} · <b style="color:#e5e7eb">${sc.feitos.toLocaleString('pt-BR')}</b> de ${sc.total.toLocaleString('pt-BR')}
+            <span style="margin-left:auto">${rodando ? (sc.feitos ? 'falta ~' + tempoTxt(resta) : 'começando…') : 'levou ' + tempoTxt(gasto)}</span></div>
+          <div class="le-scan" style="border:0;padding:6px 0"><span class="trilho"><b style="width:${Math.round(sc.feitos / sc.total * 100)}%"></b></span>
+            ${rodando ? `<button class="le-bt" id="le-sj-pausa">${sc.pausado ? '▶ Continuar' : '❚❚ Pausar'}</button><button class="le-bt" id="le-sj-parar">■ Parar</button>` : ''}</div>
+          <div class="le-sj-cards">${CARDS.map(([k, rot, cor, dica]) => `<div class="le-sj-card" title="${esc(dica)}"><b style="color:${cor}">${(sc.n[k] || 0).toLocaleString('pt-BR')}</b><span>${rot}</span></div>`).join('')}</div>
+          <div class="le-sj-meio">
+            <div><div class="le-rot">Tempo para abrir (vivos)</div>
+              <div class="le-sj-barras">${faixas.map(([, , rot], k) => `<div><span>${rot}</span><i style="width:${Math.round(cont[k] / max * 100)}%"></i><b>${cont[k]}</b></div>`).join('')}</div></div>
+            <div><div class="le-rot">Últimos</div>
+              <div class="le-sj-ult">${sc.ultimos.map(u => `<div><b style="color:${ICO[u.st] ? ICO[u.st][1] : '#9aa3ad'}">${ICO[u.st] ? ICO[u.st][0] : '?'}</b><span>${esc(u.nome)}</span><small>${esc(u.txt)}</small></div>`).join('') || '<p class="le-dica">…</p>'}</div></div>
+          </div>
+          ${rodando ? '<p class="le-dica">Pode fechar esta janela: o scan continua (barra acima da tabela).</p>' : `
+          <div class="le-rot" style="margin-top:6px">Depois do scan, num clique</div>
+          <div class="le-jan-botoes" style="justify-content:flex-start">
+            <button class="le-bt r" data-sj="vivos" ${vivosLista.length ? '' : 'disabled'}>➜ Vivos para a lista nova (${vivosLista.length})</button>
+            <button class="le-bt" data-sj="mortos" ${mortosLista.length ? '' : 'disabled'}>Mortos para a quarentena (${mortosLista.length})</button>
+            <button class="le-bt" data-sj="logos" ${semLogo ? '' : 'disabled'}>Buscar logos que faltam (${semLogo})</button>
+            <button class="le-bt" data-sj="guias" ${semGuia ? '' : 'disabled'}>Ligar guias (${semGuia})</button>
+            <button class="le-bt" data-sj="vivosSo">Mostrar só os vivos</button>
+            ${apagar.length ? `<button class="le-bt" data-sj="apagar" title="Morreram 3 vezes seguidas na quarentena">Apagar de vez os que morreram 3× (${apagar.length})</button>` : ''}
+            <button class="le-bt" data-sj="novo">Novo scan</button>
+          </div>`}`;
+        const pa = el.querySelector('#le-sj-pausa'); if (pa) pa.onclick = () => pausarScan(!E.scan.pausado);
+        const pr = el.querySelector('#le-sj-parar'); if (pr) pr.onclick = () => { if (E.scan) { E.scan.parar = true; E.scan.pausado = false; } };
+        el.querySelectorAll('[data-sj]').forEach(b => {
+            b.onclick = () => {
+                const k = b.dataset.sj;
+                if (k === 'vivos') { jogarNaLista(vivosLista); fecharJanela(); }
+                else if (k === 'mortos') { quarentena(mortosLista, true); S.aviso(`${mortosLista.length} na quarentena. Teste a quarentena de novo mais tarde: quem voltar sai sozinho.`, 'ok'); fecharJanela(); }
+                else if (k === 'logos') { fecharJanela(); E.sel = new Set(vivosLista.filter(c => !c.logo).map(c => c.id)); acharLogosQueFaltam(); }
+                else if (k === 'guias') { fecharJanela(); ligarGuiasAuto(vivosLista); }
+                else if (k === 'vivosSo') { E.f.soVivos = true; fecharJanela(); desenharFiltros(); desenharTabela(); }
+                else if (k === 'apagar') { lembrar(); const ids = new Set(apagar.map(c => c.id)); E.canais = E.canais.filter(c => !ids.has(c.id)); salvar(); desenharTudo(); S.aviso(`${ids.size} canais apagados de vez (Ctrl+Z não volta estes).`, 'ok'); fecharJanela(); }
+                else if (k === 'novo') { E.ultimoScan = null; abrirScan(); }
+            };
+        });
     }
     function quarentena(canais, sim = true) {
         if (!canais.length) return;
@@ -1310,6 +1429,15 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-imp-cab.le-vod,.le-imp-linha.le-vod{grid-template-columns:170px 40px minmax(160px,1.6fr) minmax(110px,1fr) 56px 60px minmax(130px,1.1fr)}
 .le-imp-linha.le-vod .le-as-img{height:52px}.le-imp-linha.le-vod .le-as-img img{max-height:50px}
 .le-aba small{color:var(--s);margin-left:4px}
+.le-aviso-scan{padding:10px 12px;border-radius:10px;background:#2a1f0a;border:1px solid #5a4410;color:#fde68a;font-size:12.5px;line-height:1.5}.le-aviso-scan code{background:#0d1016;padding:1px 5px;border-radius:4px;color:#67e8f9}
+.le-sj-alvos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px;margin-top:6px}
+.le-sj-op{display:flex;gap:8px;align-items:center;padding:9px 11px;border-radius:9px;background:#11141b;border:1px solid #2a3140;font-size:13px;cursor:pointer}.le-sj-op small{margin-left:auto;color:var(--s)}.le-sj-op.vazia{opacity:.45;cursor:default}
+.le-sj-topo{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--s);margin-top:4px}
+.le-sj-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.le-sj-card{padding:10px 12px;border-radius:10px;background:#11141b;border:1px solid var(--b)}.le-sj-card b{display:block;font-size:22px;font-weight:900}.le-sj-card span{font-size:11.5px;color:var(--s)}
+.le-sj-meio{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:6px}
+.le-sj-barras div{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;font-size:12px;margin-top:5px}.le-sj-barras i{display:block;height:10px;border-radius:5px;background:var(--c);min-width:2px}.le-sj-barras b{color:#cbd5e1;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.le-sj-ult div{display:grid;grid-template-columns:16px minmax(0,1fr) minmax(0,1.3fr);gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid #141821}.le-sj-ult span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}.le-sj-ult small{color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
@@ -1484,8 +1612,11 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         const b = $('#le-scan'); if (b) b.textContent = sc ? 'Scan…' : 'Scan';
         if (!sc) { el.hidden = true; return; }
         el.hidden = false;
-        el.innerHTML = `<span>Testando <b style="color:#e5e7eb">${sc.feitos}</b> de ${sc.total} · <b style="color:#4ade80">${sc.vivos}</b> vivos · <b style="color:#f87171">${sc.mortos}</b> com problema</span><span class="trilho"><b style="width:${Math.round(sc.feitos / sc.total * 100)}%"></b></span><button class="le-bt" id="le-scan-parar">Parar</button>`;
-        const p = $('#le-scan-parar'); if (p) p.onclick = () => { sc.parar = true; };
+        const vivos = sc.n.vivo + sc.n.lento + sc.n['pede-ua'];
+        el.innerHTML = `<span>${sc.pausado ? '⏸ Pausado' : 'Testando'} <b style="color:#e5e7eb">${sc.feitos}</b> de ${sc.total} · <b style="color:#4ade80">${vivos}</b> vivos · <b style="color:#f87171">${sc.feitos - vivos}</b> com problema</span><span class="trilho"><b style="width:${Math.round(sc.feitos / sc.total * 100)}%"></b></span><button class="le-bt" id="le-scan-pausa">${sc.pausado ? '▶ Continuar' : '❚❚ Pausar'}</button><button class="le-bt" id="le-scan-parar">■ Parar</button><button class="le-bt" id="le-scan-ver">Ver</button>`;
+        const p = $('#le-scan-parar'); if (p) p.onclick = () => { sc.parar = true; sc.pausado = false; };
+        const pa = $('#le-scan-pausa'); if (pa) pa.onclick = () => pausarScan(!sc.pausado);
+        const v = $('#le-scan-ver'); if (v) v.onclick = () => abrirScan();
     }
 
     // ---------------------------------------------------------------- eventos
@@ -1504,7 +1635,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });
         $('#le-sel-todos').onclick = () => { const todos = E.visiveis.every(c => E.sel.has(c.id)); E.visiveis.forEach(c => (todos ? E.sel.delete(c.id) : E.sel.add(c.id))); desenharTabela(); };
         $('#le-sel-vivos').onclick = () => { E.visiveis.forEach(c => { if (c.teste && /vivo|lento|pede-ua/.test(c.teste.status)) E.sel.add(c.id); }); desenharTabela(); };
-        $('#le-scan').onclick = () => scan(E.sel.size ? selecionados() : E.visiveis);
+        $('#le-scan').onclick = () => abrirScan();
         $('#le-quarentena').onclick = () => { const l = E.sel.size ? selecionados() : []; if (!l.length) return S.aviso('Selecione os canais (ou use Del no canal do visualizador).', 'ruim'); quarentena(l, !E.f.quarentena); };
         $('#le-jogar').onclick = () => { const l = selecionados(); if (!l.length) return S.aviso('Selecione os canais primeiro (a caixinha à esquerda de cada um).', 'ruim'); jogarNaLista(l); E.sel.clear(); desenharTabela(); };
         $('#le-ant').onclick = () => andar(-1);
@@ -1568,7 +1699,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (ctrl && k === 's') { e.preventDefault(); pedirNomeEBaixar('m3u'); }
             else if (e.key === 'Escape') { if (E.sel.size) { E.sel.clear(); desenharTabela(); } }
             else if (!ctrl && k === 'x' && c) { e.preventDefault(); marcar(c.id, false); }
-            else if (!ctrl && k === 't') { e.preventDefault(); scan(E.sel.size ? selecionados() : E.visiveis); }
+            else if (!ctrl && k === 't') { e.preventDefault(); if (local()) scan(E.sel.size ? selecionados() : E.visiveis, { rotulo: E.sel.size ? 'os marcados' : 'os visíveis' }); else abrirScan(); }
             else if (!ctrl && k === 'l' && c) { e.preventDefault(); abrirLogo(c); }
             else if (!ctrl && k === 'i' && (c || E.sel.size)) { e.preventDefault(); escolherIdioma(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'c' && (c || E.sel.size)) { e.preventDefault(); escolherCategoria(E.sel.size > 1 ? null : c); }
