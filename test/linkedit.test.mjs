@@ -178,3 +178,35 @@ https://srv.exemplo.com/globo2.m3u8
     assert.deepEqual(final.links, ['https://antigo.exemplo.com/globo.m3u8', 'https://srv.exemplo.com/globo.m3u8', 'https://srv.exemplo.com/globo2.m3u8'], 'o que já existia fica 1º; o resto vira reserva');
     assert.equal(final.descricao, 'minha');
 });
+
+test('Filmes e séries: episódios viram série com temporadas, cópias do filme viram reserva, destino pelo tipo', () => {
+    const C = require('../core/studio-core.js');
+    const config = JSON.parse(require('node:fs').readFileSync(new URL('../studio.config.json', import.meta.url), 'utf8'));
+    const cs = L.lerLista(`#EXTM3U
+#EXTINF:-1 tvg-logo="https://img.exemplo.com/naruto.jpg" group-title="Animes",Naruto S01E01
+https://vod.exemplo.com/series/u/p/101.mkv
+#EXTINF:-1 group-title="Animes",Naruto S01E02
+https://vod.exemplo.com/series/u/p/102.mkv
+#EXTINF:-1 group-title="Animes",Naruto S02E01 Dublado
+https://vod.exemplo.com/series/u/p/201.mkv
+#EXTINF:-1 group-title="Filmes | Ação",Matrix (1999)
+https://vod.exemplo.com/movie/u/p/1.mp4
+#EXTINF:-1 group-title="Filmes 4K",Matrix (1999) 4K
+https://outro.exemplo.com/matrix.mkv
+#EXTINF:-1 group-title="Desenhos",Pica-Pau - O Filme (2018)
+https://vod.exemplo.com/movie/u/p/7.mp4
+#EXTINF:-1 group-title="Notícias",Canal Ao Vivo
+https://live.exemplo.com/news.m3u8
+`).canais;
+    assert.deepEqual(cs.map(L.ehVOD), [true, true, true, true, true, true, false]);
+    const plano = L.planejarVOD(cs.filter(L.ehVOD), C, { config, indice: [{ caminho: 'conteudo/filmes/matrix.json', nome: 'Matrix' }] });
+    const porNome = Object.fromEntries(plano.map(r => [r.item.nome, r]));
+    assert.equal(plano.length, 3);
+    assert.equal(porNome.Naruto.col.id, 'animes'); assert.equal(porNome.Naruto.eps, 3); assert.equal(porNome.Naruto.item.temporadas.length, 2);
+    assert.equal(porNome.Naruto.item.capa, 'https://img.exemplo.com/naruto.jpg');
+    assert.equal(porNome.Matrix.col.id, 'filmes'); assert.equal(porNome.Matrix.copias, 2); assert.equal(porNome.Matrix.item.links.length, 2, 'a cópia 4K virou reserva');
+    assert.equal(porNome.Matrix.acao, 'juntar'); assert.equal(porNome.Matrix.caminho, 'conteudo/filmes/matrix.json');
+    assert.equal(porNome['Pica-Pau - O Filme'].col.id, 'cartoons'); assert.equal(porNome['Pica-Pau - O Filme'].item.ano, 2018);
+    const outro = L.planejarVOD(cs.slice(3, 4), C, { config, destinos: new Map([[plano.find(r => r.item.nome === 'Matrix').chave, 'series']]) });
+    assert.equal(outro[0].col.id, 'series', 'destino trocado na mão vale');
+});

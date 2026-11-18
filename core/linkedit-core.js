@@ -421,6 +421,73 @@
             return r;
         });
     }
+    // ---------------------------------------------------------------- IMPORTADOR de FILMES e SÉRIES (VOD)
+    /** É filme/episódio (arquivo, torrent, VOD do Xtream) e não canal ao vivo? */
+    function ehVOD(it) {
+        const f = it.formato || formatoDe(it.url);
+        return f === 'arquivo' || f === 'torrent' || /\/(movie|movies|series|vod)\//i.test(it.url || '');
+    }
+    const chaveTitulo = (C, item) => C.normText(item.nome) + '|' + (item.temporadas ? 'serie' : (item.ano || ''));
+    /** Coleção de vídeo pelo jeito do item: torrent → coleção torrent · anime → Animes · desenho/infantil → Cartoons · série → Séries · resto → Filmes. */
+    function destinoVOD(item, dica, cols) {
+        const id = (x) => (cols.find(c => c.id === x) || {}).id;
+        const n = norm(dica);
+        const torrent = (item.links || []).concat(...(item.temporadas || []).flatMap(t => t.episodios.map(e => e.links || []))).some(u => /^magnet:|\.torrent(\?|$)/i.test(u));
+        if (torrent && !item.temporadas) return (cols.find(c => c.torrent) || {}).id || id('filmes') || '';
+        if (/\banime/.test(n)) return id('animes') || '';
+        if (/\b(desenho|cartoon|infantil|kids|animac|toon)/.test(n)) return id('cartoons') || '';
+        if (item.temporadas && item.temporadas.length) return id('series') || '';
+        return id('filmes') || (cols[0] || {}).id || '';
+    }
+    /**
+     * Filmes e séries da lista → itens do Studio. Episódios ("Naruto S01E03", "1x03", "Episódio 3") viram UMA série
+     * com temporadas; cópias do mesmo filme (mesmo nome + ano) viram UM item com as outras como reserva.
+     * opts: { config, indice:[{caminho,nome}], destinos: Map(chave → coleção), rascunho, dados: Map(chave → item completado no TMDB) }
+     * → [{ chave, item, col, caminho, acao: 'novo'|'juntar'|'erro'|'fora', erros, avisos, copias, eps }]
+     */
+    function planejarVOD(itens, C, opts = {}) {
+        const config = opts.config || {}, cols = (config.colecoes || []).filter(c => c.tipo === 'video');
+        const dicas = new Map();
+        const entradas = itens.map((it) => {
+            const a = C.analisarNome(it.nomeOriginal || it.nome);
+            const links = [it.url].concat((it.reservas || []).map(r => (typeof r === 'string' ? r : r && r.url))).filter(Boolean);
+            const e = Object.assign({}, a, { links, capa: it.logo || undefined });
+            const k = C.normText(a.serie || a.nome);
+            if (!dicas.has(k)) dicas.set(k, [it.grupoSaida, it.grupo, it.tipo].filter(Boolean).join(' '));
+            return e;
+        });
+        // séries agrupadas pelo Studio; filmes repetidos juntados aqui (cópias = reserva)
+        const porChave = new Map();
+        C.agruparEntradas(entradas, { series: true }).forEach((item) => {
+            const k = chaveTitulo(C, item);
+            const ja = porChave.get(k);
+            if (ja) { ja.item = C.mesclarItem(ja.item, item); ja.copias++; } else porChave.set(k, { item, copias: 1 });
+        });
+        const indice = opts.indice || [], usados = new Set(indice.map(i => i.caminho));
+        return [...porChave.entries()].map(([chave, { item: bruto, copias }]) => {
+            let item0 = opts.dados && opts.dados.get(chave) ? C.mesclarItem(opts.dados.get(chave), bruto) : bruto;
+            const colId = opts.destinos && opts.destinos.has(chave) ? opts.destinos.get(chave) : destinoVOD(item0, dicas.get(C.normText(item0.nome)) || dicas.get(C.normText(bruto.nome)) || '', cols);
+            const col = cols.find(c => c.id === colId);
+            const eps = C.contarEpisodios(item0);
+            if (!col) return { chave, item: item0, acao: 'fora', motivo: 'sem destino', erros: [], avisos: [], copias, eps };
+            if (opts.rascunho) item0 = Object.assign({}, item0, { _rascunho: true });
+            const item = C.normalizarItem(item0, col);
+            const { erros, avisos } = C.validarItem(item, col, config);
+            // já existe nessa coleção (mesmo nome)? junta nele
+            const alvo = C.normText(item.nome);
+            const existe = indice.find(i => i.caminho.startsWith('conteudo/' + col.id + '/') && C.normText(i.nome) === alvo);
+            let caminho;
+            if (existe) caminho = existe.caminho;
+            else {
+                const base = C.caminhoItem(col, item), pasta = base.slice(0, base.lastIndexOf('/') + 1);
+                const nomes = new Set([...usados].filter(c => c.startsWith(pasta)).map(c => c.slice(pasta.length).replace(/\.json$/, '')));
+                caminho = C.caminhoItem(col, item, C.slugLivre(C.slugify(item.nome), nomes));
+            }
+            usados.add(caminho);
+            return { chave, item, col, caminho, erros, avisos, copias, eps, acao: erros.length && !opts.rascunho ? 'erro' : existe ? 'juntar' : 'novo' };
+        });
+    }
+
     /** Junta as linhas repetidas do lote (mesmo arquivo) e, se já existe no Studio, o que já estava lá. */
     function itemFinal(r, C, existente) {
         let item = r.item;
@@ -659,7 +726,7 @@
     }
 
     return {
-        IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });
