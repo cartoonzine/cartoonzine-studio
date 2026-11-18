@@ -40,7 +40,7 @@
                 atual = {
                     nome: (l.slice(virg).trim() || a['tvg-name'] || ''),
                     tvgId: a['tvg-id'] || '', tvgNome: a['tvg-name'] || '', logo: a['tvg-logo'] || a.logo || '',
-                    grupo: a['group-title'] || grupo || '', pais: a['tvg-country'] || '', idioma: a['tvg-language'] || '',
+                    grupo: a['group-title'] || grupo || '', pais: a['tvg-country'] || '', idioma: a['tvg-language'] || '', epgShift: +a['tvg-shift'] || undefined,
                     headers: {}
                 };
                 const dur = /^#EXTINF:\s*(-?\d+)/i.exec(l);
@@ -214,6 +214,113 @@
         return c;
     }
 
+    // ---------------------------------------------------------------- EPG (guia de programação, XMLTV)
+    // chavesEPG() é a MESMA comparação do Cloud (tools/epg-pronto.mjs) e do app (tvzine-epg-engine):
+    // o canal que casar aqui casa igual no TVzine.
+    const RUIDO_EPG = /\b(hd|fhd|uhd|sd|4k|8k|h265|hevc|720p|1080p|2160p|60fps|50fps|ao vivo|live|oficial|alt|backup|reserva|sinal|opcao \d)\b/g;
+    function nomeEPG(bruto) {
+        let s = String(bruto || '');
+        if (s.includes('..')) s = s.split('..').pop();
+        s = s.replace(/@[\w-]+$/, '').replace(/\.[a-z]{2}$/i, '');
+        s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        s = s.replace(/&/g, ' and ').replace(/\+/g, ' plus ');
+        s = s.replace(/[._\-\/|:]+/g, ' ').replace(/[\[(][^\])]*[\])]/g, ' ');
+        s = s.replace(RUIDO_EPG, ' ');
+        return s.replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+    }
+    function chavesEPG(bruto) {
+        const base = nomeEPG(bruto);
+        if (!base) return [];
+        const out = new Set([base.replace(/ /g, '')]);
+        const semTv = base.replace(/^tv /, '').replace(/ tv$/, '');
+        const semPais = base.replace(/ (brasil|brazil|br)$/, '');
+        out.add(semTv.replace(/ /g, '')); out.add(semPais.replace(/ /g, '')); out.add(semPais.replace(/^tv /, '').replace(/ /g, ''));
+        out.delete('');
+        return [...out];
+    }
+    const ENT_XML = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+    function textoXML(s) {
+        return String(s || '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/&(#x[0-9a-f]+|#\d+|\w+);/gi, (m, e) => {
+            if (e[0] === '#') { try { return String.fromCodePoint(e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10)); } catch (x) { return m; } }
+            return ENT_XML[e.toLowerCase()] != null ? ENT_XML[e.toLowerCase()] : m;
+        }).trim();
+    }
+    const attrXML = (t, nome) => { const m = new RegExp('\\b' + nome + '\\s*=\\s*("([^"]*)"|\'([^\']*)\')').exec(t); return m ? textoXML(m[2] !== undefined ? m[2] : m[3]) : ''; };
+    /** Hora do XMLTV ("20261118023000 +0000") em ms. */
+    function dataXMLTV(str) {
+        const m = /^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})?\s*([+-])?(\d{2})?:?(\d{2})?/.exec(String(str || '').trim());
+        if (!m) return 0;
+        let ms = Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +(m[6] || 0));
+        if (m[7]) ms -= (m[7] === '-' ? -1 : 1) * ((+m[8]) * 60 + (+(m[9] || 0))) * 60000;
+        return ms;
+    }
+    /** Canais de um pedaço de XMLTV: [{ id, nomes, icone, pais }]. pais = final do id ("Globo.br" → BR). */
+    function canaisXMLTV(texto) {
+        const out = [];
+        const re = /<channel\b([^>]*)>([\s\S]*?)<\/channel>/g;
+        let m;
+        while ((m = re.exec(texto))) {
+            const id = attrXML(m[1], 'id');
+            if (!id) continue;
+            const nomes = [];
+            const rn = /<display-name\b[^>]*>([\s\S]*?)<\/display-name>/g; let n;
+            while ((n = rn.exec(m[2]))) { const t = textoXML(n[1]); if (t && !nomes.includes(t)) nomes.push(t); }
+            const ic = /<icon\b([^>]*)\/?>/.exec(m[2]);
+            const pm = /\.([a-z]{2})(@[\w-]+)?$/i.exec(id);
+            out.push({ id, nomes, icone: ic ? attrXML(ic[1], 'src') : '', pais: pm ? pm[1].toUpperCase() : '' });
+        }
+        return out;
+    }
+    /** Programas de um pedaço de XMLTV, só dos ids pedidos e na janela [de, ate]: Map id → [[ini, fim, titulo, desc]]. */
+    function programasXMLTV(texto, ids, de, ate, mapa = new Map()) {
+        const re = /<programme\b([^>]*)>([\s\S]*?)<\/programme>/g;
+        let m;
+        while ((m = re.exec(texto))) {
+            const id = attrXML(m[1], 'channel');
+            if (ids && !ids.has(id)) continue;
+            const ini = dataXMLTV(attrXML(m[1], 'start')), fim = dataXMLTV(attrXML(m[1], 'stop')) || ini + 3600000;
+            if (fim < de || ini > ate) continue;
+            const t = /<title\b[^>]*>([\s\S]*?)<\/title>/.exec(m[2]), d = /<desc\b[^>]*>([\s\S]*?)<\/desc>/.exec(m[2]);
+            const a = mapa.get(id) || []; a.push([ini, fim, t ? textoXML(t[1]) : '', d ? textoXML(d[1]).slice(0, 240) : '']); mapa.set(id, a);
+        }
+        return mapa;
+    }
+    /**
+     * Canais dos guias que combinam com este canal. indice = [{ guia, id, nomes, icone, pais }].
+     * mesmo tvg-id = 100 · mesmas chaves do nome (igual ao Cloud) = 70 (+15 mesmo país) · nome parecido = 30.
+     */
+    function acharNoGuia(indice, c, max = 20) {
+        const tid = String(c.tvgId || '').toLowerCase();
+        const minhas = new Set(chavesEPG(c.nome).concat(c.tvgId ? chavesEPG(c.tvgId) : []));
+        const base = nomeEPG(c.nome);
+        const r = [];
+        for (const g of indice) {
+            let p = 0;
+            if (tid && g.id.toLowerCase() === tid) p = 100;
+            else if ([g.id].concat(g.nomes).some(n => chavesEPG(n).some(k => minhas.has(k)))) p = 70;
+            else if (base.length >= 3 && g.nomes.some(n => { const x = nomeEPG(n); return x && (x.startsWith(base + ' ') || base.startsWith(x + ' ')); })) p = 30;
+            if (!p) continue;
+            if (c.pais && g.pais === c.pais) p += 15; else if (c.pais && g.pais && p < 100) p -= 20;
+            r.push({ pontos: p, canal: g });
+        }
+        return r.sort((a, b) => b.pontos - a.pontos).slice(0, max);
+    }
+    /** Liga o canal a um canal do guia (o tvg-id passa a ser o id do guia: é por ele que o Cloud/TVzine acha a programação). */
+    function ligarGuia(c, g, shift) {
+        if (!g) { delete c.epgId; delete c.epgGuia; if (c.tvgIdOriginal != null) { c.tvgId = c.tvgIdOriginal; delete c.tvgIdOriginal; } c.chave = chaveDe(c); return c; }
+        if (c.tvgIdOriginal == null) c.tvgIdOriginal = c.tvgId || '';
+        c.tvgId = g.id; c.epgId = g.id; c.epgGuia = g.guia;
+        if (shift != null) c.epgShift = shift;
+        c.chave = chaveDe(c);
+        return c;
+    }
+    /** Guias que a lista usa (vão no url-tvg do topo da M3U). */
+    function guiasDaLista(canais, extra) {
+        const out = [];
+        [].concat(extra || []).concat(canais.map(c => c.epgGuia)).forEach(u => { String(u || '').split(',').map(x => x.trim()).forEach(x => { if (/^https?:\/\//i.test(x) && !out.includes(x)) out.push(x); }); });
+        return out;
+    }
+
     /** País pelo tvg-country, pelo tvg-id ("Globo.br"), por [BR] no nome, pelo grupo ("Brasil | Abertos") ou pelo domínio (.com.br). */
     function paisDe(c) {
         const de = (t) => { const k = norm(t); return PAISES_TAG[k] || null; };
@@ -376,6 +483,7 @@
             if (f.status && f.status.size && !f.status.has((c.teste && c.teste.status) || 'nao-testado')) return false;
             if (f.soVivos && !(c.teste && (c.teste.status === 'vivo' || c.teste.status === 'lento'))) return false;
             if (f.semLogo && c.logo) return false;
+            if (f.semGuia && c.epgId) return false;
             if (f.duplicados && contagemChave && (contagemChave.get(c.chave) || 0) < 2) return false;
             return true;
         });
@@ -394,7 +502,8 @@
     const aspas = (s) => String(s == null ? '' : s).replace(/"/g, "'").replace(/[\r\n]+/g, ' ');
     /** M3U: um #EXTINF por canal; User-Agent/Referer em #EXTVLCOPT; reservas como linhas extras do mesmo canal (opcional). */
     function gerarM3U(canais, opts = {}) {
-        const linhas = ['#EXTM3U' + (opts.epg ? ` url-tvg="${aspas(opts.epg)}"` : '')];
+        const guias = guiasDaLista(canais, opts.epg);
+        const linhas = ['#EXTM3U' + (guias.length ? ` url-tvg="${aspas(guias.join(','))}"` : '')];
         for (const c of canais) {
             const a = [];
             if (c.tvgId) a.push(`tvg-id="${aspas(c.tvgId)}"`);
@@ -402,6 +511,7 @@
             if (c.logo) a.push(`tvg-logo="${aspas(c.logo)}"`);
             if (c.pais) a.push(`tvg-country="${aspas(c.pais)}"`);
             if (c.idioma) a.push(`tvg-language="${aspas(c.idioma)}"`);
+            if (c.epgShift) a.push(`tvg-shift="${aspas(String(c.epgShift))}"`);
             a.push(`group-title="${aspas(c.grupoSaida || c.tipo || c.grupo || 'Variados')}"`);
             const cab = c.headers || {};
             const uma = (url) => {
@@ -424,6 +534,8 @@
             if (c.logo) o.logo = c.logo;
             o.group = c.grupoSaida || c.tipo || c.grupo || 'Variados';
             if (c.tvgId) o.tvgId = c.tvgId;
+            if (c.epgGuia) o.epg = c.epgGuia;
+            if (c.epgShift) o.tvgShift = c.epgShift;
             if (c.pais) o.country = c.pais;
             if (c.idioma) o.language = c.idioma;
             if (c.headers && Object.keys(c.headers).length) o.headers = c.headers;
@@ -439,7 +551,7 @@
     }
 
     return {
-        IDIOMAS, definirIdioma, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        IDIOMAS, definirIdioma, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });

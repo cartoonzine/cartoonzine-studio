@@ -24,7 +24,7 @@
         canais: [],            // todos os canais de todas as listas (c.lista = id da lista)
         sel: new Set(),        // ids selecionados
         foco: null,            // id do canal no visualizador
-        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), soVivos: false, semLogo: false, duplicados: false, quarentena: false },
+        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), soVivos: false, semLogo: false, semGuia: false, duplicados: false, quarentena: false },
         nova: { nome: 'Lista nova', itens: [] },
         desfazer: [],
         scan: null,            // { total, feitos, parar, modo }
@@ -56,7 +56,7 @@
         } catch (e) { /* */ }
     }
     function lembrar() {                      // antes de mudar algo: guarda como estava (Desfazer)
-        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual]) }));
+        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual, c.tvgId || '', c.epgId || '', c.epgGuia || '', c.epgShift || 0, c.tvgIdOriginal]) }));
         if (E.desfazer.length > 60) E.desfazer.shift();
     }
     function desfazer() {
@@ -65,7 +65,8 @@
         const d = JSON.parse(ult);
         E.nova = d.nova;
         const m = new Map(d.flags.map(f => [f[0], f]));
-        E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; if (f.length > 6) { c.idioma = f[4]; c.pais = f[5]; c.chave = f[6]; c.idiomaManual = f[7]; } } });
+        E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; if (f.length > 6) { c.idioma = f[4]; c.pais = f[5]; c.chave = f[6]; c.idiomaManual = f[7]; }
+            if (f.length > 8) { c.tvgId = f[8]; c.epgId = f[9] || undefined; c.epgGuia = f[10] || undefined; c.epgShift = f[11] || undefined; c.tvgIdOriginal = f[12]; if (!c.epgId) delete c.epgId; } } });
         salvar(); desenharTudo();
     }
 
@@ -168,7 +169,7 @@
                 [c.url].concat(c.reservas).forEach(u => { if (u !== ja.url && !ja.reservas.includes(u)) { ja.reservas.push(u); reservas++; } });
                 continue;
             }
-            E.nova.itens.push({ id: c.id, chave: c.chave, nome: c.nome, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, headers: c.headers || {} });
+            E.nova.itens.push({ id: c.id, chave: c.chave, nome: c.nome, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, epgShift: c.epgShift, headers: c.headers || {} });
             novos++;
         }
         salvar(); desenharNova(); desenharTabela();
@@ -387,7 +388,7 @@
             ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
-            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['B', 'banco de logos (Assets)'], ['M · + −', 'som · volume'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
             ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
@@ -601,23 +602,23 @@
 
     // ---------------------------------------------------------------- assets: banco de logos salvos (vale para todas as listas)
     const GUARDA_ASSETS = 'czs-linkedit-assets-v1';
-    const A = { logos: [], pronto: null };
+    const A = { logos: [], guias: [], pronto: null };
     function carregarAssets() {
         if (!A.pronto) {
             A.pronto = (async () => {
                 let d = null;
                 if (local()) { try { d = await (await fetch('/api/linkedit/assets')).json(); } catch (e) { /* */ } }
-                if (!d || !d.logos || !d.logos.length) { try { d = JSON.parse(localStorage.getItem(GUARDA_ASSETS) || 'null') || d; } catch (e) { /* */ } }
-                A.logos = (d && d.logos) || [];
+                if (!d || ((!d.logos || !d.logos.length) && (!d.guias || !d.guias.length))) { try { d = JSON.parse(localStorage.getItem(GUARDA_ASSETS) || 'null') || d; } catch (e) { /* */ } }
+                A.logos = (d && d.logos) || []; A.guias = (d && d.guias) || [];
                 return A.logos;
             })();
         }
         return A.pronto;
     }
     async function gravarAssets() {
-        try { localStorage.setItem(GUARDA_ASSETS, JSON.stringify({ versao: 1, logos: A.logos })); } catch (e) { /* imagens enviadas demais: fica só no arquivo */ }
+        try { localStorage.setItem(GUARDA_ASSETS, JSON.stringify({ versao: 1, logos: A.logos, guias: A.guias })); } catch (e) { /* imagens enviadas demais: fica só no arquivo */ }
         if (local()) {
-            try { await fetch('/api/linkedit/assets', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ logos: A.logos }) }); }
+            try { await fetch('/api/linkedit/assets', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ logos: A.logos, guias: A.guias }) }); }
             catch (e) { S.aviso('Não consegui gravar o banco de logos no PC: ' + e.message, 'ruim'); }
         }
     }
@@ -652,7 +653,7 @@
         await carregarAssets();
         const c = E.canais.find(x => x.id === E.foco);
         const fonte = (E.sel.size ? selecionados() : E.visiveis).filter(x => ehImagem(x.logo));
-        const j = janela(`<h3>Assets · banco de logos <small style="color:var(--s);font-weight:600">${A.logos.length} logos</small></h3>
+        const j = janela(`${abasAssets('logos')}<h3>Assets · banco de logos <small style="color:var(--s);font-weight:600">${A.logos.length} logos</small></h3>
           <p class="le-dica">${local() ? 'Guardado na pasta do Studio (<b>dados/linkedit-assets.json</b>): vale para todas as listas e dá para fazer commit.' : 'Guardado neste navegador. Use <b>Exportar</b> para não perder (no painel local ele vira um arquivo).'}</p>
           <div class="le-jan-botoes" style="justify-content:flex-start">
             <button class="le-bt p" id="le-as-massa" ${fonte.length ? '' : 'disabled'}>★ Salvar logos ${E.sel.size ? 'dos marcados' : 'dos visíveis'} (${fonte.length})</button>
@@ -662,6 +663,7 @@
           <input class="le-campo" id="le-as-busca" placeholder="Buscar logo pelo nome do canal…" value="${esc(filtro)}" autocomplete="off">
           <div class="le-as-cab"><span>Logo</span><span>Canal</span><span>Link</span><span></span></div>
           <div class="le-as-lista" id="le-as-lista"></div>`, 'larga');
+        ligarAbas(j);
         const caixa = j.querySelector('#le-as-lista'), busca = j.querySelector('#le-as-busca');
         const pintar = () => {
             const q = L.norm(busca.value);
@@ -699,6 +701,202 @@
         };
         busca.focus();
     }
+    // ---------------------------------------------------------------- guias (EPG)
+    const abasAssets = (aba) => `<div class="le-abas" role="tablist"><button class="le-aba${aba === 'logos' ? ' on' : ''}" data-aba="logos" role="tab" aria-selected="${aba === 'logos'}">★ Logos</button><button class="le-aba${aba === 'guias' ? ' on' : ''}" data-aba="guias" role="tab" aria-selected="${aba === 'guias'}">📺 Guias (EPG)</button></div>`;
+    function ligarAbas(j) { j.querySelectorAll('[data-aba]').forEach(b => { b.onclick = () => (b.dataset.aba === 'guias' ? abrirGuias() : abrirAssets()); }); }
+    // sugestões de guias abertos (XMLTV). Se algum sair do ar, o "Ler" avisa.
+    const GUIAS_SUGERIDOS = [
+        ['Brasil (epgshare01)', 'https://epgshare01.online/epgshare01/epg_ripper_BR1.xml.gz', 'BR'],
+        ['Portugal (epgshare01)', 'https://epgshare01.online/epgshare01/epg_ripper_PT1.xml.gz', 'PT'],
+        ['México (epgshare01)', 'https://epgshare01.online/epgshare01/epg_ripper_MX1.xml.gz', 'MX'],
+        ['EUA (epgshare01)', 'https://epgshare01.online/epgshare01/epg_ripper_US1.xml.gz', 'US'],
+        ['Pluto TV (todos os países)', 'https://i.mjh.nz/PlutoTV/all.xml.gz', ''],
+        ['Samsung TV Plus (todos)', 'https://i.mjh.nz/SamsungTVPlus/all.xml.gz', '']
+    ];
+    const indiceGuia = new Map();       // url → Promise<[{ guia, guiaNome, id, nomes, icone, pais }]>
+    /** Lê os canais de um guia: pelo painel local (qualquer guia, .gz) ou direto no navegador (se o site deixar). */
+    function lerGuia(g, forcar) {
+        if (!forcar && indiceGuia.has(g.url)) return indiceGuia.get(g.url);
+        const tarefa = (async () => {
+            let canais;
+            if (local()) {
+                const r = await (await fetch('/api/linkedit/epg/canais?url=' + encodeURIComponent(g.url) + (forcar ? '&forcar=1' : ''))).json();
+                if (r.erro) throw new Error(r.erro);
+                canais = r.canais;
+            } else {
+                const r = await fetch(g.url);
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                let corpo = r.body;
+                if (/\.gz(\?|$)/i.test(g.url) && window.DecompressionStream) corpo = corpo.pipeThrough(new DecompressionStream('gzip'));
+                const leitor = corpo.pipeThrough(new TextDecoderStream()).getReader();
+                let texto = '';
+                for (;;) { const { done, value } = await leitor.read(); if (done) break; texto += value; if (texto.includes('<programme') || texto.length > 60e6) { leitor.cancel().catch(() => {}); break; } }
+                canais = L.canaisXMLTV(texto.split('<programme')[0]);
+                if (!canais.length) throw new Error('não achei canais (é um guia XMLTV?)');
+            }
+            g.canais = canais.length; g.lidoEm = Date.now(); delete g.erro;
+            return canais.map(x => Object.assign({ guia: g.url, guiaNome: g.nome, pais: x.pais || g.pais || '' }, x, { pais: x.pais || g.pais || '' }));
+        })();
+        indiceGuia.set(g.url, tarefa);
+        tarefa.catch((e) => { indiceGuia.delete(g.url); g.erro = e.message; });
+        return tarefa;
+    }
+    /** Todos os canais de todos os guias do banco (os que abrirem). */
+    async function indiceDosGuias() {
+        await carregarAssets();
+        const partes = await Promise.all(A.guias.map(g => lerGuia(g).catch(() => [])));
+        return partes.flat();
+    }
+    async function abrirGuias() {
+        await carregarAssets();
+        const daLista = E.listas.map(l => l.epg).filter(Boolean).flatMap(u => String(u).split(',')).map(u => u.trim()).filter(u => u && !A.guias.some(g => g.url === u));
+        const sug = GUIAS_SUGERIDOS.filter(([, u]) => !A.guias.some(g => g.url === u)).concat([...new Set(daLista)].map(u => ['Guia da lista: ' + u.split('/').pop(), u, '']));
+        const j = janela(`${abasAssets('guias')}<h3>Assets · guias de programação (EPG) <small style="color:var(--s);font-weight:600">${A.guias.length} guias</small></h3>
+          <p class="le-dica">Guias XMLTV (.xml ou .xml.gz). O Link Edit lê só a lista de canais de cada guia e liga cada canal ao código certo; a lista exportada leva o <b>url-tvg</b> dos guias que usa — o Cloud/TVzine faz o resto.${local() ? '' : ' <b>Online, muitos guias não abrem (bloqueio do site e .gz): use o painel local.</b>'}</p>
+          <div style="display:flex;gap:6px"><input class="le-campo" id="le-gu-url" placeholder="Link do guia (https://…/guia.xml.gz)" style="flex:2"><input class="le-campo" id="le-gu-nome" placeholder="Nome (opcional)" style="flex:1"><button class="le-bt p" id="le-gu-add">Adicionar</button></div>
+          ${sug.length ? `<div class="le-dica">Sugestões: ${sug.map(([n, u, p]) => `<button class="le-chip" data-gu-sug="${esc(u)}" data-nome="${esc(n)}" data-pais="${esc(p)}" title="${esc(u)}">+ ${esc(n)}</button>`).join(' ')}</div>` : ''}
+          <div class="le-as-cab le-gu"><span>Guia</span><span>Link</span><span>Canais</span><span></span></div>
+          <div class="le-as-lista" id="le-gu-lista"></div>`, 'larga');
+        ligarAbas(j);
+        const caixa = j.querySelector('#le-gu-lista');
+        const pintar = () => {
+            caixa.innerHTML = A.guias.length ? A.guias.map((g, i) => `<div class="le-as-linha le-gu">
+                <span><b>${esc(g.nome)}</b><small>${g.pais ? bandeira(g.pais) + ' ' + esc(g.pais) : '🌐 vários países'}</small></span>
+                <code title="${esc(g.url)}">${esc(g.url)}</code>
+                <span class="le-mono" style="color:${g.erro ? '#f87171' : '#9aa3ad'}" title="${esc(g.erro || '')}">${g.erro ? 'não abriu' : g.canais != null ? g.canais : '—'}</span>
+                <span class="le-as-acoes"><button class="le-bt" data-gu-ler="${i}">${g.canais != null ? 'Reler' : 'Ler'}</button><button class="le-bt" data-gu-copiar="${i}">Copiar</button><button class="le-bt" data-gu-apagar="${i}" aria-label="Apagar ${esc(g.nome)}">✕</button></span>
+              </div>`).join('') : '<p class="le-dica" style="padding:12px 0">Nenhum guia ainda. Adicione um link acima ou clique numa sugestão.</p>';
+        };
+        const ler = async (g, forcar) => {
+            const i = A.guias.indexOf(g);
+            const b = caixa.querySelector(`[data-gu-ler="${i}"]`); if (b) { b.disabled = true; b.textContent = 'Lendo…'; }
+            try { const cs = await lerGuia(g, forcar); S.aviso(`${g.nome}: ${cs.length} canais no guia.`, 'ok'); }
+            catch (e) { S.aviso(`${g.nome}: não abriu (${e.message}).`, 'ruim'); }
+            await gravarAssets(); if (caixa.isConnected) pintar();
+        };
+        const adicionar = (url, nome, pais) => {
+            url = String(url || '').trim();
+            if (!/^https?:\/\//i.test(url)) return S.aviso('Cole um link http(s) de guia XMLTV.', 'ruim');
+            let g = A.guias.find(x => x.url === url);
+            if (!g) { g = { url, nome: (nome || '').trim() || url.split('/').pop().replace(/\.(xml|gz)/gi, '') || 'Guia', pais: pais || '' }; A.guias.push(g); }
+            pintar(); ler(g);
+        };
+        pintar();
+        j.querySelector('#le-gu-add').onclick = () => adicionar(j.querySelector('#le-gu-url').value, j.querySelector('#le-gu-nome').value);
+        j.addEventListener('click', async (e) => {
+            const b = e.target.closest('button'); if (!b) return;
+            if (b.dataset.guSug) { b.remove(); adicionar(b.dataset.guSug, b.dataset.nome, b.dataset.pais); }
+            if (b.dataset.guLer) ler(A.guias[+b.dataset.guLer], true);
+            if (b.dataset.guCopiar) copiarTexto(A.guias[+b.dataset.guCopiar].url, 'Link do guia copiado.');
+            if (b.dataset.guApagar) { const g = A.guias.splice(+b.dataset.guApagar, 1)[0]; indiceGuia.delete(g.url); await gravarAssets(); pintar(); }
+        });
+    }
+
+    const horaCurta = (ms) => new Date(ms).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    /** Liga os canais (e as cópias deles) a um canal do guia. */
+    function aplicarGuia(alvo, g, shift, logoDoGuia) {
+        lembrar();
+        const todos = new Set();
+        alvo.forEach(x => copiasDe(x).forEach(y => todos.add(y)));
+        todos.forEach(x => {
+            const antes = x.url;
+            L.ligarGuia(x, g, shift);
+            if (g && logoDoGuia && g.icone && !ehImagem(x.logo)) x.logo = g.icone;
+            E.nova.itens.forEach(it => { if (it.url === antes) Object.assign(it, { tvgId: x.tvgId, epgId: x.epgId, epgGuia: x.epgGuia, epgShift: x.epgShift, chave: x.chave, logo: it.logo || x.logo }); });
+        });
+        salvar(); desenharFiltros(); desenharTabela(); desenharNova(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        return todos.size;
+    }
+    async function ligarGuiasAuto(alvo0) {
+        await carregarAssets();
+        if (!A.guias.length) { S.aviso('Adicione um guia primeiro (Assets → Guias).', 'ruim'); return abrirGuias(); }
+        const alvo = (alvo0 || (E.sel.size ? selecionados() : E.visiveis)).filter(c => !c.epgId);
+        if (!alvo.length) return S.aviso('Esses canais já estão ligados a um guia.', 'ok');
+        S.aviso('Lendo os guias e comparando os nomes…', 'ok');
+        const indice = await indiceDosGuias();
+        if (!indice.length) return S.aviso('Nenhum guia abriu. Confira os links em Assets → Guias.', 'ruim');
+        lembrar();
+        let n = 0, duvida = 0;
+        const feitos = new Set();
+        alvo.forEach(c => {
+            if (feitos.has(c.chave) || c.epgId) return;
+            const [m] = L.acharNoGuia(indice, c, 1);
+            // só o que é certeza (mesmo tvg-id, ou mesmo nome no mesmo país); o resto vira sugestão na janela do guia
+            if (m && m.pontos >= 85) {
+                const k = c.chave;
+                copiasDe(c).forEach(x => { L.ligarGuia(x, m.canal); if (m.canal.icone && !ehImagem(x.logo)) x.logo = m.canal.icone; });
+                feitos.add(k); feitos.add(c.chave); n++;
+            } else if (m) duvida++;
+        });
+        salvar(); desenharFiltros(); desenharTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        S.aviso(`${n} canais ligados ao guia.` + (duvida ? ` ${duvida} têm sugestão: filtre "Sem guia" e clique no + da coluna Guia.` : ''), n ? 'ok' : 'ruim');
+    }
+    async function escolherGuia(c) {
+        const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
+        if (!alvo.length) return S.aviso('Clique no guia de um canal (ou marque vários e aperte G).', 'ruim');
+        await carregarAssets();
+        const um = alvo.length === 1 ? alvo[0] : null;
+        const shiftAtual = um ? (um.epgShift || 0) : 0;
+        const guiaNome = (u) => (A.guias.find(g => g.url === u) || {}).nome || (u || '').split('/').pop();
+        const j = janela(`<h3>Guia (EPG) · ${um ? esc(um.nome) : alvo.length + ' canais marcados'}</h3>
+          <p class="le-dica">${um ? (um.epgId ? `Ligado a <b>${esc(um.epgId)}</b> · ${esc(guiaNome(um.epgGuia))}` : 'Ainda sem guia.') : 'Liga cada marcado ao canal certo do guia, pelo nome (igual ao TVzine).'}</p>
+          ${A.guias.length ? '' : '<p class="le-dica" style="color:#fbbf24">Nenhum guia no banco ainda. <button class="le-chip" id="le-g-assets">Adicionar guias</button></p>'}
+          ${um ? `<input class="le-campo" id="le-g-busca" placeholder="Buscar no guia: nome ou código do canal…" value="${esc(um.nome)}" autocomplete="off">
+          <div class="le-g-lista" id="le-g-lista"><p class="le-dica">Lendo os guias…</p></div>` : `<div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" id="le-g-auto">Ligar automático nos ${alvo.length} marcados</button></div>`}
+          <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+            <label class="le-dica" style="display:flex;gap:6px;align-items:center">Ajuste de horário <select id="le-g-shift" class="le-campo" style="height:32px;padding:0 8px">${Array.from({ length: 25 }, (_, i) => i - 12).map(h => `<option value="${h}" ${h === shiftAtual ? 'selected' : ''}>${h > 0 ? '+' : ''}${h} h</option>`).join('')}</select></label>
+            <label class="le-dica" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="le-g-logo" checked> usar o logo do guia em quem não tem logo</label>
+          </div>
+          <div class="le-jan-botoes">${alvo.some(x => x.epgId) ? '<button class="le-bt" id="le-g-tirar">Tirar o guia</button>' : ''}${um && um.epgId ? '<button class="le-bt" id="le-g-shift-ok">Salvar só o ajuste de horário</button>' : ''}<button class="le-bt" id="le-g-gerenciar">Guias do banco…</button><button class="le-bt" data-fechar>Fechar</button></div>`);
+        const shift = () => +j.querySelector('#le-g-shift').value || 0;
+        const logo = () => j.querySelector('#le-g-logo').checked;
+        const ga = j.querySelector('#le-g-assets'); if (ga) ga.onclick = () => abrirGuias();
+        j.querySelector('#le-g-gerenciar').onclick = () => abrirGuias();
+        const tirar = j.querySelector('#le-g-tirar'); if (tirar) tirar.onclick = () => { const n = aplicarGuia(alvo.filter(x => x.epgId), null); fecharJanela(); S.aviso(`Guia tirado de ${n} canal(is).`, 'ok'); };
+        const so = j.querySelector('#le-g-shift-ok'); if (so) so.onclick = () => { lembrar(); copiasDe(um).forEach(x => { x.epgShift = shift() || undefined; }); salvar(); fecharJanela(); pintarFicha(um); S.aviso('Ajuste de horário salvo.', 'ok'); };
+        const auto = j.querySelector('#le-g-auto'); if (auto) auto.onclick = () => { fecharJanela(); ligarGuiasAuto(alvo); };
+        if (!um) return;
+        const caixa = j.querySelector('#le-g-lista'), busca = j.querySelector('#le-g-busca');
+        let indice = [];
+        const pintar = () => {
+            const q = busca.value.trim();
+            let res;
+            if (!q || L.norm(q) === L.norm(um.nome)) res = L.acharNoGuia(indice, um, 30);
+            else { const nq = L.nomeEPG(q); res = indice.filter(g => g.id.toLowerCase().includes(q.toLowerCase()) || g.nomes.some(n => L.nomeEPG(n).includes(nq))).slice(0, 40).map(g => ({ pontos: 0, canal: g })); }
+            caixa.innerHTML = res.length ? res.map(({ pontos, canal: g }, i) => `<button class="le-g-op${um.epgId === g.id && um.epgGuia === g.guia ? ' on' : ''}" data-g="${i}">
+                <span class="le-as-img">${g.icone ? `<img src="${esc(g.icone)}" alt="" loading="lazy">` : ''}</span>
+                <span><b>${esc(g.nomes[0] || g.id)}</b><small>${esc(g.id)} · ${esc(g.guiaNome || '')}</small></span>
+                <span class="le-g-nota ${pontos >= 85 ? 'ok' : pontos ? 'meio' : ''}">${pontos >= 85 ? 'certeiro' : pontos ? 'parecido' : ''}${g.pais ? ' ' + bandeira(g.pais) : ''}</span></button>`).join('')
+                : `<p class="le-dica">${A.guias.length ? 'Nada nos guias com esse nome. Tente outra palavra (ou o código, ex.: Globo.br).' : 'Adicione um guia primeiro.'}</p>`;
+            caixa.onclick = (e) => {
+                const b = e.target.closest('[data-g]'); if (!b) return;
+                const g = res[+b.dataset.g].canal;
+                const n = aplicarGuia([um], g, shift(), logo());
+                fecharJanela();
+                S.aviso(`${um.nome} ligado a ${g.id}${n > 1 ? ` (e ${n - 1} cópias)` : ''}.`, 'ok');
+            };
+        };
+        busca.oninput = pintar;
+        busca.focus(); busca.select();
+        indice = await indiceDosGuias();
+        if (caixa.isConnected) pintar();
+    }
+    /** Ficha: o que passa agora e a seguir (prova de que o guia ligou certo). Só no painel local. */
+    async function pintarAgora(c) {
+        const el = $('#le-epg-agora'); if (!el || !c || !c.epgId) return;
+        if (!local()) { el.innerHTML = '<span class="le-dica">A programação aparece no painel local.</span>'; return; }
+        el.innerHTML = '<span class="le-dica">Carregando a programação… (a 1ª vez lê o guia inteiro e pode demorar)</span>';
+        try {
+            const r = await (await fetch('/api/linkedit/epg/agora?url=' + encodeURIComponent(c.epgGuia) + '&id=' + encodeURIComponent(c.epgId))).json();
+            if (E.foco !== c.id || !el.isConnected) return;
+            if (r.erro) throw new Error(r.erro);
+            const d = (c.epgShift || 0) * 3600e3;
+            const linha = (p, rot) => `<div class="le-epg-l"><span>${rot || horaCurta(p[0] + d)}</span><b title="${esc(p[3] || '')}">${esc(p[2] || 'Sem título')}</b><small>${horaCurta(p[0] + d)}–${horaCurta(p[1] + d)}</small></div>`;
+            el.innerHTML = (r.agora || r.seguintes.length) ? (r.agora ? linha(r.agora, 'AGORA') : '') + r.seguintes.slice(0, 2).map(p => linha(p)).join('')
+                : '<span class="le-dica" style="color:#fbbf24">O guia não tem programação deste canal para agora (código certo? guia atualizado?).</span>';
+        } catch (e) { if (el.isConnected) el.innerHTML = `<span class="le-dica" style="color:#f87171">Programação não abriu: ${esc(e.message)}</span>`; }
+    }
+
     async function copiarTexto(t, msg) {
         try { await navigator.clipboard.writeText(t); S.aviso(msg || 'Copiado.', 'ok'); }
         catch (e) { window.prompt('Copie o link:', t); }
@@ -766,11 +964,14 @@
             <div><span>Status</span><b style="color:${COR_STATUS[t.status || 'nao-testado']}">${esc(ROTULO_STATUS[t.status || 'nao-testado'])}</b></div>
             <div><span>Idioma</span><button class="le-idi${c.idioma ? '' : ' vazio'}" data-idioma="${esc(c.id)}" title="Trocar o idioma (I)">${esc(c.idioma || '+ idioma')}${c.pais ? ' ' + bandeira(c.pais) : ''}</button></div>
             <div><span>Confiança</span><b>${esc(conf)}</b></div>
+            <div><span>Guia</span><button class="le-idi${c.epgId ? '' : ' vazio'}" data-guia="${esc(c.id)}" title="${c.epgId ? esc(c.epgId) + ' — trocar (G)' : 'Ligar ao guia (G)'}">${c.epgId ? '✓ ' + esc(c.epgId) : '+ guia'}</button></div>
             ${c.formato === 'arquivo' || t.tamanho ? `<div><span>Tamanho</span><b>${t.tamanho ? (t.tamanho >= 1073741824 ? (t.tamanho / 1073741824).toFixed(1).replace('.', ',') + ' GB' : t.tamanho >= 1048576 ? Math.round(t.tamanho / 1048576) + ' MB' : Math.max(1, Math.round(t.tamanho / 1024)) + ' KB') : '—'}</b></div>
             <div><span>Duração</span><b id="le-ficha-dur">—</b></div>` : ''}
           </div>
           ${t.motivo ? `<div class="le-motivo">${esc(t.motivo)}</div>` : ''}
+          ${c.epgId ? '<div class="le-epg" id="le-epg-agora"></div>' : ''}
           <div class="le-url" title="${esc(c.url)}">${esc(c.url)}</div>`;
+        if (c.epgId) pintarAgora(c);
     }
 
     // ---------------------------------------------------------------- desenho
@@ -806,7 +1007,7 @@
 .le-busca{flex:1;min-width:180px;height:38px}
 .le-scan{padding:8px 14px;border-bottom:1px solid var(--b);display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--s)}
 .le-scan .trilho{flex:1;height:8px;border-radius:99px;background:#141821;overflow:hidden}.le-scan .trilho b{display:block;height:100%;background:var(--c)}
-.le-cab,.le-linha{display:grid;grid-template-columns:30px 40px minmax(140px,1fr) minmax(70px,140px) 64px 92px 62px;gap:10px;align-items:center;padding:0 14px}
+.le-cab,.le-linha{display:grid;grid-template-columns:30px 40px minmax(140px,1fr) minmax(70px,140px) 64px 40px 92px 62px;gap:10px;align-items:center;padding:0 14px}
 .le-cab{height:36px;color:#8b95a3;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--b)}
 #le-corpo{flex:1;overflow:auto;position:relative}
 .le-linha{position:absolute;left:0;right:0;height:${ALTURA_LINHA}px;border-bottom:1px solid #141821;font-size:13px;cursor:pointer}
@@ -877,6 +1078,18 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-as-img{height:40px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:repeating-conic-gradient(#141821 0 25%,#0f1218 0 50%) 0 0/12px 12px}
 .le-as-img img{max-width:62px;max-height:34px;object-fit:contain}
 .le-as-acoes{display:flex;gap:4px}.le-as-acoes .le-bt{height:30px;padding:0 10px;font-size:12px}
+.le-linha .le-idi{line-height:20px;align-self:center}
+.le-guia{background:none;border:0;padding:2px 0;border-radius:5px;font-weight:900;font-size:13px;color:#3a4352}.le-guia:hover,.le-guia:focus-visible{background:#102a31;color:#67e8f9;outline:none}.le-guia.ok{color:#4ade80}
+.le-abas{display:flex;gap:6px;margin:-4px 30px 6px 0}.le-aba{padding:7px 12px;border-radius:999px;background:#161b24;border:1px solid transparent;color:#cbd5e1;font-weight:800;font-size:12.5px}.le-aba.on{background:#102a31;color:#67e8f9;border-color:#1f5560}
+.le-as-cab.le-gu,.le-as-linha.le-gu{grid-template-columns:minmax(140px,1fr) minmax(0,1.6fr) 70px auto}
+.le-g-lista{display:flex;flex-direction:column;gap:5px;max-height:320px;overflow:auto}
+.le-g-op{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;text-align:left;padding:6px 10px;border-radius:8px;background:#11141b;border:1px solid #2a3140;color:#e5e7eb}
+.le-g-op:hover,.le-g-op:focus-visible{border-color:var(--c);outline:none}.le-g-op.on{border-color:var(--c);background:#102a31}
+.le-g-op b{display:block;font-size:13px}.le-g-op small{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--s)}
+.le-g-nota{font-size:11px;font-weight:800;color:var(--s);white-space:nowrap}.le-g-nota.ok{color:#4ade80}.le-g-nota.meio{color:#fbbf24}
+.le-epg{margin-top:8px;padding:8px 10px;border-radius:8px;background:#11141b;display:flex;flex-direction:column;gap:4px}
+.le-epg-l{display:grid;grid-template-columns:52px 1fr auto;gap:8px;align-items:baseline;font-size:12px}.le-epg-l span{font-family:'JetBrains Mono',monospace;font-size:11px;color:#67e8f9}
+.le-epg-l b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.le-epg-l small{color:var(--s);font-size:11px}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
@@ -917,12 +1130,13 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <button class="le-bt" id="le-sel-vivos">Selecionar vivos</button>
                 <button class="le-bt" id="le-scan" title="Testa os selecionados (ou todos os visíveis)">Scan</button>
                 <button class="le-bt" id="le-quarentena" title="Tira da lista principal (pode voltar depois)">Quarentena</button>
+                <button class="le-bt" id="le-guias" title="Liga os marcados (ou visíveis) ao guia de programação, pelo nome — igual ao TVzine">Ligar guias</button>
                 <button class="le-bt" id="le-logos" title="Coloca o logo que falta nos marcados (ou visíveis), pelo banco aberto do iptv-org">Achar logos</button>
                 <button class="le-bt r" id="le-jogar">➜ Jogar na lista nova</button>
                 <button class="le-bt" id="le-ajuda" title="Atalhos do teclado (?)" aria-label="Atalhos do teclado">?</button>
               </div>
               <div class="le-scan" id="le-scan-barra" hidden></div>
-              <div class="le-cab" role="row"><button class="le-caixa" id="le-cab-todos" title="Marcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span>Status</span><span>Abre em</span></div>
+              <div class="le-cab" role="row"><button class="le-caixa" id="le-cab-todos" title="Marcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span title="Guia de programação (EPG)">Guia</span><span>Status</span><span>Abre em</span></div>
               <div id="le-corpo" role="table" aria-label="Canais"><div id="le-alto" style="position:relative"></div></div>
               <div class="le-rodape" id="le-rodape"></div>
             </main>
@@ -982,6 +1196,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
           <div class="le-chips" style="margin-bottom:10px">
             <button class="le-chip rosa ${E.f.soVivos ? 'on' : ''}" data-t="soVivos">Só vivos</button>
             <button class="le-chip ${E.f.semLogo ? 'on' : ''}" data-t="semLogo">Sem logo</button>
+            <button class="le-chip ${E.f.semGuia ? 'on' : ''}" data-t="semGuia">Sem guia</button>
             <button class="le-chip ${E.f.duplicados ? 'on' : ''}" data-t="duplicados">Duplicados</button>
             <button class="le-chip ${E.f.quarentena ? 'on' : ''}" data-t="quarentena">Quarentena</button>
           </div>
@@ -1023,6 +1238,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${esc(c.nome)}</span>
               <span class="le-g" title="${esc(c.grupo)}">${esc(c.grupo || c.tipo)}</span>
               <button class="le-idi${c.idioma ? '' : ' vazio'}${c.idiomaManual ? ' manual' : ''}" data-idioma="${esc(c.id)}" title="${c.idioma ? 'Trocar o idioma (I)' : 'Sem idioma: clique para escolher (I)'}${c.pais ? ' · país ' + esc(c.pais) : ''}">${esc(c.idioma || '+ idioma')}</button>
+              <button class="le-guia${c.epgId ? ' ok' : ''}" data-guia="${esc(c.id)}" title="${c.epgId ? 'Guia: ' + esc(c.epgId) + ' (G)' : 'Ligar ao guia de programação (G)'}">${c.epgId ? '✓' : '+'}</button>
               <span class="le-st" style="color:${COR_STATUS[st]}" title="${esc((c.teste && c.teste.motivo) || '')}">${esc(ROTULO_STATUS[st])}</span>
               <span class="le-mono" style="color:#9aa3ad">${c.teste && c.teste.ms && /vivo|lento|pede-ua/.test(c.teste.status) ? (c.teste.ms / 1000).toFixed(1).replace('.', ',') + ' s' : '—'}</span>
             </div>`;
@@ -1073,6 +1289,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         raiz.querySelectorAll('[data-baixar]').forEach(b => { b.onclick = () => pedirNomeEBaixar(b.dataset.baixar); });
         $('#le-cab-todos').onclick = marcarTodos;
         $('#le-logos').onclick = acharLogosQueFaltam;
+        $('#le-guias').onclick = () => ligarGuiasAuto();
         $('#le-ajuda').onclick = mostrarAtalhos;
         $('#le-mudo').onclick = () => { const v = $('#le-video'); mudarSom({ mudo: !(v ? v.muted : E.som.mudo), vol: !E.som.vol ? 0.6 : undefined }); };
         $('#le-vol').oninput = (e) => mudarSom({ vol: +e.target.value });
@@ -1082,6 +1299,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (!t) return;
             if (t.dataset.tirarLista) return removerLista(t.dataset.tirarLista);
             if (t.dataset.sel) return marcar(t.dataset.sel, e.shiftKey);
+            if (t.dataset.guia) { const cg = E.canais.find(c => c.id === t.dataset.guia); if (cg && !E.sel.has(cg.id)) E.ancora = cg.id; return escolherGuia(cg); }
             if (t.dataset.idioma) { const ci = E.canais.find(c => c.id === t.dataset.idioma); if (ci && !E.sel.has(ci.id)) E.ancora = ci.id; return escolherIdioma(ci); }
             if (t.dataset.logo) return abrirLogo(E.canais.find(c => c.id === t.dataset.logo));
             if (t.dataset.f) { const s = E.f[t.dataset.f]; s.has(t.dataset.v) ? s.delete(t.dataset.v) : s.add(t.dataset.v); desenharFiltros(); desenharTabela(); return; }
@@ -1125,6 +1343,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 't') { e.preventDefault(); scan(E.sel.size ? selecionados() : E.visiveis); }
             else if (!ctrl && k === 'l' && c) { e.preventDefault(); abrirLogo(c); }
             else if (!ctrl && k === 'i' && (c || E.sel.size)) { e.preventDefault(); escolherIdioma(E.sel.size > 1 ? null : c); }
+            else if (!ctrl && k === 'g' && (c || E.sel.size)) { e.preventDefault(); escolherGuia(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'b') { e.preventDefault(); abrirAssets(); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
