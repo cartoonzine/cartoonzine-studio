@@ -321,6 +321,31 @@
         return out;
     }
 
+    /**
+     * Categorias padrão do Cartoonzine/TVzine: viram o group-title da lista exportada, que é a categoria
+     * que o Cloud usa no app. Nome sempre igual = o app fica organizado (nada de "KIDS", "Infantis", "INFANTIL").
+     */
+    const CATEGORIAS = ['Abertos', 'Infantil', 'Desenhos 24H', 'Anime', 'Filmes', 'Séries', 'Esportes', 'Notícias', 'Documentários',
+        'Variedades', 'Música', 'Gospel', 'Religiosos', 'Culinária', 'Reality', 'Novelas', 'Humor', 'Educativos', 'Rádios', 'Adulto'];
+    const CAT_DO_TIPO = { Infantil: 'Infantil', Anime: 'Anime', Filmes: 'Filmes', Séries: 'Séries', Esportes: 'Esportes', Notícias: 'Notícias',
+        Documentários: 'Documentários', Música: 'Música', Religioso: 'Religiosos', Abertos: 'Abertos', Adulto: 'Adulto' };
+    /** Categoria sugerida: o grupo da lista já é uma padrão? senão, pelo tipo descoberto. '' = sem palpite. */
+    function categoriaSugerida(c) {
+        const g = norm(c.grupo).replace(/^[a-z]{2}\s*[|:\-–]\s*/, '');
+        const igual = CATEGORIAS.find(k => norm(k) === g);
+        if (igual) return igual;
+        if (/\b(gospel|evangel)/.test(g + ' ' + norm(c.nome))) return 'Gospel';
+        if (/\b(desenho|cartoon|toon)/.test(g) && /\b24\s?h|24 horas/.test(g + ' ' + norm(c.nome))) return 'Desenhos 24H';
+        if (/\b(novela)/.test(g)) return 'Novelas';
+        if (/\b(culinaria|gastronom|food)/.test(g)) return 'Culinária';
+        return CAT_DO_TIPO[c.tipo] || '';
+    }
+    /** Categoria escolhida (vai no group-title da lista exportada). '' tira e volta ao grupo original. */
+    function definirCategoria(c, cat) {
+        if (cat) { c.grupoSaida = String(cat).trim(); c.categoriaManual = true; } else { delete c.grupoSaida; delete c.categoriaManual; }
+        return c;
+    }
+
     /** País pelo tvg-country, pelo tvg-id ("Globo.br"), por [BR] no nome, pelo grupo ("Brasil | Abertos") ou pelo domínio (.com.br). */
     function paisDe(c) {
         const de = (t) => { const k = norm(t); return PAISES_TAG[k] || null; };
@@ -484,6 +509,7 @@
             if (f.soVivos && !(c.teste && (c.teste.status === 'vivo' || c.teste.status === 'lento'))) return false;
             if (f.semLogo && c.logo) return false;
             if (f.semGuia && c.epgId) return false;
+            if (f.semCategoria && c.grupoSaida) return false;
             if (f.duplicados && contagemChave && (contagemChave.get(c.chave) || 0) < 2) return false;
             return true;
         });
@@ -551,7 +577,7 @@
     }
 
     return {
-        IDIOMAS, definirIdioma, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        IDIOMAS, definirIdioma, CATEGORIAS, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });

@@ -130,3 +130,15 @@ test('Idioma na mão: código com região muda o país junto (TVzine põe no pa�
     assert.equal(c.pais, 'BR', 'sem "país junto" o país fica');
     assert.ok(L.IDIOMAS.length > 20 && L.IDIOMAS.every(i => i.cod && i.nome));
 });
+
+test('Categoria padrão: sugestão pelo grupo/tipo, escolhida vira o group-title exportado', () => {
+    const cs = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="KIDS",Gloob\nhttp://a/1.m3u8\n#EXTINF:-1 group-title="Canais Evangélicos",Rede Gospel\nhttp://a/2.m3u8\n#EXTINF:-1,Sem Grupo\nhttp://a/3.m3u8\n').canais;
+    assert.deepEqual(cs.map(L.categoriaSugerida), ['Infantil', 'Gospel', '']);
+    L.definirCategoria(cs[0], 'Desenhos 24H');
+    assert.match(L.gerarM3U([cs[0]]), /group-title="Desenhos 24H"/);
+    assert.equal(JSON.parse(L.gerarJSON([cs[0]]))[0].group, 'Desenhos 24H');
+    assert.equal(L.filtrar(cs, { semCategoria: true }).length, 2);
+    L.definirCategoria(cs[0], '');
+    assert.match(L.gerarM3U([cs[0]]), /group-title="Infantil"/, 'sem escolha: o tipo descoberto');
+    assert.ok(L.CATEGORIAS.includes('Gospel') && L.CATEGORIAS.includes('Anime'));
+});

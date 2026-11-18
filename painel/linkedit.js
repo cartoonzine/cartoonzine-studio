@@ -24,7 +24,7 @@
         canais: [],            // todos os canais de todas as listas (c.lista = id da lista)
         sel: new Set(),        // ids selecionados
         foco: null,            // id do canal no visualizador
-        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), soVivos: false, semLogo: false, semGuia: false, duplicados: false, quarentena: false },
+        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), soVivos: false, semLogo: false, semGuia: false, semCategoria: false, duplicados: false, quarentena: false },
         nova: { nome: 'Lista nova', itens: [] },
         desfazer: [],
         scan: null,            // { total, feitos, parar, modo }
@@ -56,7 +56,7 @@
         } catch (e) { /* */ }
     }
     function lembrar() {                      // antes de mudar algo: guarda como estava (Desfazer)
-        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual, c.tvgId || '', c.epgId || '', c.epgGuia || '', c.epgShift || 0, c.tvgIdOriginal]) }));
+        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual, c.tvgId || '', c.epgId || '', c.epgGuia || '', c.epgShift || 0, c.tvgIdOriginal, c.grupoSaida || '', !!c.categoriaManual]) }));
         if (E.desfazer.length > 60) E.desfazer.shift();
     }
     function desfazer() {
@@ -66,7 +66,8 @@
         E.nova = d.nova;
         const m = new Map(d.flags.map(f => [f[0], f]));
         E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; if (f.length > 6) { c.idioma = f[4]; c.pais = f[5]; c.chave = f[6]; c.idiomaManual = f[7]; }
-            if (f.length > 8) { c.tvgId = f[8]; c.epgId = f[9] || undefined; c.epgGuia = f[10] || undefined; c.epgShift = f[11] || undefined; c.tvgIdOriginal = f[12]; if (!c.epgId) delete c.epgId; } } });
+            if (f.length > 8) { c.tvgId = f[8]; c.epgId = f[9] || undefined; c.epgGuia = f[10] || undefined; c.epgShift = f[11] || undefined; c.tvgIdOriginal = f[12]; if (!c.epgId) delete c.epgId; }
+            if (f.length > 13) { if (f[13]) { c.grupoSaida = f[13]; c.categoriaManual = f[14]; } else { delete c.grupoSaida; delete c.categoriaManual; } } } });
         salvar(); desenharTudo();
     }
 
@@ -169,7 +170,7 @@
                 [c.url].concat(c.reservas).forEach(u => { if (u !== ja.url && !ja.reservas.includes(u)) { ja.reservas.push(u); reservas++; } });
                 continue;
             }
-            E.nova.itens.push({ id: c.id, chave: c.chave, nome: c.nome, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, epgShift: c.epgShift, headers: c.headers || {} });
+            E.nova.itens.push({ id: c.id, chave: c.chave, nome: c.nome, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, epgShift: c.epgShift, grupoSaida: c.grupoSaida, headers: c.headers || {} });
             novos++;
         }
         salvar(); desenharNova(); desenharTabela();
@@ -388,7 +389,7 @@
             ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
-            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
             ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
@@ -600,25 +601,69 @@
         busca.focus();
     }
 
+    // ---------------------------------------------------------------- categoria (vira o group-title = a categoria no app)
+    async function escolherCategoria(c) {
+        const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
+        if (!alvo.length) return S.aviso('Clique no grupo de um canal (ou marque vários e aperte C).', 'ruim');
+        await carregarAssets();
+        const um = alvo.length === 1 ? alvo[0] : null;
+        const uso = new Map();
+        E.canais.forEach(x => { if (x.grupoSaida) uso.set(x.grupoSaida, (uso.get(x.grupoSaida) || 0) + 1); });
+        const todas = () => [...new Set(L.CATEGORIAS.concat(A.categorias, [...uso.keys()]))];
+        const sug = um ? L.categoriaSugerida(um) : '';
+        const comSug = alvo.filter(x => !x.grupoSaida && L.categoriaSugerida(x)).length;   // quem já tem categoria escolhida fica como está
+        const j = janela(`<h3>Categoria · ${um ? esc(um.nome) : alvo.length + ' canais marcados'}</h3>
+          <p class="le-dica">${um ? `Grupo na lista: <b>${esc(um.grupo || '—')}</b>${um.grupoSaida ? ` · categoria escolhida: <b style="color:#67e8f9">${esc(um.grupoSaida)}</b>` : ''}${sug && sug !== um.grupoSaida ? ` · sugestão: <b>${esc(sug)}</b>` : ''}. ` : ''}A categoria vira o <b>group-title</b> da lista exportada — é o nome que aparece no app. Use sempre os mesmos nomes.</p>
+          <input class="le-campo" id="le-cat-busca" placeholder="Filtrar ou criar uma categoria nova…" autocomplete="off">
+          <div class="le-idi-lista le-cat-lista" id="le-cat-lista"></div>
+          <div class="le-jan-botoes">${!um && comSug ? `<button class="le-bt p" id="le-cat-auto" title="Cada canal recebe a categoria sugerida pelo grupo/tipo dele">Usar a sugestão em cada um (${comSug})</button>` : ''}${alvo.some(x => x.grupoSaida) ? '<button class="le-bt" id="le-cat-tirar">Voltar ao grupo original</button>' : ''}<button class="le-bt" data-fechar>Cancelar</button></div>`);
+        const caixa = j.querySelector('#le-cat-lista'), busca = j.querySelector('#le-cat-busca');
+        const aplicar = async (fn, msg) => {
+            lembrar();
+            alvo.forEach(x => { fn(x); E.nova.itens.forEach(it => { if (it.url === x.url) it.grupoSaida = x.grupoSaida; }); });
+            salvar(); fecharJanela(); desenharFiltros(); desenharTabela(); desenharNova(); pintarFicha(E.canais.find(x => x.id === E.foco));
+            S.aviso(msg + ' Ctrl+Z desfaz.', 'ok');
+        };
+        const escolher = async (cat) => {
+            cat = String(cat || '').trim(); if (!cat) return;
+            if (!todas().includes(cat)) { A.categorias.push(cat); gravarAssets(); }
+            aplicar(x => L.definirCategoria(x, cat), `${cat} em ${alvo.length} canal(is).`);
+        };
+        const pintar = () => {
+            const q = busca.value.trim(), nq = L.norm(q);
+            const vis = todas().filter(k => !nq || L.norm(k).includes(nq));
+            const atual = um && um.grupoSaida;
+            const nova = q && !todas().some(k => L.norm(k) === nq) ? `<button class="le-idi-op le-cat-nova" data-cat="${esc(q)}"><span>＋</span><b>Criar</b><small>“${esc(q)}”</small></button>` : '';
+            caixa.innerHTML = (sug && !nq ? [sug].concat(vis.filter(k => k !== sug)) : vis).map(k => `<button class="le-idi-op${k === atual ? ' on' : ''}" data-cat="${esc(k)}"><span>${k === sug ? '★' : ''}</span><b>${esc(k)}</b><small>${uso.get(k) ? uso.get(k) + ' canais' : L.CATEGORIAS.includes(k) ? '' : 'sua'}</small></button>`).join('') + nova;
+        };
+        pintar();
+        busca.oninput = pintar;
+        busca.onkeydown = (e) => { if (e.key === 'Enter') { const b = caixa.querySelector('[data-cat]'); if (b) escolher(b.dataset.cat); } };
+        caixa.onclick = (e) => { const b = e.target.closest('[data-cat]'); if (b) escolher(b.dataset.cat); };
+        const au = j.querySelector('#le-cat-auto'); if (au) au.onclick = () => aplicar(x => { const k = !x.grupoSaida && L.categoriaSugerida(x); if (k) L.definirCategoria(x, k); }, `Sugestão aplicada em ${comSug} canais.`);
+        const ti = j.querySelector('#le-cat-tirar'); if (ti) ti.onclick = () => aplicar(x => L.definirCategoria(x, ''), 'Voltou ao grupo original.');
+        busca.focus();
+    }
+
     // ---------------------------------------------------------------- assets: banco de logos salvos (vale para todas as listas)
     const GUARDA_ASSETS = 'czs-linkedit-assets-v1';
-    const A = { logos: [], guias: [], pronto: null };
+    const A = { logos: [], guias: [], categorias: [], pronto: null };
     function carregarAssets() {
         if (!A.pronto) {
             A.pronto = (async () => {
                 let d = null;
                 if (local()) { try { d = await (await fetch('/api/linkedit/assets')).json(); } catch (e) { /* */ } }
                 if (!d || ((!d.logos || !d.logos.length) && (!d.guias || !d.guias.length))) { try { d = JSON.parse(localStorage.getItem(GUARDA_ASSETS) || 'null') || d; } catch (e) { /* */ } }
-                A.logos = (d && d.logos) || []; A.guias = (d && d.guias) || [];
+                A.logos = (d && d.logos) || []; A.guias = (d && d.guias) || []; A.categorias = (d && d.categorias) || [];
                 return A.logos;
             })();
         }
         return A.pronto;
     }
     async function gravarAssets() {
-        try { localStorage.setItem(GUARDA_ASSETS, JSON.stringify({ versao: 1, logos: A.logos, guias: A.guias })); } catch (e) { /* imagens enviadas demais: fica só no arquivo */ }
+        try { localStorage.setItem(GUARDA_ASSETS, JSON.stringify({ versao: 1, logos: A.logos, guias: A.guias, categorias: A.categorias })); } catch (e) { /* imagens enviadas demais: fica só no arquivo */ }
         if (local()) {
-            try { await fetch('/api/linkedit/assets', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ logos: A.logos, guias: A.guias }) }); }
+            try { await fetch('/api/linkedit/assets', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ logos: A.logos, guias: A.guias, categorias: A.categorias }) }); }
             catch (e) { S.aviso('Não consegui gravar o banco de logos no PC: ' + e.message, 'ruim'); }
         }
     }
@@ -964,6 +1009,7 @@
             <div><span>Status</span><b style="color:${COR_STATUS[t.status || 'nao-testado']}">${esc(ROTULO_STATUS[t.status || 'nao-testado'])}</b></div>
             <div><span>Idioma</span><button class="le-idi${c.idioma ? '' : ' vazio'}" data-idioma="${esc(c.id)}" title="Trocar o idioma (I)">${esc(c.idioma || '+ idioma')}${c.pais ? ' ' + bandeira(c.pais) : ''}</button></div>
             <div><span>Confiança</span><b>${esc(conf)}</b></div>
+            <div><span>Categoria</span><button class="le-idi${c.grupoSaida ? '' : ' vazio'}" data-cat-canal="${esc(c.id)}" title="Trocar a categoria (C)">${esc(c.grupoSaida || '+ categoria')}</button></div>
             <div><span>Guia</span><button class="le-idi${c.epgId ? '' : ' vazio'}" data-guia="${esc(c.id)}" title="${c.epgId ? esc(c.epgId) + ' — trocar (G)' : 'Ligar ao guia (G)'}">${c.epgId ? '✓ ' + esc(c.epgId) : '+ guia'}</button></div>
             ${c.formato === 'arquivo' || t.tamanho ? `<div><span>Tamanho</span><b>${t.tamanho ? (t.tamanho >= 1073741824 ? (t.tamanho / 1073741824).toFixed(1).replace('.', ',') + ' GB' : t.tamanho >= 1048576 ? Math.round(t.tamanho / 1048576) + ' MB' : Math.max(1, Math.round(t.tamanho / 1024)) + ' KB') : '—'}</b></div>
             <div><span>Duração</span><b id="le-ficha-dur">—</b></div>` : ''}
@@ -1090,6 +1136,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-epg{margin-top:8px;padding:8px 10px;border-radius:8px;background:#11141b;display:flex;flex-direction:column;gap:4px}
 .le-epg-l{display:grid;grid-template-columns:52px 1fr auto;gap:8px;align-items:baseline;font-size:12px}.le-epg-l span{font-family:'JetBrains Mono',monospace;font-size:11px;color:#67e8f9}
 .le-epg-l b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.le-epg-l small{color:var(--s);font-size:11px}
+.le-cat{background:none;border:0;padding:2px 4px;margin-left:-4px;border-radius:5px;font:inherit;text-align:left;cursor:pointer;max-width:100%}
+.le-cat:hover,.le-cat:focus-visible{background:#102a31;color:#67e8f9;outline:none}.le-cat.ok{color:#67e8f9;font-weight:700}
+.le-cat-lista .le-idi-op{grid-template-columns:16px 1fr auto}.le-cat-lista .le-idi-op b{font-family:Inter,sans-serif;font-size:13px;color:#e5e7eb}
+.le-cat-lista .le-idi-op span{color:#fbbf24}.le-cat-nova b{color:#67e8f9!important}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
@@ -1197,6 +1247,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <button class="le-chip rosa ${E.f.soVivos ? 'on' : ''}" data-t="soVivos">Só vivos</button>
             <button class="le-chip ${E.f.semLogo ? 'on' : ''}" data-t="semLogo">Sem logo</button>
             <button class="le-chip ${E.f.semGuia ? 'on' : ''}" data-t="semGuia">Sem guia</button>
+            <button class="le-chip ${E.f.semCategoria ? 'on' : ''}" data-t="semCategoria">Sem categoria</button>
             <button class="le-chip ${E.f.duplicados ? 'on' : ''}" data-t="duplicados">Duplicados</button>
             <button class="le-chip ${E.f.quarentena ? 'on' : ''}" data-t="quarentena">Quarentena</button>
           </div>
@@ -1236,7 +1287,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               <button class="le-caixa ${E.sel.has(c.id) ? 'on' : ''}" data-sel="${esc(c.id)}" aria-label="Selecionar ${esc(c.nome)}" aria-pressed="${E.sel.has(c.id)}"></button>
               <button class="le-logo-c${logo ? '' : ' vazio'}" style="${logo}" data-logo="${esc(c.id)}" title="${logo ? 'Ver, baixar ou trocar o logo (L)' : 'Inserir logo (L)'}" aria-label="Logo de ${esc(c.nome)}"></button>
               <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${esc(c.nome)}</span>
-              <span class="le-g" title="${esc(c.grupo)}">${esc(c.grupo || c.tipo)}</span>
+              <button class="le-g le-cat${c.grupoSaida ? ' ok' : ''}" data-cat-canal="${esc(c.id)}" title="${c.grupoSaida ? 'Categoria: ' + esc(c.grupoSaida) + ' (grupo na lista: ' + esc(c.grupo || '—') + ')' : 'Grupo na lista: ' + esc(c.grupo || '—') + ' — clique para escolher a categoria (C)'}">${esc(c.grupoSaida || c.grupo || c.tipo)}</button>
               <button class="le-idi${c.idioma ? '' : ' vazio'}${c.idiomaManual ? ' manual' : ''}" data-idioma="${esc(c.id)}" title="${c.idioma ? 'Trocar o idioma (I)' : 'Sem idioma: clique para escolher (I)'}${c.pais ? ' · país ' + esc(c.pais) : ''}">${esc(c.idioma || '+ idioma')}</button>
               <button class="le-guia${c.epgId ? ' ok' : ''}" data-guia="${esc(c.id)}" title="${c.epgId ? 'Guia: ' + esc(c.epgId) + ' (G)' : 'Ligar ao guia de programação (G)'}">${c.epgId ? '✓' : '+'}</button>
               <span class="le-st" style="color:${COR_STATUS[st]}" title="${esc((c.teste && c.teste.motivo) || '')}">${esc(ROTULO_STATUS[st])}</span>
@@ -1299,6 +1350,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (!t) return;
             if (t.dataset.tirarLista) return removerLista(t.dataset.tirarLista);
             if (t.dataset.sel) return marcar(t.dataset.sel, e.shiftKey);
+            if (t.dataset.catCanal) { const cc = E.canais.find(c => c.id === t.dataset.catCanal); if (cc && !E.sel.has(cc.id)) E.ancora = cc.id; return escolherCategoria(cc); }
             if (t.dataset.guia) { const cg = E.canais.find(c => c.id === t.dataset.guia); if (cg && !E.sel.has(cg.id)) E.ancora = cg.id; return escolherGuia(cg); }
             if (t.dataset.idioma) { const ci = E.canais.find(c => c.id === t.dataset.idioma); if (ci && !E.sel.has(ci.id)) E.ancora = ci.id; return escolherIdioma(ci); }
             if (t.dataset.logo) return abrirLogo(E.canais.find(c => c.id === t.dataset.logo));
@@ -1343,6 +1395,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 't') { e.preventDefault(); scan(E.sel.size ? selecionados() : E.visiveis); }
             else if (!ctrl && k === 'l' && c) { e.preventDefault(); abrirLogo(c); }
             else if (!ctrl && k === 'i' && (c || E.sel.size)) { e.preventDefault(); escolherIdioma(E.sel.size > 1 ? null : c); }
+            else if (!ctrl && k === 'c' && (c || E.sel.size)) { e.preventDefault(); escolherCategoria(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'g' && (c || E.sel.size)) { e.preventDefault(); escolherGuia(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'b') { e.preventDefault(); abrirAssets(); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
