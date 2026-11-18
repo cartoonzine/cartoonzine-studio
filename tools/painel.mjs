@@ -14,6 +14,7 @@ import path from 'node:path';
 import { Core, RAIZ, lerConfig, lerColecao, lerArgs } from './lib.mjs';
 import { build } from './build.mjs';
 import { testarCanal, baixarLista, tunel } from './linkedit-rede.mjs';
+import { canaisDoGuia, programacao } from './linkedit-epg.mjs';
 
 const TIPOS_MIME = {
     '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
@@ -92,10 +93,19 @@ export function criarServidor({ raiz = RAIZ } = {}) {
                     const d = await corpo(req);
                     if (!d || !Array.isArray(d.logos)) return json(res, 400, { erro: 'formato inválido' });
                     fs.mkdirSync(path.dirname(arq), { recursive: true });
-                    fs.writeFileSync(arq, JSON.stringify({ versao: 1, logos: d.logos }, null, 1));
+                    fs.writeFileSync(arq, JSON.stringify({ versao: 1, logos: d.logos, guias: Array.isArray(d.guias) ? d.guias : [] }, null, 1));
                     return json(res, 200, { ok: true, total: d.logos.length });
                 }
                 try { return json(res, 200, JSON.parse(fs.readFileSync(arq, 'utf8'))); } catch (e) { return json(res, 200, { versao: 1, logos: [] }); }
+            }
+            // guias (EPG): índice de canais do guia e o que passa agora num canal
+            if (url.pathname === '/api/linkedit/epg/canais') {
+                try { const c = await canaisDoGuia(url.searchParams.get('url') || '', { forcar: url.searchParams.get('forcar') === '1' }); return json(res, 200, { canais: c }); }
+                catch (e) { return json(res, 200, { erro: e.message }); }
+            }
+            if (url.pathname === '/api/linkedit/epg/agora') {
+                try { return json(res, 200, await programacao(url.searchParams.get('url') || '', url.searchParams.get('id') || '')); }
+                catch (e) { return json(res, 200, { erro: e.message }); }
             }
             if (url.pathname === '/api/linkedit/tunel') return await tunel(req, res, '/api/linkedit/tunel');
             // 🔗 Link test: o link responde? deixa abrir dentro de outra página (cartucho web)?
