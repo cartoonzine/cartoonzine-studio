@@ -133,10 +133,7 @@
     "Infantil", "Poesia", "Contos e Fábulas", "História", "Ciência", "Religião", "Biografias", "Didáticos", "Outros"
   ],
 
-  "categoriasCanais": [
-    "TV Aberta", "Notícias", "Esportes", "Infantil", "Filmes e Séries", "Documentários",
-    "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"
-  ],
+  "categoriasCanais": ["TV Aberta", "Notícias", "Esportes", "Infantil", "Filmes e Séries", "Documentários", "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"],
 
   "_comentarioConsoles": "Jogos Retrô: um DB por console. \"core\" = sistema do EmulatorJS que abre o jogo (o jogo pode trocar no campo Core). Arcade junta todos os cores de arcade: FBNeo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1, fbalpha2012_cps2. \"threads\": precisa de SharedArrayBuffer (funciona no app do PC; navegador comum pode não abrir). \"semEmulador\": o EmulatorJS não tem esse sistema; o jogo precisa de outro jeito de abrir.",
   "consoles": [

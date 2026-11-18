@@ -15,6 +15,15 @@ Tela do Studio (botão **🔗 Link Edit**, ou `…/painel/#linkedit`) para edita
 O Scan e o túnel precisam do painel local (`node tools/painel.mjs`): o navegador sozinho não lê a maioria dos canais (CORS).
 Endereços internos (localhost, rede da casa) são recusados pelo teste e pelo túnel.
 
+## Parte 2 — Enviar ao Studio (canais)
+Botão **➜ Enviar ao Studio** na lista nova (ou os marcados). Mostra tudo antes de gravar:
+- **Destino pela categoria:** Canais (TVzine) separados por país · *Desenhos 24H* → Desenhos 24 Horas (link do YouTube → YouToon) · *Rádios* → Rádios. Filme/série em arquivo fica de fora (importador de filmes). Dá para trocar o destino de cada linha.
+- **Formato do Studio:** país, idioma no nome do Studio (pt-BR → Português), categoria oficial, logo, tvg-id + guia (EPG), User-Agent/Referer; reservas viram links extras.
+- **Já existe?** Junta (links novos viram reserva, campos vazios são completados, nada é apagado). Repetido no lote vira reserva.
+- **Falta dado** (ex.: país): não grava; "País para quem não tem" resolve em massa. Opções: só os vivos, como rascunho.
+- **Categorias:** a lista oficial é `categoriasCanais` do `studio.config.json` (a do TVzine). Nomes de outras listas viram o oficial ("Abertos" → TV Aberta, "Gospel" → Religioso, "Filmes" → Filmes e Séries).
+- **Guias:** o canal guarda o link do guia (`epg`); o DB publicado leva `epg` no topo e a M3U o `url-tvg`.
+
 ## Próximas fases
 2. Tela de Scan com gráfico de tempo de abertura e ações em massa; quarentena com reteste automático.
 3. Receitas (listas que se refazem sozinhas no robô do Cloud) e envio direto para o Cloud (`sources-idioma.json`).

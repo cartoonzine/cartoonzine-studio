@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
 const L = createRequire(import.meta.url)('../core/linkedit-core.js');
 
 const M3U = `#EXTM3U url-tvg="https://epg.x/guia.xml.gz"
@@ -115,8 +116,8 @@ test('Vídeos de listas de streaming: formatos, VOD Xtream, Drive/Dropbox e Film
     assert.equal(d.formato, 'arquivo'); assert.ok(d.urlOriginal.includes('/view'));
     assert.equal(L.linkDireto('https://www.dropbox.com/s/abc/filme.mp4?dl=0'), 'https://www.dropbox.com/s/abc/filme.mp4?raw=1');
     assert.equal(L.linkDireto('https://www.dropbox.com/scl/fi/abc/filme.mp4?rlkey=x'), 'https://www.dropbox.com/scl/fi/abc/filme.mp4?rlkey=x&raw=1');
-    assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,Dark S01E02\nhttp://s/series/u/p/9.mkv\n').canais[0].tipo, 'Séries');
-    assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,O Auto da Compadecida (2000)\nhttp://s/movie/u/p/8.mp4\n').canais[0].tipo, 'Filmes');
+    assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,Dark S01E02\nhttps://srv.exemplo.com/series/u/p/9.mkv\n').canais[0].tipo, 'Séries');
+    assert.equal(L.lerLista('#EXTM3U\n#EXTINF:-1,O Auto da Compadecida (2000)\nhttps://srv.exemplo.com/movie/u/p/8.mp4\n').canais[0].tipo, 'Filmes');
 });
 
 test('Idioma na mão: código com região muda o país junto (TVzine põe no país certo) e sai no M3U', () => {
@@ -133,12 +134,47 @@ test('Idioma na mão: código com região muda o país junto (TVzine põe no pa�
 
 test('Categoria padrão: sugestão pelo grupo/tipo, escolhida vira o group-title exportado', () => {
     const cs = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="KIDS",Gloob\nhttp://a/1.m3u8\n#EXTINF:-1 group-title="Canais Evangélicos",Rede Gospel\nhttp://a/2.m3u8\n#EXTINF:-1,Sem Grupo\nhttp://a/3.m3u8\n').canais;
-    assert.deepEqual(cs.map(L.categoriaSugerida), ['Infantil', 'Gospel', '']);
+    assert.deepEqual(cs.map(L.categoriaSugerida), ['Infantil', 'Religioso', '']);
     L.definirCategoria(cs[0], 'Desenhos 24H');
     assert.match(L.gerarM3U([cs[0]]), /group-title="Desenhos 24H"/);
     assert.equal(JSON.parse(L.gerarJSON([cs[0]]))[0].group, 'Desenhos 24H');
     assert.equal(L.filtrar(cs, { semCategoria: true }).length, 2);
     L.definirCategoria(cs[0], '');
     assert.match(L.gerarM3U([cs[0]]), /group-title="Infantil"/, 'sem escolha: o tipo descoberto');
-    assert.ok(L.CATEGORIAS.includes('Gospel') && L.CATEGORIAS.includes('Anime'));
+    assert.ok(L.CATEGORIAS.includes('Filmes e Séries') && !L.CATEGORIAS.includes('Desenhos 24H'));
+});
+
+test('Importador: cada item vai para a coleção certa do Studio, no formato dele; repetidos juntam; falta país = erro', () => {
+    const C = createRequire(import.meta.url)('../core/studio-core.js');
+    const config = JSON.parse(require('node:fs').readFileSync(new URL('../studio.config.json', import.meta.url), 'utf8'));
+    const cs = L.lerLista(`#EXTM3U url-tvg="https://guia.exemplo.com/br.xml.gz"
+#EXTINF:-1 tvg-id="Globo.br" tvg-logo="https://l/g.png" group-title="Abertos",Globo SP
+https://srv.exemplo.com/globo.m3u8
+#EXTINF:-1 group-title="Desenhos 24h",Pica-Pau 24h
+https://srv.exemplo.com/pp.m3u8
+#EXTINF:-1 group-title="Radios",Rádio Teste BR
+https://srv.exemplo.com/radio.mp3
+#EXTINF:-1 group-title="Filmes",Filme Solto (2001)
+https://srv.exemplo.com/movie/u/p/1.mp4
+#EXTINF:-1 group-title="Notícias",Sem País News
+https://srv.exemplo.com/news.m3u8
+#EXTINF:-1 tvg-id="Globo.br" group-title="Abertos",Globo SP backup
+https://srv.exemplo.com/globo2.m3u8
+`).canais;
+    cs[0].epgGuia = 'https://guia.exemplo.com/br.xml.gz'; cs[0].headers = { 'User-Agent': 'VLC/3' };
+    L.definirIdioma(cs[1], 'pt-BR'); L.definirIdioma(cs[2], 'pt-BR');
+    const plano = L.planejarImportacao(cs, C, { config, caminhos: new Set(['conteudo/canais/br/globo-sp.json']) });
+    assert.deepEqual(plano.map(r => r.col ? r.col.id : '—'), ['canais', 'desenhos-24h', 'radios', '—', 'canais', 'canais']);
+    assert.deepEqual(plano.map(r => r.acao), ['juntar', 'novo', 'novo', 'fora', 'erro', 'mesmo']);
+    const g = plano[0].item;
+    assert.equal(g.categoria, 'TV Aberta', '"Abertos" vira o nome oficial'); assert.equal(g.pais, 'BR'); assert.equal(g.idioma, 'Português');
+    assert.equal(g.tvgId, 'Globo.br'); assert.equal(g.epg, 'https://guia.exemplo.com/br.xml.gz'); assert.equal(g.userAgent, 'VLC/3');
+    assert.equal(plano[0].caminho, 'conteudo/canais/br/globo-sp.json');
+    assert.equal(plano[1].item.idioma, 'Português'); assert.equal(plano[1].caminho, 'conteudo/desenhos-24h/pica-pau-24h.json');
+    assert.ok(plano[4].erros.some(e => /País/.test(e)));
+    const comPais = L.planejarImportacao([cs[4]], C, { config, paisPadrao: 'BR' });
+    assert.equal(comPais[0].acao, 'novo');
+    const final = L.itemFinal(plano[0], C, { nome: 'Globo SP', links: ['https://antigo.exemplo.com/globo.m3u8'], pais: 'BR', categoria: 'TV Aberta', descricao: 'minha' });
+    assert.deepEqual(final.links, ['https://antigo.exemplo.com/globo.m3u8', 'https://srv.exemplo.com/globo.m3u8', 'https://srv.exemplo.com/globo2.m3u8'], 'o que já existia fica 1º; o resto vira reserva');
+    assert.equal(final.descricao, 'minha');
 });
