@@ -123,6 +123,35 @@
         return { canais, epg: '' };
     }
 
+    /** O texto baixado é o PRÓPRIO stream HLS (master ou pedaços), não uma lista de canais? */
+    function ehStreamHLS(texto) {
+        const t = String(texto || '');
+        if (!/#EXT-X-(STREAM-INF|TARGETDURATION|MEDIA-SEQUENCE|MEDIA:|KEY|ENDLIST)/i.test(t)) return false;
+        return !/#EXTINF:\s*-1|tvg-(id|name|logo)=|group-title=/i.test(t);
+    }
+
+    /** Link que é um canal (stream/arquivo/protocolo), e não uma lista para baixar. .m3u8 só se confirma pelo conteúdo. */
+    function ehLinkDeCanal(url) {
+        return ['mpegts', 'dash', 'flv', 'arquivo', 'torrent', 'protocolo', 'youtube'].includes(formatoDe(url));
+    }
+
+    /** Nome legível tirado do próprio link: pula pedaços genéricos (index, playlist, live, hls, números...). */
+    function nomeDoLink(url) {
+        let u; try { u = new URL(url); } catch (e) { return String(url || "").slice(0, 40) || "Canal"; }
+        const gen = /^(index|playlist|master|chunklist|chunks?|mono|live|hls|stream|streams|tracks?|video|v\d|play|manifest|output|media|\d+p?|[0-9a-f]{16,}|[a-z0-9_-]{24,})$/i;
+        const partes = u.pathname.split('/').filter(Boolean).map(x => { try { return decodeURIComponent(x); } catch (e) { return x; } })
+            .map(x => x.replace(/\.(m3u8?|ts|mpd|flv|mp4|mkv|webm|php)$/i, '')).filter(x => x && !gen.test(x));
+        const ehIP = /^[\d.:[\]]+$/.test(u.hostname);
+        const bruto = partes.pop() || (ehIP ? 'Canal ' + u.hostname.split('.').pop() + (u.port ? ' ' + u.port : '') : u.hostname.replace(/^(www|cdn\d*|live\d*|stream\d*|hls\d*)\./i, '').split('.')[0]);
+        const limpo = bruto.replace(/[_\-.]+/g, ' ').trim();
+        return limparNome(limpo === limpo.toLowerCase() ? limpo.toUpperCase() : limpo) || 'Canal';   // "tv-cultura" → "Tv Cultura" (siglas curtas ficam: "TV")
+    }
+
+    /** Um canal só, a partir de um link solto. */
+    function canalDoLink(url, nome, origem = '') {
+        return completar({ nome: nome || nomeDoLink(url), url: String(url).trim(), headers: {}, origem, ordem: 0 });
+    }
+
     /** Descobre o formato pelo conteúdo e lê. origem = nome da lista (vai em cada canal). */
     function lerLista(texto, origem = '') {
         const t = String(texto || '').replace(/^﻿/, '').trimStart();
@@ -200,6 +229,10 @@
         const g = norm(c.grupo), n = norm(c.nome);
         for (const [tipo, re] of TIPOS) if (re.test(g)) return tipo;
         for (const [tipo, re] of TIPOS) if (re.test(n)) return tipo;
+        // VOD: episódio (S01E02, 1x02, /series/) ou filme (/movie/)
+        const u = String(c.url || '').toLowerCase();
+        if (/\bs\d{1,2}\s?e\d{1,3}\b|\b\d{1,2}x\d{2}\b|\b(episodio|ep)\s?\d/.test(n) || /\/series\//.test(u)) return 'Séries';
+        if (/\/(movie|movies)\//.test(u)) return 'Filmes';
         return 'Variados';
     }
 
@@ -214,13 +247,26 @@
         if (/\.mpd$/.test(p) || /format=(mpd|dash)/.test(u)) return 'dash';
         if (/\.(ts|m2ts)$/.test(p) || /[?&](output|extension)=(ts|mpegts)/.test(u) || /\/live\/[^/]+\/[^/]+\/\d+\/?$/.test(p)) return 'mpegts';
         if (/\.flv$/.test(p)) return 'flv';
-        if (/\.(mp4|m4v|webm|mkv|mov|avi|ogv|mp3|aac|m4a|ogg|opus)$/.test(p)) return 'arquivo';
+        if (/\.(mp4|m4v|webm|mkv|mov|avi|wmv|asf|mpe?g|vob|3gp|ogv|divx|xvid|rmvb|rm|mp3|aac|m4a|ogg|opus|flac|wav)$/.test(p)) return 'arquivo';
+        // filme/episódio de lista Xtream (/movie/usuario/senha/123), Google Drive e Dropbox: arquivo inteiro
+        if (/\/(movie|movies|series|vod)\/[^/]+\/[^/]+\/\d+/.test(p) || /drive\.google\.com|drive\.usercontent\.google\.com|dropbox(usercontent)?\.com/.test(u)) return 'arquivo';
         return 'desconhecido';
+    }
+
+    /** Link de "ver arquivo" vira link direto do vídeo (Google Drive, Dropbox). Os outros ficam iguais. */
+    function linkDireto(url) {
+        const s = String(url || '').trim();
+        const d = /drive\.google\.com\/(?:file\/d\/|open\?(?:[^#]*&)?id=|uc\?(?:[^#]*&)?id=)([\w-]{20,})/i.exec(s);
+        if (d) return 'https://drive.usercontent.google.com/download?id=' + d[1] + '&export=download&confirm=t';
+        if (/^https?:\/\/(www\.)?dropbox\.com\//i.test(s)) return s.replace(/([?&])dl=0\b/, '$1raw=1') + (/[?&](raw|dl)=1/.test(s) || /[?&]dl=0/.test(s) ? '' : (s.includes('?') ? '&' : '?') + 'raw=1');
+        return s;
     }
 
     /** Preenche o que dá para descobrir sozinho; nunca apaga o que veio da lista. */
     function completar(c) {
         const o = Object.assign({ headers: {}, reservas: [] }, c);
+        const direto = linkDireto(o.url);
+        if (direto !== o.url) { o.urlOriginal = o.urlOriginal || o.url; o.url = direto; }
         o.nomeOriginal = o.nomeOriginal || o.nome || o.tvgNome || '';
         o.nome = limparNome(o.nomeOriginal) || o.tvgNome || nomeDoLink(o.url);
         // país no fim ou no começo do nome ("Cartoon Network BR", "PT: SIC") vira o país e sai do nome
@@ -235,10 +281,6 @@
         o.chave = chaveDe(o);
         if (!o.id) o.id = idDe(o.url);
         return o;
-    }
-    function nomeDoLink(url) {
-        try { const u = new URL(url); const f = decodeURIComponent(u.pathname.split('/').filter(Boolean).pop() || u.hostname); return f.replace(/\.(m3u8?|ts|mp4|mpd|flv)$/i, '').replace(/[._-]+/g, ' ').trim() || u.hostname; }
-        catch (e) { return String(url || '').slice(0, 40); }
     }
     /** id estável do canal pelo link (mesmo link = mesmo id em qualquer lista). */
     function idDe(url) {
@@ -373,7 +415,7 @@
     }
 
     return {
-        lerLista, lerM3U, lerJSON, lerTexto, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });
