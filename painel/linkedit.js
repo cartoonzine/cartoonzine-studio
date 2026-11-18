@@ -73,7 +73,7 @@
 
     // ---------------------------------------------------------------- listas
     let seqLista = 0;
-    function adicionarLista(texto, nome) {
+    function adicionarLista(texto, nome, url) {
         const id = 'l' + Date.now().toString(36) + (seqLista++);
         const r = L.lerLista(texto, nome);
         if (!r.canais.length) return S.aviso('Não achei nenhum link de canal nisso.', 'ruim');
@@ -88,7 +88,7 @@
             c.id = id + '-' + (n++);
             E.canais.push(c);
         });
-        E.listas.push({ id, nome: nome || 'Lista ' + E.listas.length + 1, formato: r.formato, epg: r.epg });
+        E.listas.push({ id, nome: nome || 'Lista ' + E.listas.length + 1, formato: r.formato, epg: r.epg, url: url || undefined });
         salvar(); desenharTudo();
         S.aviso(`${n} canais lidos de "${nome}" (${r.formato.toUpperCase()}).`, 'ok');
     }
@@ -142,7 +142,7 @@
                 const texto = await baixarTexto(url);
                 // .m3u8 de UM canal (master ou pedaços): entra como canal, não como lista
                 if (L.ehStreamHLS(texto)) soltos.push(L.canalDoLink(url));
-                else adicionarLista(texto, nome);
+                else adicionarLista(texto, nome, url);
             } catch (e) {
                 if (L.formatoDe(url) === 'hls') { soltos.push(L.canalDoLink(url)); continue; }   // não baixou: entra assim mesmo, o teste diz se está vivo
                 S.aviso('Não consegui abrir: ' + e.message + (local() ? '' : ' — no painel local (node tools/painel.mjs) qualquer link abre.'), 'ruim');
@@ -937,6 +937,143 @@
     }
     const abrirImportadorVOD = () => abrirImportador('tudo');
 
+    // ---------------------------------------------------------------- RECEITAS (listas que se refazem sozinhas)
+    const ARQ_RECEITAS = 'receitas/receitas.json', ARQ_INDICE_REC = 'listas/indice.json';
+    const RC = { lista: null, indice: null, atual: null, resultado: null };
+    async function lerReceitas() {
+        if (!S.ler) return { receitas: [] };
+        try { RC.lista = (await S.ler(ARQ_RECEITAS)).receitas || []; } catch (e) { RC.lista = []; }
+        try { RC.indice = (await S.ler(ARQ_INDICE_REC)).receitas || []; } catch (e) { RC.indice = []; }
+    }
+    const linkReceita = (id, ext) => {
+        const x = (RC.indice || []).find(i => i.id === id);
+        if (x && x[ext]) return x[ext];
+        const pub = (S.config && S.config().publicacao) || {};
+        return pub.repo ? `https://raw.githubusercontent.com/${pub.repo}/${pub.branch || 'main'}/listas/${id}.${ext}` : '';
+    };
+    const haQuanto = (iso) => { const m = Math.round((Date.now() - new Date(iso)) / 60000); return m < 60 ? `há ${m} min` : m < 1440 ? `há ${Math.round(m / 60)} h` : `há ${Math.round(m / 1440)} dia(s)`; };
+    async function abrirReceitas(id) {
+        if (!S.ler || !S.gravar) return S.aviso('Abra o Link Edit pelo Studio para salvar receitas.', 'ruim');
+        if (!RC.lista) await lerReceitas();
+        const r = RC.atual = L.receitaPadrao(id ? (RC.lista.find(x => x.id === id) || {}) : id === null ? {} : RC.atual || {});
+        if (!r.id && !r.listas.length) r.listas = E.listas.filter(l => l.url).map(l => l.url);   // receita nova: começa com as listas abertas
+        const chips = (campo, ops, rot = (x) => x) => `<div class="le-chips">${ops.map(v => `<button class="le-chip ${r[campo].includes(v) ? 'on' : ''}" data-rc-c="${campo}" data-v="${esc(v)}">${esc(rot(v))}</button>`).join('')}</div>`;
+        const idiomasUsados = [...new Set(['pt-BR', 'pt-PT', 'pt', 'es', 'en'].concat(E.canais.map(c => c.idioma).filter(Boolean)))].slice(0, 16);
+        const res = RC.indice.find(i => i.id === r.id);
+        const j = janela(`<h3>📋 Receitas — listas que se refazem sozinhas</h3>
+          <p class="le-dica">A receita guarda <b>de onde pegar</b> e <b>que canais entram</b>. O robô do GitHub refaz a lista a cada 6 h: testa os canais, tira os mortos e a reserva viva assume — a lista publicada nunca fica velha. O link dela não muda: cole no Cloud uma vez.</p>
+          <div class="le-rc">
+            <div class="le-rc-lista">
+              <div class="le-rot">Receitas salvas</div>
+              ${RC.lista.map(x => { const i = RC.indice.find(k => k.id === x.id); return `<button class="le-rc-item${x.id === r.id ? ' on' : ''}" data-rc-abrir="${esc(x.id)}"><b>${esc(x.nome)}</b><small>${i ? `${i.total} canais · ${haQuanto(i.atualizadaEm)}` : 'ainda não rodou no robô'}${x.ativo === false ? ' · desligada' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhuma ainda.</p>'}
+              <button class="le-bt" data-rc-abrir="" style="margin-top:6px">+ Nova receita</button>
+            </div>
+            <div class="le-rc-form">
+              <label class="le-dica">Nome</label><input class="le-campo" id="le-rc-nome" value="${esc(r.nome)}">
+              <label class="le-dica" style="margin-top:8px">Pegar das listas <small>(um link por linha)</small></label>
+              <textarea class="le-campo" id="le-rc-listas" style="height:74px;resize:vertical">${esc(r.listas.join('\n'))}</textarea>
+              ${E.listas.some(l => l.url && !r.listas.includes(l.url)) ? `<div class="le-chips" style="margin-top:4px">${E.listas.filter(l => l.url && !r.listas.includes(l.url)).map(l => `<button class="le-chip" data-rc-add="${esc(l.url)}">+ ${esc(l.nome)}</button>`).join('')}</div>` : ''}
+              <div class="le-rot" style="margin-top:10px">Só os canais que</div>
+              <div class="le-dica">Idioma</div>${chips('idiomas', idiomasUsados)}
+              <div class="le-dica">Tipo</div>${chips('tipos', L.TIPOS.filter(t => t !== 'Adulto'))}
+              <div class="le-dica">Categoria (TVzine)</div>${chips('categorias', L.CATEGORIAS)}
+              <div class="le-imp-op" style="margin-top:6px">
+                <label>País <input class="le-campo" id="le-rc-paises" value="${esc(r.paises.join(', '))}" placeholder="BR, PT…" style="width:110px"></label>
+                <label>Nome contém <input class="le-campo" id="le-rc-busca" value="${esc(r.busca)}" placeholder="ex.: cartoon" style="width:140px"></label>
+                <label><input type="checkbox" id="le-rc-vivos" ${r.soVivos ? 'checked' : ''}> só vivos</label>
+                <label>Confiança mínima <select class="le-campo" id="le-rc-conf">${[[0, 'qualquer'], [5, '5 de 10'], [7, '7 de 10'], [9, '9 de 10']].map(([v, t]) => `<option value="${v}" ${+r.confiancaMin === v ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+                <label><input type="checkbox" id="le-rc-adulto" ${r.excluirTipos.includes('Adulto') ? 'checked' : ''}> fora sempre: Adulto</label>
+                <label title="Desligada: o robô não refaz (a lista publicada fica como está)"><input type="checkbox" id="le-rc-ativo" ${r.ativo !== false ? 'checked' : ''}> ligada no robô</label>
+              </div>
+              <p class="le-dica">Arruma sozinho: nomes limpos, cópias do mesmo canal viram reserva, os mais confiáveis primeiro.</p>
+              ${r.id ? `<div class="le-rc-pub"><b>Lista publicada</b> ${res ? `· ${res.total} canais · ${res.comReserva} com reserva · atualizada ${haQuanto(res.atualizadaEm)} pelo robô` : '· sai na próxima rodada do robô (depois de salvar e fazer o push)'}
+                <div style="display:flex;gap:6px;margin-top:6px"><code>${esc(linkReceita(r.id, 'json'))}</code><button class="le-bt" data-rc-copiar="json" title="Para o Cloud: leva as reservas">Copiar link JSON</button><button class="le-bt" data-rc-copiar="m3u" title="Para players de IPTV">M3U</button></div>
+                <small class="le-dica">No Cloud: cole o link JSON em <b>listas → canais</b> do sources.json (ou no país certo do sources-idioma.json).</small></div>` : ''}
+              <div id="le-rc-res"></div>
+              <div class="le-jan-botoes">
+                ${r.id ? '<button class="le-bt" id="le-rc-apagar">Apagar receita</button>' : ''}
+                <button class="le-bt" id="le-rc-rodar" title="${local() ? 'Lê as listas, testa e monta agora, aqui' : 'Online só filtra (o teste precisa do painel do PC)'}">▶ Rodar agora aqui</button>
+                <button class="le-bt r" id="le-rc-salvar">💾 Salvar receita</button>
+              </div>
+            </div>
+          </div>`, 'larga');
+        const lerForm = () => {
+            r.nome = j.querySelector('#le-rc-nome').value.trim() || 'Receita';
+            r.listas = j.querySelector('#le-rc-listas').value.split(/\s+/).map(x => x.trim()).filter(x => /^https?:\/\//i.test(x));
+            r.paises = j.querySelector('#le-rc-paises').value.toUpperCase().split(/[^A-Z]+/).filter(x => x.length === 2);
+            r.busca = j.querySelector('#le-rc-busca').value.trim();
+            r.soVivos = j.querySelector('#le-rc-vivos').checked;
+            r.confiancaMin = +j.querySelector('#le-rc-conf').value || 0;
+            r.excluirTipos = j.querySelector('#le-rc-adulto').checked ? ['Adulto'] : [];
+            r.ativo = j.querySelector('#le-rc-ativo').checked;
+            return r;
+        };
+        j.addEventListener('click', async (e) => {
+            const b = e.target.closest('button'); if (!b) return;
+            if (b.dataset.rcC) { lerForm(); const a = r[b.dataset.rcC]; const k = a.indexOf(b.dataset.v); if (k >= 0) a.splice(k, 1); else a.push(b.dataset.v); b.classList.toggle('on'); }
+            else if (b.dataset.rcAdd) { const t = j.querySelector('#le-rc-listas'); t.value = (t.value.trim() + '\n' + b.dataset.rcAdd).trim(); b.remove(); }
+            else if (b.dataset.rcAbrir != null) { RC.resultado = null; abrirReceitas(b.dataset.rcAbrir || null); }
+            else if (b.dataset.rcCopiar) copiarTexto(linkReceita(r.id, b.dataset.rcCopiar), 'Link da lista copiado.');
+            else if (b.dataset.rcNova) {
+                const lst = RC.resultado || [];
+                lembrar();
+                E.nova = { nome: r.nome, itens: lst.map(c => ({ id: c.id, chave: c.chave, nome: c.nome, nomeOriginal: c.nomeOriginal, formato: c.formato, teste: c.teste, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, grupoSaida: c.grupoSaida, headers: c.headers || {} })) };
+                salvar(); desenharNova(); fecharJanela(); S.aviso(`Lista nova "${r.nome}" com ${lst.length} canais.`, 'ok');
+            }
+            else if (b.dataset.rcBaixar) {
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(new Blob([L.gerarM3U(RC.resultado || [])], { type: 'text/plain;charset=utf-8' }));
+                a.download = (r.id || L.idReceita(r.nome)) + '.m3u'; document.body.appendChild(a); a.click(); a.remove();
+            }
+        });
+        j.querySelector('#le-rc-salvar').onclick = async () => {
+            lerForm();
+            if (!r.listas.length) return S.aviso('Coloque pelo menos um link de lista.', 'ruim');
+            if (!r.id) { let id = L.idReceita(r.nome), n = 2; while (RC.lista.some(x => x.id === id)) id = L.idReceita(r.nome) + '-' + n++; r.id = id; }
+            const lista = RC.lista.filter(x => x.id !== r.id).concat(Object.assign({}, r));
+            try {
+                await S.gravar([{ caminho: ARQ_RECEITAS, conteudo: JSON.stringify({ versao: 1, receitas: lista }, null, 2) + '\n' }], `Receita: ${r.nome}`);
+                RC.lista = lista;
+                S.aviso(local() ? `Receita salva. Faça o commit/push: o robô do GitHub monta a lista e depois refaz a cada 6 h.` : 'Receita salva: o robô do GitHub monta a lista em alguns minutos e depois refaz a cada 6 h.', 'ok');
+                abrirReceitas(r.id);
+            } catch (er) { /* o aviso já apareceu */ }
+        };
+        const ap = j.querySelector('#le-rc-apagar');
+        if (ap) ap.onclick = async () => {
+            const lista = RC.lista.filter(x => x.id !== r.id);
+            try { await S.gravar([{ caminho: ARQ_RECEITAS, conteudo: JSON.stringify({ versao: 1, receitas: lista }, null, 2) + '\n' }], `Receita apagada: ${r.nome}`); RC.lista = lista; RC.atual = null; abrirReceitas(null); }
+            catch (er) { /* */ }
+        };
+        j.querySelector('#le-rc-rodar').onclick = async (e) => {
+            const b = e.target; lerForm();
+            if (!r.listas.length) return S.aviso('Coloque pelo menos um link de lista.', 'ruim');
+            const out = j.querySelector('#le-rc-res');
+            b.disabled = true;
+            try {
+                const canais = [];
+                for (const u of r.listas) {
+                    b.textContent = 'Lendo as listas…';
+                    try { canais.push(...L.lerLista(await baixarTexto(u), u.split('/').filter(Boolean).pop()).canais); }
+                    catch (er) { S.aviso(`Não abriu ${u}: ${er.message}`, 'ruim'); }
+                }
+                const cand = canais.filter(c => L.passaReceita(c, r));
+                // aproveita o teste do que já está aberto na mesa; testa o resto (painel do PC)
+                const ja = new Map(E.canais.filter(c => c.teste).map(c => [c.url, c]));
+                cand.forEach(c => { const x = ja.get(c.url); if (x) { c.teste = x.teste; c.historico = (x.historico || []).slice(); } });
+                const falta = cand.filter(c => !c.teste);
+                if (r.soVivos && falta.length && local()) {
+                    let k = 0, feitos = 0;
+                    await Promise.all(Array.from({ length: 16 }, async () => { while (k < falta.length) { const c = falta[k++]; await testarUm(c); b.textContent = `Testando ${++feitos}/${falta.length}…`; } }));
+                }
+                const rr = r.soVivos && !local() ? Object.assign({}, r, { soVivos: false }) : r;
+                const lst = RC.resultado = L.montarReceita(cand, rr);
+                out.innerHTML = `<div class="le-rc-pub"><b>Resultado agora: ${lst.length} canais</b> · ${lst.filter(c => c.reservas.length).length} com reserva · ${cand.length} candidatos de ${canais.length} itens${r.soVivos && !local() ? ' · <span style="color:#fbbf24">online: sem teste (só filtrou)</span>' : ''}
+                  <div class="le-rc-amostra">${lst.slice(0, 40).map(c => `<span>${esc(c.nome)}${c.reservas.length ? ` <small>+${c.reservas.length}</small>` : ''}</span>`).join('')}${lst.length > 40 ? `<span>… +${lst.length - 40}</span>` : ''}</div>
+                  <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" data-rc-nova="1" ${lst.length ? '' : 'disabled'}>➜ Usar como lista nova</button><button class="le-bt" data-rc-baixar="1" ${lst.length ? '' : 'disabled'}>Baixar M3U</button></div></div>`;
+            } finally { b.disabled = false; b.textContent = '▶ Rodar agora aqui'; }
+        };
+    }
+
     // ---------------------------------------------------------------- IMPORTAR LISTA INTEIRA (lista que já está pronta)
     // Para listas que você já sabe que estão completas e funcionando: lê a lista inteira e manda para o Studio sem passar
     // pela mesa (as ferramentas continuam lá para os imprevistos). Cada item vai para a coleção certa, ou todos para uma só.
@@ -1502,6 +1639,14 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sj-meio{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:6px}
 .le-sj-barras div{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;font-size:12px;margin-top:5px}.le-sj-barras i{display:block;height:10px;border-radius:5px;background:var(--c);min-width:2px}.le-sj-barras b{color:#cbd5e1;font-family:'JetBrains Mono',monospace;font-size:11.5px}
 .le-sj-ult div{display:grid;grid-template-columns:16px minmax(0,1fr) minmax(0,1.3fr);gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid #141821}.le-sj-ult span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}.le-sj-ult small{color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-rc{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px;min-height:0}
+.le-rc-lista{display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--b);padding-right:12px}
+.le-rc-item{text-align:left;padding:9px 10px;border-radius:9px;background:#11141b;border:1px solid #2a3140;color:#e5e7eb}.le-rc-item b{display:block;font-size:13px}.le-rc-item small{font-size:11.5px;color:var(--s)}
+.le-rc-item.on,.le-rc-item:hover{border-color:var(--c)}
+.le-rc-form{display:flex;flex-direction:column;gap:4px;min-width:0}.le-rc-form .le-chips{margin:2px 0 6px}
+.le-rc-pub{margin-top:8px;padding:10px 12px;border-radius:10px;background:#0d1a1f;border:1px solid #1f5560;font-size:12.5px}.le-rc-pub code{flex:1;min-width:0;font-family:'JetBrains Mono',monospace;font-size:11px;color:#9aa3ad;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:8px;border-radius:7px;background:#0d1016}
+.le-rc-amostra{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;max-height:120px;overflow:auto}.le-rc-amostra span{font-size:12px;padding:3px 8px;border-radius:99px;background:#161b24}.le-rc-amostra small{color:#a78bfa}
+@media (max-width:900px){.le-rc{grid-template-columns:1fr}.le-rc-lista{border:0;padding:0}}
 .le-atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-size:13px}
 .le-atalhos kbd{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:6px;background:#11141b;border:1px solid #2a3140;color:#67e8f9;white-space:nowrap;justify-self:start}
 @media (max-width:1100px){.le-cols{grid-template-columns:1fr}.le-esq,.le-dir{border:0}#le-raiz{height:auto}#le-corpo{height:420px;flex:none}}`;
@@ -1521,6 +1666,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <span class="chip ${local() ? 'ok' : ''}" title="${local() ? 'Testes e túnel do visualizador pelo painel do seu PC' : 'Online: o Scan e o túnel precisam do painel local (node tools/painel.mjs)'}">${local() ? 'painel local' : 'online'}</span>
             <div style="flex:1"></div>
             <button class="le-bt" id="le-importar" title="Lista que já está pronta: vai inteira para o Studio, cada item na coleção certa">⚡ Importar lista inteira</button>
+            <button class="le-bt" id="le-receitas" title="Listas que se refazem sozinhas (robô do GitHub a cada 6 h)">📋 Receitas</button>
             <button class="le-bt" id="le-assets" title="Banco de logos salvos, para usar em qualquer lista (B)">★ Assets</button>
             <button class="le-bt" id="le-desfazer" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
             <button class="le-bt" id="le-sair" title="Sair do Link Edit e voltar para as coleções do Studio (o que você fez aqui fica guardado)">📚 Coleções</button>
@@ -1696,6 +1842,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-sair').onclick = () => { pararVideo(); if (window.CZStudio && window.CZStudio.irParaColecoes) window.CZStudio.irParaColecoes(); else location.hash = ''; };
         $('#le-assets').onclick = () => abrirAssets();
         $('#le-importar').onclick = () => abrirImportarLista();
+        $('#le-receitas').onclick = () => abrirReceitas(RC.atual && RC.atual.id ? RC.atual.id : undefined);
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };
         $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });

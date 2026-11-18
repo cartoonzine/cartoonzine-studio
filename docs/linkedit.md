@@ -32,11 +32,30 @@ Na mesma janela (uma aba por coleção do Studio: 🎨 Cartoons, 🍥 Animes, �
 - **🔎 Completar no TMDB (só o que falta):** capa, banner, sinopse, ano, gêneros e episódios — nunca troca o que já tem (sem chave do TMDB usa a Wikipedia).
 - Já existe no Studio (mesmo nome na coleção) → junta: episódios novos na temporada certa, links novos de reserva.
 
+## Parte 2 — Scan em lote
+Botão **Scan** (ou tecla T): o que testar (marcados, visíveis, nunca testados, retestar mortos, quarentena), Rápido/Completo,
+4–32 ao mesmo tempo, Pausar/Continuar/Parar, tempo restante, contadores, gráfico do tempo de abertura. No fim, num clique:
+vivos → lista nova, mortos → quarentena, logos e guias que faltam. Quarentena: quem volta a abrir sai sozinho; quem morre 3× seguidas pode ser apagado.
+Precisa do painel do PC (o navegador não abre links http:// nem servidores sem CORS).
+
+## Parte 3 — Receitas (listas que se refazem sozinhas)
+Botão **📋 Receitas**: de onde pegar (links) + que canais entram (idioma, tipo, categoria, país, nome, só vivos, confiança mínima,
+fora Adulto). "Rodar agora aqui" monta na hora; "Salvar" grava `receitas/receitas.json`. O robô do GitHub
+(`.github/workflows/receitas.yml` → `tools/receitas.mjs`) refaz a cada 6 h: testa, tira os mortos, a reserva viva assume, e publica
+`listas/<id>.json` (com reservas — é este que vai no Cloud) e `listas/<id>.m3u`. Histórico dos testes em `receitas/estado.json`.
+
+## Parte 4 — Importar lista inteira
+Botão **⚡ Importar lista inteira**: lista que já está pronta vai direto para a janela Enviar ao Studio (automático ou tudo para uma
+coleção), com TMDB só onde falta (estimativa de pedidos, 4 de cada vez).
+
+## Parte 5 — Cópias do mesmo título
+Aba **🎞️ Cópias** nas coleções do Studio: títulos com mais de um link; o automático ordena por critérios que você muda
+(qualidade, dublado, https, abre mais rápido); empate vai para "Para olhar"; ★ Principal, subir/descer, desativar (fica em
+`linksDesativados`, não vai para o app); Testar as cópias; Tocar lado a lado no mesmo ponto.
+
 ## Próximas fases
-2. Tela de Scan com gráfico de tempo de abertura e ações em massa; quarentena com reteste automático.
-3. Receitas (listas que se refazem sozinhas no robô do Cloud) e envio direto para o Cloud (`sources-idioma.json`).
-4. Importador do Studio (listas → Filmes, Séries, Animes, Cartoons, Desenhos 24H, com TMDB só onde falta).
-5. Cópias do mesmo título (filmes/séries) com comparação lado a lado.
+- Testador na nuvem (Cloudflare) para o Scan funcionar no Studio online.
+- Cópias dos episódios de séries na aba Cópias.
 
 Código: `core/linkedit-core.js` (leitura, limpeza, cópias, exportação — `test/linkedit.test.mjs`),
 `tools/linkedit-rede.mjs` (teste de canal, túnel — `test/linkedit-rede.test.mjs`), `painel/linkedit.js` (tela).

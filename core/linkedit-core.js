@@ -517,6 +517,49 @@
         });
     }
 
+    // ---------------------------------------------------------------- RECEITAS (listas que se refazem sozinhas)
+    /**
+     * Receita = de onde pegar + que canais entram + como arrumar. O robô do GitHub (tools/receitas.mjs) refaz a cada
+     * 6 h com o teste do dia: canal que morreu sai, reserva viva assume. O painel usa as mesmas funções ("Rodar agora").
+     * { id, nome, listas:[url], idiomas:['pt-BR'], tipos:['Infantil'], paises:['BR'], categorias:[], excluirTipos:['Adulto'],
+     *   soVivos:true, confiancaMin:0..10, busca:'', formato:'m3u'|'json', ativo:true }
+     */
+    function receitaPadrao(extra) {
+        return Object.assign({ id: '', nome: 'Receita nova', listas: [], idiomas: [], tipos: [], paises: [], categorias: [], excluirTipos: ['Adulto'],
+            soVivos: true, confiancaMin: 0, busca: '', formato: 'm3u', ativo: true }, extra || {});
+    }
+    const VIVO_RECEITA = (st) => st === 'vivo' || st === 'lento' || st === 'pede-ua' || st === 'bloqueado';   // bloqueado no robô pode ser só o país do servidor
+    /** O canal entra na receita? (antes do teste) */
+    function passaReceita(c, r) {
+        const has = (a) => Array.isArray(a) && a.length;
+        if (has(r.excluirTipos) && r.excluirTipos.includes(c.tipo)) return false;
+        if (has(r.idiomas) && !r.idiomas.some(k => c.idioma === k || (k.length === 2 && String(c.idioma || '').split('-')[0] === k))) return false;
+        if (has(r.tipos) && !r.tipos.includes(c.tipo)) return false;
+        if (has(r.paises) && !r.paises.includes(c.pais)) return false;
+        if (has(r.categorias)) { const cat = c.grupoSaida || categoriaSugerida(c); if (!r.categorias.includes(cat)) return false; }
+        if (r.busca && !norm([c.nome, c.grupo, c.tvgId].join(' ')).includes(norm(r.busca))) return false;
+        return true;
+    }
+    /** Confiança 0..10 pelo histórico ([true,false,…], últimos 10 testes). null = nunca testado. */
+    function confianca(hist) { return hist && hist.length ? Math.round(hist.filter(Boolean).length / hist.length * 10) : null; }
+    /**
+     * Monta a lista da receita: filtra, (se pedido) só vivos e confiáveis, junta as cópias (as outras viram reserva),
+     * mais confiáveis primeiro. Cada canal precisa de .teste/.historico (do Link Edit ou do robô).
+     */
+    function montarReceita(canais, r) {
+        let cs = canais.filter(c => passaReceita(c, r));
+        if (r.soVivos) cs = cs.filter(c => c.teste && VIVO_RECEITA(c.teste.status));
+        if (r.confiancaMin) cs = cs.filter(c => { const k = confianca(c.historico); return k == null || k >= r.confiancaMin; });
+        const lista = agrupar(cs).map(g => {
+            const c = canalComReservas(g);
+            c.grupoSaida = c.grupoSaida || categoriaSugerida(c) || c.grupo;
+            c._conf = Math.max(...[g.principal].concat(g.reservas).map(x => confianca(x.historico) || 0));
+            return c;
+        });
+        return lista.sort((a, b) => b._conf - a._conf || (b.reservas.length - a.reservas.length) || String(a.nome).localeCompare(String(b.nome), 'pt'));
+    }
+    const idReceita = (nome) => norm(nome).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'receita';
+
     /** Junta as linhas repetidas do lote (mesmo arquivo) e, se já existe no Studio, o que já estava lá. */
     function itemFinal(r, C, existente) {
         let item = r.item;
@@ -755,7 +798,7 @@
     }
 
     return {
-        IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, receitaPadrao, passaReceita, montarReceita, confianca, idReceita, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });

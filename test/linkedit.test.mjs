@@ -233,3 +233,18 @@ https://vod.exemplo.com/movie/u/p/3.mp4
     assert.equal(plano[0].item.links.length, 3); assert.equal(plano[0].acao, 'juntar'); assert.equal(plano[0].caminho, 'conteudo/filmes/matrix-1999.json');
     assert.ok(plano[0].avisos.some(a => /TMDB/.test(a)));
 });
+
+test('Receita: filtra por idioma/tipo/país, tira Adulto, só vivos e confiáveis, cópias viram reserva, confiáveis primeiro', () => {
+    const cs = L.lerLista(M3U).canais;
+    const st = ['vivo', 'morto', 'vivo', 'vivo', 'vivo', 'vivo'];
+    cs.forEach((c, i) => { c.teste = { status: st[i] }; c.historico = i === 2 ? [true, true, false, true] : [true]; });
+    const r = L.receitaPadrao({ nome: 'Kids Brasil', idiomas: ['pt-BR'], tipos: ['Infantil'] });
+    const out = L.montarReceita(cs, r);
+    assert.equal(out.length, 1, 'os dois Cartoon Network BR viram um');
+    assert.equal(out[0].nome, 'Cartoon Network'); assert.equal(out[0].reservas.length, 1);
+    assert.equal(L.montarReceita(cs, L.receitaPadrao({ idiomas: ['pt'] })).some(c => c.tipo === 'Adulto'), false, 'Adulto fica de fora');
+    const todos = L.montarReceita(cs, L.receitaPadrao({ excluirTipos: [], soVivos: false }));
+    assert.ok(todos.some(c => c.nome === 'Globo SP' && c.reservas.length === 1), 'o morto vira reserva do vivo');
+    assert.equal(L.montarReceita(cs, L.receitaPadrao({ confiancaMin: 9, tipos: ['Infantil'], paises: ['BR'] }))[0].url, 'http://s4/cn/index.m3u8', '7 de 10 fica de fora');
+    assert.equal(L.confianca([true, true, false, true]), 8); assert.equal(L.idReceita('Kids Brasil!'), 'kids-brasil');
+});
