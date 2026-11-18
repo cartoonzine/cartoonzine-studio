@@ -25,7 +25,7 @@ Botão **➜ Enviar ao Studio** na lista nova (ou os marcados). Mostra tudo ante
 - **Guias:** o canal guarda o link do guia (`epg`); o DB publicado leva `epg` no topo e a M3U o `url-tvg`.
 
 ## Parte 2 — Enviar ao Studio (filmes e séries)
-Aba **🎬 Filmes e séries** na mesma janela:
+Na mesma janela (uma aba por coleção do Studio: 🎨 Cartoons, 🍥 Animes, 📺 Desenhos 24H, 🎬 Filmes, 🎞️ Séries, 📻 Rádios, 📡 Canais…; cada aba grava só a sua coleção, *Tudo* grava todas; "Mandar a lista inteira para…" ignora o destino automático):
 - Entram arquivos (mp4, mkv…), torrents e links `/movie/` `/series/` do Xtream; lista de filmes em .m3u8 → "tratar todos como filme/série".
 - **Episódios** (S01E02, 1x02, Episódio 2) viram **uma série com temporadas**; **cópias** do mesmo filme (nome + ano) viram um item com as outras de reserva.
 - **Destino pelo tipo:** Animes, Cartoons (desenho/infantil), Séries, Filmes (torrent → Filmes torrent); trocável por linha.
