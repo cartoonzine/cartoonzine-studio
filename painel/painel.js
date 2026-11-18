@@ -251,7 +251,7 @@
     // Estado
     // ==================================================================
     const estado = { repo: null, config: null, indice: [], col: null, aba: 'itens', busca: '', tela: 'colecoes',
-        filtro: 'todos', selecionando: false, sel: new Set(), ultimoSel: -1 };
+        filtro: 'todos', pais: '', selecionando: false, sel: new Set(), ultimoSel: -1 };
 
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
@@ -350,7 +350,7 @@
         </div>`;
         $$('.colecao').forEach(b => b.addEventListener('click', () => {
             if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
-            estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.mostrar = PASSO_LISTA; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
+            estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.pais = ''; estado.mostrar = PASSO_LISTA; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
             if (estado.tela !== 'colecoes') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
             desenharApp();
         }));
@@ -412,6 +412,7 @@
         const f = estado.filtro;
         return itensDaColecao(col.id)
             .filter(i => !alvo || C.normText(i.nome).includes(alvo) || C.normText(i.caminho).includes(alvo))
+            .filter(i => !estado.pais || !temPaises(col) || (estado.pais === '—' ? !i.pais : i.pais === estado.pais))
             .filter(i => f === 'todos' || (f === 'rascunhos' ? i.rascunho : f === 'publicados' ? !i.rascunho : f === 'semlicenca' ? semLicenca(i) : f === 'sopc' ? !!i.soPC : f.startsWith('console:') ? i.console === f.slice(8) : true))
             .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
     }
@@ -434,6 +435,31 @@
         observadores.set(chave, obs);
     }
 
+    // Canais (TVzine) e Rádios: uma aba por país (os de "paisesPrioridade" primeiro, mesmo vazios) para cada
+    // idioma ficar no seu lugar. No app continua um link só com todos (canais.json) + um por país.
+    const temPaises = (col) => col && (col.tipo === 'canal' || col.tipo === 'radio');
+    const IDIOMA_DO_PAIS = { BR: 'Português', PT: 'Português (Portugal)', AO: 'Português (Portugal)', MZ: 'Português (Portugal)', US: 'Inglês', GB: 'Inglês', CA: 'Inglês', AU: 'Inglês',
+        AR: 'Espanhol', BO: 'Espanhol', CL: 'Espanhol', CO: 'Espanhol', EC: 'Espanhol', MX: 'Espanhol', PE: 'Espanhol', PY: 'Espanhol', UY: 'Espanhol', VE: 'Espanhol', ES: 'Espanhol',
+        FR: 'Francês', IT: 'Italiano', DE: 'Alemão', JP: 'Japonês', KR: 'Coreano' };
+    function barraPaises(col) {
+        if (!temPaises(col)) return '';
+        const todos = itensDaColecao(col.id);
+        const conta = new Map();
+        todos.forEach(i => { const k = i.pais || '—'; conta.set(k, (conta.get(k) || 0) + 1); });
+        const prio = (estado.config.paisesPrioridade || []).filter(p => C.PAISES[p]);
+        const outros = [...conta.keys()].filter(k => k !== '—' && !prio.includes(k)).sort((a, b) => conta.get(b) - conta.get(a) || a.localeCompare(b));
+        if (estado.pais && estado.pais !== '—' && !prio.includes(estado.pais) && !outros.includes(estado.pais)) outros.unshift(estado.pais);
+        const chip = (k, rot, tit) => `<button class="chip-pais${estado.pais === k ? ' on' : ''}${k && !conta.get(k) ? ' vazio' : ''}" data-pais="${esc(k)}" title="${esc(tit || rot)}">${rot} <small>${k ? conta.get(k) || 0 : todos.length}</small></button>`;
+        const resto = Object.keys(C.PAISES).filter(p => !prio.includes(p) && !outros.includes(p)).sort((a, b) => C.PAISES[a].localeCompare(C.PAISES[b], 'pt'));
+        return `<div class="barra-paises" role="tablist" aria-label="Países">
+            ${chip('', '🌐 Todos', 'Todos os países')}
+            ${prio.map(p => chip(p, C.bandeira(p) + ' ' + esc(C.PAISES[p]))).join('')}
+            ${outros.length ? '<span class="sep-paises" aria-hidden="true"></span>' + outros.map(p => chip(p, C.bandeira(p) + ' ' + esc(C.PAISES[p] || p))).join('') : ''}
+            ${conta.get('—') ? chip('—', '❔ Sem país', 'Canais sem país: não aparecem no seletor de países do app') : ''}
+            <select class="campo mini" id="pais-outro" aria-label="Ir para outro país"><option value="">+ outro país…</option>${resto.map(p => `<option value="${p}">${C.bandeira(p)} ${esc(C.PAISES[p])}</option>`).join('')}</select>
+          </div>`;
+    }
+
     function desenharLista() {
         const col = colecaoAtual();
         const largo = col.tipo === 'canal' || col.tipo === 'radio' || col.tipo === 'canal24h';
@@ -450,6 +476,7 @@
             .concat(col.tipo === 'jogo' ? [['semlicenca', 'Sem licença conferida'], ['sopc', 'Só PC']] : [])
             .concat(consolesUsados.map(c => ['console:' + c, 'Console: ' + (consoles.get(c) || c)]));
         $('#conteudo-aba').innerHTML = `
+          ${barraPaises(col)}
           <div class="barra-lista">
             <input class="busca" type="search" placeholder="Buscar em ${esc(col.nome)}…" value="${esc(estado.busca)}" aria-label="Buscar">
             ${total ? `<select class="campo filtro-lista" aria-label="Filtrar">${opcoesFiltro.map(([v, r]) => `<option value="${esc(v)}" ${estado.filtro === v ? 'selected' : ''}>${esc(r)}</option>`).join('')}</select>
@@ -487,6 +514,9 @@
             desenharLista();
             const nova = $('.busca'); nova.focus(); nova.setSelectionRange(pos, pos);
         });
+        $$('[data-pais]').forEach(b => b.addEventListener('click', () => { estado.pais = b.dataset.pais; estado.mostrar = PASSO_LISTA; estado.ultimoSel = -1; desenharLista(); }));
+        const outroPais = $('#pais-outro');
+        if (outroPais) outroPais.addEventListener('change', () => { if (outroPais.value) { estado.pais = outroPais.value; estado.mostrar = PASSO_LISTA; desenharLista(); } });
         const filtro = $('.filtro-lista');
         if (filtro) filtro.addEventListener('change', () => { estado.filtro = filtro.value; estado.mostrar = PASSO_LISTA; estado.ultimoSel = -1; desenharLista(); });
         const bSel = $('#btn-selecionar');
@@ -952,6 +982,8 @@
         const col = colecaoAtual();
         const tipo = C.TIPOS[col.tipo];
         let item = {};
+        // novo canal dentro da aba de um país: já vem com o país (e o idioma de lá)
+        if (!caminho && temPaises(col) && estado.pais && estado.pais !== '—') item = { pais: estado.pais, idioma: IDIOMA_DO_PAIS[estado.pais] };
         if (caminho) {
             try { item = C.normalizarItem(await estado.repo.ler(caminho), col); }
             catch (e) { aviso(e.message, 'ruim'); return; }
