@@ -7,6 +7,10 @@
   "tmdb": "movie/961",
   "imdb": "tt0017925",
   "notaImdb": 8.1,
+  "notaTmdb": 7.9,
+  "popularidade": 3.8,
+  "duracao": 79,
+  "classificacao": "L",
   "votosImdb": 106379,
   "capa": "https://archive.org/services/img/TheGeneral",
   "banner": "https://image.tmdb.org/t/p/w1280/mzox4HbcV9W42MH2dB1QsdDVGo3.jpg",
@@ -21,9 +25,5 @@
   ],
   "bannerLogo": "https://image.tmdb.org/t/p/w500/kBVkudszypjDe0tFVFWX1Z0Ga2o.png",
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 7.9,
-  "popularidade": 3.8,
-  "duracao": 79,
-  "classificacao": "L"
+  "_completadoEm": "2026-11-15"
 }

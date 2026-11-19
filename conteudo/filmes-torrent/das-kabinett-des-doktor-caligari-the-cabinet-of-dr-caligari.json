@@ -7,6 +7,9 @@
   "tmdb": "movie/234",
   "imdb": "tt0010323",
   "notaImdb": 8,
+  "notaTmdb": 7.9,
+  "popularidade": 3.6,
+  "duracao": 78,
   "votosImdb": 77116,
   "capa": "https://archive.org/services/img/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari",
   "banner": "https://image.tmdb.org/t/p/w1280/sLq72hBx8Xs2IISVsZJqgjOd31b.jpg",
@@ -21,8 +24,5 @@
   ],
   "bannerLogo": "https://image.tmdb.org/t/p/w500/aUVQHLyHpzzzp4lJmW8gTZ2s6ZZ.png",
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 7.9,
-  "popularidade": 3.6,
-  "duracao": 78
+  "_completadoEm": "2026-11-15"
 }

@@ -7,6 +7,9 @@
   "tmdb": "movie/30266",
   "imdb": "tt0006333",
   "notaImdb": 6.1,
+  "notaTmdb": 6.1,
+  "popularidade": 1.2,
+  "duracao": 99,
   "votosImdb": 2294,
   "capa": "https://archive.org/services/img/20000LeaguesUndertheSea",
   "banner": "https://image.tmdb.org/t/p/w1280/hneezj5OLYwjtZ3Efj3j4nCgiEG.jpg",
@@ -19,8 +22,5 @@
   ],
   "bannerLogo": "https://image.tmdb.org/t/p/w500/2cYJkuGF8I0B3mfIx7SWF9c2dRp.png",
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 6.1,
-  "popularidade": 1.2,
-  "duracao": 99
+  "_completadoEm": "2026-11-15"
 }

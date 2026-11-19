@@ -7,6 +7,9 @@
   "tmdb": "movie/53759",
   "imdb": "tt0001463",
   "notaImdb": 5.7,
+  "notaTmdb": 5.4,
+  "popularidade": 0.9,
+  "duracao": 13,
   "votosImdb": 1652,
   "capa": "https://archive.org/services/img/The_Wonderful_Wizard_of_Oz",
   "banner": "https://image.tmdb.org/t/p/w1280/2i80DCpZri8XoB8JGA949FosIkv.jpg",
@@ -20,8 +23,5 @@
     "Silent"
   ],
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 5.4,
-  "popularidade": 0.9,
-  "duracao": 13
+  "_completadoEm": "2026-11-15"
 }

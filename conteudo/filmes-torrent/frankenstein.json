@@ -7,6 +7,9 @@
   "tmdb": "movie/2929",
   "imdb": "tt0001223",
   "notaImdb": 6.4,
+  "notaTmdb": 6.1,
+  "popularidade": 1.2,
+  "duracao": 16,
   "votosImdb": 5451,
   "capa": "https://archive.org/services/img/FrankensteinfullMovie",
   "banner": "https://image.tmdb.org/t/p/w1280/vqZEHv2KxjyVXjbtMhIDIZ6xoLf.jpg",
@@ -20,8 +23,5 @@
     "Frankenstein"
   ],
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 6.1,
-  "popularidade": 1.2,
-  "duracao": 16
+  "_completadoEm": "2026-11-15"
 }

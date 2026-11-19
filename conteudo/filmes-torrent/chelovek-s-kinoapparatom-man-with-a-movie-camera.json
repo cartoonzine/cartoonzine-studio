@@ -7,6 +7,9 @@
   "tmdb": "movie/26317",
   "imdb": "tt0019760",
   "notaImdb": 8.3,
+  "notaTmdb": 7.9,
+  "popularidade": 2.9,
+  "duracao": 68,
   "votosImdb": 30786,
   "capa": "https://archive.org/services/img/ChelovekskinoapparatomManWithAMovieCamera",
   "banner": "https://image.tmdb.org/t/p/w1280/xPuGtHPc1aADsfXds87noXVz2Hh.jpg",
@@ -19,8 +22,5 @@
   ],
   "bannerLogo": "https://image.tmdb.org/t/p/w500/emHB1i7BVjSF98qMcvcMeGVHNTC.png",
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 7.9,
-  "popularidade": 2.9,
-  "duracao": 68
+  "_completadoEm": "2026-11-15"
 }

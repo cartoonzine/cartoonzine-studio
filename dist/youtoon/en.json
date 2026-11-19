@@ -172,18 +172,6 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "Angry Birds · ALL NEW SLINGSHOT STORIES SEASON 4 | ANGRY BIRDS 🐦🆕",
-   "desc": "Playlist de Angry Birds · 42 vídeos",
-   "genre": [
-    "Comédia"
-   ],
-   "logo": "https://i.ytimg.com/vi/osraPdCulzw/hqdefault.jpg",
-   "studio": "youtoon/ingles/angry-birds-all-new-slingshot-stories-season-4-angry-birds",
-   "url": "https://www.youtube.com/playlist?list=PLTR8zrKWyBqgCGV0mzA5jwJ_9uslLJjrr",
-   "idioma": "en",
-   "group": "Desenhos 24H"
-  },
-  {
    "title": "Angry Birds · Angry Birds | Best Drawing, Painting and Art Videos 🖌️",
    "desc": "Playlist de Angry Birds · 47 vídeos",
    "genre": [
@@ -208,6 +196,18 @@
    "group": "Desenhos 24H"
   },
   {
+   "title": "Angry Birds · Angry Birds in Real Life!",
+   "desc": "Playlist de Angry Birds · 41 vídeos",
+   "genre": [
+    "Comédia"
+   ],
+   "logo": "https://i.ytimg.com/vi/iwhljExDcd0/hqdefault.jpg",
+   "studio": "youtoon/ingles/angry-birds-angry-birds-in-real-life",
+   "url": "https://www.youtube.com/playlist?list=PLTR8zrKWyBqh0EZ9-egsry-E7TmApubvW",
+   "idioma": "en",
+   "group": "Desenhos 24H"
+  },
+  {
    "title": "Angry Birds · Angry Birds MakerSpace - All Seasons All Episodes",
    "desc": "Playlist de Angry Birds · 88 vídeos",
    "genre": [
@@ -221,7 +221,7 @@
   },
   {
    "title": "Angry Birds · Angry Birds Slingshot Stories",
-   "desc": "Playlist de Angry Birds · 102 vídeos",
+   "desc": "Playlist de Angry Birds · 110 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -504,7 +504,7 @@
     "Educativos",
     "Pré-escolar"
    ],
-   "logo": "https://i.ytimg.com/vi/jxFolET80B4/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/O6DLMd0tBUI/hqdefault.jpg",
    "studio": "youtoon/ingles/blippi-educational-videos-for-kids-blippi-marathon-all-day-adventure-fun-e-learn",
    "url": "https://www.youtube.com/playlist?list=PLzgk_uTg08P9Y8gF2c5S6P0nkB_KtzyYI",
    "idioma": "en",
@@ -1007,11 +1007,11 @@
   },
   {
    "title": "Disney Channel · Hannah Montana 🎶🎤 | Disney Channel",
-   "desc": "Playlist de Disney Channel · 137 vídeos",
+   "desc": "Playlist de Disney Channel · 139 vídeos",
    "genre": [
     "Infantil"
    ],
-   "logo": "https://i.ytimg.com/vi/peYz6YXdXrs/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/yWEGwOgrFbA/hqdefault.jpg",
    "studio": "youtoon/ingles/disney-channel-hannah-montana-disney-channel",
    "url": "https://www.youtube.com/playlist?list=PLg6R6yXKSLYDY0yMFw36XjhK5mBZWlW9t",
    "idioma": "en",
@@ -1087,7 +1087,7 @@
   },
   {
    "title": "Disney Channel Animation · Phineas and Ferb 🎢  AND Hamster & Gretel 🐹",
-   "desc": "Playlist de Disney Channel Animation · 775 vídeos",
+   "desc": "Playlist de Disney Channel Animation · 776 vídeos",
    "genre": [
     "Musicais",
     "Aventura",
@@ -1151,7 +1151,7 @@
   },
   {
    "title": "Disney Jr. · Disney Jr. Super Heroes!",
-   "desc": "Playlist de Disney Jr. · 313 vídeos",
+   "desc": "Playlist de Disney Jr. · 314 vídeos",
    "genre": [
     "Pré-escolar"
    ],
@@ -1163,11 +1163,11 @@
   },
   {
    "title": "Disney Jr. · Iron Man and his Awesome Friends | Disney Jr x Marvel HQ",
-   "desc": "Playlist de Disney Jr. · 175 vídeos",
+   "desc": "Playlist de Disney Jr. · 176 vídeos",
    "genre": [
     "Pré-escolar"
    ],
-   "logo": "https://i.ytimg.com/vi/C56S1M48HRo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/L-lgoc7FaO4/hqdefault.jpg",
    "studio": "youtoon/ingles/disney-jr-iron-man-and-his-awesome-friends-disney-jr-x-marvel-hq",
    "url": "https://www.youtube.com/playlist?list=PL2m1vjiMH_hMLTuM_CBxo3nir28x5cNZc",
    "idioma": "en",
@@ -1175,11 +1175,11 @@
   },
   {
    "title": "Disney Jr. · Mickey Mouse Clubhouse+ 🐭🏠",
-   "desc": "Playlist de Disney Jr. · 207 vídeos",
+   "desc": "Playlist de Disney Jr. · 210 vídeos",
    "genre": [
     "Pré-escolar"
    ],
-   "logo": "https://i.ytimg.com/vi/vmJtpxKlw4M/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/Iwl0tpoPPpw/hqdefault.jpg",
    "studio": "youtoon/ingles/disney-jr-mickey-mouse-clubhouse",
    "url": "https://www.youtube.com/playlist?list=PL2m1vjiMH_hOCLfO_F-Cwv2jlbP0XNSWe",
    "idioma": "en",
@@ -1235,7 +1235,7 @@
   },
   {
    "title": "Disney Kids · Make the Holidays Magic ❄️☃️⛸️ | Disney Kids 💙",
-   "desc": "Playlist de Disney Kids · 58 vídeos",
+   "desc": "Playlist de Disney Kids · 59 vídeos",
    "genre": [
     "Aventura"
    ],
@@ -1307,11 +1307,11 @@
   },
   {
    "title": "Dora & Friends · Animated Nickelodeon Dora series!",
-   "desc": "Playlist de Dora & Friends · 205 vídeos",
+   "desc": "Playlist de Dora & Friends · 206 vídeos",
    "genre": [
     "Pré-escolar"
    ],
-   "logo": "https://i.ytimg.com/vi/lNP_7TLDuiU/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/zyjVc51T-F0/hqdefault.jpg",
    "studio": "youtoon/ingles/dora-e-friends-animated-nickelodeon-dora-series",
    "url": "https://www.youtube.com/playlist?list=PLJmDk3QJqTWFHPBT3sUS3jcgIu3jQiv5t",
    "idioma": "en",
@@ -1331,11 +1331,11 @@
   },
   {
    "title": "Dora & Friends · Learn Spanish w/ Dora! | Dora & Friends",
-   "desc": "Playlist de Dora & Friends · 82 vídeos",
+   "desc": "Playlist de Dora & Friends · 83 vídeos",
    "genre": [
     "Pré-escolar"
    ],
-   "logo": "https://i.ytimg.com/vi/lNP_7TLDuiU/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/cCgpVYwsUwI/hqdefault.jpg",
    "studio": "youtoon/ingles/dora-e-friends-learn-spanish-w-dora-dora-e-friends",
    "url": "https://www.youtube.com/playlist?list=PLJmDk3QJqTWHmatODbDpAPf1sPX55le1J",
    "idioma": "en",
@@ -1343,11 +1343,11 @@
   },
   {
    "title": "Dora & Friends · What’s New with Dora! | Dora & Friends",
-   "desc": "Playlist de Dora & Friends · 864 vídeos",
+   "desc": "Playlist de Dora & Friends · 865 vídeos",
    "genre": [
     "Pré-escolar"
    ],
-   "logo": "https://i.ytimg.com/vi/lEL9uAgssXQ/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/cCgpVYwsUwI/hqdefault.jpg",
    "studio": "youtoon/ingles/dora-e-friends-what-s-new-with-dora-dora-e-friends",
    "url": "https://www.youtube.com/playlist?list=PLJmDk3QJqTWF-SzA-qKTlK_uqIqYzz1Rx",
    "idioma": "en",
@@ -2501,11 +2501,11 @@
   },
   {
    "title": "Marvel H.Q. · Marvel’s Avengers Assemble Full Episodes ⚡️",
-   "desc": "Playlist de Marvel H.Q. · 112 vídeos",
+   "desc": "Playlist de Marvel H.Q. · 113 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
-   "logo": "https://i.ytimg.com/vi/fdCrwkNp-_U/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/LX_gfBdY-vw/hqdefault.jpg",
    "studio": "youtoon/ingles/marvel-h-q-marvel-s-avengers-assemble-full-episodes",
    "url": "https://www.youtube.com/playlist?list=PLNw_hEO5pK1rtEaKo3UEXueCZ3ODbnjap",
    "idioma": "en",
@@ -2525,11 +2525,11 @@
   },
   {
    "title": "Marvel H.Q. · What's New On Marvel HQ! 💥",
-   "desc": "Playlist de Marvel H.Q. · 804 vídeos",
+   "desc": "Playlist de Marvel H.Q. · 805 vídeos",
    "genre": [
     "Heróis e Ação"
    ],
-   "logo": "https://i.ytimg.com/vi/9Xd7OsvD0X4/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/LX_gfBdY-vw/hqdefault.jpg",
    "studio": "youtoon/ingles/marvel-h-q-what-s-new-on-marvel-hq",
    "url": "https://www.youtube.com/playlist?list=PLNw_hEO5pK1ovGllglrwKRewSetHIjmFb",
    "idioma": "en",
@@ -2633,11 +2633,11 @@
   },
   {
    "title": "Masha and The Bear 24H",
-   "desc": "🔴 LIVE STREAM 🎬 Masha and the Bear 👧🐻 Season 2: All episodes 😜 🍭",
+   "desc": "🔴 LIVE STREAM 🎬 Masha and the Bear 🎨🖌️ Bear’s First Day at School! 🎒🏫",
    "genre": [
     "Infantil"
    ],
-   "logo": "https://i.ytimg.com/vi/ux87iHEJJtk/hqdefault.jpg?v=6af3369c",
+   "logo": "https://i.ytimg.com/vi/ueU52zVNxWU/hqdefault.jpg?v=6afe440f",
    "studio": "youtoon/ingles/masha-and-the-bear-24h",
    "url": "https://www.youtube.com/channel/UCu59yAFE8fM0sVNTipR4edw/live",
    "idioma": "en",
@@ -2969,11 +2969,11 @@
   },
   {
    "title": "Mr. Bean · Best of Mr Bean Animated 😎 | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 1206 vídeos",
+   "desc": "Playlist de Mr. Bean · 1207 vídeos",
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/8JH5HYaulzo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/zyZnK9ByHXw/hqdefault.jpg",
    "studio": "youtoon/ingles/mr-bean-best-of-mr-bean-animated-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh9Um40N668S9a2zUi9lxOqp",
    "idioma": "en",
@@ -2981,7 +2981,7 @@
   },
   {
    "title": "Mr. Bean · Best of Mr Bean Live Action 😂 | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 946 vídeos",
+   "desc": "Playlist de Mr. Bean · 947 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -2993,7 +2993,7 @@
   },
   {
    "title": "Mr. Bean · Compilations | Mr Bean",
-   "desc": "Playlist de Mr. Bean · 438 vídeos",
+   "desc": "Playlist de Mr. Bean · 439 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -3021,7 +3021,7 @@
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/sX83xswuLBA/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/zyZnK9ByHXw/hqdefault.jpg",
    "studio": "youtoon/ingles/mr-bean-mr-bean-the-animated-series-season-2-mr-bean",
    "url": "https://www.youtube.com/playlist?list=PLC1EDzqtkrh-2F4nbMOEeEkfTWyXW6T0x",
    "idioma": "en",
@@ -3101,11 +3101,11 @@
   },
   {
    "title": "My Little Pony - Official Channel 24H",
-   "desc": "🔴 Spooky Halloween Girls' Night 🎃 with Equestria Girls LIVE ❤️🔮 ALL DAY MARATHON 🕷️",
+   "desc": "🔴 Cozy Sleepover with Equestria Girls LIVE ❤️🔮 ALL MOVIES MARATHON 🎥 Full Movies Children's Cartoon",
    "genre": [
     "Fantasia e Magia"
    ],
-   "logo": "https://i.ytimg.com/vi/JtUCocRVCso/hqdefault.jpg?v=6afdda61",
+   "logo": "https://i.ytimg.com/vi/2__uy0rJ-x8/hqdefault.jpg?v=6aff2b5f",
    "studio": "youtoon/ingles/my-little-pony-official-channel-24h",
    "url": "https://www.youtube.com/channel/UC9qgVkKRZUXcgHdf35Z-8dw/live",
    "idioma": "en",
@@ -3153,7 +3153,7 @@
    "genre": [
     "Infantil"
    ],
-   "logo": "https://i.ytimg.com/vi/1qTT1X45QOw/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/X5AvTuQ0jYI/hqdefault.jpg",
    "studio": "youtoon/ingles/national-geographic-kids-kids-react-nat-geo-kids",
    "url": "https://www.youtube.com/playlist?list=PLQlnTldJs0ZTrKCZDZbE_NKH73FrZr4Sc",
    "idioma": "en",
@@ -3161,7 +3161,7 @@
   },
   {
    "title": "National Geographic Kids · Nat Geo Kids Full Episode Compilations",
-   "desc": "Playlist de National Geographic Kids · 45 vídeos",
+   "desc": "Playlist de National Geographic Kids · 46 vídeos",
    "genre": [
     "Infantil"
    ],
@@ -3281,11 +3281,11 @@
   },
   {
    "title": "Nicktoons · NEW From Nicktoons! 🚀",
-   "desc": "Playlist de Nicktoons · 1197 vídeos",
+   "desc": "Playlist de Nicktoons · 1165 vídeos",
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/7O0HZg-inQo/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/SzSuS6GTnI8/hqdefault.jpg",
    "studio": "youtoon/ingles/nicktoons-new-from-nicktoons",
    "url": "https://www.youtube.com/playlist?list=PLUQR09yEYrP2Er9Et0Od21xc5mM0WqHJ9",
    "idioma": "en",
@@ -3317,11 +3317,11 @@
   },
   {
    "title": "Nicktoons · SpongeBob SquarePants 🧽 | Nicktoons",
-   "desc": "Playlist de Nicktoons · 470 vídeos",
+   "desc": "Playlist de Nicktoons · 471 vídeos",
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/MEM7yEK8NvI/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/SzSuS6GTnI8/hqdefault.jpg",
    "studio": "youtoon/ingles/nicktoons-spongebob-squarepants-nicktoons",
    "url": "https://www.youtube.com/playlist?list=PLUQR09yEYrP0hxz_Jl32_bu_B5K3_Z6NC",
    "idioma": "en",
@@ -3329,7 +3329,7 @@
   },
   {
    "title": "Nicktoons · The Loud House 🏠 | Nicktoons",
-   "desc": "Playlist de Nicktoons · 206 vídeos",
+   "desc": "Playlist de Nicktoons · 205 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -3629,7 +3629,7 @@
   },
   {
    "title": "Oggy and the Cockroaches · OGGY - SEASON 5",
-   "desc": "Playlist de Oggy and the Cockroaches · 169 vídeos",
+   "desc": "Playlist de Oggy and the Cockroaches · 170 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -3653,11 +3653,11 @@
   },
   {
    "title": "Oggy and the Cockroaches · Oggy & the Cockroaches - Top Videos",
-   "desc": "Playlist de Oggy and the Cockroaches · 699 vídeos",
+   "desc": "Playlist de Oggy and the Cockroaches · 700 vídeos",
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/cEAxeaq4rPc/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/F9Scvm9X6xI/hqdefault.jpg",
    "studio": "youtoon/ingles/oggy-and-the-cockroaches-oggy-e-the-cockroaches-top-videos",
    "url": "https://www.youtube.com/playlist?list=PL-d4D7FQaDKMKmZD-nmHpdnbO7YZRipC6",
    "idioma": "en",
@@ -3845,11 +3845,11 @@
   },
   {
    "title": "Peppa Pig 24H",
-   "desc": "🔴 LIVE: Peppa Pig & Baby Evie’s Christmas Dinner! 🎄 Festive Food 🍰 | Kids Cartoons | 4K",
+   "desc": "🔴 LIVE: Peppa Pig & Baby Evie's Funniest Moments! 🍼 | Big Sister Fun ✨ | Kids Cartoons | 4K",
    "genre": [
     "Pré-escolar"
    ],
-   "logo": "https://i.ytimg.com/vi/wkj3pG0TYbE/hqdefault.jpg?v=6afdb2b1",
+   "logo": "https://i.ytimg.com/vi/2fxY1E7Pmyc/hqdefault.jpg?v=6afee82c",
    "studio": "youtoon/ingles/peppa-pig-24h",
    "url": "https://www.youtube.com/channel/UCAOtE1V7Ots4DjM8JLlrYgg/live",
    "idioma": "en",
@@ -4120,7 +4120,7 @@
    "genre": [
     "Heróis e Ação"
    ],
-   "logo": "https://i.ytimg.com/vi/rY3NFSS96d8/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/GSrGAG5AjDQ/hqdefault.jpg",
    "studio": "youtoon/ingles/power-rangers-kids-mighty-morphin-minute-s002-mighty-morphin-power-rangers-re-ig",
    "url": "https://www.youtube.com/playlist?list=PLRhk5vHcVeVY",
    "idioma": "en",
@@ -4347,12 +4347,12 @@
   },
   {
    "title": "Sesame Street · Elmo and Friends on YouTube!",
-   "desc": "Playlist de Sesame Street · 63 vídeos",
+   "desc": "Playlist de Sesame Street · 64 vídeos",
    "genre": [
     "Clássicos",
     "Musicais"
    ],
-   "logo": "https://i.ytimg.com/vi/2z3r2FucYEQ/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/egJFObGRBZI/hqdefault.jpg",
    "studio": "youtoon/ingles/sesame-street-elmo-and-friends-on-youtube",
    "url": "https://www.youtube.com/playlist?list=PL8TioFHubWFvrpM9-Ozd1BurgIQesYzL0",
    "idioma": "en",
@@ -4735,11 +4735,11 @@
   },
   {
    "title": "SpongeBob SquarePants Official · New Videos Every Day!",
-   "desc": "Playlist de SpongeBob SquarePants Official · 1411 vídeos",
+   "desc": "Playlist de SpongeBob SquarePants Official · 1412 vídeos",
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/OrGV3Ry36u0/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/wNKqoH1kGBI/hqdefault.jpg",
    "studio": "youtoon/ingles/spongebob-squarepants-official-new-videos-every-day",
    "url": "https://www.youtube.com/playlist?list=PLM1j2JqVBQfkjSUEdAeDh_PT6gfJXkJl6",
    "idioma": "en",
@@ -4747,7 +4747,7 @@
   },
   {
    "title": "SpongeBob SquarePants Official · SpongeBob SquarePants MEGA Marathon! 🍍 10 Minute Cartoons",
-   "desc": "Playlist de SpongeBob SquarePants Official · 365 vídeos",
+   "desc": "Playlist de SpongeBob SquarePants Official · 366 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -4835,7 +4835,7 @@
    "genre": [
     "Mistério e Sobrenatural"
    ],
-   "logo": "https://i.ytimg.com/vi/B9DPOJBh_s0/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/surQapdzEv8/hqdefault.jpg",
    "studio": "youtoon/ingles/spookiz-spookiz-for-everyone",
    "url": "https://www.youtube.com/playlist?list=PLjFmi1u8peSqfuNF_6MNZAtEoE7iyVOwF",
    "idioma": "en",
@@ -5437,13 +5437,13 @@
    "group": "Desenhos 24H"
   },
   {
-   "title": "The Loud House · Newest Clips | The Loud House",
-   "desc": "Playlist de The Loud House · 898 vídeos",
+   "title": "The Loud House · What's New on Loud House! 🤩",
+   "desc": "Playlist de The Loud House · 900 vídeos",
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/rjnOutkHtyM/hqdefault.jpg",
-   "studio": "youtoon/ingles/the-loud-house-newest-clips-the-loud-house",
+   "logo": "https://i.ytimg.com/vi/AyjqGyc-rnE/hqdefault.jpg",
+   "studio": "youtoon/ingles/the-loud-house-what-s-new-on-loud-house",
    "url": "https://www.youtube.com/playlist?list=PLgrisE0MOLgQCGdsdV-zn1JNcIbBlqylo",
    "idioma": "en",
    "group": "Desenhos 24H"
@@ -5863,7 +5863,7 @@
   },
   {
    "title": "WB Kids · The Tom and Jerry Show | WB Kids",
-   "desc": "Playlist de WB Kids · 67 vídeos",
+   "desc": "Playlist de WB Kids · 68 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -6151,7 +6151,7 @@
   },
   {
    "title": "Zig & Sharko · (NEW) ZIG & SHARKO | SEASON 3",
-   "desc": "Playlist de Zig & Sharko · 260 vídeos",
+   "desc": "Playlist de Zig & Sharko · 261 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -6163,7 +6163,7 @@
   },
   {
    "title": "Zig & Sharko · Zig & Sharko - Top Episodes",
-   "desc": "Playlist de Zig & Sharko · 577 vídeos",
+   "desc": "Playlist de Zig & Sharko · 578 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -6175,7 +6175,7 @@
   },
   {
    "title": "Zig & Sharko · Zig & Sharko | Compilations",
-   "desc": "Playlist de Zig & Sharko · 879 vídeos",
+   "desc": "Playlist de Zig & Sharko · 880 vídeos",
    "genre": [
     "Comédia"
    ],
@@ -6187,11 +6187,11 @@
   },
   {
    "title": "Zig & Sharko · ZIG & SHARKO | Full Episodes",
-   "desc": "Playlist de Zig & Sharko · 719 vídeos",
+   "desc": "Playlist de Zig & Sharko · 720 vídeos",
    "genre": [
     "Comédia"
    ],
-   "logo": "https://i.ytimg.com/vi/jYqLagxAt6M/hqdefault.jpg",
+   "logo": "https://i.ytimg.com/vi/nV1xk6PzWSM/hqdefault.jpg",
    "studio": "youtoon/ingles/zig-e-sharko-zig-e-sharko-full-episodes",
    "url": "https://www.youtube.com/playlist?list=PLoHcF3gNx3yylR_-88OX512hvtgw_85v7",
    "idioma": "en",
@@ -6206,18 +6206,6 @@
    "logo": "https://i.ytimg.com/vi/c3h62J-vIrY/hqdefault.jpg",
    "studio": "youtoon/ingles/zig-e-sharko-zig-e-sharko-season-2-new",
    "url": "https://www.youtube.com/playlist?list=PLoHcF3gNx3yzPovTasnu7jn7I2oGNrjoT",
-   "idioma": "en",
-   "group": "Desenhos 24H"
-  },
-  {
-   "title": "Zig & Sharko 24H",
-   "desc": "NEW ZIG & SHARKO 🔴 LIVE CARTOON | ALL SEASON & EPISODES | Collection for kids HD",
-   "genre": [
-    "Comédia"
-   ],
-   "logo": "https://i.ytimg.com/vi/hWDQZeOraxs/hqdefault.jpg?v=6ad79684",
-   "studio": "youtoon/ingles/zig-e-sharko-24h",
-   "url": "https://www.youtube.com/channel/UCcKJJuOe2tOqgrKw0Gks-sw/live",
    "idioma": "en",
    "group": "Desenhos 24H"
   }

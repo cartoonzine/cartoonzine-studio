@@ -7,6 +7,9 @@
   "tmdb": "movie/71066",
   "imdb": "tt0013556",
   "notaImdb": 7,
+  "notaTmdb": 6.4,
+  "popularidade": 1.1,
+  "duracao": 133,
   "votosImdb": 2736,
   "capa": "https://archive.org/services/img/FairbanksRobinHood1922",
   "banner": "https://image.tmdb.org/t/p/w1280/le215ALRyvc19s6jfrVjRO371YY.jpg",
@@ -18,8 +21,5 @@
     "Robin Hood"
   ],
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 6.4,
-  "popularidade": 1.1,
-  "duracao": 133
+  "_completadoEm": "2026-11-15"
 }

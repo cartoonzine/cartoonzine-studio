@@ -7,6 +7,9 @@
   "tmdb": "movie/2981",
   "imdb": "tt0016039",
   "notaImdb": 7,
+  "notaTmdb": 6.7,
+  "popularidade": 1.5,
+  "duracao": 104,
   "votosImdb": 6707,
   "capa": "https://archive.org/services/img/lost_world",
   "banner": "https://image.tmdb.org/t/p/w1280/mdNae6nOlJ7iKxFgsWSAgxU9shS.jpg",
@@ -21,8 +24,5 @@
   "bannerLogo": "https://image.tmdb.org/t/p/w500/mIduG24mQKG0AMhsNNcDYwIA8zY.png",
   "destaqueOrdem": 6,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15",
-  "notaTmdb": 6.7,
-  "popularidade": 1.5,
-  "duracao": 104
+  "_completadoEm": "2026-11-15"
 }
