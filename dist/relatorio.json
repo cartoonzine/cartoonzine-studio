@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-18T17:35:30.447Z",
+  "geradoEm": "2026-11-19T03:12:28.938Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -17,8 +17,8 @@
     },
     {
       "colecao": "desenhos-24h",
-      "total": 0,
-      "publicados": 0,
+      "total": 2,
+      "publicados": 2,
       "erros": [],
       "avisos": []
     },

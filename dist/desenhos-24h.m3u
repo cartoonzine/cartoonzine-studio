@@ -1,1 +1,5 @@
 #EXTM3U
+#EXTINF:-1 tvg-name="Gospel Cartoon" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/gospelcartoon.png" group-title="Desenhos 24H",Gospel Cartoon
+https://stmv1.srvif.com/gospelcartoon/gospelcartoon/playlist.m3u8
+#EXTINF:-1 tvg-name="Os Jetsons" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/Jetsons.png" group-title="Desenhos 24H",Os Jetsons
+https://stmv1.srvif.com/jetsontv/jetsontv/playlist.m3u8

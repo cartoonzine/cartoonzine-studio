@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-18T17:35:30.447Z",
+  "geradoEm": "2026-11-19T03:12:28.938Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -31,7 +31,7 @@
       "nome": "Desenhos 24 Horas",
       "tipo": "canal24h",
       "app": "cartoonzine",
-      "publicados": 0,
+      "publicados": 2,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/desenhos-24h.json",
