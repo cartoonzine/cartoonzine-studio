@@ -16,7 +16,7 @@
    "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--video.mp4",
    "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--logo.png",
    "bgImg": "banner",
-   "bgPosY": 23,
+   "bgPosY": 19,
    "studio": "jogos-web/web-dos/duke-nukem-3d-eduke32-wasm",
    "url": "https://digitalcybersoft.github.io/eduke32-wasm/",
    "thumb": "https://images.launchbox-app.com//7a658a61-8276-49cd-bdf4-b760f749ee5f.jpg",
