@@ -150,3 +150,57 @@ http://t/x.m3u8
     assert.equal(r2.saidas[0].chave, 'sc-canais-br');
     assert.equal(r2.avulsas[0].itens[0].pais, 'BR');
 });
+
+const cfgMista = { publicacao: { repo: 'cz/studio' }, colecoes: config.colecoes.concat([
+    { id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'Filmes', tipo: 'vod_json', prefixoId: 'VOD_FIL' } },
+    { id: 'series', nome: 'Séries', tipo: 'video', fonteCloud: { nome: 'Séries', tipo: 'vod_json', prefixoId: 'VOD_SER' } }]) };
+const MISTA = `#EXTM3U
+#EXTINF:-1 group-title="Filmes | Ação",Matrix (1999)
+http://v/matrix.mp4
+#EXTINF:-1 group-title="Filmes | Ação",Duro de Matar (1988)
+http://v/duro.mp4
+#EXTINF:-1 group-title="Séries | Drama",Lost S01E01
+http://v/lost1.mp4
+#EXTINF:-1 group-title="Animes",Naruto S01E01
+http://v/naruto.mp4
+#EXTINF:-1 group-title="Desenhos",Pica-Pau S01E01
+http://v/pica.mp4
+#EXTINF:-1 group-title="XXX Adultos",Coisa (2020)
+http://v/x.mp4
+`;
+
+test('lista mista: rotas pelos GRUPOS — sugestões, grupo novo espera, exceção item a item ainda vale', () => {
+    const cs = L.lerLista(MISTA, 't').canais;
+    const e = L.envioPadrao({ id: 'mx', tipoLista: 'mista' });
+    const cols = L.colecoesSidechain(cfgMista);
+    const g = L.analisarGrupos(cs, e, cols);
+    const sug = Object.fromEntries(g.map(x => [x.grupo, x.sugestao === 'ignorar' ? 'ignorar' : x.sugestao && x.sugestao.colecao]));
+    assert.deepEqual(sug, { 'Filmes | Ação': 'filmes', 'Séries | Drama': 'series', Animes: 'animes', Desenhos: 'cartoons', 'XXX Adultos': 'ignorar' });
+    assert.equal(L.aplicarSugestoes(e, g), 5);
+    assert.equal(e.rotas.length, 5);
+    // exceção: o Pica-Pau vai para Animes só ele
+    e.desvios[L.chaveSC(cs[4])] = { colecao: 'animes' };
+    const { saidas, relatorios } = L.montarSidechain([{ envio: e, canais: cs }], cfgMista);
+    const por = Object.fromEntries(saidas.map(s => [s.chave, s.itens.length]));
+    assert.deepEqual(por, { 'sc-filmes': 2, 'sc-series': 1, 'sc-animes': 2 });
+    assert.equal(relatorios.mx.ignorados + relatorios.mx.filtrados, 1);
+    // grupo que aparece depois espera (🔔) — ou vai pela sugestão, se o envio quiser
+    const novo = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="Lançamentos 2026",Filme X (2026)\nhttp://v/fx.mp4\n', 't').canais;
+    const r1 = L.montarSidechain([{ envio: e, canais: cs.concat(novo) }], cfgMista).relatorios.mx;
+    assert.deepEqual(r1.gruposNovos, { 'Lançamentos 2026': 1 });
+    e.gruposNovos = 'sugestao';
+    const r2 = L.montarSidechain([{ envio: e, canais: cs.concat(novo) }], cfgMista);
+    assert.equal(r2.saidas.find(s => s.chave === 'sc-filmes').itens.length, 3);
+    // mover grupo de rota
+    L.moverGrupo(e, 'Desenhos', e.rotas.find(r => r.destino.colecao === 'animes').id);
+    assert.equal(L.rotaDe(cs[4], Object.assign({}, e, { desvios: {} })).destino.colecao, 'animes');
+});
+
+test('migração: envio antigo vira "uma categoria" e os desvios iguais ao destino somem', () => {
+    const desvios = {}; for (let i = 0; i < 1000; i++) desvios['k' + i] = { colecao: 'filmes' };
+    desvios.outro = { colecao: 'series' }; desvios.fora = 'ignorar';
+    const e = L.envioPadrao({ id: 'f', destino: { colecao: 'filmes' }, desvios });
+    assert.equal(e.tipoLista, 'unica');
+    assert.deepEqual(Object.keys(e.desvios).sort(), ['fora', 'outro']);
+    assert.equal(L.envioPadrao({ rotas: [{ destino: { colecao: 'filmes' }, grupos: ['A'] }] }).tipoLista, 'mista');
+});

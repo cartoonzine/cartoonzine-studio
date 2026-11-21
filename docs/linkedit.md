@@ -89,6 +89,22 @@ Relatório, histórico e o que cada envio já viu ficam em `sidechain/estado.jso
 `{ "nome": "Cartoonzine Studio · Sidechain", "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sidechain-fontes.json", "colecoes": ["sidechain"] }`.
 Daí em diante toda lista nova do Sidechain entra no catálogo sozinha.
 
+### Assistente do envio (4 passos)
+
+1. **Link** — cole o link e clique em 📥 Ler lista (mostra itens e grupos).
+2. **Que lista é?** — 🎯 *Uma categoria só* (tudo vai para o mesmo lugar) ou 🔀 *Lista mista*.
+3. **Rotas** — uma categoria: escolha a coleção (no TVzine, país + idioma).
+   Lista mista: cada **grupo** (`group-title`) da lista vai por uma rota (🎬 Filmes, 📺 Séries, 🌸 Animes, 🎨 Cartoons, 🚫 Fica de fora…).
+   As sugestões AUTO vêm do nome do grupo e do tipo dos itens; ✨ Aplicar sugestões monta o resto.
+   Grupo que aparece depois na lista chega com 🔔 e espera você (ou vai pela sugestão, se você escolher).
+4. **Conferir e salvar** — novidades, teste dos links, filtros, lista avulsa, TMDB.
+
+A barra "Vai gerar" mostra quanto vai para cada coleção.
+Só as **exceções** (o filme que caiu no grupo errado) ficam guardadas item por item no 🔀 Sidechain.
+Envios antigos viram "uma categoria" e os desvios iguais ao destino do envio são apagados (não mudavam nada).
+
+Precedência: exceção do item > regras > rota do grupo (mista) ou destino (uma categoria).
+
 ## 🎬 Tipo do item e dados de vídeo
 Cada item ganha o **tipo**, descoberto sozinho pelo link e pelo nome: 📺 canal ao vivo · 🎬 filme/vídeo · 🎞 episódio de
 série · 📻 rádio (ícone na linha; clique ou **Y** para trocar). Filtro **Tipo de item** na esquerda.

@@ -750,10 +750,65 @@
     /** Coleções que podem receber um envio (as de vídeo/canal/rádio que publicam fonte no Cloud). */
     function colecoesSidechain(config) { return ((config && config.colecoes) || []).filter(c => SC_TIPOS.includes(c.tipo) && c.fonteCloud); }
     function envioPadrao(extra) {
-        const e = Object.assign({ id: '', nome: 'Envio novo', url: '', listas: [], ativo: true, destino: { colecao: '' }, modo: 'auto', soVivos: null,
-            filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, criadoEm: '' }, extra || {});
+        const e = Object.assign({ id: '', nome: 'Envio novo', url: '', listas: [], ativo: true, tipoLista: '', destino: { colecao: '' }, rotas: [], gruposNovos: 'esperar',
+            modo: 'auto', soVivos: null, filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, criadoEm: '' }, extra || {});
         e.filtros = Object.assign({ idiomas: [], tipos: [], paises: [], categorias: [], excluirTipos: ['Adulto'], busca: '', confiancaMin: 0 }, e.filtros || {});
+        if (!e.tipoLista) e.tipoLista = (e.rotas || []).length ? 'mista' : 'unica';     // envios antigos: uma categoria
+        // desvio igual ao destino do envio não muda nada (envios antigos chegaram a guardar centenas de milhares assim)
+        if (e.tipoLista === 'unica' && e.destino && e.destino.colecao) {
+            for (const [k, d] of Object.entries(e.desvios || {})) if (d && d !== 'ignorar' && mesmoDestino(d, e.destino)) delete e.desvios[k];
+        }
+        (e.rotas || []).forEach((r, i) => { if (!r.id) r.id = 'r' + (i + 1); r.grupos = r.grupos || []; });
         return e;
+    }
+    // ---------- 🔀 LISTA MISTA: rotas montadas pelos GRUPOS da lista (não item por item) ----------
+    const SEM_GRUPO = '(sem grupo)';
+    const grupoDe = (c) => String(c.grupo || '').trim() || SEM_GRUPO;
+    /** grupo → rota (a rota guarda os grupos dela) */
+    function mapaGrupos(e) { const m = new Map(); (e.rotas || []).forEach(r => (r.grupos || []).forEach(g => m.set(g, r))); return m; }
+    /**
+     * Coleção sugerida para um grupo inteiro, pelo nome dele e pelo tipo da maioria dos itens.
+     * → { colecao } · 'ignorar' · null (sem palpite). cols = colecoesSidechain(config)
+     */
+    function sugerirGrupo(nome, nats, cols) {
+        const g = norm(nome), tem = (id) => cols.some(c => c.id === id) ? id : '';
+        const total = Object.values(nats).reduce((a, b) => a + b, 0) || 1, maior = Object.entries(nats).sort((a, b) => b[1] - a[1])[0];
+        const nat = maior ? maior[0] : 'canal', video = (nats.filme || 0) + (nats.episodio || 0) > total / 2;
+        if (/\b(adult|adulto|xxx|18|porn|hot|erotic)/.test(g)) return 'ignorar';
+        if (nat === 'radio') return tem('radios') ? { colecao: 'radios' } : null;
+        if (!video) {
+            if (/\b(desenho|cartoon|toon)/.test(g) && /\b24/.test(g) && tem('desenhos-24h')) return { colecao: 'desenhos-24h' };
+            return tem('canais') ? { colecao: 'canais' } : null;
+        }
+        if (/\b(anime|animes|otaku|crunchy|manga)/.test(g)) return tem('animes') ? { colecao: 'animes' } : null;
+        if (/\b(desenho|desenhos|cartoon|cartoons|infantil|kids|animac|toon|crianca)/.test(g)) return tem('cartoons') ? { colecao: 'cartoons' } : null;
+        if (/\b(serie|series|novela|novelas|temporada|dorama|doramas|sitcom)/.test(g) || (nats.episodio || 0) > total / 2) return tem('series') ? { colecao: 'series' } : null;
+        if (/\b(torrent|magnet)/.test(g)) return tem('filmes-torrent') ? { colecao: 'filmes-torrent' } : null;
+        return tem('filmes') ? { colecao: 'filmes' } : null;
+    }
+    /** Resumo dos grupos da lista: [{ grupo, n, nats:{canal,filme,episodio,radio}, rota, sugestao }] (maiores primeiro) */
+    function analisarGrupos(canais, e, cols) {
+        const m = new Map(), mg = mapaGrupos(e);
+        canais.forEach(c => { const g = grupoDe(c); if (!m.has(g)) m.set(g, { grupo: g, n: 0, nats: {} }); const x = m.get(g); x.n++; const nt = c.natureza || 'canal'; x.nats[nt] = (x.nats[nt] || 0) + 1; });
+        return [...m.values()].map(x => Object.assign(x, { rota: mg.get(x.grupo) || null, sugestao: sugerirGrupo(x.grupo, x.nats, cols) })).sort((a, b) => b.n - a.n);
+    }
+    /** Monta as rotas pelas sugestões (só para grupos sem rota). Cria a rota da coleção se ainda não existe. Devolve quantos grupos ganhou rota. */
+    function aplicarSugestoes(e, grupos) {
+        let n = 0;
+        grupos.forEach(x => {
+            if (x.rota || !x.sugestao) return;
+            const chave = x.sugestao === 'ignorar' ? 'ignorar' : x.sugestao.colecao;
+            let r = (e.rotas || []).find(r => (r.destino === 'ignorar' ? 'ignorar' : r.destino && r.destino.colecao) === chave);
+            if (!r) { r = { id: 'r' + Date.now().toString(36) + (e.rotas.length + 1), destino: x.sugestao === 'ignorar' ? 'ignorar' : Object.assign({}, x.sugestao), grupos: [] }; e.rotas.push(r); }
+            r.grupos.push(x.grupo); x.rota = r; n++;
+        });
+        return n;
+    }
+    /** Põe o grupo na rota (ou tira de todas, com rotaId vazio). */
+    function moverGrupo(e, grupo, rotaId) {
+        (e.rotas || []).forEach(r => { r.grupos = (r.grupos || []).filter(g => g !== grupo); });
+        const r = (e.rotas || []).find(x => x.id === rotaId);
+        if (r) r.grupos.push(grupo);
     }
     /** Todos os links do envio (o principal + as outras listas que entram junto). */
     function linksDoEnvio(e) { return [...new Set([e.url].concat(e.listas || []).map(u => String(u || '').trim()).filter(u => /^https?:\/\//i.test(u)))]; }
@@ -798,6 +853,13 @@
         if (d && d.colecao) return { destino: d, motivo: 'manual', novo };
         const r = (envio.regras || []).concat(envio._globais || []).find(x => x && x.para && x.ativo !== false && passaRegra(c, x));
         if (r) return r.para === 'ignorar' ? { destino: 'ignorar', motivo: 'regra', regra: r, novo } : { destino: r.para, motivo: 'regra', regra: r, novo };
+        if (envio.tipoLista === 'mista') {
+            const g = grupoDe(c), rt = (envio._mapaGrupos && envio._mapaGrupos.get(g)) || mapaGrupos(envio).get(g);
+            if (rt) return { destino: rt.destino, motivo: rt.destino === 'ignorar' ? 'ignorar' : 'rota', rota: rt, novo };
+            // grupo que ainda não tem rota (chegou agora na lista): espera você, ou vai pela sugestão
+            if (envio.gruposNovos === 'sugestao' && envio._cols) { const sg = sugerirGrupo(g, { [c.natureza || 'canal']: 1 }, envio._cols); if (sg) return { destino: sg, motivo: 'sugestao', novo }; }
+            return { destino: null, motivo: 'pendente', grupoNovo: g, novo };
+        }
         if (novo && envio.modo === 'revisar') return { destino: null, motivo: 'pendente', novo };
         return { destino: envio.destino && envio.destino.colecao ? envio.destino : null, motivo: 'padrao', novo };
     }
@@ -829,7 +891,8 @@
         const cols = colecoesSidechain(config);
         const porSaida = new Map(), relatorios = {}, avulsas = [];
         for (const { envio, canais, mantido, erro } of lotes) {
-            const rel = { total: canais.length, porDestino: {}, novos: [], pendentes: [], ignorados: 0, filtrados: 0, mortos: 0, mantido: !!mantido, erro: erro || '' };
+            const rel = { total: canais.length, porDestino: {}, novos: [], pendentes: [], gruposNovos: {}, ignorados: 0, filtrados: 0, mortos: 0, mantido: !!mantido, erro: erro || '' };
+            envio._mapaGrupos = mapaGrupos(envio); envio._cols = cols;
             const avulsa = envio.avulsa ? [] : null;
             const viver = envio.soVivos != null ? envio.soVivos : null;
             for (const c of canais) {
@@ -842,12 +905,12 @@
                     if (viva) avulsa.push(r.destino && r.destino.colecao ? itemNoDestino(c, r.destino, cols.find(x => x.id === r.destino.colecao) || {}) : c);
                 }
                 if (r.novo) rel.novos.push({ chave: chaveSC(c), nome: c.nome, para: r.motivo === 'pendente' ? null : r.destino === 'ignorar' ? 'ignorar' : r.destino && r.destino.colecao, motivo: r.motivo });
-                if (r.motivo === 'pendente') { rel.pendentes.push(chaveSC(c)); continue; }
+                if (r.motivo === 'pendente') { rel.pendentes.push(chaveSC(c)); if (r.grupoNovo) rel.gruposNovos[r.grupoNovo] = (rel.gruposNovos[r.grupoNovo] || 0) + 1; continue; }
                 if (r.destino === 'ignorar' || !r.destino) { rel.ignorados++; continue; }
                 const col = cols.find(x => x.id === r.destino.colecao);
                 if (!col) { rel.ignorados++; continue; }
                 // tipo trocado (canal ao vivo indo para uma coleção de vídeo, ou filme indo para o TVzine): só se VOCÊ mandou
-                if (r.motivo === 'padrao' && ((col.tipo === 'video') !== ehVideo(c)) && !(col.tipo === 'canal24h' && !ehVideo(c))) { rel.tipoErrado = (rel.tipoErrado || 0) + 1; continue; }
+                if ((r.motivo === 'padrao' || r.motivo === 'rota' || r.motivo === 'sugestao') && ((col.tipo === 'video') !== ehVideo(c)) && !(col.tipo === 'canal24h' && !ehVideo(c))) { rel.tipoErrado = (rel.tipoErrado || 0) + 1; continue; }
                 // já está na MESMA coleção da Studio (cadastrado à mão): não entra de novo — no app apareceria dobrado
                 if (envio.pularStudio !== false && opts.studio) { const j = jaNaStudio(c, opts.studio); if (j && j.colecao === col.id) { rel.naStudio = (rel.naStudio || 0) + 1; continue; } }
                 const testar = viver != null ? viver : (col.tipo !== 'video');
@@ -859,6 +922,7 @@
                 const rot = destinoTexto(sd.pais ? Object.assign({}, r.destino, { pais: sd.pais }) : r.destino, cols);
                 rel.porDestino[rot] = (rel.porDestino[rot] || 0) + 1;
             }
+            delete envio._mapaGrupos; delete envio._cols;
             relatorios[envio.id] = rel;
             if (avulsa) avulsas.push({ id: envio.id, nome: envio.nome, itens: agrupar(avulsa.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas) });
         }
@@ -1184,6 +1248,7 @@
         arvoreSeries, mapaStudio, jaNaStudio, arrumarNome,
         chaveTMDB, pedidoTMDB, dadosDoTMDB, aplicarTMDB,
         NATUREZAS, analisarVideo, naturezaDe, ehVideo, colecaoVideo, detectarVideo, ajustarVideo, videoTexto,
+        SEM_GRUPO, grupoDe, mapaGrupos, sugerirGrupo, analisarGrupos, aplicarSugestoes, moverGrupo,
         colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
