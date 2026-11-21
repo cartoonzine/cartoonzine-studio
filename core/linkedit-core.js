@@ -560,6 +560,156 @@
     }
     const idReceita = (nome) => norm(nome).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'receita';
 
+    // ================================================================ 🔗 LINK SIDECHAIN
+    // Listas boas que vivem sendo atualizadas: cada ENVIO tem um link e um destino padrão (uma coleção do Studio).
+    // O "sidechain" desvia itens dessa lista para outra coleção (ex.: os animes de uma lista de cartoons → Animes).
+    // Cada desvio fica salvo pela CHAVE do item (tvg-id ou nome limpo + país, a mesma das cópias), não pela posição:
+    // quando a lista atualiza, o mesmo canal vai para o mesmo lugar. O robô (tools/sidechain.mjs) monta, a cada 6 h,
+    // uma lista pronta por coleção (e por PAÍS no TVzine/rádios) — o país vai na FONTE do Cloud, então nunca desvia.
+    // Destino = { colecao, pais?, idioma?, categoria? }   ·   desvio 'ignorar' = fica de fora.
+    const SC_TIPOS = ['video', 'canal', 'canal24h', 'radio'];
+    const scComPais = (col) => !!col && (col.tipo === 'canal' || col.tipo === 'radio');
+    /** Coleções que podem receber um envio (as de vídeo/canal/rádio que publicam fonte no Cloud). */
+    function colecoesSidechain(config) { return ((config && config.colecoes) || []).filter(c => SC_TIPOS.includes(c.tipo) && c.fonteCloud); }
+    function envioPadrao(extra) {
+        return Object.assign({ id: '', nome: 'Envio novo', url: '', ativo: true, destino: { colecao: '' }, modo: 'auto', soVivos: null,
+            desvios: {}, regras: [], vistos: {}, criadoEm: '' }, extra || {});
+    }
+    const idEnvio = (nome, usados) => { const base = norm(nome).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 32) || 'envio'; let id = base, i = 2; while (usados && usados.has(id)) id = base + '-' + i++; return id; };
+    /** Chave estável do item no sidechain (a mesma das cópias: tvg-id, ou nome limpo + país). */
+    const chaveSC = (c) => c.chave || chaveDe(c);
+    const mesmoDestino = (a, b) => !!a && !!b && a.colecao === b.colecao && (a.pais || '') === (b.pais || '') && (a.idioma || '') === (b.idioma || '') && (a.categoria || '') === (b.categoria || '');
+    /** O destino em palavras: "Canais (TVzine) · BR · pt-BR · Infantil". */
+    function destinoTexto(d, colecoes) {
+        if (d === 'ignorar') return 'Ignorado';
+        if (!d || !d.colecao) return 'sem destino';
+        const col = (colecoes || []).find(c => c.id === d.colecao);
+        return [col ? col.nome : d.colecao, d.pais, d.idioma, d.categoria].filter(Boolean).join(' · ');
+    }
+    /** A regra vale para o item? regra = { campo: 'grupo'|'nome'|'tudo', contem: 'anime', para: destino } */
+    function passaRegra(c, r) {
+        const alvo = r.campo === 'nome' ? norm(c.nomeOriginal || c.nome) : r.campo === 'grupo' ? norm(c.grupo) : norm([c.grupo, c.nomeOriginal || c.nome, c.tvgId].join(' '));
+        const k = norm(r.contem);
+        return !!k && (' ' + alvo + ' ').includes(' ' + k) ;
+    }
+    /**
+     * Para onde o item vai e por quê: { destino, motivo: 'manual'|'regra'|'padrao'|'pendente'|'ignorar', novo, regra }
+     * novo = nunca visto neste envio (envio.vistos). No modo 'revisar', o novo sem desvio nem regra fica PENDENTE.
+     */
+    function rotaDe(c, envio) {
+        const k = chaveSC(c);
+        const novo = !!(envio.vistos && Object.keys(envio.vistos).length && !envio.vistos[k]);
+        const d = envio.desvios && envio.desvios[k];
+        if (d === 'ignorar') return { destino: 'ignorar', motivo: 'ignorar', novo };
+        if (d && d.colecao) return { destino: d, motivo: 'manual', novo };
+        const r = (envio.regras || []).find(x => x && x.para && passaRegra(c, x));
+        if (r) return r.para === 'ignorar' ? { destino: 'ignorar', motivo: 'regra', regra: r, novo } : { destino: r.para, motivo: 'regra', regra: r, novo };
+        if (novo && envio.modo === 'revisar') return { destino: null, motivo: 'pendente', novo };
+        return { destino: envio.destino && envio.destino.colecao ? envio.destino : null, motivo: 'padrao', novo };
+    }
+    /** O item pronto para o destino, no formato do app (país/idioma/categoria do destino SEMPRE vencem os da lista). */
+    function itemNoDestino(c, d, col) {
+        const o = Object.assign({}, c);
+        if (scComPais(col)) {
+            if (d.pais) o.pais = d.pais;                       // o país escolhido manda: o canal nunca vai para outro país
+            if (d.idioma) o.idioma = d.idioma; else if (d.pais && !o.idioma) o.idioma = idiomaDe({}, d.pais);
+            o.grupoSaida = d.categoria || c.grupoSaida || categoriaSugerida(c) || 'Variedades';
+        } else {
+            if (d.idioma) o.idioma = d.idioma;
+            o.grupoSaida = d.categoria || c.grupoSaida || c.grupo || '';
+        }
+        return o;
+    }
+    /** Nome do arquivo de saída: sc-<coleção> (vídeo) ou sc-<coleção>-<país> (TVzine/rádios). */
+    function saidaDe(d, col, item) {
+        if (!scComPais(col)) return { chave: 'sc-' + d.colecao, colecao: d.colecao, pais: '', idioma: d.idioma || '' };
+        const pais = String(d.pais || (item && item.pais) || '').toUpperCase();
+        return { chave: 'sc-' + d.colecao + '-' + (pais ? pais.toLowerCase() : 'mundo'), colecao: d.colecao, pais, idioma: '' };
+    }
+    /**
+     * Monta todas as saídas. lotes = [{ envio, canais }] (canais já lidos, com .teste/.historico se testados).
+     * → { saidas: [{ chave, colecao, pais, idioma, itens }], relatorios: { [envioId]: {...} } }
+     * Cópias do mesmo canal (mesmo destino, de envios diferentes) viram reserva da melhor.
+     */
+    function montarSidechain(lotes, config) {
+        const cols = colecoesSidechain(config);
+        const porSaida = new Map(), relatorios = {};
+        for (const { envio, canais, mantido, erro } of lotes) {
+            const rel = { total: canais.length, porDestino: {}, novos: [], pendentes: [], ignorados: 0, mortos: 0, mantido: !!mantido, erro: erro || '' };
+            const viver = envio.soVivos != null ? envio.soVivos : null;
+            for (const c of canais) {
+                const r = rotaDe(c, envio);
+                if (r.novo) rel.novos.push({ chave: chaveSC(c), nome: c.nome, para: r.motivo === 'pendente' ? null : r.destino === 'ignorar' ? 'ignorar' : r.destino && r.destino.colecao, motivo: r.motivo });
+                if (r.motivo === 'pendente') { rel.pendentes.push(chaveSC(c)); continue; }
+                if (r.destino === 'ignorar' || !r.destino) { rel.ignorados++; continue; }
+                const col = cols.find(x => x.id === r.destino.colecao);
+                if (!col) { rel.ignorados++; continue; }
+                const testar = viver != null ? viver : (col.tipo !== 'video');
+                if (testar && c.teste && !VIVO_RECEITA(c.teste.status)) { rel.mortos++; continue; }
+                const it = itemNoDestino(c, r.destino, col);
+                const sd = saidaDe(r.destino, col, it);
+                if (!porSaida.has(sd.chave)) porSaida.set(sd.chave, Object.assign(sd, { brutos: [] }));
+                porSaida.get(sd.chave).brutos.push(it);
+                const rot = destinoTexto(sd.pais ? Object.assign({}, r.destino, { pais: sd.pais }) : r.destino, cols);
+                rel.porDestino[rot] = (rel.porDestino[rot] || 0) + 1;
+            }
+            relatorios[envio.id] = rel;
+        }
+        const saidas = [...porSaida.values()].map(s => {
+            const itens = agrupar(s.brutos.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas)
+                .sort((a, b) => String(a.grupoSaida || '').localeCompare(String(b.grupoSaida || ''), 'pt') || String(a.nome).localeCompare(String(b.nome), 'pt'));
+            delete s.brutos;
+            return Object.assign(s, { itens });
+        }).sort((a, b) => a.chave.localeCompare(b.chave));
+        return { saidas, relatorios };
+    }
+    /**
+     * A fonte do Cloud de uma saída (vai em listas/sidechain-fontes.json; o Cloud lê via "fontesDoStudio").
+     * No TVzine/rádios o país vai na FONTE (pais + paisExclusivo): o Cloud não tenta adivinhar outro.
+     */
+    function fonteDaSaida(s, col, link) {
+        const base = Object.assign({}, col.fonteCloud);
+        const f = Object.assign(base, {
+            _colecao: 'sidechain',
+            nome: base.nome + ' · Sidechain' + (s.pais ? ' ' + s.pais : s.idioma ? ' ' + s.idioma : ''),
+            prefixoId: (base.prefixoId || 'SC') + '_SC' + (s.pais || (s.idioma ? s.idioma.replace(/[^a-z]/gi, '').toUpperCase() : '')),
+            url: link(s.chave + (base.tipo === 'vod_m3u' ? '.m3u' : '.json'))
+        });
+        if (s.pais) { f.pais = s.pais.toLowerCase(); f.paisExclusivo = true; }
+        if (s.idioma && !s.pais) f.idioma = s.idioma;
+        return f;
+    }
+    /**
+     * Regras que dá para aprender com os desvios feitos à mão: um grupo da lista em que (quase) tudo foi para o
+     * mesmo lugar. → [{ campo: 'grupo', contem, para, n, de }] (n desviados de "de" itens daquele grupo)
+     */
+    function sugerirRegras(canais, envio, minimo = 3) {
+        const porGrupo = new Map();
+        canais.forEach(c => { const g = String(c.grupo || '').trim(); if (!g) return; if (!porGrupo.has(g)) porGrupo.set(g, []); porGrupo.get(g).push(c); });
+        const out = [];
+        for (const [g, lista] of porGrupo) {
+            const ds = lista.map(c => envio.desvios[chaveSC(c)]).filter(Boolean);
+            if (ds.length < minimo) continue;
+            const alvo = ds[0];
+            const iguais = ds.filter(d => d === alvo || (d !== 'ignorar' && alvo !== 'ignorar' && mesmoDestino(d, alvo))).length;
+            if (iguais / lista.length < 0.8) continue;
+            if ((envio.regras || []).some(r => r.campo === 'grupo' && norm(r.contem) === norm(g))) continue;
+            out.push({ campo: 'grupo', contem: g, para: alvo, n: iguais, de: lista.length });
+        }
+        return out.sort((a, b) => b.n - a.n);
+    }
+    /** Depois da rodada: todo item visto entra em "vistos" (os que somem há 30 dias saem). Devolve quantos saíram. */
+    function marcarVistos(envio, canais, agora = Date.now()) {
+        const hoje = new Date(agora).toISOString().slice(0, 10);
+        envio.vistos = envio.vistos || {};
+        const agoraSet = new Set(canais.map(chaveSC));
+        agoraSet.forEach(k => { envio.vistos[k] = hoje; });
+        let sairam = 0;
+        const limite = new Date(agora - 30 * 86400e3).toISOString().slice(0, 10);
+        for (const [k, d] of Object.entries(envio.vistos)) if (!agoraSet.has(k)) { sairam++; if (d < limite) delete envio.vistos[k]; }
+        return sairam;
+    }
+
     /** Junta as linhas repetidas do lote (mesmo arquivo) e, se já existe no Studio, o que já estava lá. */
     function itemFinal(r, C, existente) {
         let item = r.item;
@@ -798,7 +948,8 @@
     }
 
     return {
-        IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, receitaPadrao, passaReceita, montarReceita, confianca, idReceita, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, receitaPadrao, passaReceita, montarReceita, confianca, idReceita,
+        colecoesSidechain, envioPadrao, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });

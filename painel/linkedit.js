@@ -41,6 +41,7 @@
     const $ = (sel) => raiz && raiz.querySelector(sel);
 
     function salvar() {
+        if (SC.modo) return;                  // no Sidechain a tabela mostra a lista do envio: o seu trabalho fica guardado como estava
         try {
             localStorage.setItem(GUARDA, JSON.stringify({
                 listas: E.listas, nova: E.nova, modoTeste: E.modoTeste, som: E.som,
@@ -93,6 +94,7 @@
         S.aviso(`${n} canais lidos de "${nome}" (${r.formato.toUpperCase()}).`, 'ok');
     }
     function removerLista(id) {
+        if (SC.modo && id === 'sc-' + SC.modo.envio.id) return sairModoSC(true);
         lembrar();
         E.listas = E.listas.filter(l => l.id !== id);
         E.canais = E.canais.filter(c => c.lista !== id);
@@ -155,7 +157,7 @@
     function filtrados() {
         const base = E.canais.filter(c => (E.f.quarentena ? c.quarentena : !c.quarentena));
         E.cont = L.contar(base);
-        return L.filtrar(base, E.f, E.cont.chaves);
+        return filtroSC(L.filtrar(base, E.f, E.cont.chaves));
     }
 
     // ---------------------------------------------------------------- lista nova
@@ -1077,6 +1079,273 @@
     // ---------------------------------------------------------------- IMPORTAR LISTA INTEIRA (lista que já está pronta)
     // Para listas que você já sabe que estão completas e funcionando: lê a lista inteira e manda para o Studio sem passar
     // pela mesa (as ferramentas continuam lá para os imprevistos). Cada item vai para a coleção certa, ou todos para uma só.
+    // ================================================================ 🔗 LINK SIDECHAIN
+    // Envios = listas boas que vivem atualizando, cada uma com um destino (coleção; no TVzine, país + idioma + categoria).
+    // O "sidechain" abre a lista no próprio editor: marque itens e mande para outra coleção (ou ignore). Cada desvio
+    // fica salvo pela chave do item; o robô (tools/sidechain.mjs, a cada 6 h) refaz as listas e publica para o Cloud.
+    const ARQ_SC = 'sidechain/envios.json', ARQ_SC_ESTADO = 'sidechain/estado.json', GUARDA_SC_VISTO = 'czs-sidechain-visto';
+    const SC = { envios: null, estado: null, atual: null, sujo: false, modo: null, filtro: '', canais: new Map(), sugestoes: [] };
+    const colsSC = () => L.colecoesSidechain(S.config && S.config());
+    const colSC = (id) => colsSC().find(c => c.id === id);
+    const comPais = (col) => !!col && (col.tipo === 'canal' || col.tipo === 'radio');
+    const vistoSC = () => { try { return JSON.parse(localStorage.getItem(GUARDA_SC_VISTO) || '{}'); } catch (e) { return {}; } };
+    async function lerSidechain(forcar) {
+        if (!S.ler) { SC.envios = SC.envios || []; SC.estado = SC.estado || {}; return; }
+        if (SC.envios && !forcar) return;
+        try { SC.envios = ((await S.ler(ARQ_SC)).envios || []).map(e => L.envioPadrao(e)); } catch (e) { SC.envios = SC.envios || []; }
+        try { SC.estado = await S.ler(ARQ_SC_ESTADO) || {}; } catch (e) { SC.estado = {}; }
+        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || {}; });
+        pintarAvisoSC();
+    }
+    /** 🔔 no botão: novidades que o robô achou desde a última vez que você abriu aquele envio. */
+    function novidadesSC(e) {
+        const st = SC.estado && SC.estado.envios && SC.estado.envios[e.id];
+        if (!st) return { novos: 0, pendentes: 0 };
+        const visto = vistoSC()[e.id];
+        return { novos: visto && visto >= st.em ? 0 : (st.novos || []).length, pendentes: (st.pendentes || []).length };
+    }
+    function pintarAvisoSC() {
+        const b = $('#le-sidechain'); if (!b || !SC.envios) return;
+        const n = SC.envios.reduce((t, e) => { const x = novidadesSC(e); return t + x.novos + x.pendentes; }, 0);
+        b.innerHTML = '🔗 Sidechain' + (n ? ` <b class="le-sc-sino">🔔 ${n}</b>` : '');
+    }
+    function destinoForm(prefixo, d, opts = {}) {
+        const cols = colsSC(), col = cols.find(c => c.id === d.colecao) || null;
+        const idi = L.IDIOMAS.find(i => i.cod === d.idioma);
+        return `<div class="le-sc-dest" data-prefixo="${prefixo}">
+          <label>${opts.rotulo || 'Enviar para'} <select class="le-campo" data-sc="${prefixo}-col">${opts.ignorar ? `<option value="ignorar">🚫 Ignorar (fica de fora)</option>` : ''}${opts.padrao ? `<option value="">↩ Voltar ao destino do envio</option>` : ''}<option value="" ${!d.colecao && !opts.padrao ? 'selected' : ''} disabled hidden>escolha…</option>${cols.map(c => `<option value="${esc(c.id)}" ${c.id === d.colecao ? 'selected' : ''}>${esc((c.icone ? c.icone + ' ' : '') + c.nome)}</option>`).join('')}</select></label>
+          <label class="le-sc-tv" ${comPais(col) ? '' : 'hidden'} title="O país e o idioma vão na fonte do Cloud: o canal nunca vai para outro país">País · idioma <select class="le-campo" data-sc="${prefixo}-idi"><option value="">pelo canal (detectar)</option>${L.IDIOMAS.filter(i => i.pais).map(i => `<option value="${esc(i.cod)}" ${idi && i.cod === idi.cod ? 'selected' : ''}>${esc(i.pais + ' · ' + i.nome)}</option>`).join('')}</select></label>
+          <label class="le-sc-tv" ${comPais(col) ? '' : 'hidden'}>Categoria <select class="le-campo" data-sc="${prefixo}-cat"><option value="">automática (pelo grupo)</option>${L.CATEGORIAS.map(c => `<option ${c === d.categoria ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select></label>
+          <label class="le-sc-vid" ${col && !comPais(col) ? '' : 'hidden'}>Idioma <select class="le-campo" data-sc="${prefixo}-idv"><option value="">o da lista</option>${L.IDIOMAS.map(i => `<option value="${esc(i.cod)}" ${i.cod === d.idioma && !comPais(col) ? 'selected' : ''}>${esc(i.nome)}</option>`).join('')}</select></label>
+        </div>`;
+    }
+    function lerDestino(j, prefixo) {
+        const v = (k) => { const el = j.querySelector(`[data-sc="${prefixo}-${k}"]`); return el ? el.value : ''; };
+        const colecao = v('col');
+        if (colecao === 'ignorar') return 'ignorar';
+        if (!colecao) return null;
+        const col = colSC(colecao);
+        if (comPais(col)) { const i = L.IDIOMAS.find(x => x.cod === v('idi')); return Object.assign({ colecao }, i ? { pais: i.pais, idioma: i.cod } : {}, v('cat') ? { categoria: v('cat') } : {}); }
+        return Object.assign({ colecao }, v('idv') ? { idioma: v('idv') } : {});
+    }
+    function ligarDestino(j) {   // trocar a coleção mostra/esconde país-idioma-categoria
+        j.querySelectorAll('.le-sc-dest select[data-sc$="-col"]').forEach(s => {
+            s.onchange = () => { const col = colSC(s.value), box = s.closest('.le-sc-dest'); box.querySelectorAll('.le-sc-tv').forEach(x => { x.hidden = !comPais(col); }); box.querySelectorAll('.le-sc-vid').forEach(x => { x.hidden = !col || comPais(col); }); };
+        });
+    }
+    async function gravarSidechain(msg) {
+        const lista = SC.envios.map(e => { const o = Object.assign({}, e); delete o.vistos; return o; });
+        await S.gravar([{ caminho: ARQ_SC, conteudo: JSON.stringify({ versao: 1, envios: lista }, null, 2) + '\n' }], msg);
+        SC.sujo = false;
+    }
+    async function canaisDoEnvio(e, forcar) {
+        if (SC.canais.has(e.id) && !forcar && SC.canais.get(e.id).url === e.url) return SC.canais.get(e.id).canais;
+        const canais = L.lerLista(await baixarTexto(e.url), e.nome).canais;
+        SC.canais.set(e.id, { url: e.url, canais });
+        return canais;
+    }
+    async function abrirSidechain(id) {
+        if (!S.ler || !S.gravar || !S.config) return S.aviso('Abra o Link Edit pelo Studio para usar o Sidechain.', 'ruim');
+        await lerSidechain();
+        if (id !== undefined) SC.atual = id;
+        const e = SC.envios.find(x => x.id === SC.atual) || null;
+        if (e) { const st = SC.estado.envios && SC.estado.envios[e.id]; if (st) { const v = vistoSC(); v[e.id] = st.em; try { localStorage.setItem(GUARDA_SC_VISTO, JSON.stringify(v)); } catch (x) { /* */ } } }
+        const cols = colsSC();
+        const st = e && SC.estado.envios ? SC.estado.envios[e.id] : null;
+        const nDesv = e ? Object.keys(e.desvios || {}).length : 0;
+        const j = janela(`<h3>🔗 Link Sidechain — envios que se mantêm sozinhos</h3>
+          <p class="le-dica">Cada <b>envio</b> é uma lista boa que vive atualizando. Escolha para onde ela vai; no <b>🔀 Sidechain</b> você marca o que é de outro lugar (ex.: os animes numa lista de cartoons) e manda para a coleção certa. O robô do GitHub refaz tudo a cada 6 h e lembra das suas escolhas.</p>
+          <div class="le-rc">
+            <div class="le-rc-lista">
+              <div class="le-rot">Envios</div>
+              ${SC.envios.map(x => { const n = novidadesSC(x); return `<button class="le-rc-item${e && x.id === e.id ? ' on' : ''}" data-sc-abrir="${esc(x.id)}"><b>${esc(x.nome)}${n.novos ? ` <span class="le-sc-sino">🔔${n.novos}</span>` : ''}${n.pendentes ? ` <span class="le-sc-pend">⏳${n.pendentes}</span>` : ''}</b><small>→ ${esc(L.destinoTexto(x.destino, cols))}${x.ativo === false ? ' · ⏸ pausado' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhum envio ainda.</p>'}
+              <button class="le-bt p" data-sc-novo="1" style="margin-top:6px">+ Criar envio</button>
+              ${SC.sujo ? '<p class="le-dica" style="color:#fbbf24">● mudanças não salvas</p>' : ''}
+            </div>
+            <div class="le-rc-form">${e ? `
+              <div class="le-sc-ferr">
+                ${destinoForm('env', e.destino)}
+                <div class="le-imp-op">
+                  <label title="Automático: o que chega de novo vai pelas regras, ou para o destino do envio. Revisar: o novo sem regra espera você decidir.">Novidades <select class="le-campo" id="le-sc-modo"><option value="auto" ${e.modo !== 'revisar' ? 'selected' : ''}>🤖 automático</option><option value="revisar" ${e.modo === 'revisar' ? 'selected' : ''}>✋ esperar eu revisar</option></select></label>
+                  <label title="Canais, 24H e rádios são testados sempre (morto sai). Vídeos só se você pedir.">Testar links <select class="le-campo" id="le-sc-vivos"><option value="" ${e.soVivos == null ? 'selected' : ''}>automático</option><option value="1" ${e.soVivos === true ? 'selected' : ''}>sempre (morto sai)</option><option value="0" ${e.soVivos === false ? 'selected' : ''}>nunca</option></select></label>
+                  <label><input type="checkbox" id="le-sc-ativo" ${e.ativo !== false ? 'checked' : ''}> ligado no robô</label>
+                </div>
+              </div>
+              <input class="le-campo le-sc-link" id="le-sc-url" value="${esc(e.url)}" placeholder="Cole aqui o link da lista (M3U, JSON, TXT…)" spellcheck="false">
+              <input class="le-campo" id="le-sc-nome" value="${esc(e.nome)}" placeholder="Nome do envio" style="height:32px">
+              <div class="le-jan-botoes" style="justify-content:flex-start;margin-top:4px">
+                <button class="le-bt r" id="le-sc-side" title="Abre a lista no editor: marque o que é de outra coleção e envie">🔀 Sidechain (${nDesv} desvio${nDesv === 1 ? '' : 's'})</button>
+                <button class="le-bt" id="le-sc-simular" title="Lê a lista agora e mostra para onde cada coisa vai">🧪 Simular</button>
+                <button class="le-bt p" id="le-sc-salvar">💾 Salvar</button>
+                <button class="le-bt" id="le-sc-apagar" style="margin-left:auto">Apagar envio</button>
+              </div>
+              <div class="le-sc-painel">
+                <div class="le-rot">O que está acontecendo</div>
+                ${st ? `<div>Última rodada do robô ${haQuanto(st.em)} · <b>${st.total}</b> itens${st.mantido ? ` · <span style="color:#fbbf24">⚠ usando a última versão boa (${esc(st.erro || 'lista com problema')})</span>` : ''}</div>
+                  <div class="le-sc-dests">${Object.entries(st.porDestino || {}).map(([k, n]) => `<span><b>${n}</b> → ${esc(k)}</span>`).join('') || '<span>nada enviado</span>'}${st.ignorados ? `<span><b>${st.ignorados}</b> ignorados</span>` : ''}${st.mortos ? `<span style="color:#f87171"><b>${st.mortos}</b> mortos (fora)</span>` : ''}</div>
+                  ${(st.novos || []).length ? `<div class="le-sc-novos"><b>🔔 ${st.novos.length} novos na última rodada:</b> ${st.novos.slice(0, 12).map(x => `<span>${esc(x.nome)}${x.motivo === 'regra' ? ' <small>(regra)</small>' : x.motivo === 'pendente' ? ' <small>⏳</small>' : ''}</span>`).join('')}${st.novos.length > 12 ? ' …' : ''}</div>` : ''}
+                  ${(st.pendentes || []).length ? `<div style="color:#fbbf24">⏳ <b>${st.pendentes.length}</b> esperando você decidir — abra o 🔀 Sidechain e use o filtro "Esperando".</div>` : ''}
+                  ${(st.historico || []).length > 1 ? `<div class="le-dica">Histórico: ${st.historico.slice(-6).map(h => `${new Date(h.em).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} ${h.total} itens${h.novos ? ' +' + h.novos : ''}${h.sairam ? ' −' + h.sairam : ''}`).join(' · ')}</div>` : ''}`
+                : '<div class="le-dica">Ainda não rodou no robô (salve; ele roda logo depois do push e depois a cada 6 h).</div>'}
+                ${(e.regras || []).length ? `<div class="le-rot" style="margin-top:8px">Regras automáticas</div>${e.regras.map((r, i) => `<div class="le-sc-regra">${r.campo === 'nome' ? 'Nome' : r.campo === 'grupo' ? 'Grupo' : 'Texto'} contém "<b>${esc(r.contem)}</b>" → ${esc(L.destinoTexto(r.para, cols))}<button data-sc-tirar-regra="${i}" aria-label="Apagar regra">✕</button></div>`).join('')}` : ''}
+                <div class="le-imp-op" style="margin-top:8px"><label>Nova regra: <select class="le-campo" id="le-sc-rcampo"><option value="grupo">grupo</option><option value="nome">nome</option><option value="tudo">nome ou grupo</option></select> contém <input class="le-campo" id="le-sc-rtexto" placeholder="ex.: anime" style="width:120px"></label></div>
+                ${destinoForm('reg', {}, { rotulo: 'mandar para', ignorar: true })}
+                <button class="le-bt" id="le-sc-regra-add" style="align-self:flex-start">+ Adicionar regra</button>
+              </div>
+              <div id="le-sc-res"></div>` : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
+            </div>
+          </div>`, 'larga');
+        ligarDestino(j);
+        const lerForm = () => {
+            if (!e) return;
+            const d = lerDestino(j, 'env');
+            if (d && d !== 'ignorar') e.destino = d;
+            e.url = j.querySelector('#le-sc-url').value.trim();
+            e.nome = j.querySelector('#le-sc-nome').value.trim() || e.nome;
+            e.modo = j.querySelector('#le-sc-modo').value;
+            const v = j.querySelector('#le-sc-vivos').value; e.soVivos = v === '' ? null : v === '1';
+            e.ativo = j.querySelector('#le-sc-ativo').checked;
+            SC.sujo = true;
+        };
+        j.addEventListener('click', async (ev) => {
+            const b = ev.target.closest('button'); if (!b) return;
+            if (b.dataset.scAbrir) { lerForm(); return abrirSidechain(b.dataset.scAbrir); }
+            if (b.dataset.scNovo) {
+                lerForm();
+                const n = L.envioPadrao({ id: L.idEnvio('envio ' + (SC.envios.length + 1), new Set(SC.envios.map(x => x.id))), nome: 'Envio ' + (SC.envios.length + 1), criadoEm: new Date().toISOString() });
+                SC.envios.push(n); SC.sujo = true; return abrirSidechain(n.id);
+            }
+            if (b.dataset.scTirarRegra) { lerForm(); e.regras.splice(+b.dataset.scTirarRegra, 1); return abrirSidechain(e.id); }
+            if (b.id === 'le-sc-regra-add') {
+                lerForm();
+                const texto = j.querySelector('#le-sc-rtexto').value.trim(), para = lerDestino(j, 'reg');
+                if (!texto || !para) return S.aviso('Escreva o texto e escolha para onde vai.', 'ruim');
+                e.regras.push({ campo: j.querySelector('#le-sc-rcampo').value, contem: texto, para }); return abrirSidechain(e.id);
+            }
+            if (b.id === 'le-sc-apagar') {
+                if (!confirm(`Apagar o envio "${e.nome}"? As listas dele saem do Cloud na próxima rodada do robô.`)) return;
+                SC.envios = SC.envios.filter(x => x !== e); SC.atual = null;
+                try { await gravarSidechain(`Sidechain: envio apagado (${e.nome})`); S.aviso('Envio apagado.', 'ok'); } catch (x) { S.aviso('Não deu para gravar: ' + x.message, 'ruim'); }
+                return abrirSidechain(null);
+            }
+            if (b.id === 'le-sc-salvar') {
+                lerForm();
+                if (!/^https?:\/\//i.test(e.url)) return S.aviso('Cole o link da lista (começa com http).', 'ruim');
+                if (!e.destino || !e.destino.colecao) return S.aviso('Escolha para onde o envio vai.', 'ruim');
+                const usados = new Set(SC.envios.filter(x => x !== e).map(x => x.id));
+                if (/^envio(-\d+)?$/.test(e.id)) e.id = L.idEnvio(e.nome, usados);
+                b.disabled = true; b.textContent = 'Salvando…';
+                try { await gravarSidechain(`Sidechain: ${e.nome} → ${L.destinoTexto(e.destino, cols)}`); S.aviso('Envio salvo. O robô roda logo depois do push e depois a cada 6 h.', 'ok'); }
+                catch (x) { S.aviso('Não deu para gravar: ' + x.message, 'ruim'); }
+                return abrirSidechain(e.id);
+            }
+            if (b.id === 'le-sc-side') {
+                lerForm();
+                if (!/^https?:\/\//i.test(e.url)) return S.aviso('Cole o link da lista primeiro.', 'ruim');
+                if (!e.destino || !e.destino.colecao) return S.aviso('Escolha antes para onde o envio vai.', 'ruim');
+                return entrarModoSC(e);
+            }
+            if (b.id === 'le-sc-simular') {
+                lerForm();
+                const res = j.querySelector('#le-sc-res');
+                res.innerHTML = '<p class="le-dica">Lendo a lista…</p>';
+                try {
+                    const canais = await canaisDoEnvio(e, true);
+                    const { saidas, relatorios } = L.montarSidechain([{ envio: e, canais }], S.config());
+                    const r = relatorios[e.id];
+                    SC.sugestoes = L.sugerirRegras(canais, e);
+                    res.innerHTML = `<div class="le-sc-painel"><div class="le-rot">Simulação (agora, sem teste dos links)</div>
+                      <div class="le-sc-dests">${Object.entries(r.porDestino).map(([k, n]) => `<span><b>${n}</b> → ${esc(k)}</span>`).join('')}${r.ignorados ? `<span><b>${r.ignorados}</b> ignorados</span>` : ''}${r.pendentes.length ? `<span style="color:#fbbf24"><b>${r.pendentes.length}</b> esperando revisão</span>` : ''}</div>
+                      <div class="le-dica">${canais.length} itens na lista · vai gerar ${saidas.map(s => `<code>${esc(s.chave)}</code>`).join(', ') || 'nada'}${r.novos.length ? ` · <b>${r.novos.length} novos</b> desde a última rodada` : ''}</div>
+                      ${SC.sugestoes.length ? `<div class="le-sc-sug">💡 ${SC.sugestoes.map((sg, i) => `<button class="le-chip" data-sc-sug="${i}">Regra: grupo "${esc(sg.contem)}" → ${esc(L.destinoTexto(sg.para, cols))} (${sg.n}/${sg.de})</button>`).join('')}</div>` : ''}</div>`;
+                } catch (x) { res.innerHTML = `<p class="le-dica" style="color:#f87171">Não deu para ler a lista: ${esc(x.message)}${local() ? '' : ' (online, o site precisa liberar CORS; no painel do PC sempre funciona)'}</p>`; }
+                return;
+            }
+            if (b.dataset.scSug != null) { const sg = SC.sugestoes[+b.dataset.scSug]; if (sg) { lerForm(); e.regras.push({ campo: sg.campo, contem: sg.contem, para: sg.para }); SC.sugestoes = []; S.aviso('Regra criada. Salve o envio para o robô usar.', 'ok'); return abrirSidechain(e.id); } }
+        });
+        j.addEventListener('change', (ev) => { if (ev.target.closest('.le-rc-form')) SC.sujo = true; });
+    }
+
+    // ---------- modo SIDECHAIN no editor: a lista do envio aberta na tabela, com o destino de cada item ----------
+    async function entrarModoSC(e) {
+        let canais;
+        try { canais = await canaisDoEnvio(e, true); } catch (x) { return S.aviso('Não deu para ler a lista: ' + x.message, 'ruim'); }
+        fecharJanela();
+        if (!SC.modo) SC.modo = { guarda: { listas: E.listas, canais: E.canais, sel: [...E.sel], foco: E.foco, busca: E.f.busca } };
+        SC.modo.envio = e;
+        const id = 'sc-' + e.id;
+        E.listas = [{ id, nome: '🔀 ' + e.nome, formato: 'sidechain', epg: '', url: e.url }];
+        E.canais = canais.map((c, i) => Object.assign(c, { lista: id, id: id + '-' + i }));
+        E.sel.clear(); E.foco = null; E.f.busca = ''; SC.filtro = '';
+        const b = $('#le-busca'); if (b) b.value = '';
+        desenharTudo(); pintarBarraSC();
+        S.aviso(`Sidechain: ${canais.length} itens de "${e.nome}". Marque e use "Enviar marcados para…".`, 'ok');
+    }
+    function sairModoSC(voltarJanela) {
+        if (!SC.modo) return;
+        const g = SC.modo.guarda, e = SC.modo.envio;
+        pararVideo();
+        E.listas = g.listas; E.canais = g.canais; E.sel = new Set(g.sel); E.foco = g.foco; E.f.busca = g.busca || '';
+        SC.modo = null; SC.filtro = '';
+        const b = $('#le-busca'); if (b) b.value = E.f.busca;
+        pintarBarraSC(); desenharTudo();
+        if (voltarJanela) abrirSidechain(e.id);
+    }
+    function rotaSC(c) { return SC.modo ? L.rotaDe(c, SC.modo.envio) : null; }
+    function filtroSC(lista) {
+        if (!SC.modo || !SC.filtro) return lista;
+        return lista.filter(c => { const r = rotaSC(c); return SC.filtro === 'novos' ? r.novo : SC.filtro === 'pendentes' ? r.motivo === 'pendente' : SC.filtro === 'desviados' ? (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') : SC.filtro === 'padrao' ? r.motivo === 'padrao' : true; });
+    }
+    function tagSC(c) {
+        const r = rotaSC(c); if (!r) return '';
+        const cls = r.motivo === 'pendente' ? 'pend' : r.motivo === 'ignorar' ? 'ign' : r.motivo === 'padrao' ? 'pad' : 'desv';
+        const txt = r.motivo === 'pendente' ? '⏳ esperando' : r.destino === 'ignorar' ? '🚫 ignorado' : '→ ' + L.destinoTexto(r.destino, colsSC()) + (r.motivo === 'regra' ? ' ⚙' : '');
+        return `${r.novo ? '<b class="le-sc-novo">NOVO</b>' : ''}<span class="le-sc-tag ${cls}" title="${r.motivo === 'regra' ? 'Por regra: ' + esc(r.regra.contem) : r.motivo === 'manual' ? 'Desviado por você' : r.motivo === 'padrao' ? 'Destino do envio' : ''}">${esc(txt)}</span>`;
+    }
+    function pintarBarraSC() {
+        const el = $('#le-sc-barra'); if (!el) return;
+        if (!SC.modo) { el.hidden = true; el.innerHTML = ''; return; }
+        const e = SC.modo.envio, cols = colsSC();
+        const n = { novos: 0, pendentes: 0, desviados: 0 };
+        E.canais.forEach(c => { const r = rotaSC(c); if (r.novo) n.novos++; if (r.motivo === 'pendente') n.pendentes++; if (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') n.desviados++; });
+        const sug = L.sugerirRegras(E.canais, e).slice(0, 3);
+        el.hidden = false;
+        el.innerHTML = `<b>🔀 SIDECHAIN</b><span>${esc(e.nome)} · padrão → <b>${esc(L.destinoTexto(e.destino, cols))}</b></span>
+          <div class="le-chips">${[['', 'Todos'], ['novos', `🔔 Novos ${n.novos}`], ['pendentes', `⏳ Esperando ${n.pendentes}`], ['desviados', `Desviados ${n.desviados}`], ['padrao', 'No padrão']].map(([k, t]) => `<button class="le-chip ${SC.filtro === k ? 'on' : ''}" data-sc-filtro="${k}">${t}</button>`).join('')}</div>
+          <button class="le-bt r" id="le-sc-enviar" title="Manda os marcados para outra coleção (Enter)">Enviar marcados para…</button>
+          <button class="le-bt" id="le-sc-ignorar">🚫 Ignorar marcados</button>
+          <button class="le-bt" id="le-sc-padrao" title="Tira o desvio: os marcados voltam ao destino do envio">↩ Voltar ao padrão</button>
+          <button class="le-bt p" id="le-sc-ok">✓ Concluir</button>
+          ${sug.length ? `<div class="le-sc-sug">💡 ${sug.map((sg, i) => `<button class="le-chip" data-sc-bsug="${i}" title="Os próximos que chegarem com esse grupo já vão sozinhos">Criar regra: grupo "${esc(sg.contem)}" → ${esc(L.destinoTexto(sg.para, cols))}</button>`).join('')}</div>` : ''}`;
+        el.onclick = (ev) => {
+            const b = ev.target.closest('button'); if (!b) return;
+            if (b.dataset.scFiltro != null) { SC.filtro = b.dataset.scFiltro; desenharTabela(); return pintarBarraSC(); }
+            if (b.dataset.scBsug != null) { const sg = sug[+b.dataset.scBsug]; if (sg) { e.regras.push({ campo: sg.campo, contem: sg.contem, para: sg.para }); SC.sujo = true; S.aviso('Regra criada (salve o envio ao concluir).', 'ok'); agendarTabela(); pintarBarraSC(); } return; }
+            if (b.id === 'le-sc-ok') return sairModoSC(true);
+            const marcados = selecionados();
+            if (!marcados.length) return S.aviso('Marque os itens primeiro (caixinha, Ctrl+clique ou Shift+clique).', 'ruim');
+            if (b.id === 'le-sc-ignorar') return desviarSC(marcados, 'ignorar');
+            if (b.id === 'le-sc-padrao') return desviarSC(marcados, null);
+            if (b.id === 'le-sc-enviar') return escolherDestinoSC(marcados);
+        };
+    }
+    function escolherDestinoSC(marcados) {
+        const j = janela(`<h3>Enviar ${marcados.length} ${marcados.length === 1 ? 'item' : 'itens'} para…</h3>
+          <p class="le-dica">${esc(marcados.slice(0, 6).map(c => c.nome).join(', '))}${marcados.length > 6 ? '…' : ''}</p>
+          ${destinoForm('dv', {}, { ignorar: true })}
+          <p class="le-dica">No TVzine, escolha o <b>país · idioma</b>: o canal vai SÓ para aquele país, com o idioma e a categoria certos.</p>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt r" id="le-dv-ok">Enviar</button></div>`);
+        ligarDestino(j);
+        j.querySelector('#le-dv-ok').onclick = () => { const d = lerDestino(j, 'dv'); if (!d) return S.aviso('Escolha a coleção.', 'ruim'); fecharJanela(); desviarSC(marcados, d); };
+    }
+    function desviarSC(marcados, d) {
+        const e = SC.modo.envio;
+        marcados.forEach(c => { const k = L.chaveSC(c); if (d == null) delete e.desvios[k]; else e.desvios[k] = d; });
+        SC.sujo = true; E.sel.clear();
+        S.aviso(d == null ? `${marcados.length} voltaram ao destino do envio.` : `${marcados.length} → ${L.destinoTexto(d, colsSC())}. Clique em ✓ Concluir e depois em 💾 Salvar.`, 'ok');
+        desenharTabela(); pintarBarraSC();
+    }
+
     function abrirImportarLista() {
         const config = S.config ? S.config() : null;
         if (!config || !S.gravar) return S.aviso('Abra o Link Edit pelo Studio para gravar nas coleções.', 'ruim');
@@ -1639,6 +1908,18 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sj-meio{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:6px}
 .le-sj-barras div{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;font-size:12px;margin-top:5px}.le-sj-barras i{display:block;height:10px;border-radius:5px;background:var(--c);min-width:2px}.le-sj-barras b{color:#cbd5e1;font-family:'JetBrains Mono',monospace;font-size:11.5px}
 .le-sj-ult div{display:grid;grid-template-columns:16px minmax(0,1fr) minmax(0,1.3fr);gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid #141821}.le-sj-ult span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}.le-sj-ult small{color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-sc-barra{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:9px 14px;background:linear-gradient(90deg,#2a0b1c,#0b1d24);border-bottom:1px solid var(--r);font-size:12.5px}.le-sc-barra>b{color:#ff7ac0;letter-spacing:.12em}.le-sc-barra .le-chips{margin:0}
+.le-sc-sug{display:flex;flex-wrap:wrap;gap:6px;width:100%;align-items:center;font-size:12px}
+.le-sc-tag{margin-right:8px;font-size:11px;font-weight:800;padding:2px 7px;border-radius:99px;background:#102a31;color:#67e8f9;white-space:nowrap}.le-sc-tag.desv{background:#2a0b1c;color:#ff7ac0}.le-sc-tag.ign{background:#1c1c22;color:#9aa3ad;text-decoration:line-through}.le-sc-tag.pend{background:#2a2108;color:#fbbf24}.le-sc-tag.pad{opacity:.6}
+.le-sc-novo{margin-right:6px;font-size:9.5px;font-weight:900;padding:1px 5px;border-radius:4px;background:#fbbf24;color:#1a1200;letter-spacing:.06em}
+.le-sc-sino{color:#fbbf24;font-size:11px}.le-sc-pend{color:#fbbf24;font-size:11px}
+.le-sc-ferr{display:flex;flex-direction:column;gap:8px;padding:10px 12px;border-radius:10px;background:#0d1016;border:1px solid #2a3140}
+.le-sc-dest{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:12.5px;color:#cbd5e1}.le-sc-dest label{display:flex;gap:6px;align-items:center}.le-sc-dest .le-campo{height:32px;padding:0 8px;max-width:260px}
+.le-sc-link{width:100%;font-family:'JetBrains Mono',monospace;font-size:12px;white-space:nowrap;margin-top:8px}
+.le-sc-painel{margin-top:10px;padding:10px 12px;border-radius:10px;background:#0d1a1f;border:1px solid #1f5560;font-size:12.5px;display:flex;flex-direction:column;gap:6px}
+.le-sc-dests{display:flex;flex-wrap:wrap;gap:6px}.le-sc-dests span{padding:3px 9px;border-radius:99px;background:#161b24}
+.le-sc-novos{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.le-sc-novos span{font-size:11.5px;padding:2px 7px;border-radius:99px;background:#2a2108;color:#fde68a}
+.le-sc-regra{display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:7px;background:#161b24}.le-sc-regra button{margin-left:auto;background:none;border:0;color:#9aa3ad;cursor:pointer}
 .le-rc{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px;min-height:0}
 .le-rc-lista{display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--b);padding-right:12px}
 .le-rc-item{text-align:left;padding:9px 10px;border-radius:9px;background:#11141b;border:1px solid #2a3140;color:#e5e7eb}.le-rc-item b{display:block;font-size:13px}.le-rc-item small{font-size:11.5px;color:var(--s)}
@@ -1667,6 +1948,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <div style="flex:1"></div>
             <button class="le-bt" id="le-importar" title="Lista que já está pronta: vai inteira para o Studio, cada item na coleção certa">⚡ Importar lista inteira</button>
             <button class="le-bt" id="le-receitas" title="Listas que se refazem sozinhas (robô do GitHub a cada 6 h)">📋 Receitas</button>
+            <button class="le-bt" id="le-sidechain" title="Envios: listas boas que vivem atualizando, cada coisa na coleção (e no país) certo">🔗 Sidechain</button>
             <button class="le-bt" id="le-assets" title="Banco de logos salvos, para usar em qualquer lista (B)">★ Assets</button>
             <button class="le-bt" id="le-desfazer" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
             <button class="le-bt" id="le-sair" title="Sair do Link Edit e voltar para as coleções do Studio (o que você fez aqui fica guardado)">📚 Coleções</button>
@@ -1697,6 +1979,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <button class="le-bt r" id="le-jogar">➜ Jogar na lista nova</button>
                 <button class="le-bt" id="le-ajuda" title="Atalhos do teclado (?)" aria-label="Atalhos do teclado">?</button>
               </div>
+              <div class="le-sc-barra" id="le-sc-barra" hidden></div>
               <div class="le-scan" id="le-scan-barra" hidden></div>
               <div class="le-cab" role="row"><button class="le-caixa" id="le-cab-todos" title="Marcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span title="Guia de programação (EPG)">Guia</span><span>Status</span><span>Abre em</span></div>
               <div id="le-corpo" role="table" aria-label="Canais"><div id="le-alto" style="position:relative"></div></div>
@@ -1799,7 +2082,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             h += `<div class="le-linha${c.id === E.foco ? ' foco' : ''}${naNova.has(c.chave) ? ' na-nova' : ''}" role="row" data-id="${esc(c.id)}" style="top:${i * ALTURA_LINHA}px">
               <button class="le-caixa ${E.sel.has(c.id) ? 'on' : ''}" data-sel="${esc(c.id)}" aria-label="Selecionar ${esc(c.nome)}" aria-pressed="${E.sel.has(c.id)}"></button>
               <button class="le-logo-c${logo ? '' : ' vazio'}" style="${logo}" data-logo="${esc(c.id)}" title="${logo ? 'Ver, baixar ou trocar o logo (L)' : 'Inserir logo (L)'}" aria-label="Logo de ${esc(c.nome)}"></button>
-              <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${esc(c.nome)}</span>
+              <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${SC.modo ? tagSC(c) : ''}${esc(c.nome)}</span>
               <button class="le-g le-cat${c.grupoSaida ? ' ok' : ''}" data-cat-canal="${esc(c.id)}" title="${c.grupoSaida ? 'Categoria: ' + esc(c.grupoSaida) + ' (grupo na lista: ' + esc(c.grupo || '—') + ')' : 'Grupo na lista: ' + esc(c.grupo || '—') + ' — clique para escolher a categoria (C)'}">${esc(c.grupoSaida || c.grupo || c.tipo)}</button>
               <button class="le-idi${c.idioma ? '' : ' vazio'}${c.idiomaManual ? ' manual' : ''}" data-idioma="${esc(c.id)}" title="${c.idioma ? 'Trocar o idioma (I)' : 'Sem idioma: clique para escolher (I)'}${c.pais ? ' · país ' + esc(c.pais) : ''}">${esc(c.idioma || '+ idioma')}</button>
               <button class="le-guia${c.epgId ? ' ok' : ''}" data-guia="${esc(c.id)}" title="${c.epgId ? 'Guia: ' + esc(c.epgId) + ' (G)' : 'Ligar ao guia de programação (G)'}">${c.epgId ? '✓' : '+'}</button>
@@ -1839,10 +2122,13 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-arquivo').onchange = async (e) => { for (const f of e.target.files) adicionarLista(await f.text(), f.name); e.target.value = ''; };
         $('#le-ler-colado').onclick = () => { const t = $('#le-colar').value; if (t.trim()) { adicionarLista(t, 'Texto colado ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })); $('#le-colar').value = ''; } };
         $('#le-desfazer').onclick = desfazer;
-        $('#le-sair').onclick = () => { pararVideo(); if (window.CZStudio && window.CZStudio.irParaColecoes) window.CZStudio.irParaColecoes(); else location.hash = ''; };
+        $('#le-sair').onclick = () => { if (SC.modo) sairModoSC(false); pararVideo(); if (window.CZStudio && window.CZStudio.irParaColecoes) window.CZStudio.irParaColecoes(); else location.hash = ''; };
         $('#le-assets').onclick = () => abrirAssets();
         $('#le-importar').onclick = () => abrirImportarLista();
         $('#le-receitas').onclick = () => abrirReceitas(RC.atual && RC.atual.id ? RC.atual.id : undefined);
+        $('#le-sidechain').onclick = () => (SC.modo ? sairModoSC(true) : abrirSidechain(SC.atual || undefined));
+        pintarBarraSC();
+        if (S.ler && !SC.envios) lerSidechain().catch(() => {}); else pintarAvisoSC();
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };
         $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });
@@ -1923,6 +2209,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && (k === '-' || k === '_')) { e.preventDefault(); mudarSom({ vol: E.som.vol - 0.1 }); }
             else if (!ctrl && k === '/') { e.preventDefault(); const b = $('#le-busca'); if (b) { b.focus(); b.select(); } }
             else if (!ctrl && k === '?') { e.preventDefault(); mostrarAtalhos(); }
+            else if (e.key === 'Enter' && E.sel.size && SC.modo) { e.preventDefault(); escolherDestinoSC(selecionados()); }
             else if (e.key === 'Enter' && E.sel.size) { e.preventDefault(); jogarNaLista(selecionados()); E.sel.clear(); desenharTabela(); }
             else if (e.key === 'Delete' && e.shiftKey && E.sel.size) { e.preventDefault(); quarentena(selecionados(), !E.f.quarentena); }
             else if (e.key === 'ArrowRight' && c) { e.preventDefault(); jogarNaLista([c]); andar(1); }
