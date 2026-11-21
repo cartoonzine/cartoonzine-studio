@@ -1034,7 +1034,7 @@
         const canais = [];
         // sem push(...lista): com centenas de milhares de itens estoura a pilha ("Maximum call stack size exceeded")
         for (const u of L.linksDoEnvio(e)) for (const c of L.lerLista(await baixarTexto(u), e.nome).canais) canais.push(c);
-        canais.forEach(c => { const aj = e.ajustes && e.ajustes[L.chaveSC(c)]; if (aj) L.ajustarVideo(c, aj); });
+        canais.forEach(c => L.aplicarAjustesEnvio(c, e));
         SC.canais.set(e.id, { url: chave, canais });
         return canais;
     }
@@ -1896,7 +1896,7 @@
               <div><span>Vai para</span><b>${esc(nomeCol(v.colecao))}</b></div>${v.genero ? `<div><span>Gênero</span><b>${esc(v.genero)}</b></div>` : ''}
             </div>
             ${v.dados ? `<div class="le-tmdb">${v.dados.capa ? `<img src="${esc(v.dados.capa)}" alt="" loading="lazy">` : ''}<div><b>${esc(v.dados.titulo || '')}</b>${v.dados.nota ? ` · ★ ${v.dados.nota}` : ''}${v.dados.classificacao ? ` · ${esc(v.dados.classificacao)}` : ''}<p>${esc(String(v.dados.descricao || 'Sem sinopse.').slice(0, 260))}${String(v.dados.descricao || '').length > 260 ? '…' : ''}</p>${v.dados.porBusca ? '<small>achado pelo nome — confira se é a obra certa</small>' : ''}</div></div>` : ''}
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"><button class="le-bt p" data-video="${esc(c.id)}">✎ Editar dados (V)</button><button class="le-bt" data-tmdb="${esc(c.id)}" title="Capa, banner, sinopse, gênero e nota${c.natureza === 'episodio' ? ' (vale para todos os episódios da série)' : ''}">🔎 TMDB</button><button class="le-bt" data-nat="${esc(c.id)}">Trocar tipo</button><button class="le-bt" data-vf-auto="${esc(c.id)}" title="Lê de novo pelo nome e pelo link">🔎 Detectar</button></div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"><button class="le-bt p" data-video="${esc(c.id)}">✎ Editar dados (V)</button><button class="le-bt r" data-fichasc="${esc(c.id)}" title="Capa, banner, fundo do topo e posição, sinopse, banner da home (F)">🖼 Ficha (F)</button><button class="le-bt" data-tmdb="${esc(c.id)}" title="Capa, banner, sinopse, gênero e nota${c.natureza === 'episodio' ? ' (vale para todos os episódios da série)' : ''}">🔎 TMDB</button><button class="le-bt" data-nat="${esc(c.id)}">Trocar tipo</button><button class="le-bt" data-vf-auto="${esc(c.id)}" title="Lê de novo pelo nome e pelo link">🔎 Detectar</button></div>
           </div>` : `<div class="le-ficha-vt" style="margin-top:2px">${nat.ic} ${esc(nat.nome)} <button class="le-idi" data-nat="${esc(c.id)}" title="Trocar o tipo (Y)">trocar</button></div>`;
         f.innerHTML = `
           <div class="le-ficha-nome">${esc(c.nome)}</div>
@@ -2103,6 +2103,13 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sc-gtab{max-height:300px;overflow:auto;border:1px solid #2a3140;border-radius:10px}.le-sc-gtab table{width:100%;border-collapse:collapse;font-size:12.5px}.le-sc-gtab th{position:sticky;top:0;background:#111621;color:#94a3b8;text-align:left;font-weight:600;padding:6px 8px}
 .le-sc-gtab td{padding:4px 8px;border-top:1px solid #1a1f2b;color:#cbd5e1}.le-sc-gtab tr.nova td:first-child{color:#fbbf24}.le-sc-gtab select{height:30px;padding:0 6px;line-height:28px;max-width:210px;border-left:4px solid var(--rc)}.le-sc-gtab small{color:#64748b;font-size:10px}
 .le-sc-gnome{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left}.le-sc-gnome span{opacity:0;color:#22d3ee;margin-left:4px}.le-sc-gnome:hover{color:#22d3ee;text-decoration:underline}.le-sc-gnome:hover span,.le-sc-gnome:focus span{opacity:1}
+.le-fs .le-fs-grade{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}.le-fs-campo{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:#cbd5e1;min-width:0}.le-fs-campo>span{color:#94a3b8;font-weight:600}.le-fs-campo small{color:#64748b;font-size:11px}.le-fs-campo.cheio{grid-column:1/-1}
+.le-fs-url{display:flex;gap:6px;align-items:center}.le-fs-url .le-campo{flex:1;min-width:0}.le-fs-url img{width:34px;height:46px;object-fit:cover;border-radius:4px;background:#111}.le-fs textarea.le-campo{height:auto;resize:vertical;padding:8px}
+.le-fs-quadro{position:relative;aspect-ratio:1920/756;border-radius:10px;overflow:hidden;background:#000;border:1px solid #2a3140;cursor:ns-resize;touch-action:none;user-select:none}.le-fs-quadro.arrastando{outline:2px solid #22d3ee}
+.le-fs-img{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;opacity:.75}.le-fs-degrade{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 20%,rgba(0,0,0,.8) 70%,#000);pointer-events:none}.le-fs-titulo{position:absolute;left:16px;bottom:12px;color:#fff;font-size:18px;pointer-events:none}
+.le-fs-linha{display:flex;gap:8px;align-items:center}.le-fs-linha input[type=range]{flex:1}.le-fs-serie{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:8px;background:#1a1330;border:1px solid #6d28d9;font-size:12.5px;color:#e9d5ff}
+.le-fs-mais summary{cursor:pointer;color:#94a3b8}.le-fs-mais[open] summary{margin-bottom:8px}
+@media (max-width:640px){.le-fs .le-fs-grade{grid-template-columns:1fr}}
 .le-sc-rev{color:#4ade80;font-weight:700}
 .le-sc-auto{font-size:10.5px;background:#2e1065;color:#e9d5ff;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .le-sc-vai{position:sticky;bottom:-18px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:6px;padding:10px 12px;border-radius:10px;background:#111827;border:1px solid #334155;font-size:12.5px;color:#cbd5e1;z-index:2}
@@ -2439,6 +2446,95 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         j.querySelectorAll('[data-nat-v]').forEach(b => { b.onclick = () => { fecharJanela(); editarVideo(alvo, { natureza: b.dataset.natV }); }; });
         j.querySelector('#le-nat-auto').onclick = () => { fecharJanela(); detectarDeNovo(alvo); };
     }
+    // ---------- 🖼 FICHA do item (o mesmo do "Novo" das Coleções): capa, banner, fundo do topo, sinopse, banner da home ----------
+    const SKINS_FS = ['cinema', 'arcade', 'poster', 'vintage'], FX_FS = ['none', 'crt', 'vhs', 'scan', 'cinema', 'neon', 'bw'], CLASSIF_FS = ['L', '10', '12', '14', '16', '18'];
+    function abrirFichaItem(c) {
+        if (!c || !L.ehVideo(c)) return S.aviso('A ficha é para filmes e episódios. Troque o tipo primeiro (Y).', 'ruim');
+        const d = (c.video && c.video.dados) || {}, ep = c.natureza === 'episodio' && c.video && c.video.serie;
+        const base = { capa: d.capa || c.logo || '', banner: d.banner || '', descricao: d.descricao || '', generos: d.generos || [], classificacao: d.classificacao || '', bannerLogo: d.logo || '' };
+        const atual = Object.assign({}, base, c.fichaSerie, c.ficha);
+        const v = (k) => atual[k] == null ? '' : atual[k];
+        const url = (k, rot, dica) => `<label class="le-fs-campo"><span>${rot}</span><div class="le-fs-url"><input class="le-campo" data-fs="${k}" value="${esc(v(k))}" placeholder="https://…" spellcheck="false">${['capa', 'banner', 'bannerLogo'].includes(k) ? `<img data-fs-img="${k}" alt="">` : ''}</div>${dica ? `<small>${dica}</small>` : ''}</label>`;
+        const sel = (k, rot, ops, vazio) => `<label class="le-fs-campo"><span>${rot}</span><select class="le-campo" data-fs="${k}"><option value="">${vazio}</option>${ops.map(o => `<option ${String(v(k)) === o ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
+        const pos = Number.isFinite(parseFloat(atual.posFundo)) ? Math.round(parseFloat(atual.posFundo)) : '';
+        const j = janela(`<h3>🖼 Ficha — ${esc(ep ? c.video.serie : (c.video && c.video.titulo) || c.nome)}</h3>
+          <p class="le-dica">O mesmo que o <b>Novo</b> das Coleções. Em branco = automático (o que veio do TMDB/da lista). ${SC.modo ? 'Fica guardado no envio: o robô repete a cada rodada.' : ''}</p>
+          ${ep ? `<label class="le-fs-serie"><input type="checkbox" id="le-fs-serie" ${c.ficha && !c.fichaSerie ? '' : 'checked'}> Vale para a <b>série toda</b> (${esc(c.video.serie)}) — todos os episódios, inclusive os que chegarem depois</label>` : ''}
+          <div class="le-fs-grade">
+            ${url('capa', 'Capa (imagem vertical)')}
+            ${url('banner', 'Banner (imagem horizontal)')}
+            <div class="le-fs-campo cheio"><span>Imagem do fundo do topo</span><div class="le-chips">${[['', '🖼️ Capa'], ['banner', '🎞️ Banner']].map(([k, t]) => `<label class="le-chip ${String(v('fundoImagem')) === k ? 'on' : ''}"><input type="radio" name="le-fs-fundo" value="${k}" ${String(v('fundoImagem')) === k ? 'checked' : ''} hidden>${t}</label>`).join('')}</div><small>qual imagem vira o fundo do topo da tela no app · sem banner, usa a capa</small></div>
+            <div class="le-fs-campo cheio"><span>Posição da imagem no fundo do topo</span>
+              <div class="le-fs-quadro" title="Arraste a imagem para cima ou para baixo"><div class="le-fs-img"></div><div class="le-fs-degrade"></div><b class="le-fs-titulo">${esc(ep ? c.video.serie : (c.video && c.video.titulo) || c.nome)}</b></div>
+              <div class="le-fs-linha"><small>topo</small><input type="range" id="le-fs-barra" min="0" max="100" value="${pos === '' ? 50 : pos}"><small>pé</small><input class="le-campo" id="le-fs-pos" type="number" min="0" max="100" placeholder="centro" value="${pos}" style="width:80px"><small>%</small><button class="le-bt" id="le-fs-centro">Centro</button></div>
+              <small>no app a imagem vira o fundo do topo da tela, cortada na horizontal: arraste até mostrar a melhor parte · vazio = centro</small></div>
+            <label class="le-fs-campo cheio"><span>Sinopse</span><textarea class="le-campo" data-fs="descricao" rows="4">${esc(v('descricao'))}</textarea></label>
+            <label class="le-fs-campo"><span>Gêneros</span><input class="le-campo" data-fs="generos" value="${esc([].concat(v('generos') || []).join(', '))}" placeholder="separados por vírgula"></label>
+            ${sel('classificacao', 'Classificação indicativa', CLASSIF_FS, '— (do TMDB)')}
+            <details class="le-fs-campo cheio le-fs-mais" ${atual.bannerLogo !== base.bannerLogo || atual.bannerVideo || atual.bannerSkin || atual.bannerFx || atual.destaque ? 'open' : ''}><summary>Banner da home (logo, vídeo da prévia, skin, efeito, destaque)</summary>
+              <div class="le-fs-grade">
+                ${url('bannerLogo', 'Logo no banner (PNG)', 'de preferência PNG transparente; vazio = busca sozinho ou mostra o nome')}
+                ${url('bannerVideo', 'Vídeo da prévia no banner', 'trailer/trecho; vazio = usa o próprio vídeo')}
+                ${sel('bannerSkin', 'Skin no banner', SKINS_FS, 'a do aparelho')}
+                ${sel('bannerFx', 'Efeito no banner', FX_FS, 'o do aparelho')}
+                <label class="le-fs-campo cheio" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" data-fs="destaque" ${atual.destaque ? 'checked' : ''}> Destaque no banner da home</label>
+              </div></details>
+          </div>
+          <div class="le-jan-botoes"><button class="le-bt" id="le-fs-limpar" title="Volta tudo para o automático">Limpar ficha</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-fs-ok">Salvar ficha</button></div>`, 'media le-fs');
+        const lim = (n) => Math.max(0, Math.min(100, Math.round(n)));
+        const val = (k) => { const el = j.querySelector(`[data-fs="${k}"]`); return el ? el.value.trim() : ''; };
+        const pintar = () => {
+            const fundo = (j.querySelector('[name="le-fs-fundo"]:checked') || {}).value || '';
+            const img = (fundo === 'banner' && val('banner')) || val('capa');
+            const n = j.querySelector('#le-fs-pos').value, y = n === '' ? 50 : lim(+n);
+            const q = j.querySelector('.le-fs-img'); q.style.backgroundImage = img ? `url("${img.replace(/"/g, '%22')}")` : 'none'; q.style.backgroundPosition = `center ${y}%`;
+            j.querySelector('#le-fs-barra').value = y;
+            j.querySelectorAll('[data-fs-img]').forEach(im => { const u = val(im.dataset.fsImg); im.hidden = !u; if (u && im.src !== u) im.src = u; });
+            j.querySelectorAll('.le-fs-grade .le-chip').forEach(ch => ch.classList.toggle('on', ch.querySelector('input').checked));
+        };
+        j.addEventListener('input', (ev) => { if (ev.target.id === 'le-fs-barra') j.querySelector('#le-fs-pos').value = ev.target.value; pintar(); });
+        j.addEventListener('change', pintar);
+        j.querySelector('#le-fs-centro').onclick = () => { j.querySelector('#le-fs-pos').value = ''; pintar(); };
+        const quadro = j.querySelector('.le-fs-quadro');
+        quadro.addEventListener('pointerdown', (e) => {
+            e.preventDefault();
+            const num = j.querySelector('#le-fs-pos'), y0 = e.clientY, v0 = num.value === '' ? 50 : lim(+num.value);
+            try { quadro.setPointerCapture(e.pointerId); } catch (x) { /* */ }
+            quadro.classList.add('arrastando');
+            const mover = (ev) => { num.value = lim(v0 - (ev.clientY - y0) / quadro.clientHeight * 100); pintar(); };   // puxar para baixo mostra a parte de cima
+            const fim = () => { quadro.classList.remove('arrastando'); quadro.removeEventListener('pointermove', mover); quadro.removeEventListener('pointerup', fim); };
+            quadro.addEventListener('pointermove', mover); quadro.addEventListener('pointerup', fim);
+        });
+        pintar();
+        const gravar = (ficha) => {
+            const serie = ep && j.querySelector('#le-fs-serie') && j.querySelector('#le-fs-serie').checked;
+            fecharJanela();
+            if (serie) {
+                const k = L.chaveSerie(c), mesmas = E.canais.filter(x => L.chaveSerie(x) === k);
+                lembrar();
+                const nova = ficha ? L.juntarFicha({}, ficha) : {};
+                mesmas.forEach(x => { if (Object.keys(nova).length) x.fichaSerie = nova; else delete x.fichaSerie; });
+                if (SC.modo) { const e = SC.modo.envio; e.fichasSerie = e.fichasSerie || {}; if (Object.keys(nova).length) e.fichasSerie[k] = nova; else delete e.fichasSerie[k]; SC.sujo = true; }
+                salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco)); if (SC.modo) pintarBarraSC();
+                return S.aviso(`Ficha da série salva (${mesmas.length} episódio${mesmas.length === 1 ? '' : 's'} aqui${SC.modo ? ' e os que chegarem' : ''}).`, 'ok');
+            }
+            // só o item: guarda as diferenças (em branco = automático)
+            const limpo = {}; L.CAMPOS_FICHA_SC.forEach(k => { limpo[k] = ''; });
+            editarVideo([c], { ficha: Object.assign(limpo, ficha || {}) });
+            S.aviso('Ficha salva.', 'ok');
+        };
+        j.querySelector('#le-fs-limpar').onclick = () => gravar(null);
+        j.querySelector('#le-fs-ok').onclick = () => {
+            const f = {};
+            ['capa', 'banner', 'descricao', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx'].forEach(k => { const x = val(k); if (x && x !== String(base[k] || '')) f[k] = x; });
+            const gen = val('generos').split(',').map(x => x.trim()).filter(Boolean);
+            if (gen.length && gen.join(',') !== [].concat(base.generos || []).join(',')) f.generos = gen;
+            const fundo = (j.querySelector('[name="le-fs-fundo"]:checked') || {}).value; if (fundo === 'banner') f.fundoImagem = 'banner';
+            const p = j.querySelector('#le-fs-pos').value; if (p !== '') f.posFundo = lim(+p);
+            if (j.querySelector('[data-fs="destaque"]').checked) f.destaque = true;
+            gravar(f);
+        };
+    }
     function abrirDadosVideo(c) {
         const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
         const vids = alvo.filter(L.ehVideo);
@@ -2513,6 +2609,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         itens.push('-');
         itens.push(['🧩 Tipo: canal, filme, episódio ou rádio… (Y)', () => escolherNatureza(um)]);
         if (lista.some(L.ehVideo)) itens.push(['🎬 Dados de vídeo… (V)', () => abrirDadosVideo(um)]);
+        if (um && L.ehVideo(um)) itens.push(['🖼 Ficha: capa, fundo do topo, sinopse… (F)', () => abrirFichaItem(um)]);
         const vidsMenu = lista.filter(L.ehVideo);
         if (vidsMenu.length && !SC.modo) colsVideo().forEach(cv => { if (!vidsMenu.every(x => x.video && x.video.colecao === cv.id)) itens.push([`🎬 Vai para ${cv.nome}`, () => editarVideo(vidsMenu, { colecao: cv.id })]); });
         if (vidsMenu.length) itens.push(['🔎 Buscar no TMDB: capa, sinopse, nota', () => buscarTMDB(vidsMenu)]);
@@ -2592,6 +2689,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (!t) return;
             if (t.dataset.tirarLista) return removerLista(t.dataset.tirarLista);
             if (t.dataset.nat) { const cn = E.canais.find(c => c.id === t.dataset.nat); if (cn && !E.sel.has(cn.id)) E.ancora = cn.id; return escolherNatureza(cn); }
+            if (t.dataset.fichasc) return abrirFichaItem(E.canais.find(c => c.id === t.dataset.fichasc));
             if (t.dataset.video) { const cv = E.canais.find(c => c.id === t.dataset.video); if (cv && !E.sel.has(cv.id)) E.ancora = cv.id; return abrirDadosVideo(cv); }
             if (t.dataset.tmdb) { const ct = E.canais.find(c => c.id === t.dataset.tmdb); return ct && buscarTMDB([ct]); }
             if (t.dataset.vfAuto) { const ca = E.canais.find(c => c.id === t.dataset.vfAuto); return ca && detectarDeNovo([ca]); }
@@ -2653,6 +2751,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 'g' && (c || E.sel.size)) { e.preventDefault(); escolherGuia(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'b') { e.preventDefault(); abrirAssets(); }
             else if (!ctrl && k === 'v' && (c || E.sel.size)) { e.preventDefault(); abrirDadosVideo(E.sel.size > 1 ? null : c); }
+            else if (!ctrl && k === 'f' && c && L.ehVideo(c)) { e.preventDefault(); abrirFichaItem(c); }
             else if (!ctrl && k === 'y' && (c || E.sel.size)) { e.preventDefault(); escolherNatureza(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
