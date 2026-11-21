@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-21T19:07:22.275Z",
+  "geradoEm": "2026-11-21T19:25:16.691Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -136,7 +136,7 @@
     {
       "colecao": "jogos-web",
       "total": 730,
-      "publicados": 50,
+      "publicados": 51,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -1370,10 +1370,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-outros/approaches.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-outros/arco.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2872,7 +2868,7 @@
         "web-switch": 0,
         "web-dreamcast": 0,
         "web-dos": 7,
-        "web-windows": 21,
+        "web-windows": 22,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,

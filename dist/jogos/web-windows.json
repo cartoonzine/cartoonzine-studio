@@ -149,6 +149,25 @@
    "license": "livre"
   },
   {
+   "title": "arco",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/2906675f674db117fd0eed6bf3270923.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/2906675f674db117fd0eed6bf3270923.png",
+   "bgImg": "banner",
+   "bgPosY": 76,
+   "studio": "jogos-web/web-windows/arco",
+   "url": "https://degloved.net/games/public/gms/arco/index.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/a9246bf3f51cda272f4778a45c3e420c.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/6df9da662db7fb28873e3c33b06a5751.png",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Astromenace",
    "genre": [
     "Shoot 'Em Up",
