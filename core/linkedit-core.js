@@ -751,7 +751,7 @@
     function colecoesSidechain(config) { return ((config && config.colecoes) || []).filter(c => SC_TIPOS.includes(c.tipo) && c.fonteCloud); }
     function envioPadrao(extra) {
         const e = Object.assign({ id: '', nome: 'Envio novo', url: '', listas: [], ativo: true, tipoLista: '', destino: { colecao: '' }, rotas: [], gruposNovos: 'esperar',
-            modo: 'auto', soVivos: null, filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, criadoEm: '' }, extra || {});
+            modo: 'auto', soVivos: null, filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, gruposRevisados: {}, criadoEm: '' }, extra || {});
         e.filtros = Object.assign({ idiomas: [], tipos: [], paises: [], categorias: [], excluirTipos: ['Adulto'], busca: '', confiancaMin: 0 }, e.filtros || {});
         if (!e.tipoLista) e.tipoLista = (e.rotas || []).length ? 'mista' : 'unica';     // envios antigos: uma categoria
         // desvio igual ao destino do envio não muda nada (envios antigos chegaram a guardar centenas de milhares assim)
