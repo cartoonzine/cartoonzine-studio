@@ -85,7 +85,7 @@ for (const envio of envios) {
             parte = ult.map(c => L.completar(Object.assign({}, c)));
             mantido = true;
         }
-        canais.push(...parte);
+        for (const c of parte) canais.push(c);   // sem push(...parte): lista enorme estoura a pilha
     }
     const erro = erros.join(' · ');
     console.log(`\n🔗 ${envio.nome} (${envio.id}) → ${envio.tipoLista === 'mista' ? 'lista mista (' + (envio.rotas || []).length + ' rotas por grupo)' : envio.destino && envio.destino.colecao ? L.destinoTexto(envio.destino, cols) : 'só lista avulsa'} · ${canais.length} itens${mantido ? ` · ⚠ usando a última versão boa (${erro})` : ''}`);

@@ -21,7 +21,7 @@ export function build({ raiz = RAIZ, saida, log = console.log } = {}) {
     const config = lerConfig(raiz);
     const dist = saida || path.join(raiz, 'dist');
     const novo = dist + '.tmp';
-    fs.rmSync(novo, { recursive: true, force: true });
+    fs.rmSync(novo, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
     fs.mkdirSync(novo, { recursive: true });
 
     const index = {
@@ -69,9 +69,29 @@ export function build({ raiz = RAIZ, saida, log = console.log } = {}) {
     if (fs.existsSync(saude)) fs.copyFileSync(saude, path.join(novo, 'saude.json'));
 
     // Troca atômica: quem lê dist/ nunca vê um build pela metade
-    fs.rmSync(dist, { recursive: true, force: true });
-    fs.renameSync(novo, dist);
+    trocarPasta(novo, dist);
     return { index, relatorio, totalErros, fontes: todasFontes };
+}
+
+/**
+ * Põe a pasta nova no lugar do dist/. No Windows (principalmente dentro do OneDrive) o rename às vezes
+ * falha com EPERM/EBUSY porque o OneDrive ou o antivírus está lendo os arquivos: tenta de novo algumas vezes
+ * e, se continuar travado, copia por cima (perde só a "troca atômica", não o build).
+ */
+function trocarPasta(novo, dist) {
+    const esperar = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+    for (let i = 0; i < 6; i++) {
+        try {
+            fs.rmSync(dist, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+            fs.renameSync(novo, dist);
+            return;
+        } catch (e) {
+            if (!['EPERM', 'EBUSY', 'EACCES', 'ENOTEMPTY'].includes(e.code)) throw e;
+            esperar(150 * (i + 1));
+        }
+    }
+    fs.cpSync(novo, dist, { recursive: true, force: true });
+    try { fs.rmSync(novo, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }); } catch (e) { /* fica para o próximo build */ }
 }
 
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('build.mjs')) {

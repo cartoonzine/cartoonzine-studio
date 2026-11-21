@@ -1032,7 +1032,8 @@
         const chave = L.linksDoEnvio(e).join('\n');
         if (SC.canais.has(e.id) && !forcar && SC.canais.get(e.id).url === chave) return SC.canais.get(e.id).canais;
         const canais = [];
-        for (const u of L.linksDoEnvio(e)) canais.push(...L.lerLista(await baixarTexto(u), e.nome).canais);
+        // sem push(...lista): com centenas de milhares de itens estoura a pilha ("Maximum call stack size exceeded")
+        for (const u of L.linksDoEnvio(e)) for (const c of L.lerLista(await baixarTexto(u), e.nome).canais) canais.push(c);
         canais.forEach(c => { const aj = e.ajustes && e.ajustes[L.chaveSC(c)]; if (aj) L.ajustarVideo(c, aj); });
         SC.canais.set(e.id, { url: chave, canais });
         return canais;
