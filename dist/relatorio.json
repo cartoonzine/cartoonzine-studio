@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-21T19:44:26.729Z",
+  "geradoEm": "2026-11-21T19:49:31.969Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -136,7 +136,7 @@
     {
       "colecao": "jogos-web",
       "total": 730,
-      "publicados": 51,
+      "publicados": 52,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -2849,10 +2849,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-xbox360/sonic-the-hedgehog-4-episode-i.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-zxspectrum/super-mario-kart-sm-kart-zx-web-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         }
@@ -2869,7 +2865,7 @@
         "web-dreamcast": 0,
         "web-dos": 7,
         "web-windows": 22,
-        "web-xbox360": 0,
+        "web-xbox360": 1,
         "web-xboxone": 0,
         "web-xboxseries": 0,
         "web-xbox": 0,

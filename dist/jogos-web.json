@@ -1126,6 +1126,30 @@
    "license": "livre"
   },
   {
+   "title": "Sonic the Hedgehog 4: Episode I",
+   "desc": "The sequel fans have waited 16 years for is finally here - Sonic the Hedgehog 4 Episode I! Featuring enhanced gameplay elements, including the classic Sonic Spin Dash, and the versatile Homing Attack, Sonic the Hedgehog 4 Episode I picks up right where Sonic and Knuckles™ left off. Dr. Eggman's back, and in an effort to finally rid himself of Sonic, he revisits – and improves – the very best of his creations. Get ready for the next chapter in an all new epic 2D saga built for old and new fans alike.",
+   "year": 2012,
+   "genre": [
+    "Plataforma"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/0db2e204010400f5c506620adcd1ae68.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/0db2e204010400f5c506620adcd1ae68.png",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-xbox360/sonic-the-hedgehog-4-episode-i",
+   "url": "https://wamwoowam.co.uk/sonic4/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/b3999f2198b3a6ddc547b84352c90e9c.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/56705e032d3b13b849ca05bb7799013e.png",
+   "console": "web-xbox360",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Street Fighter III: 3rd Strike",
    "desc": "Port para navegador · streetfighter3.online",
    "bannerlogo": "https://cdn2.steamgriddb.com/logo/22cf8d98dca2b9de5052ae9253bddef3.png",
