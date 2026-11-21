@@ -521,7 +521,7 @@
     function janela(html, classe = '') {
         fecharJanela();
         const d = document.createElement('div');
-        d.className = 'le-jan-fundo';
+        d.className = 'le-jan-fundo' + (/\bpagina\b/.test(classe) ? ' pagina' : '');
         d.innerHTML = `<div class="le-jan ${classe}" role="dialog" aria-modal="true">${html}<button class="le-jan-x" data-fechar aria-label="Fechar">✕</button></div>`;
         d.addEventListener('click', (e) => { if (e.target === d || e.target.closest('[data-fechar]')) fecharJanela(); });
         raiz.appendChild(d);
@@ -979,9 +979,11 @@
     async function lerSidechain(forcar) {
         if (!S.ler) { SC.envios = SC.envios || []; SC.estado = SC.estado || {}; return; }
         if (SC.envios && !forcar) return;
-        try { const d = await S.ler(ARQ_SC); SC.envios = (d.envios || []).map(e => L.envioPadrao(e)); SC.globais = d.regrasGlobais || []; } catch (e) { SC.envios = SC.envios || []; SC.globais = SC.globais || []; }
-        try { SC.estado = await S.ler(ARQ_SC_ESTADO) || {}; } catch (e) { SC.estado = {}; }
-        try { SC.avulsas = await S.ler('listas/avulsas.json') || {}; } catch (e) { SC.avulsas = {}; }
+        // os 3 arquivos juntos (antes era um depois do outro — o estado do robô é grande e segurava a abertura)
+        const nada = () => null;
+        const [d, est, av] = await Promise.all([S.ler(ARQ_SC).catch(nada), S.ler(ARQ_SC_ESTADO).catch(nada), S.ler('listas/avulsas.json').catch(nada)]);
+        if (d) { SC.envios = (d.envios || []).map(e => L.envioPadrao(e)); SC.globais = d.regrasGlobais || []; } else { SC.envios = SC.envios || []; SC.globais = SC.globais || []; }
+        SC.estado = est || {}; SC.avulsas = av || {};
         SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || {}; e._globais = SC.globais; });
         pintarAvisoSC();
     }
@@ -1094,6 +1096,7 @@
     // ---------- assistente do envio: 1 Link → 2 Que lista é? → 3 Rotas → 4 Conferir e salvar ----------
     const PASSOS_SC = ['Link', 'Que lista é?', 'Rotas', 'Conferir e salvar'];
     const COR_ROTA = { filmes: '#f59e0b', 'filmes-torrent': '#f97316', series: '#8b5cf6', animes: '#ec4899', cartoons: '#22d3ee', canais: '#10b981', 'desenhos-24h': '#14b8a6', radios: '#eab308', ignorar: '#64748b' };
+    const numSC = (n) => Number(n || 0).toLocaleString('pt-BR');
     const chaveRota = (d) => d === 'ignorar' ? 'ignorar' : (d && d.colecao) || '';
     const corRota = (r) => COR_ROTA[chaveRota(r.destino)] || '#38bdf8';
     const nomeRota = (r, cols) => r.destino === 'ignorar' ? '🚫 Fica de fora' : L.destinoTexto(r.destino, cols);
@@ -1107,18 +1110,18 @@
     function resumoSC(e, grupos, cols) {
         if (!grupos) {
             const st = SC.estado.envios && SC.estado.envios[e.id];
-            return st ? 'Última rodada: ' + (Object.entries(st.porDestino || {}).map(([k, n]) => `<b>${n}</b> ${esc(k)}`).join(' · ') || 'nada enviado') : 'Leia a lista (passo 1) para ver o que vai gerar.';
+            return st ? 'Última rodada: ' + (Object.entries(st.porDestino || {}).map(([k, n]) => `<b>${numSC(n)}</b> ${esc(k)}`).join(' · ') || 'nada enviado') : 'Leia a lista (passo 1) para ver o que vai gerar.';
         }
         const total = grupos.reduce((t, g) => t + g.n, 0);
-        if (e.tipoLista !== 'mista') return e.destino && e.destino.colecao ? `<b>${total}</b> → ${esc(L.destinoTexto(e.destino, cols))}` : `<b>${total}</b> itens · escolha o destino no passo 3`;
+        if (e.tipoLista !== 'mista') return e.destino && e.destino.colecao ? `<b>${numSC(total)}</b> → ${esc(L.destinoTexto(e.destino, cols))}` : `<b>${numSC(total)}</b> itens · escolha o destino no passo 3`;
         const por = new Map(); let sem = 0, semG = 0;
         grupos.forEach(g => { if (!g.rota) { sem += g.n; semG++; return; } const k = nomeRota(g.rota, cols); por.set(k, (por.get(k) || 0) + g.n); });
-        return [...por].map(([k, n]) => `<b>${n}</b> ${esc(k)}`).join(' · ') + (sem ? `${por.size ? ' · ' : ''}<span style="color:#fbbf24">🔔 <b>${sem}</b> esperando rota (${semG} grupo${semG === 1 ? '' : 's'})</span>` : '');
+        return [...por].map(([k, n]) => `<b>${numSC(n)}</b> ${esc(k)}`).join(' · ') + (sem ? `${por.size ? ' · ' : ''}<span style="color:#fbbf24">🔔 <b>${numSC(sem)}</b> esperando rota (${semG} grupo${semG === 1 ? '' : 's'})</span>` : '');
     }
     function rotasHTML(e, grupos, cols) {
         const conta = (r) => grupos ? grupos.filter(g => g.rota === r).reduce((t, g) => t + g.n, 0) : null;
-        const cards = (e.rotas || []).map(r => { const n = conta(r); return `<div class="le-sc-rcard" style="--rc:${corRota(r)}"><b>${esc(nomeRota(r, cols))}</b>
-            <small>${n != null ? n + ' itens · ' : ''}${r.grupos.length} grupo${r.grupos.length === 1 ? '' : 's'}</small>
+        const cards = (e.rotas || []).map(r => { const n = conta(r); return `<div class="le-sc-rcard" style="--rc:${corRota(r)}"><div class="le-sc-rtop"><b>${esc(nomeRota(r, cols))}</b>${n != null ? `<strong>${numSC(n)}</strong>` : ''}</div>
+            <small>${r.grupos.length} grupo${r.grupos.length === 1 ? '' : 's'}</small>
             <div class="le-sc-rgr">${r.grupos.slice(0, 5).map(g => `<span>${esc(g)}</span>`).join('')}${r.grupos.length > 5 ? `<span>+${r.grupos.length - 5}</span>` : ''}</div>
             <button data-sc-rtira="${esc(r.id)}" title="Apagar rota (os grupos dela voltam a esperar)" aria-label="Apagar rota">✕</button></div>`; }).join('');
         const sem = grupos ? grupos.filter(g => !g.rota) : [];
@@ -1131,20 +1134,27 @@
         };
         const nat = (g) => L.NATUREZAS.filter(([k]) => g.nats[k]).map(([k, ic, nm]) => `<span title="${g.nats[k]} ${esc(nm)}">${ic}${g.nats[k] < g.n ? '<small>' + g.nats[k] + '</small>' : ''}</span>`).join(' ');
         const auto = (g) => g.sugestao && (!g.rota || chaveRota(g.rota.destino) === chaveRota(g.sugestao)) ? `<span class="le-sc-auto" title="Sugestão pelo nome do grupo e pelo tipo dos itens">${g.rota ? 'AUTO' : 'sugestão: ' + esc(g.sugestao === 'ignorar' ? 'fica de fora' : L.destinoTexto(g.sugestao, cols))}</span>` : '';
-        return `<div class="le-sc-rotas">${cards}<button class="le-sc-rcard nova" id="le-sc-rota-nova">+ Nova rota</button></div>
-          <div class="le-sc-nrota" id="le-sc-nrota" hidden>${destinoForm('rota', {}, { rotulo: 'Nova rota para', ignorar: true })}<button class="le-bt p" id="le-sc-rota-add">Criar rota</button></div>
-          ${grupos ? `<div class="le-imp-op" style="margin-top:6px"><span class="le-dica"><b>${grupos.length}</b> grupos na lista${sem.length ? ` · <span style="color:#fbbf24">🔔 ${sem.length} sem rota</span>` : ' · todos com rota ✓'}</span>
+        return `<div class="le-sc-mx"><div class="le-sc-mx-a"><div class="le-rot">Rotas deste envio</div><div class="le-sc-rotas">${cards}<button class="le-sc-rcard nova" id="le-sc-rota-nova">+ Nova rota</button></div>
+          <div class="le-sc-nrota" id="le-sc-nrota" hidden>${destinoForm('rota', {}, { rotulo: 'Nova rota para', ignorar: true })}<button class="le-bt p" id="le-sc-rota-add">Criar rota</button></div></div>
+          <div class="le-sc-mx-b"><div class="le-rot">Grupos da lista → rota</div>
+          ${grupos ? `<div class="le-imp-op"><span class="le-dica"><b>${grupos.length}</b> grupos na lista${sem.length ? ` · <span style="color:#fbbf24">🔔 ${sem.length} sem rota</span>` : ' · todos com rota ✓'}</span>
               ${nSug ? `<button class="le-bt r" id="le-sc-sugerir">✨ Aplicar sugestões (${nSug})</button>` : ''}
               <label title="Quando a lista ganhar um grupo que ainda não tem rota">Grupo novo na lista <select class="le-campo" id="le-sc-gnovos"><option value="esperar" ${e.gruposNovos !== 'sugestao' ? 'selected' : ''}>🔔 espera eu escolher</option><option value="sugestao" ${e.gruposNovos === 'sugestao' ? 'selected' : ''}>🤖 vai pela sugestão</option></select></label></div>
             <div class="le-sc-gtab"><table><thead><tr><th>Grupo da lista</th><th>Itens</th><th>Tipo</th><th>Rota</th></tr></thead><tbody>
-              ${grupos.slice(0, 600).map((g, i) => `<tr class="${g.rota ? '' : 'nova'}"><td>${g.rota ? '' : '🔔 '}${esc(g.grupo)}</td><td>${g.n}</td><td>${nat(g)}</td><td><select class="le-campo" data-sc-grupo="${i}" style="--rc:${g.rota ? corRota(g.rota) : '#fbbf24'}">${opc(g)}</select> ${auto(g)}</td></tr>`).join('')}
+              ${grupos.slice(0, 600).map((g, i) => `<tr class="${g.rota ? '' : 'nova'}"><td>${g.rota ? '' : '🔔 '}${esc(g.grupo)}</td><td>${numSC(g.n)}</td><td>${nat(g)}</td><td><select class="le-campo" data-sc-grupo="${i}" style="--rc:${g.rota ? corRota(g.rota) : '#fbbf24'}">${opc(g)}</select> ${auto(g)}</td></tr>`).join('')}
             </tbody></table>${grupos.length > 600 ? `<p class="le-dica">… e mais ${grupos.length - 600} grupos pequenos (use ✨ Aplicar sugestões).</p>` : ''}</div>`
           : `<div class="le-dica" style="margin-top:8px">Para montar as rotas eu preciso ler a lista. <button class="le-bt" data-sc-ler="1">📥 Ler lista</button></div>`}
+          </div></div>
           <p class="le-dica">Exceções (um filme que caiu no grupo errado) continuam no <b>🔀 Sidechain</b>: só elas ficam guardadas item por item.</p>`;
     }
     async function abrirSidechain(id) {
         if (!S.ler || !S.gravar || !S.config) return S.aviso('Abra o Link Edit pelo Studio para usar o Sidechain.', 'ruim');
-        await lerSidechain();
+        if (!SC.envios) {               // 1ª vez: abre a página na hora e lê os arquivos; clique repetido não dispara outra leitura
+            if (SC.abrindo) return;
+            SC.abrindo = true;
+            janela('<h3>🔗 Link Sidechain</h3><p class="le-dica" style="padding:30px 0">⏳ Carregando os envios…</p>', 'pagina');
+            try { await lerSidechain(); } finally { SC.abrindo = false; }
+        }
         if (id !== undefined) { if (id !== SC.atual) SC.passo = 0; SC.atual = id; }
         const e = SC.envios.find(x => x.id === SC.atual) || null;
         if (e && !SC.passo) SC.passo = e.url ? 4 : 1;
@@ -1221,7 +1231,7 @@
               </div>
               </section>
               <div class="le-sc-vai"><span>Vai gerar: ${resumoSC(e, grupos, cols)}</span><button class="le-bt p" id="le-sc-salvar">💾 Salvar</button></div>
-              <div class="le-sc-painel">
+              <div class="le-sc-painel" ${SC.passo === 4 ? '' : 'hidden'}>
                 <div class="le-rot">O que está acontecendo</div>
                 ${st ? `<div>Última rodada do robô ${haQuanto(st.em)} · <b>${st.total}</b> itens${st.mantido ? ` · <span style="color:#fbbf24">⚠ usando a última versão boa (${esc(st.erro || 'lista com problema')})</span>` : ''}</div>
                   <div class="le-sc-dests">${Object.entries(st.porDestino || {}).map(([k, n]) => `<span><b>${n}</b> → ${esc(k)}</span>`).join('') || '<span>nada enviado</span>'}${st.filtrados ? `<span><b>${st.filtrados}</b> fora pelos filtros</span>` : ''}${st.tipoErrado ? `<span style="color:#fbbf24" title="O destino do envio é de outro tipo: use o 🔀 Sidechain para mandar estes para a coleção certa"><b>${st.tipoErrado}</b> de outro tipo (esperando)</span>` : ''}${st.ignorados ? `<span><b>${st.ignorados}</b> ignorados</span>` : ''}${st.mortos ? `<span style="color:#f87171"><b>${st.mortos}</b> mortos (fora)</span>` : ''}</div>
@@ -1242,7 +1252,7 @@
               ${regrasHTML(SC.globais || (SC.globais = []), cols)}
               <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" id="le-sc-salvar-g">💾 Salvar regras</button></div>` : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
             </div>
-          </div>`, 'larga');
+          </div>`, 'pagina');
         ligarDestino(j);
         j.querySelectorAll('.le-jan, .le-sc-gtab').forEach((x, i) => { if (rolagem[i]) x.scrollTop = rolagem[i]; });
         const lerForm = () => {
@@ -2045,13 +2055,24 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sc-tag{margin-right:8px;font-size:11px;font-weight:800;padding:2px 7px;border-radius:99px;background:#102a31;color:#67e8f9;white-space:nowrap}.le-sc-tag.desv{background:#2a0b1c;color:#ff7ac0}.le-sc-tag.ign{background:#1c1c22;color:#9aa3ad;text-decoration:line-through}.le-sc-tag.pend{background:#2a2108;color:#fbbf24}.le-sc-tag.pad{opacity:.6}
 .le-sc-novo{margin-right:6px;font-size:9.5px;font-weight:900;padding:1px 5px;border-radius:4px;background:#fbbf24;color:#1a1200;letter-spacing:.06em}
 .le-sc-sino{color:#fbbf24;font-size:11px}.le-sc-pend{color:#fbbf24;font-size:11px}
+.le-jan-fundo.pagina{padding:0;align-items:stretch;justify-content:stretch;background:#06080c}
+.le-jan.pagina{width:100%;height:100%;max-height:none;border:0;border-radius:0;padding:18px 24px 0;box-shadow:none}
+.le-jan.pagina .le-jan-x{top:14px;right:18px}
+.le-jan.pagina .le-rc{grid-template-columns:260px minmax(0,1fr);flex:1}
+.le-jan.pagina .le-rc-lista{position:sticky;top:0;align-self:start}
+.le-sc-mx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px;align-items:start}.le-sc-mx-a,.le-sc-mx-b{display:flex;flex-direction:column;gap:8px;min-width:0}
+.le-jan.pagina .le-sc-gtab{max-height:max(300px,calc(100vh - 430px))}
+.le-sc-rtop{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.le-sc-rtop strong{font-size:22px;color:var(--rc);font-weight:800;line-height:1}
+.le-jan.pagina .le-rc-form{min-height:100%}.le-jan.pagina .le-sc-vai{bottom:0;margin:auto -24px 0;border-radius:0;border-width:1px 0 0;padding:12px 24px;font-size:14px}.le-sc-vai b{color:#fff;font-size:1.15em}
+@media (max-width:1100px){.le-sc-mx{grid-template-columns:1fr}}
+@media (max-width:900px){.le-jan.pagina .le-rc{grid-template-columns:1fr}.le-jan.pagina .le-rc-lista{position:static}}
 .le-sc-passos{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}.le-sc-passos button{flex:1;min-width:120px;background:#0d1016;border:1px solid #2a3140;color:#94a3b8;border-radius:10px;padding:7px 8px;font:inherit;font-size:12.5px;cursor:pointer;text-align:left}
 .le-sc-passos button b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#1e2533;color:#cbd5e1;margin-right:4px;font-size:11px}
 .le-sc-passos button.on{border-color:#22d3ee;color:#fff}.le-sc-passos button.on b{background:#22d3ee;color:#04141a}.le-sc-passos button.feito b{background:#164e63;color:#a5f3fc}
 .le-sc-passo{display:flex;flex-direction:column;gap:8px}.le-sc-passo[hidden]{display:none}
 .le-sc-tipos{display:grid;grid-template-columns:1fr 1fr;gap:10px}.le-sc-tipo{display:flex;flex-direction:column;gap:6px;text-align:left;padding:16px;border-radius:12px;background:#0d1016;border:1px solid #2a3140;color:#cbd5e1;font:inherit;cursor:pointer}.le-sc-tipo b{font-size:15px;color:#fff}.le-sc-tipo small{color:#94a3b8;line-height:1.4}.le-sc-tipo.on{border-color:#e879f9;box-shadow:0 0 0 1px #e879f9 inset}
 .le-sc-rotas{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.le-sc-rcard{position:relative;display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:10px;background:#0d1016;border:1px solid var(--rc,#2a3140);border-left:4px solid var(--rc,#2a3140);color:#cbd5e1;font:inherit;font-size:12.5px}
-.le-sc-rcard b{color:#fff;padding-right:16px}.le-sc-rcard small{color:#94a3b8}.le-sc-rcard>button{position:absolute;top:6px;right:6px;background:none;border:0;color:#64748b;cursor:pointer}.le-sc-rcard.nova{align-items:center;justify-content:center;border-style:dashed;cursor:pointer;color:#94a3b8;min-height:64px}
+.le-sc-rcard b{color:#fff}.le-sc-rcard .le-sc-rtop{padding-right:16px}.le-sc-rcard small{color:#94a3b8}.le-sc-rcard>button{position:absolute;top:6px;right:6px;background:none;border:0;color:#64748b;cursor:pointer}.le-sc-rcard.nova{align-items:center;justify-content:center;border-style:dashed;cursor:pointer;color:#94a3b8;min-height:64px}
 .le-sc-rgr{display:flex;flex-wrap:wrap;gap:3px}.le-sc-rgr span{font-size:10.5px;background:#1c2230;border-radius:6px;padding:1px 6px;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .le-sc-nrota{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px;border:1px dashed #2a3140;border-radius:10px}.le-sc-nrota[hidden]{display:none}
 .le-sc-gtab{max-height:300px;overflow:auto;border:1px solid #2a3140;border-radius:10px}.le-sc-gtab table{width:100%;border-collapse:collapse;font-size:12.5px}.le-sc-gtab th{position:sticky;top:0;background:#111621;color:#94a3b8;text-align:left;font-weight:600;padding:6px 8px}
@@ -2062,6 +2083,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sc-ferr{display:flex;flex-direction:column;gap:8px;padding:10px 12px;border-radius:10px;background:#0d1016;border:1px solid #2a3140}
 .le-sc-dest{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:12.5px;color:#cbd5e1}.le-sc-dest label{display:flex;gap:6px;align-items:center}.le-sc-dest .le-campo{height:32px;padding:0 8px;max-width:260px}
 .le-sc-link{width:100%;font-family:'JetBrains Mono',monospace;font-size:12px;white-space:nowrap;margin-top:8px}
+.le-sc-painel[hidden]{display:none}
 .le-sc-painel{margin-top:10px;padding:10px 12px;border-radius:10px;background:#0d1a1f;border:1px solid #1f5560;font-size:12.5px;display:flex;flex-direction:column;gap:6px}
 .le-sc-dests{display:flex;flex-wrap:wrap;gap:6px}.le-sc-dests span{padding:3px 9px;border-radius:99px;background:#161b24}
 .le-sc-novos{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.le-sc-novos span{font-size:11.5px;padding:2px 7px;border-radius:99px;background:#2a2108;color:#fde68a}
