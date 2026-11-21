@@ -100,6 +100,7 @@ Daí em diante toda lista nova do Sidechain entra no catálogo sozinha.
 4. **Conferir e salvar** — novidades, teste dos links, filtros, lista avulsa, TMDB.
 
 A barra "Vai gerar" mostra quanto vai para cada coleção.
+Clique no **nome de um grupo** na tabela para abrir só os itens dele no editor; "💾 Salvar grupo e voltar" grava e marca o grupo com ✓ (dá para revisar por partes).
 Só as **exceções** (o filme que caiu no grupo errado) ficam guardadas item por item no 🔀 Sidechain.
 Envios antigos viram "uma categoria" e os desvios iguais ao destino do envio são apagados (não mudavam nada).
 

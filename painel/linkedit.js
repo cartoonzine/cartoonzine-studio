@@ -1141,11 +1141,19 @@
               ${nSug ? `<button class="le-bt r" id="le-sc-sugerir">✨ Aplicar sugestões (${nSug})</button>` : ''}
               <label title="Quando a lista ganhar um grupo que ainda não tem rota">Grupo novo na lista <select class="le-campo" id="le-sc-gnovos"><option value="esperar" ${e.gruposNovos !== 'sugestao' ? 'selected' : ''}>🔔 espera eu escolher</option><option value="sugestao" ${e.gruposNovos === 'sugestao' ? 'selected' : ''}>🤖 vai pela sugestão</option></select></label></div>
             <div class="le-sc-gtab"><table><thead><tr><th>Grupo da lista</th><th>Itens</th><th>Tipo</th><th>Rota</th></tr></thead><tbody>
-              ${grupos.slice(0, 600).map((g, i) => `<tr class="${g.rota ? '' : 'nova'}"><td>${g.rota ? '' : '🔔 '}${esc(g.grupo)}</td><td>${numSC(g.n)}</td><td>${nat(g)}</td><td><select class="le-campo" data-sc-grupo="${i}" style="--rc:${g.rota ? corRota(g.rota) : '#fbbf24'}">${opc(g)}</select> ${auto(g)}</td></tr>`).join('')}
+              ${grupos.slice(0, 600).map((g, i) => `<tr class="${g.rota ? '' : 'nova'}"><td><button class="le-sc-gnome" data-sc-gabrir="${i}" title="Abrir só este grupo no editor: ver os itens, corrigir e salvar">${g.rota ? '' : '🔔 '}${esc(g.grupo)} <span>✎</span></button>${(e.gruposRevisados || {})[g.grupo] ? ` <span class="le-sc-rev" title="Revisado em ${esc(new Date(e.gruposRevisados[g.grupo]).toLocaleString('pt-BR'))}">✓</span>` : ''}</td><td>${numSC(g.n)}</td><td>${nat(g)}</td><td><select class="le-campo" data-sc-grupo="${i}" style="--rc:${g.rota ? corRota(g.rota) : '#fbbf24'}">${opc(g)}</select> ${auto(g)}</td></tr>`).join('')}
             </tbody></table>${grupos.length > 600 ? `<p class="le-dica">… e mais ${grupos.length - 600} grupos pequenos (use ✨ Aplicar sugestões).</p>` : ''}</div>`
           : `<div class="le-dica" style="margin-top:8px">Para montar as rotas eu preciso ler a lista. <button class="le-bt" data-sc-ler="1">📥 Ler lista</button></div>`}
           </div></div>
           <p class="le-dica">Exceções (um filme que caiu no grupo errado) continuam no <b>🔀 Sidechain</b>: só elas ficam guardadas item por item.</p>`;
+    }
+    /** envio novo ganha o id definitivo (pelo nome) na 1ª vez que é salvo */
+    function fixarIdSC(e) {
+        if (!/^envio(-\d+)?$/.test(e.id)) return;
+        const usados = new Set(SC.envios.filter(x => x !== e).map(x => x.id)), velho = e.id;
+        e.id = L.idEnvio(e.nome, usados);
+        if (SC.canais.has(velho)) { SC.canais.set(e.id, SC.canais.get(velho)); SC.canais.delete(velho); }
+        if (SC.atual === velho) SC.atual = e.id;
     }
     async function abrirSidechain(id) {
         if (!S.ler || !S.gravar || !S.config) return S.aviso('Abra o Link Edit pelo Studio para usar o Sidechain.', 'ruim');
@@ -1301,6 +1309,11 @@
                 catch (x) { S.aviso('Não deu para ler a lista: ' + x.message + (local() ? '' : ' (online, o site precisa liberar CORS; no painel do PC sempre funciona)'), 'ruim'); }
                 return abrirSidechain(e.id);
             }
+            if (b.dataset.scGabrir != null) {
+                const g = SC.gruposVista[+b.dataset.scGabrir]; if (!g) return;
+                lerForm();
+                return entrarModoSC(e, g.grupo);
+            }
             if (b.id === 'le-sc-sugerir') { lerForm(); const n = L.aplicarSugestoes(e, gruposSC(e) || []); SC.sujo = true; S.aviso(`${n} grupo(s) ganharam rota.`, 'ok'); return abrirSidechain(e.id); }
             if (b.id === 'le-sc-rota-nova') { const x = j.querySelector('#le-sc-nrota'); x.hidden = !x.hidden; return; }
             if (b.id === 'le-sc-rota-add') {
@@ -1333,8 +1346,7 @@
                     if (!e.rotas.some(r => r.grupos.length)) { SC.passo = 3; S.aviso('Lista mista: ponha ao menos um grupo numa rota.', 'ruim'); return abrirSidechain(e.id); }
                 } else if ((!e.destino || !e.destino.colecao) && !e.avulsa) { SC.passo = 3; S.aviso('Escolha para onde o envio vai (ou marque "lista avulsa" no passo 4).', 'ruim'); return abrirSidechain(e.id); }
                 e.rotas = (e.rotas || []).filter(r => r.grupos.length || r.destino === 'ignorar');
-                const usados = new Set(SC.envios.filter(x => x !== e).map(x => x.id));
-                if (/^envio(-\d+)?$/.test(e.id)) { const velho = e.id; e.id = L.idEnvio(e.nome, usados); if (SC.canais.has(velho)) { SC.canais.set(e.id, SC.canais.get(velho)); SC.canais.delete(velho); } }
+                fixarIdSC(e);
                 b.disabled = true; b.textContent = 'Salvando…';
                 try { await gravarSidechain(`Sidechain: ${e.nome} → ${e.tipoLista === 'mista' ? 'lista mista (' + e.rotas.length + ' rotas)' : L.destinoTexto(e.destino, cols)}`); S.aviso('Envio salvo. O robô roda logo depois do push e depois a cada 6 h.', 'ok'); }
                 catch (x) { S.aviso('Não deu para gravar: ' + x.message, 'ruim'); }
@@ -1383,20 +1395,21 @@
     }
 
     // ---------- modo SIDECHAIN no editor: a lista do envio aberta na tabela, com o destino de cada item ----------
-    async function entrarModoSC(e) {
+    async function entrarModoSC(e, grupo) {
         let canais;
-        try { canais = await canaisDoEnvio(e, true); } catch (x) { return S.aviso('Não deu para ler a lista: ' + x.message, 'ruim'); }
+        try { canais = await canaisDoEnvio(e, !grupo); } catch (x) { return S.aviso('Não deu para ler a lista: ' + x.message, 'ruim'); }
+        if (grupo) canais = canais.filter(c => L.grupoDe(c) === grupo);     // lista dedicada: só os itens deste grupo
         fecharJanela();
         if (!SC.modo) SC.modo = { guarda: { listas: E.listas, canais: E.canais, sel: [...E.sel], foco: E.foco, busca: E.f.busca } };
-        SC.modo.envio = e;
+        SC.modo.envio = e; SC.modo.grupo = grupo || '';
         e._globais = SC.globais || [];
         const id = 'sc-' + e.id;
-        E.listas = [{ id, nome: '🔀 ' + e.nome, formato: 'sidechain', epg: '', url: e.url }];
+        E.listas = [{ id, nome: '🔀 ' + e.nome + (grupo ? ' · ' + grupo : ''), formato: 'sidechain', epg: '', url: e.url }];
         E.canais = canais.map((c, i) => Object.assign(c, { lista: id, id: id + '-' + i }));
         E.sel.clear(); E.foco = null; E.f.busca = ''; SC.filtro = '';
         const b = $('#le-busca'); if (b) b.value = '';
         desenharTudo(); pintarBarraSC();
-        S.aviso(`Sidechain: ${canais.length} itens de "${e.nome}". Marque e use "Enviar marcados para…".`, 'ok');
+        S.aviso(grupo ? `Grupo "${grupo}": ${canais.length} itens. Corrija o que precisar e clique em 💾 Salvar grupo.` : `Sidechain: ${canais.length} itens de "${e.nome}". Marque e use "Enviar marcados para…".`, 'ok');
     }
     function sairModoSC(voltarJanela) {
         if (!SC.modo) return;
@@ -1427,18 +1440,29 @@
         E.canais.forEach(c => { const r = rotaSC(c); if (r.novo) n.novos++; if (r.motivo === 'pendente') n.pendentes++; if (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') n.desviados++; });
         const sug = L.sugerirRegras(E.canais, e).slice(0, 3);
         el.hidden = false;
-        el.innerHTML = `<b>🔀 SIDECHAIN</b><span>${esc(e.nome)} · ${e.tipoLista === 'mista' ? `<b>lista mista</b> · ${e.rotas.length} rotas por grupo` : `padrão → <b>${esc(L.destinoTexto(e.destino, cols))}</b>`}</span>
+        const gr = SC.modo.grupo;
+        const rotaGr = gr ? L.mapaGrupos(e).get(gr) : null;
+        const cab = gr ? `grupo <b>${esc(gr)}</b> → <b>${esc(rotaGr ? (rotaGr.destino === 'ignorar' ? 'fica de fora' : L.destinoTexto(rotaGr.destino, cols)) : 'sem rota')}</b>`
+            : e.tipoLista === 'mista' ? `<b>lista mista</b> · ${e.rotas.length} rotas por grupo` : `padrão → <b>${esc(L.destinoTexto(e.destino, cols))}</b>`;
+        el.innerHTML = `<b>🔀 SIDECHAIN</b><span>${esc(e.nome)} · ${cab}</span>
           <div class="le-chips">${[['', 'Todos'], ['novos', `🔔 Novos ${n.novos}`], ['pendentes', `⏳ Esperando ${n.pendentes}`], ['desviados', `Desviados ${n.desviados}`], ['padrao', e.tipoLista === 'mista' ? 'Pela rota' : 'No padrão']].map(([k, t]) => `<button class="le-chip ${SC.filtro === k ? 'on' : ''}" data-sc-filtro="${k}">${t}</button>`).join('')}</div>
           <button class="le-bt r" id="le-sc-enviar" title="Manda os marcados para outra coleção (Enter)">Enviar marcados para…</button>
           <button class="le-bt" id="le-sc-ignorar">🚫 Ignorar marcados</button>
           <button class="le-bt" id="le-sc-padrao" title="Tira o desvio: os marcados voltam ao destino do envio">↩ Voltar ao padrão</button>
-          <button class="le-bt p" id="le-sc-ok">✓ Concluir</button>
+          ${gr ? `<button class="le-bt" id="le-sc-ok" title="Volta para as rotas sem gravar (as mudanças ficam até você salvar o envio)">← Voltar</button><button class="le-bt p" id="le-sc-ok-grupo" title="Grava este grupo e volta para as rotas">💾 Salvar grupo e voltar</button>` : '<button class="le-bt p" id="le-sc-ok">✓ Concluir</button>'}
           ${sug.length ? `<div class="le-sc-sug">💡 ${sug.map((sg, i) => `<button class="le-chip" data-sc-bsug="${i}" title="Os próximos que chegarem com esse grupo já vão sozinhos">Criar regra: grupo "${esc(sg.contem)}" → ${esc(L.destinoTexto(sg.para, cols))}</button>`).join('')}</div>` : ''}`;
         el.onclick = (ev) => {
             const b = ev.target.closest('button'); if (!b) return;
             if (b.dataset.scFiltro != null) { SC.filtro = b.dataset.scFiltro; desenharTabela(); return pintarBarraSC(); }
             if (b.dataset.scBsug != null) { const sg = sug[+b.dataset.scBsug]; if (sg) { e.regras.push({ campo: sg.campo, contem: sg.contem, para: sg.para }); SC.sujo = true; S.aviso('Regra criada (salve o envio ao concluir).', 'ok'); agendarTabela(); pintarBarraSC(); } return; }
             if (b.id === 'le-sc-ok') return sairModoSC(true);
+            if (b.id === 'le-sc-ok-grupo') {
+                (e.gruposRevisados = e.gruposRevisados || {})[gr] = new Date().toISOString();
+                fixarIdSC(e); b.disabled = true; b.textContent = 'Salvando…';
+                return gravarSidechain(`Sidechain: ${e.nome} · grupo ${gr} revisado`)
+                    .then(() => S.aviso(`Grupo "${gr}" salvo ✓. Escolha o próximo.`, 'ok'), (x) => S.aviso('Não deu para gravar: ' + x.message, 'ruim'))
+                    .then(() => sairModoSC(true));
+            }
             const marcados = selecionados();
             if (!marcados.length) return S.aviso('Marque os itens primeiro (caixinha, Ctrl+clique ou Shift+clique).', 'ruim');
             if (b.id === 'le-sc-ignorar') return desviarSC(marcados, 'ignorar');
@@ -2077,6 +2101,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sc-nrota{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px;border:1px dashed #2a3140;border-radius:10px}.le-sc-nrota[hidden]{display:none}
 .le-sc-gtab{max-height:300px;overflow:auto;border:1px solid #2a3140;border-radius:10px}.le-sc-gtab table{width:100%;border-collapse:collapse;font-size:12.5px}.le-sc-gtab th{position:sticky;top:0;background:#111621;color:#94a3b8;text-align:left;font-weight:600;padding:6px 8px}
 .le-sc-gtab td{padding:4px 8px;border-top:1px solid #1a1f2b;color:#cbd5e1}.le-sc-gtab tr.nova td:first-child{color:#fbbf24}.le-sc-gtab select{height:30px;padding:0 6px;line-height:28px;max-width:210px;border-left:4px solid var(--rc)}.le-sc-gtab small{color:#64748b;font-size:10px}
+.le-sc-gnome{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left}.le-sc-gnome span{opacity:0;color:#22d3ee;margin-left:4px}.le-sc-gnome:hover{color:#22d3ee;text-decoration:underline}.le-sc-gnome:hover span,.le-sc-gnome:focus span{opacity:1}
+.le-sc-rev{color:#4ade80;font-weight:700}
 .le-sc-auto{font-size:10.5px;background:#2e1065;color:#e9d5ff;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .le-sc-vai{position:sticky;bottom:-18px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:6px;padding:10px 12px;border-radius:10px;background:#111827;border:1px solid #334155;font-size:12.5px;color:#cbd5e1;z-index:2}
 @media (max-width:600px){.le-sc-tipos{grid-template-columns:1fr}}
