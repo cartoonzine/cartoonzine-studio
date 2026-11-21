@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-21T17:18:26.758Z",
+  "geradoEm": "2026-11-21T19:07:22.275Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -136,7 +136,7 @@
     {
       "colecao": "jogos-web",
       "total": 730,
-      "publicados": 49,
+      "publicados": 50,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -1358,10 +1358,6 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-outros/among-us.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
-          "caminho": "conteudo/jogos-web/web-outros/angry-birds-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
@@ -2886,7 +2882,7 @@
         "web-psp": 1,
         "web-ps4": 0,
         "web-ps3": 0,
-        "web-android": 0,
+        "web-android": 1,
         "web-ios": 0,
         "web-arcade": 4,
         "web-navegador": 0,
