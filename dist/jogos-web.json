@@ -574,6 +574,30 @@
    "license": "autorizada"
   },
   {
+   "title": "Castle Crashers",
+   "desc": "Castle Crashers is a beat'em all game for four players in multiplayer on Xbox 360. An arena mode allows human opponents to fight each other. Each character can unlock over 40 different weapons, adopt animal companions, go treasure hunting and spend their gold in a multitude of shops with various contents.",
+   "year": 2008,
+   "genre": [
+    "Briga de rua"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/207437c32819716d0ecb62c7ffcee978.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/207437c32819716d0ecb62c7ffcee978.png",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-xbox360/castle-crashers",
+   "url": "https://truffled.lol/games/castle/index.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/1b0d89e02b7f1b1be28c36133af9ed96.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/b20ec67004afcac446e4ee3294b9695c.png",
+   "console": "web-xbox360",
+   "players": 4,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Cave Story",
    "desc": "Sem dúvida o jogo indie mais conhecido de todos os tempos, Cave Story contém um enredo completamente original repleto de personalidade, mistério e horas de diversão frenética. Cave Story é um jogo de ação e aventura do aclamado designer independente Daisuke Amaya ou Pixel para os fãs. Lotado de um charme e personagens incomparáveis, Cave Story te leva para um mundo raro onde uma curiosa raça de criaturas parecidas com coelhos, conhecidas como Mimigas, são livres.\nVocê acorda em uma escura caverna sem lembrar quem você é, de onde você veio e o motivo de estar no lugar que está. Ao encontrar a Vila Mimiga você descobre que os antes despreocupados Mimigas estão em perigo nas mãos de um cientista louco. A única esperança dos Mimigas está nas mãos de um garoto quieto e amnésico que não lembra de seu próprio nome.\nCorra, pule, atire, voe e explore por todo o caminho em um jogo de ação e aventura gigantesco que lembra os clássicos jogos das era 8-bits e 16-bits. Controle e aprenda as origens do poder deste mundo, pare o vilão alucinado e salve os Mimiga!",
    "year": 2004,

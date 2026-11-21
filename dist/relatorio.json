@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-21T19:53:39.775Z",
+  "geradoEm": "2026-11-21T19:55:43.831Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -136,7 +136,7 @@
     {
       "colecao": "jogos-web",
       "total": 730,
-      "publicados": 54,
+      "publicados": 55,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -2837,10 +2837,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-xbox360/castle-crashers.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-zxspectrum/super-mario-kart-sm-kart-zx-web-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         }
@@ -2857,7 +2853,7 @@
         "web-dreamcast": 0,
         "web-dos": 7,
         "web-windows": 22,
-        "web-xbox360": 1,
+        "web-xbox360": 2,
         "web-xboxone": 0,
         "web-xboxseries": 0,
         "web-xbox": 0,
