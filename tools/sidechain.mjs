@@ -51,7 +51,10 @@ const estado = lerJSON(ESTADO, {});
 estado.links = estado.links || {}; estado.envios = estado.envios || {}; estado.ultimo = estado.ultimo || {}; estado.vistos = estado.vistos || {}; estado.tmdb = estado.tmdb || {};
 const novoUltimo = {};
 // os "vistos" moram no estado do robô (o envios.json é só seu: o robô nunca grava nele)
-envios.forEach(e => { e.vistos = estado.vistos[e.id] || {}; });
+envios.forEach(e => { e.vistos = estado.vistos[e.id] || {}; e._globais = dados.regrasGlobais || []; });
+// o que já está cadastrado na Studio (dist/indice-painel.json): para não mandar de novo para a mesma coleção
+const mapaStudio = L.mapaStudio(lerJSON(path.join(RAIZ, 'dist', 'indice-painel.json'), []));
+const antes = {};          // envio → { chave: { nome, url } } da rodada anterior (para "saíram" e "mudaram de link")
 
 async function emLotes(itens, n, fn) {
     let i = 0;
@@ -64,6 +67,8 @@ const lotes = [];
 let testados = 0;
 for (const envio of envios) {
     // cada link do envio (o principal + as outras listas) tem a SUA última versão boa
+    antes[envio.id] = {};
+    L.linksDoEnvio(envio).forEach(u => (estado.ultimo[u] || []).forEach(c => { const k = c.chave || L.chaveDe(c); antes[envio.id][k] = { nome: c.nome, url: c.url }; }));
     let canais = [], mantido = false;
     const erros = [];
     for (const u of L.linksDoEnvio(envio)) {
@@ -139,7 +144,7 @@ for (const { envio, canais } of lotes) {
 }
 if (buscasTmdb) console.log(`\n🔎 TMDB: ${buscasTmdb} busca(s) nesta rodada`);
 
-const { saidas, relatorios, avulsas } = L.montarSidechain(lotes, config);
+const { saidas, relatorios, avulsas } = L.montarSidechain(lotes, config, { studio: mapaStudio });
 const fontes = [];
 for (const s of saidas) {
     const col = cols.find(c => c.id === s.colecao);
@@ -176,8 +181,14 @@ for (const { envio, canais, mantido } of lotes) {
     const rel = relatorios[envio.id];
     const sairam = L.marcarVistos(envio, canais);
     const ant = estado.envios[envio.id] || {};
-    const hist = (ant.historico || []).concat({ em: quando, total: rel.total, novos: rel.novos.length, sairam, pendentes: rel.pendentes.length, mantido: rel.mantido }).slice(-20);
-    estado.envios[envio.id] = Object.assign({}, rel, { em: quando, sairam, novos: rel.novos.slice(0, 300), pendentes: rel.pendentes.slice(0, 1000), historico: hist });
+    // comparar com a rodada anterior: o que saiu e o que mudou de link
+    const ant0 = antes[envio.id] || {}, agora = new Map(canais.map(c => [L.chaveSC(c), c]));
+    const sairamItens = Object.keys(ant0).length ? Object.entries(ant0).filter(([k]) => !agora.has(k)).map(([, x]) => x.nome) : [];
+    const mudaramLink = Object.entries(ant0).filter(([k, x]) => agora.has(k) && agora.get(k).url !== x.url).map(([k, x]) => ({ nome: x.nome, de: x.url, para: agora.get(k).url }));
+    const enviados = Object.values(rel.porDestino).reduce((a, b) => a + b, 0);
+    const hist = (ant.historico || []).concat({ em: quando, total: rel.total, enviados, mortos: rel.mortos, novos: rel.novos.length, sairam: sairamItens.length, mudaram: mudaramLink.length, pendentes: rel.pendentes.length, mantido: rel.mantido }).slice(-30);
+    estado.envios[envio.id] = Object.assign({}, rel, { em: quando, sairam, novos: rel.novos.slice(0, 300), pendentes: rel.pendentes.slice(0, 1000),
+        sairamItens: sairamItens.slice(0, 300), mudaramLink: mudaramLink.slice(0, 300), historico: hist });
     console.log(`  ✓ ${envio.nome}: ${Object.entries(rel.porDestino).map(([k, n]) => `${n} → ${k}`).join(' · ') || 'nada enviado'}${rel.novos.length ? ` · ${rel.novos.length} novos` : ''}${rel.pendentes.length ? ` · ${rel.pendentes.length} esperando revisão` : ''}`);
 }
 // última versão boa de cada link (links que nenhum envio usa mais saem)

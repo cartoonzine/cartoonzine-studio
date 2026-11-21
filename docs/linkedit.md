@@ -99,3 +99,17 @@ Vídeo mostra o que o DB usa, no lugar de categoria/idioma/guia: **série, tempo
 e dá para **numerar os episódios** na ordem da lista. **🔎 Detectar** volta ao automático. O que você arruma vence a
 detecção, vai no JSON exportado (`title`, `year`, `serie`, `season`, `episode`, `audios`, `qualidadeMax`), no
 importador de filmes/séries e, no Sidechain, fica guardado no envio (`ajustes`) e o robô repete a cada rodada.
+
+## Mais ferramentas
+- **📂 Séries** (barra da tabela): cada série com temporadas e episódios; avisa buracos na numeração, episódios
+  repetidos e sem número. Marcar, editar (V) e TMDB por série.
+- **✎ Nomes**: arrumar em lote (procurar/trocar, regex, tirar prefixo de país "BR |", tirar [tags]/HD, Maiúsculas
+  Só No Começo com as siglas mantidas), com prévia. No Sidechain fica salvo no envio.
+- **Já na Studio**: etiqueta na linha e filtro para o que já está cadastrado à mão; no Sidechain, "Não repetir o que já
+  está na Studio" (ligado por padrão) — o robô lê `dist/indice-painel.json`.
+- **Regras**: várias palavras ("anime | otaku"), condições (tipo do item, idioma, país), prioridade (▲▼), ligar/desligar
+  e **⚙ Regras para todos os envios** (`regrasGlobais` no envios.json, valem depois das de cada envio).
+- **Saúde do envio**: barrinhas das últimas 30 rodadas (enviados, mortos, lista com problema), aviso ⚠ quando a lista
+  cai, e o que **saiu** e o que **mudou de link** desde a rodada anterior.
+- **☁️ Testador na nuvem** (`tools/testador-nuvem/`): Scan, ⚡ Testar e "Abrir link" com o Studio online, sem o painel
+  do PC. Cloudflare Workers grátis; passo a passo no LEIAME da pasta. Configure em Scan → ☁️.

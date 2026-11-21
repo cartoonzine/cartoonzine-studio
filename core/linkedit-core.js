@@ -632,6 +632,7 @@
     /** Mudança feita à mão (no painel ou num envio do Sidechain): natureza e/ou campos do vídeo. */
     function ajustarVideo(c, aj) {
         if (!aj) return c;
+        if (aj.nome) { c.nome = aj.nome; c.nomeManual = true; }
         if (aj.natureza) { c.natureza = aj.natureza; c.naturezaManual = true; }
         if (ehVideo(c)) {
             if (!c.video) detectarVideo(c);
@@ -675,6 +676,61 @@
         return c;
     }
 
+    // ---------- 📂 séries em árvore: Série → Temporada → Episódios, com os que faltam e os repetidos ----------
+    function arvoreSeries(canais) {
+        const series = new Map();
+        canais.filter(c => c.natureza === 'episodio').forEach(c => {
+            const v = c.video || {}, nome = v.serie || v.titulo || c.nome, k = norm(nome);
+            if (!series.has(k)) series.set(k, { serie: nome, chave: k, temporadas: new Map(), itens: [] });
+            const s = series.get(k); s.itens.push(c);
+            const t = v.temporada || 1;
+            if (!s.temporadas.has(t)) s.temporadas.set(t, new Map());
+            const ep = v.episodio != null ? v.episodio : 0;
+            const m = s.temporadas.get(t); if (!m.has(ep)) m.set(ep, []); m.get(ep).push(c);
+        });
+        return [...series.values()].map(s => {
+            const temporadas = [...s.temporadas.entries()].sort((a, b) => a[0] - b[0]).map(([numero, m]) => {
+                const nums = [...m.keys()].filter(n => n > 0).sort((a, b) => a - b);
+                const faltando = []; for (let n = nums[0] || 1; n <= (nums[nums.length - 1] || 0); n++) if (!m.has(n)) faltando.push(n);   // buracos entre o 1º e o último que a lista tem
+                return { numero, comeca: nums[0] || 0, eps: [...m.entries()].sort((a, b) => a[0] - b[0]).map(([numero, itens]) => ({ numero, itens })), faltando,
+                    repetidos: [...m.entries()].filter(([n, it]) => n > 0 && it.length > 1).map(([n]) => n), semNumero: (m.get(0) || []).length };
+            });
+            return { serie: s.serie, chave: s.chave, temporadas, total: s.itens.length, itens: s.itens,
+                problemas: temporadas.reduce((n, t) => n + t.faltando.length + t.repetidos.length + (t.semNumero ? 1 : 0), 0) };
+        }).sort((a, b) => b.problemas - a.problemas || a.serie.localeCompare(b.serie, 'pt'));
+    }
+    // ---------- 🗂️ já existe na Studio? (para não aparecer dobrado no app) ----------
+    /** indice = StudioCore.resumoItem de cada item ({ caminho:'conteudo/<coleção>/…', nome, pais }) → Map */
+    function mapaStudio(indice) {
+        const m = new Map();
+        (indice || []).forEach(i => {
+            const col = (String(i.caminho || '').split('/')[1]) || '';
+            const n = norm(i.nome);
+            if (!n) return;
+            m.set('v|' + n, Object.assign({ colecao: col }, i));
+            m.set('c|' + n + '|' + String(i.pais || '').toUpperCase(), Object.assign({ colecao: col }, i));
+        });
+        return m;
+    }
+    function jaNaStudio(c, mapa) {
+        if (!mapa || !mapa.size) return null;
+        if (ehVideo(c)) { const v = c.video || {}; return mapa.get('v|' + norm(c.natureza === 'episodio' ? (v.serie || v.titulo || c.nome) : (v.titulo || c.nome))) || null; }
+        return mapa.get('c|' + norm(c.nome) + '|' + String(c.pais || '').toUpperCase()) || null;
+    }
+    // ---------- ✎ arrumar nomes em lote ----------
+    /** ops: { procurar, trocar, regex, tirarPrefixo, tirarTags, caixa: 'titulo'|'' } → nome novo */
+    function arrumarNome(nome, ops = {}) {
+        let s = String(nome || '');
+        if (ops.procurar) {
+            if (ops.regex) { try { s = s.replace(new RegExp(ops.procurar, 'gi'), ops.trocar || ''); } catch (e) { /* regex inválida: não muda */ } }
+            else s = s.split(ops.procurar).join(ops.trocar || '');
+        }
+        if (ops.tirarPrefixo) s = s.replace(/^\s*[A-Za-z]{2,4}\s*[|:\-–»›]\s*/, '');
+        if (ops.tirarTags) s = s.replace(/\s*[\[(][^\])]{1,24}[\])]\s*/g, ' ').replace(/\b(fhd|uhd|hd|sd|4k|h265|hevc|1080p|720p)\b/gi, ' ');
+        if (ops.caixa === 'titulo') s = s.split(/(\s+)/).map(w => (/^[A-Z0-9&+]{1,3}$/.test(w) ? w : w.toLowerCase().replace(/(^|[\-(/"'])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()))).join('');   // siglas curtas (SP, TV, HBO) ficam
+        return s.replace(/\s{2,}/g, ' ').trim() || String(nome || '');
+    }
+
     /** "Naruto · T1E3", "Matrix (1999)" */
     function videoTexto(c) {
         const v = c.video || {};
@@ -695,7 +751,7 @@
     function colecoesSidechain(config) { return ((config && config.colecoes) || []).filter(c => SC_TIPOS.includes(c.tipo) && c.fonteCloud); }
     function envioPadrao(extra) {
         const e = Object.assign({ id: '', nome: 'Envio novo', url: '', listas: [], ativo: true, destino: { colecao: '' }, modo: 'auto', soVivos: null,
-            filtros: {}, avulsa: false, tmdb: false, desvios: {}, regras: [], ajustes: {}, vistos: {}, criadoEm: '' }, extra || {});
+            filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, criadoEm: '' }, extra || {});
         e.filtros = Object.assign({ idiomas: [], tipos: [], paises: [], categorias: [], excluirTipos: ['Adulto'], busca: '', confiancaMin: 0 }, e.filtros || {});
         return e;
     }
@@ -721,9 +777,14 @@
     }
     /** A regra vale para o item? regra = { campo: 'grupo'|'nome'|'tudo', contem: 'anime', para: destino } */
     function passaRegra(c, r) {
-        const alvo = r.campo === 'nome' ? norm(c.nomeOriginal || c.nome) : r.campo === 'grupo' ? norm(c.grupo) : norm([c.grupo, c.nomeOriginal || c.nome, c.tvgId].join(' '));
-        const k = norm(r.contem);
-        return !!k && (' ' + alvo + ' ').includes(' ' + k) ;
+        // condições extras (todas precisam bater): tipo do item, idioma, país
+        if (r.natureza && (c.natureza || 'canal') !== r.natureza) return false;
+        if (r.idioma && !(c.idioma === r.idioma || String(c.idioma || '').split('-')[0] === r.idioma.split('-')[0])) return false;
+        if (r.pais && String(c.pais || '').toUpperCase() !== String(r.pais).toUpperCase()) return false;
+        if (!String(r.contem || '').trim()) return !!(r.natureza || r.idioma || r.pais);      // só condições, sem texto
+        const alvo = ' ' + (r.campo === 'nome' ? norm(c.nomeOriginal || c.nome) : r.campo === 'grupo' ? norm(c.grupo) : norm([c.grupo, c.nomeOriginal || c.nome, c.tvgId].join(' '))) + ' ';
+        // "anime | otaku | crunchy": qualquer uma das palavras
+        return String(r.contem).split(/\s*[|,;]\s*/).map(norm).filter(Boolean).some(k => alvo.includes(' ' + k));
     }
     /**
      * Para onde o item vai e por quê: { destino, motivo: 'manual'|'regra'|'padrao'|'pendente'|'ignorar', novo, regra }
@@ -735,7 +796,7 @@
         const d = envio.desvios && envio.desvios[k];
         if (d === 'ignorar') return { destino: 'ignorar', motivo: 'ignorar', novo };
         if (d && d.colecao) return { destino: d, motivo: 'manual', novo };
-        const r = (envio.regras || []).find(x => x && x.para && passaRegra(c, x));
+        const r = (envio.regras || []).concat(envio._globais || []).find(x => x && x.para && x.ativo !== false && passaRegra(c, x));
         if (r) return r.para === 'ignorar' ? { destino: 'ignorar', motivo: 'regra', regra: r, novo } : { destino: r.para, motivo: 'regra', regra: r, novo };
         if (novo && envio.modo === 'revisar') return { destino: null, motivo: 'pendente', novo };
         return { destino: envio.destino && envio.destino.colecao ? envio.destino : null, motivo: 'padrao', novo };
@@ -764,7 +825,7 @@
      * → { saidas: [{ chave, colecao, pais, idioma, itens }], relatorios: { [envioId]: {...} } }
      * Cópias do mesmo canal (mesmo destino, de envios diferentes) viram reserva da melhor.
      */
-    function montarSidechain(lotes, config) {
+    function montarSidechain(lotes, config, opts = {}) {
         const cols = colecoesSidechain(config);
         const porSaida = new Map(), relatorios = {}, avulsas = [];
         for (const { envio, canais, mantido, erro } of lotes) {
@@ -787,6 +848,8 @@
                 if (!col) { rel.ignorados++; continue; }
                 // tipo trocado (canal ao vivo indo para uma coleção de vídeo, ou filme indo para o TVzine): só se VOCÊ mandou
                 if (r.motivo === 'padrao' && ((col.tipo === 'video') !== ehVideo(c)) && !(col.tipo === 'canal24h' && !ehVideo(c))) { rel.tipoErrado = (rel.tipoErrado || 0) + 1; continue; }
+                // já está na MESMA coleção da Studio (cadastrado à mão): não entra de novo — no app apareceria dobrado
+                if (envio.pularStudio !== false && opts.studio) { const j = jaNaStudio(c, opts.studio); if (j && j.colecao === col.id) { rel.naStudio = (rel.naStudio || 0) + 1; continue; } }
                 const testar = viver != null ? viver : (col.tipo !== 'video');
                 if (testar && c.teste && !VIVO_RECEITA(c.teste.status)) { rel.mortos++; continue; }
                 const it = itemNoDestino(c, r.destino, col);
@@ -1118,6 +1181,7 @@
 
     return {
         IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, receitaPadrao, passaReceita, montarReceita, confianca, idReceita,
+        arvoreSeries, mapaStudio, jaNaStudio, arrumarNome,
         chaveTMDB, pedidoTMDB, dadosDoTMDB, aplicarTMDB,
         NATUREZAS, analisarVideo, naturezaDe, ehVideo, colecaoVideo, detectarVideo, ajustarVideo, videoTexto,
         colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,

@@ -95,3 +95,35 @@ test('TMDB: uma busca por série (todos os episódios) e os dados vão no JSON d
     assert.equal(n.video.genero, 'Animação, Ação');
     assert.equal(L.dadosDoTMDB({ nome: 'x' }), null, 'sem código do TMDB = não achou');
 });
+
+test('séries em árvore: buracos entre o 1º e o último, repetidos e onde começa', () => {
+    const cs = L.lerLista(['#EXTM3U', ...[3, 4, 6, 6, 8].flatMap((n, i) => [`#EXTINF:-1,Naruto S01E0${n}`, `http://x/${n}-${i}.mp4`])].join('\n'), 't').canais;
+    const [s] = L.arvoreSeries(cs);
+    assert.equal(s.serie, 'Naruto'); assert.equal(s.total, 5);
+    assert.deepEqual([s.temporadas[0].comeca, s.temporadas[0].faltando, s.temporadas[0].repetidos], [3, [5, 7], [6]]);
+});
+
+test('já na Studio: vídeo pelo título/série, canal pelo nome + país', () => {
+    const m = L.mapaStudio([{ caminho: 'conteudo/animes/naruto.json', nome: 'Naruto' }, { caminho: 'conteudo/canais/br/gloob.json', nome: 'Gloob', pais: 'BR' }]);
+    const [n, , g] = itens();
+    assert.equal(L.jaNaStudio(n, m).colecao, 'animes');
+    g.pais = 'BR'; assert.equal(L.jaNaStudio(g, m).colecao, 'canais');
+    g.pais = 'PT'; assert.equal(L.jaNaStudio(g, m), null);
+});
+
+test('regras mais fortes: várias palavras, condições de tipo/idioma/país e regras globais', () => {
+    const c = { grupo: 'Otaku Zone', nome: 'X', natureza: 'episodio', idioma: 'pt-BR', pais: 'BR' };
+    assert.ok(L.passaRegra(c, { campo: 'grupo', contem: 'anime | otaku' }));
+    assert.ok(!L.passaRegra(c, { campo: 'grupo', contem: 'otaku', natureza: 'filme' }));
+    assert.ok(L.passaRegra(c, { contem: '', idioma: 'pt' }));
+    assert.ok(!L.passaRegra(c, { contem: '', pais: 'MX' }));
+    const e = L.envioPadrao({ destino: { colecao: 'cartoons' }, regras: [{ campo: 'grupo', contem: 'otaku', para: { colecao: 'animes' }, ativo: false }] });
+    e._globais = [{ campo: 'tudo', contem: 'otaku', para: 'ignorar' }];
+    assert.equal(L.rotaDe(c, e).destino, 'ignorar', 'a do envio está desligada: vale a global');
+});
+
+test('arrumar nomes em lote', () => {
+    assert.equal(L.arrumarNome('BR | GLOBO SP [FHD] (alt)', { tirarPrefixo: true, tirarTags: true, caixa: 'titulo' }), 'Globo SP');
+    assert.equal(L.arrumarNome('Canal ABC HD', { procurar: ' HD', trocar: '' }), 'Canal ABC');
+    assert.equal(L.arrumarNome('a1 b22', { procurar: '\\d+', trocar: '#', regex: true }), 'a# b#');
+});
