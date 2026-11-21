@@ -13,9 +13,11 @@
   "generos": [
     "Quebra-cabeças"
   ],
-  "console": "web-outros",
+  "console": "web-android",
+  "licenca": "livre",
   "jogadores": 1,
-  "_rascunho": true,
+  "fundoImagem": "banner",
+  "posFundo": 75,
   "_ssEm": "2026-11-14",
   "_ssId": 109287,
   "_ssPreviaEm": "2026-11-14"
