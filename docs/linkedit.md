@@ -38,11 +38,11 @@ Botão **Scan** (ou tecla T): o que testar (marcados, visíveis, nunca testados,
 vivos → lista nova, mortos → quarentena, logos e guias que faltam. Quarentena: quem volta a abrir sai sozinho; quem morre 3× seguidas pode ser apagado.
 Precisa do painel do PC (o navegador não abre links http:// nem servidores sem CORS).
 
-## Parte 3 — Receitas (listas que se refazem sozinhas)
-Botão **📋 Receitas**: de onde pegar (links) + que canais entram (idioma, tipo, categoria, país, nome, só vivos, confiança mínima,
-fora Adulto). "Rodar agora aqui" monta na hora; "Salvar" grava `receitas/receitas.json`. O robô do GitHub
-(`.github/workflows/receitas.yml` → `tools/receitas.mjs`) refaz a cada 6 h: testa, tira os mortos, a reserva viva assume, e publica
-`listas/<id>.json` (com reservas — é este que vai no Cloud) e `listas/<id>.m3u`. Histórico dos testes em `receitas/estado.json`.
+## Parte 3 — Receitas → agora dentro do 🔗 Sidechain
+As Receitas viraram parte do Sidechain: um envio pode ter **várias listas**, **filtros** (idioma, tipo, categoria, país,
+nome, confiança mínima, fora Adulto) e **"Publicar também como lista avulsa"**, que gera `listas/<envio>.m3u` e `.json`
+com link fixo para outros players (índice em `listas/avulsas.json`). O envio pode não ter coleção (só a lista avulsa).
+Um robô só (`tools/sidechain.mjs`) faz tudo.
 
 ## Parte 4 — Importar lista inteira
 Botão **⚡ Importar lista inteira**: lista que já está pronta vai direto para a janela Enviar ao Studio (automático ou tudo para uma
@@ -78,9 +78,54 @@ Botão **🔗 Sidechain** no topo do Link Edit. Cada **envio** é uma lista boa 
 O robô (`.github/workflows/sidechain.yml` → `tools/sidechain.mjs`, a cada 6 h e logo depois de salvar) baixa cada
 envio, aplica desvios e regras, testa canais/24H/rádios (morto sai; vídeo só se o envio pedir), junta cópias de envios
 diferentes como reserva e publica `listas/sc-<coleção>[-<país>].json` (+ `.m3u`) e `listas/sidechain-fontes.json`.
-**Proteção**: se a lista não abrir, vier vazia ou encolher mais da metade de uma vez, usa a última versão boa e avisa.
+**TMDB**: marque "Buscar capa, sinopse e nota no TMDB" no envio — o robô (secret `TMDB_TOKEN`) busca uma vez por série/filme
+(guarda 30 dias) e manda capa, banner, sinopse, gênero, nota e classificação para o app. No painel: 🔎 TMDB na ficha, no
+editor de vídeo (V) e no botão direito. **Tipo trocado**: canal ao vivo numa coleção de vídeo (ou o contrário) não entra
+sozinho — fica "de outro tipo (esperando)" até você mandar pelo 🔀 Sidechain.
+**Proteção** (por link): se a lista não abrir, vier vazia ou encolher mais da metade de uma vez, usa a última versão boa e avisa.
 Relatório, histórico e o que cada envio já viu ficam em `sidechain/estado.json`.
 
 **No Cloud (uma vez só)**: em `sources.json` → `fontesDoStudio`, a entrada
 `{ "nome": "Cartoonzine Studio · Sidechain", "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sidechain-fontes.json", "colecoes": ["sidechain"] }`.
 Daí em diante toda lista nova do Sidechain entra no catálogo sozinha.
+
+### Assistente do envio (4 passos)
+
+1. **Link** — cole o link e clique em 📥 Ler lista (mostra itens e grupos).
+2. **Que lista é?** — 🎯 *Uma categoria só* (tudo vai para o mesmo lugar) ou 🔀 *Lista mista*.
+3. **Rotas** — uma categoria: escolha a coleção (no TVzine, país + idioma).
+   Lista mista: cada **grupo** (`group-title`) da lista vai por uma rota (🎬 Filmes, 📺 Séries, 🌸 Animes, 🎨 Cartoons, 🚫 Fica de fora…).
+   As sugestões AUTO vêm do nome do grupo e do tipo dos itens; ✨ Aplicar sugestões monta o resto.
+   Grupo que aparece depois na lista chega com 🔔 e espera você (ou vai pela sugestão, se você escolher).
+4. **Conferir e salvar** — novidades, teste dos links, filtros, lista avulsa, TMDB.
+
+A barra "Vai gerar" mostra quanto vai para cada coleção.
+Só as **exceções** (o filme que caiu no grupo errado) ficam guardadas item por item no 🔀 Sidechain.
+Envios antigos viram "uma categoria" e os desvios iguais ao destino do envio são apagados (não mudavam nada).
+
+Precedência: exceção do item > regras > rota do grupo (mista) ou destino (uma categoria).
+
+## 🎬 Tipo do item e dados de vídeo
+Cada item ganha o **tipo**, descoberto sozinho pelo link e pelo nome: 📺 canal ao vivo · 🎬 filme/vídeo · 🎞 episódio de
+série · 📻 rádio (ícone na linha; clique ou **Y** para trocar). Filtro **Tipo de item** na esquerda.
+Vídeo mostra o que o DB usa, no lugar de categoria/idioma/guia: **série, temporada, episódio, título, ano, áudio
+(dublado/legendado/dual), qualidade, gênero e a coleção** (Cartoons, Animes, Filmes, Séries…). Detecta "S01E03",
+"1x03", "T1E3", "Temporada 1 Episódio 3", "Episódio 3", "(1999)", "Dublado", "1080p"… e sugere a coleção pelo grupo.
+**V** (ou o grupo/áudio da linha, ou "✎ Editar dados") abre o editor — com vários marcados, campo em branco não muda
+e dá para **numerar os episódios** na ordem da lista. **🔎 Detectar** volta ao automático. O que você arruma vence a
+detecção, vai no JSON exportado (`title`, `year`, `serie`, `season`, `episode`, `audios`, `qualidadeMax`), no
+importador de filmes/séries e, no Sidechain, fica guardado no envio (`ajustes`) e o robô repete a cada rodada.
+
+## Mais ferramentas
+- **📂 Séries** (barra da tabela): cada série com temporadas e episódios; avisa buracos na numeração, episódios
+  repetidos e sem número. Marcar, editar (V) e TMDB por série.
+- **✎ Nomes**: arrumar em lote (procurar/trocar, regex, tirar prefixo de país "BR |", tirar [tags]/HD, Maiúsculas
+  Só No Começo com as siglas mantidas), com prévia. No Sidechain fica salvo no envio.
+- **Já na Studio**: etiqueta na linha e filtro para o que já está cadastrado à mão; no Sidechain, "Não repetir o que já
+  está na Studio" (ligado por padrão) — o robô lê `dist/indice-painel.json`.
+- **Regras**: várias palavras ("anime | otaku"), condições (tipo do item, idioma, país), prioridade (▲▼), ligar/desligar
+  e **⚙ Regras para todos os envios** (`regrasGlobais` no envios.json, valem depois das de cada envio).
+- **Saúde do envio**: barrinhas das últimas 30 rodadas (enviados, mortos, lista com problema), aviso ⚠ quando a lista
+  cai, e o que **saiu** e o que **mudou de link** desde a rodada anterior.
+- **☁️ Testador na nuvem** (`tools/testador-nuvem/`): Scan, ⚡ Testar e "Abrir link" com o Studio online, sem o painel
+  do PC. Cloudflare Workers grátis; passo a passo no LEIAME da pasta. Configure em Scan → ☁️.

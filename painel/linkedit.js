@@ -24,7 +24,7 @@
         canais: [],            // todos os canais de todas as listas (c.lista = id da lista)
         sel: new Set(),        // ids selecionados
         foco: null,            // id do canal no visualizador
-        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), soVivos: false, semLogo: false, semGuia: false, semCategoria: false, duplicados: false, quarentena: false },
+        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), naturezas: new Set(), soVivos: false, semLogo: false, semGuia: false, semCategoria: false, duplicados: false, quarentena: false },
         nova: { nome: 'Lista nova', itens: [] },
         desfazer: [],
         scan: null,            // { total, feitos, parar, modo }
@@ -37,6 +37,11 @@
     let raiz = null;
 
     const local = () => !!(S && S.local && S.local());
+    // ☁️ testador na nuvem (Cloudflare Worker, tools/testador-nuvem): Scan e abrir lista com o Studio ONLINE
+    const GUARDA_NUVEM = 'czs-testador-nuvem';
+    const nuvem = () => { try { const n = JSON.parse(localStorage.getItem(GUARDA_NUVEM) || 'null'); return n && /^https:\/\//.test(n.url || '') ? n : null; } catch (e) { return null; } };
+    const podeTestar = () => local() || !!nuvem();
+    const urlNuvem = (rota, p) => { const n = nuvem(); p.set('t', n.token || ''); return n.url.replace(/\/+$/, '') + rota + '?' + p; };
     const esc = (t) => S.esc(t);
     const $ = (sel) => raiz && raiz.querySelector(sel);
 
@@ -53,11 +58,11 @@
         try {
             const d = JSON.parse(localStorage.getItem(GUARDA) || 'null');
             if (!d) return;
-            E.listas = d.listas || []; E.canais = d.canais || []; E.nova = d.nova || E.nova; E.modoTeste = d.modoTeste || 'completo'; if (d.som) E.som = d.som;
+            E.listas = d.listas || []; E.canais = (d.canais || []).map(c => (c.natureza ? c : L.detectarVideo(c)));   // listas antigas: descobre o tipo E.nova = d.nova || E.nova; E.modoTeste = d.modoTeste || 'completo'; if (d.som) E.som = d.som;
         } catch (e) { /* */ }
     }
     function lembrar() {                      // antes de mudar algo: guarda como estava (Desfazer)
-        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual, c.tvgId || '', c.epgId || '', c.epgGuia || '', c.epgShift || 0, c.tvgIdOriginal, c.grupoSaida || '', !!c.categoriaManual]) }));
+        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual, c.tvgId || '', c.epgId || '', c.epgGuia || '', c.epgShift || 0, c.tvgIdOriginal, c.grupoSaida || '', !!c.categoriaManual, c.natureza || '', !!c.naturezaManual, c.video ? JSON.stringify(c.video) : '', !!c.videoManual]) }));
         if (E.desfazer.length > 60) E.desfazer.shift();
     }
     function desfazer() {
@@ -68,7 +73,8 @@
         const m = new Map(d.flags.map(f => [f[0], f]));
         E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; if (f.length > 6) { c.idioma = f[4]; c.pais = f[5]; c.chave = f[6]; c.idiomaManual = f[7]; }
             if (f.length > 8) { c.tvgId = f[8]; c.epgId = f[9] || undefined; c.epgGuia = f[10] || undefined; c.epgShift = f[11] || undefined; c.tvgIdOriginal = f[12]; if (!c.epgId) delete c.epgId; }
-            if (f.length > 13) { if (f[13]) { c.grupoSaida = f[13]; c.categoriaManual = f[14]; } else { delete c.grupoSaida; delete c.categoriaManual; } } } });
+            if (f.length > 13) { if (f[13]) { c.grupoSaida = f[13]; c.categoriaManual = f[14]; } else { delete c.grupoSaida; delete c.categoriaManual; } }
+            if (f.length > 15) { c.natureza = f[15] || c.natureza; c.naturezaManual = f[16]; if (f[17]) c.video = JSON.parse(f[17]); else delete c.video; c.videoManual = f[18]; } } });
         salvar(); desenharTudo();
     }
 
@@ -127,6 +133,11 @@
             if (r.erro) throw new Error(r.erro);
             return r.texto;
         }
+        if (nuvem()) {                              // online com o testador na nuvem: sem bloqueio de CORS
+            const r = await (await fetch(urlNuvem('/lista', new URLSearchParams({ url })))).json();
+            if (r.erro) throw new Error(r.erro);
+            return r.texto;
+        }
         const r = await fetch(url);                 // online: só funciona se o site liberar (CORS)
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.text();
@@ -157,7 +168,9 @@
     function filtrados() {
         const base = E.canais.filter(c => (E.f.quarentena ? c.quarentena : !c.quarentena));
         E.cont = L.contar(base);
-        return filtroSC(L.filtrar(base, E.f, E.cont.chaves));
+        let r = filtroSC(L.filtrar(base, E.f, E.cont.chaves));
+        if (E.f.naStudio) { const m = mapaDaStudio(); r = r.filter(c => L.jaNaStudio(c, m)); }
+        return r;
     }
 
     // ---------------------------------------------------------------- lista nova
@@ -225,12 +238,12 @@
 
     // ---------------------------------------------------------------- testar / scan
     async function testarUm(c) {
-        if (!local()) return null;
+        if (!podeTestar()) return null;
         const p = new URLSearchParams({ url: c.url, modo: E.modoTeste });
         if (c.headers && c.headers['User-Agent']) p.set('ua', c.headers['User-Agent']);
         if (c.headers && c.headers.Referer) p.set('ref', c.headers.Referer);
         try {
-            const r = await (await fetch('/api/linkedit/testar?' + p)).json();
+            const r = await (await fetch(local() ? '/api/linkedit/testar?' + p : urlNuvem('/testar', p))).json();
             aplicarTeste(c, r);
             return r;
         } catch (e) { return null; }
@@ -252,7 +265,7 @@
     let velocidadeScan = 8;
     try { velocidadeScan = +localStorage.getItem(GUARDA + '-vel') || 8; } catch (e) { /* */ }
     async function scan(lista, opts = {}) {
-        if (!local()) return abrirScan();
+        if (!podeTestar()) return abrirScan();
         if (E.scan) return S.aviso('Já tem um scan rodando (barra acima da tabela).', 'ruim');
         const alvo = lista.filter(c => !/^(magnet|rtmp|rtsp|udp|srt|mms)/i.test(c.url));
         if (!alvo.length) return S.aviso('Nada para testar aqui.', 'ruim');
@@ -305,19 +318,30 @@
         ];
         const padrao = E.sel.size ? 'marcados' : conta(c => !c.teste) ? 'nunca' : 'visiveis';
         const j = janela(`<h3>Scan em lote</h3>
-          ${local() ? '' : `<div class="le-aviso-scan"><b>O Scan precisa do painel do seu PC.</b> O navegador sozinho não abre a maioria dos canais (links <code>http://</code> numa página <code>https://</code> e servidores que não deixam outra página ler). Na pasta do Studio rode <code>node tools/painel.mjs</code> e abra <code>http://localhost:4321</code> — lá o Scan testa vários canais ao mesmo tempo.</div>`}
+          ${local() ? '' : `<div class="le-aviso-scan">${nuvem() ? `<b>☁️ Testando pela nuvem</b> (${esc(nuvem().url.replace(/^https:\/\//, ''))}). Canal que só abre no Brasil pode aparecer como <b>bloqueado</b>.` : `<b>Online, o Scan precisa de um testador.</b> Ou rode o painel do PC (<code>node tools/painel.mjs</code> → <code>http://localhost:4321</code>), ou ligue o <b>☁️ testador na nuvem</b> (grátis, Cloudflare — passo a passo em <code>tools/testador-nuvem/LEIAME.md</code>).`}
+            <div class="le-imp-op" style="margin-top:8px"><label>☁️ Endereço <input class="le-campo" id="le-nv-url" value="${esc((nuvem() || {}).url || '')}" placeholder="https://cz-testador.voce.workers.dev" style="width:260px"></label><label>Senha <input class="le-campo" id="le-nv-tok" type="password" value="${esc((nuvem() || {}).token || '')}" style="width:120px"></label><button class="le-bt" id="le-nv-ok">Salvar</button>${nuvem() ? '<button class="le-bt" id="le-nv-tirar">Desligar</button>' : ''}</div></div>`}
           <div id="le-sj-config">
             <div class="le-rot" style="margin-top:4px">O que testar</div>
             <div class="le-sj-alvos">${ALVOS.map(([k, rot, f]) => { const n = f().length; return `<label class="le-sj-op${n ? '' : ' vazia'}"><input type="radio" name="le-sj-alvo" value="${k}" ${k === padrao ? 'checked' : ''} ${n ? '' : 'disabled'}> ${esc(rot)} <small>${n}</small></label>`; }).join('')}</div>
             <div class="le-imp-op" style="margin-top:10px">
               <label>Como <select class="le-campo" id="le-sj-modo"><option value="rapido">Rápido — só confere se responde</option><option value="completo">Completo — abre o stream (resolução, 1º pedaço)</option></select></label>
               <label>Ao mesmo tempo <select class="le-campo" id="le-sj-vel">${[4, 8, 16, 24, 32].map(v => `<option value="${v}" ${v === velocidadeScan ? 'selected' : ''}>${v} canais</option>`).join('')}</select></label>
-              <button class="le-bt p" id="le-sj-ir" ${local() ? '' : 'disabled'}>▶ Começar</button>
+              <button class="le-bt p" id="le-sj-ir" ${podeTestar() ? '' : 'disabled'}>▶ Começar</button>
             </div>
             <p class="le-dica">Dica: comece no <b>Rápido</b> com 16 ou 24 (milhares em poucos minutos) e passe o <b>Completo</b> só nos vivos. Muitos ao mesmo tempo podem fazer alguns servidores recusarem.</p>
           </div>
           <div id="le-sj-vivo"></div>`, 'larga');
         j.querySelector('#le-sj-modo').value = E.modoTeste;
+        const nvOk = j.querySelector('#le-nv-ok'), nvTirar = j.querySelector('#le-nv-tirar');
+        if (nvOk) nvOk.onclick = async () => {
+            const url = j.querySelector('#le-nv-url').value.trim(), token = j.querySelector('#le-nv-tok').value.trim();
+            if (!/^https:\/\//.test(url)) return S.aviso('Cole o endereço do worker (começa com https://).', 'ruim');
+            try { const r = await (await fetch(url.replace(/\/+$/, '') + '/?t=' + encodeURIComponent(token))).json(); if (!r.ok) throw new Error(r.erro || 'não respondeu'); }
+            catch (e) { return S.aviso('O testador não respondeu: ' + e.message + ' (confira o endereço e a senha).', 'ruim'); }
+            try { localStorage.setItem(GUARDA_NUVEM, JSON.stringify({ url, token })); } catch (e) { /* */ }
+            S.aviso('☁️ Testador na nuvem ligado.', 'ok'); abrirScan();
+        };
+        if (nvTirar) nvTirar.onclick = () => { try { localStorage.removeItem(GUARDA_NUVEM); } catch (e) { /* */ } abrirScan(); };
         j.querySelector('#le-sj-ir').onclick = () => {
             const k = (j.querySelector('input[name="le-sj-alvo"]:checked') || {}).value;
             const a = ALVOS.find(x => x[0] === k);
@@ -511,7 +535,7 @@
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
             ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
-            ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['?', 'esta ajuda']];
+            ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['Y', 'tipo do item: canal, filme, episódio ou rádio'], ['V', 'dados de vídeo: série, temporada, episódio, ano, áudio, qualidade, coleção'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
 
@@ -939,146 +963,9 @@
     }
     const abrirImportadorVOD = () => abrirImportador('tudo');
 
-    // ---------------------------------------------------------------- RECEITAS (listas que se refazem sozinhas)
-    const ARQ_RECEITAS = 'receitas/receitas.json', ARQ_INDICE_REC = 'listas/indice.json';
-    const RC = { lista: null, indice: null, atual: null, resultado: null };
-    async function lerReceitas() {
-        if (!S.ler) return { receitas: [] };
-        try { RC.lista = (await S.ler(ARQ_RECEITAS)).receitas || []; } catch (e) { RC.lista = []; }
-        try { RC.indice = (await S.ler(ARQ_INDICE_REC)).receitas || []; } catch (e) { RC.indice = []; }
-    }
-    const linkReceita = (id, ext) => {
-        const x = (RC.indice || []).find(i => i.id === id);
-        if (x && x[ext]) return x[ext];
-        const pub = (S.config && S.config().publicacao) || {};
-        return pub.repo ? `https://raw.githubusercontent.com/${pub.repo}/${pub.branch || 'main'}/listas/${id}.${ext}` : '';
-    };
+    // (as antigas RECEITAS viraram parte do 🔗 Sidechain: várias listas, filtros e lista avulsa no mesmo envio)
     const haQuanto = (iso) => { const m = Math.round((Date.now() - new Date(iso)) / 60000); return m < 60 ? `há ${m} min` : m < 1440 ? `há ${Math.round(m / 60)} h` : `há ${Math.round(m / 1440)} dia(s)`; };
-    async function abrirReceitas(id) {
-        if (!S.ler || !S.gravar) return S.aviso('Abra o Link Edit pelo Studio para salvar receitas.', 'ruim');
-        if (!RC.lista) await lerReceitas();
-        const r = RC.atual = L.receitaPadrao(id ? (RC.lista.find(x => x.id === id) || {}) : id === null ? {} : RC.atual || {});
-        if (!r.id && !r.listas.length) r.listas = E.listas.filter(l => l.url).map(l => l.url);   // receita nova: começa com as listas abertas
-        const chips = (campo, ops, rot = (x) => x) => `<div class="le-chips">${ops.map(v => `<button class="le-chip ${r[campo].includes(v) ? 'on' : ''}" data-rc-c="${campo}" data-v="${esc(v)}">${esc(rot(v))}</button>`).join('')}</div>`;
-        const idiomasUsados = [...new Set(['pt-BR', 'pt-PT', 'pt', 'es', 'en'].concat(E.canais.map(c => c.idioma).filter(Boolean)))].slice(0, 16);
-        const res = RC.indice.find(i => i.id === r.id);
-        const j = janela(`<h3>📋 Receitas — listas que se refazem sozinhas</h3>
-          <p class="le-dica">A receita guarda <b>de onde pegar</b> e <b>que canais entram</b>. O robô do GitHub refaz a lista a cada 6 h: testa os canais, tira os mortos e a reserva viva assume — a lista publicada nunca fica velha. O link dela não muda: cole no Cloud uma vez.</p>
-          <div class="le-rc">
-            <div class="le-rc-lista">
-              <div class="le-rot">Receitas salvas</div>
-              ${RC.lista.map(x => { const i = RC.indice.find(k => k.id === x.id); return `<button class="le-rc-item${x.id === r.id ? ' on' : ''}" data-rc-abrir="${esc(x.id)}"><b>${esc(x.nome)}</b><small>${i ? `${i.total} canais · ${haQuanto(i.atualizadaEm)}` : 'ainda não rodou no robô'}${x.ativo === false ? ' · desligada' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhuma ainda.</p>'}
-              <button class="le-bt" data-rc-abrir="" style="margin-top:6px">+ Nova receita</button>
-            </div>
-            <div class="le-rc-form">
-              <label class="le-dica">Nome</label><input class="le-campo" id="le-rc-nome" value="${esc(r.nome)}">
-              <label class="le-dica" style="margin-top:8px">Pegar das listas <small>(um link por linha)</small></label>
-              <textarea class="le-campo" id="le-rc-listas" style="height:74px;resize:vertical">${esc(r.listas.join('\n'))}</textarea>
-              ${E.listas.some(l => l.url && !r.listas.includes(l.url)) ? `<div class="le-chips" style="margin-top:4px">${E.listas.filter(l => l.url && !r.listas.includes(l.url)).map(l => `<button class="le-chip" data-rc-add="${esc(l.url)}">+ ${esc(l.nome)}</button>`).join('')}</div>` : ''}
-              <div class="le-rot" style="margin-top:10px">Só os canais que</div>
-              <div class="le-dica">Idioma</div>${chips('idiomas', idiomasUsados)}
-              <div class="le-dica">Tipo</div>${chips('tipos', L.TIPOS.filter(t => t !== 'Adulto'))}
-              <div class="le-dica">Categoria (TVzine)</div>${chips('categorias', L.CATEGORIAS)}
-              <div class="le-imp-op" style="margin-top:6px">
-                <label>País <input class="le-campo" id="le-rc-paises" value="${esc(r.paises.join(', '))}" placeholder="BR, PT…" style="width:110px"></label>
-                <label>Nome contém <input class="le-campo" id="le-rc-busca" value="${esc(r.busca)}" placeholder="ex.: cartoon" style="width:140px"></label>
-                <label><input type="checkbox" id="le-rc-vivos" ${r.soVivos ? 'checked' : ''}> só vivos</label>
-                <label>Confiança mínima <select class="le-campo" id="le-rc-conf">${[[0, 'qualquer'], [5, '5 de 10'], [7, '7 de 10'], [9, '9 de 10']].map(([v, t]) => `<option value="${v}" ${+r.confiancaMin === v ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
-                <label><input type="checkbox" id="le-rc-adulto" ${r.excluirTipos.includes('Adulto') ? 'checked' : ''}> fora sempre: Adulto</label>
-                <label title="Desligada: o robô não refaz (a lista publicada fica como está)"><input type="checkbox" id="le-rc-ativo" ${r.ativo !== false ? 'checked' : ''}> ligada no robô</label>
-              </div>
-              <p class="le-dica">Arruma sozinho: nomes limpos, cópias do mesmo canal viram reserva, os mais confiáveis primeiro.</p>
-              ${r.id ? `<div class="le-rc-pub"><b>Lista publicada</b> ${res ? `· ${res.total} canais · ${res.comReserva} com reserva · atualizada ${haQuanto(res.atualizadaEm)} pelo robô` : '· sai na próxima rodada do robô (depois de salvar e fazer o push)'}
-                <div style="display:flex;gap:6px;margin-top:6px"><code>${esc(linkReceita(r.id, 'json'))}</code><button class="le-bt" data-rc-copiar="json" title="Para o Cloud: leva as reservas">Copiar link JSON</button><button class="le-bt" data-rc-copiar="m3u" title="Para players de IPTV">M3U</button></div>
-                <small class="le-dica">No Cloud: cole o link JSON em <b>listas → canais</b> do sources.json (ou no país certo do sources-idioma.json).</small></div>` : ''}
-              <div id="le-rc-res"></div>
-              <div class="le-jan-botoes">
-                ${r.id ? '<button class="le-bt" id="le-rc-apagar">Apagar receita</button>' : ''}
-                <button class="le-bt" id="le-rc-rodar" title="${local() ? 'Lê as listas, testa e monta agora, aqui' : 'Online só filtra (o teste precisa do painel do PC)'}">▶ Rodar agora aqui</button>
-                <button class="le-bt r" id="le-rc-salvar">💾 Salvar receita</button>
-              </div>
-            </div>
-          </div>`, 'larga');
-        const lerForm = () => {
-            r.nome = j.querySelector('#le-rc-nome').value.trim() || 'Receita';
-            r.listas = j.querySelector('#le-rc-listas').value.split(/\s+/).map(x => x.trim()).filter(x => /^https?:\/\//i.test(x));
-            r.paises = j.querySelector('#le-rc-paises').value.toUpperCase().split(/[^A-Z]+/).filter(x => x.length === 2);
-            r.busca = j.querySelector('#le-rc-busca').value.trim();
-            r.soVivos = j.querySelector('#le-rc-vivos').checked;
-            r.confiancaMin = +j.querySelector('#le-rc-conf').value || 0;
-            r.excluirTipos = j.querySelector('#le-rc-adulto').checked ? ['Adulto'] : [];
-            r.ativo = j.querySelector('#le-rc-ativo').checked;
-            return r;
-        };
-        j.addEventListener('click', async (e) => {
-            const b = e.target.closest('button'); if (!b) return;
-            if (b.dataset.rcC) { lerForm(); const a = r[b.dataset.rcC]; const k = a.indexOf(b.dataset.v); if (k >= 0) a.splice(k, 1); else a.push(b.dataset.v); b.classList.toggle('on'); }
-            else if (b.dataset.rcAdd) { const t = j.querySelector('#le-rc-listas'); t.value = (t.value.trim() + '\n' + b.dataset.rcAdd).trim(); b.remove(); }
-            else if (b.dataset.rcAbrir != null) { RC.resultado = null; abrirReceitas(b.dataset.rcAbrir || null); }
-            else if (b.dataset.rcCopiar) copiarTexto(linkReceita(r.id, b.dataset.rcCopiar), 'Link da lista copiado.');
-            else if (b.dataset.rcNova) {
-                const lst = RC.resultado || [];
-                lembrar();
-                E.nova = { nome: r.nome, itens: lst.map(c => ({ id: c.id, chave: c.chave, nome: c.nome, nomeOriginal: c.nomeOriginal, formato: c.formato, teste: c.teste, url: c.url, reservas: c.reservas.slice(), logo: c.logo, tvgId: c.tvgId, grupo: c.grupo, tipo: c.tipo, pais: c.pais, idioma: c.idioma, epgId: c.epgId, epgGuia: c.epgGuia, grupoSaida: c.grupoSaida, headers: c.headers || {} })) };
-                salvar(); desenharNova(); fecharJanela(); S.aviso(`Lista nova "${r.nome}" com ${lst.length} canais.`, 'ok');
-            }
-            else if (b.dataset.rcBaixar) {
-                const a = document.createElement('a');
-                a.href = URL.createObjectURL(new Blob([L.gerarM3U(RC.resultado || [])], { type: 'text/plain;charset=utf-8' }));
-                a.download = (r.id || L.idReceita(r.nome)) + '.m3u'; document.body.appendChild(a); a.click(); a.remove();
-            }
-        });
-        j.querySelector('#le-rc-salvar').onclick = async () => {
-            lerForm();
-            if (!r.listas.length) return S.aviso('Coloque pelo menos um link de lista.', 'ruim');
-            if (!r.id) { let id = L.idReceita(r.nome), n = 2; while (RC.lista.some(x => x.id === id)) id = L.idReceita(r.nome) + '-' + n++; r.id = id; }
-            const lista = RC.lista.filter(x => x.id !== r.id).concat(Object.assign({}, r));
-            try {
-                await S.gravar([{ caminho: ARQ_RECEITAS, conteudo: JSON.stringify({ versao: 1, receitas: lista }, null, 2) + '\n' }], `Receita: ${r.nome}`);
-                RC.lista = lista;
-                S.aviso(local() ? `Receita salva. Faça o commit/push: o robô do GitHub monta a lista e depois refaz a cada 6 h.` : 'Receita salva: o robô do GitHub monta a lista em alguns minutos e depois refaz a cada 6 h.', 'ok');
-                abrirReceitas(r.id);
-            } catch (er) { /* o aviso já apareceu */ }
-        };
-        const ap = j.querySelector('#le-rc-apagar');
-        if (ap) ap.onclick = async () => {
-            const lista = RC.lista.filter(x => x.id !== r.id);
-            try { await S.gravar([{ caminho: ARQ_RECEITAS, conteudo: JSON.stringify({ versao: 1, receitas: lista }, null, 2) + '\n' }], `Receita apagada: ${r.nome}`); RC.lista = lista; RC.atual = null; abrirReceitas(null); }
-            catch (er) { /* */ }
-        };
-        j.querySelector('#le-rc-rodar').onclick = async (e) => {
-            const b = e.target; lerForm();
-            if (!r.listas.length) return S.aviso('Coloque pelo menos um link de lista.', 'ruim');
-            const out = j.querySelector('#le-rc-res');
-            b.disabled = true;
-            try {
-                const canais = [];
-                for (const u of r.listas) {
-                    b.textContent = 'Lendo as listas…';
-                    try { canais.push(...L.lerLista(await baixarTexto(u), u.split('/').filter(Boolean).pop()).canais); }
-                    catch (er) { S.aviso(`Não abriu ${u}: ${er.message}`, 'ruim'); }
-                }
-                const cand = canais.filter(c => L.passaReceita(c, r));
-                // aproveita o teste do que já está aberto na mesa; testa o resto (painel do PC)
-                const ja = new Map(E.canais.filter(c => c.teste).map(c => [c.url, c]));
-                cand.forEach(c => { const x = ja.get(c.url); if (x) { c.teste = x.teste; c.historico = (x.historico || []).slice(); } });
-                const falta = cand.filter(c => !c.teste);
-                if (r.soVivos && falta.length && local()) {
-                    let k = 0, feitos = 0;
-                    await Promise.all(Array.from({ length: 16 }, async () => { while (k < falta.length) { const c = falta[k++]; await testarUm(c); b.textContent = `Testando ${++feitos}/${falta.length}…`; } }));
-                }
-                const rr = r.soVivos && !local() ? Object.assign({}, r, { soVivos: false }) : r;
-                const lst = RC.resultado = L.montarReceita(cand, rr);
-                out.innerHTML = `<div class="le-rc-pub"><b>Resultado agora: ${lst.length} canais</b> · ${lst.filter(c => c.reservas.length).length} com reserva · ${cand.length} candidatos de ${canais.length} itens${r.soVivos && !local() ? ' · <span style="color:#fbbf24">online: sem teste (só filtrou)</span>' : ''}
-                  <div class="le-rc-amostra">${lst.slice(0, 40).map(c => `<span>${esc(c.nome)}${c.reservas.length ? ` <small>+${c.reservas.length}</small>` : ''}</span>`).join('')}${lst.length > 40 ? `<span>… +${lst.length - 40}</span>` : ''}</div>
-                  <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" data-rc-nova="1" ${lst.length ? '' : 'disabled'}>➜ Usar como lista nova</button><button class="le-bt" data-rc-baixar="1" ${lst.length ? '' : 'disabled'}>Baixar M3U</button></div></div>`;
-            } finally { b.disabled = false; b.textContent = '▶ Rodar agora aqui'; }
-        };
-    }
 
-    // ---------------------------------------------------------------- IMPORTAR LISTA INTEIRA (lista que já está pronta)
-    // Para listas que você já sabe que estão completas e funcionando: lê a lista inteira e manda para o Studio sem passar
-    // pela mesa (as ferramentas continuam lá para os imprevistos). Cada item vai para a coleção certa, ou todos para uma só.
     // ================================================================ 🔗 LINK SIDECHAIN
     // Envios = listas boas que vivem atualizando, cada uma com um destino (coleção; no TVzine, país + idioma + categoria).
     // O "sidechain" abre a lista no próprio editor: marque itens e mande para outra coleção (ou ignore). Cada desvio
@@ -1092,9 +979,10 @@
     async function lerSidechain(forcar) {
         if (!S.ler) { SC.envios = SC.envios || []; SC.estado = SC.estado || {}; return; }
         if (SC.envios && !forcar) return;
-        try { SC.envios = ((await S.ler(ARQ_SC)).envios || []).map(e => L.envioPadrao(e)); } catch (e) { SC.envios = SC.envios || []; }
+        try { const d = await S.ler(ARQ_SC); SC.envios = (d.envios || []).map(e => L.envioPadrao(e)); SC.globais = d.regrasGlobais || []; } catch (e) { SC.envios = SC.envios || []; SC.globais = SC.globais || []; }
         try { SC.estado = await S.ler(ARQ_SC_ESTADO) || {}; } catch (e) { SC.estado = {}; }
-        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || {}; });
+        try { SC.avulsas = await S.ler('listas/avulsas.json') || {}; } catch (e) { SC.avulsas = {}; }
+        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || {}; e._globais = SC.globais; });
         pintarAvisoSC();
     }
     /** 🔔 no botão: novidades que o robô achou desde a última vez que você abriu aquele envio. */
@@ -1113,7 +1001,7 @@
         const cols = colsSC(), col = cols.find(c => c.id === d.colecao) || null;
         const idi = L.IDIOMAS.find(i => i.cod === d.idioma);
         return `<div class="le-sc-dest" data-prefixo="${prefixo}">
-          <label>${opts.rotulo || 'Enviar para'} <select class="le-campo" data-sc="${prefixo}-col">${opts.ignorar ? `<option value="ignorar">🚫 Ignorar (fica de fora)</option>` : ''}${opts.padrao ? `<option value="">↩ Voltar ao destino do envio</option>` : ''}<option value="" ${!d.colecao && !opts.padrao ? 'selected' : ''} disabled hidden>escolha…</option>${cols.map(c => `<option value="${esc(c.id)}" ${c.id === d.colecao ? 'selected' : ''}>${esc((c.icone ? c.icone + ' ' : '') + c.nome)}</option>`).join('')}</select></label>
+          <label>${opts.rotulo || 'Enviar para'} <select class="le-campo" data-sc="${prefixo}-col">${opts.ignorar ? `<option value="ignorar">🚫 Ignorar (fica de fora)</option>` : ''}${opts.padrao ? `<option value="">↩ Voltar ao destino do envio</option>` : ''}${opts.nenhum ? `<option value="" ${!d.colecao ? 'selected' : ''}>— nenhuma (só lista avulsa)</option>` : `<option value="" ${!d.colecao && !opts.padrao ? 'selected' : ''} disabled hidden>escolha…</option>`}${cols.map(c => `<option value="${esc(c.id)}" ${c.id === d.colecao ? 'selected' : ''}>${esc((c.icone ? c.icone + ' ' : '') + c.nome)}</option>`).join('')}</select></label>
           <label class="le-sc-tv" ${comPais(col) ? '' : 'hidden'} title="O país e o idioma vão na fonte do Cloud: o canal nunca vai para outro país">País · idioma <select class="le-campo" data-sc="${prefixo}-idi"><option value="">pelo canal (detectar)</option>${L.IDIOMAS.filter(i => i.pais).map(i => `<option value="${esc(i.cod)}" ${idi && i.cod === idi.cod ? 'selected' : ''}>${esc(i.pais + ' · ' + i.nome)}</option>`).join('')}</select></label>
           <label class="le-sc-tv" ${comPais(col) ? '' : 'hidden'}>Categoria <select class="le-campo" data-sc="${prefixo}-cat"><option value="">automática (pelo grupo)</option>${L.CATEGORIAS.map(c => `<option ${c === d.categoria ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select></label>
           <label class="le-sc-vid" ${col && !comPais(col) ? '' : 'hidden'}>Idioma <select class="le-campo" data-sc="${prefixo}-idv"><option value="">o da lista</option>${L.IDIOMAS.map(i => `<option value="${esc(i.cod)}" ${i.cod === d.idioma && !comPais(col) ? 'selected' : ''}>${esc(i.nome)}</option>`).join('')}</select></label>
@@ -1134,75 +1022,248 @@
         });
     }
     async function gravarSidechain(msg) {
-        const lista = SC.envios.map(e => { const o = Object.assign({}, e); delete o.vistos; return o; });
-        await S.gravar([{ caminho: ARQ_SC, conteudo: JSON.stringify({ versao: 1, envios: lista }, null, 2) + '\n' }], msg);
+        const lista = SC.envios.map(e => { const o = Object.assign({}, e); delete o.vistos; delete o._globais; return o; });
+        await S.gravar([{ caminho: ARQ_SC, conteudo: JSON.stringify({ versao: 1, regrasGlobais: SC.globais || [], envios: lista }, null, 2) + '\n' }], msg);
         SC.sujo = false;
     }
     async function canaisDoEnvio(e, forcar) {
-        if (SC.canais.has(e.id) && !forcar && SC.canais.get(e.id).url === e.url) return SC.canais.get(e.id).canais;
-        const canais = L.lerLista(await baixarTexto(e.url), e.nome).canais;
-        SC.canais.set(e.id, { url: e.url, canais });
+        const chave = L.linksDoEnvio(e).join('\n');
+        if (SC.canais.has(e.id) && !forcar && SC.canais.get(e.id).url === chave) return SC.canais.get(e.id).canais;
+        const canais = [];
+        for (const u of L.linksDoEnvio(e)) canais.push(...L.lerLista(await baixarTexto(u), e.nome).canais);
+        canais.forEach(c => { const aj = e.ajustes && e.ajustes[L.chaveSC(c)]; if (aj) L.ajustarVideo(c, aj); });
+        SC.canais.set(e.id, { url: chave, canais });
         return canais;
+    }
+    // ---------- ⚙ regras (de um envio ou para TODOS): várias palavras, condições e prioridade (a de cima vale primeiro) ----------
+    function regrasHTML(lista, cols) {
+        const cond = (r) => [r.natureza ? (NAT[r.natureza] || {}).ic + ' ' + (NAT[r.natureza] || {}).nome : '', r.idioma ? 'idioma ' + r.idioma : '', r.pais ? 'país ' + r.pais : ''].filter(Boolean).join(' · ');
+        return `${lista.length ? lista.map((r, i) => `<div class="le-sc-regra${r.ativo === false ? ' off' : ''}"><span>${i + 1}.</span> ${r.contem ? `${r.campo === 'nome' ? 'Nome' : r.campo === 'grupo' ? 'Grupo' : 'Texto'} contém "<b>${esc(r.contem)}</b>"` : 'Todos'}${cond(r) ? ` <small>(${esc(cond(r))})</small>` : ''} → <b>${esc(L.destinoTexto(r.para, cols))}</b>
+            <button data-rg-sobe="${i}" title="Prioridade maior" aria-label="Subir regra">▲</button><button data-rg-desce="${i}" title="Prioridade menor" aria-label="Descer regra">▼</button><button data-rg-liga="${i}" title="${r.ativo === false ? 'Ligar' : 'Desligar'}">${r.ativo === false ? '○' : '●'}</button><button data-rg-tira="${i}" aria-label="Apagar regra">✕</button></div>`).join('') : '<p class="le-dica">Nenhuma regra.</p>'}
+          <div class="le-imp-op" style="margin-top:8px"><label>Nova regra: <select class="le-campo" id="le-rg-campo"><option value="grupo">grupo</option><option value="nome">nome</option><option value="tudo">nome ou grupo</option></select> contém <input class="le-campo" id="le-rg-texto" placeholder="anime | otaku (qualquer uma)" style="width:190px"></label></div>
+          <div class="le-imp-op"><label>e se for <select class="le-campo" id="le-rg-nat"><option value="">qualquer tipo</option>${L.NATUREZAS.map(([k, ic, n]) => `<option value="${k}">${ic} ${esc(n)}</option>`).join('')}</select></label>
+            <label>idioma <input class="le-campo" id="le-rg-idi" placeholder="pt, es…" style="width:70px"></label><label>país <input class="le-campo" id="le-rg-pais" placeholder="BR" style="width:60px"></label></div>
+          ${destinoForm('reg', {}, { rotulo: 'mandar para', ignorar: true })}
+          <button class="le-bt" id="le-rg-add" style="align-self:flex-start">+ Adicionar regra</button>`;
+    }
+    /** Trata os cliques das regras; devolve true se mexeu. */
+    function cliqueRegras(b, lista, j) {
+        const i = +(b.dataset.rgSobe || b.dataset.rgDesce || b.dataset.rgLiga || b.dataset.rgTira);
+        if (b.dataset.rgSobe != null && i > 0) { [lista[i - 1], lista[i]] = [lista[i], lista[i - 1]]; return true; }
+        if (b.dataset.rgDesce != null && i < lista.length - 1) { [lista[i + 1], lista[i]] = [lista[i], lista[i + 1]]; return true; }
+        if (b.dataset.rgLiga != null) { lista[i].ativo = lista[i].ativo === false; return true; }
+        if (b.dataset.rgTira != null) { lista.splice(i, 1); return true; }
+        if (b.id === 'le-rg-add') {
+            const r = { campo: j.querySelector('#le-rg-campo').value, contem: j.querySelector('#le-rg-texto').value.trim(), para: lerDestino(j, 'reg') };
+            const nat = j.querySelector('#le-rg-nat').value, idi = j.querySelector('#le-rg-idi').value.trim(), pais = j.querySelector('#le-rg-pais').value.trim().toUpperCase();
+            if (nat) r.natureza = nat; if (idi) r.idioma = idi; if (pais) r.pais = pais;
+            if ((!r.contem && !nat && !idi && !pais) || !r.para) { S.aviso('Escreva o texto (ou escolha uma condição) e para onde vai.', 'ruim'); return false; }
+            lista.push(r); return true;
+        }
+        return false;
+    }
+    /** 🩺 saúde do envio: barrinhas dos itens enviados (e mortos) nas últimas rodadas + avisos */
+    function saudeHTML(st) {
+        const h = (st.historico || []).slice(-30);
+        if (h.length < 2) return '';
+        const max = Math.max(1, ...h.map(x => x.enviados != null ? x.enviados + (x.mortos || 0) : x.total));
+        const barras = h.map((x, i) => { const env = x.enviados != null ? x.enviados : x.total, m = x.mortos || 0, a = Math.round(env / max * 40), am = Math.round(m / max * 40);
+            return `<g><title>${new Date(x.em).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}: ${env} enviados${m ? ', ' + m + ' mortos' : ''}${x.mantido ? ' (última versão boa)' : ''}</title><rect x="${i * 9}" y="${44 - a - am}" width="7" height="${am}" fill="#f87171"/><rect x="${i * 9}" y="${44 - a}" width="7" height="${a}" fill="${x.mantido ? '#fbbf24' : '#22d3ee'}"/></g>`; }).join('');
+        return `<div class="le-saude"><svg viewBox="0 0 ${h.length * 9} 46" width="${h.length * 9}" height="46" aria-label="Saúde do envio">${barras}</svg><small>${h.length} rodadas · <span style="color:#22d3ee">■</span> enviados <span style="color:#f87171">■</span> mortos <span style="color:#fbbf24">■</span> lista com problema</small></div>`;
+    }
+    function problemaSC(st) {
+        if (!st) return '';
+        if (st.mantido) return 'a lista teve problema na última rodada';
+        const h = st.historico || [], a = h[h.length - 1], b = h[h.length - 2];
+        if (a && b && b.enviados > 10 && a.enviados < b.enviados * 0.7) return `caiu de ${b.enviados} para ${a.enviados} itens`;
+        return '';
+    }
+    const filtrosAtivos = (e) => { const f = e.filtros || {}; return ['idiomas', 'tipos', 'paises', 'categorias'].reduce((n, k) => n + ((f[k] || []).length ? 1 : 0), 0) + (f.busca ? 1 : 0) + (f.confiancaMin ? 1 : 0); };
+    const chipsSC = (campo, ops, e) => `<div class="le-chips">${ops.map(o => `<button class="le-chip ${e.filtros[campo].includes(o) ? 'on' : ''}" data-sc-fil="${campo}" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+    function linkDaAvulsa(e, ext) {
+        const x = ((SC.avulsas || {}).listas || []).find(i => i.id === e.id);
+        if (x && x[ext]) return x[ext];
+        const pub = (S.config && S.config().publicacao) || {};
+        return pub.repo ? `https://raw.githubusercontent.com/${pub.repo}/${pub.branch || 'main'}/listas/${e.id}.${ext}` : '';
+    }
+    function linksAvulsa(e) {
+        const x = ((SC.avulsas || {}).listas || []).find(i => i.id === e.id);
+        return `<div class="le-rc-pub"><b>Lista avulsa</b> ${x ? `· ${x.total} itens · ${x.comReserva} com reserva · atualizada ${haQuanto(x.atualizadaEm)}` : '· sai na próxima rodada do robô (depois de salvar)'}
+          <div style="display:flex;gap:6px;margin-top:6px"><code>${esc(linkDaAvulsa(e, 'm3u'))}</code><button class="le-bt" data-sc-copiar="m3u">Copiar M3U</button><button class="le-bt" data-sc-copiar="json">JSON</button></div></div>`;
+    }
+    // ---------- assistente do envio: 1 Link → 2 Que lista é? → 3 Rotas → 4 Conferir e salvar ----------
+    const PASSOS_SC = ['Link', 'Que lista é?', 'Rotas', 'Conferir e salvar'];
+    const COR_ROTA = { filmes: '#f59e0b', 'filmes-torrent': '#f97316', series: '#8b5cf6', animes: '#ec4899', cartoons: '#22d3ee', canais: '#10b981', 'desenhos-24h': '#14b8a6', radios: '#eab308', ignorar: '#64748b' };
+    const chaveRota = (d) => d === 'ignorar' ? 'ignorar' : (d && d.colecao) || '';
+    const corRota = (r) => COR_ROTA[chaveRota(r.destino)] || '#38bdf8';
+    const nomeRota = (r, cols) => r.destino === 'ignorar' ? '🚫 Fica de fora' : L.destinoTexto(r.destino, cols);
+    /** grupos da lista já lida (null se ainda não leu) */
+    function gruposSC(e) {
+        const x = SC.canais.get(e.id);
+        if (!x || x.url !== L.linksDoEnvio(e).join('\n')) return null;
+        return L.analisarGrupos(x.canais, e, colsSC());
+    }
+    /** "Vai gerar: 1.200 Filmes · 300 Séries · …" */
+    function resumoSC(e, grupos, cols) {
+        if (!grupos) {
+            const st = SC.estado.envios && SC.estado.envios[e.id];
+            return st ? 'Última rodada: ' + (Object.entries(st.porDestino || {}).map(([k, n]) => `<b>${n}</b> ${esc(k)}`).join(' · ') || 'nada enviado') : 'Leia a lista (passo 1) para ver o que vai gerar.';
+        }
+        const total = grupos.reduce((t, g) => t + g.n, 0);
+        if (e.tipoLista !== 'mista') return e.destino && e.destino.colecao ? `<b>${total}</b> → ${esc(L.destinoTexto(e.destino, cols))}` : `<b>${total}</b> itens · escolha o destino no passo 3`;
+        const por = new Map(); let sem = 0, semG = 0;
+        grupos.forEach(g => { if (!g.rota) { sem += g.n; semG++; return; } const k = nomeRota(g.rota, cols); por.set(k, (por.get(k) || 0) + g.n); });
+        return [...por].map(([k, n]) => `<b>${n}</b> ${esc(k)}`).join(' · ') + (sem ? `${por.size ? ' · ' : ''}<span style="color:#fbbf24">🔔 <b>${sem}</b> esperando rota (${semG} grupo${semG === 1 ? '' : 's'})</span>` : '');
+    }
+    function rotasHTML(e, grupos, cols) {
+        const conta = (r) => grupos ? grupos.filter(g => g.rota === r).reduce((t, g) => t + g.n, 0) : null;
+        const cards = (e.rotas || []).map(r => { const n = conta(r); return `<div class="le-sc-rcard" style="--rc:${corRota(r)}"><b>${esc(nomeRota(r, cols))}</b>
+            <small>${n != null ? n + ' itens · ' : ''}${r.grupos.length} grupo${r.grupos.length === 1 ? '' : 's'}</small>
+            <div class="le-sc-rgr">${r.grupos.slice(0, 5).map(g => `<span>${esc(g)}</span>`).join('')}${r.grupos.length > 5 ? `<span>+${r.grupos.length - 5}</span>` : ''}</div>
+            <button data-sc-rtira="${esc(r.id)}" title="Apagar rota (os grupos dela voltam a esperar)" aria-label="Apagar rota">✕</button></div>`; }).join('');
+        const sem = grupos ? grupos.filter(g => !g.rota) : [];
+        const nSug = sem.filter(g => g.sugestao).length;
+        SC.gruposVista = grupos || [];
+        const opc = (g) => {
+            const usadas = new Set((e.rotas || []).map(r => chaveRota(r.destino)));
+            return `<option value="" ${!g.rota ? 'selected' : ''}>🔔 escolher…</option>${(e.rotas || []).map(r => `<option value="${esc(r.id)}" ${g.rota === r ? 'selected' : ''}>${esc(nomeRota(r, cols))}</option>`).join('')}
+              ${cols.filter(c => !usadas.has(c.id)).map(c => `<option value="col:${esc(c.id)}">+ nova rota: ${esc((c.icone ? c.icone + ' ' : '') + c.nome)}</option>`).join('')}${usadas.has('ignorar') ? '' : '<option value="col:ignorar">🚫 Fica de fora</option>'}`;
+        };
+        const nat = (g) => L.NATUREZAS.filter(([k]) => g.nats[k]).map(([k, ic, nm]) => `<span title="${g.nats[k]} ${esc(nm)}">${ic}${g.nats[k] < g.n ? '<small>' + g.nats[k] + '</small>' : ''}</span>`).join(' ');
+        const auto = (g) => g.sugestao && (!g.rota || chaveRota(g.rota.destino) === chaveRota(g.sugestao)) ? `<span class="le-sc-auto" title="Sugestão pelo nome do grupo e pelo tipo dos itens">${g.rota ? 'AUTO' : 'sugestão: ' + esc(g.sugestao === 'ignorar' ? 'fica de fora' : L.destinoTexto(g.sugestao, cols))}</span>` : '';
+        return `<div class="le-sc-rotas">${cards}<button class="le-sc-rcard nova" id="le-sc-rota-nova">+ Nova rota</button></div>
+          <div class="le-sc-nrota" id="le-sc-nrota" hidden>${destinoForm('rota', {}, { rotulo: 'Nova rota para', ignorar: true })}<button class="le-bt p" id="le-sc-rota-add">Criar rota</button></div>
+          ${grupos ? `<div class="le-imp-op" style="margin-top:6px"><span class="le-dica"><b>${grupos.length}</b> grupos na lista${sem.length ? ` · <span style="color:#fbbf24">🔔 ${sem.length} sem rota</span>` : ' · todos com rota ✓'}</span>
+              ${nSug ? `<button class="le-bt r" id="le-sc-sugerir">✨ Aplicar sugestões (${nSug})</button>` : ''}
+              <label title="Quando a lista ganhar um grupo que ainda não tem rota">Grupo novo na lista <select class="le-campo" id="le-sc-gnovos"><option value="esperar" ${e.gruposNovos !== 'sugestao' ? 'selected' : ''}>🔔 espera eu escolher</option><option value="sugestao" ${e.gruposNovos === 'sugestao' ? 'selected' : ''}>🤖 vai pela sugestão</option></select></label></div>
+            <div class="le-sc-gtab"><table><thead><tr><th>Grupo da lista</th><th>Itens</th><th>Tipo</th><th>Rota</th></tr></thead><tbody>
+              ${grupos.slice(0, 600).map((g, i) => `<tr class="${g.rota ? '' : 'nova'}"><td>${g.rota ? '' : '🔔 '}${esc(g.grupo)}</td><td>${g.n}</td><td>${nat(g)}</td><td><select class="le-campo" data-sc-grupo="${i}" style="--rc:${g.rota ? corRota(g.rota) : '#fbbf24'}">${opc(g)}</select> ${auto(g)}</td></tr>`).join('')}
+            </tbody></table>${grupos.length > 600 ? `<p class="le-dica">… e mais ${grupos.length - 600} grupos pequenos (use ✨ Aplicar sugestões).</p>` : ''}</div>`
+          : `<div class="le-dica" style="margin-top:8px">Para montar as rotas eu preciso ler a lista. <button class="le-bt" data-sc-ler="1">📥 Ler lista</button></div>`}
+          <p class="le-dica">Exceções (um filme que caiu no grupo errado) continuam no <b>🔀 Sidechain</b>: só elas ficam guardadas item por item.</p>`;
     }
     async function abrirSidechain(id) {
         if (!S.ler || !S.gravar || !S.config) return S.aviso('Abra o Link Edit pelo Studio para usar o Sidechain.', 'ruim');
         await lerSidechain();
-        if (id !== undefined) SC.atual = id;
+        if (id !== undefined) { if (id !== SC.atual) SC.passo = 0; SC.atual = id; }
         const e = SC.envios.find(x => x.id === SC.atual) || null;
+        if (e && !SC.passo) SC.passo = e.url ? 4 : 1;
+        const rolagem = [...document.querySelectorAll('.le-jan, .le-sc-gtab')].map(x => x.scrollTop);
         if (e) { const st = SC.estado.envios && SC.estado.envios[e.id]; if (st) { const v = vistoSC(); v[e.id] = st.em; try { localStorage.setItem(GUARDA_SC_VISTO, JSON.stringify(v)); } catch (x) { /* */ } } }
         const cols = colsSC();
         const st = e && SC.estado.envios ? SC.estado.envios[e.id] : null;
         const nDesv = e ? Object.keys(e.desvios || {}).length : 0;
+        const grupos = e ? gruposSC(e) : null;
         const j = janela(`<h3>🔗 Link Sidechain — envios que se mantêm sozinhos</h3>
           <p class="le-dica">Cada <b>envio</b> é uma lista boa que vive atualizando. Escolha para onde ela vai; no <b>🔀 Sidechain</b> você marca o que é de outro lugar (ex.: os animes numa lista de cartoons) e manda para a coleção certa. O robô do GitHub refaz tudo a cada 6 h e lembra das suas escolhas.</p>
           <div class="le-rc">
             <div class="le-rc-lista">
               <div class="le-rot">Envios</div>
-              ${SC.envios.map(x => { const n = novidadesSC(x); return `<button class="le-rc-item${e && x.id === e.id ? ' on' : ''}" data-sc-abrir="${esc(x.id)}"><b>${esc(x.nome)}${n.novos ? ` <span class="le-sc-sino">🔔${n.novos}</span>` : ''}${n.pendentes ? ` <span class="le-sc-pend">⏳${n.pendentes}</span>` : ''}</b><small>→ ${esc(L.destinoTexto(x.destino, cols))}${x.ativo === false ? ' · ⏸ pausado' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhum envio ainda.</p>'}
+              ${SC.envios.map(x => { const n = novidadesSC(x); return `<button class="le-rc-item${e && x.id === e.id ? ' on' : ''}" data-sc-abrir="${esc(x.id)}"><b>${esc(x.nome)}${n.novos ? ` <span class="le-sc-sino">🔔${n.novos}</span>` : ''}${n.pendentes ? ` <span class="le-sc-pend">⏳${n.pendentes}</span>` : ''}</b><small>→ ${esc(x.tipoLista === 'mista' ? '🔀 mista · ' + (x.rotas || []).length + ' rota(s)' : x.destino && x.destino.colecao ? L.destinoTexto(x.destino, cols) : 'só lista avulsa')}${x.ativo === false ? ' · ⏸ pausado' : ''}${problemaSC(SC.estado.envios && SC.estado.envios[x.id]) ? ' · <span style="color:#fbbf24">⚠ ' + esc(problemaSC(SC.estado.envios[x.id])) + '</span>' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhum envio ainda.</p>'}
+              <button class="le-rc-item${SC.atual === '__globais' ? ' on' : ''}" data-sc-abrir="__globais" style="margin-top:6px"><b>⚙ Regras para todos os envios</b><small>${(SC.globais || []).length} regra(s) · valem depois das regras de cada envio</small></button>
               <button class="le-bt p" data-sc-novo="1" style="margin-top:6px">+ Criar envio</button>
               ${SC.sujo ? '<p class="le-dica" style="color:#fbbf24">● mudanças não salvas</p>' : ''}
             </div>
             <div class="le-rc-form">${e ? `
-              <div class="le-sc-ferr">
-                ${destinoForm('env', e.destino)}
+              <div class="le-sc-passos">${PASSOS_SC.map((t, i) => `<button class="${SC.passo === i + 1 ? 'on' : ''}${i + 1 < SC.passo ? ' feito' : ''}" data-sc-passo="${i + 1}"><b>${i + 1}</b> ${t}</button>`).join('')}</div>
+              <section class="le-sc-passo" ${SC.passo === 1 ? '' : 'hidden'}>
+                <div class="le-rot">1 · Link da lista</div>
+                <input class="le-campo le-sc-link" id="le-sc-url" value="${esc(e.url)}" placeholder="Cole aqui o link da lista (M3U, JSON, TXT…)" spellcheck="false">
+                <input class="le-campo" id="le-sc-nome" value="${esc(e.nome)}" placeholder="Nome do envio" style="height:32px">
+                <div class="le-imp-op"><button class="le-bt" data-sc-ler="1">📥 Ler lista</button><span class="le-dica">${grupos ? `✓ lida: <b>${grupos.reduce((t, g) => t + g.n, 0)}</b> itens · <b>${grupos.length}</b> grupos` : 'ainda não lida'}</span></div>
+                <label class="le-dica">Outras listas que entram neste envio <small>(opcional · um link por linha — cada uma com a sua proteção)</small></label>
+                <textarea class="le-campo" id="le-sc-listas" style="height:52px;resize:vertical" spellcheck="false">${esc((e.listas || []).join('\n'))}</textarea>
+                <div><button class="le-bt p" data-sc-passo="2">Próximo →</button></div>
+              </section>
+              <section class="le-sc-passo" ${SC.passo === 2 ? '' : 'hidden'}>
+                <div class="le-rot">2 · Que lista é?</div>
+                <div class="le-sc-tipos">
+                  <button class="le-sc-tipo${e.tipoLista !== 'mista' ? ' on' : ''}" data-sc-tipo="unica"><b>🎯 Uma categoria só</b><small>Tudo vai para o mesmo lugar (ex.: uma lista só de filmes, ou os canais de um país no TVzine).</small></button>
+                  <button class="le-sc-tipo${e.tipoLista === 'mista' ? ' on' : ''}" data-sc-tipo="mista"><b>🔀 Lista mista</b><small>Tem de tudo: filmes, séries, animes, canais… Cada <b>grupo</b> da lista vai pela sua rota.</small></button>
+                </div>
+              </section>
+              <section class="le-sc-passo" ${SC.passo === 3 ? '' : 'hidden'}>
+                <div class="le-rot">3 · ${e.tipoLista === 'mista' ? 'Rotas (grupo → coleção)' : 'Para onde vai'}</div>
+                ${e.tipoLista === 'mista' ? rotasHTML(e, grupos, cols) : `<div class="le-sc-ferr">${destinoForm('env', e.destino, { nenhum: e.avulsa })}</div>
+                  <p class="le-dica">No TVzine o país escolhido manda: o canal nunca vai para outro país. Exceções item por item ficam no <b>🔀 Sidechain</b>.</p>`}
+                <div><button class="le-bt p" data-sc-passo="4">Próximo →</button></div>
+              </section>
+              <section class="le-sc-passo" ${SC.passo === 4 ? '' : 'hidden'}>
+                <div class="le-rot">4 · Conferir e salvar</div>
                 <div class="le-imp-op">
-                  <label title="Automático: o que chega de novo vai pelas regras, ou para o destino do envio. Revisar: o novo sem regra espera você decidir.">Novidades <select class="le-campo" id="le-sc-modo"><option value="auto" ${e.modo !== 'revisar' ? 'selected' : ''}>🤖 automático</option><option value="revisar" ${e.modo === 'revisar' ? 'selected' : ''}>✋ esperar eu revisar</option></select></label>
+                  ${e.tipoLista === 'mista' ? '' : `<label title="Automático: o que chega de novo vai pelas regras, ou para o destino do envio. Revisar: o novo sem regra espera você decidir.">Novidades <select class="le-campo" id="le-sc-modo"><option value="auto" ${e.modo !== 'revisar' ? 'selected' : ''}>🤖 automático</option><option value="revisar" ${e.modo === 'revisar' ? 'selected' : ''}>✋ esperar eu revisar</option></select></label>`}
                   <label title="Canais, 24H e rádios são testados sempre (morto sai). Vídeos só se você pedir.">Testar links <select class="le-campo" id="le-sc-vivos"><option value="" ${e.soVivos == null ? 'selected' : ''}>automático</option><option value="1" ${e.soVivos === true ? 'selected' : ''}>sempre (morto sai)</option><option value="0" ${e.soVivos === false ? 'selected' : ''}>nunca</option></select></label>
                   <label><input type="checkbox" id="le-sc-ativo" ${e.ativo !== false ? 'checked' : ''}> ligado no robô</label>
                 </div>
-              </div>
-              <input class="le-campo le-sc-link" id="le-sc-url" value="${esc(e.url)}" placeholder="Cole aqui o link da lista (M3U, JSON, TXT…)" spellcheck="false">
-              <input class="le-campo" id="le-sc-nome" value="${esc(e.nome)}" placeholder="Nome do envio" style="height:32px">
+              <details class="le-sc-mais" ${filtrosAtivos(e) || e.avulsa || e.tmdb ? 'open' : ''}>
+                <summary>Filtros, lista avulsa e TMDB${filtrosAtivos(e) ? ` · <b>${filtrosAtivos(e)} filtro(s)</b>` : ''}</summary>
+                <div class="le-rot" style="margin-top:6px">Só entram os itens que</div>
+                <div class="le-dica">Idioma</div>${chipsSC('idiomas', [...new Set(L.IDIOMAS.map(i => i.cod.split('-')[0]).concat(e.filtros.idiomas))].slice(0, 14), e)}
+                <div class="le-dica">Tipo</div>${chipsSC('tipos', L.TIPOS.filter(t => t !== 'Adulto'), e)}
+                <div class="le-dica">Categoria (TVzine)</div>${chipsSC('categorias', L.CATEGORIAS, e)}
+                <div class="le-imp-op" style="margin-top:6px">
+                  <label>País <input class="le-campo" id="le-sc-paises" value="${esc(e.filtros.paises.join(', '))}" placeholder="BR, PT…" style="width:100px"></label>
+                  <label>Nome contém <input class="le-campo" id="le-sc-busca" value="${esc(e.filtros.busca || '')}" placeholder="ex.: cartoon" style="width:130px"></label>
+                  <label>Confiança mínima <select class="le-campo" id="le-sc-conf">${[[0, 'qualquer'], [5, '5 de 10'], [7, '7 de 10'], [9, '9 de 10']].map(([v, t]) => `<option value="${v}" ${+e.filtros.confiancaMin === v ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+                  <label><input type="checkbox" id="le-sc-adulto" ${e.filtros.excluirTipos.includes('Adulto') ? 'checked' : ''}> fora sempre: Adulto</label>
+                </div>
+                <div class="le-imp-op" style="margin-top:8px">
+                  <label title="Gera também listas/${esc(e.id)}.m3u e .json com link fixo — para usar em outros players (era a função das Receitas)"><input type="checkbox" id="le-sc-avulsa" ${e.avulsa ? 'checked' : ''}> Publicar também como lista avulsa (M3U/JSON)</label>
+                  <label title="O que já está cadastrado à mão na mesma coleção da Studio não entra de novo (no app ficaria dobrado)"><input type="checkbox" id="le-sc-studio" ${e.pularStudio !== false ? 'checked' : ''}> Não repetir o que já está na Studio</label>
+                  <label title="O robô busca capa, banner, sinopse, gênero e nota dos filmes e séries no TMDB (precisa do secret TMDB_TOKEN no GitHub)"><input type="checkbox" id="le-sc-tmdb" ${e.tmdb ? 'checked' : ''}> 🔎 Buscar capa, sinopse e nota no TMDB (vídeos)</label>
+                </div>
+                ${e.avulsa ? linksAvulsa(e) : ''}
+              </details>
               <div class="le-jan-botoes" style="justify-content:flex-start;margin-top:4px">
-                <button class="le-bt r" id="le-sc-side" title="Abre a lista no editor: marque o que é de outra coleção e envie">🔀 Sidechain (${nDesv} desvio${nDesv === 1 ? '' : 's'})</button>
+                <button class="le-bt r" id="le-sc-side" title="Abre a lista no editor: exceções item por item (o filme que caiu no grupo errado)">🔀 Sidechain (${nDesv} exceç${nDesv === 1 ? 'ão' : 'ões'})</button>
                 <button class="le-bt" id="le-sc-simular" title="Lê a lista agora e mostra para onde cada coisa vai">🧪 Simular</button>
-                <button class="le-bt p" id="le-sc-salvar">💾 Salvar</button>
                 <button class="le-bt" id="le-sc-apagar" style="margin-left:auto">Apagar envio</button>
               </div>
+              </section>
+              <div class="le-sc-vai"><span>Vai gerar: ${resumoSC(e, grupos, cols)}</span><button class="le-bt p" id="le-sc-salvar">💾 Salvar</button></div>
               <div class="le-sc-painel">
                 <div class="le-rot">O que está acontecendo</div>
                 ${st ? `<div>Última rodada do robô ${haQuanto(st.em)} · <b>${st.total}</b> itens${st.mantido ? ` · <span style="color:#fbbf24">⚠ usando a última versão boa (${esc(st.erro || 'lista com problema')})</span>` : ''}</div>
-                  <div class="le-sc-dests">${Object.entries(st.porDestino || {}).map(([k, n]) => `<span><b>${n}</b> → ${esc(k)}</span>`).join('') || '<span>nada enviado</span>'}${st.ignorados ? `<span><b>${st.ignorados}</b> ignorados</span>` : ''}${st.mortos ? `<span style="color:#f87171"><b>${st.mortos}</b> mortos (fora)</span>` : ''}</div>
+                  <div class="le-sc-dests">${Object.entries(st.porDestino || {}).map(([k, n]) => `<span><b>${n}</b> → ${esc(k)}</span>`).join('') || '<span>nada enviado</span>'}${st.filtrados ? `<span><b>${st.filtrados}</b> fora pelos filtros</span>` : ''}${st.tipoErrado ? `<span style="color:#fbbf24" title="O destino do envio é de outro tipo: use o 🔀 Sidechain para mandar estes para a coleção certa"><b>${st.tipoErrado}</b> de outro tipo (esperando)</span>` : ''}${st.ignorados ? `<span><b>${st.ignorados}</b> ignorados</span>` : ''}${st.mortos ? `<span style="color:#f87171"><b>${st.mortos}</b> mortos (fora)</span>` : ''}</div>
                   ${(st.novos || []).length ? `<div class="le-sc-novos"><b>🔔 ${st.novos.length} novos na última rodada:</b> ${st.novos.slice(0, 12).map(x => `<span>${esc(x.nome)}${x.motivo === 'regra' ? ' <small>(regra)</small>' : x.motivo === 'pendente' ? ' <small>⏳</small>' : ''}</span>`).join('')}${st.novos.length > 12 ? ' …' : ''}</div>` : ''}
                   ${(st.pendentes || []).length ? `<div style="color:#fbbf24">⏳ <b>${st.pendentes.length}</b> esperando você decidir — abra o 🔀 Sidechain e use o filtro "Esperando".</div>` : ''}
-                  ${(st.historico || []).length > 1 ? `<div class="le-dica">Histórico: ${st.historico.slice(-6).map(h => `${new Date(h.em).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} ${h.total} itens${h.novos ? ' +' + h.novos : ''}${h.sairam ? ' −' + h.sairam : ''}`).join(' · ')}</div>` : ''}`
+                  ${st.naStudio ? `<div class="le-dica">🗂️ <b>${st.naStudio}</b> já estão cadastrados na mesma coleção da Studio: não entraram de novo (no app ficariam dobrados).</div>` : ''}
+                  ${(st.sairamItens || []).length ? `<details><summary>↘ <b>${st.sairamItens.length}</b> saíram da lista desde a rodada anterior</summary><div class="le-sc-novos">${st.sairamItens.slice(0, 40).map(n => `<span style="background:#1c1c22;color:#cbd5e1">${esc(n)}</span>`).join('')}</div></details>` : ''}
+                  ${(st.mudaramLink || []).length ? `<details><summary>🔁 <b>${st.mudaramLink.length}</b> mudaram de link (o desvio e o ajuste continuam valendo)</summary><div class="le-dica">${st.mudaramLink.slice(0, 20).map(x => esc(x.nome)).join(' · ')}</div></details>` : ''}
+                  ${problemaSC(st) ? `<div style="color:#fbbf24">⚠ ${esc(problemaSC(st))}</div>` : ''}
+                  ${saudeHTML(st)}`
                 : '<div class="le-dica">Ainda não rodou no robô (salve; ele roda logo depois do push e depois a cada 6 h).</div>'}
-                ${(e.regras || []).length ? `<div class="le-rot" style="margin-top:8px">Regras automáticas</div>${e.regras.map((r, i) => `<div class="le-sc-regra">${r.campo === 'nome' ? 'Nome' : r.campo === 'grupo' ? 'Grupo' : 'Texto'} contém "<b>${esc(r.contem)}</b>" → ${esc(L.destinoTexto(r.para, cols))}<button data-sc-tirar-regra="${i}" aria-label="Apagar regra">✕</button></div>`).join('')}` : ''}
-                <div class="le-imp-op" style="margin-top:8px"><label>Nova regra: <select class="le-campo" id="le-sc-rcampo"><option value="grupo">grupo</option><option value="nome">nome</option><option value="tudo">nome ou grupo</option></select> contém <input class="le-campo" id="le-sc-rtexto" placeholder="ex.: anime" style="width:120px"></label></div>
-                ${destinoForm('reg', {}, { rotulo: 'mandar para', ignorar: true })}
-                <button class="le-bt" id="le-sc-regra-add" style="align-self:flex-start">+ Adicionar regra</button>
+                <div class="le-rot" style="margin-top:8px">Regras automáticas deste envio <small style="text-transform:none;letter-spacing:0">(a de cima vale primeiro)</small></div>
+                ${regrasHTML(e.regras, cols)}
               </div>
-              <div id="le-sc-res"></div>` : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
+              <div id="le-sc-res"></div>` : SC.atual === '__globais' ? `
+              <div class="le-rot">⚙ Regras para todos os envios</div>
+              <p class="le-dica">Valem em todos os envios, depois das regras de cada um. Ex.: "Texto contém <b>adult | xxx | +18</b> → 🚫 Ignorar", ou "Tipo 🎞 Episódio + grupo contém <b>anime</b> → Animes".</p>
+              ${regrasHTML(SC.globais || (SC.globais = []), cols)}
+              <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" id="le-sc-salvar-g">💾 Salvar regras</button></div>` : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
             </div>
           </div>`, 'larga');
         ligarDestino(j);
+        j.querySelectorAll('.le-jan, .le-sc-gtab').forEach((x, i) => { if (rolagem[i]) x.scrollTop = rolagem[i]; });
         const lerForm = () => {
-            if (!e) return;
-            const d = lerDestino(j, 'env');
-            if (d && d !== 'ignorar') e.destino = d;
+            if (!e || !j.querySelector('#le-sc-url')) return;
+            if (j.querySelector('[data-sc="env-col"]')) {
+                const d = lerDestino(j, 'env');
+                if (d && d !== 'ignorar') e.destino = d;
+                else if (j.querySelector('[data-sc="env-col"]').value === '') e.destino = { colecao: '' };
+            }
+            const gn = j.querySelector('#le-sc-gnovos'); if (gn) e.gruposNovos = gn.value;
+            e.listas = j.querySelector('#le-sc-listas').value.split(/\s+/).map(x => x.trim()).filter(x => /^https?:\/\//i.test(x) && x !== e.url);
+            e.filtros.paises = j.querySelector('#le-sc-paises').value.toUpperCase().split(/[^A-Z]+/).filter(x => x.length === 2);
+            e.filtros.busca = j.querySelector('#le-sc-busca').value.trim();
+            e.filtros.confiancaMin = +j.querySelector('#le-sc-conf').value || 0;
+            e.filtros.excluirTipos = j.querySelector('#le-sc-adulto').checked ? ['Adulto'] : [];
+            e.avulsa = j.querySelector('#le-sc-avulsa').checked;
+            e.tmdb = j.querySelector('#le-sc-tmdb').checked;
+            e.pularStudio = j.querySelector('#le-sc-studio').checked;
             e.url = j.querySelector('#le-sc-url').value.trim();
             e.nome = j.querySelector('#le-sc-nome').value.trim() || e.nome;
-            e.modo = j.querySelector('#le-sc-modo').value;
+            const md = j.querySelector('#le-sc-modo'); if (md) e.modo = md.value;
             const v = j.querySelector('#le-sc-vivos').value; e.soVivos = v === '' ? null : v === '1';
             e.ativo = j.querySelector('#le-sc-ativo').checked;
             SC.sujo = true;
@@ -1215,12 +1276,39 @@
                 const n = L.envioPadrao({ id: L.idEnvio('envio ' + (SC.envios.length + 1), new Set(SC.envios.map(x => x.id))), nome: 'Envio ' + (SC.envios.length + 1), criadoEm: new Date().toISOString() });
                 SC.envios.push(n); SC.sujo = true; return abrirSidechain(n.id);
             }
-            if (b.dataset.scTirarRegra) { lerForm(); e.regras.splice(+b.dataset.scTirarRegra, 1); return abrirSidechain(e.id); }
-            if (b.id === 'le-sc-regra-add') {
+            if (b.dataset.scPasso) { lerForm(); SC.passo = +b.dataset.scPasso; return abrirSidechain(e.id); }
+            if (b.dataset.scTipo) {
+                lerForm(); e.tipoLista = b.dataset.scTipo; SC.sujo = true; SC.passo = 3;
+                const g = e.tipoLista === 'mista' && !(e.rotas || []).length ? gruposSC(e) : null;
+                if (g) L.aplicarSugestoes(e, g);           // primeira vez: já monta as rotas sugeridas
+                return abrirSidechain(e.id);
+            }
+            if (b.dataset.scLer) {
                 lerForm();
-                const texto = j.querySelector('#le-sc-rtexto').value.trim(), para = lerDestino(j, 'reg');
-                if (!texto || !para) return S.aviso('Escreva o texto e escolha para onde vai.', 'ruim');
-                e.regras.push({ campo: j.querySelector('#le-sc-rcampo').value, contem: texto, para }); return abrirSidechain(e.id);
+                if (!/^https?:\/\//i.test(e.url)) { SC.passo = 1; S.aviso('Cole o link da lista (começa com http).', 'ruim'); return abrirSidechain(e.id); }
+                b.disabled = true; b.textContent = 'Lendo…';
+                try { const cs = await canaisDoEnvio(e, true); if (e.tipoLista === 'mista' && !(e.rotas || []).length) L.aplicarSugestoes(e, L.analisarGrupos(cs, e, colsSC())); S.aviso(`Lista lida: ${cs.length} itens.`, 'ok'); }
+                catch (x) { S.aviso('Não deu para ler a lista: ' + x.message + (local() ? '' : ' (online, o site precisa liberar CORS; no painel do PC sempre funciona)'), 'ruim'); }
+                return abrirSidechain(e.id);
+            }
+            if (b.id === 'le-sc-sugerir') { lerForm(); const n = L.aplicarSugestoes(e, gruposSC(e) || []); SC.sujo = true; S.aviso(`${n} grupo(s) ganharam rota.`, 'ok'); return abrirSidechain(e.id); }
+            if (b.id === 'le-sc-rota-nova') { const x = j.querySelector('#le-sc-nrota'); x.hidden = !x.hidden; return; }
+            if (b.id === 'le-sc-rota-add') {
+                const d = lerDestino(j, 'rota'); if (!d) return S.aviso('Escolha a coleção da rota.', 'ruim');
+                lerForm(); e.rotas.push({ id: 'r' + Date.now().toString(36), destino: d, grupos: [] }); SC.sujo = true; return abrirSidechain(e.id);
+            }
+            if (b.dataset.scRtira) { lerForm(); e.rotas = e.rotas.filter(r => r.id !== b.dataset.scRtira); SC.sujo = true; return abrirSidechain(e.id); }
+            if (b.dataset.scFil) { const lst = e.filtros[b.dataset.scFil], v = b.dataset.v, i = lst.indexOf(v); if (i >= 0) lst.splice(i, 1); else lst.push(v); b.classList.toggle('on', i < 0); SC.sujo = true; return; }
+            if (b.dataset.scCopiar) { const x = linkDaAvulsa(e, b.dataset.scCopiar); return x && copiarTexto(x, 'Link copiado.'); }
+            if (b.dataset.rgSobe != null || b.dataset.rgDesce != null || b.dataset.rgLiga != null || b.dataset.rgTira != null || b.id === 'le-rg-add') {
+                lerForm();
+                if (cliqueRegras(b, e ? e.regras : SC.globais, j)) { SC.sujo = true; return abrirSidechain(SC.atual); }
+                return;
+            }
+            if (b.id === 'le-sc-salvar-g') {
+                b.disabled = true;
+                try { await gravarSidechain('Sidechain: regras para todos os envios'); S.aviso('Regras salvas.', 'ok'); } catch (x) { S.aviso('Não deu para gravar: ' + x.message, 'ruim'); }
+                return abrirSidechain('__globais');
             }
             if (b.id === 'le-sc-apagar') {
                 if (!confirm(`Apagar o envio "${e.nome}"? As listas dele saem do Cloud na próxima rodada do robô.`)) return;
@@ -1231,18 +1319,21 @@
             if (b.id === 'le-sc-salvar') {
                 lerForm();
                 if (!/^https?:\/\//i.test(e.url)) return S.aviso('Cole o link da lista (começa com http).', 'ruim');
-                if (!e.destino || !e.destino.colecao) return S.aviso('Escolha para onde o envio vai.', 'ruim');
+                if (e.tipoLista === 'mista') {
+                    if (!e.rotas.some(r => r.grupos.length)) { SC.passo = 3; S.aviso('Lista mista: ponha ao menos um grupo numa rota.', 'ruim'); return abrirSidechain(e.id); }
+                } else if ((!e.destino || !e.destino.colecao) && !e.avulsa) { SC.passo = 3; S.aviso('Escolha para onde o envio vai (ou marque "lista avulsa" no passo 4).', 'ruim'); return abrirSidechain(e.id); }
+                e.rotas = (e.rotas || []).filter(r => r.grupos.length || r.destino === 'ignorar');
                 const usados = new Set(SC.envios.filter(x => x !== e).map(x => x.id));
-                if (/^envio(-\d+)?$/.test(e.id)) e.id = L.idEnvio(e.nome, usados);
+                if (/^envio(-\d+)?$/.test(e.id)) { const velho = e.id; e.id = L.idEnvio(e.nome, usados); if (SC.canais.has(velho)) { SC.canais.set(e.id, SC.canais.get(velho)); SC.canais.delete(velho); } }
                 b.disabled = true; b.textContent = 'Salvando…';
-                try { await gravarSidechain(`Sidechain: ${e.nome} → ${L.destinoTexto(e.destino, cols)}`); S.aviso('Envio salvo. O robô roda logo depois do push e depois a cada 6 h.', 'ok'); }
+                try { await gravarSidechain(`Sidechain: ${e.nome} → ${e.tipoLista === 'mista' ? 'lista mista (' + e.rotas.length + ' rotas)' : L.destinoTexto(e.destino, cols)}`); S.aviso('Envio salvo. O robô roda logo depois do push e depois a cada 6 h.', 'ok'); }
                 catch (x) { S.aviso('Não deu para gravar: ' + x.message, 'ruim'); }
                 return abrirSidechain(e.id);
             }
             if (b.id === 'le-sc-side') {
                 lerForm();
                 if (!/^https?:\/\//i.test(e.url)) return S.aviso('Cole o link da lista primeiro.', 'ruim');
-                if (!e.destino || !e.destino.colecao) return S.aviso('Escolha antes para onde o envio vai.', 'ruim');
+                if (e.tipoLista === 'mista' ? !e.rotas.length : (!e.destino || !e.destino.colecao)) return S.aviso('Monte antes para onde o envio vai (passo 3).', 'ruim');
                 return entrarModoSC(e);
             }
             if (b.id === 'le-sc-simular') {
@@ -1251,11 +1342,12 @@
                 res.innerHTML = '<p class="le-dica">Lendo a lista…</p>';
                 try {
                     const canais = await canaisDoEnvio(e, true);
-                    const { saidas, relatorios } = L.montarSidechain([{ envio: e, canais }], S.config());
+                    e._globais = SC.globais;
+                    const { saidas, relatorios } = L.montarSidechain([{ envio: e, canais }], S.config(), { studio: mapaDaStudio() });
                     const r = relatorios[e.id];
                     SC.sugestoes = L.sugerirRegras(canais, e);
                     res.innerHTML = `<div class="le-sc-painel"><div class="le-rot">Simulação (agora, sem teste dos links)</div>
-                      <div class="le-sc-dests">${Object.entries(r.porDestino).map(([k, n]) => `<span><b>${n}</b> → ${esc(k)}</span>`).join('')}${r.ignorados ? `<span><b>${r.ignorados}</b> ignorados</span>` : ''}${r.pendentes.length ? `<span style="color:#fbbf24"><b>${r.pendentes.length}</b> esperando revisão</span>` : ''}</div>
+                      <div class="le-sc-dests">${Object.entries(r.porDestino).map(([k, n]) => `<span><b>${n}</b> → ${esc(k)}</span>`).join('')}${r.filtrados ? `<span><b>${r.filtrados}</b> fora pelos filtros</span>` : ''}${r.naStudio ? `<span><b>${r.naStudio}</b> já na Studio</span>` : ''}${r.tipoErrado ? `<span style="color:#fbbf24" title="Canal ao vivo numa coleção de vídeo (ou o contrário): mande pelo 🔀 Sidechain"><b>${r.tipoErrado}</b> de outro tipo (esperando)</span>` : ''}${r.ignorados ? `<span><b>${r.ignorados}</b> ignorados</span>` : ''}${r.pendentes.length ? `<span style="color:#fbbf24"><b>${r.pendentes.length}</b> esperando revisão</span>` : ''}</div>
                       <div class="le-dica">${canais.length} itens na lista · vai gerar ${saidas.map(s => `<code>${esc(s.chave)}</code>`).join(', ') || 'nada'}${r.novos.length ? ` · <b>${r.novos.length} novos</b> desde a última rodada` : ''}</div>
                       ${SC.sugestoes.length ? `<div class="le-sc-sug">💡 ${SC.sugestoes.map((sg, i) => `<button class="le-chip" data-sc-sug="${i}">Regra: grupo "${esc(sg.contem)}" → ${esc(L.destinoTexto(sg.para, cols))} (${sg.n}/${sg.de})</button>`).join('')}</div>` : ''}</div>`;
                 } catch (x) { res.innerHTML = `<p class="le-dica" style="color:#f87171">Não deu para ler a lista: ${esc(x.message)}${local() ? '' : ' (online, o site precisa liberar CORS; no painel do PC sempre funciona)'}</p>`; }
@@ -1263,7 +1355,21 @@
             }
             if (b.dataset.scSug != null) { const sg = SC.sugestoes[+b.dataset.scSug]; if (sg) { lerForm(); e.regras.push({ campo: sg.campo, contem: sg.contem, para: sg.para }); SC.sugestoes = []; S.aviso('Regra criada. Salve o envio para o robô usar.', 'ok'); return abrirSidechain(e.id); } }
         });
-        j.addEventListener('change', (ev) => { if (ev.target.closest('.le-rc-form')) SC.sujo = true; });
+        j.addEventListener('change', (ev) => {
+            const sg = ev.target.closest('[data-sc-grupo]');
+            if (sg && e) {
+                const g = SC.gruposVista[+sg.dataset.scGrupo]; if (!g) return;
+                let rid = sg.value;
+                if (rid.startsWith('col:')) {
+                    const c = rid.slice(4);
+                    const r = { id: 'r' + Date.now().toString(36), destino: c === 'ignorar' ? 'ignorar' : { colecao: c }, grupos: [] };
+                    e.rotas.push(r); rid = r.id;
+                }
+                lerForm(); L.moverGrupo(e, g.grupo, rid); SC.sujo = true;
+                return abrirSidechain(e.id);
+            }
+            if (ev.target.closest('.le-rc-form')) SC.sujo = true;
+        });
     }
 
     // ---------- modo SIDECHAIN no editor: a lista do envio aberta na tabela, com o destino de cada item ----------
@@ -1273,6 +1379,7 @@
         fecharJanela();
         if (!SC.modo) SC.modo = { guarda: { listas: E.listas, canais: E.canais, sel: [...E.sel], foco: E.foco, busca: E.f.busca } };
         SC.modo.envio = e;
+        e._globais = SC.globais || [];
         const id = 'sc-' + e.id;
         E.listas = [{ id, nome: '🔀 ' + e.nome, formato: 'sidechain', epg: '', url: e.url }];
         E.canais = canais.map((c, i) => Object.assign(c, { lista: id, id: id + '-' + i }));
@@ -1294,13 +1401,13 @@
     function rotaSC(c) { return SC.modo ? L.rotaDe(c, SC.modo.envio) : null; }
     function filtroSC(lista) {
         if (!SC.modo || !SC.filtro) return lista;
-        return lista.filter(c => { const r = rotaSC(c); return SC.filtro === 'novos' ? r.novo : SC.filtro === 'pendentes' ? r.motivo === 'pendente' : SC.filtro === 'desviados' ? (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') : SC.filtro === 'padrao' ? r.motivo === 'padrao' : true; });
+        return lista.filter(c => { const r = rotaSC(c); return SC.filtro === 'novos' ? r.novo : SC.filtro === 'pendentes' ? r.motivo === 'pendente' : SC.filtro === 'desviados' ? (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') : SC.filtro === 'padrao' ? (r.motivo === 'padrao' || r.motivo === 'rota' || r.motivo === 'sugestao') : true; });
     }
     function tagSC(c) {
         const r = rotaSC(c); if (!r) return '';
-        const cls = r.motivo === 'pendente' ? 'pend' : r.motivo === 'ignorar' ? 'ign' : r.motivo === 'padrao' ? 'pad' : 'desv';
+        const cls = r.motivo === 'pendente' ? 'pend' : r.motivo === 'ignorar' ? 'ign' : (r.motivo === 'padrao' || r.motivo === 'rota' || r.motivo === 'sugestao') ? 'pad' : 'desv';
         const txt = r.motivo === 'pendente' ? '⏳ esperando' : r.destino === 'ignorar' ? '🚫 ignorado' : '→ ' + L.destinoTexto(r.destino, colsSC()) + (r.motivo === 'regra' ? ' ⚙' : '');
-        return `${r.novo ? '<b class="le-sc-novo">NOVO</b>' : ''}<span class="le-sc-tag ${cls}" title="${r.motivo === 'regra' ? 'Por regra: ' + esc(r.regra.contem) : r.motivo === 'manual' ? 'Desviado por você' : r.motivo === 'padrao' ? 'Destino do envio' : ''}">${esc(txt)}</span>`;
+        return `${r.novo ? '<b class="le-sc-novo">NOVO</b>' : ''}<span class="le-sc-tag ${cls}" title="${r.motivo === 'regra' ? 'Por regra: ' + esc(r.regra.contem) : r.motivo === 'manual' ? 'Desviado por você' : r.motivo === 'padrao' ? 'Destino do envio' : r.motivo === 'rota' ? 'Rota do grupo "' + esc(L.grupoDe(c)) + '"' : r.motivo === 'sugestao' ? 'Sugestão (grupo novo)' : r.grupoNovo ? 'Grupo novo, sem rota: escolha no passo 3' : ''}">${esc(txt)}</span>`;
     }
     function pintarBarraSC() {
         const el = $('#le-sc-barra'); if (!el) return;
@@ -1310,8 +1417,8 @@
         E.canais.forEach(c => { const r = rotaSC(c); if (r.novo) n.novos++; if (r.motivo === 'pendente') n.pendentes++; if (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') n.desviados++; });
         const sug = L.sugerirRegras(E.canais, e).slice(0, 3);
         el.hidden = false;
-        el.innerHTML = `<b>🔀 SIDECHAIN</b><span>${esc(e.nome)} · padrão → <b>${esc(L.destinoTexto(e.destino, cols))}</b></span>
-          <div class="le-chips">${[['', 'Todos'], ['novos', `🔔 Novos ${n.novos}`], ['pendentes', `⏳ Esperando ${n.pendentes}`], ['desviados', `Desviados ${n.desviados}`], ['padrao', 'No padrão']].map(([k, t]) => `<button class="le-chip ${SC.filtro === k ? 'on' : ''}" data-sc-filtro="${k}">${t}</button>`).join('')}</div>
+        el.innerHTML = `<b>🔀 SIDECHAIN</b><span>${esc(e.nome)} · ${e.tipoLista === 'mista' ? `<b>lista mista</b> · ${e.rotas.length} rotas por grupo` : `padrão → <b>${esc(L.destinoTexto(e.destino, cols))}</b>`}</span>
+          <div class="le-chips">${[['', 'Todos'], ['novos', `🔔 Novos ${n.novos}`], ['pendentes', `⏳ Esperando ${n.pendentes}`], ['desviados', `Desviados ${n.desviados}`], ['padrao', e.tipoLista === 'mista' ? 'Pela rota' : 'No padrão']].map(([k, t]) => `<button class="le-chip ${SC.filtro === k ? 'on' : ''}" data-sc-filtro="${k}">${t}</button>`).join('')}</div>
           <button class="le-bt r" id="le-sc-enviar" title="Manda os marcados para outra coleção (Enter)">Enviar marcados para…</button>
           <button class="le-bt" id="le-sc-ignorar">🚫 Ignorar marcados</button>
           <button class="le-bt" id="le-sc-padrao" title="Tira o desvio: os marcados voltam ao destino do envio">↩ Voltar ao padrão</button>
@@ -1744,8 +1851,21 @@
         const t = c.teste || {};
         const h = c.historico || [];
         const conf = h.length ? `${h.filter(Boolean).length} de ${h.length}` : '—';
+        const nat = NAT[c.natureza || 'canal'] || NAT.canal, v = c.video || {};
+        const blocoVideo = L.ehVideo(c) ? `<div class="le-ficha-video">
+            <div class="le-ficha-vt">${nat.ic} ${esc(nat.nome)}${c.videoManual ? ' <small>· arrumado à mão</small>' : ' <small>· detectado</small>'}</div>
+            <div class="le-ficha-grade">
+              ${c.natureza === 'episodio' ? `<div><span>Série</span><b>${esc(v.serie || '—')}</b></div><div><span>Temporada · Ep.</span><b>T${v.temporada != null ? v.temporada : '?'} · E${v.episodio != null ? v.episodio : '?'}</b></div>` : ''}
+              <div><span>${c.natureza === 'episodio' ? 'Título do ep.' : 'Título'}</span><b>${esc(v.titulo || '—')}</b></div><div><span>Ano</span><b>${esc(v.ano || '—')}</b></div>
+              <div><span>Áudio</span><b>${esc(ROT_AUDIO[v.audio] || v.audio || '—')}</b></div><div><span>Qualidade</span><b>${esc(v.qualidade || '—')}</b></div>
+              <div><span>Vai para</span><b>${esc(nomeCol(v.colecao))}</b></div>${v.genero ? `<div><span>Gênero</span><b>${esc(v.genero)}</b></div>` : ''}
+            </div>
+            ${v.dados ? `<div class="le-tmdb">${v.dados.capa ? `<img src="${esc(v.dados.capa)}" alt="" loading="lazy">` : ''}<div><b>${esc(v.dados.titulo || '')}</b>${v.dados.nota ? ` · ★ ${v.dados.nota}` : ''}${v.dados.classificacao ? ` · ${esc(v.dados.classificacao)}` : ''}<p>${esc(String(v.dados.descricao || 'Sem sinopse.').slice(0, 260))}${String(v.dados.descricao || '').length > 260 ? '…' : ''}</p>${v.dados.porBusca ? '<small>achado pelo nome — confira se é a obra certa</small>' : ''}</div></div>` : ''}
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"><button class="le-bt p" data-video="${esc(c.id)}">✎ Editar dados (V)</button><button class="le-bt" data-tmdb="${esc(c.id)}" title="Capa, banner, sinopse, gênero e nota${c.natureza === 'episodio' ? ' (vale para todos os episódios da série)' : ''}">🔎 TMDB</button><button class="le-bt" data-nat="${esc(c.id)}">Trocar tipo</button><button class="le-bt" data-vf-auto="${esc(c.id)}" title="Lê de novo pelo nome e pelo link">🔎 Detectar</button></div>
+          </div>` : `<div class="le-ficha-vt" style="margin-top:2px">${nat.ic} ${esc(nat.nome)} <button class="le-idi" data-nat="${esc(c.id)}" title="Trocar o tipo (Y)">trocar</button></div>`;
         f.innerHTML = `
           <div class="le-ficha-nome">${esc(c.nome)}</div>
+          ${blocoVideo}
           <div class="le-ficha-sub">${esc(c.grupo || '')}${c.grupo ? ' · ' : ''}${esc((E.listas.find(l => l.id === c.lista) || {}).nome || '')}</div>
           <div class="le-ficha-grade">
             <div><span>Formato</span><b>${esc((t.tipo || c.formato || '—').toUpperCase())}</b></div>
@@ -1754,8 +1874,8 @@
             <div><span>Status</span><b style="color:${COR_STATUS[t.status || 'nao-testado']}">${esc(ROTULO_STATUS[t.status || 'nao-testado'])}</b></div>
             <div><span>Idioma</span><button class="le-idi${c.idioma ? '' : ' vazio'}" data-idioma="${esc(c.id)}" title="Trocar o idioma (I)">${esc(c.idioma || '+ idioma')}${c.pais ? ' ' + bandeira(c.pais) : ''}</button></div>
             <div><span>Confiança</span><b>${esc(conf)}</b></div>
-            <div><span>Categoria</span><button class="le-idi${c.grupoSaida ? '' : ' vazio'}" data-cat-canal="${esc(c.id)}" title="Trocar a categoria (C)">${esc(c.grupoSaida || '+ categoria')}</button></div>
-            <div><span>Guia</span><button class="le-idi${c.epgId ? '' : ' vazio'}" data-guia="${esc(c.id)}" title="${c.epgId ? esc(c.epgId) + ' — trocar (G)' : 'Ligar ao guia (G)'}">${c.epgId ? '✓ ' + esc(c.epgId) : '+ guia'}</button></div>
+            ${L.ehVideo(c) ? '' : `<div><span>Categoria</span><button class="le-idi${c.grupoSaida ? '' : ' vazio'}" data-cat-canal="${esc(c.id)}" title="Trocar a categoria (C)">${esc(c.grupoSaida || '+ categoria')}</button></div>`}
+            ${L.ehVideo(c) ? '' : `<div><span>Guia</span><button class="le-idi${c.epgId ? '' : ' vazio'}" data-guia="${esc(c.id)}" title="${c.epgId ? esc(c.epgId) + ' — trocar (G)' : 'Ligar ao guia (G)'}">${c.epgId ? '✓ ' + esc(c.epgId) : '+ guia'}</button></div>`}
             ${c.formato === 'arquivo' || t.tamanho ? `<div><span>Tamanho</span><b>${t.tamanho ? (t.tamanho >= 1073741824 ? (t.tamanho / 1073741824).toFixed(1).replace('.', ',') + ' GB' : t.tamanho >= 1048576 ? Math.round(t.tamanho / 1048576) + ' MB' : Math.max(1, Math.round(t.tamanho / 1024)) + ' KB') : '—'}</b></div>
             <div><span>Duração</span><b id="le-ficha-dur">—</b></div>` : ''}
           </div>
@@ -1908,18 +2028,45 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sj-meio{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:6px}
 .le-sj-barras div{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;font-size:12px;margin-top:5px}.le-sj-barras i{display:block;height:10px;border-radius:5px;background:var(--c);min-width:2px}.le-sj-barras b{color:#cbd5e1;font-family:'JetBrains Mono',monospace;font-size:11.5px}
 .le-sj-ult div{display:grid;grid-template-columns:16px minmax(0,1fr) minmax(0,1.3fr);gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid #141821}.le-sj-ult span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}.le-sj-ult small{color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-nat{margin-right:7px;padding:0 3px;border:0;border-radius:5px;background:none;font-size:14px;cursor:pointer;filter:saturate(.8)}.le-nat:hover,.le-nat.manual{background:#1d2430}
+.le-ficha-video{margin:6px 0;padding:10px;border-radius:10px;background:#0d1016;border:1px solid #2a3140}.le-ficha-vt{font:800 12.5px Inter,sans-serif;color:#67e8f9;margin-bottom:6px}.le-ficha-vt small{color:var(--s);font-weight:600}
+.le-jan.media{width:min(720px,100%)}.le-vd-grade{display:flex;flex-wrap:wrap;gap:10px 14px}.le-vd-campo{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--s)}.le-vd-campo .le-campo{height:34px;min-width:120px}
+.le-menu{position:absolute;z-index:40;min-width:230px;max-width:340px;max-height:80%;overflow:auto;padding:5px;border-radius:10px;background:#0d1016;border:1px solid var(--c);box-shadow:0 14px 40px rgba(0,0,0,.65)}
+.le-menu button{display:block;width:100%;text-align:left;padding:7px 10px;border:0;border-radius:6px;background:none;color:#e5e7eb;font:600 12.5px Inter,sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-menu button:hover,.le-menu button:focus{background:#102a31;color:#67e8f9;outline:none}.le-menu button[disabled]{opacity:.35;cursor:default;background:none;color:#e5e7eb}
+.le-menu hr{border:0;border-top:1px solid #1f2430;margin:4px 2px}.le-menu-tit{padding:6px 10px 4px;font:900 11px Inter,sans-serif;letter-spacing:.08em;color:#ff7ac0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-st-tag{margin-right:7px;font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;background:#2a2108;color:#fbbf24}
+.le-series{display:flex;flex-direction:column;gap:8px;overflow:auto}.le-serie{padding:8px 10px;border-radius:10px;background:#0d1016;border:1px solid #2a3140}.le-serie-cab{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.le-serie-cab small{color:var(--s)}
+.le-serie-t{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:#cbd5e1;padding:3px 0 0 4px}.le-nm-prev{max-height:220px;overflow:auto;font-size:12px;display:flex;flex-direction:column;gap:3px}.le-nm-prev s{color:var(--s)}
+.le-tmdb{display:flex;gap:10px;margin:4px 0 2px;font-size:12px;color:#cbd5e1}.le-tmdb img{width:58px;height:86px;object-fit:cover;border-radius:6px;flex-shrink:0}.le-tmdb p{margin:3px 0 0;color:var(--s);line-height:1.4}.le-tmdb small{color:#fbbf24}
+.le-sc-mais{margin-top:6px;padding:8px 10px;border-radius:10px;background:#0d1016;border:1px solid #2a3140;font-size:12.5px}.le-sc-mais summary{cursor:pointer;font-weight:800;color:#cbd5e1}.le-sc-mais[open] summary{margin-bottom:6px}
 .le-sc-barra{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:9px 14px;background:linear-gradient(90deg,#2a0b1c,#0b1d24);border-bottom:1px solid var(--r);font-size:12.5px}.le-sc-barra>b{color:#ff7ac0;letter-spacing:.12em}.le-sc-barra .le-chips{margin:0}
 .le-sc-sug{display:flex;flex-wrap:wrap;gap:6px;width:100%;align-items:center;font-size:12px}
 .le-sc-tag{margin-right:8px;font-size:11px;font-weight:800;padding:2px 7px;border-radius:99px;background:#102a31;color:#67e8f9;white-space:nowrap}.le-sc-tag.desv{background:#2a0b1c;color:#ff7ac0}.le-sc-tag.ign{background:#1c1c22;color:#9aa3ad;text-decoration:line-through}.le-sc-tag.pend{background:#2a2108;color:#fbbf24}.le-sc-tag.pad{opacity:.6}
 .le-sc-novo{margin-right:6px;font-size:9.5px;font-weight:900;padding:1px 5px;border-radius:4px;background:#fbbf24;color:#1a1200;letter-spacing:.06em}
 .le-sc-sino{color:#fbbf24;font-size:11px}.le-sc-pend{color:#fbbf24;font-size:11px}
+.le-sc-passos{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}.le-sc-passos button{flex:1;min-width:120px;background:#0d1016;border:1px solid #2a3140;color:#94a3b8;border-radius:10px;padding:7px 8px;font:inherit;font-size:12.5px;cursor:pointer;text-align:left}
+.le-sc-passos button b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#1e2533;color:#cbd5e1;margin-right:4px;font-size:11px}
+.le-sc-passos button.on{border-color:#22d3ee;color:#fff}.le-sc-passos button.on b{background:#22d3ee;color:#04141a}.le-sc-passos button.feito b{background:#164e63;color:#a5f3fc}
+.le-sc-passo{display:flex;flex-direction:column;gap:8px}.le-sc-passo[hidden]{display:none}
+.le-sc-tipos{display:grid;grid-template-columns:1fr 1fr;gap:10px}.le-sc-tipo{display:flex;flex-direction:column;gap:6px;text-align:left;padding:16px;border-radius:12px;background:#0d1016;border:1px solid #2a3140;color:#cbd5e1;font:inherit;cursor:pointer}.le-sc-tipo b{font-size:15px;color:#fff}.le-sc-tipo small{color:#94a3b8;line-height:1.4}.le-sc-tipo.on{border-color:#e879f9;box-shadow:0 0 0 1px #e879f9 inset}
+.le-sc-rotas{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.le-sc-rcard{position:relative;display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:10px;background:#0d1016;border:1px solid var(--rc,#2a3140);border-left:4px solid var(--rc,#2a3140);color:#cbd5e1;font:inherit;font-size:12.5px}
+.le-sc-rcard b{color:#fff;padding-right:16px}.le-sc-rcard small{color:#94a3b8}.le-sc-rcard>button{position:absolute;top:6px;right:6px;background:none;border:0;color:#64748b;cursor:pointer}.le-sc-rcard.nova{align-items:center;justify-content:center;border-style:dashed;cursor:pointer;color:#94a3b8;min-height:64px}
+.le-sc-rgr{display:flex;flex-wrap:wrap;gap:3px}.le-sc-rgr span{font-size:10.5px;background:#1c2230;border-radius:6px;padding:1px 6px;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.le-sc-nrota{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px;border:1px dashed #2a3140;border-radius:10px}.le-sc-nrota[hidden]{display:none}
+.le-sc-gtab{max-height:300px;overflow:auto;border:1px solid #2a3140;border-radius:10px}.le-sc-gtab table{width:100%;border-collapse:collapse;font-size:12.5px}.le-sc-gtab th{position:sticky;top:0;background:#111621;color:#94a3b8;text-align:left;font-weight:600;padding:6px 8px}
+.le-sc-gtab td{padding:4px 8px;border-top:1px solid #1a1f2b;color:#cbd5e1}.le-sc-gtab tr.nova td:first-child{color:#fbbf24}.le-sc-gtab select{height:30px;padding:0 6px;line-height:28px;max-width:210px;border-left:4px solid var(--rc)}.le-sc-gtab small{color:#64748b;font-size:10px}
+.le-sc-auto{font-size:10.5px;background:#2e1065;color:#e9d5ff;border-radius:6px;padding:1px 6px;white-space:nowrap}
+.le-sc-vai{position:sticky;bottom:-18px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:6px;padding:10px 12px;border-radius:10px;background:#111827;border:1px solid #334155;font-size:12.5px;color:#cbd5e1;z-index:2}
+@media (max-width:600px){.le-sc-tipos{grid-template-columns:1fr}}
 .le-sc-ferr{display:flex;flex-direction:column;gap:8px;padding:10px 12px;border-radius:10px;background:#0d1016;border:1px solid #2a3140}
 .le-sc-dest{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:12.5px;color:#cbd5e1}.le-sc-dest label{display:flex;gap:6px;align-items:center}.le-sc-dest .le-campo{height:32px;padding:0 8px;max-width:260px}
 .le-sc-link{width:100%;font-family:'JetBrains Mono',monospace;font-size:12px;white-space:nowrap;margin-top:8px}
 .le-sc-painel{margin-top:10px;padding:10px 12px;border-radius:10px;background:#0d1a1f;border:1px solid #1f5560;font-size:12.5px;display:flex;flex-direction:column;gap:6px}
 .le-sc-dests{display:flex;flex-wrap:wrap;gap:6px}.le-sc-dests span{padding:3px 9px;border-radius:99px;background:#161b24}
 .le-sc-novos{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.le-sc-novos span{font-size:11.5px;padding:2px 7px;border-radius:99px;background:#2a2108;color:#fde68a}
-.le-sc-regra{display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:7px;background:#161b24}.le-sc-regra button{margin-left:auto;background:none;border:0;color:#9aa3ad;cursor:pointer}
+.le-sc-regra{display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:7px;background:#161b24;flex-wrap:wrap}.le-sc-regra.off{opacity:.45}.le-sc-regra small{color:var(--s)}.le-sc-regra button{background:none;border:0;color:#9aa3ad;cursor:pointer}.le-sc-regra button[data-rg-sobe]{margin-left:auto}
+.le-saude{display:flex;flex-direction:column;gap:3px;margin-top:4px}.le-saude small{color:var(--s)}
 .le-rc{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px;min-height:0}
 .le-rc-lista{display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--b);padding-right:12px}
 .le-rc-item{text-align:left;padding:9px 10px;border-radius:9px;background:#11141b;border:1px solid #2a3140;color:#e5e7eb}.le-rc-item b{display:block;font-size:13px}.le-rc-item small{font-size:11.5px;color:var(--s)}
@@ -1944,10 +2091,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         <div id="le-raiz" tabindex="-1">
           <div class="le-topo">
             <div class="le-logo"><b>LINK</b><i>EDIT</i></div>
-            <span class="chip ${local() ? 'ok' : ''}" title="${local() ? 'Testes e túnel do visualizador pelo painel do seu PC' : 'Online: o Scan e o túnel precisam do painel local (node tools/painel.mjs)'}">${local() ? 'painel local' : 'online'}</span>
+            <span class="chip ${local() || nuvem() ? 'ok' : ''}" title="${local() ? 'Testes e túnel do visualizador pelo painel do seu PC' : nuvem() ? 'Online, testando pelo ☁️ testador na nuvem' : 'Online: para o Scan, use o painel local ou o ☁️ testador na nuvem (Scan → configurar)'}">${local() ? 'painel local' : nuvem() ? 'online · ☁️ nuvem' : 'online'}</span>
             <div style="flex:1"></div>
             <button class="le-bt" id="le-importar" title="Lista que já está pronta: vai inteira para o Studio, cada item na coleção certa">⚡ Importar lista inteira</button>
-            <button class="le-bt" id="le-receitas" title="Listas que se refazem sozinhas (robô do GitHub a cada 6 h)">📋 Receitas</button>
             <button class="le-bt" id="le-sidechain" title="Envios: listas boas que vivem atualizando, cada coisa na coleção (e no país) certo">🔗 Sidechain</button>
             <button class="le-bt" id="le-assets" title="Banco de logos salvos, para usar em qualquer lista (B)">★ Assets</button>
             <button class="le-bt" id="le-desfazer" title="Desfazer (Ctrl+Z)">↶ Desfazer</button>
@@ -1976,6 +2122,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <button class="le-bt" id="le-quarentena" title="Tira da lista principal (pode voltar depois)">Quarentena</button>
                 <button class="le-bt" id="le-guias" title="Liga os marcados (ou visíveis) ao guia de programação, pelo nome — igual ao TVzine">Ligar guias</button>
                 <button class="le-bt" id="le-logos" title="Coloca o logo que falta nos marcados (ou visíveis), pelo banco aberto do iptv-org">Achar logos</button>
+                <button class="le-bt" id="le-series" title="Séries em árvore: temporadas, episódios que faltam e repetidos">📂 Séries</button>
+                <button class="le-bt" id="le-nomes" title="Arrumar nomes em lote: procurar/trocar, tirar prefixo de país e [tags]">✎ Nomes</button>
                 <button class="le-bt r" id="le-jogar">➜ Jogar na lista nova</button>
                 <button class="le-bt" id="le-ajuda" title="Atalhos do teclado (?)" aria-label="Atalhos do teclado">?</button>
               </div>
@@ -2046,8 +2194,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <button class="le-chip ${E.f.semCategoria ? 'on' : ''}" data-t="semCategoria">Sem categoria</button>
             <button class="le-chip ${E.f.duplicados ? 'on' : ''}" data-t="duplicados">Duplicados</button>
             <button class="le-chip ${E.f.quarentena ? 'on' : ''}" data-t="quarentena">Quarentena</button>
+            <button class="le-chip ${E.f.naStudio ? 'on' : ''}" data-t="naStudio" title="O que já está cadastrado na Studio (no app ficaria dobrado)">Já na Studio</button>
           </div>
-          ${grupo('Idioma', 'idiomas', C.idiomas)}${grupo('Tipo', 'tipos', C.tipos)}${grupo('País', 'paises', C.paises)}${grupo('Status', 'status', C.status, ROTULO_STATUS)}`;
+          ${grupo('Tipo de item', 'naturezas', C.naturezas, Object.fromEntries(L.NATUREZAS.map(([k, ic, n]) => [k, ic + ' ' + n])))}${grupo('Idioma', 'idiomas', C.idiomas)}${grupo('Tipo', 'tipos', C.tipos)}${grupo('País', 'paises', C.paises)}${grupo('Status', 'status', C.status, ROTULO_STATUS)}`;
     }
     let pedidoTabela = 0;
     function agendarTabela() { if (pedidoTabela) return; pedidoTabela = requestAnimationFrame(() => { pedidoTabela = 0; desenharTabela(); }); }
@@ -2078,14 +2227,17 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         for (let i = de; i < ate; i++) {
             const c = E.visiveis[i];
             const st = c.testando ? 'testando' : (c.teste && c.teste.status) || 'nao-testado';
-            const logo = ehImagem(c.logo) ? `background-image:url('${esc(c.logo.replace(/'/g, '%27'))}')` : '';
+            const img = (c.video && c.video.dados && c.video.dados.capa) || c.logo;      // vídeo: a capa do TMDB, se já buscou
+            const logo = ehImagem(img) ? `background-image:url('${esc(img.replace(/'/g, '%27'))}')` : '';
             h += `<div class="le-linha${c.id === E.foco ? ' foco' : ''}${naNova.has(c.chave) ? ' na-nova' : ''}" role="row" data-id="${esc(c.id)}" style="top:${i * ALTURA_LINHA}px">
               <button class="le-caixa ${E.sel.has(c.id) ? 'on' : ''}" data-sel="${esc(c.id)}" aria-label="Selecionar ${esc(c.nome)}" aria-pressed="${E.sel.has(c.id)}"></button>
               <button class="le-logo-c${logo ? '' : ' vazio'}" style="${logo}" data-logo="${esc(c.id)}" title="${logo ? 'Ver, baixar ou trocar o logo (L)' : 'Inserir logo (L)'}" aria-label="Logo de ${esc(c.nome)}"></button>
-              <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${SC.modo ? tagSC(c) : ''}${esc(c.nome)}</span>
-              <button class="le-g le-cat${c.grupoSaida ? ' ok' : ''}" data-cat-canal="${esc(c.id)}" title="${c.grupoSaida ? 'Categoria: ' + esc(c.grupoSaida) + ' (grupo na lista: ' + esc(c.grupo || '—') + ')' : 'Grupo na lista: ' + esc(c.grupo || '—') + ' — clique para escolher a categoria (C)'}">${esc(c.grupoSaida || c.grupo || c.tipo)}</button>
+              <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}"><button class="le-nat${c.naturezaManual ? ' manual' : ''}" data-nat="${esc(c.id)}" title="${esc((NAT[c.natureza || 'canal'] || NAT.canal).nome)} — trocar o tipo (Y)">${(NAT[c.natureza || 'canal'] || NAT.canal).ic}</button>${SC.modo ? tagSC(c) : ''}${tagStudio(c)}${esc(c.nome)}</span>
+              ${L.ehVideo(c) ? `<button class="le-g le-cat ok" data-video="${esc(c.id)}" title="Dados de vídeo: série, temporada, episódio, ano, áudio, qualidade e coleção (V)">${esc(nomeCol(c.video && c.video.colecao))}${c.natureza === 'episodio' && c.video ? ' · ' + esc(L.videoTexto(c).split(' · ').pop()) : c.video && c.video.ano ? ' · ' + c.video.ano : ''}</button>
+              <button class="le-idi${c.video && c.video.audio ? '' : ' vazio'}${c.videoManual ? ' manual' : ''}" data-video="${esc(c.id)}" title="Áudio do vídeo (V)">${esc(c.video && c.video.audio ? ROT_AUDIO[c.video.audio] || c.video.audio : '+ áudio')}</button>
+              <span class="le-guia" style="opacity:.3" title="Vídeo não tem guia de programação">—</span>` : `<button class="le-g le-cat${c.grupoSaida ? ' ok' : ''}" data-cat-canal="${esc(c.id)}" title="${c.grupoSaida ? 'Categoria: ' + esc(c.grupoSaida) + ' (grupo na lista: ' + esc(c.grupo || '—') + ')' : 'Grupo na lista: ' + esc(c.grupo || '—') + ' — clique para escolher a categoria (C)'}">${esc(c.grupoSaida || c.grupo || c.tipo)}</button>
               <button class="le-idi${c.idioma ? '' : ' vazio'}${c.idiomaManual ? ' manual' : ''}" data-idioma="${esc(c.id)}" title="${c.idioma ? 'Trocar o idioma (I)' : 'Sem idioma: clique para escolher (I)'}${c.pais ? ' · país ' + esc(c.pais) : ''}">${esc(c.idioma || '+ idioma')}</button>
-              <button class="le-guia${c.epgId ? ' ok' : ''}" data-guia="${esc(c.id)}" title="${c.epgId ? 'Guia: ' + esc(c.epgId) + ' (G)' : 'Ligar ao guia de programação (G)'}">${c.epgId ? '✓' : '+'}</button>
+              <button class="le-guia${c.epgId ? ' ok' : ''}" data-guia="${esc(c.id)}" title="${c.epgId ? 'Guia: ' + esc(c.epgId) + ' (G)' : 'Ligar ao guia de programação (G)'}">${c.epgId ? '✓' : '+'}</button>`}
               <span class="le-st" style="color:${COR_STATUS[st]}" title="${esc((c.teste && c.teste.motivo) || '')}">${esc(ROTULO_STATUS[st])}</span>
               <span class="le-mono" style="color:#9aa3ad">${c.teste && c.teste.ms && /vivo|lento|pede-ua/.test(c.teste.status) ? (c.teste.ms / 1000).toFixed(1).replace('.', ',') + ' s' : '—'}</span>
             </div>`;
@@ -2113,6 +2265,238 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         const v = $('#le-scan-ver'); if (v) v.onclick = () => abrirScan();
     }
 
+    // ================================================================ 🎬 TIPO DO ITEM E DADOS DE VÍDEO
+    // O Link Edit descobre sozinho o que é canal, rádio, filme ou episódio (L.detectarVideo). Para vídeo, o painel mostra
+    // o que o DB usa: título, série, temporada, episódio, ano, áudio, qualidade e a coleção (Cartoons, Animes, Filmes…).
+    const NAT = Object.fromEntries(L.NATUREZAS.map(([k, ic, nome]) => [k, { ic, nome }]));
+    const AUDIOS = [['', '—'], ['dublado', 'Dublado'], ['legendado', 'Legendado'], ['dual', 'Dual áudio'], ['original', 'Original']];
+    const ROT_AUDIO = Object.fromEntries(AUDIOS);
+    const colsVideo = () => ((S.config && S.config() || {}).colecoes || []).filter(c => c.tipo === 'video');
+    const nomeCol = (id) => { const c = ((S.config && S.config() || {}).colecoes || []).find(x => x.id === id); return c ? (c.icone ? c.icone + ' ' : '') + c.nome : id || '—'; };
+    /** Aplica a mudança nos itens; no Sidechain ela fica guardada no envio (o robô repete a cada rodada). */
+    function editarVideo(lista, aj) {
+        lembrar();
+        lista.forEach(c => {
+            L.ajustarVideo(c, aj);
+            if (SC.modo) { const k = L.chaveSC(c), e = SC.modo.envio; e.ajustes = e.ajustes || {}; e.ajustes[k] = Object.assign({}, e.ajustes[k], aj); SC.sujo = true; }
+        });
+        salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        if (SC.modo) pintarBarraSC();
+    }
+    function detectarDeNovo(lista) {
+        lembrar();
+        lista.forEach(c => { L.detectarVideo(c, true); if (SC.modo && SC.modo.envio.ajustes) { delete SC.modo.envio.ajustes[L.chaveSC(c)]; SC.sujo = true; } });
+        salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        S.aviso(`${lista.length === 1 ? 'Item detectado' : lista.length + ' itens detectados'} de novo (o que era manual voltou ao automático).`, 'ok');
+    }
+    // ---------- 🗂️ já está na Studio? (marca na linha e filtro) ----------
+    let mapaStudioCache = null, mapaStudioRef = null;
+    function mapaDaStudio() {
+        const ind = (S.indice && S.indice()) || [];
+        if (mapaStudioRef !== ind) { mapaStudioCache = L.mapaStudio(ind); mapaStudioRef = ind; }
+        return mapaStudioCache;
+    }
+    function tagStudio(c) {
+        const j = L.jaNaStudio(c, mapaDaStudio());
+        return j ? `<span class="le-st-tag" title="Já está na Studio: ${esc(j.caminho)} — no app ficaria dobrado">na Studio</span>` : '';
+    }
+
+    // ---------- 📂 séries em árvore ----------
+    function abrirSeries() {
+        const base = E.canais.filter(c => (E.f.quarentena ? c.quarentena : !c.quarentena));
+        const arv = L.arvoreSeries(base);
+        if (!arv.length) return S.aviso('Nenhum episódio de série nas listas abertas.', 'ruim');
+        const j = janela(`<h3>📂 Séries — ${arv.length} série${arv.length > 1 ? 's' : ''}, ${arv.reduce((n, s) => n + s.total, 0)} episódios</h3>
+          <p class="le-dica">Cada série com as temporadas e os episódios. <b style="color:#fbbf24">Falta</b> = número pulado na sequência; <b style="color:#f87171">repetido</b> = dois arquivos com o mesmo episódio (um vira reserva do outro no app). As com problema vêm primeiro.</p>
+          <div class="le-series">${arv.map((s, i) => `<div class="le-serie">
+              <div class="le-serie-cab"><b>${esc(s.serie)}</b><small>${s.total} ep. · ${s.temporadas.length} temporada${s.temporadas.length > 1 ? 's' : ''}${s.problemas ? ` · <span style="color:#fbbf24">${s.problemas} aviso(s)</span>` : ' · ✓ completa'}</small>
+                <span style="margin-left:auto;display:flex;gap:6px"><button class="le-bt" data-sr-marcar="${i}">Marcar</button><button class="le-bt" data-sr-editar="${i}">✎ Editar (V)</button><button class="le-bt" data-sr-tmdb="${i}">🔎 TMDB</button></span></div>
+              ${s.temporadas.map(t => `<div class="le-serie-t"><b>T${t.numero}</b> <span>${t.eps.filter(e => e.numero > 0).length} ep. (${t.eps.filter(e => e.numero > 0).map(e => e.numero).slice(0, 1)[0] || '—'}–${t.eps.length ? t.eps[t.eps.length - 1].numero : '—'})</span>
+                ${t.comeca > 1 ? `<span style="color:var(--s)">começa no ep. ${t.comeca}</span>` : ''}
+                ${t.faltando.length ? `<span style="color:#fbbf24">falta ${t.faltando.slice(0, 20).join(', ')}${t.faltando.length > 20 ? '…' : ''}</span>` : ''}
+                ${t.repetidos.length ? `<span style="color:#f87171">repetido ${t.repetidos.slice(0, 20).join(', ')}</span>` : ''}
+                ${t.semNumero ? `<span style="color:#f87171">${t.semNumero} sem número</span>` : ''}</div>`).join('')}
+            </div>`).join('')}</div>`, 'larga');
+        j.addEventListener('click', (ev) => {
+            const b = ev.target.closest('button'); if (!b) return;
+            const s = arv[+(b.dataset.srMarcar || b.dataset.srEditar || b.dataset.srTmdb)]; if (!s) return;
+            if (b.dataset.srMarcar != null) { E.sel = new Set(s.itens.map(c => c.id)); fecharJanela(); desenharTabela(); return S.aviso(`${s.itens.length} episódios de "${s.serie}" marcados.`, 'ok'); }
+            if (b.dataset.srEditar != null) { E.sel = new Set(s.itens.map(c => c.id)); fecharJanela(); desenharTabela(); return abrirDadosVideo(null); }
+            if (b.dataset.srTmdb != null) { fecharJanela(); return buscarTMDB(s.itens); }
+        });
+    }
+
+    // ---------- ✎ arrumar nomes em lote ----------
+    function abrirNomes() {
+        const alvo = E.sel.size ? selecionados() : E.visiveis.slice();
+        if (!alvo.length) return S.aviso('Nada para arrumar.', 'ruim');
+        const j = janela(`<h3>✎ Arrumar nomes — ${alvo.length} ${E.sel.size ? 'marcados' : 'visíveis'}</h3>
+          <div class="le-imp-op">
+            <label>Procurar <input class="le-campo" id="le-nm-p" style="width:150px"></label><label>trocar por <input class="le-campo" id="le-nm-t" style="width:150px"></label>
+            <label title="Expressão regular (para quem sabe)"><input type="checkbox" id="le-nm-re"> regex</label>
+          </div>
+          <div class="le-imp-op" style="margin-top:6px">
+            <label><input type="checkbox" id="le-nm-pref"> tirar prefixo de país ("BR |", "PT:", "LAT »")</label>
+            <label><input type="checkbox" id="le-nm-tags"> tirar [tags], (alt), HD/FHD/4K</label>
+            <label><input type="checkbox" id="le-nm-caixa"> Maiúsculas Só No Começo (siglas ficam)</label>
+          </div>
+          <div class="le-rot" style="margin-top:8px">Prévia</div><div id="le-nm-prev" class="le-nm-prev"></div>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-nm-ok">Aplicar</button></div>`, 'media');
+        const ops = () => ({ procurar: j.querySelector('#le-nm-p').value, trocar: j.querySelector('#le-nm-t').value, regex: j.querySelector('#le-nm-re').checked,
+            tirarPrefixo: j.querySelector('#le-nm-pref').checked, tirarTags: j.querySelector('#le-nm-tags').checked, caixa: j.querySelector('#le-nm-caixa').checked ? 'titulo' : '' });
+        const prever = () => {
+            const o = ops(), mud = alvo.map(c => [c, L.arrumarNome(c.nome, o)]).filter(([c, n]) => n !== c.nome);
+            j.querySelector('#le-nm-prev').innerHTML = mud.length ? `<b>${mud.length}</b> mudam:` + mud.slice(0, 10).map(([c, n]) => `<div><s>${esc(c.nome)}</s> → <b>${esc(n)}</b></div>`).join('') + (mud.length > 10 ? '<div>…</div>' : '') : '<span class="le-dica">Nada muda com essas opções.</span>';
+            return mud;
+        };
+        j.addEventListener('input', prever); j.addEventListener('change', prever); prever();
+        j.querySelector('#le-nm-ok').onclick = () => {
+            const mud = prever(); if (!mud.length) return;
+            lembrar();
+            mud.forEach(([c, n]) => { L.ajustarVideo(c, { nome: n }); if (SC.modo) { const e = SC.modo.envio, k = L.chaveSC(c); e.ajustes = e.ajustes || {}; e.ajustes[k] = Object.assign({}, e.ajustes[k], { nome: n }); SC.sujo = true; } });
+            fecharJanela(); salvar(); desenharTabela(); S.aviso(`${mud.length} nomes arrumados (Ctrl+Z desfaz).`, 'ok');
+        };
+    }
+
+    // ---------- 🔎 TMDB no Link Edit: capa, banner, sinopse, gênero e nota (uma busca por série ou filme) ----------
+    const CACHE_TMDB = new Map();
+    async function buscarTMDB(lista) {
+        const vids = lista.filter(L.ehVideo);
+        if (!vids.length) return S.aviso('Nenhum vídeo entre os marcados.', 'ruim');
+        if (!S.completar || !(S.temTmdb && S.temTmdb())) return S.aviso('Ponha a chave do TMDB em 🔑 Chaves (no topo da Studio) para buscar capas e sinopses.', 'ruim');
+        const chaves = [...new Set(vids.map(L.chaveTMDB))];
+        let feitas = 0, achou = 0;
+        for (const k of chaves) {
+            let dados = CACHE_TMDB.get(k);
+            if (dados === undefined) {
+                S.aviso(`🔎 TMDB: ${++feitas} de ${chaves.length}…`, 'ok');
+                try { const r = await S.completar(L.pedidoTMDB(vids.find(c => L.chaveTMDB(c) === k))); dados = L.dadosDoTMDB(r && r.item); } catch (e) { dados = null; }
+                CACHE_TMDB.set(k, dados);
+            }
+            if (!dados) continue;
+            achou++;
+            E.canais.forEach(c => { if (L.ehVideo(c) && L.chaveTMDB(c) === k) L.aplicarTMDB(c, dados); });   // todos os episódios da série de uma vez
+        }
+        salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        S.aviso(`🔎 TMDB: ${achou} de ${chaves.length} ${chaves.length === 1 ? 'título achado' : 'títulos achados'}${achou < chaves.length ? ' — arrume o título/série dos que faltaram (V) e tente de novo' : ''}.${SC.modo ? ' No Sidechain, marque "Buscar no TMDB" no envio para o robô fazer isso sozinho a cada rodada.' : ''}`, achou ? 'ok' : 'ruim');
+    }
+    function escolherNatureza(c) {
+        const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
+        if (!alvo.length) return S.aviso('Marque os itens primeiro.', 'ruim');
+        const j = janela(`<h3>O que ${alvo.length === 1 ? 'é este item' : 'são estes ' + alvo.length + ' itens'}?</h3>
+          <p class="le-dica">O Link Edit descobre sozinho pelo link e pelo nome. Troque se ele errou: o tipo muda as opções do painel e para onde o item pode ir.</p>
+          <div class="le-chips" style="gap:8px">${L.NATUREZAS.map(([k, ic, nome]) => `<button class="le-chip ${alvo.length === 1 && alvo[0].natureza === k ? 'on' : ''}" data-nat-v="${k}" style="padding:10px 14px">${ic} ${esc(nome)}</button>`).join('')}</div>
+          <div class="le-jan-botoes"><button class="le-bt" id="le-nat-auto">🔎 Detectar automático</button><button class="le-bt" data-fechar>Cancelar</button></div>`);
+        j.querySelectorAll('[data-nat-v]').forEach(b => { b.onclick = () => { fecharJanela(); editarVideo(alvo, { natureza: b.dataset.natV }); }; });
+        j.querySelector('#le-nat-auto').onclick = () => { fecharJanela(); detectarDeNovo(alvo); };
+    }
+    function abrirDadosVideo(c) {
+        const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
+        const vids = alvo.filter(L.ehVideo);
+        if (!vids.length) return S.aviso('Nenhum vídeo entre os marcados. Troque o tipo para Filme ou Episódio primeiro.', 'ruim');
+        const um = vids.length === 1 ? vids[0] : null, v = (um && um.video) || {};
+        const todosEp = vids.every(x => x.natureza === 'episodio');
+        const igual = (k) => { const vs = [...new Set(vids.map(x => (x.video || {})[k]))]; return vs.length === 1 ? vs[0] : undefined; };
+        const val = (k) => (um ? v[k] : igual(k));
+        const campo = (k, rot, tipo = 'text', extra = '') => `<label class="le-vd-campo"><span>${rot}</span><input class="le-campo" data-vd="${k}" type="${tipo}" value="${esc(val(k) != null ? val(k) : '')}" placeholder="${um ? '' : 'não mudar'}" ${extra}></label>`;
+        const sel = (k, rot, ops) => `<label class="le-vd-campo"><span>${rot}</span><select class="le-campo" data-vd="${k}">${um ? '' : '<option value="__">não mudar</option>'}${ops.map(([o, t]) => `<option value="${esc(o)}" ${val(k) === o || (!val(k) && !o && um) ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></label>`;
+        const j = janela(`<h3>🎬 Dados de vídeo ${um ? '— ' + esc(um.nome) : `— ${vids.length} vídeos`}</h3>
+          <p class="le-dica">É o que o Cartoonzine usa no catálogo. ${um ? 'Veio do nome do arquivo; arrume o que estiver errado.' : 'Campos em branco ficam como estão em cada um.'}</p>
+          <div class="le-vd-grade">
+            ${todosEp ? campo('serie', 'Série') : ''}
+            ${campo('titulo', todosEp ? 'Título do episódio' : 'Título')}
+            ${todosEp ? campo('temporada', 'Temporada', 'number', 'min="0" style="width:90px"') + (um ? campo('episodio', 'Episódio', 'number', 'min="0" style="width:90px"') : '') : ''}
+            ${campo('ano', 'Ano', 'number', 'min="1900" max="2100" style="width:100px"')}
+            ${sel('audio', 'Áudio', AUDIOS)}
+            ${sel('qualidade', 'Qualidade', [['', '—'], ['SD', 'SD'], ['HD', 'HD'], ['FHD', 'Full HD'], ['4K', '4K']])}
+            ${sel('colecao', 'Vai para', colsVideo().map(x => [x.id, (x.icone ? x.icone + ' ' : '') + x.nome]))}
+            ${campo('genero', 'Gênero')}
+          </div>
+          ${todosEp && !um ? '<label class="le-dica" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="le-vd-numerar"> Numerar os episódios na ordem da lista (1, 2, 3…)</label>' : ''}
+          <div class="le-jan-botoes"><button class="le-bt" id="le-vd-tmdb" title="Capa, banner, sinopse, gênero e nota">🔎 TMDB</button><button class="le-bt" id="le-vd-auto">🔎 Detectar automático</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-vd-ok">Salvar</button></div>`, 'media');
+        j.querySelector('#le-vd-auto').onclick = () => { fecharJanela(); detectarDeNovo(vids); };
+        j.querySelector('#le-vd-tmdb').onclick = () => { fecharJanela(); buscarTMDB(vids); };
+        j.querySelector('#le-vd-ok').onclick = () => {
+            const aj = {};
+            j.querySelectorAll('[data-vd]').forEach(el => {
+                const k = el.dataset.vd, x = el.value.trim();
+                if (x === '__' || (!um && x === '')) return;
+                aj[k] = ['temporada', 'episodio', 'ano'].includes(k) ? (x === '' ? '' : +x) : x;
+            });
+            fecharJanela();
+            const num = j.querySelector('#le-vd-numerar');
+            if (num && num.checked) vids.forEach((x, i) => editarVideo([x], Object.assign({}, aj, { episodio: i + 1 })));
+            else editarVideo(vids, aj);
+            S.aviso(vids.length === 1 ? 'Dados do vídeo salvos.' : `${vids.length} vídeos atualizados.`, 'ok');
+        };
+    }
+
+    // ================================================================ 🖱️ MENU DE CONTEXTO (botão direito na tabela)
+    // Botão direito numa linha: se ela não está marcada, marca só ela; o menu age sobre TODOS os marcados.
+    // Teclado: tecla Menu ou Shift+F10 abre o menu para os marcados (ou o canal do visualizador).
+    function fecharMenu() { const m = raiz && raiz.querySelector('.le-menu'); if (m) m.remove(); }
+    function abrirMenu(x, y, alvoId) {
+        fecharMenu();
+        if (alvoId && !E.sel.has(alvoId)) { E.sel.clear(); E.sel.add(alvoId); E.ancora = alvoId; desenharTabela(); }
+        const lista = selecionados();
+        if (!lista.length) return;
+        const um = lista.length === 1 ? lista[0] : null;
+        const n = lista.length, qual = um ? `"${um.nome}"` : `${n} marcados`;
+        const itens = [];                                         // [rotulo, acao] | '-' (separador) | [titulo, null] (cabeçalho)
+        if (SC.modo) {
+            const e = SC.modo.envio, cols = colsSC();
+            itens.push(['🔀 Sidechain · ' + qual, null]);
+            itens.push(['Enviar para… (país, idioma, categoria)', () => escolherDestinoSC(lista)]);
+            cols.filter(c => !comPais(c)).forEach(c => { if (e.destino.colecao !== c.id) itens.push([`→ ${c.nome}`, () => desviarSC(lista, { colecao: c.id })]); });
+            itens.push(['🚫 Ignorar', () => desviarSC(lista, 'ignorar')], ['↩ Voltar ao padrão (' + L.destinoTexto(e.destino, cols) + ')', () => desviarSC(lista, null)]);
+            const g = um && String(um.grupo || '').trim();
+            if (g) {
+                itens.push('-');
+                itens.push([`Marcar todo o grupo "${g}"`, () => { E.canais.forEach(c => { if (String(c.grupo || '').trim() === g) E.sel.add(c.id); }); desenharTabela(); }]);
+                const r = L.rotaDe(um, e);
+                if (r.motivo === 'manual' && r.destino !== 'ignorar') itens.push([`⚙ Criar regra: grupo "${g}" → ${L.destinoTexto(r.destino, cols)}`, () => { e.regras.push({ campo: 'grupo', contem: g, para: r.destino }); SC.sujo = true; S.aviso('Regra criada: os próximos desse grupo já vão sozinhos (salve o envio ao concluir).', 'ok'); agendarTabela(); pintarBarraSC(); }]);
+            }
+            itens.push('-');
+        }
+        itens.push(['▶ Ver no visualizador', um ? () => { focar(um.id); } : null]);
+        itens.push(['⚡ Testar ' + (um ? '' : 'os ' + n), () => { if (podeTestar()) scan(lista, { rotulo: um ? um.nome : 'os marcados' }); else abrirScan(); }]);
+        if (!SC.modo) itens.push(['➜ Jogar na lista nova', () => { jogarNaLista(lista); E.sel.clear(); desenharTabela(); }]);
+        itens.push('-');
+        itens.push(['🧩 Tipo: canal, filme, episódio ou rádio… (Y)', () => escolherNatureza(um)]);
+        if (lista.some(L.ehVideo)) itens.push(['🎬 Dados de vídeo… (V)', () => abrirDadosVideo(um)]);
+        const vidsMenu = lista.filter(L.ehVideo);
+        if (vidsMenu.length && !SC.modo) colsVideo().forEach(cv => { if (!vidsMenu.every(x => x.video && x.video.colecao === cv.id)) itens.push([`🎬 Vai para ${cv.nome}`, () => editarVideo(vidsMenu, { colecao: cv.id })]); });
+        if (vidsMenu.length) itens.push(['🔎 Buscar no TMDB: capa, sinopse, nota', () => buscarTMDB(vidsMenu)]);
+        itens.push(['🔎 Detectar automático', () => detectarDeNovo(lista)]);
+        itens.push(['✎ Arrumar nomes…', () => abrirNomes()]);
+        itens.push('-');
+        itens.push(['🌐 Idioma e país…', () => escolherIdioma(um)]);
+        itens.push(['🏷 Categoria…', () => escolherCategoria(um)]);
+        itens.push(['📺 Guia de programação…', () => escolherGuia(um)]);
+        itens.push(['🖼 Logo…', um ? () => abrirLogo(um) : null]);
+        if (!um) itens.push(['🖼 Achar logos que faltam', () => acharLogosQueFaltam()]);
+        itens.push('-');
+        itens.push(['📋 Copiar ' + (um ? 'link' : 'os links'), () => copiarTexto(lista.map(c => c.url).join('\n'), um ? 'Link copiado.' : n + ' links copiados.')]);
+        itens.push(['📋 Copiar como M3U', () => copiarTexto(L.gerarM3U(lista), 'M3U copiado.')]);
+        if (!SC.modo) itens.push([E.f.quarentena ? '↩ Tirar da quarentena' : '⛔ Quarentena', () => quarentena(lista, !E.f.quarentena)]);
+        itens.push(['✕ Desmarcar', () => { E.sel.clear(); desenharTabela(); }]);
+        const m = document.createElement('div');
+        m.className = 'le-menu'; m.setAttribute('role', 'menu');
+        m.innerHTML = itens.map((it, i) => it === '-' ? '<hr>' : it[1] === null && i === 0 && SC.modo ? `<div class="le-menu-tit">${esc(it[0])}</div>` : `<button role="menuitem" data-menu="${i}" ${it[1] ? '' : 'disabled'}>${esc(it[0])}</button>`).join('');
+        raiz.appendChild(m);
+        const caixa = raiz.getBoundingClientRect(), w = m.offsetWidth, h = m.offsetHeight;
+        m.style.left = Math.max(4, Math.min(x - caixa.left, caixa.width - w - 6)) + 'px';
+        m.style.top = Math.max(4, Math.min(y - caixa.top, caixa.height - h - 6)) + 'px';
+        m.onclick = (ev) => { const b = ev.target.closest('[data-menu]'); if (!b) return; const f = itens[+b.dataset.menu][1]; fecharMenu(); if (f) f(); };
+        m.onkeydown = (ev) => {
+            const bs = [...m.querySelectorAll('button:not([disabled])')], i = bs.indexOf(document.activeElement);
+            if (ev.key === 'ArrowDown') { ev.preventDefault(); bs[(i + 1) % bs.length].focus(); }
+            else if (ev.key === 'ArrowUp') { ev.preventDefault(); bs[(i - 1 + bs.length) % bs.length].focus(); }
+            else if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); fecharMenu(); raiz.focus(); }
+        };
+        const prim = m.querySelector('button:not([disabled])'); if (prim) prim.focus({ preventScroll: true });
+    }
+
     // ---------------------------------------------------------------- eventos
     function selecionados() { return E.canais.filter(c => E.sel.has(c.id)); }
     let tecladoLigado = false;
@@ -2125,13 +2509,14 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-sair').onclick = () => { if (SC.modo) sairModoSC(false); pararVideo(); if (window.CZStudio && window.CZStudio.irParaColecoes) window.CZStudio.irParaColecoes(); else location.hash = ''; };
         $('#le-assets').onclick = () => abrirAssets();
         $('#le-importar').onclick = () => abrirImportarLista();
-        $('#le-receitas').onclick = () => abrirReceitas(RC.atual && RC.atual.id ? RC.atual.id : undefined);
         $('#le-sidechain').onclick = () => (SC.modo ? sairModoSC(true) : abrirSidechain(SC.atual || undefined));
         pintarBarraSC();
         if (S.ler && !SC.envios) lerSidechain().catch(() => {}); else pintarAvisoSC();
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };
-        $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });
+        $('#le-corpo').addEventListener('scroll', () => { fecharMenu(); requestAnimationFrame(pintarJanela); }, { passive: true });
+        $('#le-corpo').addEventListener('contextmenu', (ev) => { const l = ev.target.closest('.le-linha'); if (!l) return; ev.preventDefault(); abrirMenu(ev.clientX, ev.clientY, l.dataset.id); });
+        raiz.addEventListener('mousedown', (ev) => { if (!ev.target.closest('.le-menu')) fecharMenu(); });
         $('#le-sel-todos').onclick = () => { const todos = E.visiveis.every(c => E.sel.has(c.id)); E.visiveis.forEach(c => (todos ? E.sel.delete(c.id) : E.sel.add(c.id))); desenharTabela(); };
         $('#le-sel-vivos').onclick = () => { E.visiveis.forEach(c => { if (c.teste && /vivo|lento|pede-ua/.test(c.teste.status)) E.sel.add(c.id); }); desenharTabela(); };
         $('#le-scan').onclick = () => abrirScan();
@@ -2146,6 +2531,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         raiz.querySelectorAll('[data-baixar]').forEach(b => { b.onclick = () => pedirNomeEBaixar(b.dataset.baixar); });
         $('#le-cab-todos').onclick = marcarTodos;
         $('#le-logos').onclick = acharLogosQueFaltam;
+        $('#le-series').onclick = abrirSeries;
+        $('#le-nomes').onclick = abrirNomes;
         $('#le-guias').onclick = () => ligarGuiasAuto();
         $('#le-ajuda').onclick = mostrarAtalhos;
         $('#le-mudo').onclick = () => { const v = $('#le-video'); mudarSom({ mudo: !(v ? v.muted : E.som.mudo), vol: !E.som.vol ? 0.6 : undefined }); };
@@ -2155,6 +2542,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const t = e.target.closest('button, .le-linha');
             if (!t) return;
             if (t.dataset.tirarLista) return removerLista(t.dataset.tirarLista);
+            if (t.dataset.nat) { const cn = E.canais.find(c => c.id === t.dataset.nat); if (cn && !E.sel.has(cn.id)) E.ancora = cn.id; return escolherNatureza(cn); }
+            if (t.dataset.video) { const cv = E.canais.find(c => c.id === t.dataset.video); if (cv && !E.sel.has(cv.id)) E.ancora = cv.id; return abrirDadosVideo(cv); }
+            if (t.dataset.tmdb) { const ct = E.canais.find(c => c.id === t.dataset.tmdb); return ct && buscarTMDB([ct]); }
+            if (t.dataset.vfAuto) { const ca = E.canais.find(c => c.id === t.dataset.vfAuto); return ca && detectarDeNovo([ca]); }
             if (t.dataset.sel) return marcar(t.dataset.sel, e.shiftKey);
             if (t.dataset.catCanal) { const cc = E.canais.find(c => c.id === t.dataset.catCanal); if (cc && !E.sel.has(cc.id)) E.ancora = cc.id; return escolherCategoria(cc); }
             if (t.dataset.guia) { const cg = E.canais.find(c => c.id === t.dataset.guia); if (cg && !E.sel.has(cg.id)) E.ancora = cg.id; return escolherGuia(cg); }
@@ -2178,6 +2569,14 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (!raiz || !raiz.isConnected) return;
             if (e.target !== document.body && e.target !== document.documentElement && !raiz.contains(e.target)) return;
             if (raiz.querySelector('.le-jan-fundo')) { if (e.key === 'Escape') { e.preventDefault(); fecharJanela(); } return; }
+            if (raiz.querySelector('.le-menu')) { if (e.key === 'Escape') { e.preventDefault(); fecharMenu(); } return; }
+            if (e.key === 'ContextMenu' || (e.key === 'F10' && e.shiftKey)) {
+                e.preventDefault();
+                const alvo = E.sel.size ? null : E.foco;
+                const l = raiz.querySelector(`.le-linha[data-id="${CSS.escape(alvo || [...E.sel][0] || '')}"]`) || raiz.querySelector('#le-corpo');
+                const r = l.getBoundingClientRect();
+                return abrirMenu(r.left + 160, r.top + 20, alvo);
+            }
             if (/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) { if (e.key === 'Escape') e.target.blur(); return; }
             const c = E.canais.find(x => x.id === E.foco);
             const ctrl = e.ctrlKey || e.metaKey, k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
@@ -2198,12 +2597,14 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (ctrl && k === 's') { e.preventDefault(); pedirNomeEBaixar('m3u'); }
             else if (e.key === 'Escape') { if (E.sel.size) { E.sel.clear(); desenharTabela(); } }
             else if (!ctrl && k === 'x' && c) { e.preventDefault(); marcar(c.id, false); }
-            else if (!ctrl && k === 't') { e.preventDefault(); if (local()) scan(E.sel.size ? selecionados() : E.visiveis, { rotulo: E.sel.size ? 'os marcados' : 'os visíveis' }); else abrirScan(); }
+            else if (!ctrl && k === 't') { e.preventDefault(); if (podeTestar()) scan(E.sel.size ? selecionados() : E.visiveis, { rotulo: E.sel.size ? 'os marcados' : 'os visíveis' }); else abrirScan(); }
             else if (!ctrl && k === 'l' && c) { e.preventDefault(); abrirLogo(c); }
             else if (!ctrl && k === 'i' && (c || E.sel.size)) { e.preventDefault(); escolherIdioma(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'c' && (c || E.sel.size)) { e.preventDefault(); escolherCategoria(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'g' && (c || E.sel.size)) { e.preventDefault(); escolherGuia(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'b') { e.preventDefault(); abrirAssets(); }
+            else if (!ctrl && k === 'v' && (c || E.sel.size)) { e.preventDefault(); abrirDadosVideo(E.sel.size > 1 ? null : c); }
+            else if (!ctrl && k === 'y' && (c || E.sel.size)) { e.preventDefault(); escolherNatureza(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
             else if (!ctrl && (k === '-' || k === '_')) { e.preventDefault(); mudarSom({ vol: E.som.vol - 0.1 }); }
