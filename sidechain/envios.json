@@ -3,16 +3,91 @@
   "regrasGlobais": [],
   "envios": [
     {
-      "id": "envio-1",
-      "nome": "Envio 1",
-      "url": "",
+      "id": "ramys-filmes-e-series",
+      "nome": "Ramys Filmes e Séries",
+      "url": "https://raw.githubusercontent.com/Ramys/Iptv-Brasil-2026/refs/heads/master/Filmes-Series.m3u8",
       "listas": [],
       "ativo": true,
-      "tipoLista": "unica",
+      "tipoLista": "mista",
       "destino": {
         "colecao": ""
       },
-      "rotas": [],
+      "rotas": [
+        {
+          "id": "rmwr0vtll1",
+          "destino": {
+            "colecao": "series"
+          },
+          "grupos": [
+            "SÉRIES | NOVELAS",
+            "SÉRIES | TURCAS",
+            "SÉRIES | NETFLIX",
+            "SÉRIES | OUTRAS PRODUTORAS",
+            "SÉRIES | AMAZON PRIME VIDEO",
+            "SÉRIES | GLOBOPLAY",
+            "SÉRIES | MAX",
+            "SÉRIES | DORAMA",
+            "SÉRIES | DISNEY PLUS",
+            "SÉRIES | MEXICANAS",
+            "SÉRIES | PARAMOUNT",
+            "SÉRIES | DISCOVERY PLUS",
+            "SÉRIES | APPLE TV PLUS",
+            "SÉRIES | STAR PLUS",
+            "SÉRIES | DIRECTV",
+            "SÉRIES | SBT",
+            "SÉRIES | BRASIL PARALELO",
+            "SÉRIES | INDIANAS",
+            "SÉRIES | CLARO VIDEO",
+            "SÉRIES | LIONSGATE",
+            "SÉRIES | PORTUGUESAS",
+            "SÉRIES | PLUTOTV",
+            "SÉRIES | AMC PLUS"
+          ]
+        },
+        {
+          "id": "rmwr0vtll2",
+          "destino": {
+            "colecao": "filmes"
+          },
+          "grupos": [
+            "FILMES | Legendados",
+            "FILMES | Drama",
+            "FILMES | Comédia",
+            "FILMES | Ação",
+            "FILMES | Dramas Curtos",
+            "FILMES | 4K UHD",
+            "FILMES | Terror",
+            "FILMES | Lançamentos",
+            "FILMES | Nacionais",
+            "FILMES | Suspense",
+            "FILMES | Romance",
+            "FILMES | Fantasia",
+            "FILMES | Ficcao",
+            "FILMES | Crime",
+            "FILMES | Natalino",
+            "FILMES | Faroeste",
+            "FILMES | Guerra",
+            "FILMES | Religiosos",
+            "FILMES | Aventura",
+            "FILMES | Família",
+            "FILMES | Infantis",
+            "FILMES | Oscar 2025",
+            "Cinema",
+            "FILMES | Oscar 2024",
+            "FILMES | Animação"
+          ]
+        },
+        {
+          "id": "rmwr0vtll3",
+          "destino": {
+            "colecao": "animes"
+          },
+          "grupos": [
+            "SÉRIES | CRUNCHYROLL",
+            "SÉRIES | FUNIMATION NOW"
+          ]
+        }
+      ],
       "gruposNovos": "esperar",
       "modo": "auto",
       "soVivos": null,
@@ -33,6 +108,7 @@
       "desvios": {},
       "regras": [],
       "ajustes": {},
+      "gruposRevisados": {},
       "criadoEm": "2026-11-21T18:30:47.516Z"
     }
   ]
