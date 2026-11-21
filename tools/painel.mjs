@@ -73,6 +73,8 @@ export function criarServidor({ raiz = RAIZ } = {}) {
                         fs.writeFileSync(abs, m.conteudo);
                     }
                 }
+                // só conteúdo e config mudam o dist/; Sidechain, listas e assets não precisam de build
+                if (!mudancas.some(m => /^conteudo\//.test(m.caminho) || m.caminho === 'studio.config.json')) return json(res, 200, { ok: true });
                 const r = build({ raiz, log: () => {} });
                 return json(res, 200, { ok: true, publicados: r.index.colecoes.reduce((n, c) => n + c.publicados, 0), erros: r.totalErros });
             }
