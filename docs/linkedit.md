@@ -59,3 +59,28 @@ Aba **🎞️ Cópias** nas coleções do Studio: títulos com mais de um link; 
 
 Código: `core/linkedit-core.js` (leitura, limpeza, cópias, exportação — `test/linkedit.test.mjs`),
 `tools/linkedit-rede.mjs` (teste de canal, túnel — `test/linkedit-rede.test.mjs`), `painel/linkedit.js` (tela).
+
+## 🔗 Link Sidechain (envios que se mantêm sozinhos)
+Botão **🔗 Sidechain** no topo do Link Edit. Cada **envio** é uma lista boa que vive atualizando:
+- **Enviar para**: a coleção (Cartoons, Animes, Filmes, Séries, Desenhos 24H, Canais/TVzine, Rádios). No TVzine/rádios
+  escolha **país · idioma** e a **categoria**: o país vai na fonte do Cloud (`pais` + `paisExclusivo`), então o canal
+  **nunca** cai em outro país.
+- **🔀 Sidechain**: abre a lista no próprio editor (prévia, filtros, Ctrl/Shift+clique). Cada linha mostra para onde vai.
+  Marque e use **Enviar marcados para…** (Enter), **🚫 Ignorar** ou **↩ Voltar ao padrão**. O desvio é guardado pela
+  chave do item (tvg-id ou nome limpo + país): a lista pode mudar de ordem ou de link e ele continua no lugar certo.
+- **Regras** ("grupo contém *anime* → Animes"): escreva à mão ou aceite as sugestões 💡 que aparecem quando quase todo
+  um grupo foi desviado para o mesmo lugar. O que chegar de novo com aquele grupo já vai sozinho.
+- **Novidades**: 🤖 automático (o novo vai pela regra ou para o destino do envio) ou ✋ esperar eu revisar (o novo sem
+  regra fica ⏳ até você decidir). O botão mostra 🔔 quando o robô achou itens novos; no editor, filtros
+  🔔 Novos / ⏳ Esperando / Desviados e a etiqueta **NOVO** na linha.
+- **🧪 Simular** mostra na hora para onde vai cada coisa; **💾 Salvar** grava `sidechain/envios.json`.
+
+O robô (`.github/workflows/sidechain.yml` → `tools/sidechain.mjs`, a cada 6 h e logo depois de salvar) baixa cada
+envio, aplica desvios e regras, testa canais/24H/rádios (morto sai; vídeo só se o envio pedir), junta cópias de envios
+diferentes como reserva e publica `listas/sc-<coleção>[-<país>].json` (+ `.m3u`) e `listas/sidechain-fontes.json`.
+**Proteção**: se a lista não abrir, vier vazia ou encolher mais da metade de uma vez, usa a última versão boa e avisa.
+Relatório, histórico e o que cada envio já viu ficam em `sidechain/estado.json`.
+
+**No Cloud (uma vez só)**: em `sources.json` → `fontesDoStudio`, a entrada
+`{ "nome": "Cartoonzine Studio · Sidechain", "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sidechain-fontes.json", "colecoes": ["sidechain"] }`.
+Daí em diante toda lista nova do Sidechain entra no catálogo sozinha.
