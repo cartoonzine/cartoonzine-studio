@@ -84,3 +84,14 @@ Relatório, histórico e o que cada envio já viu ficam em `sidechain/estado.jso
 **No Cloud (uma vez só)**: em `sources.json` → `fontesDoStudio`, a entrada
 `{ "nome": "Cartoonzine Studio · Sidechain", "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sidechain-fontes.json", "colecoes": ["sidechain"] }`.
 Daí em diante toda lista nova do Sidechain entra no catálogo sozinha.
+
+## 🎬 Tipo do item e dados de vídeo
+Cada item ganha o **tipo**, descoberto sozinho pelo link e pelo nome: 📺 canal ao vivo · 🎬 filme/vídeo · 🎞 episódio de
+série · 📻 rádio (ícone na linha; clique ou **Y** para trocar). Filtro **Tipo de item** na esquerda.
+Vídeo mostra o que o DB usa, no lugar de categoria/idioma/guia: **série, temporada, episódio, título, ano, áudio
+(dublado/legendado/dual), qualidade, gênero e a coleção** (Cartoons, Animes, Filmes, Séries…). Detecta "S01E03",
+"1x03", "T1E3", "Temporada 1 Episódio 3", "Episódio 3", "(1999)", "Dublado", "1080p"… e sugere a coleção pelo grupo.
+**V** (ou o grupo/áudio da linha, ou "✎ Editar dados") abre o editor — com vários marcados, campo em branco não muda
+e dá para **numerar os episódios** na ordem da lista. **🔎 Detectar** volta ao automático. O que você arruma vence a
+detecção, vai no JSON exportado (`title`, `year`, `serie`, `season`, `episode`, `audios`, `qualidadeMax`), no
+importador de filmes/séries e, no Sidechain, fica guardado no envio (`ajustes`) e o robô repete a cada rodada.

@@ -24,7 +24,7 @@
         canais: [],            // todos os canais de todas as listas (c.lista = id da lista)
         sel: new Set(),        // ids selecionados
         foco: null,            // id do canal no visualizador
-        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), soVivos: false, semLogo: false, semGuia: false, semCategoria: false, duplicados: false, quarentena: false },
+        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), naturezas: new Set(), soVivos: false, semLogo: false, semGuia: false, semCategoria: false, duplicados: false, quarentena: false },
         nova: { nome: 'Lista nova', itens: [] },
         desfazer: [],
         scan: null,            // { total, feitos, parar, modo }
@@ -53,11 +53,11 @@
         try {
             const d = JSON.parse(localStorage.getItem(GUARDA) || 'null');
             if (!d) return;
-            E.listas = d.listas || []; E.canais = d.canais || []; E.nova = d.nova || E.nova; E.modoTeste = d.modoTeste || 'completo'; if (d.som) E.som = d.som;
+            E.listas = d.listas || []; E.canais = (d.canais || []).map(c => (c.natureza ? c : L.detectarVideo(c)));   // listas antigas: descobre o tipo E.nova = d.nova || E.nova; E.modoTeste = d.modoTeste || 'completo'; if (d.som) E.som = d.som;
         } catch (e) { /* */ }
     }
     function lembrar() {                      // antes de mudar algo: guarda como estava (Desfazer)
-        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual, c.tvgId || '', c.epgId || '', c.epgGuia || '', c.epgShift || 0, c.tvgIdOriginal, c.grupoSaida || '', !!c.categoriaManual]) }));
+        E.desfazer.push(JSON.stringify({ nova: E.nova, flags: E.canais.map(c => [c.id, !!c.quarentena, !!c.fixo, c.logo || '', c.idioma || '', c.pais || '', c.chave, !!c.idiomaManual, c.tvgId || '', c.epgId || '', c.epgGuia || '', c.epgShift || 0, c.tvgIdOriginal, c.grupoSaida || '', !!c.categoriaManual, c.natureza || '', !!c.naturezaManual, c.video ? JSON.stringify(c.video) : '', !!c.videoManual]) }));
         if (E.desfazer.length > 60) E.desfazer.shift();
     }
     function desfazer() {
@@ -68,7 +68,8 @@
         const m = new Map(d.flags.map(f => [f[0], f]));
         E.canais.forEach(c => { const f = m.get(c.id); if (f) { c.quarentena = f[1]; c.fixo = f[2]; if (f.length > 3) c.logo = f[3]; if (f.length > 6) { c.idioma = f[4]; c.pais = f[5]; c.chave = f[6]; c.idiomaManual = f[7]; }
             if (f.length > 8) { c.tvgId = f[8]; c.epgId = f[9] || undefined; c.epgGuia = f[10] || undefined; c.epgShift = f[11] || undefined; c.tvgIdOriginal = f[12]; if (!c.epgId) delete c.epgId; }
-            if (f.length > 13) { if (f[13]) { c.grupoSaida = f[13]; c.categoriaManual = f[14]; } else { delete c.grupoSaida; delete c.categoriaManual; } } } });
+            if (f.length > 13) { if (f[13]) { c.grupoSaida = f[13]; c.categoriaManual = f[14]; } else { delete c.grupoSaida; delete c.categoriaManual; } }
+            if (f.length > 15) { c.natureza = f[15] || c.natureza; c.naturezaManual = f[16]; if (f[17]) c.video = JSON.parse(f[17]); else delete c.video; c.videoManual = f[18]; } } });
         salvar(); desenharTudo();
     }
 
@@ -511,7 +512,7 @@
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
             ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
-            ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['?', 'esta ajuda']];
+            ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['Y', 'tipo do item: canal, filme, episódio ou rádio'], ['V', 'dados de vídeo: série, temporada, episódio, ano, áudio, qualidade, coleção'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
 
@@ -1744,8 +1745,20 @@
         const t = c.teste || {};
         const h = c.historico || [];
         const conf = h.length ? `${h.filter(Boolean).length} de ${h.length}` : '—';
+        const nat = NAT[c.natureza || 'canal'] || NAT.canal, v = c.video || {};
+        const blocoVideo = L.ehVideo(c) ? `<div class="le-ficha-video">
+            <div class="le-ficha-vt">${nat.ic} ${esc(nat.nome)}${c.videoManual ? ' <small>· arrumado à mão</small>' : ' <small>· detectado</small>'}</div>
+            <div class="le-ficha-grade">
+              ${c.natureza === 'episodio' ? `<div><span>Série</span><b>${esc(v.serie || '—')}</b></div><div><span>Temporada · Ep.</span><b>T${v.temporada != null ? v.temporada : '?'} · E${v.episodio != null ? v.episodio : '?'}</b></div>` : ''}
+              <div><span>${c.natureza === 'episodio' ? 'Título do ep.' : 'Título'}</span><b>${esc(v.titulo || '—')}</b></div><div><span>Ano</span><b>${esc(v.ano || '—')}</b></div>
+              <div><span>Áudio</span><b>${esc(ROT_AUDIO[v.audio] || v.audio || '—')}</b></div><div><span>Qualidade</span><b>${esc(v.qualidade || '—')}</b></div>
+              <div><span>Vai para</span><b>${esc(nomeCol(v.colecao))}</b></div>${v.genero ? `<div><span>Gênero</span><b>${esc(v.genero)}</b></div>` : ''}
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"><button class="le-bt p" data-video="${esc(c.id)}">✎ Editar dados (V)</button><button class="le-bt" data-nat="${esc(c.id)}">Trocar tipo</button><button class="le-bt" data-vf-auto="${esc(c.id)}" title="Lê de novo pelo nome e pelo link">🔎 Detectar</button></div>
+          </div>` : `<div class="le-ficha-vt" style="margin-top:2px">${nat.ic} ${esc(nat.nome)} <button class="le-idi" data-nat="${esc(c.id)}" title="Trocar o tipo (Y)">trocar</button></div>`;
         f.innerHTML = `
           <div class="le-ficha-nome">${esc(c.nome)}</div>
+          ${blocoVideo}
           <div class="le-ficha-sub">${esc(c.grupo || '')}${c.grupo ? ' · ' : ''}${esc((E.listas.find(l => l.id === c.lista) || {}).nome || '')}</div>
           <div class="le-ficha-grade">
             <div><span>Formato</span><b>${esc((t.tipo || c.formato || '—').toUpperCase())}</b></div>
@@ -1754,8 +1767,8 @@
             <div><span>Status</span><b style="color:${COR_STATUS[t.status || 'nao-testado']}">${esc(ROTULO_STATUS[t.status || 'nao-testado'])}</b></div>
             <div><span>Idioma</span><button class="le-idi${c.idioma ? '' : ' vazio'}" data-idioma="${esc(c.id)}" title="Trocar o idioma (I)">${esc(c.idioma || '+ idioma')}${c.pais ? ' ' + bandeira(c.pais) : ''}</button></div>
             <div><span>Confiança</span><b>${esc(conf)}</b></div>
-            <div><span>Categoria</span><button class="le-idi${c.grupoSaida ? '' : ' vazio'}" data-cat-canal="${esc(c.id)}" title="Trocar a categoria (C)">${esc(c.grupoSaida || '+ categoria')}</button></div>
-            <div><span>Guia</span><button class="le-idi${c.epgId ? '' : ' vazio'}" data-guia="${esc(c.id)}" title="${c.epgId ? esc(c.epgId) + ' — trocar (G)' : 'Ligar ao guia (G)'}">${c.epgId ? '✓ ' + esc(c.epgId) : '+ guia'}</button></div>
+            ${L.ehVideo(c) ? '' : `<div><span>Categoria</span><button class="le-idi${c.grupoSaida ? '' : ' vazio'}" data-cat-canal="${esc(c.id)}" title="Trocar a categoria (C)">${esc(c.grupoSaida || '+ categoria')}</button></div>`}
+            ${L.ehVideo(c) ? '' : `<div><span>Guia</span><button class="le-idi${c.epgId ? '' : ' vazio'}" data-guia="${esc(c.id)}" title="${c.epgId ? esc(c.epgId) + ' — trocar (G)' : 'Ligar ao guia (G)'}">${c.epgId ? '✓ ' + esc(c.epgId) : '+ guia'}</button></div>`}
             ${c.formato === 'arquivo' || t.tamanho ? `<div><span>Tamanho</span><b>${t.tamanho ? (t.tamanho >= 1073741824 ? (t.tamanho / 1073741824).toFixed(1).replace('.', ',') + ' GB' : t.tamanho >= 1048576 ? Math.round(t.tamanho / 1048576) + ' MB' : Math.max(1, Math.round(t.tamanho / 1024)) + ' KB') : '—'}</b></div>
             <div><span>Duração</span><b id="le-ficha-dur">—</b></div>` : ''}
           </div>
@@ -1908,6 +1921,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sj-meio{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:6px}
 .le-sj-barras div{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;font-size:12px;margin-top:5px}.le-sj-barras i{display:block;height:10px;border-radius:5px;background:var(--c);min-width:2px}.le-sj-barras b{color:#cbd5e1;font-family:'JetBrains Mono',monospace;font-size:11.5px}
 .le-sj-ult div{display:grid;grid-template-columns:16px minmax(0,1fr) minmax(0,1.3fr);gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid #141821}.le-sj-ult span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}.le-sj-ult small{color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-nat{margin-right:7px;padding:0 3px;border:0;border-radius:5px;background:none;font-size:14px;cursor:pointer;filter:saturate(.8)}.le-nat:hover,.le-nat.manual{background:#1d2430}
+.le-ficha-video{margin:6px 0;padding:10px;border-radius:10px;background:#0d1016;border:1px solid #2a3140}.le-ficha-vt{font:800 12.5px Inter,sans-serif;color:#67e8f9;margin-bottom:6px}.le-ficha-vt small{color:var(--s);font-weight:600}
+.le-jan.media{width:min(720px,100%)}.le-vd-grade{display:flex;flex-wrap:wrap;gap:10px 14px}.le-vd-campo{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--s)}.le-vd-campo .le-campo{height:34px;min-width:120px}
 .le-menu{position:absolute;z-index:40;min-width:230px;max-width:340px;max-height:80%;overflow:auto;padding:5px;border-radius:10px;background:#0d1016;border:1px solid var(--c);box-shadow:0 14px 40px rgba(0,0,0,.65)}
 .le-menu button{display:block;width:100%;text-align:left;padding:7px 10px;border:0;border-radius:6px;background:none;color:#e5e7eb;font:600 12.5px Inter,sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .le-menu button:hover,.le-menu button:focus{background:#102a31;color:#67e8f9;outline:none}.le-menu button[disabled]{opacity:.35;cursor:default;background:none;color:#e5e7eb}
@@ -2051,7 +2067,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <button class="le-chip ${E.f.duplicados ? 'on' : ''}" data-t="duplicados">Duplicados</button>
             <button class="le-chip ${E.f.quarentena ? 'on' : ''}" data-t="quarentena">Quarentena</button>
           </div>
-          ${grupo('Idioma', 'idiomas', C.idiomas)}${grupo('Tipo', 'tipos', C.tipos)}${grupo('País', 'paises', C.paises)}${grupo('Status', 'status', C.status, ROTULO_STATUS)}`;
+          ${grupo('Tipo de item', 'naturezas', C.naturezas, Object.fromEntries(L.NATUREZAS.map(([k, ic, n]) => [k, ic + ' ' + n])))}${grupo('Idioma', 'idiomas', C.idiomas)}${grupo('Tipo', 'tipos', C.tipos)}${grupo('País', 'paises', C.paises)}${grupo('Status', 'status', C.status, ROTULO_STATUS)}`;
     }
     let pedidoTabela = 0;
     function agendarTabela() { if (pedidoTabela) return; pedidoTabela = requestAnimationFrame(() => { pedidoTabela = 0; desenharTabela(); }); }
@@ -2086,10 +2102,12 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             h += `<div class="le-linha${c.id === E.foco ? ' foco' : ''}${naNova.has(c.chave) ? ' na-nova' : ''}" role="row" data-id="${esc(c.id)}" style="top:${i * ALTURA_LINHA}px">
               <button class="le-caixa ${E.sel.has(c.id) ? 'on' : ''}" data-sel="${esc(c.id)}" aria-label="Selecionar ${esc(c.nome)}" aria-pressed="${E.sel.has(c.id)}"></button>
               <button class="le-logo-c${logo ? '' : ' vazio'}" style="${logo}" data-logo="${esc(c.id)}" title="${logo ? 'Ver, baixar ou trocar o logo (L)' : 'Inserir logo (L)'}" aria-label="Logo de ${esc(c.nome)}"></button>
-              <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}">${SC.modo ? tagSC(c) : ''}${esc(c.nome)}</span>
-              <button class="le-g le-cat${c.grupoSaida ? ' ok' : ''}" data-cat-canal="${esc(c.id)}" title="${c.grupoSaida ? 'Categoria: ' + esc(c.grupoSaida) + ' (grupo na lista: ' + esc(c.grupo || '—') + ')' : 'Grupo na lista: ' + esc(c.grupo || '—') + ' — clique para escolher a categoria (C)'}">${esc(c.grupoSaida || c.grupo || c.tipo)}</button>
+              <span class="le-nome" title="${esc(c.nomeOriginal || c.nome)}"><button class="le-nat${c.naturezaManual ? ' manual' : ''}" data-nat="${esc(c.id)}" title="${esc((NAT[c.natureza || 'canal'] || NAT.canal).nome)} — trocar o tipo (Y)">${(NAT[c.natureza || 'canal'] || NAT.canal).ic}</button>${SC.modo ? tagSC(c) : ''}${esc(c.nome)}</span>
+              ${L.ehVideo(c) ? `<button class="le-g le-cat ok" data-video="${esc(c.id)}" title="Dados de vídeo: série, temporada, episódio, ano, áudio, qualidade e coleção (V)">${esc(nomeCol(c.video && c.video.colecao))}${c.natureza === 'episodio' && c.video ? ' · ' + esc(L.videoTexto(c).split(' · ').pop()) : c.video && c.video.ano ? ' · ' + c.video.ano : ''}</button>
+              <button class="le-idi${c.video && c.video.audio ? '' : ' vazio'}${c.videoManual ? ' manual' : ''}" data-video="${esc(c.id)}" title="Áudio do vídeo (V)">${esc(c.video && c.video.audio ? ROT_AUDIO[c.video.audio] || c.video.audio : '+ áudio')}</button>
+              <span class="le-guia" style="opacity:.3" title="Vídeo não tem guia de programação">—</span>` : `<button class="le-g le-cat${c.grupoSaida ? ' ok' : ''}" data-cat-canal="${esc(c.id)}" title="${c.grupoSaida ? 'Categoria: ' + esc(c.grupoSaida) + ' (grupo na lista: ' + esc(c.grupo || '—') + ')' : 'Grupo na lista: ' + esc(c.grupo || '—') + ' — clique para escolher a categoria (C)'}">${esc(c.grupoSaida || c.grupo || c.tipo)}</button>
               <button class="le-idi${c.idioma ? '' : ' vazio'}${c.idiomaManual ? ' manual' : ''}" data-idioma="${esc(c.id)}" title="${c.idioma ? 'Trocar o idioma (I)' : 'Sem idioma: clique para escolher (I)'}${c.pais ? ' · país ' + esc(c.pais) : ''}">${esc(c.idioma || '+ idioma')}</button>
-              <button class="le-guia${c.epgId ? ' ok' : ''}" data-guia="${esc(c.id)}" title="${c.epgId ? 'Guia: ' + esc(c.epgId) + ' (G)' : 'Ligar ao guia de programação (G)'}">${c.epgId ? '✓' : '+'}</button>
+              <button class="le-guia${c.epgId ? ' ok' : ''}" data-guia="${esc(c.id)}" title="${c.epgId ? 'Guia: ' + esc(c.epgId) + ' (G)' : 'Ligar ao guia de programação (G)'}">${c.epgId ? '✓' : '+'}</button>`}
               <span class="le-st" style="color:${COR_STATUS[st]}" title="${esc((c.teste && c.teste.motivo) || '')}">${esc(ROTULO_STATUS[st])}</span>
               <span class="le-mono" style="color:#9aa3ad">${c.teste && c.teste.ms && /vivo|lento|pede-ua/.test(c.teste.status) ? (c.teste.ms / 1000).toFixed(1).replace('.', ',') + ' s' : '—'}</span>
             </div>`;
@@ -2115,6 +2133,80 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         const p = $('#le-scan-parar'); if (p) p.onclick = () => { sc.parar = true; sc.pausado = false; };
         const pa = $('#le-scan-pausa'); if (pa) pa.onclick = () => pausarScan(!sc.pausado);
         const v = $('#le-scan-ver'); if (v) v.onclick = () => abrirScan();
+    }
+
+    // ================================================================ 🎬 TIPO DO ITEM E DADOS DE VÍDEO
+    // O Link Edit descobre sozinho o que é canal, rádio, filme ou episódio (L.detectarVideo). Para vídeo, o painel mostra
+    // o que o DB usa: título, série, temporada, episódio, ano, áudio, qualidade e a coleção (Cartoons, Animes, Filmes…).
+    const NAT = Object.fromEntries(L.NATUREZAS.map(([k, ic, nome]) => [k, { ic, nome }]));
+    const AUDIOS = [['', '—'], ['dublado', 'Dublado'], ['legendado', 'Legendado'], ['dual', 'Dual áudio'], ['original', 'Original']];
+    const ROT_AUDIO = Object.fromEntries(AUDIOS);
+    const colsVideo = () => ((S.config && S.config() || {}).colecoes || []).filter(c => c.tipo === 'video');
+    const nomeCol = (id) => { const c = ((S.config && S.config() || {}).colecoes || []).find(x => x.id === id); return c ? (c.icone ? c.icone + ' ' : '') + c.nome : id || '—'; };
+    /** Aplica a mudança nos itens; no Sidechain ela fica guardada no envio (o robô repete a cada rodada). */
+    function editarVideo(lista, aj) {
+        lembrar();
+        lista.forEach(c => {
+            L.ajustarVideo(c, aj);
+            if (SC.modo) { const k = L.chaveSC(c), e = SC.modo.envio; e.ajustes = e.ajustes || {}; e.ajustes[k] = Object.assign({}, e.ajustes[k], aj); SC.sujo = true; }
+        });
+        salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        if (SC.modo) pintarBarraSC();
+    }
+    function detectarDeNovo(lista) {
+        lembrar();
+        lista.forEach(c => { L.detectarVideo(c, true); if (SC.modo && SC.modo.envio.ajustes) { delete SC.modo.envio.ajustes[L.chaveSC(c)]; SC.sujo = true; } });
+        salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        S.aviso(`${lista.length === 1 ? 'Item detectado' : lista.length + ' itens detectados'} de novo (o que era manual voltou ao automático).`, 'ok');
+    }
+    function escolherNatureza(c) {
+        const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
+        if (!alvo.length) return S.aviso('Marque os itens primeiro.', 'ruim');
+        const j = janela(`<h3>O que ${alvo.length === 1 ? 'é este item' : 'são estes ' + alvo.length + ' itens'}?</h3>
+          <p class="le-dica">O Link Edit descobre sozinho pelo link e pelo nome. Troque se ele errou: o tipo muda as opções do painel e para onde o item pode ir.</p>
+          <div class="le-chips" style="gap:8px">${L.NATUREZAS.map(([k, ic, nome]) => `<button class="le-chip ${alvo.length === 1 && alvo[0].natureza === k ? 'on' : ''}" data-nat-v="${k}" style="padding:10px 14px">${ic} ${esc(nome)}</button>`).join('')}</div>
+          <div class="le-jan-botoes"><button class="le-bt" id="le-nat-auto">🔎 Detectar automático</button><button class="le-bt" data-fechar>Cancelar</button></div>`);
+        j.querySelectorAll('[data-nat-v]').forEach(b => { b.onclick = () => { fecharJanela(); editarVideo(alvo, { natureza: b.dataset.natV }); }; });
+        j.querySelector('#le-nat-auto').onclick = () => { fecharJanela(); detectarDeNovo(alvo); };
+    }
+    function abrirDadosVideo(c) {
+        const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
+        const vids = alvo.filter(L.ehVideo);
+        if (!vids.length) return S.aviso('Nenhum vídeo entre os marcados. Troque o tipo para Filme ou Episódio primeiro.', 'ruim');
+        const um = vids.length === 1 ? vids[0] : null, v = (um && um.video) || {};
+        const todosEp = vids.every(x => x.natureza === 'episodio');
+        const igual = (k) => { const vs = [...new Set(vids.map(x => (x.video || {})[k]))]; return vs.length === 1 ? vs[0] : undefined; };
+        const val = (k) => (um ? v[k] : igual(k));
+        const campo = (k, rot, tipo = 'text', extra = '') => `<label class="le-vd-campo"><span>${rot}</span><input class="le-campo" data-vd="${k}" type="${tipo}" value="${esc(val(k) != null ? val(k) : '')}" placeholder="${um ? '' : 'não mudar'}" ${extra}></label>`;
+        const sel = (k, rot, ops) => `<label class="le-vd-campo"><span>${rot}</span><select class="le-campo" data-vd="${k}">${um ? '' : '<option value="__">não mudar</option>'}${ops.map(([o, t]) => `<option value="${esc(o)}" ${val(k) === o || (!val(k) && !o && um) ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></label>`;
+        const j = janela(`<h3>🎬 Dados de vídeo ${um ? '— ' + esc(um.nome) : `— ${vids.length} vídeos`}</h3>
+          <p class="le-dica">É o que o Cartoonzine usa no catálogo. ${um ? 'Veio do nome do arquivo; arrume o que estiver errado.' : 'Campos em branco ficam como estão em cada um.'}</p>
+          <div class="le-vd-grade">
+            ${todosEp ? campo('serie', 'Série') : ''}
+            ${campo('titulo', todosEp ? 'Título do episódio' : 'Título')}
+            ${todosEp ? campo('temporada', 'Temporada', 'number', 'min="0" style="width:90px"') + (um ? campo('episodio', 'Episódio', 'number', 'min="0" style="width:90px"') : '') : ''}
+            ${campo('ano', 'Ano', 'number', 'min="1900" max="2100" style="width:100px"')}
+            ${sel('audio', 'Áudio', AUDIOS)}
+            ${sel('qualidade', 'Qualidade', [['', '—'], ['SD', 'SD'], ['HD', 'HD'], ['FHD', 'Full HD'], ['4K', '4K']])}
+            ${sel('colecao', 'Vai para', colsVideo().map(x => [x.id, (x.icone ? x.icone + ' ' : '') + x.nome]))}
+            ${campo('genero', 'Gênero')}
+          </div>
+          ${todosEp && !um ? '<label class="le-dica" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="le-vd-numerar"> Numerar os episódios na ordem da lista (1, 2, 3…)</label>' : ''}
+          <div class="le-jan-botoes"><button class="le-bt" id="le-vd-auto">🔎 Detectar automático</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-vd-ok">Salvar</button></div>`, 'media');
+        j.querySelector('#le-vd-auto').onclick = () => { fecharJanela(); detectarDeNovo(vids); };
+        j.querySelector('#le-vd-ok').onclick = () => {
+            const aj = {};
+            j.querySelectorAll('[data-vd]').forEach(el => {
+                const k = el.dataset.vd, x = el.value.trim();
+                if (x === '__' || (!um && x === '')) return;
+                aj[k] = ['temporada', 'episodio', 'ano'].includes(k) ? (x === '' ? '' : +x) : x;
+            });
+            fecharJanela();
+            const num = j.querySelector('#le-vd-numerar');
+            if (num && num.checked) vids.forEach((x, i) => editarVideo([x], Object.assign({}, aj, { episodio: i + 1 })));
+            else editarVideo(vids, aj);
+            S.aviso(vids.length === 1 ? 'Dados do vídeo salvos.' : `${vids.length} vídeos atualizados.`, 'ok');
+        };
     }
 
     // ================================================================ 🖱️ MENU DE CONTEXTO (botão direito na tabela)
@@ -2147,6 +2239,12 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         itens.push(['▶ Ver no visualizador', um ? () => { focar(um.id); } : null]);
         itens.push(['⚡ Testar ' + (um ? '' : 'os ' + n), () => { if (local()) scan(lista, { rotulo: um ? um.nome : 'os marcados' }); else abrirScan(); }]);
         if (!SC.modo) itens.push(['➜ Jogar na lista nova', () => { jogarNaLista(lista); E.sel.clear(); desenharTabela(); }]);
+        itens.push('-');
+        itens.push(['🧩 Tipo: canal, filme, episódio ou rádio… (Y)', () => escolherNatureza(um)]);
+        if (lista.some(L.ehVideo)) itens.push(['🎬 Dados de vídeo… (V)', () => abrirDadosVideo(um)]);
+        const vidsMenu = lista.filter(L.ehVideo);
+        if (vidsMenu.length && !SC.modo) colsVideo().forEach(cv => { if (!vidsMenu.every(x => x.video && x.video.colecao === cv.id)) itens.push([`🎬 Vai para ${cv.nome}`, () => editarVideo(vidsMenu, { colecao: cv.id })]); });
+        itens.push(['🔎 Detectar automático', () => detectarDeNovo(lista)]);
         itens.push('-');
         itens.push(['🌐 Idioma e país…', () => escolherIdioma(um)]);
         itens.push(['🏷 Categoria…', () => escolherCategoria(um)]);
@@ -2219,6 +2317,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const t = e.target.closest('button, .le-linha');
             if (!t) return;
             if (t.dataset.tirarLista) return removerLista(t.dataset.tirarLista);
+            if (t.dataset.nat) { const cn = E.canais.find(c => c.id === t.dataset.nat); if (cn && !E.sel.has(cn.id)) E.ancora = cn.id; return escolherNatureza(cn); }
+            if (t.dataset.video) { const cv = E.canais.find(c => c.id === t.dataset.video); if (cv && !E.sel.has(cv.id)) E.ancora = cv.id; return abrirDadosVideo(cv); }
+            if (t.dataset.vfAuto) { const ca = E.canais.find(c => c.id === t.dataset.vfAuto); return ca && detectarDeNovo([ca]); }
             if (t.dataset.sel) return marcar(t.dataset.sel, e.shiftKey);
             if (t.dataset.catCanal) { const cc = E.canais.find(c => c.id === t.dataset.catCanal); if (cc && !E.sel.has(cc.id)) E.ancora = cc.id; return escolherCategoria(cc); }
             if (t.dataset.guia) { const cg = E.canais.find(c => c.id === t.dataset.guia); if (cg && !E.sel.has(cg.id)) E.ancora = cg.id; return escolherGuia(cg); }
@@ -2276,6 +2377,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 'c' && (c || E.sel.size)) { e.preventDefault(); escolherCategoria(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'g' && (c || E.sel.size)) { e.preventDefault(); escolherGuia(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'b') { e.preventDefault(); abrirAssets(); }
+            else if (!ctrl && k === 'v' && (c || E.sel.size)) { e.preventDefault(); abrirDadosVideo(E.sel.size > 1 ? null : c); }
+            else if (!ctrl && k === 'y' && (c || E.sel.size)) { e.preventDefault(); escolherNatureza(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
             else if (!ctrl && (k === '-' || k === '_')) { e.preventDefault(); mudarSom({ vol: E.som.vol - 0.1 }); }
