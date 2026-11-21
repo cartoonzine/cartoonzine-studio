@@ -89,7 +89,7 @@ for (const envio of envios) {
     }
     const erro = erros.join(' · ');
     console.log(`\n🔗 ${envio.nome} (${envio.id}) → ${envio.tipoLista === 'mista' ? 'lista mista (' + (envio.rotas || []).length + ' rotas por grupo)' : envio.destino && envio.destino.colecao ? L.destinoTexto(envio.destino, cols) : 'só lista avulsa'} · ${canais.length} itens${mantido ? ` · ⚠ usando a última versão boa (${erro})` : ''}`);
-    canais.forEach(c => { const aj = envio.ajustes && envio.ajustes[L.chaveSC(c)]; if (aj) L.ajustarVideo(c, aj); });
+    canais.forEach(c => L.aplicarAjustesEnvio(c, envio));
     // testa só o que vai para canais/24H/rádios (ou tudo, se o envio pedir)
     const precisa = canais.filter(c => {
         if (!L.passaFiltros(c, envio)) return false;

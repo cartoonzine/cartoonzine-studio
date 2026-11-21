@@ -630,8 +630,27 @@
         return c;
     }
     /** Mudança feita à mão (no painel ou num envio do Sidechain): natureza e/ou campos do vídeo. */
+    // ---------- 🖼 FICHA (igual ao "Novo" das Coleções): capa, banner, fundo do topo, sinopse, banner da home… ----------
+    const CAMPOS_FICHA_SC = ['capa', 'banner', 'fundoImagem', 'posFundo', 'descricao', 'generos', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx', 'destaque'];
+    /** junta a ficha nova na antiga: '' / null apaga o campo */
+    function juntarFicha(antiga, nova) {
+        const f = Object.assign({}, antiga || {});
+        for (const k of CAMPOS_FICHA_SC) if (nova && k in nova) { const v = nova[k]; if (v === '' || v == null || v === false || (Array.isArray(v) && !v.length)) delete f[k]; else f[k] = v; }
+        return f;
+    }
+    /** a série do episódio (chave da ficha da série: vale para todos os episódios, inclusive os que chegarem depois) */
+    const chaveSerie = (c) => c.natureza === 'episodio' && c.video && c.video.serie ? norm(c.video.serie) : '';
+    /** Tudo o que você arrumou neste envio, aplicado no item: ajustes do item + ficha da série. */
+    function aplicarAjustesEnvio(c, envio) {
+        const aj = envio.ajustes && envio.ajustes[chaveSC(c)];
+        if (aj) ajustarVideo(c, aj);
+        const fs = envio.fichasSerie && chaveSerie(c) && envio.fichasSerie[chaveSerie(c)];
+        if (fs) c.fichaSerie = fs; else delete c.fichaSerie;
+        return c;
+    }
     function ajustarVideo(c, aj) {
         if (!aj) return c;
+        if (aj.ficha) { c.ficha = juntarFicha(c.ficha, aj.ficha); if (!Object.keys(c.ficha).length) delete c.ficha; }
         if (aj.nome) { c.nome = aj.nome; c.nomeManual = true; }
         if (aj.natureza) { c.natureza = aj.natureza; c.naturezaManual = true; }
         if (ehVideo(c)) {
@@ -751,7 +770,7 @@
     function colecoesSidechain(config) { return ((config && config.colecoes) || []).filter(c => SC_TIPOS.includes(c.tipo) && c.fonteCloud); }
     function envioPadrao(extra) {
         const e = Object.assign({ id: '', nome: 'Envio novo', url: '', listas: [], ativo: true, tipoLista: '', destino: { colecao: '' }, rotas: [], gruposNovos: 'esperar',
-            modo: 'auto', soVivos: null, filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, gruposRevisados: {}, criadoEm: '' }, extra || {});
+            modo: 'auto', soVivos: null, filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, gruposRevisados: {}, fichasSerie: {}, criadoEm: '' }, extra || {});
         e.filtros = Object.assign({ idiomas: [], tipos: [], paises: [], categorias: [], excluirTipos: ['Adulto'], busca: '', confiancaMin: 0 }, e.filtros || {});
         if (!e.tipoLista) e.tipoLista = (e.rotas || []).length ? 'mista' : 'unica';     // envios antigos: uma categoria
         // desvio igual ao destino do envio não muda nada (envios antigos chegaram a guardar centenas de milhares assim)
@@ -896,8 +915,7 @@
             const avulsa = envio.avulsa ? [] : null;
             const viver = envio.soVivos != null ? envio.soVivos : null;
             for (const c of canais) {
-                const aj = envio.ajustes && envio.ajustes[chaveSC(c)];
-                if (aj) ajustarVideo(c, aj);                    // tipo e dados de vídeo que você arrumou no Sidechain
+                aplicarAjustesEnvio(c, envio);                  // tipo, dados de vídeo e ficha que você arrumou no Sidechain
                 if (!passaFiltros(c, envio)) { rel.filtrados++; continue; }
                 const r = rotaDe(c, envio);
                 if (avulsa && r.destino !== 'ignorar') {        // lista avulsa (M3U/JSON para outros players): tudo o que passou nos filtros
@@ -1230,6 +1248,20 @@
                 if (d.classificacao) o.age = d.classificacao;
                 if (!o.year && d.ano && c.natureza === 'filme') o.year = d.ano;
                 if (!o.genre && d.generos) o.genre = d.generos;
+                // 🖼 ficha arrumada à mão (a da série vale para todos os episódios; a do item manda por cima)
+                const f = Object.assign({}, c.fichaSerie, c.ficha);
+                if (f.capa) o.thumb = f.capa;
+                if (f.banner) o.bannerThumb = f.banner;
+                if (f.descricao) o.desc = f.descricao;
+                if (f.generos && f.generos.length) o.genre = f.generos;
+                if (f.classificacao) o.age = f.classificacao;
+                if (f.bannerLogo) { o.logo = f.bannerLogo; o.bannerlogo = f.bannerLogo; }
+                if (f.bannerVideo) o.preview = f.bannerVideo;
+                if (f.bannerSkin) o.bannerSkin = f.bannerSkin;
+                if (f.bannerFx) o.bannerFx = f.bannerFx;
+                if (f.fundoImagem === 'banner') o.bgImg = 'banner';
+                if (Number.isFinite(+f.posFundo) && f.posFundo !== '') o.bgPosY = Math.max(0, Math.min(100, Math.round(+f.posFundo)));
+                if (f.destaque) o.destaque = true;
                 delete o.tvgId; delete o.epg; delete o.tvgShift;
             }
             return o;
@@ -1248,6 +1280,7 @@
         arvoreSeries, mapaStudio, jaNaStudio, arrumarNome,
         chaveTMDB, pedidoTMDB, dadosDoTMDB, aplicarTMDB,
         NATUREZAS, analisarVideo, naturezaDe, ehVideo, colecaoVideo, detectarVideo, ajustarVideo, videoTexto,
+        CAMPOS_FICHA_SC, juntarFicha, chaveSerie, aplicarAjustesEnvio,
         SEM_GRUPO, grupoDe, mapaGrupos, sugerirGrupo, analisarGrupos, aplicarSugestoes, moverGrupo,
         colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')

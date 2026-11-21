@@ -204,3 +204,23 @@ test('migração: envio antigo vira "uma categoria" e os desvios iguais ao desti
     assert.deepEqual(Object.keys(e.desvios).sort(), ['fora', 'outro']);
     assert.equal(L.envioPadrao({ rotas: [{ destino: { colecao: 'filmes' }, grupos: ['A'] }] }).tipoLista, 'mista');
 });
+
+test('🖼 ficha: a do item e a da série (vale para episódio que chegar depois) saem no JSON do Cloud', () => {
+    const cs = L.lerLista(MISTA, 't').canais;
+    const e = L.envioPadrao({ id: 'fx', tipoLista: 'mista' });
+    L.aplicarSugestoes(e, L.analisarGrupos(cs, e, L.colecoesSidechain(cfgMista)));
+    const matrix = cs.find(c => /Matrix/.test(c.nome));
+    e.ajustes[L.chaveSC(matrix)] = { ficha: { capa: 'https://i/matrix.jpg', fundoImagem: 'banner', banner: 'https://i/mb.jpg', posFundo: 20, destaque: true } };
+    const lost = cs.find(c => /Lost/.test(c.nome));
+    e.fichasSerie[L.chaveSerie(lost)] = { descricao: 'Ilha misteriosa.', posFundo: 75 };
+    const novoEp = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="Séries | Drama",Lost S01E02\nhttp://v/lost2.mp4\n', 't').canais;
+    const { saidas } = L.montarSidechain([{ envio: e, canais: cs.concat(novoEp) }], cfgMista);
+    const fil = JSON.parse(L.gerarJSON(saidas.find(s => s.chave === 'sc-filmes').itens)).find(i => /Matrix/.test(i.title));
+    assert.equal(fil.thumb, 'https://i/matrix.jpg'); assert.equal(fil.bannerThumb, 'https://i/mb.jpg');
+    assert.equal(fil.bgImg, 'banner'); assert.equal(fil.bgPosY, 20); assert.equal(fil.destaque, true);
+    const eps = JSON.parse(L.gerarJSON(saidas.find(s => s.chave === 'sc-series').itens));
+    assert.equal(eps.length, 2);
+    assert.ok(eps.every(i => i.desc === 'Ilha misteriosa.' && i.bgPosY === 75));
+    // apagar campo: '' tira
+    assert.deepEqual(L.juntarFicha({ capa: 'x', descricao: 'y' }, { capa: '' }), { descricao: 'y' });
+});
