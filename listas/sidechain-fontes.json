@@ -1,0 +1,11 @@
+[
+  {
+    "nome": "Filmes (Studio) · Sidechain pt-BR",
+    "tipo": "vod_json",
+    "prefixoId": "VOD_STU_SCPTBR",
+    "targetCategory": "Filmes",
+    "_colecao": "sidechain",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sc-filmes.json",
+    "idioma": "pt-BR"
+  }
+]
