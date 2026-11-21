@@ -13,10 +13,10 @@
     "Esporte",
     "Esporte / Skate"
   ],
-  "console": "web-xbox360",
-  "licenca": "nao-verificada",
+  "console": "web-fangames",
+  "licenca": "livre",
   "jogadores": 1,
-  "_rascunho": true,
+  "fundoImagem": "banner",
   "_origem": "auto:Ultimate Catalog of Web Game Ports",
   "_completadoEm": "2026-11-11",
   "_ssEm": "2026-11-18",
