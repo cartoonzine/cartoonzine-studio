@@ -7,6 +7,9 @@
   "tmdb": "movie/3059",
   "imdb": "tt0006864",
   "notaImdb": 7.6,
+  "notaTmdb": 7.1,
+  "popularidade": 2.4,
+  "duracao": 197,
   "votosImdb": 18184,
   "capa": "https://archive.org/services/img/Intolerance",
   "banner": "https://image.tmdb.org/t/p/w1280/5s5Vau1tCvoQaaTTTGk4Qux8CcH.jpg",
@@ -20,7 +23,8 @@
     "D.W. Griffith"
   ],
   "destaque": true,
+  "bannerLogo": "https://image.tmdb.org/t/p/w500/jkCacSdG9zDTUMVeTEzAnnMYn5k.png",
   "destaqueOrdem": 2,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-01"
+  "_completadoEm": "2026-11-15"
 }

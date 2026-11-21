@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-02T20:15:27.153Z",
+  "geradoEm": "2026-11-21T06:04:52.279Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -31,7 +31,7 @@
       "nome": "Desenhos 24 Horas",
       "tipo": "canal24h",
       "app": "cartoonzine",
-      "publicados": 0,
+      "publicados": 2,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/desenhos-24h.json",
@@ -43,7 +43,7 @@
       "nome": "YouToon",
       "tipo": "canal24h",
       "app": "cartoonzine",
-      "publicados": 1057,
+      "publicados": 1059,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/youtoon.json",
@@ -70,7 +70,7 @@
       "nome": "Filmes (torrent)",
       "tipo": "video",
       "app": "cartoonzine",
-      "publicados": 59,
+      "publicados": 60,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/filmes-torrent.json"
@@ -106,14 +106,18 @@
       "nome": "Canais (TVzine)",
       "tipo": "canal",
       "app": "tvzine",
-      "publicados": 0,
+      "publicados": 6,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.m3u",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais/pais/br.m3u",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais/pais/br.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais/paises.json"
       ],
-      "porPais": {}
+      "porPais": {
+        "BR": 6
+      }
     },
     {
       "id": "bookzine",
@@ -132,7 +136,7 @@
       "nome": "Jogos Retrô",
       "tipo": "jogo",
       "app": "cartoonzine/emulator",
-      "publicados": 0,
+      "publicados": 91,
       "comErro": 0,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/arcade.json",
@@ -159,6 +163,7 @@
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/colecovision.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/amiga.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/msdos.json",
+        "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/pcclassics.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/flash.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/ps1.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/3do.json",
@@ -203,7 +208,8 @@
         "odyssey2": 0,
         "colecovision": 0,
         "amiga": 0,
-        "msdos": 0,
+        "msdos": 91,
+        "pcclassics": 0,
         "flash": 0,
         "ps1": 0,
         "3do": 0,
@@ -229,8 +235,8 @@
       "nome": "Jogos Web",
       "tipo": "jogo",
       "app": "cartoonzine/emulator (cartucho web)",
-      "publicados": 17,
-      "comErro": 0,
+      "publicados": 49,
+      "comErro": 2,
       "arquivos": [
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/web-fangames.json",
         "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/jogos/web-indie.json",
@@ -267,28 +273,28 @@
       ],
       "porConsole": {
         "web-fangames": 0,
-        "web-indie": 4,
-        "web-remakes": 3,
-        "web-pc": 1,
+        "web-indie": 7,
+        "web-remakes": 5,
+        "web-pc": 2,
         "web-n64": 0,
         "web-gamecube": 0,
         "web-wii": 0,
         "web-switch": 0,
         "web-dreamcast": 0,
-        "web-dos": 3,
-        "web-windows": 2,
+        "web-dos": 7,
+        "web-windows": 21,
         "web-xbox360": 0,
         "web-xboxone": 0,
         "web-xboxseries": 0,
         "web-xbox": 0,
         "web-ps1": 0,
-        "web-ps2": 0,
-        "web-psp": 0,
+        "web-ps2": 1,
+        "web-psp": 1,
         "web-ps4": 0,
         "web-ps3": 0,
         "web-android": 0,
         "web-ios": 0,
-        "web-arcade": 3,
+        "web-arcade": 4,
         "web-navegador": 0,
         "web-java": 0,
         "web-mobile": 0,

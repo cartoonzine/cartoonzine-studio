@@ -1,0 +1,21 @@
+{
+  "nome": "celeste",
+  "links": [
+    "https://degloved.net/games/public/gms/celeste/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--celeste--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--celeste--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--celeste--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--celeste--video.mp4",
+  "descricao": "A simple, though somewhat challenging platformer with 8 levels.",
+  "ano": 2018,
+  "generos": [
+    "Plataforma"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 195244,
+  "_ssPreviaEm": "2026-11-14"
+}

@@ -3,11 +3,19 @@
   "links": [
     "https://joncodeofficial.github.io/gta-vice-city-wasm/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1708d3d39aa496d7afcd8aa682b5342b.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/0832a7d7b55992260bda1b1c6b2fd924.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/faacdb296a134b8de87cf0f9fdaead7f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/joncodeofficial/gta-vice-city-wasm",
   "descricao": "Port para navegador · joncodeofficial.github.io",
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "fundoImagem": "banner",
+  "posFundo": 0,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 0
 }

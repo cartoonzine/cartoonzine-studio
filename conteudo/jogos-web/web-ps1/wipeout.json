@@ -3,11 +3,25 @@
   "links": [
     "https://phoboslab.org/wipegame/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--wipeout--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--wipeout--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--wipeout--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--wipeout--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--wipeout--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/phoboslab/wipeout-rewrite",
-  "descricao": "Port para navegador · phoboslab.org",
+  "descricao": "Wipeout é um jogo de corridas futuristas ambientado no ano de 2052. Correndo para uma de quatro equipas, o jogador compete na F3600 Anti-Gravity Racing League em seis pistas. O piloto de hovercraft de cada equipa tem classificações diferentes em velocidade, aceleração e viragem. Para além das corridas de alta velocidade, há também tiroteios no jogo, com diferentes tipos de recolha de armas como foguetes e minas disponíveis, úteis para abrandar os adversários. Os escudos também podem ser levantados e podem bloquear os efeitos das armas. Existem modos de campeonato, corrida única e contra-relógio. Ganhar o campeonato na classe regular Venom desbloqueia a classe Rapier, onde a embarcação é mais rápida e as pistas têm um aspecto ligeiramente diferente. Há também um modo de dois jogadores onde dois adversários podem correr e disparar um contra o outro.",
+  "ano": 1995,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-ps1",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-15",
+  "_ssEm": "2026-11-16",
+  "_ssId": 19501,
+  "_ssPreviaEm": "2026-11-16"
 }

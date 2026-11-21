@@ -1,0 +1,24 @@
+{
+  "nome": "Monopoly Deluxe",
+  "links": [
+    "https://archive.org/details/msdos_Monopoly_Deluxe_1992"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--monopoly-deluxe--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Monopoly_Deluxe_1992",
+  "descricao": "Jogo de MS-DOS · Strategy/Tactics, Board Game (1992), de Virgin Games. Do acervo do Internet Archive.",
+  "ano": 1992,
+  "generos": [
+    "Strategy/Tactics",
+    "Board Game"
+  ],
+  "editora": "Virgin Games",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 157456,
+  "_ssPreviaEm": "2026-11-18"
+}

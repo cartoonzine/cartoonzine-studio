@@ -1,0 +1,25 @@
+{
+  "nome": "Where in the World is Carmen Sandiego",
+  "links": [
+    "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_1985"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_1985",
+  "descricao": "Jogo de MS-DOS · Adventure, Puzzle (1985), de Brøderbund Software. Do acervo do Internet Archive.",
+  "ano": 1985,
+  "generos": [
+    "Adventure",
+    "Puzzle"
+  ],
+  "editora": "Brøderbund Software",
+  "console": "msdos",
+  "jogadores": 1,
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 156092,
+  "_ssPreviaEm": "2026-11-18"
+}

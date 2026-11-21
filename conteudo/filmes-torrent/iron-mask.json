@@ -7,6 +7,9 @@
   "tmdb": "movie/79761",
   "imdb": "tt0020030",
   "notaImdb": 7,
+  "notaTmdb": 6.7,
+  "popularidade": 1.9,
+  "duracao": 103,
   "votosImdb": 1587,
   "capa": "https://archive.org/services/img/iron_mask",
   "banner": "https://image.tmdb.org/t/p/w1280/l6dxdIQMsqTzKlWBCVk3AdB7Dv5.jpg",
@@ -18,7 +21,8 @@
     "romance"
   ],
   "destaque": true,
+  "bannerLogo": "https://image.tmdb.org/t/p/w500/2uwjZfzD4yVMeRfuVLkQtWAng4w.png",
   "destaqueOrdem": 3,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-01"
+  "_completadoEm": "2026-11-15"
 }

@@ -3,10 +3,22 @@
   "links": [
     "https://truffled.lol/games/castle/index.html"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/1b0d89e02b7f1b1be28c36133af9ed96.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/b20ec67004afcac446e4ee3294b9695c.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/207437c32819716d0ecb62c7ffcee978.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · truffled.lol",
+  "descricao": "Castle Crashers is a beat'em all game for four players in multiplayer on Xbox 360. An arena mode allows human opponents to fight each other. Each character can unlock over 40 different weapons, adopt animal companions, go treasure hunting and spend their gold in a multitude of shops with various contents.",
+  "ano": 2008,
+  "generos": [
+    "Briga de rua"
+  ],
   "console": "web-xbox360",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 16154,
+  "_ssPreviaEm": "2026-11-18"
 }

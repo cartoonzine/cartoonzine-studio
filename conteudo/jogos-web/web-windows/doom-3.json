@@ -3,11 +3,25 @@
   "links": [
     "https://gn-math.dev/?id=626"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/4c6f6719bec50eb89ca7b85756c3d27c.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/4299f209da83da82b711f1d631cc607b.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/f80bf05527157a8c2a7bb63b22f49aaa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/doom-3",
-  "descricao": "Port para navegador · gn-math.dev",
+  "descricao": "Doom 3 is set on Mars in 2145, where a military-industrial conglomerate has set up a scientific research facility into fields such as teleportation, biological research, and advanced weapons design. The teleportation experiments open a gateway to Hell, resulting in a catastrophic invasion of the Mars base by demons. The player controls a space marine who fights through the base to stop the demons attacking Mars and reaching Earth.",
+  "ano": 2004,
+  "generos": [
+    "Tiro",
+    "Aventura",
+    "Aventura / Survival Horror"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 292428,
+  "_ssPreviaEm": "2026-11-17"
 }

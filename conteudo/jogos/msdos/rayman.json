@@ -1,0 +1,24 @@
+{
+  "nome": "Rayman",
+  "links": [
+    "https://archive.org/details/msdos_Rayman_1995"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--rayman--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Rayman_1995",
+  "descricao": "Jogo de MS-DOS · Action, Platform (1995), de Ubi Soft Montpellier SAS. Do acervo do Internet Archive.",
+  "ano": 1995,
+  "generos": [
+    "Action",
+    "Platform"
+  ],
+  "editora": "Ubi Soft Montpellier SAS",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 188399,
+  "_ssPreviaEm": "2026-11-18"
+}

@@ -1,0 +1,22 @@
+{
+  "nome": "fish",
+  "links": [
+    "https://degloved.net/games/public/gms/fish/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fish--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fish--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fish--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fish--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--fish--previa.png",
+  "descricao": "Fish Dude é um jogo de ação. O jogador é &quot;Fish Dude&quot;, um peixe de tamanho médio em uma pequena área aquática. As Leis da Natureza são brutais: &quot;comer ou ser comido?. O jogador deve comer outros peixes menores e evitar inimigos mais fortes: peixes maiores e pássaros. Quando nosso herói, Fish Dude, comer muitos peixes, ele ficará mais forte e poderá defender-se com sucesso contra peixes maiores. O jogador tem apenas 3 vidas. Perdê-las todas resulta em &quot;game over&quot;.",
+  "ano": 1991,
+  "generos": [
+    "Jogo casual"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 3686,
+  "_ssPreviaEm": "2026-11-14"
+}

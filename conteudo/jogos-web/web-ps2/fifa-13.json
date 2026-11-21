@@ -3,10 +3,25 @@
   "links": [
     "https://fifa13.online/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-13--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-13--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-13--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-13--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-13--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · fifa13.online",
+  "descricao": "FIFA 13 on the Playstation 2 doesn't have the same features as other console versions, it still has the FIFA 07 engine, and there's new commentary from Andy Townsend (Clive Tyldesley's commentary is again the same as in FIFA 07), and the only new updates are the latest transfers to each club and updated kits.\r\n\r\nGame modes include Kick off (a simple friendly match), Be a Pro/Be a Keeper mode where the player can play as a single footballer or as a goalie), Career mode offers you to be manager, Player/Manager or just a player of a team. Accomplishment Mode is where you have to win trophies/scenarios to unlock fan shop points (in the fan shop you can unlock new stadiums, teams, footballs and third kits). There's also the regular season and tournament modes plus a Practice Mode.",
+  "ano": 2012,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 21880,
+  "_ssPreviaEm": "2026-11-16"
 }

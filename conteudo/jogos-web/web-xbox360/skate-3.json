@@ -3,10 +3,23 @@
   "links": [
     "http://skate.aaddpp.lol"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/cb5afcadcac972f1c6d743c96936ebe3.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c255c05246a081654a0267cbb725f5a7.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a5ae86de28cfea2be65951dbb04567ee.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · skate.aaddpp.lol",
+  "descricao": "Skate 3 on Xbox 360 is a relatively realistic skateboarding simulation. Explore the city of Port Carverton and its three distinct neighbourhoods: downtown, campus and industrial. Different types of challenges await you, such as races and competitions. You can also create your own skatepark and share your creations with other players.",
+  "ano": 2010,
+  "generos": [
+    "Esporte",
+    "Esporte / Skate"
+  ],
   "console": "web-xbox360",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 15988,
+  "_ssPreviaEm": "2026-11-18"
 }

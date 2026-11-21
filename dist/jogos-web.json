@@ -2,25 +2,53 @@
  "colecao": "jogos-web",
  "games": [
   {
-   "title": "-3",
-   "desc": "Port para navegador · gn-math.dev",
-   "studio": "jogos-web/web-indie/3",
-   "url": "https://gn-math.dev/?id=816",
-   "console": "web-indie",
+   "title": "Among Us",
+   "desc": "Among Us passa-se num universo de ficção científica. Cada jogador assume o papel de um dos membros da tripulação de uma nave espacial, cada um dos quais pode ser um membro da tripulação ou um impostor. O objetivo da tripulação é identificar os impostores e eliminá-los enquanto realizam tarefas na nave, enquanto o objetivo dos impostores é matar todos os membros da tripulação sem serem identificados.",
+   "year": 2018,
+   "genre": [
+    "Suspense",
+    "RPG"
+   ],
+   "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
+   "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
+   "logo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
+   "bgImg": "banner",
+   "bgPosY": 30,
+   "studio": "jogos-web/web-windows/among-us",
+   "url": "https://wasm.rip/files/amongus",
+   "thumb": "https://images.launchbox-app.com//3dc82a78-8ab3-45c0-8fcb-c3fd3b00cdbe.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//7c08ede9-be23-4a0b-8899-5b3b967c40e4.png",
+   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
+   "console": "web-windows",
+   "players": 8,
    "core": "web",
    "aparelhos": [
     "tv",
     "pc"
    ],
    "web": true,
-   "license": "livre",
-   "repo": "https://github.com/aukak/-3"
+   "engine": "WebAssembly",
+   "license": "livre"
   },
   {
-   "title": "3D Pinball for Windows - Space Cadet",
-   "desc": "Port para navegador · ksylvestre.itch.io",
-   "studio": "jogos-web/web-windows/3d-pinball-for-windows-space-cadet",
-   "url": "https://ksylvestre.itch.io/space-cadet-pinball",
+   "title": "Call of Duty: Black Ops Zombies",
+   "desc": "Call of Duty Zombies , também conhecido simplesmente como Zombies , é um modo de jogo recorrente nasérie Call of Duty de jogos de tiro em primeira pessoa publicados pela Activision . Os jogadores neste modo enfrentam uma horda infinita de zumbis e são forçados a sobreviver o máximo possível. Matar zumbis concede pontos aos jogadores, que podem ser usados ​​para obter armas mais poderosas e desbloquear novas áreas do mapa . As ondas de zumbis aumentam progressivamente em dificuldade, tornando-se mais rápidas e com mais vida. Recursos adicionais disponíveis para o jogador na maioria das versões do modo incluem \"Perk-a-Colas\", que podem aprimorar as habilidades dos jogadores, e uma máquina \"Pack-a-Punch\" que permite aprimorar as armas. Muitos mapas contêm segredos e missões com as quais os jogadores podem interagir e completar. Essas missões variam de aquelas que ativam músicas secretas a outras que progridem a história principal do modo Zombies.\n\nO modo foi originalmente introduzido em Call of Duty: World at War (2008), desenvolvido pela Treyarch . O conceito do modo Zumbis foi criado pelo designer da Treyarch, Jesse Snyder, que se baseou em um modo descartado para o jogo, no qual os jogadores se defenderiam contra soldados Aliados durante o desembarque na Normandia . Embora o modo quase tenha sido cancelado pelo chefe do estúdio, Mark Lamia, devido ao atraso na produção do jogo e aos riscos envolvidos, ele foi posteriormente incluído na versão final sob a condição de ser um recurso bônus desbloqueado após a conclusão da campanha. Mais tarde, o modo foi liberado para todos os jogadores e recebeu diversos novos mapas como conteúdo para download (DLC). Vários jogos futuros da série Call of Duty — principalmente títulos da sub-série Black Ops — apresentaram suas próprias versões do modo Zumbis, introduzindo novas mecânicas e dando continuidade à história principal da série. O modo foi apresentado em treze jogos da franquia Call of Duty , sendo sua aparição mais recente em Call of Duty: Black Ops 7 (2025).\n\nO modo Zumbis é um dos mais populares da série Call of Duty , sendo um dos principais motivos para muitos jogadores comprarem o jogo. Existem comunidades dedicadas ao modo, principalmente por conta de seus easter eggs, e jogos como Call of Duty: Black Ops III (2015) permaneceram populares cinco anos após o lançamento devido ao modo, mesmo com iterações posteriores. Duas versões independentes do modo Zumbis foram lançadas para dispositivos móveis: Call of Duty: World at War – Zombies (2009) e Call of Duty: Black Ops – Zombies (2011). Um jogo independente de Zumbis estava sendo desenvolvido pela Raven Software entre 2011 e 2012, antes de ser cancelado. Uma série de quadrinhos baseada no modo, escrita por Justin Jordan e publicada pela Dark Horse Comics , foi lançada a partir de fevereiro de 2016. Dois álbuns com a trilha sonora, contendo músicas da história do modo, foram lançados, especificamente em 2011 e 2013.",
+   "genre": [
+    "FPS",
+    "Ação",
+    "Tiro",
+    "Guerra"
+   ],
+   "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/4e714dc795dc50b932e2a837e3efc472.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/4e714dc795dc50b932e2a837e3efc472.png",
+   "bgImg": "banner",
+   "bgPosY": 81,
+   "studio": "jogos-web/web-windows/call-of-duty-black-ops-zombies",
+   "url": "https://vel.gg/bsz",
+   "thumb": "https://i5.walmartimages.com/seo/Call-of-Duty-Black-Ops-Zombie-Print-24-x-36-Poster_a1800d92-6378-4cce-b6d2-51d791a707e7.964a2a92b83978ac5a5d66e9446e393b.jpeg",
+   "bannerThumb": "https://cdn.mos.cms.futurecdn.net/6shBTwxAoEknpGcKq3DQZ5.jpg",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
@@ -28,15 +56,177 @@
     "pc"
    ],
    "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "Duke Nukem 3D",
+   "desc": "Alienígenas aterrissaram na Los Angeles futurista e cabe ao Duke acabar com eles e expulsá-los de lá. Após os primeiros jogos de plataforma com rolagem lateral, Duke Nukem 3D introduz a perspectiva em primeira pessoa à série e transforma o jogo em um shooter completo com gráficos 2.5D.\n\nO arsenal de Duke inclui pistolas, bombas caseiras, minas terrestres a laser, metralhadoras Nordenfelt, uma metralhadora giratória e vários lançadores de foguetes, além de seu poderoso pé para chutar os inimigos. O jogo apresenta um alto nível de interatividade. Muitos objetos no ambiente podem ser quebrados ou interagidos, como mesas de bilhar, máquinas de fliperama, vidros, interruptores de luz e câmeras de segurança. O protagonista também pode dar dólares para as strippers para que elas tirem a blusa.\n\nO personagem principal comenta regularmente os eventos por meio de frases de efeito. Há vinte e oito fases, divididas em três episódios, ambientadas em locais como ruas, uma igreja, uma estação espacial, uma vila japonesa, um campo de futebol e diversos cenários modernos. Os inimigos incluem principalmente alienígenas, humanos mutantes e policiais transformados em Policiais Porcos. Além de armas, Duke também tem acesso a kits médicos, esteroides para aumentar sua velocidade, visão noturna, botas de proteção, um holograma conhecido como \"holoduke\" e um jetpack para alcançar áreas mais altas. A maior parte da jogabilidade é voltada para a ação, mas também há diversos quebra-cabeças necessários para progredir ou acessar áreas secretas.\n\nO jogo inclui modo de jogo em rede através do protocolo IPX, para partidas de combate até a morte e jogos cooperativos.",
+   "year": 1996,
+   "genre": [
+    "FPS",
+    "Ação",
+    "Tiro"
+   ],
+   "destaque": true,
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--logo.png",
+   "bgImg": "banner",
+   "bgPosY": 14,
+   "studio": "jogos-web/web-dos/duke-nukem-3d-eduke32-wasm",
+   "url": "https://digitalcybersoft.github.io/eduke32-wasm/",
+   "thumb": "https://images.launchbox-app.com//7a658a61-8276-49cd-bdf4-b760f749ee5f.jpg",
+   "bannerThumb": "https://www.techspot.com/images2/news/bigimage/2026/01/2026-01-31-image-5.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--duke-nukem-3d--video.mp4",
+   "console": "web-dos",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
    "license": "livre",
-   "repo": "https://github.com/k4zmu2a/SpaceCadetPinball"
+   "controls": "gamepad",
+   "weight": "leve",
+   "repo": "https://github.com/digitalcybersoft/eduke32-wasm"
+  },
+  {
+   "title": "Gran Turismo 4",
+   "desc": "Gran Turismo está de volta com uma enorme variedade de carros, incluindo o Ford Modelo T, o Tank Car do Jay Leno e alguns dos famosos carros de Le Mans de todas as épocas. GT4 conta com pistas totalmente novas, incluindo o famoso Nürburgring, além de pistas em locais icônicos como Paris, o Grand Canyon e muitos outros. Há um novo Modo Foto em GT4, onde você pode tirar fotos de replays salvos ou durante a corrida e salvá-las no seu cartão de memória ou em um dispositivo de armazenamento USB. Há também um novo Modo B-Spec, onde você assume o papel de gerente de corrida, ou seja, deixa o computador fazer o trabalho, o que é útil para corridas de longa duração.",
+   "year": 2004,
+   "genre": [
+    "Corrida",
+    "Racing",
+    "simulador de carro"
+   ],
+   "destaque": true,
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--gran-turismo-4--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--gran-turismo-4--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--gran-turismo-4--logo.png",
+   "bgImg": "banner",
+   "bgPosY": 100,
+   "studio": "jogos-web/web-ps2/gran-turismo-4",
+   "url": "https://granturismo4.online/",
+   "thumb": "https://images.launchbox-app.com//5654012a-2918-4d54-b075-daf3532155e2.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//909470c2-dace-490e-b1f8-f9b911f0c1bc.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--gran-turismo-4--video.mp4",
+   "previewThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--gran-turismo-4--previa.png",
+   "console": "web-ps2",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
+  },
+  {
+   "title": "Stardew Valley",
+   "desc": "Stardew Valley é um videogame RPG de simulação desenvolvido por Eric \"ConcernedApe\" Barone. Os jogadores assumem o papel de um personagem que herda a fazenda dilapidada de seu falecido avô em um lugar conhecido como Stardew Valley. O jogo foi lançado para Windows em fevereiro de 2016 antes de ser portado para outras plataformas. Stardew Valley é aberto, permitindo aos jogadores cultivar, criar gado, pescar, cozinhar, minerar, forragear e socializar com os habitantes da cidade, incluindo a capacidade de casar e ter filhos. Ele permite que até quatro jogadores joguem online juntos.\n\nBarone desenvolveu Stardew Valley sozinho ao longo de quatro anos e meio. Ele foi fortemente inspirado pela série Story of Seasons e pelo jogo Harvest Moon, com acréscimos para resolver algumas das deficiências desses jogos. Ele usou isso como um exercício para melhorar suas próprias habilidades de programação e design de jogos. O estúdio britânico Chucklefish abordou Barone no meio do desenvolvimento com a oferta de publicar o jogo, permitindo que ele se concentrasse mais em completá-lo.\n\nStardew Valley foi citado como um dos maiores videogames de todos os tempos, com elogios direcionados à sua música, personagens e qualidades relaxantes. Yasuhiro Wada, o criador de Story of Seasons, também elogiou o jogo por reter a liberdade que entradas posteriores de sua série haviam perdido. O jogo foi um sucesso comercial, vendendo mais de 41 milhões de cópias até dezembro de 2024.",
+   "year": 2016,
+   "genre": [
+    "RPG",
+    "Simulação",
+    "role-playing"
+   ],
+   "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a15612aee1f0b2fdf1768df0d2688bd1.png",
+   "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256660296/movie_max.webm?t=1454099186",
+   "logo": "https://cdn2.steamgriddb.com/logo/a15612aee1f0b2fdf1768df0d2688bd1.png",
+   "bgImg": "banner",
+   "bgPosY": 100,
+   "studio": "jogos-web/web-windows/stardew-valley",
+   "url": "https://degloved.net/games/public/gms/stardew-valley/index.html",
+   "thumb": "https://images.launchbox-app.com//1f51c08a-3c0c-48ea-82a5-810454b95c87.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//ff60ab0c-64d5-491c-88de-932645577851.png",
+   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256660296/movie_max.webm?t=1454099186",
+   "console": "web-windows",
+   "players": 8,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "controls": "gamepad"
+  },
+  {
+   "title": "Taiko no Tatsujin",
+   "desc": "Acompanhe os carismáticos e coloridos tambores irmãos, Don-chan e Katsu-chan, em um universo vibrante onde o ritmo musical é a alma de tudo. O objetivo do jogador é simples, mas desafiador: dominar a arte do tradicional tambor japonês (Taiko) acertando notas frenéticas ao som de um catálogo musical massivo. O repertório mistura clássicos dos videogames, aberturas de animes famosos, músicas Vocaloid, clássicos da música erudita e sucessos do J-Pop.",
+   "year": 2022,
+   "genre": [
+    "Musical",
+    "Ritmo"
+   ],
+   "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/090eafc16f483e548c2417dadb193f8d.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/090eafc16f483e548c2417dadb193f8d.png",
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-windows/taiko-no-tatsujin",
+   "url": "https://cjdgrevival.com/",
+   "thumb": "https://store-images.s-microsoft.com/image/apps.29856.13744419880759751.76c7be28-be8f-493a-80e6-4c0af4541010.1d928aed-e13a-47f7-9951-da8a72fabb3a",
+   "bannerThumb": "https://cms-assets.xboxservices.com/assets/3b/47/3b473d87-7723-40fb-a75d-a39eb23a5dd9.png?n=XB_ww_TaikoDF_DLC_TMP_SuperHeroArt_3840x2160.png&q=90&o=f&w=480&h=270",
+   "console": "web-windows",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "Terraria",
+   "desc": "Terraria é um jogo de ação e aventura 2D em mundo aberto para um ou mais jogadores. O jogador acorda em um mundo gerado proceduralmente, composto por florestas, desertos, oceanos, cavernas e ruínas. Sobrevivência e exploração são os objetivos imediatos: coletar materiais, criar ferramentas e construir um abrigo antes do anoitecer, quando criaturas mais fortes começam a vagar. A progressão no jogo surge da exploração cada vez mais profunda e distante, da localização de recursos raros e do confronto com chefes poderosos que dão acesso a novos materiais e áreas. Derrotar um certo chefe no submundo transforma o mundo em um estado mais perigoso, conhecido como Modo Difícil, introduzindo inimigos mais fortes, novos minérios e biomas adicionais.\n\nA jogabilidade gira em torno de mineração, criação, construção e combate. A maioria dos blocos de terreno, plantas e mobílias podem ser minerados e colocados, e centenas de receitas de criação transformam madeira, minérios e itens obtidos de monstros em equipamentos, ferramentas, armas, móveis e veículos. A interface de criação mostra todas as receitas disponíveis nas estações próximas ao jogador. Os equipamentos abrangem arquétipos de combate corpo a corpo, à distância, mágicos e de invocação, com acessórios que concedem mobilidade e utilidade. Chefes e eventos recompensam com materiais exclusivos que desbloqueiam a próxima camada de receitas e exploração.",
+   "year": 2011,
+   "genre": [
+    "Simulação de ação",
+    "aventura",
+    "construção e gerenciamento em mundo aberto ."
+   ],
+   "destaque": true,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
+   "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256785003/movie_max_vp9.webm?t=1589654781",
+   "logo": "https://cdn2.steamgriddb.com/logo/af922fd52975aee0083fb8e0ba9c1d64.png",
+   "bgImg": "banner",
+   "bgPosY": 77,
+   "studio": "jogos-web/web-windows/terraria",
+   "url": "https://sandboxworld.online/",
+   "thumb": "https://i0.wp.com/enderg.com/wp-content/uploads/2022/08/screen-0.jpg?fit=640%2C960&ssl=1",
+   "bannerThumb": "https://images.launchbox-app.com//b2fb24af-b3ca-46fa-af01-861a71b40c18.jpg",
+   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256785003/movie_max_vp9.webm?t=1589654781",
+   "previewThumb": "https://image.api.playstation.com/vulcan/img/rnd/202109/2014/rC6IMh2WiJwBe8S2qGjEoRwX.jpg",
+   "console": "web-windows",
+   "players": 4,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
   },
   {
    "title": "20 Minutes Till Dawn",
    "desc": "Port para navegador · gn-math.dev",
+   "genre": [
+    "Plataforma",
+    "Tiro"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/121892a5b8bf3e390a83dc0af8d5b3fd.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/121892a5b8bf3e390a83dc0af8d5b3fd.png",
+   "bgImg": "banner",
    "studio": "jogos-web/web-indie/20-minutes-till-dawn",
-   "url": "https://gn-math.dev/?id=819",
+   "url": "https://degloved.net/games/public/gms/20-minutes-till-dawn/index.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/c3c25f1f935df6a160e928e45c8afaa1.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e585e21c1b435f760995e9e586875ecd.png",
    "console": "web-indie",
+   "players": 1,
    "core": "web",
    "aparelhos": [
     "tv",
@@ -47,10 +237,43 @@
    "repo": "https://github.com/web-ports/20-minutes"
   },
   {
+   "title": "Abuse",
+   "desc": "Clássico de ação da Crack dot Com: um soldado sozinho contra mutantes numa prisão subterrânea. Jogo livre (Domínio público / GPL / WTFPL (código e dados) · sons de Bobby Prince com permissão de redistribuição), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 1995,
+   "genre": [
+    "Ação",
+    "Plataforma"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--logo.png",
+   "studio": "jogos-web/web-dos/abuse",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/abuse/",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--banner.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--video.mp4",
+   "console": "web-dos",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/Xenoveritas/abuse"
+  },
+  {
    "title": "Ages of Conflict",
    "desc": "Port para navegador · wasm.rip",
+   "bgImg": "banner",
+   "bgPosY": 1,
    "studio": "jogos-web/web-indie/ages-of-conflict",
    "url": "https://wasm.rip/files/aoc/index.html",
+   "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ45Fiok__JSSzi0cBKhZKnkNG8Hf3Mava6e_6l1jBO4PLz1O8uzLTdpb96&s=10",
+   "bannerThumb": "https://img.itch.zone/aW1hZ2UvMTY2NTcyNC8xODAxMzM4OS5wbmc=/original/gnMLyx.png",
    "console": "web-indie",
    "core": "web",
    "aparelhos": [
@@ -62,10 +285,21 @@
   },
   {
    "title": "Alley Cat",
-   "desc": "Port para navegador · petarov.github.io",
+   "desc": "Alley Cat is an action game consisting of several mini games tied together. You're a little black cat who wants to make love to a pretty lady cat that lives in an apartment complex. Play all kinds of cat-themed mini games in order to reach her and score as many points as you can while doing so.\n\nYou start out in an alley and need to get inside the apartment by climbing on garbage cans and a fence. Next, jump on a clothesline and through several open windows while big dogs try to eat you and people throw garbage at you. Outside of the apartment complex you can score points by eating the mice that run across the clotheslines. Once you've jumped through a window you enter a room where you play a randomly assigned mini game.\n\nThese mini games include: eating all the fish in a fish bowl, stealing milk from a bunch of bulldogs, pushing a birdcage from a table and eating the bird, catching mice inside a big cheese, pushing vases from a cabinet. To make things harder there's always a broom inside every room that tries to knock you around. You score points by completing the mini games within a certain time (the faster the better).\n\nAfter you've completed a mini game you're back in the alley. Make your way back inside the apartment complex and you get a chance to play the love-cat game: try to reach the lady cat on the top row of hearts while rival male cats and cupid's arrows knock you down. After you've mated, the difficulty gets cranked up a notch",
+   "year": 1984,
+   "genre": [
+    "Plataforma"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--logo.png",
    "studio": "jogos-web/web-dos/alley-cat",
    "url": "https://petarov.github.io/alleycat.exe/",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--capa.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/156d33030be5fe619195e5e76752aad4.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--alley-cat--video.mp4",
    "console": "web-dos",
+   "players": 1,
    "core": "web",
    "aparelhos": [
     "tv",
@@ -78,8 +312,12 @@
   {
    "title": "Amanda The Adventurer",
    "desc": "Port para navegador · gn-math.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/2e6d8d70bfa9f6e15b1ff9908216aebf.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/2e6d8d70bfa9f6e15b1ff9908216aebf.png",
    "studio": "jogos-web/web-indie/amanda-the-adventurer",
    "url": "https://gn-math.github.io/web-port/amanda-the-adventurer/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/c1c0b89138dc2ca5eb6d0ffee4747854.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/229442eceda4cc3d4dcaf1fed6e24800.png",
    "console": "web-indie",
    "core": "web",
    "aparelhos": [
@@ -91,10 +329,63 @@
    "repo": "https://github.com/genizy/web-port/tree/main/amanda-the-adventurer"
   },
   {
+   "title": "Among Us",
+   "desc": "Among Us passa-se num universo de ficção científica. Cada jogador assume o papel de um dos membros da tripulação de uma nave espacial, cada um dos quais pode ser um membro da tripulação ou um impostor. O objetivo da tripulação é identificar os impostores e eliminá-los enquanto realizam tarefas na nave, enquanto o objetivo dos impostores é matar todos os membros da tripulação sem serem identificados.",
+   "year": 2018,
+   "genre": [
+    "Simulação"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--logo.png",
+   "studio": "jogos-web/web-indie/among-us",
+   "url": "https://wasm.rip/files/amongus/index.html",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--banner.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--video.mp4",
+   "previewThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--among-us--previa.png",
+   "console": "web-indie",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada",
+   "repo": "https://github.com/wasmdotrip/AmongUsPort"
+  },
+  {
+   "title": "Astromenace",
+   "genre": [
+    "Shoot 'Em Up",
+    "Navinha"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a918ac07ad91bcb420d84ed823623c10.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a918ac07ad91bcb420d84ed823623c10.png",
+   "bgImg": "banner",
+   "bgPosY": 29,
+   "studio": "jogos-web/web-windows/astromenace",
+   "url": "https://midzer.de/wasm/astromenace/",
+   "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBBJiTGs-8VQMf9xrFEEnAMlXig-t4pu21mK_Iwuham80kngeBv8D63QYn&s=10",
+   "bannerThumb": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Astromenace_Gameplay.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Atlantis: The Lost Tales",
    "desc": "Port para navegador · ripleyxlr8.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/3bc34021d83bfb53cec7a5b12ea95753.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/3bc34021d83bfb53cec7a5b12ea95753.png",
    "studio": "jogos-web/web-windows/atlantis-the-lost-tales",
    "url": "https://ripleyxlr8.github.io/atlantis-native/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/05d5b29c9a6391435c33e612801fd36a.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/004cbc35eed8995456a63ec720fe63c7.jpg",
    "console": "web-windows",
    "core": "web",
    "aparelhos": [
@@ -106,10 +397,126 @@
    "repo": "https://github.com/ripleyXLR8/atlantis-native"
   },
   {
+   "title": "BananaBread",
+   "genre": [
+    "FPS",
+    "Ação",
+    "Tiro",
+    "Guerra"
+   ],
+   "studio": "jogos-web/web-indie/bananabread",
+   "url": "https://kripken.github.io/BananaBread/cube2/bb.html",
+   "console": "web-indie",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "Battle City",
+   "desc": "Adaptação da versão de NES do jogo Battle City.\r\nSeu objetivo principal é destruir todos os tanques inimigos antes que eles se aproximem de sua base. Depois de ter destruído 20 tanques, você vai para a próxima fase. Muitos elementos de decoração podem ser usados para sua vantagem. Um modo de construção será desbloqueado uma vez que você tenha completado todas as fases.",
+   "year": 2018,
+   "genre": [
+    "Ação",
+    "Ação / Labirinto"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
+   "studio": "jogos-web/web-remakes/battle-city",
+   "url": "https://battle-city.berrry.app",
+   "thumb": "https://cdn2.steamgriddb.com/grid/9b06c290e92cdb39f68f6581921c56e9.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/0129a222fe10c9896db191c537694699.jpg",
+   "console": "web-remakes",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "repo": "https://github.com/vgrichina/battlecity"
+  },
+  {
+   "title": "Bombermaaan",
+   "desc": "Bombermaaan is inspired on the classic Bomberman game ported for the web. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2023,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/afb79a9be5cd9762572a008088d3153e.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/afb79a9be5cd9762572a008088d3153e.png",
+   "studio": "jogos-web/web-pc/bombermaaan",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/bombermaaan/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/c5b781ce025e8217c23f95f9569a0b96.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/3a06105cf87a4a0d2b22ca218aca4783.png",
+   "console": "web-pc",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/midzer/Bombermaaan"
+  },
+  {
+   "title": "Brawlhalla",
+   "desc": "Brawlhalla: An eternal battle arena where the greatest warriors in history brawl to prove who's the best that ever was, is, or will be. Every match is an epic test of skill, speed, and strength, and every victory brings additional glory and bragging rights to the winners.\r\n\r\nThese slugfests are salted with powerful weapons and gadgets. Fighters scramble to grab swords, axes, hammers, blasters, rocket lances and more! Every weapon changes your play style and your options. Gadgets like mines, bombs, and spiked spheres add even more danger into the mix, letting fighters change the course of battle with a well timed-throw or carefully laid trap.",
+   "year": 2014,
+   "genre": [
+    "Luta",
+    "Briga",
+    "ação"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d436cae949c81b9970593a225df2d479.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/d436cae949c81b9970593a225df2d479.png",
+   "bgImg": "banner",
+   "bgPosY": 90,
+   "studio": "jogos-web/web-windows/brawlhalla-2",
+   "url": "https://truffled.lol/games/brawlhalla/index.html",
+   "thumb": "https://store-images.s-microsoft.com/image/apps.60631.66915708565277087.6939cc90-5cdd-45d0-b0cd-a485dca34280.160b949a-8de8-4012-9dad-bba0d534927d",
+   "bannerThumb": "https://miro.medium.com/1*AV6_RGYjWyjousz9Jp8LXg.jpeg",
+   "console": "web-windows",
+   "players": 8,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "Bunny Hop lol",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/772fc0e304e1b17271d3c9c8a816bab9.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/772fc0e304e1b17271d3c9c8a816bab9.png",
+   "bgImg": "banner",
+   "bgPosY": 72,
+   "studio": "jogos-web/web-windows/bunny-hop-lol",
+   "url": "https://bunnyhop.lol/",
+   "thumb": "https://bunnyhop.lol/about/run-poster.webp",
+   "bannerThumb": "https://bunnyhop.lol/about/ghost.webp",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Call of Duty Web Collection",
    "desc": "Port para navegador · cod-webports.pages.dev",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/1820c4b6fcbf5be5758bffe24c41fa6a.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/1820c4b6fcbf5be5758bffe24c41fa6a.png",
    "studio": "jogos-web/web-outros/call-of-duty-web-collection",
    "url": "https://cod-webports.pages.dev/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/d50024a382b0bbae0ba02d1ef479b927.jpg",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/ddc2d6b4966c50ee8fa5885d10931758.png",
    "console": "web-outros",
    "core": "web",
    "aparelhos": [
@@ -120,11 +527,133 @@
    "license": "autorizada"
   },
   {
+   "title": "Cave Story",
+   "desc": "Sem dúvida o jogo indie mais conhecido de todos os tempos, Cave Story contém um enredo completamente original repleto de personalidade, mistério e horas de diversão frenética. Cave Story é um jogo de ação e aventura do aclamado designer independente Daisuke Amaya ou Pixel para os fãs. Lotado de um charme e personagens incomparáveis, Cave Story te leva para um mundo raro onde uma curiosa raça de criaturas parecidas com coelhos, conhecidas como Mimigas, são livres.\nVocê acorda em uma escura caverna sem lembrar quem você é, de onde você veio e o motivo de estar no lugar que está. Ao encontrar a Vila Mimiga você descobre que os antes despreocupados Mimigas estão em perigo nas mãos de um cientista louco. A única esperança dos Mimigas está nas mãos de um garoto quieto e amnésico que não lembra de seu próprio nome.\nCorra, pule, atire, voe e explore por todo o caminho em um jogo de ação e aventura gigantesco que lembra os clássicos jogos das era 8-bits e 16-bits. Controle e aprenda as origens do poder deste mundo, pare o vilão alucinado e salve os Mimiga!",
+   "year": 2004,
+   "genre": [
+    "Plataforma"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--logo.png",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-indie/cave-story",
+   "url": "https://thelongestyard.link/cave-story/",
+   "mirrors": [
+    "https://midzer.de/wasm/cavestory/"
+   ],
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--banner.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--video.mp4",
+   "previewThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--cave-story--previa.png",
+   "console": "web-indie",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "repo": "https://github.com/midzer/nxengine-evo"
+  },
+  {
+   "title": "Counter Strike & Half Life (2)",
+   "desc": "Port para navegador · pixelsuft.github.io",
+   "genre": [
+    "FPS",
+    "Ação",
+    "Tiro",
+    "Guerra"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/13d429db192fbc7b5cabf9b936cf78e1.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/13d429db192fbc7b5cabf9b936cf78e1.png",
+   "studio": "jogos-web/web-windows/counter-strike-e-half-life-2",
+   "url": "https://pixelsuft.github.io/hl/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/9e63bf4c221fde71b7a71661cc5816e1.jpg",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/1be3614ec5d67a9fe3fd389516f369ea.png",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada",
+   "repo": "https://github.com/Pixelsuft/hl"
+  },
+  {
+   "title": "Cuphead",
+   "desc": "Cuphead é um jogo clássico de corrida e tiro fortemente focado em batalhas contra chefes. Inspirado nos desenhos animados da década de 1930, o visual e o áudio são cuidadosamente criados com as mesmas técnicas da época, ou seja, animação celulósica tradicional desenhada à mão, fundos em aquarela e gravações originais de jazz.\r\n\r\nJogue como Cuphead ou Mugman (no modo single player ou local co-op) enquanto atravessa mundos estranhos, adquire novas armas, aprende super-movimentos poderosos e descobre segredos escondidos enquanto tenta pagar sua dívida com o diabo!",
+   "year": 2017,
+   "genre": [
+    "Plataforma",
+    "Tiro"
+   ],
+   "bannerlogo": "https://gamesdb-images.launchbox.gg/r2_7da76d1c-0c68-469b-ba6f-93ab5d52ee5d.png",
+   "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256894191/movie_max_vp9.webm?t=1656595223",
+   "logo": "https://cdn2.steamgriddb.com/logo/ff7a2112f8c3e3224ce8e3e26de1d932.png",
+   "bgImg": "banner",
+   "bgPosY": 100,
+   "studio": "jogos-web/web-windows/cuphead",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/cuphead/",
+   "mirrors": [
+    "https://gn-math.github.io/web-port/cuphead/"
+   ],
+   "thumb": "https://images.launchbox-app.com//23729ca1-f427-4f79-9bdc-8937bf485d2c.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//f452b0c3-7e3a-42fb-a575-4588257c97de.jpg",
+   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256894191/movie_max_vp9.webm?t=1656595223",
+   "console": "web-windows",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "WebAssembly",
+   "license": "livre",
+   "controls": "gamepad",
+   "weight": "medio",
+   "repo": "https://github.com/genizy/web-port/tree/main/cuphead"
+  },
+  {
+   "title": "Cyberpunk 2077 - Browser",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/2b2e7393b05b5b52af65bf2ed7f4ad4f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/2b2e7393b05b5b52af65bf2ed7f4ad4f.png",
+   "bgImg": "banner",
+   "bgPosY": 8,
+   "studio": "jogos-web/web-windows/cyberpunk-2077-browser",
+   "url": "https://cyberpunk2077.lol/game?ioShared=1&amp%3BioSharedMB=128&amp%3BioInflight=4&amp%3BioPersist=1&amp%3BioPersistMB=6144&amp%3BbinkRecycle=1&amp%3BpsoWarm=0&amp%3BskipIntro=1&amp%3BioLookahead=16&amp%3BbehindLoad=0.5&ioSharedMB=128&ioInflight=4&ioPersist=1&ioPersistMB=6144&binkRecycle=1&psoWarm=0&skipIntro=1&ioLookahead=16&behindLoad=0&floodKeep=1",
+   "thumb": "https://www.dolby.com/siteassets/xf-site/content-detail-pages/cyberpunk-2077.jpg",
+   "bannerThumb": "https://4kwallpapers.com/images/wallpapers/cyberpunk-2077-johnny-silverhand-character-v-xbox-series-x-2560x1440-1617.jpg",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Daytona USA",
-   "desc": "Port para navegador · johannruiz.github.io",
+   "desc": "Daytona USA é um jogo de corrida para arcades lançado pela Sega em 1993. Tomando por base a estrutura básica apresentada no jogo Virtua Racing de 1992, aproveitou-se de uma plataforma mais moderna para apresentar os gráficos com maior fluidez vistos até então. Sucesso de crítica, é considerado por muitos o jogo para arcades mais bem sucedido de todos os tempos.",
+   "year": 1994,
+   "genre": [
+    "Corrida, Pilotagem",
+    "Corrida em 3ª pessoa"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--logo.png",
    "studio": "jogos-web/web-arcade/daytona-usa",
    "url": "https://johannruiz.github.io/Daytona-USA-Web/",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--banner.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--daytona-usa--video.mp4",
    "console": "web-arcade",
+   "players": 1,
    "core": "web",
    "aparelhos": [
     "tv",
@@ -133,6 +662,53 @@
    "web": true,
    "license": "autorizada",
    "repo": "https://github.com/johannruiz/Daytona-USA-Web"
+  },
+  {
+   "title": "Doki Doki Literature Club",
+   "desc": "Bem-vindo(a) ao clube! Escreva poemas para a pessoa por quem você tem uma queda e vivencie o terror do romance escolar nesta história de terror psicológico aclamada pela crítica.",
+   "year": 2017,
+   "genre": [
+    "RPG",
+    "Visual Novel",
+    "Terror"
+   ],
+   "bannerlogo": "https://images.launchbox-app.com//3e063167-4a84-4009-9ea7-0859f0f12214.png",
+   "preview": "http://cdn.akamai.steamstatic.com/steam/apps/256841082/movie_max_vp9.webm?t=1625791341",
+   "logo": "https://cdn2.steamgriddb.com/logo/62b98e188905060143a433b1363b3266.png",
+   "bgImg": "banner",
+   "bgPosY": 12,
+   "studio": "jogos-web/web-windows/doki-doki-literature-club",
+   "url": "https://hedgeplays2.github.io/DDLC-Web-Port/",
+   "thumb": "https://images.launchbox-app.com//c61bdadd-d1ec-4bd5-ac9c-05b48fdcb24d.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//724e042a-5ae4-4725-9cc1-68dd60c139ce.jpg",
+   "video": "http://cdn.akamai.steamstatic.com/steam/apps/256841082/movie_max_vp9.webm?t=1625791341",
+   "console": "web-windows",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "Doom (joeheyming, classic and mods)",
+   "desc": "Port para navegador · joeheyming.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/6a3b6ffa5dbf8a5abcad2135e5bc77d9.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/6a3b6ffa5dbf8a5abcad2135e5bc77d9.png",
+   "studio": "jogos-web/web-indie/doom-joeheyming-classic-and-mods",
+   "url": "https://joeheyming.github.io/doom/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/ef58f7ffe086514aa0164c7fc4f6cea8.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/442465f5282183631234848d916ce365.png",
+   "console": "web-indie",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
   },
   {
    "title": "Freegemas",
@@ -158,6 +734,94 @@
    "repo": "https://github.com/JoseTomasTocino/freegemas"
   },
   {
+   "title": "God of War: Chains of Olympus",
+   "desc": "Port para navegador · godofwarchains.online",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/863ae4a798069192865306197bff9428.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/863ae4a798069192865306197bff9428.png",
+   "studio": "jogos-web/web-psp/god-of-war-chains-of-olympus",
+   "url": "https://godofwarchains.online/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/63719b0a1928ddc9f968cb69bffe2f81.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/955cb567b6e38f4c6b3f28cc857fc38c.png",
+   "console": "web-psp",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "autorizada"
+  },
+  {
+   "title": "GTA3Web",
+   "desc": "webport of gta 3/gta iii by woahhcrackers. Jogo livre (sem licença), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2026,
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-windows/gta3web",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/gta3web/",
+   "thumb": "https://flowgames.gg/wp-content/uploads/2026/06/GTA3_Box_Art.jpg",
+   "bannerThumb": "https://wallpaper.forfun.com/fetch/45/455c7479a00b47eb77b26cb238c4fcd5.jpeg",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "gamepad",
+   "repo": "https://github.com/woahhcrackers/GTA3Web"
+  },
+  {
+   "title": "Heroes of Might and Magic II (fheroes2, rgc.zone)",
+   "desc": "Port para navegador · rgc.zone",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d08155e24a46d6bbdac6c849cd26564f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/d08155e24a46d6bbdac6c849cd26564f.png",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-dos/heroes-of-might-and-magic-ii-fheroes2-rgc-zone",
+   "url": "https://rgc.zone/ports/fheroes2weblast/index.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/574e04d3b783927e028982e71467bf13.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/fc910dce7e448dcd095ffe158fccd66b.jpg",
+   "console": "web-dos",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "Hurrican",
+   "desc": "Ação e plataforma no estilo Turrican: explore fases enormes, atire em tudo e enfrente chefões gigantes. Jogo livre (Freeware (poke53280) · código aberto), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2007,
+   "genre": [
+    "Ação",
+    "Plataforma"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/16c989e0260cba02ec82e25dfeda3c57.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/16c989e0260cba02ec82e25dfeda3c57.png",
+   "bgImg": "banner",
+   "bgPosY": 100,
+   "studio": "jogos-web/web-windows/hurrican",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/hurrican/",
+   "thumb": "https://cdn.mobygames.com/covers/6495734-hurrican-windows-front-cover.jpg",
+   "bannerThumb": "https://img.utdstc.com/screen/9ef/4bf/9ef4bf99b593acaec7b710c7d3cbf5379ff06ccb60713975cbe4e2d4f131fa65:600",
+   "console": "web-windows",
+   "players": 2,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "gamepad",
+   "repo": "https://github.com/HurricanGame/Hurrican"
+  },
+  {
    "title": "Jump 'n Bump",
    "desc": "Coelhinhos pulando na cabeça uns dos outros. Clássico multiplayer local (até 4 no mesmo teclado/controle). Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1998,
@@ -165,10 +829,13 @@
     "Plataforma",
     "Multiplayer"
    ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--jump-n-bump--logo.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--jump-n-bump--logo.png",
    "studio": "jogos-web/web-dos/jump-n-bump",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/jumpnbump/",
    "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump.jpg",
    "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/jumpnbump-banner.jpg",
+   "previewThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--jump-n-bump--previa.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -183,11 +850,47 @@
    "repo": "https://github.com/midzer/jumpnbump/tree/emscripten"
   },
   {
+   "title": "Lego Island",
+   "desc": "Aventures sur l'île LEGO est un jeu d'action-aventure sur PC en vue à la première personne. Ce jeu, destiné aux plus jeunes, vous propose de pénétrer dans un monde en 3D dans lequel vous devez rassembler des pièces pour construire plusieurs types de véhicules comme une voiture ou un Jet-Ski. Ensuite vous pouvez circuler librement sur l'île à bord du véhicule que vous avez construit.",
+   "year": 1997,
+   "genre": [
+    "Aventura"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/91a0ac7c34ea63ffc3ef3e8d5ddd58bb.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/91a0ac7c34ea63ffc3ef3e8d5ddd58bb.png",
+   "bgImg": "banner",
+   "bgPosY": 8,
+   "studio": "jogos-web/web-windows/lego-island-2",
+   "url": "https://isle.pizza/",
+   "thumb": "https://static.wikia.nocookie.net/dublagem/images/6/62/LegoIsland.Capa.jpg/revision/latest?cb=20250216003717&path-prefix=pt-br",
+   "bannerThumb": "https://www.lego.com/cdn/cs/aboutus/assets/bltb00f011e70e8b028/LEGO_Island_-_Project_Island.png",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Marvel vs. Capcom 2",
-   "desc": "Port para navegador · marvelvscapcom2.online",
+   "desc": "Marvel vs. Capcom 2: New Age of Heroes é a quarta edição da série Marvel vs. Capcom, de jogos de luta baseados em equipes. Os jogadores selecionam um time de três personagens para competir em batalhas um-a-um, em oposição aos times de dois personagens do jogo anterior da série, Marvel vs. Capcom: Clash of Super Heroes.\r\n\r\nO jogo apresenta uma versão mais refinada do &quot;sistema de variáveis&quot; usado nos jogos anteriores, que permite aos jogadores convocar outros membros da equipe a qualquer momento durante a partida. Ligeiramente diferente de Clash of Super Heroes, que apresentava personagens parceiros não-jogáveis ​​que o jogador podia convocar à vontade.",
+   "year": 2000,
+   "genre": [
+    "Luta",
+    "Luta / Versus"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--logo.png",
    "studio": "jogos-web/web-arcade/marvel-vs-capcom-2",
    "url": "https://marvelvscapcom2.online/",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--banner.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-arcade--marvel-vs-capcom-2--video.mp4",
    "console": "web-arcade",
+   "players": 2,
    "core": "web",
    "aparelhos": [
     "tv",
@@ -197,6 +900,75 @@
    "license": "autorizada"
   },
   {
+   "title": "Maze of Galious",
+   "desc": "Originally a Konami game for the MSX computer system. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 2025,
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/0ba182b15b32ed456fbbcd29c28e72b0.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/0ba182b15b32ed456fbbcd29c28e72b0.png",
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-remakes/maze-of-galious",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/mazeofgalious/",
+   "thumb": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co6o1w.jpg",
+   "bannerThumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWsFTYEQ8bkNl-bTKTt1bUPfoVlxrILPC4yVNDUZY2g&s=10",
+   "console": "web-remakes",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "repo": "https://github.com/midzer/mazeofgalious"
+  },
+  {
+   "title": "Minecraft Cow Tools",
+   "genre": [
+    "Plataforma de aventura sandbox"
+   ],
+   "bannerlogo": "https://images.launchbox-app.com//e313fed4-ade9-46fb-965e-bd90c9158680.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/90915208c601cc8c86ad01250ee90c12.png",
+   "bgImg": "banner",
+   "bgPosY": 35,
+   "studio": "jogos-web/web-windows/minecraft-cow-tools",
+   "url": "https://eag.pages.dev/?server=wss://clever-teaching.com",
+   "thumb": "https://images.launchbox-app.com//bd5f9eea-510f-48d7-9356-cf95447b1d75.jpg",
+   "bannerThumb": "https://images.launchbox-app.com//bf55c382-69cf-4ae8-b40b-bde207671992.jpg",
+   "previewThumb": "https://images.launchbox-app.com//01197796-3a19-47b0-a98f-1b5c0d071bd3.jpg",
+   "console": "web-windows",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "WebAssembly",
+   "license": "livre"
+  },
+  {
+   "title": "Minecraft Story Mode",
+   "desc": "Port para navegador · mcsm-web.pages.dev",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/f4be00279ee2e0a53eafdaa94a151e2c.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/f4be00279ee2e0a53eafdaa94a151e2c.png",
+   "bgImg": "banner",
+   "bgPosY": 59,
+   "studio": "jogos-web/web-windows/minecraft-story-mode",
+   "url": "https://mcsm-web.pages.dev/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/7a42d04dbcdcccece898bfbc2bb6d326.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/6dfe08eda761bd321f8a9b239f6f4ec3.png",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Neverball",
    "desc": "Incline o tabuleiro e leve a bola até a saída pegando as moedas. Mais de 100 fases. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 2003,
@@ -204,11 +976,15 @@
     "Puzzle",
     "Habilidade"
    ],
-   "studio": "jogos-web/web-pc/neverball",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a8ac75aabbfbe4781b90184495fb6a99.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a8ac75aabbfbe4781b90184495fb6a99.png",
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-windows/neverball",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/neverball/",
-   "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/neverball.jpg",
-   "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/neverball-banner.jpg",
-   "console": "web-pc",
+   "thumb": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co9ugw.jpg",
+   "bannerThumb": "https://images.igdb.com/igdb/image/upload/t_720p/sc80i3.webp",
+   "console": "web-windows",
    "core": "web",
    "aparelhos": [
     "tv",
@@ -221,6 +997,125 @@
    "repo": "https://github.com/Neverball/neverball"
   },
   {
+   "title": "Powermanga",
+   "desc": "Nave de tiro vertical com dezenas de fases, chefões e muitas armas para turbinar a nave. Jogo livre (GPL-3.0), hospedado sem propaganda no Cartoonzine Jogos.",
+   "year": 1999,
+   "genre": [
+    "Tiro",
+    "Nave"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--powermanga--logo.png",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--powermanga--logo.png",
+   "studio": "jogos-web/web-pc/powermanga",
+   "url": "https://cartoonzine.github.io/cartoonzine-jogos/powermanga/",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--powermanga--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--powermanga--banner.png",
+   "previewThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--powermanga--previa.png",
+   "console": "web-pc",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "engine": "Emscripten",
+   "license": "livre",
+   "controls": "teclado",
+   "keys": "A=Space, B=Ctrl, START=Enter, SELECT=Escape",
+   "repo": "https://linux.tlk.fr/games/Powermanga/"
+  },
+  {
+   "title": "Shadow Warrior",
+   "desc": "Lo Wang is the henchman of Japan's most powerful entrepreneur: Master Zilla. An expert ninja in the art of assassination, he executes his contracts without making waves. Zilla Enterprises is a conglomerate that controls Japan's biggest industries, often with an iron fist. Lo Wang, familiar with his employer's methods, uncovers a vast conspiracy involving the summoning of demons to control Japan. Lo Wang, true to his Code of Honor, decides to stop working for Zilla, but Zilla won't hear of it. Lo Wang, now enemy number one, must fight Zilla to put an end to his plans for domination.",
+   "year": 1997,
+   "genre": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+   ],
+   "bannerlogo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--logo.png",
+   "preview": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--video.mp4",
+   "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--logo.png",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-dos/shadow-warrior",
+   "url": "https://rgc.zone/ports/8775-swarrior/run.html",
+   "thumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--capa.png",
+   "bannerThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--banner.jpg",
+   "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--video.mp4",
+   "previewThumb": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--shadow-warrior--previa.png",
+   "console": "web-dos",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre",
+   "repo": "https://github.com/midzer/jfsw"
+  },
+  {
+   "title": "Sonic Mania Plus",
+   "desc": "Vivencie a celebração definitiva do passado e do futuro em Sonic Mania, uma aventura 2D inédita do Sonic rodando a 60 FPS com gráficos retrô em alta definição impressionantes. Diversos personagens jogáveis ​​permitem que você acelere explosivamente como Sonic, voe como Tails ou supere obstáculos difíceis com a força bruta de Knuckles. Você pode reviver o Sonic do passado com uma nova e emocionante abordagem das fases clássicas enquanto luta contra novos chefões e o exército de robôs malignos do Dr. Eggman. Dispute partidas com outros jogadores no Modo Competição ou jogue no Modo Cooperativo com um amigo. Sonic Mania foi desenvolvido por Christian Whitehead, Headcannon e PagodaWest Games em colaboração com a Sonic Team. Bem-vindo ao Sonic Mania!\n\nSonic Mania Encore DLC - Experimente uma nova versão de fases familiares com o novíssimo Modo Encore, jogue com dois novos personagens com habilidades únicas: Mighty, o Tatu, e Ray, o Esquilo Voador, e dispute com até quatro amigos no Modo Competição expandido!",
+   "genre": [
+    "Plataforma",
+    "Plataforma / Corre e Pula com rolagem"
+   ],
+   "bannerlogo": "https://images.launchbox-app.com//bdb3c23d-e5e6-4f00-9b3b-8e2e65332868.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/59353e05a88e9b4e71bc0b989a81d75a.png",
+   "bgImg": "banner",
+   "bgPosY": 55,
+   "studio": "jogos-web/web-windows/sonic-mania-plus",
+   "url": "https://hedgeplays2.github.io/Sonic-Mania-Plus-WEB/",
+   "thumb": "https://gamesdb-images.launchbox.gg/r2_587b9a87-9011-4ae5-b016-fdf0decb37c8.png",
+   "bannerThumb": "https://images.launchbox-app.com//b3453545-543e-442c-80ec-305fec9d845e.jpg",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "Street Fighter III: 3rd Strike",
+   "desc": "Port para navegador · streetfighter3.online",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/22cf8d98dca2b9de5052ae9253bddef3.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/22cf8d98dca2b9de5052ae9253bddef3.png",
+   "studio": "jogos-web/web-arcade/street-fighter-iii-3rd-strike",
+   "url": "https://streetfighter3.online/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/74795ed1eea8eff2d2ead49ad13475b3.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/aba53da2f6340a8b89dc96d09d0d0430.png",
+   "console": "web-arcade",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
+   "title": "The Simpsons: Hit & Run",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/1b12d60e85a7a2d7c03b9daad3d1959f.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/1b12d60e85a7a2d7c03b9daad3d1959f.png",
+   "bgImg": "banner",
+   "bgPosY": 0,
+   "studio": "jogos-web/web-windows/the-simpsons-hit-e-run-2",
+   "url": "https://shar-wasm.cjoseph.workers.dev/?skipmovie",
+   "thumb": "https://m.media-amazon.com/images/M/MV5BMjkwMmY3ZmItYmJiYi00ZWNjLTlhOTEtMmJhODJiMGE2NjAwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+   "bannerThumb": "https://gaming-cdn.com/images/products/22895/orig/the-simpsons-hit-and-run-remake-pc-cover.jpg?v=1781086923",
+   "console": "web-windows",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Tyrian (OpenTyrian)",
    "desc": "Nave de tiro vertical clássica da Epic. Os dados do Tyrian 2.1 foram liberados como freeware. Jogo livre (GPL-2.0 (motor) · Tyrian 2.1 freeware (dados)), hospedado sem propaganda no Cartoonzine Jogos.",
    "year": 1995,
@@ -228,13 +1123,17 @@
     "Tiro",
     "Nave"
    ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/858846e5d0a6816af8a75fe6fda40ca1.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/858846e5d0a6816af8a75fe6fda40ca1.png",
+   "bgImg": "banner",
+   "bgPosY": 39,
    "studio": "jogos-web/web-dos/tyrian-opentyrian",
    "url": "https://cartoonzine.github.io/cartoonzine-jogos/opentyrian/",
    "mirrors": [
     "https://midzer.de/wasm/opentyrian/"
    ],
-   "thumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/opentyrian.jpg",
-   "bannerThumb": "https://cartoonzine.github.io/cartoonzine-jogos/capas/opentyrian-banner.jpg",
+   "thumb": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
+   "bannerThumb": "https://images.launchbox-app.com//184f30f9-e535-44d5-a004-a308bafb1f0c.png",
    "console": "web-dos",
    "core": "web",
    "aparelhos": [
@@ -276,8 +1175,12 @@
   {
    "title": "Virtual On: Cyber Troopers",
    "desc": "Port para navegador · solid7s.github.io",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/03258e6ca69527cccd5313e56401d8fa.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/03258e6ca69527cccd5313e56401d8fa.png",
    "studio": "jogos-web/web-arcade/virtual-on-cyber-troopers",
    "url": "https://solid7s.github.io/Virtual-On-Web/",
+   "thumb": "https://cdn2.steamgriddb.com/grid/54bbc32dde48d6cae73213c6a21a0995.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/e92ae67e4af9da61bbb3690018fa4f1e.png",
    "console": "web-arcade",
    "core": "web",
    "aparelhos": [

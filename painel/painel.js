@@ -153,8 +153,9 @@
     /** Wikipedia/Internet Archive: no modo local passa pelo servidor (evita bloqueio de CORS). */
     function fetchExterno(url, init) {
         // TMDB e OMDb aceitam o navegador direto; archive.org/Wikipedia passam pelo servidor local quando ele existe
-        if (estado.repo && estado.repo.usaProxy && /^https:\/\/([^/]*\.)?(archive\.org|wikipedia\.org|screenscraper\.fr)\//.test(url)) {
-            return fetch('/api/proxy?url=' + encodeURIComponent(url));
+        if (estado.repo && estado.repo.usaProxy && /^https:\/\/([^/]*\.)?(archive\.org|wikipedia\.org|screenscraper\.fr|steamgriddb\.com)\//.test(url)) {
+            const aut = init && init.headers && (init.headers.Authorization || init.headers.authorization);
+            return fetch('/api/proxy?url=' + encodeURIComponent(url), aut ? { headers: { 'X-Proxy-Authorization': aut } } : undefined);
         }
         return fetch(url, init);
     }
@@ -179,10 +180,10 @@
               <label class="rot" for="ch-omdb" style="margin-top:14px">OMDb — nota do IMDb</label>
               <input class="campo" id="ch-omdb" type="password" autocomplete="off" placeholder="Chave do OMDb" value="${esc(ch.omdb || '')}">
               <div class="dica">Grátis: peça em <a href="https://www.omdbapi.com/apikey.aspx" target="_blank" rel="noopener">omdbapi.com/apikey.aspx</a> (plano FREE) e confirme pelo e-mail.</div>
-              <label class="rot" for="ch-steamgrid" style="margin-top:14px">SteamGridDB — logos dos jogos retrô</label>
+              <label class="rot" for="ch-steamgrid" style="margin-top:14px">SteamGridDB — logo, capa e banner dos jogos</label>
               <input class="campo" id="ch-steamgrid" type="password" autocomplete="off" placeholder="Chave da API do SteamGridDB" value="${esc(ch.steamgrid || '')}">
               <div class="dica">Grátis: em <a href="https://www.steamgriddb.com/profile/preferences/api" target="_blank" rel="noopener">steamgriddb.com → Preferences → API</a>. Usada para baixar o logo dos jogos automaticamente.</div>
-              <label class="rot" style="margin-top:14px">ScreenScraper — logo "wheel" + vídeo snap dos jogos</label>
+              <label class="rot" style="margin-top:14px">ScreenScraper — capa, logo, banner, vídeo e dados dos jogos (o robô do GitHub baixa os arquivos; aqui é só o teste)</label>
               <div class="dica" style="margin-bottom:8px">Login = seu usuário/senha do site. Dev ID / Dev password: peça no <a href="https://www.screenscraper.fr/forum.php" target="_blank" rel="noopener">fórum do ScreenScraper</a> (apps gratuitos). <a href="https://www.screenscraper.fr/webapi2.php" target="_blank" rel="noopener">doc da API</a>.</div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
                 <input class="campo" id="ch-ss-dev" type="text" autocomplete="off" placeholder="Dev ID" value="${esc((ch.screenscraper && ch.screenscraper.dev) || '')}">
@@ -220,10 +221,16 @@
                 if (novo.steamgrid) {
                     const url = await C.buscarLogoSteamGrid('Sonic the Hedgehog', novo.steamgrid, fetchExterno).then(x => x, e => ({ erro: e.message }));
                     if (url && typeof url === 'string') res.push('✅ SteamGridDB funcionando (logo de teste encontrado)');
+                    else if (url && url.erro && /failed to fetch|networkerror|load failed/i.test(url.erro) && !(estado.repo && estado.repo.usaProxy))
+                        res.push('ℹ SteamGridDB: o site não aceita pedidos direto do navegador (Studio online). A chave fica salva aqui, mas quem busca os logos é o robô do GitHub: cadastre ela no segredo STEAMGRID_KEY do repositório.');
                     else if (url && url.erro) res.push('❌ SteamGridDB: ' + url.erro);
                     else res.push('❌ SteamGridDB: respondeu, mas sem logo no teste');
                 }
-                if (ss.dev) {
+                if (ss.dev && ss.user && ss.dev.toLowerCase() === ss.user.toLowerCase()) {
+                    res.push('❌ ScreenScraper: o Dev ID está igual ao seu usuário. Dev ID / Dev password são a credencial de DESENVOLVEDOR (pedida no fórum do ScreenScraper), não o seu login. Seu login vai só nos dois campos de baixo.');
+                } else if (!ss.dev && (ss.user || ss.senha)) {
+                    res.push('❌ ScreenScraper: falta o Dev ID e a Dev password (peça no fórum do ScreenScraper). Só o login do site não basta.');
+                } else if (ss.dev) {
                     const r = await C.buscarScreenScraper('Sonic The Hedgehog', ss, fetchExterno).then(x => x, e => ({ erro: e.message }));
                     if (r && r.erro) res.push('❌ ScreenScraper: ' + r.erro);
                     else if (r && (r.logo || r.video)) res.push('✅ ScreenScraper funcionando (' + [r.logo ? 'logo' : '', r.video ? 'vídeo' : ''].filter(Boolean).join(' + ') + ')');
@@ -232,9 +239,9 @@
             } catch (e) { res.push('❌ ' + e.message); }
             b.disabled = false; b.textContent = 'Salvar e testar';
             const box = $('#ch-msg', fundo);
-            box.style.borderColor = res.every(x => x.startsWith('✅')) ? 'rgba(46,230,166,.45)' : '';
-            box.style.background = res.every(x => x.startsWith('✅')) ? 'rgba(46,230,166,.08)' : '';
-            box.style.color = res.every(x => x.startsWith('✅')) ? 'var(--texto)' : '';
+            box.style.borderColor = res.every(x => !x.startsWith('❌')) ? 'rgba(46,230,166,.45)' : '';
+            box.style.background = res.every(x => !x.startsWith('❌')) ? 'rgba(46,230,166,.08)' : '';
+            box.style.color = res.every(x => !x.startsWith('❌')) ? 'var(--texto)' : '';
             box.innerHTML = res.length ? res.map(esc).join('<br>') : 'Chaves apagadas deste navegador.';
             if (estado.aba === 'rapido') desenharArea();
         };
@@ -244,10 +251,12 @@
     // Estado
     // ==================================================================
     const estado = { repo: null, config: null, indice: [], col: null, aba: 'itens', busca: '', tela: 'colecoes',
-        filtro: 'todos', selecionando: false, sel: new Set(), ultimoSel: -1 };
+        filtro: 'todos', pais: '', selecionando: false, sel: new Set(), ultimoSel: -1 };
 
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
+
+    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : location.hash === '#linkedit' ? 'linkedit' : 'colecoes';
 
     async function conectar(repo) {
         estado.repo = await repo.iniciar();
@@ -260,7 +269,10 @@
         $('#btn-publicacao').hidden = false;
         $('#btn-chaves').hidden = false;
         $('#btn-vitrine').hidden = false;
-        estado.tela = location.hash === '#vitrine' ? 'vitrine' : 'colecoes';
+        $('#btn-prateleira').hidden = false;
+        $('#btn-linkedit').hidden = false;
+        $('#btn-colecoes').hidden = false;
+        estado.tela = telaDoHash();
         await recarregarIndice();
         desenharApp();
     }
@@ -324,7 +336,7 @@
     function desenharApp() {
         const cfg = estado.config;
         $('#raiz').innerHTML = `
-        <div class="app">
+        <div class="app${estado.tela === 'linkedit' ? ' tela-cheia' : ''}">
           <nav class="lateral" aria-label="Coleções">
             <h2>Coleções</h2>
             ${cfg.colecoes.map(c => `
@@ -338,14 +350,39 @@
         </div>`;
         $$('.colecao').forEach(b => b.addEventListener('click', () => {
             if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
-            estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
-            if (estado.tela === 'vitrine') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
+            estado.col = b.dataset.col; estado.busca = ''; estado.filtro = 'todos'; estado.pais = ''; estado.mostrar = PASSO_LISTA; estado.selecionando = false; estado.sel.clear(); guardar.gravar('czs-col', estado.col);
+            if (estado.tela !== 'colecoes') { estado.tela = 'colecoes'; history.replaceState(null, '', location.pathname + location.search); }
             desenharApp();
         }));
         $('#btn-vitrine').classList.toggle('ativo', estado.tela === 'vitrine');
-        if (estado.tela === 'vitrine') desenharVitrine(); else desenharArea();
+        $('#btn-prateleira').classList.toggle('ativo', estado.tela === 'prateleira');
+        $('#btn-linkedit').classList.toggle('ativo', estado.tela === 'linkedit');
+        $('#btn-colecoes').classList.toggle('ativo', estado.tela === 'colecoes');
+        if (estado.tela !== 'linkedit' && window.CZLinkEdit) window.CZLinkEdit.parar();     // saiu do Link Edit: o visualizador para
+        if (estado.tela === 'vitrine') desenharVitrine();
+        else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), temTmdb: () => !!chaves().tmdb, completar: (it) => C.completarItem(it, { tmdb: chaves().tmdb, omdb: chaves().omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: 'video' }) });
+        else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
+            RepoGitHub, aviso, esc, guardar,
+            indice: () => estado.indice,
+            consolesWeb: () => estado.config.consolesWeb || [],
+            cadastrarWeb: async (bruto, botao) => {      // grava a ficha na coleção Jogos Web (local, demo ou GitHub)
+                const col = estado.config.colecoes.find(c => c.id === 'jogos-web');
+                if (!col) throw new Error('coleção Jogos Web não existe');
+                const item = C.normalizarItem(bruto, col);
+                const base = C.caminhoItem(col, item);
+                const pasta = base.slice(0, base.lastIndexOf('/') + 1);
+                const nomes = new Set(estado.indice.map(i => i.caminho).filter(c => c.startsWith(pasta) && !c.slice(pasta.length).includes('/'))
+                    .map(c => c.slice(pasta.length).replace(/\.json$/, '')));
+                const destino = C.caminhoItem(col, item, C.slugLivre(C.slugify(item.nome), nomes));
+                await gravar([{ caminho: destino, conteudo: C.serializar(item) }], `Studio: adiciona "${item.nome}" em Jogos Web (Prateleira)`, botao);
+            }
+        });
+        else desenharArea();
     }
 
+    // aba "Cópias": coleções cujos itens têm links (filmes, canais, rádios)
+    const temCopias = (col) => ['video', 'canal', 'canal24h', 'radio'].includes(col.tipo);
+    const nCopias = (col) => itensDaColecao(col.id).filter(i => i.links > 1).length;
     function desenharArea() {
         const col = colecaoAtual();
         const tipo = C.TIPOS[col.tipo];
@@ -360,6 +397,7 @@
             <div class="abas" role="tablist">
               <button class="aba ${estado.aba === 'itens' ? 'ativa' : ''}" data-aba="itens" role="tab">Itens</button>
               <button class="aba ${estado.aba === 'rapido' ? 'ativa' : ''}" data-aba="rapido" role="tab">⚡ Adicionar rápido</button>
+              ${temCopias(col) ? `<button class="aba ${estado.aba === 'copias' ? 'ativa' : ''}" data-aba="copias" role="tab" title="Títulos com mais de um link: escolha a principal e as reservas">🎞️ Cópias${nCopias(col) ? ` <span class="ct">${nCopias(col)}</span>` : ''}</button>` : ''}
             </div>
             ${col.consoles === 'consolesWeb' ? '<button class="btn" id="btn-novo-sistema" title="Cria um DB novo de sistema (vira um card no app)">+ Novo sistema</button>' : ''}
             <button class="btn principal" id="btn-novo">+ Novo</button>
@@ -368,7 +406,10 @@
         $$('.aba').forEach(b => b.addEventListener('click', () => { estado.aba = b.dataset.aba; desenharArea(); }));
         $('#btn-novo').addEventListener('click', () => abrirEditor(null));
         const bSis = $('#btn-novo-sistema'); if (bSis) bSis.addEventListener('click', () => abrirNovoSistema());
-        if (estado.aba === 'rapido') desenharRapido(); else desenharLista();
+        if (estado.aba === 'copias' && !temCopias(col)) estado.aba = 'itens';
+        if (estado.aba === 'rapido') desenharRapido();
+        else if (estado.aba === 'copias' && window.CZCopias) window.CZCopias.desenhar($('#conteudo-aba'), { C, col, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), esc, aviso, local: () => !!(estado.repo && estado.repo.usaProxy) });
+        else desenharLista();
     }
 
     // filtros da lista: todos · rascunhos · publicados · (jogos) sem licença conferida
@@ -378,8 +419,52 @@
         const f = estado.filtro;
         return itensDaColecao(col.id)
             .filter(i => !alvo || C.normText(i.nome).includes(alvo) || C.normText(i.caminho).includes(alvo))
+            .filter(i => !estado.pais || !temPaises(col) || (estado.pais === '—' ? !i.pais : i.pais === estado.pais))
             .filter(i => f === 'todos' || (f === 'rascunhos' ? i.rascunho : f === 'publicados' ? !i.rascunho : f === 'semlicenca' ? semLicenca(i) : f === 'sopc' ? !!i.soPC : f.startsWith('console:') ? i.console === f.slice(8) : true))
             .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
+    }
+
+    // Rolagem infinita: quando o aviso "role para carregar mais" aparece na tela, desenha mais um lote
+    // (a página continua leve porque nunca desenha a coleção inteira de uma vez; as capas já são lazy).
+    const PASSO_LISTA = 300, PASSO_VITRINE = 60;
+    const observadores = new Map();
+    function rolarParaMais(alvo, carregar, chave = 'lista') {
+        if (observadores.has(chave)) { observadores.get(chave).disconnect(); observadores.delete(chave); }
+        if (!alvo || !('IntersectionObserver' in window)) return;
+        const obs = new IntersectionObserver(ent => {
+            if (!ent.some(e => e.isIntersecting)) return;
+            obs.disconnect(); observadores.delete(chave);
+            const y = window.scrollY;
+            carregar();
+            window.scrollTo(0, y);                              // continua de onde estava
+        }, { rootMargin: '600px 0px' });
+        obs.observe(alvo);
+        observadores.set(chave, obs);
+    }
+
+    // Canais (TVzine) e Rádios: uma aba por país (os de "paisesPrioridade" primeiro, mesmo vazios) para cada
+    // idioma ficar no seu lugar. No app continua um link só com todos (canais.json) + um por país.
+    const temPaises = (col) => col && (col.tipo === 'canal' || col.tipo === 'radio');
+    const IDIOMA_DO_PAIS = { BR: 'Português', PT: 'Português (Portugal)', AO: 'Português (Portugal)', MZ: 'Português (Portugal)', US: 'Inglês', GB: 'Inglês', CA: 'Inglês', AU: 'Inglês',
+        AR: 'Espanhol', BO: 'Espanhol', CL: 'Espanhol', CO: 'Espanhol', EC: 'Espanhol', MX: 'Espanhol', PE: 'Espanhol', PY: 'Espanhol', UY: 'Espanhol', VE: 'Espanhol', ES: 'Espanhol',
+        FR: 'Francês', IT: 'Italiano', DE: 'Alemão', JP: 'Japonês', KR: 'Coreano' };
+    function barraPaises(col) {
+        if (!temPaises(col)) return '';
+        const todos = itensDaColecao(col.id);
+        const conta = new Map();
+        todos.forEach(i => { const k = i.pais || '—'; conta.set(k, (conta.get(k) || 0) + 1); });
+        const prio = (estado.config.paisesPrioridade || []).filter(p => C.PAISES[p]);
+        const outros = [...conta.keys()].filter(k => k !== '—' && !prio.includes(k)).sort((a, b) => conta.get(b) - conta.get(a) || a.localeCompare(b));
+        if (estado.pais && estado.pais !== '—' && !prio.includes(estado.pais) && !outros.includes(estado.pais)) outros.unshift(estado.pais);
+        const chip = (k, rot, tit) => `<button class="chip-pais${estado.pais === k ? ' on' : ''}${k && !conta.get(k) ? ' vazio' : ''}" data-pais="${esc(k)}" title="${esc(tit || rot)}">${rot} <small>${k ? conta.get(k) || 0 : todos.length}</small></button>`;
+        const resto = Object.keys(C.PAISES).filter(p => !prio.includes(p) && !outros.includes(p)).sort((a, b) => C.PAISES[a].localeCompare(C.PAISES[b], 'pt'));
+        return `<div class="barra-paises" role="tablist" aria-label="Países">
+            ${chip('', '🌐 Todos', 'Todos os países')}
+            ${prio.map(p => chip(p, C.bandeira(p) + ' ' + esc(C.PAISES[p]))).join('')}
+            ${outros.length ? '<span class="sep-paises" aria-hidden="true"></span>' + outros.map(p => chip(p, C.bandeira(p) + ' ' + esc(C.PAISES[p] || p))).join('') : ''}
+            ${conta.get('—') ? chip('—', '❔ Sem país', 'Canais sem país: não aparecem no seletor de países do app') : ''}
+            <select class="campo mini" id="pais-outro" aria-label="Ir para outro país"><option value="">+ outro país…</option>${resto.map(p => `<option value="${p}">${C.bandeira(p)} ${esc(C.PAISES[p])}</option>`).join('')}</select>
+          </div>`;
     }
 
     function desenharLista() {
@@ -388,7 +473,7 @@
         const consoles = new Map(C.todosConsoles(estado.config).map(c => [c.id, c.nome]));
         const itens = filtrarItens(col);
         const total = itensDaColecao(col.id).length;
-        const MAX = 300;
+        const MAX = estado.mostrar || PASSO_LISTA;               // rolagem infinita: cresce de 300 em 300 ao chegar no fim
         const sel = estado.sel;
         // tira da seleção o que não existe mais (ex.: excluído ou movido)
         const existe = new Set(itensDaColecao(col.id).map(i => i.caminho));
@@ -398,6 +483,7 @@
             .concat(col.tipo === 'jogo' ? [['semlicenca', 'Sem licença conferida'], ['sopc', 'Só PC']] : [])
             .concat(consolesUsados.map(c => ['console:' + c, 'Console: ' + (consoles.get(c) || c)]));
         $('#conteudo-aba').innerHTML = `
+          ${barraPaises(col)}
           <div class="barra-lista">
             <input class="busca" type="search" placeholder="Buscar em ${esc(col.nome)}…" value="${esc(estado.busca)}" aria-label="Buscar">
             ${total ? `<select class="campo filtro-lista" aria-label="Filtrar">${opcoesFiltro.map(([v, r]) => `<option value="${esc(v)}" ${estado.filtro === v ? 'selected' : ''}>${esc(r)}</option>`).join('')}</select>
@@ -416,7 +502,7 @@
                 <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc(meta || (i.pendente ? 'publicando…' : ' '))}</div></div>
               </button>`;
           }).join('')}</div>
-          ${itens.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${itens.length}. Use a busca ou o filtro para achar o resto${estado.selecionando ? ' ("Todos da lista" escolhe os ' + itens.length + ', até os que não aparecem)' : ''}.</p>` : ''}
+          ${itens.length > MAX ? `<p class="dica" id="lista-mais">Mostrando ${MAX} de ${itens.length} · role para carregar mais…</p>` : ''}
           ${estado.selecionando ? `
           <div class="barra-massa" role="region" aria-label="Seleção">
             <b id="sel-n">${sel.size} ${sel.size === 1 ? 'selecionado' : 'selecionados'}</b>
@@ -427,15 +513,19 @@
             <button class="btn principal" id="sel-aplicar" ${sel.size ? '' : 'disabled'}>Mudar ${sel.size || ''} de uma vez…</button>
             <button class="btn fantasma mini" id="sel-sair">Sair da seleção</button>
           </div>` : ''}`;
+        rolarParaMais($('#lista-mais'), () => { estado.mostrar = MAX + PASSO_LISTA; desenharLista(); });
         const busca = $('.busca');
         busca.addEventListener('input', () => {
-            estado.busca = busca.value;
+            estado.busca = busca.value; estado.mostrar = PASSO_LISTA;
             const pos = busca.selectionStart;
             desenharLista();
             const nova = $('.busca'); nova.focus(); nova.setSelectionRange(pos, pos);
         });
+        $$('[data-pais]').forEach(b => b.addEventListener('click', () => { estado.pais = b.dataset.pais; estado.mostrar = PASSO_LISTA; estado.ultimoSel = -1; desenharLista(); }));
+        const outroPais = $('#pais-outro');
+        if (outroPais) outroPais.addEventListener('change', () => { if (outroPais.value) { estado.pais = outroPais.value; estado.mostrar = PASSO_LISTA; desenharLista(); } });
         const filtro = $('.filtro-lista');
-        if (filtro) filtro.addEventListener('change', () => { estado.filtro = filtro.value; estado.ultimoSel = -1; desenharLista(); });
+        if (filtro) filtro.addEventListener('change', () => { estado.filtro = filtro.value; estado.mostrar = PASSO_LISTA; estado.ultimoSel = -1; desenharLista(); });
         const bSel = $('#btn-selecionar');
         if (bSel) bSel.addEventListener('click', () => { estado.selecionando = !estado.selecionando; if (!estado.selecionando) estado.sel.clear(); estado.ultimoSel = -1; desenharLista(); });
         $$('.card').forEach(c => c.addEventListener('click', ev => {
@@ -658,8 +748,12 @@
         switch (c.tipo) {
             case 'textarea':
                 return `<div class="cheio">${rot}<textarea class="campo" id="${id}" data-k="${c.k}" rows="4">${esc(valor || '')}</textarea>${dica}</div>`;
-            case 'links':
-                return `<div class="cheio">${rot}<textarea class="campo" id="${id}" data-k="${c.k}" rows="2" placeholder="https://…  (um por linha)">${esc((valor || []).join('\n'))}</textarea>${dica}</div>`;
+            case 'links': {
+                // jogos: botão "Link test" abre o link numa janela para ver se o jogo carrega antes de editar
+                const teste = prefixo === 'f' && colecaoAtual().tipo === 'jogo'
+                    ? `<div class="linha-teste-link"><button type="button" class="btn fantasma" data-teste-link="${id}">🔗 Link test</button><span class="dica">abre o link numa janela para ver se o jogo abre ou está quebrado</span></div>` : '';
+                return `<div class="cheio">${rot}<textarea class="campo" id="${id}" data-k="${c.k}" rows="2" placeholder="https://…  (um por linha)">${esc((valor || []).join('\n'))}</textarea>${teste}${dica}</div>`;
+            }
             case 'lista':
                 return `<div>${rot}<input class="campo" id="${id}" data-k="${c.k}" value="${esc((valor || []).join(', '))}">${dica}</div>`;
             case 'bool':
@@ -684,11 +778,19 @@
                   ${c.imagem && valor ? `<img class="previa-img" src="${esc(valor)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}</div>`;
             case 'temporadas':
                 return `<div class="cheio" id="temporadas-box"></div>`;
+            case 'seletorFundo': {
+                const ban = valor === 'banner';
+                return `<div class="cheio">${rot}<div class="seg-fundo" role="radiogroup" aria-label="${esc(c.rotulo)}">
+                    <label><input type="radio" name="${id}" data-k="${c.k}" value="capa" ${ban ? '' : 'checked'}><span>🖼️ Capa</span></label>
+                    <label><input type="radio" name="${id}" data-k="${c.k}" value="banner" ${ban ? 'checked' : ''}><span>🎞️ Banner</span></label>
+                  </div>${dica}</div>`;
+            }
             case 'posicao': {
                 // prévia do fundo do topo do app (mesmo corte e degradê); ligarPosicoes() desenha e cuida do arraste
                 const n = Number.isFinite(parseFloat(valor)) ? Math.round(parseFloat(valor)) : '';
                 return `<div class="cheio pos-campo" data-de="${esc(c.de || 'capa')}">${rot}
-                  <div class="pos-quadro" title="Arraste a imagem para cima ou para baixo"><div class="pos-img"></div><div class="pos-degrade"></div><span class="pos-sem">Coloque a capa para ajustar</span></div>
+                  <div class="pos-quadro" title="Arraste a imagem para cima ou para baixo"><div class="pos-img"></div><div class="pos-degrade"></div><span class="pos-sem">Coloque a imagem (capa ou banner) para ajustar</span></div>
+                  <div class="dica pos-aviso" hidden>Este item ainda não tem banner: o app usa a capa.</div>
                   <div class="pos-linha"><span class="dica">topo</span><input type="range" class="pos-barra" min="0" max="100" step="1" value="${n === '' ? 50 : n}" aria-label="${esc(c.rotulo)}"><span class="dica">pé</span>
                     <input class="campo pos-num" id="${id}" data-k="${c.k}" type="number" min="0" max="100" inputmode="numeric" placeholder="centro" value="${n}"><span class="dica">%</span>
                     <button type="button" class="btn fantasma pos-centro">Centro</button></div>${dica}</div>`;
@@ -701,6 +803,11 @@
     function lerCampos(raiz, campos) {
         const out = {};
         for (const c of campos) {
+            if (c.tipo === 'seletorFundo') {
+                const r = raiz.querySelector(`[data-k="${c.k}"]:checked`);
+                if (r && r.value === 'banner') out[c.k] = 'banner';
+                continue;
+            }
             const e = raiz.querySelector(`[data-k="${c.k}"]`);
             if (!e) continue;
             if (c.tipo === 'bool') { if (e.checked) out[c.k] = true; continue; }
@@ -721,14 +828,19 @@
     function ligarPosicoes(form) {
         const lim = (n) => Math.max(0, Math.min(100, Math.round(n)));
         const pintar = () => form.querySelectorAll('.pos-campo').forEach(b => {
-            const capa = form.querySelector(`[data-k="${b.dataset.de}"]`);
-            const url = capa ? capa.value.trim() : '';
+            // a imagem escolhida no seletor (Capa | Banner); banner vazio = usa a capa, igual ao app
+            const valor = (k) => { const e = form.querySelector(`[data-k="${k}"]:not([type="radio"])`); return e ? e.value.trim() : ''; };
+            const escolha = form.querySelector('[data-k="fundoImagem"]:checked');
+            const querBanner = escolha && escolha.value === 'banner';
+            const url = (querBanner && valor('banner')) || valor(b.dataset.de);
+            const aviso = b.querySelector('.pos-aviso');
+            if (aviso) aviso.hidden = !(querBanner && !valor('banner'));
             const num = b.querySelector('.pos-num'), barra = b.querySelector('.pos-barra'), img = b.querySelector('.pos-img');
             const y = num.value === '' ? 50 : lim(parseFloat(num.value) || 0);
             img.style.backgroundImage = url ? `url("${url.replace(/"/g, '%22')}")` : 'none';
             img.style.backgroundPosition = `center ${y}%`;
             barra.value = y;
-            b.classList.toggle('vazio', !url);
+            b.classList.toggle('pos-vazio', !url);
         });
         if (!form._posLigado) {
             form._posLigado = true;
@@ -742,7 +854,7 @@
             });
             form.addEventListener('pointerdown', (e) => {
                 const q = e.target.closest && e.target.closest('.pos-quadro');
-                if (!q || q.closest('.pos-campo').classList.contains('vazio')) return;
+                if (!q || q.closest('.pos-campo').classList.contains('pos-vazio')) return;
                 e.preventDefault();
                 const num = q.closest('.pos-campo').querySelector('.pos-num');
                 const y0 = e.clientY, v0 = num.value === '' ? 50 : lim(parseFloat(num.value) || 0);
@@ -841,10 +953,44 @@
     // ------------------------------------------------------------------
     // Gaveta do editor
     // ------------------------------------------------------------------
+    /**
+     * Jogos: atalhos para ajustar as artes à mão.
+     *  • "Ver no ScreenScraper": a página do jogo no site (todas as caixas, logos, fanarts, telas…);
+     *    sem o número do jogo (_ssId), uma busca pelo nome.
+     *  • "Arquivos baixados": o release "midia-jogos" com tudo que o robô baixou.
+     *  • miniaturas das artes atuais do jogo (clique abre a imagem / o vídeo).
+     */
+    function barraJogo(item) {
+        const repo = (estado.repo && estado.repo.repo) || 'cartoonzine/cartoonzine-studio';
+        const ssUrl = item._ssId > 0
+            ? 'https://www.screenscraper.fr/gameinfos.php?gameid=' + encodeURIComponent(item._ssId)
+            : 'https://www.google.com/search?q=' + encodeURIComponent('site:screenscraper.fr ' + (item.nome || ''));
+        const artes = [['capa', 'Capa'], ['logo', 'Logo'], ['banner', 'Banner'], ['previa', 'Tela de prévia'], ['video', 'Vídeo (snap)']]
+            .filter(([k]) => item[k]);
+        const mini = ([k, rotulo]) => {
+            const u = esc(item[k]);
+            const vis = k === 'video'
+                ? '<span style="display:flex;align-items:center;justify-content:center;height:100%;font-size:26px">▶</span>'
+                : `<img src="${u}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:${k === 'logo' ? 'contain' : 'cover'}">`;
+            return `<a href="${u}" target="_blank" rel="noopener" title="${esc(rotulo)} — abrir em outra aba"
+                       style="display:flex;flex-direction:column;gap:4px;width:${k === 'capa' ? 70 : 120}px;text-decoration:none;color:inherit">
+                       <span style="display:block;height:96px;border-radius:8px;overflow:hidden;background:${k === 'logo' ? 'repeating-conic-gradient(#2a2d36 0 25%, #1c1f27 0 50%) 0 0/14px 14px' : '#111'};border:1px solid rgba(255,255,255,.12)">${vis}</span>
+                       <small class="dica" style="text-align:center">${esc(rotulo)}</small></a>`;
+        };
+        return `
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+              <a class="btn mini" style="text-decoration:none" href="${esc(ssUrl)}" target="_blank" rel="noopener" title="Abre a página do jogo no ScreenScraper (faça login lá para baixar as imagens)">🔎 ${item._ssId > 0 ? 'Ver no ScreenScraper' : 'Procurar no ScreenScraper'}</a>
+              <a class="btn mini fantasma" style="text-decoration:none" href="https://github.com/${esc(repo)}/releases/tag/midia-jogos" target="_blank" rel="noopener" title="Tudo que o robô baixou do ScreenScraper — e onde você pode anexar imagens suas">📦 Arquivos baixados</a>
+            </div>
+            ${artes.length ? `<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-items:flex-start">${artes.map(mini).join('')}</div>` : ''}
+            <div class="dica" style="margin-top:8px">Para trocar uma arte: baixe a imagem no ScreenScraper, anexe em "Arquivos baixados" (✏️ Edit → arraste o arquivo → Update release), copie o link do arquivo e cole no campo abaixo. O robô nunca troca um link que você pôs à mão.</div>`;
+    }
     async function abrirEditor(caminho) {
         const col = colecaoAtual();
         const tipo = C.TIPOS[col.tipo];
         let item = {};
+        // novo canal dentro da aba de um país: já vem com o país (e o idioma de lá)
+        if (!caminho && temPaises(col) && estado.pais && estado.pais !== '—') item = { pais: estado.pais, idioma: IDIOMA_DO_PAIS[estado.pais] };
         if (caminho) {
             try { item = C.normalizarItem(await estado.repo.ler(caminho), col); }
             catch (e) { aviso(e.message, 'ruim'); return; }
@@ -857,6 +1003,7 @@
           <div class="gaveta" role="dialog" aria-modal="true" aria-labelledby="ed-titulo">
             <h2 id="ed-titulo">${caminho ? esc(item.nome || 'Editar') : 'Novo em ' + esc(col.nome)}</h2>
             <div class="caminho">${caminho ? esc(caminho) : 'o arquivo é criado ao salvar'}</div>
+            ${col.tipo === 'jogo' ? barraJogo(item) : ''}
             <div class="caixa-erros" id="ed-erros"></div>
             <form class="form" id="ed-form" style="margin-top:16px" novalidate>
               ${normais.map(c => campoHtml(c, item[c.k])).join('')}
@@ -1081,9 +1228,9 @@
             </section>
           </div>`;
         const busca = $('#vit-busca');
-        busca.addEventListener('input', () => { vit.busca = busca.value; desenharResultadosVitrine(); });
-        $('#vit-col').onchange = e => { vit.col = e.target.value; desenharResultadosVitrine(); };
-        $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; desenharResultadosVitrine(); };
+        busca.addEventListener('input', () => { vit.busca = busca.value; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); });
+        $('#vit-col').onchange = e => { vit.col = e.target.value; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); };
+        $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); };
         $('#vp-mostrar').onclick = () => {
             vit.prev.mostrar = !vit.prev.mostrar; guardar.gravar('czs-vit-previa', vit.prev.mostrar);
             ['#vit-tela', '#vit-controles', '#vp-dica'].forEach(s => { $(s).hidden = !vit.prev.mostrar; });
@@ -1341,7 +1488,7 @@
         const box = $('#vit-resultados');
         if (!box) return;
         const alvo = C.normText(vit.busca);
-        const MAX = 60;
+        const MAX = vit.mostrar || PASSO_VITRINE;
         const achados = estado.indice
             .filter(i => naVitrine(i) && !i.rascunho)
             .filter(i => !vit.col || colDoCaminho(i.caminho).id === vit.col)
@@ -1360,7 +1507,8 @@
                 <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc([col.nome, i.ano].filter(Boolean).join(' · '))}${!i.banner ? ' · sem banner' : ''}</div></div>
               </button>`;
           }).join('')}</div>
-          ${achados.length > MAX ? `<p class="dica">Mostrando ${MAX} de ${achados.length}. Refine a busca para achar o resto.</p>` : ''}`;
+          ${achados.length > MAX ? `<p class="dica" id="vit-mais">Mostrando ${MAX} de ${achados.length} · role para carregar mais…</p>` : ''}`;
+        rolarParaMais($('#vit-mais', box), () => { vit.mostrar = MAX + PASSO_VITRINE; desenharResultadosVitrine(); }, 'vitrine');
         $$('[data-alternar]', box).forEach(b => b.onclick = () => {
             const c = b.dataset.alternar;
             if (vit.lista.includes(c)) vit.lista = vit.lista.filter(x => x !== c);
@@ -1531,7 +1679,7 @@
     // ==================================================================
     // Adição rápida
     // ==================================================================
-    const rapido = { texto: '', previa: null };
+    const rapido = { texto: '', previa: null, arquivos: [] };
 
     function desenharRapido() {
         const col = colecaoAtual();
@@ -1548,16 +1696,49 @@ https://…/Naruto%20S01E01.mp4
 https://archive.org/details/algum_desenho
 (ou uma lista M3U inteira, ou as mensagens do @CZStreamBot)">${esc(rapido.texto)}</textarea>
             <div class="exemplos"><span>Nome | link | capa</span><span>links soltos</span><span>lista M3U</span><span>mensagens do @CZStreamBot</span><span>archive.org</span><span>"Série S01E02" vira episódio</span></div>
+            <div class="linha-acoes r-arquivos-linha">
+              <label class="btn fantasma" for="r-arquivo" style="cursor:pointer">📂 Abrir lista em arquivo</label>
+              <input type="file" id="r-arquivo" multiple accept=".txt,.m3u,.m3u8,.json,.csv,.tsv,.lpl,.xml" hidden>
+              <span class="dica">TXT · JSON · CSV/TSV · M3U · RetroArch .lpl · gamelist.xml — ou arraste os arquivos para a caixa acima</span>
+            </div>
+            <div id="r-arquivos" class="r-arquivos"></div>
+            <details class="r-opcoes"${salvos._base ? ' open' : ''}><summary>Lista com caminhos locais (./roms/jogo.sfc)?</summary>
+              <label class="rot" for="r-base">Endereço base dos arquivos</label>
+              <input class="campo" id="r-base" placeholder="https://archive.org/download/minha-colecao/" value="${esc(salvos._base || '')}">
+              <div class="dica">Completa os caminhos relativos das listas do RetroArch/EmulationStation. Links completos (https://…) ficam como estão.</div>
+            </details>
             ${padroes.length ? `<div class="padroes">${padroes.map(c => campoHtml(Object.assign({}, c, { obrigatorio: false }), salvos[c.k], 'r')).join('')}</div>
               <div class="dica">Esses valores valem para todos os itens colados que não trouxerem o seu próprio.</div>` : ''}
             <div class="linha-acoes">
               ${col.tipo === 'video' ? `<label class="check"><input type="checkbox" id="r-wiki" ${salvos._wiki ? 'checked' : ''}> Buscar sinopse, capas e episódios ${chaves().tmdb ? '(TMDB' + (chaves().omdb ? ' + nota IMDb' : '') + ')' : '(Wikipedia — <a href="#" id="r-chaves">ponha a chave do TMDB</a> para mais)'}</label>` : '<input type="checkbox" id="r-wiki" hidden>'}
+              <label class="check"><input type="checkbox" id="r-rasc" ${(salvos._rasc !== undefined ? salvos._rasc : col.tipo === 'jogo') ? 'checked' : ''}> Salvar tudo como <b>rascunho</b> (confira e publique depois — filtro "Só rascunhos")</label>
+              ${col.tipo === 'jogo' && chaves().steamgrid ? `<label class="check"><input type="checkbox" id="r-artes" ${salvos._artes ? 'checked' : ''}> Buscar capas agora (SteamGridDB, mais lento)</label>` : ''}
               <div class="espaco"></div>
               <button class="btn principal" id="r-analisar">Analisar</button>
             </div>
           </div>
+          ${col.tipo === 'jogo' ? `<div class="dica" style="margin-top:8px">${col.consoles === 'consolesWeb'
+                ? '🌐 Jogos web em massa: cada linha vira um <b>rascunho</b> com a licença por conferir. Depois use o filtro "Só rascunhos" e "☑ Mudar vários" para conferir licença e publicar.'
+                : '🕹️ ROMs em massa: o console vem da extensão (.sfc, .gba, .md…); para .zip, .bin, .iso e .chd escolha o console acima. Sem nome na lista, o nome sai do arquivo e o robô troca pelo <b>nome oficial</b> identificando a ROM no ScreenScraper — e baixa capa, logo, banner, tela e vídeo.'}</div>` : ''}
           <div id="r-previa"></div>`;
         $('#r-texto').addEventListener('input', e => { rapido.texto = e.target.value; });
+        const lerArquivos = async (files) => {
+            for (const f of Array.from(files || [])) {
+                if (f.size > 20 * 1024 * 1024) { aviso(f.name + ': arquivo grande demais (máx. 20 MB)', 'ruim'); continue; }
+                rapido.arquivos = rapido.arquivos.filter(a => a.nome !== f.name).concat([{ nome: f.name, texto: await f.text(), tam: f.size }]);
+            }
+            desenharArquivos();
+        };
+        const desenharArquivos = () => {
+            $('#r-arquivos').innerHTML = rapido.arquivos.map((a, i) => `<span class="r-arq">📄 ${esc(a.nome)} <small>${a.tam < 1024 ? a.tam + ' B' : Math.round(a.tam / 1024) + ' KB'}</small><button type="button" data-tira="${i}" aria-label="Tirar ${esc(a.nome)}">✕</button></span>`).join('');
+            $$('[data-tira]').forEach(b => b.onclick = () => { rapido.arquivos.splice(+b.dataset.tira, 1); desenharArquivos(); });
+        };
+        desenharArquivos();
+        $('#r-arquivo').addEventListener('change', e => { lerArquivos(e.target.files); e.target.value = ''; });
+        const caixa = $('#r-texto');
+        caixa.addEventListener('dragover', e => { if (e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files')) { e.preventDefault(); caixa.classList.add('soltando'); } });
+        caixa.addEventListener('dragleave', () => caixa.classList.remove('soltando'));
+        caixa.addEventListener('drop', e => { if (e.dataTransfer && e.dataTransfer.files.length) { e.preventDefault(); caixa.classList.remove('soltando'); lerArquivos(e.dataTransfer.files); } });
         $('#r-analisar').addEventListener('click', () => analisarRapido(col, padroes));
         const linkChaves = $('#r-chaves');
         if (linkChaves) linkChaves.addEventListener('click', ev => { ev.preventDefault(); mostrarChaves(); });
@@ -1568,19 +1749,27 @@ https://archive.org/details/algum_desenho
         const btn = $('#r-analisar');
         const pad = lerCampos($('#conteudo-aba'), padroes.map(c => Object.assign({}, c)));
         const wiki = $('#r-wiki').checked;
-        guardar.gravar('czs-padroes-' + col.id, Object.assign({}, pad, { _wiki: wiki }));
-        const entradas = C.lerTextoColado(rapido.texto);
-        if (!entradas.length) { aviso('Não achei nenhum link no texto colado.', 'ruim'); return; }
+        const rasc = $('#r-rasc').checked, artes = !!($('#r-artes') && $('#r-artes').checked), base = $('#r-base').value.trim();
+        guardar.gravar('czs-padroes-' + col.id, Object.assign({}, pad, { _wiki: wiki, _rasc: rasc, _artes: artes, _base: base }));
+        const entradas = rapido.texto.trim() ? C.lerTextoColado(rapido.texto) : [];
+        for (const a of rapido.arquivos) {
+            try { entradas.push(...C.lerListaArquivo(a.nome, a.texto, { base })); }
+            catch (e) { aviso(e.message, 'ruim'); }
+        }
+        if (!entradas.length) { aviso('Não achei nenhum link no texto colado nem nos arquivos.', 'ruim'); return; }
         let itens = C.agruparEntradas(entradas, { series: col.tipo === 'video' });
         btn.disabled = true;
         const linhas = [];
         for (let i = 0; i < itens.length; i++) {
             btn.textContent = `Analisando ${i + 1}/${itens.length}…`;
             let it = itens[i];
+            const avisos = [];
             if (it.categoria) it.categoria = C.traduzirCategoria(it.categoria);
+            // jogos: console pela extensão da ROM / pelo sistema da lista, nome limpo do arquivo
+            if (col.tipo === 'jogo') { const r = C.prepararJogoEmMassa(it, col, estado.config, pad.console); it = r.item; avisos.push(...r.avisos); }
             for (const [k, v] of Object.entries(pad)) if (it[k] === undefined || it[k] === '') it[k] = v;
             if (col.tipo !== 'video') delete it.audio;
-            const avisos = [];
+            if (rasc) it._rascunho = true;
             if (it.archive && !(it.links || []).length) {
                 try {
                     const a = await C.importarArchive(it.archive, fetchExterno, { torrent: !!col.torrent, livro: col.tipo === 'livro' });
@@ -1594,7 +1783,7 @@ https://archive.org/details/algum_desenho
                 const ch = chaves();
                 const r = await C.completarItem(it, { tmdb: ch.tmdb, omdb: ch.omdb, wiki, fetchFn: fetchExterno, tipoColecao: col.tipo });
                 it = r.item; avisos.push(...r.avisos);
-            } else if (col.tipo === 'jogo' && it.nome && (chaves().steamgrid || (chaves().screenscraper && chaves().screenscraper.dev)) && (!it.logo || !it.video)) {
+            } else if (col.tipo === 'jogo' && artes && it.nome && chaves().steamgrid && (!it.logo || !it.capa || !it.banner)) {
                 const r = await C.completarItem(it, { steamgrid: chaves().steamgrid, screenscraper: chaves().screenscraper, fetchFn: fetchExterno, tipoColecao: 'jogo' });
                 it = r.item; avisos.push(...r.avisos);
             }
@@ -1641,7 +1830,7 @@ https://archive.org/details/algum_desenho
                     ${l.erros.length ? `<div class="erros">${l.erros.map(esc).join('<br>')}</div>` : ''}
                     ${l.avisos.length ? `<div class="dica">${l.avisos.map(esc).join('<br>')}</div>` : ''}</td>
                   <td>${esc(resumo(l))}${l.item.ano ? ' · ' + l.item.ano : ''}</td>
-                  <td>${l.erros.length ? '<span class="tag erro">com erro</span>' : l.existente ? `<span class="tag junta" title="${esc(l.existente.caminho)}">junta com o existente</span>` : '<span class="tag novo">novo</span>'}</td>
+                  <td>${l.erros.length ? '<span class="tag erro">com erro</span>' : l.existente ? `<span class="tag junta" title="${esc(l.existente.caminho)}">junta com o existente</span>` : '<span class="tag novo">novo</span>'}${!l.erros.length && l.item._rascunho && !l.existente ? ' <span class="selo rasc">rascunho</span>' : ''}${l.item._nomeDoArquivo ? ' <span class="selo auto" title="O robô troca pelo nome oficial quando identificar a ROM">nome do arquivo</span>' : ''}</td>
                 </tr>`).join('')}</tbody>
             </table></div>
           </div>`;
@@ -1649,6 +1838,7 @@ https://archive.org/details/algum_desenho
         $$('[data-nome]').forEach(c => c.onchange = () => {
             const l = linhas[+c.dataset.nome];
             l.item.nome = c.value.trim();
+            delete l.item._nomeDoArquivo;            // nome escrito à mão: o robô não troca
             l.erros = C.validarItem(l.item, col, estado.config).erros;
             l.existente = acharExistente(col, l.item);
             l.incluir = !l.erros.length;
@@ -1669,7 +1859,9 @@ https://archive.org/details/algum_desenho
                 const existente = l.existente || null;
                 if (existente) {
                     const atual = porCaminho.get(existente.caminho) || C.normalizarItem(await estado.repo.ler(existente.caminho), col);
-                    porCaminho.set(existente.caminho, C.mesclarItem(atual, l.item));
+                    // juntar com um item que já existe nunca o devolve para rascunho nem troca o nome dele
+                    const extra = Object.assign({}, l.item); delete extra._rascunho; delete extra._nomeDoArquivo;
+                    porCaminho.set(existente.caminho, C.mesclarItem(atual, extra));
                     continue;
                 }
                 const novoNoLote = [...porCaminho.entries()].find(([c, it]) => !ocupados.has(c) && C.normText(it.nome) === C.normText(l.item.nome) && C.caminhoItem(col, it).split('/').slice(0, -1).join('/') === C.caminhoItem(col, l.item).split('/').slice(0, -1).join('/'));
@@ -1681,8 +1873,9 @@ https://archive.org/details/algum_desenho
                 porCaminho.set(caminho, l.item);
             }
             for (const [caminho, item] of porCaminho) mudancas.push({ caminho, conteudo: C.serializar(item) });
-            await gravar(mudancas, `Studio: +${mudancas.length} em ${col.nome} (adição rápida)`, btn);
-            rapido.previa = null; rapido.texto = '';
+            const emRasc = escolhidos.filter(l => l.item._rascunho && !l.existente).length;
+            await gravar(mudancas, `Studio: +${mudancas.length} em ${col.nome} (adição ${rapido.arquivos.length || mudancas.length > 30 ? 'em massa' : 'rápida'}${emRasc ? ', ' + emRasc + ' como rascunho' : ''})`, btn);
+            rapido.previa = null; rapido.texto = ''; rapido.arquivos = [];
             estado.aba = 'itens';
             desenharArea();
         } catch (e) {
@@ -1693,6 +1886,99 @@ https://archive.org/details/algum_desenho
     // ==================================================================
     // Links publicados
     // ==================================================================
+    // ==================================================================
+    // 🔗 Link test: abre o link do jogo numa janela (jogo web roda ali mesmo; ROM só é checada)
+    // ==================================================================
+    document.addEventListener('click', (ev) => {
+        const b = ev.target.closest('[data-teste-link]'); if (!b) return;
+        const caixa = document.getElementById(b.dataset.testeLink);
+        const links = String(caixa ? caixa.value : '').split(/\s*\n\s*/).map(x => x.trim()).filter(Boolean);
+        if (!links.length) { aviso('Coloque o link no campo antes de testar.', 'ruim'); if (caixa) caixa.focus(); return; }
+        const gaveta = b.closest('.gaveta');
+        const sel = gaveta && gaveta.querySelector('[data-k="console"]');
+        abrirTesteLink(links, sel ? sel.value : '');
+    });
+    async function checarLink(u) {
+        if (!(estado.repo && estado.repo.usaProxy)) return null;              // online (GitHub Pages) não tem servidor para checar
+        try { const r = await fetch('/api/checar-link?url=' + encodeURIComponent(u)); return await r.json(); }
+        catch (e) { return { erro: e.message }; }
+    }
+    function abrirTesteLink(links, consoleId) {
+        const web = C.consoleWeb(consoleId, estado.config) || !consoleId && /\.html?(\?|#|$)|\/$/.test(links[0]);
+        const fundo = document.createElement('div');
+        fundo.className = 'fundo-modal teste-link-fundo';
+        fundo.innerHTML = `
+          <div class="teste-link" role="dialog" aria-modal="true" aria-labelledby="tl-t">
+            <div class="tl-topo">
+              <b id="tl-t">🔗 Link test</b>
+              ${links.length > 1 ? `<select class="campo" id="tl-qual" aria-label="Qual link">${links.map((u, i) => `<option value="${i}">Link ${i + 1}${i ? ' (reserva)' : ''}</option>`).join('')}</select>` : ''}
+              <code class="tl-url" id="tl-url"></code>
+              <div class="espaco"></div>
+              ${web ? '<button class="btn fantasma" id="tl-recarregar" title="Carregar de novo">↻ Recarregar</button><button class="btn fantasma" id="tl-cheia" title="Tela cheia">⛶</button>' : ''}
+              <a class="btn fantasma" id="tl-aba" target="_blank" rel="noopener noreferrer">Abrir em nova aba ↗</a>
+              <button class="btn" id="tl-fechar">Fechar</button>
+            </div>
+            <div class="tl-status" id="tl-status"></div>
+            <div class="tl-palco" id="tl-palco"></div>
+          </div>`;
+        document.body.appendChild(fundo);
+        const fechar = () => { fundo.remove(); document.removeEventListener('keydown', tecla, true); };
+        const tecla = (e) => { if (e.key === 'Escape' && !document.fullscreenElement) { e.stopPropagation(); fechar(); } };
+        document.addEventListener('keydown', tecla, true);
+        $('#tl-fechar', fundo).onclick = fechar;
+        fundo.addEventListener('mousedown', ev => { if (ev.target === fundo) fechar(); });
+        let atual = 0, vez = 0;
+        const status = (html, tipo) => { const el = $('#tl-status', fundo); el.className = 'tl-status ' + (tipo || ''); el.innerHTML = html; };
+        async function carregar() {
+            const minha = ++vez, u = links[atual];
+            $('#tl-url', fundo).textContent = u;
+            $('#tl-aba', fundo).href = u;
+            const palco = $('#tl-palco', fundo);
+            if (!/^https?:\/\//i.test(u)) { palco.innerHTML = ''; return status('❌ Isso não é um link http(s) — o jogo não vai abrir no app.', 'ruim'); }
+            // duas coisas chegam em qualquer ordem: a página carregando no quadro e a checagem do servidor local
+            const est = { carregou: null, chec: undefined };
+            const pintar = () => {
+                if (minha !== vez || !fundo.isConnected) return;
+                const r = est.chec;
+                const carregouTxt = est.carregou != null ? `A página carregou em ${est.carregou < 0.1 ? 'menos de 0,1' : est.carregou.toFixed(1).replace('.', ',')} s — veja se o jogo aparece e responde ao teclado/controle (clique nele primeiro).` : '';
+                if (r === undefined) return status(web ? (carregouTxt ? '✅ ' + carregouTxt : '⏳ Abrindo o jogo…') : '⏳ Checando o link…', carregouTxt ? 'ok' : '');
+                if (r === null) return status(web
+                    ? (carregouTxt ? '✅ ' + carregouTxt : '⏳ Abrindo o jogo…') + '<br><span class="dica">Se ficar em branco ou aparecer "recusou a conexão", o site não deixa abrir dentro de outra página: aqui no teste não abre, mas <b>no app do PC abre</b> (o app tira esse bloqueio só no cartucho web). Na TV e no navegador não abre — marque <b>"Só PC"</b> no jogo. A checagem completa (link quebrado, bloqueio) funciona com o painel no PC: node tools/painel.mjs</span>'
+                    : 'ℹ Online não dá para checar daqui (o navegador bloqueia). Rode o painel no PC (node tools/painel.mjs) para a checagem completa, ou abra em nova aba.', carregouTxt ? 'ok' : '');
+                if (r.erro) return status('❌ O link não respondeu: ' + esc(r.erro), 'ruim');
+                const tam = r.tamanho ? ' · ' + (r.tamanho > 1048576 ? (r.tamanho / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(r.tamanho / 1024)) + ' KB') : '';
+                const info = `HTTP ${r.status}${r.tipo ? ' · ' + esc(r.tipo) : ''}${tam}${r.final && r.final !== u ? ' · redireciona para <code>' + esc(r.final) + '</code>' : ''}`;
+                if (r.status >= 400) return status(`❌ Link quebrado (${info}).`, 'ruim');
+                if (web && r.bloqueiaQuadro) return status(`⚠ O link funciona (${info}), mas o site <b>não deixa abrir dentro de outra página</b> (${esc(r.bloqueiaQuadro)}). Por isso aparece "recusou a conexão" aqui no teste. <b>No app do PC ele abre normalmente</b> (o app tira esse bloqueio só no cartucho web); na TV e no navegador não — marque <b>"Só PC"</b> no jogo. Para conferir o jogo agora, use "Abrir em nova aba".`, 'aviso');
+                if (web && r.tipo && !/html/i.test(r.tipo)) return status(`⚠ O link responde (${info}), mas não é uma página: o jogo web precisa do link da página (…/index.html).`, 'aviso');
+                if (!web && /html/i.test(r.tipo || '')) return status(`⚠ O link responde (${info}), mas é uma página, não o arquivo da ROM.`, 'aviso');
+                status(`✅ Link no ar (${info}).` + (carregouTxt ? '<br>' + carregouTxt : web ? '<br>⏳ Abrindo o jogo…' : ''), 'ok');
+            };
+            if (web) {
+                // o quadro já nasce com o link (sem o "about:blank" que dispararia um load falso)
+                const q = document.createElement('iframe');
+                q.id = 'tl-quadro'; q.title = 'Jogo em teste'; q.allowFullscreen = true; q.referrerPolicy = 'no-referrer-when-downgrade';
+                q.setAttribute('allow', 'autoplay; fullscreen; gamepad; pointer-lock; clipboard-write');
+                q.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-popups allow-modals allow-downloads');
+                const t0 = performance.now();
+                q.addEventListener('load', () => { est.carregou = (performance.now() - t0) / 1000; pintar(); }, { once: true });
+                q.src = u;
+                palco.innerHTML = ''; palco.appendChild(q);
+            } else {
+                palco.innerHTML = '<div class="tl-rom">🕹️ ROM de emulador: o link baixa o arquivo, então aqui ele só é <b>checado</b>.<br>Use "Abrir em nova aba" para baixar e conferir.</div>';
+            }
+            pintar();
+            est.chec = await checarLink(u);
+            pintar();
+        }
+        if ($('#tl-qual', fundo)) $('#tl-qual', fundo).onchange = (e) => { atual = +e.target.value; carregar(); };
+        if (web) {
+            $('#tl-recarregar', fundo).onclick = carregar;
+            $('#tl-cheia', fundo).onclick = () => { const q = $('#tl-quadro', fundo); if (q && q.requestFullscreen) q.requestFullscreen().catch(() => {}); };
+        }
+        carregar();
+    }
+
     function mostrarPublicacao() {
         const cfg = estado.config;
         const base = cfg.publicacao.baseUrl;
@@ -1732,9 +2018,21 @@ https://archive.org/details/algum_desenho
     $('#btn-chaves').addEventListener('click', mostrarChaves);
     // 🎬 Vitrine: endereço próprio (…/painel/#vitrine), dá para favoritar e abrir direto
     $('#btn-vitrine').addEventListener('click', () => { if (location.hash !== '#vitrine') location.hash = 'vitrine'; });
+    $('#btn-prateleira').addEventListener('click', () => { if (location.hash !== '#prateleira') location.hash = 'prateleira'; });
+    $('#btn-linkedit').addEventListener('click', () => { if (location.hash !== '#linkedit') location.hash = 'linkedit'; });
+    // volta para as coleções (de qualquer tela: Link Edit, Vitrine, Prateleira)
+    const irParaColecoes = () => {
+        if (!estado.repo || estado.tela === 'colecoes') return;
+        if (estado.tela === 'vitrine' && !sairDaVitrineOk()) return;
+        history.pushState(null, '', location.pathname + location.search);
+        estado.tela = 'colecoes';
+        desenharApp();
+    };
+    $('#btn-colecoes').addEventListener('click', irParaColecoes);
+    window.CZStudio = Object.assign(window.CZStudio || {}, { irParaColecoes });
     window.addEventListener('hashchange', () => {
         if (!estado.repo) return;
-        const quer = location.hash === '#vitrine' ? 'vitrine' : 'colecoes';
+        const quer = telaDoHash();
         if (quer === estado.tela) return;
         if (estado.tela === 'vitrine' && !sairDaVitrineOk()) { history.replaceState(null, '', '#vitrine'); return; }
         estado.tela = quer;
@@ -1745,7 +2043,7 @@ https://archive.org/details/algum_desenho
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true; $('#btn-colecoes').hidden = true;
         vit.lista = null; limparAjustes();
         telaConectar();
     });

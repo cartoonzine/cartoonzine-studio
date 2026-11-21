@@ -3,10 +3,25 @@
   "links": [
     "https://nflstreet.online/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nfl-street--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nfl-street--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nfl-street--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nfl-street--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--nfl-street--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · nflstreet.online",
+  "descricao": "Get ready for a new brand of football meant only for the streets. NFL Street delivers hard-hitting, fast-paced 7-on-7 arcade football. Don't be afraid to add extra style to your bone-crushing tackles, passes and runs as you will be rewarded with superpowered Gamebreakers. Choose from more than 300 current NFL stars and legends such as Barry Sanders, and play through a variety of fields including a beach, a park or a corner lot. Get ready to rule the streets and look good doing it.",
+  "ano": 2004,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol americano"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 23480,
+  "_ssPreviaEm": "2026-11-16"
 }

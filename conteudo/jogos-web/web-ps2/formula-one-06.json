@@ -3,10 +3,24 @@
   "links": [
     "https://f12006.online/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--formula-one-06--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--formula-one-06--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--formula-one-06--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--formula-one-06--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--formula-one-06--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · f12006.online",
+  "descricao": "More pickup and play than ever, fully loaded with brand new features: Put on your racing gloves and get ready to go. Formula One 06 on is all about speed, competition and fast-paced action. If you're a novice, switch on the improved driver and racing aids to race for fun; or turn them off for a full length GRAND PRIX experience if you're a Formula One professional. Formula One 06 features the ability to Network Play between PlayStation 2 and PSP. This means players can now compete online across platforms to see who the fastest Formula One 06 racer is. Thanks to new racing aids, any gamer can pick-up and play Formula One 06 and enjoy the exhilaration of driving a Formula One car. Equally, if you're a confirmed F1 driver, you can scale the gameplay to make it more simulation oriented. Either way, you will have access to a Tips and Learning Center to constantly improve your racing skills",
+  "ano": 2006,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22304,
+  "_ssPreviaEm": "2026-11-16"
 }

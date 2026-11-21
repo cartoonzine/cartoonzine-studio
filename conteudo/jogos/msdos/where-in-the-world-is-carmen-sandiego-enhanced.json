@@ -1,0 +1,25 @@
+{
+  "nome": "Where in the World is Carmen Sandiego Enhanced",
+  "links": [
+    "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--where-in-the-world-is-carmen-sandiego-enhanced--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Where_in_the_World_is_Carmen_Sandiego_Enhanced_1989",
+  "descricao": "Jogo de MS-DOS · Adventure, Puzzle (1989), de Brøderbund Software. Do acervo do Internet Archive.",
+  "ano": 1989,
+  "generos": [
+    "Adventure",
+    "Puzzle"
+  ],
+  "editora": "Brøderbund Software",
+  "console": "msdos",
+  "jogadores": 1,
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 156094,
+  "_ssPreviaEm": "2026-11-18"
+}

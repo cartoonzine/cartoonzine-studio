@@ -1,0 +1,25 @@
+{
+  "nome": "World Circuit",
+  "links": [
+    "https://archive.org/details/msdos_World_Circuit_1992"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--world-circuit--video.mp4",
+  "fonte": "https://archive.org/details/msdos_World_Circuit_1992",
+  "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1992), de MicroProse Ltd.. Do acervo do Internet Archive.",
+  "ano": 1992,
+  "generos": [
+    "Racing / Driving",
+    "Simulation",
+    "Vehicle Simulator"
+  ],
+  "editora": "MicroProse Ltd.",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 171151,
+  "_ssPreviaEm": "2026-11-18"
+}

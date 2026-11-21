@@ -3,11 +3,18 @@
   "links": [
     "http://ut.pieter.com"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/9f7a450aea7f2f6fbb28cbb27f712e26.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/14118b537d7c2887df052a1464f9385a.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9f4ed3611729894a88a2612fd799a9a9.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/FrozenSand/ioq3-for-UrbanTerror-4",
   "descricao": "Port para navegador · ut.pieter.com",
   "console": "web-pc",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 350508,
+  "_ssPreviaEm": "2026-11-16"
 }

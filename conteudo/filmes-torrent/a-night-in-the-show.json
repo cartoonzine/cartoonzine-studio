@@ -7,6 +7,9 @@
   "tmdb": "movie/53412",
   "imdb": "tt0005812",
   "notaImdb": 6.4,
+  "notaTmdb": 6.2,
+  "popularidade": 0.8,
+  "duracao": 24,
   "votosImdb": 2446,
   "capa": "https://archive.org/services/img/ANightintheShow",
   "banner": "https://image.tmdb.org/t/p/w1280/n5oOMwzemLd81OARilBWDh2XR9A.jpg",
@@ -18,6 +21,7 @@
     "Comedy",
     "Charles Chaplin"
   ],
+  "bannerLogo": "https://image.tmdb.org/t/p/w500/tdlaOn1i6JqOzvDu3mswwo1xEBk.png",
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-01"
+  "_completadoEm": "2026-11-15"
 }

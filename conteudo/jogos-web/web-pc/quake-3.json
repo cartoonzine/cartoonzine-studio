@@ -1,0 +1,24 @@
+{
+  "nome": "Quake 3",
+  "links": [
+    "https://q3.pieter.com/"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-3--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-3--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-3--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-3--previa.png",
+  "descricao": "The third game in the Quake series is a departure from the previous games, focusing exclusively on multiplayer arena fighting with no story-driven singleplayer part - directly competing with Epic Games that did the same with the contemporary Unreal Tournament.\r\n\r\nThe offline part takes the player through a number of one-on-one and team-based challenges against AI-controlled opponents, slowly ranking upwards in difficulty, as the character of the player's choosing. Compared to the previous titles, the colours and general design of the game are much brighter and it shakes off the dominant shades of brown and grey the previous titles in the series were known for. The player's arsenal consists of new and familiar, but redesigned weapons, including a gauntlet (melee attacks) and a machine gun as the spawn weapons, a shotgun, plasma gun, lightning gun, rocket launcher, railgun and BFG. Each weapon has specific advantages, ranging from the amount of damage to reloading times and the ability to hit-scan opponents.",
+  "ano": 1999,
+  "generos": [
+    "Luta",
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
+  "console": "web-pc",
+  "jogadores": 12,
+  "_rascunho": true,
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 329982,
+  "_ssPreviaEm": "2026-11-16"
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "Total Carnage",
+  "links": [
+    "https://archive.org/details/msdos_Total_Carnage_1994"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--total-carnage--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--total-carnage--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--total-carnage--logo.png",
+  "fonte": "https://archive.org/details/msdos_Total_Carnage_1994",
+  "descricao": "Jogo de MS-DOS · Action, Shooter (1994), de Midway Manufacturing Company. Do acervo do Internet Archive.",
+  "ano": 1994,
+  "generos": [
+    "Action",
+    "Shooter"
+  ],
+  "editora": "Midway Manufacturing Company",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 188817,
+  "_ssPreviaEm": "2026-11-18"
+}

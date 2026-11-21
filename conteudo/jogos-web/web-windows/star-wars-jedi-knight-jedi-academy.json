@@ -3,10 +3,22 @@
   "links": [
     "https://jk.q3js.com"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b3d97fc266bb8892b7d48aadd19aca31.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ab2481c9f93d0ed3033a3281d865ccb2.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/67e103b0761e60683e83c559be18d40c.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · jk.q3js.com",
+  "descricao": "O clássico multijogadores online chega à Nintendo Switch com controlos modernizados! Joga na pele de um novo estudante, ansioso para aprender os caminhos da Força com o Mestre Jedi Luke Skywalker.\r\nParticipa em combates online para até 16 jogadores em seis modos multijogadores, que incluem Siege, Capture the Flag e Free for All.\r\nEdita a tua personagem escolhendo o aspeto e o género antes de entrares na Academia para aprenderes sobre o poder e os perigos da Força.\r\nConstrói o teu próprio Sabre de Luz, da empunhadura ao feixe. Ao progredires, descobre o poder de empunhar dois Sabres de Luz ou o supremo Sabre de Luz de dois feixes, famoso por ser usado por Darth Maul.\r\nInterage com personagens famosas do mundo STAR WARS em vários locais clássicos e faz a escolha definitiva: lutar pelo bem e pela liberdade no lado da luz, ou seguir o caminho do poder e do mal para o lado sombrio.",
+  "ano": 2020,
+  "generos": [
+    "Aventura"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 427889,
+  "_ssPreviaEm": "2026-11-17"
 }

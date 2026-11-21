@@ -1,0 +1,20 @@
+{
+  "nome": "among us",
+  "links": [
+    "https://degloved.net/games/public/gms/among-us/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--among-us--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--among-us--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--among-us--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--among-us--previa.png",
+  "ano": 2021,
+  "generos": [
+    "Aventura"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 542234,
+  "_ssPreviaEm": "2026-11-14"
+}

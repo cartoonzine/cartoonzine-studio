@@ -1,0 +1,19 @@
+{
+  "nome": "Idle Craft",
+  "links": [
+    "https://html-classic.itch.zone/html/19379689-2355583/index.html?v=1794392367"
+  ],
+  "descricao": "ISLANDER is an idle crafting game inspired by games such as Forager and Minecraft. Use your pickaxe to mine any and all materials you can find, and craft your way off the islands.",
+  "ano": 2020,
+  "generos": [
+    "Simulação",
+    "Construção e Gestão"
+  ],
+  "console": "web-windows",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_completadoEm": "2026-11-20",
+  "_ssEm": "2026-11-17",
+  "_ssId": 229821,
+  "_ssPreviaEm": "2026-11-17"
+}

@@ -3,10 +3,24 @@
   "links": [
     "https://wwe2010.online/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw-2010--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw-2010--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw-2010--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw-2010--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--wwe-smackdown-vs-raw-2010--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · wwe2010.online",
+  "descricao": "A franquia de videogame de luta mais vendida retorna ao ringue virtual com a simulação mais autêntica, divertida e atraente da programação da WWE até hoje. Apresentando ferramentas de criação incomparáveis, uma lista robusta de Superstar, melhorias importantes na franquia e algumas surpresas, WWE SmackDown vs. Raw 2010 oferece a liberdade para criar, personalizar e compartilhar experiências de jogo. É o seu mundo agora.",
+  "ano": 2009,
+  "generos": [
+    "Luta"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 6,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22036,
+  "_ssPreviaEm": "2026-11-16"
 }

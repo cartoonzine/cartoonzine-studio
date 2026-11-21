@@ -3,10 +3,24 @@
   "links": [
     "https://truffled.lol/games/sts/index.html"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slay-the-spire--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slay-the-spire--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slay-the-spire--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slay-the-spire--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-indie--slay-the-spire--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · truffled.lol",
+  "descricao": "We fused card games and roguelikes together to make the best single player deckbuilder we could. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and Slay the Spire!",
+  "ano": 2019,
+  "generos": [
+    "Jogo de cartas"
+  ],
   "console": "web-indie",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-13",
+  "_ssId": 338866,
+  "_ssPreviaEm": "2026-11-13"
 }

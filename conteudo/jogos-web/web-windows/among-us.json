@@ -1,0 +1,28 @@
+{
+  "nome": "Among Us",
+  "links": [
+    "https://wasm.rip/files/amongus"
+  ],
+  "capa": "https://images.launchbox-app.com//3dc82a78-8ab3-45c0-8fcb-c3fd3b00cdbe.jpg",
+  "banner": "https://images.launchbox-app.com//7c08ede9-be23-4a0b-8899-5b3b967c40e4.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/9fa0bb67ba754c1b4e5921c3bc837ceb.png",
+  "video": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
+  "descricao": "Among Us passa-se num universo de ficção científica. Cada jogador assume o papel de um dos membros da tripulação de uma nave espacial, cada um dos quais pode ser um membro da tripulação ou um impostor. O objetivo da tripulação é identificar os impostores e eliminá-los enquanto realizam tarefas na nave, enquanto o objetivo dos impostores é matar todos os membros da tripulação sem serem identificados.",
+  "ano": 2018,
+  "generos": [
+    "Suspense",
+    "RPG"
+  ],
+  "engine": "WebAssembly",
+  "console": "web-windows",
+  "licenca": "livre",
+  "jogadores": 8,
+  "fundoImagem": "banner",
+  "posFundo": 30,
+  "destaque": true,
+  "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256978016/movie_max_vp9.webm?t=1698177291",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 273658,
+  "_ssPreviaEm": "2026-11-17"
+}

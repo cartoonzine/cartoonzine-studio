@@ -3,10 +3,25 @@
   "links": [
     "https://pes11.optijuegos.net/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2011--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2011--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2011--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2011--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2011--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · pes11.optijuegos.net",
+  "descricao": "The PRO EVOLUTION SOCCER franchise has long been regarded as offering incredible realism and control, however PRO EVOLUTION SOCCER 2011 will reinvigorate the series with the most advanced set of improved gameplay additions, control options and to catch up with the evolution of the real-life soccer. Central to its total freedom of play, PRO EVOLUTION SOCCER 2011 introduces a power bar for each player that allows the user to determine the exact strength and placement of every pass and shot. Balls can now be spread absolutely anywhere with surgical precision, with long balls into space, short passes to feet, and intricate one-twos allowing the player to dictate play and control the tempo of a match.",
+  "ano": 2010,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 21994,
+  "_ssPreviaEm": "2026-11-16"
 }

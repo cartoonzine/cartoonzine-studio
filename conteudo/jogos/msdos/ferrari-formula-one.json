@@ -1,0 +1,24 @@
+{
+  "nome": "Ferrari Formula One",
+  "links": [
+    "https://archive.org/details/msdos_Ferrari_Formula_One_1989"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ferrari-formula-one--logo.png",
+  "fonte": "https://archive.org/details/msdos_Ferrari_Formula_One_1989",
+  "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Vehicle Simulator (1989), de Electronic Arts. Do acervo do Internet Archive.",
+  "ano": 1989,
+  "generos": [
+    "Racing / Driving",
+    "Simulation",
+    "Vehicle Simulator"
+  ],
+  "editora": "Electronic Arts",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 171725,
+  "_ssPreviaEm": "2026-11-18"
+}

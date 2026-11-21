@@ -1,0 +1,21 @@
+{
+  "nome": "rimworld",
+  "links": [
+    "https://degloved.net/games/public/gms/rimworld/index.html"
+  ],
+  "capa": "https://cdn2.steamgriddb.com/grid/22fdcb3d0b9def788e11ca18c515568d.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--rimworld--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--rimworld--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--rimworld--previa.png",
+  "descricao": "Rimworld feels like an archetypal 80s RPG: You find yourself, surprise surprise, on abandoned planet amidst the abandoned relics of civilization, your goals vague and your timeframe not very urgent. And yet there's nothing wrong with the archetype. Abandoned civilizations make interesting settings. The atmosphere is strong, if not exceptionally striking; the prose is serviceable; the puzzles are interesting, if not exceptionally original.",
+  "ano": 1987,
+  "generos": [
+    "Aventura"
+  ],
+  "console": "web-outros",
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 156986,
+  "_ssPreviaEm": "2026-11-15"
+}

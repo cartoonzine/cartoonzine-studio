@@ -3,11 +3,26 @@
   "links": [
     "https://re-rac.github.io/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--ratchet-e-clank--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--ratchet-e-clank--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--ratchet-e-clank--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--ratchet-e-clank--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--ratchet-e-clank--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/re-rac/rerac",
-  "descricao": "Port para navegador · re-rac.github.io",
+  "descricao": "Ratchet & Clank apresenta Ratchet, uma criatura extraterrestre peluda, e Clank, um pequeno robot nerd, que vai em busca do Capitão Qwark para salvar a galáxia.\r\nCada um dos níveis do jogo é composto por enormes panoramas com edifícios altamente detalhados, visíveis a todo o momento. Isto significa que um edifício no horizonte não é apenas um &quot;pano de fundo&quot;, Ratchet irá certamente explorá-lo. O jogo inclui uma série de subjogos, tais como uma sequência de combate espacial e uma série de batalhas de torres.\r\nO jogo tem mais de vinte níveis e inclui o mesmo número de cut-scenes em tempo real que contam a história. A história é não linear, exigindo que o jogador regresse aos níveis anteriores para completar objectivos e escolher entre vários caminhos. Existe também uma gama substancial de armas, aparelhos e acessórios para encontrar ou comprar à medida que o jogo avança.",
+  "ano": 2002,
+  "generos": [
+    "Plataforma",
+    "Plataforma / Tiro com rolagem"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 21947,
+  "_ssPreviaEm": "2026-11-16"
 }
