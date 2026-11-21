@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-21T19:51:28.017Z",
+  "geradoEm": "2026-11-21T19:53:39.775Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -136,7 +136,7 @@
     {
       "colecao": "jogos-web",
       "total": 730,
-      "publicados": 53,
+      "publicados": 54,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -1825,10 +1825,6 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-outros/meteor-60-seconds.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-outros/milk-inside-a-bag-of-milk.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
@@ -2851,7 +2847,7 @@
       ],
       "porConsole": {
         "web-fangames": 1,
-        "web-indie": 7,
+        "web-indie": 8,
         "web-remakes": 5,
         "web-pc": 2,
         "web-n64": 0,

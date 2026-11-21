@@ -158,6 +158,24 @@
    ],
    "web": true,
    "license": "livre"
+  },
+  {
+   "title": "meteor 60 seconds",
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/d8d855c465198499868fb2b566ebee8d.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/d8d855c465198499868fb2b566ebee8d.png",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-indie/meteor-60-seconds",
+   "url": "https://degloved.net/games/public/gms/meteor-60-seconds/index.html",
+   "thumb": "https://cdn2.steamgriddb.com/grid/c019e5d65444e81b4fce9422cab6ddf6.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/b0d8489c8695e1b818f8144b6813e807.png",
+   "console": "web-indie",
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
   }
  ]
 }
