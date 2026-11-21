@@ -66,8 +66,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RESUMO: ${{ steps.imp.outputs.resumo }}
         run: |
-          git config user.name "cartoonzine-studio[bot]"
-          git config user.email "cartoonzine-studio@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add conteudo/jogos/msdos
           if git diff --cached --quiet; then echo "nenhum jogo novo"; exit 0; fi
           n=$(git diff --cached --name-only | wc -l)
