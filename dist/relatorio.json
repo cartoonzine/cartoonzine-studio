@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-21T19:55:43.831Z",
+  "geradoEm": "2026-11-21T20:04:00.945Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -135,7 +135,7 @@
     },
     {
       "colecao": "jogos-web",
-      "total": 730,
+      "total": 731,
       "publicados": 55,
       "erros": [
         {
@@ -2662,6 +2662,10 @@
         },
         {
           "caminho": "conteudo/jogos-web/web-windows/liquidator-3d.json",
+          "msg": "rascunho (_rascunho: true) — não publicado"
+        },
+        {
+          "caminho": "conteudo/jogos-web/web-windows/minecraft-story-mode-2.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
