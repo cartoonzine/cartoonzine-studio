@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-11-21T19:49:31.969Z",
+  "geradoEm": "2026-11-21T19:51:28.017Z",
   "colecoes": [
     {
       "colecao": "cartoons",
@@ -136,7 +136,7 @@
     {
       "colecao": "jogos-web",
       "total": 730,
-      "publicados": 52,
+      "publicados": 53,
       "erros": [
         {
           "caminho": "conteudo/jogos-web/outros/capuchin.json",
@@ -2845,16 +2845,12 @@
           "msg": "rascunho (_rascunho: true) — não publicado"
         },
         {
-          "caminho": "conteudo/jogos-web/web-xbox360/skate-3.json",
-          "msg": "rascunho (_rascunho: true) — não publicado"
-        },
-        {
           "caminho": "conteudo/jogos-web/web-zxspectrum/super-mario-kart-sm-kart-zx-web-port.json",
           "msg": "rascunho (_rascunho: true) — não publicado"
         }
       ],
       "porConsole": {
-        "web-fangames": 0,
+        "web-fangames": 1,
         "web-indie": 7,
         "web-remakes": 5,
         "web-pc": 2,

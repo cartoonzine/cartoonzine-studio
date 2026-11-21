@@ -1102,6 +1102,31 @@
    "repo": "https://github.com/midzer/jfsw"
   },
   {
+   "title": "Skate 3",
+   "desc": "Skate 3 on Xbox 360 is a relatively realistic skateboarding simulation. Explore the city of Port Carverton and its three distinct neighbourhoods: downtown, campus and industrial. Different types of challenges await you, such as races and competitions. You can also create your own skatepark and share your creations with other players.",
+   "year": 2010,
+   "genre": [
+    "Esporte",
+    "Esporte / Skate"
+   ],
+   "bannerlogo": "https://cdn2.steamgriddb.com/logo/a5ae86de28cfea2be65951dbb04567ee.png",
+   "logo": "https://cdn2.steamgriddb.com/logo/a5ae86de28cfea2be65951dbb04567ee.png",
+   "bgImg": "banner",
+   "studio": "jogos-web/web-fangames/skate-3",
+   "url": "http://skate.aaddpp.lol",
+   "thumb": "https://cdn2.steamgriddb.com/grid/cb5afcadcac972f1c6d743c96936ebe3.png",
+   "bannerThumb": "https://cdn2.steamgriddb.com/hero/c255c05246a081654a0267cbb725f5a7.png",
+   "console": "web-fangames",
+   "players": 1,
+   "core": "web",
+   "aparelhos": [
+    "tv",
+    "pc"
+   ],
+   "web": true,
+   "license": "livre"
+  },
+  {
    "title": "Sonic Mania Plus",
    "desc": "Vivencie a celebração definitiva do passado e do futuro em Sonic Mania, uma aventura 2D inédita do Sonic rodando a 60 FPS com gráficos retrô em alta definição impressionantes. Diversos personagens jogáveis ​​permitem que você acelere explosivamente como Sonic, voe como Tails ou supere obstáculos difíceis com a força bruta de Knuckles. Você pode reviver o Sonic do passado com uma nova e emocionante abordagem das fases clássicas enquanto luta contra novos chefões e o exército de robôs malignos do Dr. Eggman. Dispute partidas com outros jogadores no Modo Competição ou jogue no Modo Cooperativo com um amigo. Sonic Mania foi desenvolvido por Christian Whitehead, Headcannon e PagodaWest Games em colaboração com a Sonic Team. Bem-vindo ao Sonic Mania!\n\nSonic Mania Encore DLC - Experimente uma nova versão de fases familiares com o novíssimo Modo Encore, jogue com dois novos personagens com habilidades únicas: Mighty, o Tatu, e Ray, o Esquilo Voador, e dispute com até quatro amigos no Modo Competição expandido!",
    "genre": [
