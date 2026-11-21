@@ -511,7 +511,7 @@
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
             ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
-            ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['?', 'esta ajuda']];
+            ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
 
@@ -1908,6 +1908,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-sj-meio{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;margin-top:6px}
 .le-sj-barras div{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;font-size:12px;margin-top:5px}.le-sj-barras i{display:block;height:10px;border-radius:5px;background:var(--c);min-width:2px}.le-sj-barras b{color:#cbd5e1;font-family:'JetBrains Mono',monospace;font-size:11.5px}
 .le-sj-ult div{display:grid;grid-template-columns:16px minmax(0,1fr) minmax(0,1.3fr);gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid #141821}.le-sj-ult span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}.le-sj-ult small{color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-menu{position:absolute;z-index:40;min-width:230px;max-width:340px;max-height:80%;overflow:auto;padding:5px;border-radius:10px;background:#0d1016;border:1px solid var(--c);box-shadow:0 14px 40px rgba(0,0,0,.65)}
+.le-menu button{display:block;width:100%;text-align:left;padding:7px 10px;border:0;border-radius:6px;background:none;color:#e5e7eb;font:600 12.5px Inter,sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.le-menu button:hover,.le-menu button:focus{background:#102a31;color:#67e8f9;outline:none}.le-menu button[disabled]{opacity:.35;cursor:default;background:none;color:#e5e7eb}
+.le-menu hr{border:0;border-top:1px solid #1f2430;margin:4px 2px}.le-menu-tit{padding:6px 10px 4px;font:900 11px Inter,sans-serif;letter-spacing:.08em;color:#ff7ac0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .le-sc-barra{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:9px 14px;background:linear-gradient(90deg,#2a0b1c,#0b1d24);border-bottom:1px solid var(--r);font-size:12.5px}.le-sc-barra>b{color:#ff7ac0;letter-spacing:.12em}.le-sc-barra .le-chips{margin:0}
 .le-sc-sug{display:flex;flex-wrap:wrap;gap:6px;width:100%;align-items:center;font-size:12px}
 .le-sc-tag{margin-right:8px;font-size:11px;font-weight:800;padding:2px 7px;border-radius:99px;background:#102a31;color:#67e8f9;white-space:nowrap}.le-sc-tag.desv{background:#2a0b1c;color:#ff7ac0}.le-sc-tag.ign{background:#1c1c22;color:#9aa3ad;text-decoration:line-through}.le-sc-tag.pend{background:#2a2108;color:#fbbf24}.le-sc-tag.pad{opacity:.6}
@@ -2113,6 +2117,64 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         const v = $('#le-scan-ver'); if (v) v.onclick = () => abrirScan();
     }
 
+    // ================================================================ 🖱️ MENU DE CONTEXTO (botão direito na tabela)
+    // Botão direito numa linha: se ela não está marcada, marca só ela; o menu age sobre TODOS os marcados.
+    // Teclado: tecla Menu ou Shift+F10 abre o menu para os marcados (ou o canal do visualizador).
+    function fecharMenu() { const m = raiz && raiz.querySelector('.le-menu'); if (m) m.remove(); }
+    function abrirMenu(x, y, alvoId) {
+        fecharMenu();
+        if (alvoId && !E.sel.has(alvoId)) { E.sel.clear(); E.sel.add(alvoId); E.ancora = alvoId; desenharTabela(); }
+        const lista = selecionados();
+        if (!lista.length) return;
+        const um = lista.length === 1 ? lista[0] : null;
+        const n = lista.length, qual = um ? `"${um.nome}"` : `${n} marcados`;
+        const itens = [];                                         // [rotulo, acao] | '-' (separador) | [titulo, null] (cabeçalho)
+        if (SC.modo) {
+            const e = SC.modo.envio, cols = colsSC();
+            itens.push(['🔀 Sidechain · ' + qual, null]);
+            itens.push(['Enviar para… (país, idioma, categoria)', () => escolherDestinoSC(lista)]);
+            cols.filter(c => !comPais(c)).forEach(c => { if (e.destino.colecao !== c.id) itens.push([`→ ${c.nome}`, () => desviarSC(lista, { colecao: c.id })]); });
+            itens.push(['🚫 Ignorar', () => desviarSC(lista, 'ignorar')], ['↩ Voltar ao padrão (' + L.destinoTexto(e.destino, cols) + ')', () => desviarSC(lista, null)]);
+            const g = um && String(um.grupo || '').trim();
+            if (g) {
+                itens.push('-');
+                itens.push([`Marcar todo o grupo "${g}"`, () => { E.canais.forEach(c => { if (String(c.grupo || '').trim() === g) E.sel.add(c.id); }); desenharTabela(); }]);
+                const r = L.rotaDe(um, e);
+                if (r.motivo === 'manual' && r.destino !== 'ignorar') itens.push([`⚙ Criar regra: grupo "${g}" → ${L.destinoTexto(r.destino, cols)}`, () => { e.regras.push({ campo: 'grupo', contem: g, para: r.destino }); SC.sujo = true; S.aviso('Regra criada: os próximos desse grupo já vão sozinhos (salve o envio ao concluir).', 'ok'); agendarTabela(); pintarBarraSC(); }]);
+            }
+            itens.push('-');
+        }
+        itens.push(['▶ Ver no visualizador', um ? () => { focar(um.id); } : null]);
+        itens.push(['⚡ Testar ' + (um ? '' : 'os ' + n), () => { if (local()) scan(lista, { rotulo: um ? um.nome : 'os marcados' }); else abrirScan(); }]);
+        if (!SC.modo) itens.push(['➜ Jogar na lista nova', () => { jogarNaLista(lista); E.sel.clear(); desenharTabela(); }]);
+        itens.push('-');
+        itens.push(['🌐 Idioma e país…', () => escolherIdioma(um)]);
+        itens.push(['🏷 Categoria…', () => escolherCategoria(um)]);
+        itens.push(['📺 Guia de programação…', () => escolherGuia(um)]);
+        itens.push(['🖼 Logo…', um ? () => abrirLogo(um) : null]);
+        if (!um) itens.push(['🖼 Achar logos que faltam', () => acharLogosQueFaltam()]);
+        itens.push('-');
+        itens.push(['📋 Copiar ' + (um ? 'link' : 'os links'), () => copiarTexto(lista.map(c => c.url).join('\n'), um ? 'Link copiado.' : n + ' links copiados.')]);
+        itens.push(['📋 Copiar como M3U', () => copiarTexto(L.gerarM3U(lista), 'M3U copiado.')]);
+        if (!SC.modo) itens.push([E.f.quarentena ? '↩ Tirar da quarentena' : '⛔ Quarentena', () => quarentena(lista, !E.f.quarentena)]);
+        itens.push(['✕ Desmarcar', () => { E.sel.clear(); desenharTabela(); }]);
+        const m = document.createElement('div');
+        m.className = 'le-menu'; m.setAttribute('role', 'menu');
+        m.innerHTML = itens.map((it, i) => it === '-' ? '<hr>' : it[1] === null && i === 0 && SC.modo ? `<div class="le-menu-tit">${esc(it[0])}</div>` : `<button role="menuitem" data-menu="${i}" ${it[1] ? '' : 'disabled'}>${esc(it[0])}</button>`).join('');
+        raiz.appendChild(m);
+        const caixa = raiz.getBoundingClientRect(), w = m.offsetWidth, h = m.offsetHeight;
+        m.style.left = Math.max(4, Math.min(x - caixa.left, caixa.width - w - 6)) + 'px';
+        m.style.top = Math.max(4, Math.min(y - caixa.top, caixa.height - h - 6)) + 'px';
+        m.onclick = (ev) => { const b = ev.target.closest('[data-menu]'); if (!b) return; const f = itens[+b.dataset.menu][1]; fecharMenu(); if (f) f(); };
+        m.onkeydown = (ev) => {
+            const bs = [...m.querySelectorAll('button:not([disabled])')], i = bs.indexOf(document.activeElement);
+            if (ev.key === 'ArrowDown') { ev.preventDefault(); bs[(i + 1) % bs.length].focus(); }
+            else if (ev.key === 'ArrowUp') { ev.preventDefault(); bs[(i - 1 + bs.length) % bs.length].focus(); }
+            else if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); fecharMenu(); raiz.focus(); }
+        };
+        const prim = m.querySelector('button:not([disabled])'); if (prim) prim.focus({ preventScroll: true });
+    }
+
     // ---------------------------------------------------------------- eventos
     function selecionados() { return E.canais.filter(c => E.sel.has(c.id)); }
     let tecladoLigado = false;
@@ -2131,7 +2193,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         if (S.ler && !SC.envios) lerSidechain().catch(() => {}); else pintarAvisoSC();
         let tb = 0;
         $('#le-busca').oninput = (e) => { clearTimeout(tb); tb = setTimeout(() => { E.f.busca = e.target.value; $('#le-corpo').scrollTop = 0; desenharTabela(); }, 120); };
-        $('#le-corpo').addEventListener('scroll', () => requestAnimationFrame(pintarJanela), { passive: true });
+        $('#le-corpo').addEventListener('scroll', () => { fecharMenu(); requestAnimationFrame(pintarJanela); }, { passive: true });
+        $('#le-corpo').addEventListener('contextmenu', (ev) => { const l = ev.target.closest('.le-linha'); if (!l) return; ev.preventDefault(); abrirMenu(ev.clientX, ev.clientY, l.dataset.id); });
+        raiz.addEventListener('mousedown', (ev) => { if (!ev.target.closest('.le-menu')) fecharMenu(); });
         $('#le-sel-todos').onclick = () => { const todos = E.visiveis.every(c => E.sel.has(c.id)); E.visiveis.forEach(c => (todos ? E.sel.delete(c.id) : E.sel.add(c.id))); desenharTabela(); };
         $('#le-sel-vivos').onclick = () => { E.visiveis.forEach(c => { if (c.teste && /vivo|lento|pede-ua/.test(c.teste.status)) E.sel.add(c.id); }); desenharTabela(); };
         $('#le-scan').onclick = () => abrirScan();
@@ -2178,6 +2242,14 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (!raiz || !raiz.isConnected) return;
             if (e.target !== document.body && e.target !== document.documentElement && !raiz.contains(e.target)) return;
             if (raiz.querySelector('.le-jan-fundo')) { if (e.key === 'Escape') { e.preventDefault(); fecharJanela(); } return; }
+            if (raiz.querySelector('.le-menu')) { if (e.key === 'Escape') { e.preventDefault(); fecharMenu(); } return; }
+            if (e.key === 'ContextMenu' || (e.key === 'F10' && e.shiftKey)) {
+                e.preventDefault();
+                const alvo = E.sel.size ? null : E.foco;
+                const l = raiz.querySelector(`.le-linha[data-id="${CSS.escape(alvo || [...E.sel][0] || '')}"]`) || raiz.querySelector('#le-corpo');
+                const r = l.getBoundingClientRect();
+                return abrirMenu(r.left + 160, r.top + 20, alvo);
+            }
             if (/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) { if (e.key === 'Escape') e.target.blur(); return; }
             const c = E.canais.find(x => x.id === E.foco);
             const ctrl = e.ctrlKey || e.metaKey, k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
