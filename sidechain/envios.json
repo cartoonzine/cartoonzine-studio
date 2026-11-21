@@ -1056066,16 +1056066,7 @@
           "idioma": "pt-BR"
         }
       },
-      "regras": [
-        {
-          "campo": "grupo",
-          "contem": "Séries",
-          "para": {
-            "colecao": "series",
-            "idioma": "pt-BR"
-          }
-        }
-      ],
+      "regras": [],
       "criadoEm": "2026-11-21T06:56:30.157Z"
     }
   ]
