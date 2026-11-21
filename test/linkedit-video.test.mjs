@@ -81,3 +81,17 @@ test('Sidechain: os ajustes de vídeo salvos no envio valem na rodada do robô',
     const nar = j.find(x => x.serie === 'Naruto Clássico');
     assert.ok(nar); assert.deepEqual(nar.audios, ['dublado', 'legendado']);
 });
+
+test('TMDB: uma busca por série (todos os episódios) e os dados vão no JSON do app', () => {
+    const [n] = itens();
+    const n2 = L.lerLista('#EXTM3U\n#EXTINF:-1,Naruto S01E09\nhttp://x/n9.mp4\n', 't').canais[0];
+    assert.equal(L.chaveTMDB(n), L.chaveTMDB(n2));
+    const ped = L.pedidoTMDB(n);
+    assert.equal(ped.nome, 'Naruto'); assert.equal(ped.temporadas[0].numero, 1);
+    const dados = L.dadosDoTMDB({ tmdb: 'tv/46260', nome: 'Naruto', capa: 'http://img/p.jpg', banner: 'http://img/b.jpg', bannerLogo: 'http://img/l.png', descricao: 'Ninja', generos: ['Animação', 'Ação'], notaTmdb: 8.4, classificacao: '12' });
+    L.aplicarTMDB(n, dados);
+    const j = JSON.parse(L.gerarJSON([n]))[0];
+    assert.deepEqual([j.thumb, j.bannerThumb, j.logo, j.desc, j.tmdbId, j.tmdbTipo, j.rating, j.age], ['http://img/p.jpg', 'http://img/b.jpg', 'http://img/l.png', 'Ninja', '46260', 'tv', 8.4, '12']);
+    assert.equal(n.video.genero, 'Animação, Ação');
+    assert.equal(L.dadosDoTMDB({ nome: 'x' }), null, 'sem código do TMDB = não achou');
+});

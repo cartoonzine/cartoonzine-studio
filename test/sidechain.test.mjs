@@ -127,3 +127,26 @@ test('Desenhos 24H usa o M3U na fonte do Cloud; vistos esquecem quem sumiu há m
     const sairam = L.marcarVistos(envio, canais());
     assert.equal(sairam, 2); assert.ok(!envio.vistos.velho); assert.ok(envio.vistos.recente);
 });
+
+test('(antigas Receitas) várias listas, filtros e lista avulsa no mesmo envio', () => {
+    const e = L.envioPadrao({ id: 'kids', url: 'http://a/1.m3u', listas: ['http://a/2.m3u', 'http://a/1.m3u', 'lixo'], destino: { colecao: '' }, avulsa: true,
+        filtros: { tipos: ['Infantil'] } });
+    assert.deepEqual(L.linksDoEnvio(e), ['http://a/1.m3u', 'http://a/2.m3u']);
+    const cs = L.lerLista(`#EXTM3U
+#EXTINF:-1 group-title="Kids",Gloob
+http://t/gloob.m3u8
+#EXTINF:-1 group-title="Noticias",CNN
+http://t/cnn.m3u8
+#EXTINF:-1 group-title="XXX",Adulto
+http://t/x.m3u8
+`, 't').canais.map(c => Object.assign(c, { teste: { status: 'vivo' } }));
+    const { saidas, relatorios, avulsas } = L.montarSidechain([{ envio: e, canais: cs }], config);
+    assert.equal(saidas.length, 0, 'sem coleção: nada vai para o Cloud');
+    assert.equal(relatorios.kids.filtrados, 2);
+    assert.deepEqual(avulsas[0].itens.map(i => i.nome), ['Gloob']);
+    // com destino, a avulsa leva o mesmo item já no padrão do app
+    e.destino = { colecao: 'canais', pais: 'BR', idioma: 'pt-BR' };
+    const r2 = L.montarSidechain([{ envio: e, canais: cs }], config);
+    assert.equal(r2.saidas[0].chave, 'sc-canais-br');
+    assert.equal(r2.avulsas[0].itens[0].pais, 'BR');
+});

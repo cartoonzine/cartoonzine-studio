@@ -38,11 +38,11 @@ Botão **Scan** (ou tecla T): o que testar (marcados, visíveis, nunca testados,
 vivos → lista nova, mortos → quarentena, logos e guias que faltam. Quarentena: quem volta a abrir sai sozinho; quem morre 3× seguidas pode ser apagado.
 Precisa do painel do PC (o navegador não abre links http:// nem servidores sem CORS).
 
-## Parte 3 — Receitas (listas que se refazem sozinhas)
-Botão **📋 Receitas**: de onde pegar (links) + que canais entram (idioma, tipo, categoria, país, nome, só vivos, confiança mínima,
-fora Adulto). "Rodar agora aqui" monta na hora; "Salvar" grava `receitas/receitas.json`. O robô do GitHub
-(`.github/workflows/receitas.yml` → `tools/receitas.mjs`) refaz a cada 6 h: testa, tira os mortos, a reserva viva assume, e publica
-`listas/<id>.json` (com reservas — é este que vai no Cloud) e `listas/<id>.m3u`. Histórico dos testes em `receitas/estado.json`.
+## Parte 3 — Receitas → agora dentro do 🔗 Sidechain
+As Receitas viraram parte do Sidechain: um envio pode ter **várias listas**, **filtros** (idioma, tipo, categoria, país,
+nome, confiança mínima, fora Adulto) e **"Publicar também como lista avulsa"**, que gera `listas/<envio>.m3u` e `.json`
+com link fixo para outros players (índice em `listas/avulsas.json`). O envio pode não ter coleção (só a lista avulsa).
+Um robô só (`tools/sidechain.mjs`) faz tudo.
 
 ## Parte 4 — Importar lista inteira
 Botão **⚡ Importar lista inteira**: lista que já está pronta vai direto para a janela Enviar ao Studio (automático ou tudo para uma
@@ -78,7 +78,11 @@ Botão **🔗 Sidechain** no topo do Link Edit. Cada **envio** é uma lista boa 
 O robô (`.github/workflows/sidechain.yml` → `tools/sidechain.mjs`, a cada 6 h e logo depois de salvar) baixa cada
 envio, aplica desvios e regras, testa canais/24H/rádios (morto sai; vídeo só se o envio pedir), junta cópias de envios
 diferentes como reserva e publica `listas/sc-<coleção>[-<país>].json` (+ `.m3u`) e `listas/sidechain-fontes.json`.
-**Proteção**: se a lista não abrir, vier vazia ou encolher mais da metade de uma vez, usa a última versão boa e avisa.
+**TMDB**: marque "Buscar capa, sinopse e nota no TMDB" no envio — o robô (secret `TMDB_TOKEN`) busca uma vez por série/filme
+(guarda 30 dias) e manda capa, banner, sinopse, gênero, nota e classificação para o app. No painel: 🔎 TMDB na ficha, no
+editor de vídeo (V) e no botão direito. **Tipo trocado**: canal ao vivo numa coleção de vídeo (ou o contrário) não entra
+sozinho — fica "de outro tipo (esperando)" até você mandar pelo 🔀 Sidechain.
+**Proteção** (por link): se a lista não abrir, vier vazia ou encolher mais da metade de uma vez, usa a última versão boa e avisa.
 Relatório, histórico e o que cada envio já viu ficam em `sidechain/estado.json`.
 
 **No Cloud (uma vez só)**: em `sources.json` → `fontesDoStudio`, a entrada

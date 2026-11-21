@@ -642,6 +642,39 @@
         }
         return c;
     }
+    // ---------- 🔎 TMDB: capa, banner, sinopse, gênero, nota… (uma busca por SÉRIE ou por filme, e todos os itens dela usam) ----------
+    /** Chave da busca: 'tv|naruto' (todos os episódios da série) ou 'movie|matrix|1999'. */
+    function chaveTMDB(c) {
+        const v = c.video || {};
+        return c.natureza === 'episodio' ? 'tv|' + norm(v.serie || v.titulo || c.nome) : 'movie|' + norm(v.titulo || c.nome) + '|' + (v.ano || '');
+    }
+    /** O pedido no formato do StudioCore.completarItem (episódio vai com temporada → o TMDB procura série primeiro). */
+    function pedidoTMDB(c) {
+        const v = c.video || {};
+        const o = { nome: c.natureza === 'episodio' ? (v.serie || v.titulo || c.nome) : (v.titulo || c.nome), links: [c.url] };
+        if (v.ano) o.ano = v.ano;
+        if (v.tmdbRef) o.tmdb = v.tmdbRef;
+        if (c.natureza === 'episodio') o.temporadas = [{ numero: v.temporada || 1, episodios: [{ numero: v.episodio || 1, links: [c.url] }] }];
+        return o;
+    }
+    /** O que veio do TMDB (item completado) → c.video.dados (só o que o app usa). Nada que você escreveu é trocado. */
+    function dadosDoTMDB(it) {
+        if (!it || !it.tmdb) return null;
+        const d = { tmdb: it.tmdb, imdb: it.imdb, titulo: it.nome, capa: it.capa, banner: it.banner, logo: it.bannerLogo, descricao: it.descricao,
+            generos: it.generos && it.generos.length ? it.generos : undefined, ano: it.ano, nota: it.notaTmdb, popularidade: it.popularidade,
+            duracao: it.duracao, classificacao: it.classificacao, porBusca: it.porBusca || undefined };
+        Object.keys(d).forEach(k => d[k] == null && delete d[k]);
+        return d;
+    }
+    /** Põe os dados do TMDB no item (e no ano/gênero, se estiverem vazios). */
+    function aplicarTMDB(c, dados) {
+        if (!ehVideo(c) || !dados) return c;
+        c.video = Object.assign({}, c.video || {}, { dados });
+        if (!c.video.ano && dados.ano && c.natureza === 'filme') c.video.ano = dados.ano;
+        if (!c.video.genero && dados.generos) c.video.genero = dados.generos.slice(0, 3).join(', ');
+        return c;
+    }
+
     /** "Naruto · T1E3", "Matrix (1999)" */
     function videoTexto(c) {
         const v = c.video || {};
@@ -661,8 +694,19 @@
     /** Coleções que podem receber um envio (as de vídeo/canal/rádio que publicam fonte no Cloud). */
     function colecoesSidechain(config) { return ((config && config.colecoes) || []).filter(c => SC_TIPOS.includes(c.tipo) && c.fonteCloud); }
     function envioPadrao(extra) {
-        return Object.assign({ id: '', nome: 'Envio novo', url: '', ativo: true, destino: { colecao: '' }, modo: 'auto', soVivos: null,
-            desvios: {}, regras: [], ajustes: {}, vistos: {}, criadoEm: '' }, extra || {});
+        const e = Object.assign({ id: '', nome: 'Envio novo', url: '', listas: [], ativo: true, destino: { colecao: '' }, modo: 'auto', soVivos: null,
+            filtros: {}, avulsa: false, tmdb: false, desvios: {}, regras: [], ajustes: {}, vistos: {}, criadoEm: '' }, extra || {});
+        e.filtros = Object.assign({ idiomas: [], tipos: [], paises: [], categorias: [], excluirTipos: ['Adulto'], busca: '', confiancaMin: 0 }, e.filtros || {});
+        return e;
+    }
+    /** Todos os links do envio (o principal + as outras listas que entram junto). */
+    function linksDoEnvio(e) { return [...new Set([e.url].concat(e.listas || []).map(u => String(u || '').trim()).filter(u => /^https?:\/\//i.test(u)))]; }
+    /** O item passa nos filtros do envio? (os mesmos das antigas Receitas: idioma, tipo, país, categoria, nome, confiança) */
+    function passaFiltros(c, e) {
+        const f = e.filtros || {};
+        if (!passaReceita(c, Object.assign({}, f, { listas: [] }))) return false;
+        if (f.confiancaMin) { const k = confianca(c.historico); if (k != null && k < f.confiancaMin) return false; }
+        return true;
     }
     const idEnvio = (nome, usados) => { const base = norm(nome).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 32) || 'envio'; let id = base, i = 2; while (usados && usados.has(id)) id = base + '-' + i++; return id; };
     /** Chave estável do item no sidechain (a mesma das cópias: tvg-id, ou nome limpo + país). */
@@ -722,19 +766,27 @@
      */
     function montarSidechain(lotes, config) {
         const cols = colecoesSidechain(config);
-        const porSaida = new Map(), relatorios = {};
+        const porSaida = new Map(), relatorios = {}, avulsas = [];
         for (const { envio, canais, mantido, erro } of lotes) {
-            const rel = { total: canais.length, porDestino: {}, novos: [], pendentes: [], ignorados: 0, mortos: 0, mantido: !!mantido, erro: erro || '' };
+            const rel = { total: canais.length, porDestino: {}, novos: [], pendentes: [], ignorados: 0, filtrados: 0, mortos: 0, mantido: !!mantido, erro: erro || '' };
+            const avulsa = envio.avulsa ? [] : null;
             const viver = envio.soVivos != null ? envio.soVivos : null;
             for (const c of canais) {
                 const aj = envio.ajustes && envio.ajustes[chaveSC(c)];
                 if (aj) ajustarVideo(c, aj);                    // tipo e dados de vídeo que você arrumou no Sidechain
+                if (!passaFiltros(c, envio)) { rel.filtrados++; continue; }
                 const r = rotaDe(c, envio);
+                if (avulsa && r.destino !== 'ignorar') {        // lista avulsa (M3U/JSON para outros players): tudo o que passou nos filtros
+                    const viva = !(c.teste && !VIVO_RECEITA(c.teste.status) && (envio.soVivos != null ? envio.soVivos : !ehVideo(c)));
+                    if (viva) avulsa.push(r.destino && r.destino.colecao ? itemNoDestino(c, r.destino, cols.find(x => x.id === r.destino.colecao) || {}) : c);
+                }
                 if (r.novo) rel.novos.push({ chave: chaveSC(c), nome: c.nome, para: r.motivo === 'pendente' ? null : r.destino === 'ignorar' ? 'ignorar' : r.destino && r.destino.colecao, motivo: r.motivo });
                 if (r.motivo === 'pendente') { rel.pendentes.push(chaveSC(c)); continue; }
                 if (r.destino === 'ignorar' || !r.destino) { rel.ignorados++; continue; }
                 const col = cols.find(x => x.id === r.destino.colecao);
                 if (!col) { rel.ignorados++; continue; }
+                // tipo trocado (canal ao vivo indo para uma coleção de vídeo, ou filme indo para o TVzine): só se VOCÊ mandou
+                if (r.motivo === 'padrao' && ((col.tipo === 'video') !== ehVideo(c)) && !(col.tipo === 'canal24h' && !ehVideo(c))) { rel.tipoErrado = (rel.tipoErrado || 0) + 1; continue; }
                 const testar = viver != null ? viver : (col.tipo !== 'video');
                 if (testar && c.teste && !VIVO_RECEITA(c.teste.status)) { rel.mortos++; continue; }
                 const it = itemNoDestino(c, r.destino, col);
@@ -745,6 +797,7 @@
                 rel.porDestino[rot] = (rel.porDestino[rot] || 0) + 1;
             }
             relatorios[envio.id] = rel;
+            if (avulsa) avulsas.push({ id: envio.id, nome: envio.nome, itens: agrupar(avulsa.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas) });
         }
         const saidas = [...porSaida.values()].map(s => {
             const itens = agrupar(s.brutos.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas)
@@ -752,7 +805,7 @@
             delete s.brutos;
             return Object.assign(s, { itens });
         }).sort((a, b) => a.chave.localeCompare(b.chave));
-        return { saidas, relatorios };
+        return { saidas, relatorios, avulsas };
     }
     /**
      * A fonte do Cloud de uma saída (vai em listas/sidechain-fontes.json; o Cloud lê via "fontesDoStudio").
@@ -1037,7 +1090,19 @@
                 if (v.audio) o.audios = v.audio === 'dual' ? ['dublado', 'legendado'] : [v.audio];
                 if (v.qualidade) o.qualidadeMax = v.qualidade;
                 if (v.genero) o.genre = v.genero;
-                if (c.logo) o.thumb = c.logo;
+                const d = v.dados || {};                      // TMDB (capa, banner, sinopse, nota…)
+                if (d.capa || c.logo) o.thumb = d.capa || c.logo;
+                if (d.banner) o.bannerThumb = d.banner;
+                if (d.descricao) o.desc = d.descricao;
+                if (d.logo) o.logo = d.logo; else delete o.logo;   // em vídeo, "logo" é o PNG do título (o tvg-logo da lista já virou a capa)
+                if (d.tmdb) { o.tmdbId = String(d.tmdb).split('/').pop(); o.tmdbTipo = String(d.tmdb).split('/')[0]; }
+                if (d.imdb) o.imdbId = d.imdb;
+                if (d.nota) o.rating = d.nota;
+                if (d.popularidade) o.popularity = d.popularidade;
+                if (d.duracao) o.runtime = d.duracao;
+                if (d.classificacao) o.age = d.classificacao;
+                if (!o.year && d.ano && c.natureza === 'filme') o.year = d.ano;
+                if (!o.genre && d.generos) o.genre = d.generos;
                 delete o.tvgId; delete o.epg; delete o.tvgShift;
             }
             return o;
@@ -1053,8 +1118,9 @@
 
     return {
         IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, receitaPadrao, passaReceita, montarReceita, confianca, idReceita,
+        chaveTMDB, pedidoTMDB, dadosDoTMDB, aplicarTMDB,
         NATUREZAS, analisarVideo, naturezaDe, ehVideo, colecaoVideo, detectarVideo, ajustarVideo, videoTexto,
-        colecoesSidechain, envioPadrao, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
+        colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });
