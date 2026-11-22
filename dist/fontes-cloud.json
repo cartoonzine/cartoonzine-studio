@@ -103,6 +103,16 @@
     "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/canais.json"
   },
   {
+    "_colecao": "bookzine",
+    "nome": "Bookzine",
+    "tipo": "vod_json",
+    "prefixoId": "BOOK",
+    "destino": "livros",
+    "categoryType": "livro",
+    "agruparSeries": false,
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/bookzine.json"
+  },
+  {
     "_colecao": "jogos",
     "nome": "Arcade",
     "tipo": "emulator_json",

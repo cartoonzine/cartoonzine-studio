@@ -1,7 +1,7 @@
 {
   "projeto": "Cartoonzine Studio",
   "versaoStudio": "1.1.0",
-  "geradoEm": "2026-11-22T06:00:33.687Z",
+  "geradoEm": "2026-11-22T06:01:32.109Z",
   "baseUrl": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/dist/",
   "colecoes": [
     {
@@ -123,7 +123,7 @@
       "id": "bookzine",
       "nome": "Bookzine",
       "tipo": "livro",
-      "app": "cartoonzine (view em construção)",
+      "app": "cartoonzine → views bookzine (biblioteca) e bookzine_leitor (leitor)",
       "publicados": 0,
       "comErro": 0,
       "arquivos": [
