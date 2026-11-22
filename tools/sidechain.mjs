@@ -77,7 +77,7 @@ async function emLotes(itens, n, fn) {
     await Promise.all(Array.from({ length: Math.min(n, itens.length) }, async () => { while (i < itens.length) { const k = i++; await fn(itens[k], k); } }));
 }
 // só o que importa do canal para guardar como "última versão boa" (o arquivo não pode crescer demais)
-const enxuto = (c) => { const o = {}; for (const k of ['nome', 'nomeOriginal', 'url', 'logo', 'grupo', 'tvgId', 'pais', 'idioma', 'tipo', 'qualidade', 'formato', 'chave', 'id', 'headers', 'epgGuia', 'tvgNome']) if (c[k] != null && c[k] !== '' && !(k === 'headers' && !Object.keys(c[k]).length)) o[k] = c[k]; return o; };
+const enxuto = (c) => { const o = {}; for (const k of ['nome', 'nomeOriginal', 'url', 'logo', 'grupo', 'tvgId', 'pais', 'idioma', 'tipo', 'qualidade', 'formato', 'chave', 'id', 'headers', 'epgGuia', 'tvgNome', 'lista']) if (c[k] != null && c[k] !== '' && !(k === 'headers' && !Object.keys(c[k]).length)) o[k] = c[k]; return o; };
 
 const lotes = [];
 let testados = 0;

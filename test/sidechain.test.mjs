@@ -266,3 +266,42 @@ test('🧬 o que já está na Studio não some: vira reserva do item de lá (pel
     assert.deepEqual(reservasStudio['conteudo/filmes/matrix-2.json'].links, ['http://sc/mr.mp4']);
     assert.deepEqual(reservasStudio['conteudo/filmes/shrek.json'].links, ['http://sc/shrek.mp4']);
 });
+
+test('📋 lista pronta (formato do DB oficial): os dados vêm junto, o TMDB vai pelo código e só completa', () => {
+    const lista = JSON.stringify([
+        { title: 'Matrix (1999)', year: 1999, url: 'http://v/matrix.mp4', mirrors: ['http://v/m2.mkv'], tmdbId: 603, tmdbTipo: 'movie', imdbId: 'tt0133093',
+          thumb: 'https://img/capa.jpg', bannerThumb: 'https://img/banner.jpg', previewThumb: 'https://img/previa.jpg', logo: 'https://img/logo.png',
+          desc: 'Neo…', genre: ['Ação'], age: '14', runtime: 136, rating: 8.7, audios: ['dublado', 'legendado'], qualidadeMax: 'FHD', group: 'Filmes' },
+        { title: 'O Mundo é Ninja', serie: 'Naruto', season: 1, episode: 3, url: 'http://v/n3.mp4', tmdbId: 46260, tmdbTipo: 'tv', thumb: 'https://img/naruto.jpg' }
+    ]);
+    const [f, ep] = L.lerLista(lista, 't').canais;
+    assert.equal(f.natureza, 'filme'); assert.equal(f.video.titulo, 'Matrix'); assert.equal(f.video.ano, 1999);
+    assert.equal(ep.natureza, 'episodio'); assert.equal(ep.video.serie, 'Naruto'); assert.equal(ep.video.temporada, 1); assert.equal(ep.video.episodio, 3);
+    assert.equal(L.chaveTMDB(f), 'id|movie/603'); assert.equal(L.pedidoTMDB(f).tmdb, 'movie/603');
+    assert.equal(L.chaveTMDB(ep), 'id|tv/46260');
+    // o TMDB achou outra capa e trouxe o que faltava (nota do IMDb): a capa da lista fica, a nota entra
+    L.aplicarTMDB(f, { tmdb: 'movie/603', capa: 'https://tmdb/outra.jpg', notaImdb: 8.7, votosImdb: 2000000, porBusca: true });
+    const o = JSON.parse(L.gerarJSON([f]))[0];
+    assert.equal(o.thumb, 'https://img/capa.jpg'); assert.equal(o.bannerThumb, 'https://img/banner.jpg'); assert.equal(o.previewThumb, 'https://img/previa.jpg');
+    assert.equal(o.logo, 'https://img/logo.png'); assert.equal(o.desc, 'Neo…'); assert.equal(o.tmdbId, '603'); assert.equal(o.imdbId, 'tt0133093');
+    assert.equal(o.imdbVotes, 2000000); assert.equal(o.age, '14'); assert.equal(o.runtime, 136);
+    assert.deepEqual(o.audios, ['dublado', 'legendado']); assert.equal(o.qualidadeMax, 'FHD');
+    assert.ok(!o.tmdbPorNome, 'o código veio da lista: não é chute');
+    assert.deepEqual(o.mirrors, ['http://v/m2.mkv']);
+    const e = JSON.parse(L.gerarJSON([ep]))[0];
+    assert.equal(e.serie, 'Naruto'); assert.equal(e.season, 1); assert.equal(e.episode, 3); assert.equal(e.thumb, 'https://img/naruto.jpg');
+});
+
+test('📋 listas comuns continuam iguais (M3U, JSON de canais e JSON simples de vídeo)', () => {
+    const m3u = L.lerLista('#EXTM3U\n#EXTINF:-1 tvg-logo="http://l/c.png" group-title="Filmes",Matrix (1999) 1080p\nhttp://v/m.mp4\n#EXTINF:-1 tvg-id="Globo.br",Globo\nhttp://t/g.m3u8\n', 't').canais;
+    assert.ok(!m3u[0].lista && !m3u[1].lista);
+    assert.equal(m3u[0].natureza, 'filme'); assert.equal(m3u[1].natureza, 'canal');
+    const canais = L.lerLista(JSON.stringify([{ name: 'Globo', url: 'http://t/g.m3u8', logo: 'http://l/g.png', group: 'TV Aberta' }]), 't').canais;
+    assert.ok(!canais[0].lista); assert.equal(canais[0].logo, 'http://l/g.png'); assert.equal(canais[0].natureza, 'canal');
+    const simples = L.lerLista(JSON.stringify([{ name: 'Shrek', url: 'http://v/shrek.mp4', logo: 'http://l/s.jpg' }]), 't').canais;
+    assert.ok(!simples[0].lista); assert.equal(simples[0].natureza, 'filme');
+    assert.equal(JSON.parse(L.gerarJSON(simples))[0].thumb, 'http://l/s.jpg');
+    // M3U com tvg-tmdb: o código entra (sem chute)
+    const tm = L.lerLista('#EXTM3U\n#EXTINF:-1 tvg-tmdb="603" group-title="Filmes",Matrix\nhttp://v/m.mp4\n', 't').canais[0];
+    assert.equal(L.chaveTMDB(tm), 'id|movie/603');
+});

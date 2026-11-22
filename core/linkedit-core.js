@@ -43,6 +43,8 @@
                     grupo: a['group-title'] || grupo || '', pais: a['tvg-country'] || '', idioma: a['tvg-language'] || '', epgShift: +a['tvg-shift'] || undefined,
                     headers: {}
                 };
+                const tm = a['tvg-tmdb'] || a['tmdb-id'] || a.tmdb, im = a['tvg-imdb'] || a['imdb-id'] || a.imdb;
+                if (tm || im) atual.lista = dadosDaLista({ tmdbId: tm, tmdbTipo: a['tvg-tmdb-type'] || a['tmdb-type'], imdbId: im, year: a['tvg-year'] || a.year });
                 const dur = /^#EXTINF:\s*(-?\d+)/i.exec(l);
                 if (dur && +dur[1] > 0) atual.duracao = +dur[1];
                 continue;
@@ -66,6 +68,51 @@
     }
 
     /** JSON: lista de canais, ou objeto com a lista dentro (channels, canais, items, streams, fontes…), formatos comuns de apps IPTV. */
+    // ---------- 📋 LISTA COM DADOS (formato do DB oficial: tmdbId, imagens do TMDB, sinopse…) ----------
+    // Lista "pronta" chega com os dados de vídeo; lista comum não tem nada disso e segue exatamente como antes.
+    const CHAVES_LISTA = ['tmdbId', 'tmdb', 'imdbId', 'bannerThumb', 'backdrop', 'backdropUrl', 'previewThumb', 'posterUrl', 'desc', 'overview', 'description', 'descricao', 'serie', 'season', 'episode', 'runtime', 'bannerlogo', 'bannerLogo', 'imdbRating', 'year', 'ano'];
+    /** objeto da lista → dados que o Studio usa (o que veio vazio fica de fora). null = a lista não traz dados de vídeo. */
+    function dadosDaLista(o) {
+        if (!o || !CHAVES_LISTA.some(k => o[k] != null && o[k] !== '')) return null;
+        const pega = (...ks) => { for (const k of ks) if (o[k] != null && o[k] !== '') return o[k]; return undefined; };
+        const num = (x) => { const n = parseFloat(x); return Number.isFinite(n) ? n : undefined; };
+        let tmdb = pega('tmdb');
+        const tid = pega('tmdbId');
+        if (!tmdb && tid != null) tmdb = /^(movie|tv)\//.test(String(tid)) ? String(tid) : /^\d+$/.test(String(tid)) ? (pega('tmdbTipo') === 'tv' || pega('serie', 'season', 'episode') != null ? 'tv' : 'movie') + '/' + tid : undefined;
+        const capa = pega('thumb', 'posterUrl', 'poster', 'cover');
+        const logo = pega('bannerlogo', 'bannerLogo') || (capa && o.logo && o.logo !== capa ? o.logo : undefined);
+        const gen = pega('genre', 'genres', 'generos');
+        const auds = [].concat(pega('audios') || []).map(x => String(x).toLowerCase());
+        const d = {
+            titulo: pega('title', 'titulo', 'name', 'nome'), ano: num(pega('year', 'ano')),
+            capa: capa || (!tmdb ? undefined : o.logo) || undefined, banner: pega('bannerThumb', 'backdropUrl', 'backdrop'), previa: pega('previewThumb'), logo,
+            descricao: pega('desc', 'overview', 'description', 'descricao'),
+            generos: gen ? [].concat(gen).map(String).filter(Boolean) : undefined,
+            tmdb, imdb: pega('imdbId'), nota: num(pega('rating')), notaImdb: num(pega('imdbRating')), votosImdb: num(pega('imdbVotes')),
+            popularidade: num(pega('popularity')), duracao: num(pega('runtime')), classificacao: pega('age', 'classificacao') != null ? String(pega('age', 'classificacao')) : undefined,
+            serie: pega('serie', 'series'), temporada: num(pega('season', 'temporada')), episodio: num(pega('episode', 'episodio')),
+            audio: auds.includes('dublado') && auds.includes('legendado') ? 'dual' : auds[0] || undefined, qualidade: pega('qualidadeMax', 'qualidade')
+        };
+        Object.keys(d).forEach(k => (d[k] == null || d[k] === '' || (Array.isArray(d[k]) && !d[k].length)) && delete d[k]);
+        return Object.keys(d).length ? d : null;
+    }
+    const DADOS_DA_LISTA = ['capa', 'banner', 'previa', 'logo', 'descricao', 'generos', 'tmdb', 'imdb', 'nota', 'notaImdb', 'votosImdb', 'popularidade', 'duracao', 'classificacao', 'ano'];
+    /** a parte da lista que vira "dados" do vídeo (o mesmo lugar onde o TMDB guarda o que achou) */
+    function dadosDeVideoDaLista(l) { const o = {}; DADOS_DA_LISTA.forEach(k => { if (l[k] != null) o[k] = l[k]; }); return o; }
+    /** a lista manda: tipo, título, ano, série/temporada/episódio, áudio, qualidade e os dados (imagens, sinopse, TMDB…) */
+    function aplicarLista(c) {
+        const l = c.lista; if (!l || !ehVideo(c)) return c;
+        const v = c.video = c.video || {};
+        if (l.titulo) v.titulo = String(l.titulo).replace(/\s*[(\[]\d{4}[)\]]\s*$/, '').trim() || v.titulo;
+        if (l.ano) v.ano = l.ano;
+        if (c.natureza === 'episodio') { if (l.serie) v.serie = l.serie; if (l.temporada != null) v.temporada = l.temporada; if (l.episodio != null) v.episodio = l.episodio; }
+        if (l.audio) v.audio = l.audio;
+        if (l.qualidade) v.qualidade = String(l.qualidade).toUpperCase();
+        if (l.generos && !v.genero) v.genero = l.generos.slice(0, 3).join(', ');
+        v.dados = Object.assign({}, v.dados, dadosDeVideoDaLista(l));
+        if (l.tmdb) { v.tmdbRef = l.tmdb; delete v.dados.porBusca; }
+        return c;
+    }
     function lerJSON(texto) {
         let d;
         try { d = JSON.parse(String(texto || '').replace(/^﻿/, '')); } catch (e) { return null; }
@@ -97,8 +144,13 @@
                 grupo: String(pega(o, 'group', 'grupo', 'category', 'categoria', 'genre')).trim(),
                 pais: String(pega(o, 'country', 'pais', 'tvgCountry')).trim(),
                 idioma: String(pega(o, 'language', 'idioma', 'lang', 'tvgLanguage')).trim(),
-                headers: Object.assign({}, o.headers || {}, o.userAgent || o.user_agent ? { 'User-Agent': o.userAgent || o.user_agent } : {}, o.referer || o.referrer ? { Referer: o.referer || o.referrer } : {})
+                headers: Object.assign({}, o.headers || {}, o.userAgent || o.user_agent ? { 'User-Agent': o.userAgent || o.user_agent } : {}, o.referer || o.referrer ? { Referer: o.referer || o.referrer } : {}),
+                lista: dadosDaLista(o) || undefined
             });
+            const ult = canais[canais.length - 1];
+            if (!ult.lista) delete ult.lista;
+            else if (ult.lista.serie && !/\bS\d+\s*E\d+/i.test(ult.nome) && ult.lista.episodio != null)   // episódio sem "S01E01" no nome: o nome ganha o padrão
+                ult.nome = `${ult.lista.serie} S${String(ult.lista.temporada || 1).padStart(2, '0')}E${String(ult.lista.episodio).padStart(2, '0')}${ult.nome && norm(ult.nome) !== norm(ult.lista.serie) ? ' ' + ult.nome : ''}`;
         });
         return { canais, epg: '' };
     }
@@ -601,6 +653,10 @@
     /** Natureza descoberta sozinha (a manual, se houver, vence). */
     function naturezaDe(c) {
         if (c.naturezaManual && c.natureza) return c.natureza;
+        if (c.lista) {
+            if (c.lista.serie || c.lista.episodio != null || /^tv\//.test(c.lista.tmdb || '')) return 'episodio';
+            if (/^movie\//.test(c.lista.tmdb || '')) return 'filme';
+        }
         const f = c.formato || formatoDe(c.url);
         if (AUDIO_EXT.test(c.url || '') || (c.grupoSaida || '') === 'Rádios' || /\b(radio|rádio|fm)\b/i.test(c.grupo || '') && f !== 'arquivo') return 'radio';
         const vod = f === 'arquivo' || f === 'torrent' || /\/(movie|movies|series|vod)\//i.test(c.url || '');
@@ -623,11 +679,14 @@
         c.natureza = naturezaDe(c);
         if (!ehVideo(c)) { if (!c.videoManual) delete c.video; return c; }
         if (c.videoManual && c.video) return c;
+        const velho = c.video || {};
         const a = analisarVideo(c.nomeOriginal || c.nome, c.url);
         if (c.natureza === 'filme') { delete a.serie; delete a.temporada; delete a.episodio; }
         c.video = Object.assign(a, { colecao: colecaoVideo(c, c.natureza) });
+        if (velho.dados) c.video.dados = velho.dados;            // o que o TMDB/a lista trouxe não se perde
+        if (velho.tmdbRef) c.video.tmdbRef = velho.tmdbRef;
         if (!c.video.qualidade && c.qualidade) c.video.qualidade = c.qualidade;
-        return c;
+        return aplicarLista(c);
     }
     /** Mudança feita à mão (no painel ou num envio do Sidechain): natureza e/ou campos do vídeo. */
     // ---------- 🖼 FICHA (igual ao "Novo" das Coleções): capa, banner, fundo do topo, sinopse, banner da home… ----------
@@ -666,6 +725,7 @@
     /** Chave da busca: 'tv|naruto' (todos os episódios da série) ou 'movie|matrix|1999'. */
     function chaveTMDB(c) {
         const v = c.video || {};
+        if (c.lista && c.lista.tmdb) return 'id|' + c.lista.tmdb;          // a lista já disse qual é a obra: sem chute
         return c.natureza === 'episodio' ? 'tv|' + norm(v.serie || v.titulo || c.nome) : 'movie|' + norm(v.titulo || c.nome) + '|' + (v.ano || '');
     }
     /** O pedido no formato do StudioCore.completarItem (episódio vai com temporada → o TMDB procura série primeiro). */
@@ -689,6 +749,8 @@
     /** Põe os dados do TMDB no item (e no ano/gênero, se estiverem vazios). */
     function aplicarTMDB(c, dados) {
         if (!ehVideo(c) || !dados) return c;
+        // lista com dados: o que ela trouxe fica, o TMDB só preenche o que faltava
+        if (c.lista) { dados = Object.assign({}, dados, dadosDeVideoDaLista(c.lista)); if (c.lista.tmdb) delete dados.porBusca; }
         c.video = Object.assign({}, c.video || {}, { dados });
         if (!c.video.ano && dados.ano && c.natureza === 'filme') c.video.ano = dados.ano;
         if (!c.video.genero && dados.generos) c.video.genero = dados.generos.slice(0, 3).join(', ');
@@ -1328,7 +1390,7 @@
         IDIOMAS, definirIdioma, CATEGORIAS, DESTINOS_ESPECIAIS, usarCategorias, idiomaStudio, destinoPadrao, itemParaStudio, planejarImportacao, itemFinal, ehVOD, destinoVOD, planejarVOD, receitaPadrao, passaReceita, montarReceita, confianca, idReceita,
         arvoreSeries, mapaStudio, jaNaStudio, arrumarNome,
         chaveTMDB, pedidoTMDB, dadosDoTMDB, aplicarTMDB,
-        NATUREZAS, analisarVideo, naturezaDe, ehVideo, colecaoVideo, detectarVideo, ajustarVideo, videoTexto,
+        NATUREZAS, dadosDaLista, analisarVideo, naturezaDe, ehVideo, colecaoVideo, detectarVideo, ajustarVideo, videoTexto,
         CAMPOS_FICHA_SC, juntarFicha, chaveSerie, aplicarAjustesEnvio,
         SEM_GRUPO, grupoDe, mapaGrupos, sugerirGrupo, analisarGrupos, aplicarSugestoes, moverGrupo,
         colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
