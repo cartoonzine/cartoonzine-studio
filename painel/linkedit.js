@@ -1220,7 +1220,7 @@
         const abas = new Map();
         for (const c of x.canais) {
             if (!L.ehVideo(c) || !L.passaFiltros(c, e)) continue;
-            if (e.tmdb && !(c.video && c.video.dados)) { const g = tmdb[L.chaveTMDB(c)]; if (g && g.dados) L.aplicarTMDB(c, g.dados); }   // o que o robô já buscou
+            if (e.tmdb && (!(c.video && c.video.dados) || (c.lista && !c._tmdbVisto))) { const g = tmdb[L.chaveTMDB(c)]; if (g && g.dados) { L.aplicarTMDB(c, g.dados); c._tmdbVisto = 1; } }   // o que o robô já buscou (lista pronta: só completa)
             const r = L.rotaDe(c, e);
             if (!r.destino || r.destino === 'ignorar') continue;
             const col = cols.find(k => k.id === r.destino.colecao);
