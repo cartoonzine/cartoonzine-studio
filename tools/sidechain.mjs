@@ -36,6 +36,16 @@ const ESTADO = path.join(RAIZ, 'sidechain', 'estado.json');
 const SAIDA = path.join(RAIZ, 'listas');
 const MAX = parseInt(args.max || '4000', 10);
 const VEZES = 16;
+// o pesado NÃO vai para o git: a última versão boa de cada lista e os "vistos" ficam no cache do GitHub Actions
+// (sidechain/.cache, restaurado e salvo pelo workflow). O estado.json fica pequeno (o painel abre rápido).
+const CACHE = path.join(RAIZ, 'sidechain', '.cache');
+const ARQ_TMDB = path.join(RAIZ, 'sidechain', 'tmdb.json');
+// relógio: o workflow tem 45 min; o robô se organiza para terminar e gravar antes disso
+const INICIO = Date.now();
+const MINUTOS = parseFloat(args.minutos || process.env.SC_MINUTOS || '36');
+const ATE = INICIO + MINUTOS * 60e3;
+const passou = () => ((Date.now() - INICIO) / 60e3).toFixed(1) + ' min';
+const hashLink = (u) => { let h = 2166136261; for (let i = 0; i < u.length; i++) { h ^= u.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
 
 const lerJSON = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return d; } };
 const config = lerConfig();
@@ -48,10 +58,16 @@ const dados = lerJSON(ARQ, { envios: [] });
 const envios = (dados.envios || []).filter(e => e && e.id && (e.url || (e.listas || []).length) && e.ativo !== false && (!args.envio || e.id === args.envio)).map(e => L.envioPadrao(e));
 if (!envios.length) { console.log('Nenhum envio ligado em sidechain/envios.json.'); process.exit(0); }
 const estado = lerJSON(ESTADO, {});
-estado.links = estado.links || {}; estado.envios = estado.envios || {}; estado.ultimo = estado.ultimo || {}; estado.vistos = estado.vistos || {}; estado.tmdb = estado.tmdb || {};
+estado.links = estado.links || {}; estado.envios = estado.envios || {};
+// versões antigas guardavam tudo no estado.json (passava de 100 MB): migra para o cache / tmdb.json
+fs.mkdirSync(CACHE, { recursive: true });
+const ultimoDe = (u) => lerJSON(path.join(CACHE, 'ultimo-' + hashLink(u) + '.json'), null) || (estado.ultimo && estado.ultimo[u]) || [];
+const vistosCache = lerJSON(path.join(CACHE, 'vistos.json'), null) || estado.vistos || {};
+estado.tmdb = Object.assign({}, estado.tmdb || {}, lerJSON(ARQ_TMDB, {}));
+delete estado.ultimo; delete estado.vistos;
 const novoUltimo = {};
 // os "vistos" moram no estado do robô (o envios.json é só seu: o robô nunca grava nele)
-envios.forEach(e => { e.vistos = estado.vistos[e.id] || {}; e._globais = dados.regrasGlobais || []; });
+envios.forEach(e => { e.vistos = vistosCache[e.id] || {}; e._globais = dados.regrasGlobais || []; });
 // o que já está cadastrado na Studio (dist/indice-painel.json): para não mandar de novo para a mesma coleção
 const mapaStudio = L.mapaStudio(lerJSON(path.join(RAIZ, 'dist', 'indice-painel.json'), []));
 const antes = {};          // envio → { chave: { nome, url } } da rodada anterior (para "saíram" e "mudaram de link")
@@ -68,11 +84,12 @@ let testados = 0;
 for (const envio of envios) {
     // cada link do envio (o principal + as outras listas) tem a SUA última versão boa
     antes[envio.id] = {};
-    L.linksDoEnvio(envio).forEach(u => (estado.ultimo[u] || []).forEach(c => { const k = c.chave || L.chaveDe(c); antes[envio.id][k] = { nome: c.nome, url: c.url }; }));
+    const ults = new Map(L.linksDoEnvio(envio).map(u => [u, ultimoDe(u)]));
+    ults.forEach(l => l.forEach(c => { const k = c.chave || L.chaveDe(c); antes[envio.id][k] = { nome: c.nome, url: c.url }; }));
     let canais = [], mantido = false;
     const erros = [];
     for (const u of L.linksDoEnvio(envio)) {
-        const ult = estado.ultimo[u] || [];
+        const ult = ults.get(u) || [];
         let parte;
         try {
             const { texto } = await baixarLista(u);
@@ -91,19 +108,28 @@ for (const envio of envios) {
     console.log(`\n🔗 ${envio.nome} (${envio.id}) → ${envio.tipoLista === 'mista' ? 'lista mista (' + (envio.rotas || []).length + ' rotas por grupo)' : envio.destino && envio.destino.colecao ? L.destinoTexto(envio.destino, cols) : 'só lista avulsa'} · ${canais.length} itens${mantido ? ` · ⚠ usando a última versão boa (${erro})` : ''}`);
     canais.forEach(c => L.aplicarAjustesEnvio(c, envio));
     // testa só o que vai para canais/24H/rádios (ou tudo, se o envio pedir)
+    envio._mapaGrupos = L.mapaGrupos(envio);
     const precisa = canais.filter(c => {
         if (!L.passaFiltros(c, envio)) return false;
         const r = L.rotaDe(c, envio);
         if (r.destino === 'ignorar') return false;
         if (!r.destino) return envio.avulsa && (envio.soVivos != null ? envio.soVivos : !L.ehVideo(c));
         const col = cols.find(x => x.id === r.destino.colecao);
+        if (col && col.tipo !== 'video' && L.ehVideo(c)) return false;   // vídeo numa coleção de canais nem sai: não testa
         return envio.soVivos != null ? envio.soVivos : (col && col.tipo !== 'video');
     });
+    delete envio._mapaGrupos;
     const hoje = Date.now();
     const urls = [...new Set(precisa.map(c => c.url))];
     const pendentes = urls.filter(u => !(estado.links[u] && hoje - estado.links[u].em < 60 * 60e3)).slice(0, Math.max(0, MAX - testados));
+    const porUrl = new Map(precisa.map(c => [c.url, c]));
+    const ateTeste = Math.min(ATE - 20 * 60e3, Date.now() + 12 * 60e3);   // testes: no máximo 12 min, e sobra tempo para o resto
+    if (pendentes.length) console.log(`  🧪 testando ${pendentes.length} links… (${passou()})`);
+    let feitos = 0;
     await emLotes(pendentes, VEZES, async (u) => {
-        const c = precisa.find(x => x.url === u);
+        if (Date.now() > ateTeste) return;
+        if (++feitos % 500 === 0) console.log(`     ${feitos}/${pendentes.length} testados (${passou()})`);
+        const c = porUrl.get(u);
         const t = await testarCanal(u, { modo: 'rapido', ua: c.headers && c.headers['User-Agent'], referer: c.headers && c.headers.Referer, timeout: 10000 }).catch(e => ({ status: 'morto', motivo: e.message }));
         const e = estado.links[u] || { h: [] };
         e.h = (e.h || []).concat(t.status !== 'morto').slice(-10);
@@ -127,7 +153,7 @@ const TMDB = chavesExternas().tmdb;
 // até 3.000 títulos por rodada, 6 de cada vez, e no máximo 25 min (o resto fica para a próxima rodada)
 const MAX_TMDB = parseInt(args['max-tmdb'] || process.env.SC_MAX_TMDB || '3000', 10);
 const VEZES_TMDB = parseInt(args['vezes-tmdb'] || '6', 10);
-const ATE_TMDB = Date.now() + parseFloat(args['minutos-tmdb'] || '25') * 60e3;
+const ATE_TMDB = Math.min(Date.now() + parseFloat(args['minutos-tmdb'] || '25') * 60e3, ATE - 4 * 60e3);
 let buscasTmdb = 0;
 const statsTmdb = {};
 // quem você pediu agora ("🤖 completar agora") vai primeiro
@@ -139,9 +165,10 @@ for (const { envio, canais } of ordemTmdb) {
     // v2 = já com a "Imagem da tela de prévia": as buscas guardadas antes dela são refeitas uma vez
     const velho = (g) => !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3 || (g.dados && !g.v);
     const fila = [...porChave.keys()].filter(k => velho(estado.tmdb[k]));
+    if (fila.length) console.log(`  🔎 ${envio.nome}: ${fila.length} títulos para buscar no TMDB… (${passou()})`);
     await emLotes(fila, VEZES_TMDB, async (k) => {
         if (buscasTmdb >= MAX_TMDB || Date.now() > ATE_TMDB) return;
-        buscasTmdb++;
+        if (++buscasTmdb % 200 === 0) console.log(`     ${buscasTmdb} buscas (${passou()})`);
         try { const r = await Core.completarItem(L.pedidoTMDB(porChave.get(k)[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); estado.tmdb[k] = { em: Date.now(), v: 2, dados: L.dadosDoTMDB(r.item) }; }
         catch (e) { estado.tmdb[k] = { em: Date.now(), dados: null }; }
     });
@@ -155,24 +182,47 @@ for (const { envio, canais } of ordemTmdb) {
 }
 if (buscasTmdb) console.log(`\n🔎 TMDB: ${buscasTmdb} busca(s) nesta rodada`);
 
+console.log(`\n📦 montando as listas… (${passou()})`);
 const { saidas, relatorios, avulsas } = L.montarSidechain(lotes, config, { studio: mapaStudio });
 const fontes = [];
+// lista grande vira PARTES de até ~35 MB (o GitHub recusa arquivo de mais de 100 MB). Uma série nunca é partida ao meio.
+// JSON compacto, um item por linha (o git guarda só as linhas que mudaram). M3U só onde o Cloud usa (Desenhos 24H).
+const MAX_PARTE = parseFloat(args['mb-parte'] || '35') * 1e6;
+const arquivos = [];        // { chave, json, m3u? }
 for (const s of saidas) {
     const col = cols.find(c => c.id === s.colecao);
-    console.log(`  📦 ${s.chave}: ${s.itens.length} itens${s.pais ? ' · país ' + s.pais : ''}`);
-    fontes.push(L.fonteDaSaida(s, col, linkPublico));
+    const objs = L.objetosJSON(s.itens).map((o, i) => ({ o, i, txt: JSON.stringify(o), grupo: o.serie ? 's|' + o.serie : 'i|' + i }));
+    const grupos = new Map(); objs.forEach(x => { if (!grupos.has(x.grupo)) grupos.set(x.grupo, []); grupos.get(x.grupo).push(x); });
+    const partes = [[]]; let tam = 0;
+    for (const g of grupos.values()) {
+        const t = g.reduce((n, x) => n + x.txt.length + 2, 0);
+        if (tam && tam + t > MAX_PARTE) { partes.push([]); tam = 0; }
+        partes[partes.length - 1].push(...g); tam += t;
+    }
+    const usaM3U = (col.fonteCloud || {}).tipo === 'vod_m3u';
+    partes.forEach((p, n) => {
+        const sp = Object.assign({}, s, { chave: s.chave + (n ? '-' + (n + 1) : '') });
+        arquivos.push({ chave: sp.chave, json: '[\n' + p.map(x => x.txt).join(',\n') + '\n]\n', m3u: usaM3U ? L.gerarM3U(p.map(x => s.itens[x.i])) : null });
+        const f = L.fonteDaSaida(sp, col, linkPublico);
+        if (partes.length > 1) f.nome += ` · parte ${n + 1}/${partes.length}`;
+        fontes.push(f);
+        console.log(`  📦 ${sp.chave}: ${p.length} itens${s.pais ? ' · país ' + s.pais : ''}${partes.length > 1 ? ` (parte ${n + 1}/${partes.length})` : ''}`);
+    });
 }
 if (args.simular) { console.log('\n(simulação: nada foi gravado)'); process.exit(0); }
 
 fs.mkdirSync(SAIDA, { recursive: true });
 const antigas = new Set((lerJSON(path.join(SAIDA, 'sidechain-fontes.json'), []) || []).map(f => String(f.url || '').split('/').pop().replace(/\.(json|m3u)$/, '')));
-for (const s of saidas) {
-    fs.writeFileSync(path.join(SAIDA, s.chave + '.json'), L.gerarJSON(s.itens));
-    fs.writeFileSync(path.join(SAIDA, s.chave + '.m3u'), L.gerarM3U(s.itens));
-    antigas.delete(s.chave);
+const feitos = new Set();
+for (const a of arquivos) {
+    fs.writeFileSync(path.join(SAIDA, a.chave + '.json'), a.json);
+    if (a.m3u) fs.writeFileSync(path.join(SAIDA, a.chave + '.m3u'), a.m3u);
+    else fs.rmSync(path.join(SAIDA, a.chave + '.m3u'), { force: true });      // vídeo/canais: o Cloud lê o JSON
+    feitos.add(a.chave); antigas.delete(a.chave);
 }
-// saída que ficou vazia (todo mundo foi desviado/ignorado): sai do Cloud, os arquivos ficam com lista vazia
-for (const k of antigas) if (/^sc-/.test(k)) { fs.writeFileSync(path.join(SAIDA, k + '.json'), '[]\n'); fs.writeFileSync(path.join(SAIDA, k + '.m3u'), '#EXTM3U\n'); }
+// saída que ficou vazia (todo mundo foi desviado/ignorado) ou parte que sobrou: sai do Cloud
+for (const f of fs.readdirSync(SAIDA)) { const k = f.replace(/\.(json|m3u)$/, ''); if (/^sc-/.test(k) && !feitos.has(k)) antigas.add(k); }
+for (const k of antigas) if (/^sc-/.test(k)) { fs.rmSync(path.join(SAIDA, k + '.json'), { force: true }); fs.rmSync(path.join(SAIDA, k + '.m3u'), { force: true }); }
 fs.writeFileSync(path.join(SAIDA, 'sidechain-fontes.json'), JSON.stringify(fontes, null, 2) + '\n');
 // listas avulsas (as antigas Receitas): M3U/JSON com link fixo, para usar em outros players
 const indiceAv = lerJSON(path.join(SAIDA, 'avulsas.json'), { listas: [] });
@@ -202,16 +252,23 @@ for (const { envio, canais, mantido } of lotes) {
         sairamItens: sairamItens.slice(0, 300), mudaramLink: mudaramLink.slice(0, 300), historico: hist, tmdb: statsTmdb[envio.id] || undefined, tmdbPedidoEm: envio.tmdbPedidoEm || undefined });
     console.log(`  ✓ ${envio.nome}: ${Object.entries(rel.porDestino).map(([k, n]) => `${n} → ${k}`).join(' · ') || 'nada enviado'}${rel.novos.length ? ` · ${rel.novos.length} novos` : ''}${rel.pendentes.length ? ` · ${rel.pendentes.length} esperando revisão` : ''}`);
 }
-// última versão boa de cada link (links que nenhum envio usa mais saem)
+// última versão boa de cada link: no cache do Actions (links que nenhum envio usa mais saem)
 const usados = new Set((dados.envios || []).flatMap(e => L.linksDoEnvio(L.envioPadrao(e))));
-Object.assign(estado.ultimo, novoUltimo);
-for (const u of Object.keys(estado.ultimo)) if (!usados.has(u)) delete estado.ultimo[u];
+for (const [u, l] of Object.entries(novoUltimo)) fs.writeFileSync(path.join(CACHE, 'ultimo-' + hashLink(u) + '.json'), JSON.stringify(l));
+const vivos = new Set([...usados].map(u => 'ultimo-' + hashLink(u) + '.json'));
+for (const f of fs.readdirSync(CACHE)) if (/^ultimo-/.test(f) && !vivos.has(f)) fs.rmSync(path.join(CACHE, f), { force: true });
 for (const [k, g] of Object.entries(estado.tmdb)) if (Date.now() - (g.em || 0) > 60 * 86400e3) delete estado.tmdb[k];
+// TMDB: arquivo próprio, um título por linha (o git guarda só o que mudou; o painel lê só no passo 4)
+const tmdbOrd = Object.keys(estado.tmdb).sort();
+fs.writeFileSync(ARQ_TMDB, '{\n' + tmdbOrd.map(k => JSON.stringify(k) + ':' + JSON.stringify(estado.tmdb[k])).join(',\n') + '\n}\n');
+delete estado.tmdb;
 // links que nenhum envio usa há 30 dias saem do histórico; envios apagados saem do estado
 for (const [u, e] of Object.entries(estado.links)) if (Date.now() - (e.em || 0) > 30 * 86400e3) delete estado.links[u];
 const ids = new Set((dados.envios || []).map(e => e.id));
-for (const e of envios) estado.vistos[e.id] = e.vistos;
-for (const k of Object.keys(estado.envios)) if (!ids.has(k)) { delete estado.envios[k]; delete estado.vistos[k]; }
+for (const e of envios) vistosCache[e.id] = e.vistos;
+for (const k of Object.keys(vistosCache)) if (!ids.has(k)) delete vistosCache[k];
+for (const k of Object.keys(estado.envios)) if (!ids.has(k)) delete estado.envios[k];
+fs.writeFileSync(path.join(CACHE, 'vistos.json'), JSON.stringify(vistosCache));
 fs.mkdirSync(path.dirname(ESTADO), { recursive: true });
 fs.writeFileSync(ESTADO, JSON.stringify(estado));
-console.log(`\nPronto: ${envios.length} envio(s), ${saidas.length} lista(s), ${testados} links testados.`);
+console.log(`\nPronto em ${passou()}: ${envios.length} envio(s), ${saidas.length} lista(s), ${testados} links testados. estado.json: ${(fs.statSync(ESTADO).size / 1e3).toFixed(0)} KB`);
