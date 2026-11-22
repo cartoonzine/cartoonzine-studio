@@ -103,13 +103,17 @@
         "confiancaMin": 0
       },
       "avulsa": false,
-      "tmdb": false,
+      "tmdb": true,
+      "tmdbModo": "falta",
+      "tmdbFundo": true,
       "pularStudio": true,
       "desvios": {},
       "regras": [],
       "ajustes": {},
       "gruposRevisados": {},
-      "criadoEm": "2026-11-21T18:30:47.516Z"
+      "fichasSerie": {},
+      "criadoEm": "2026-11-21T18:30:47.516Z",
+      "tmdbPedidoEm": "2026-11-22T01:45:53.659Z"
     }
   ]
 }
