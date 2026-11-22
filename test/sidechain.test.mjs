@@ -255,3 +255,14 @@ test('tela de prévia: imagem própria do TMDB (ou da ficha) sai como previewThu
     e.ajustes[L.chaveSC(cs[0])] = { ficha: { previa: 'https://minha/previa.jpg' } };
     assert.equal(json().previewThumb, 'https://minha/previa.jpg');
 });
+
+test('🧬 o que já está na Studio não some: vira reserva do item de lá (pelo TMDB ou pelo nome)', () => {
+    const cs = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="Filmes",Matrix Reloaded (2003)\nhttp://sc/mr.mp4\n#EXTINF:-1 group-title="Filmes",Shrek (2001)\nhttp://sc/shrek.mp4\n', 't').canais;
+    L.aplicarTMDB(cs[0], { tmdb: 'movie/604' });
+    const studio = L.mapaStudio([{ caminho: 'conteudo/filmes/matrix-2.json', nome: 'Matrix 2', tmdb: 'movie/604' }, { caminho: 'conteudo/filmes/shrek.json', nome: 'Shrek' }]);
+    const e = L.envioPadrao({ id: 'x', destino: { colecao: 'filmes' } });
+    const { saidas, reservasStudio, relatorios } = L.montarSidechain([{ envio: e, canais: cs }], cfgMista, { studio });
+    assert.equal(relatorios.x.naStudio, 2); assert.equal(saidas.length, 0);
+    assert.deepEqual(reservasStudio['conteudo/filmes/matrix-2.json'].links, ['http://sc/mr.mp4']);
+    assert.deepEqual(reservasStudio['conteudo/filmes/shrek.json'].links, ['http://sc/shrek.mp4']);
+});

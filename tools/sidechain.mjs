@@ -183,7 +183,7 @@ for (const { envio, canais } of ordemTmdb) {
 if (buscasTmdb) console.log(`\n🔎 TMDB: ${buscasTmdb} busca(s) nesta rodada`);
 
 console.log(`\n📦 montando as listas… (${passou()})`);
-const { saidas, relatorios, avulsas } = L.montarSidechain(lotes, config, { studio: mapaStudio });
+const { saidas, relatorios, avulsas, reservasStudio } = L.montarSidechain(lotes, config, { studio: mapaStudio });
 const fontes = [];
 // lista grande vira PARTES de até ~35 MB (o GitHub recusa arquivo de mais de 100 MB). Uma série nunca é partida ao meio.
 // JSON compacto, um item por linha (o git guarda só as linhas que mudaram). M3U só onde o Cloud usa (Desenhos 24H).
@@ -224,6 +224,9 @@ for (const a of arquivos) {
 for (const f of fs.readdirSync(SAIDA)) { const k = f.replace(/\.(json|m3u)$/, ''); if (/^sc-/.test(k) && !feitos.has(k)) antigas.add(k); }
 for (const k of antigas) if (/^sc-/.test(k)) { fs.rmSync(path.join(SAIDA, k + '.json'), { force: true }); fs.rmSync(path.join(SAIDA, k + '.m3u'), { force: true }); }
 fs.writeFileSync(path.join(SAIDA, 'sidechain-fontes.json'), JSON.stringify(fontes, null, 2) + '\n');
+// 🧬 o que já estava cadastrado na Studio não some: os links viram reserva do item de lá (o build da Studio junta)
+fs.writeFileSync(path.join(SAIDA, 'sc-reservas.json'), JSON.stringify(reservasStudio || {}, null, 1) + '\n');
+if (Object.keys(reservasStudio || {}).length) console.log(`  🧬 ${Object.keys(reservasStudio).length} itens da Studio ganharam reservas do Sidechain`);
 // listas avulsas (as antigas Receitas): M3U/JSON com link fixo, para usar em outros players
 const indiceAv = lerJSON(path.join(SAIDA, 'avulsas.json'), { listas: [] });
 for (const a of avulsas) {

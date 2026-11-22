@@ -727,13 +727,18 @@
             const n = norm(i.nome);
             if (!n) return;
             m.set('v|' + n, Object.assign({ colecao: col }, i));
+            if (i.tmdb) m.set('t|' + i.tmdb, Object.assign({ colecao: col }, i));      // 🧬 o mesmo filme/série pelo TMDB
             m.set('c|' + n + '|' + String(i.pais || '').toUpperCase(), Object.assign({ colecao: col }, i));
         });
         return m;
     }
     function jaNaStudio(c, mapa) {
         if (!mapa || !mapa.size) return null;
-        if (ehVideo(c)) { const v = c.video || {}; return mapa.get('v|' + norm(c.natureza === 'episodio' ? (v.serie || v.titulo || c.nome) : (v.titulo || c.nome))) || null; }
+        if (ehVideo(c)) {
+            const v = c.video || {}, d = v.dados || {};
+            if (d.tmdb && mapa.get('t|' + d.tmdb)) return mapa.get('t|' + d.tmdb);
+            return mapa.get('v|' + norm(c.natureza === 'episodio' ? (v.serie || v.titulo || c.nome) : (v.titulo || c.nome))) || null;
+        }
         return mapa.get('c|' + norm(c.nome) + '|' + String(c.pais || '').toUpperCase()) || null;
     }
     // ---------- ✎ arrumar nomes em lote ----------
@@ -916,7 +921,7 @@
      */
     function montarSidechain(lotes, config, opts = {}) {
         const cols = colecoesSidechain(config);
-        const porSaida = new Map(), relatorios = {}, avulsas = [];
+        const porSaida = new Map(), relatorios = {}, avulsas = [], reservasStudio = {};
         for (const { envio, canais, mantido, erro } of lotes) {
             const rel = { total: canais.length, porDestino: {}, novos: [], pendentes: [], gruposNovos: {}, ignorados: 0, filtrados: 0, mortos: 0, mantido: !!mantido, erro: erro || '' };
             envio._mapaGrupos = mapaGrupos(envio); envio._cols = cols;
@@ -939,7 +944,20 @@
                 // tipo trocado (canal ao vivo indo para uma coleção de vídeo, ou filme indo para o TVzine): só se VOCÊ mandou
                 if ((r.motivo === 'padrao' || r.motivo === 'rota' || r.motivo === 'sugestao') && ((col.tipo === 'video') !== ehVideo(c)) && !(col.tipo === 'canal24h' && !ehVideo(c))) { rel.tipoErrado = (rel.tipoErrado || 0) + 1; continue; }
                 // já está na MESMA coleção da Studio (cadastrado à mão): não entra de novo — no app apareceria dobrado
-                if (envio.pularStudio !== false && opts.studio) { const j = jaNaStudio(c, opts.studio); if (j && j.colecao === col.id) { rel.naStudio = (rel.naStudio || 0) + 1; continue; } }
+                if (envio.pularStudio !== false && opts.studio) {
+                    const j = jaNaStudio(c, opts.studio);
+                    if (j && j.colecao === col.id) {
+                        rel.naStudio = (rel.naStudio || 0) + 1;
+                        // 🧬 não some: o link vira RESERVA do item da Studio (o app troca sozinho se o principal cair)
+                        if (ehVideo(c) && c.url && j.caminho) {
+                            const r = reservasStudio[j.caminho] || (reservasStudio[j.caminho] = { nome: j.nome, links: [], eps: {} });
+                            const v = c.video || {};
+                            if (c.natureza === 'episodio' && v.episodio != null) { const k = (v.temporada || 1) + '|' + v.episodio; (r.eps[k] = r.eps[k] || []).push(c.url); }
+                            else if (c.natureza !== 'episodio') r.links.push(c.url);
+                        }
+                        continue;
+                    }
+                }
                 const testar = viver != null ? viver : (col.tipo !== 'video');
                 if (testar && c.teste && !VIVO_RECEITA(c.teste.status)) { rel.mortos++; continue; }
                 const it = itemNoDestino(c, r.destino, col);
@@ -959,7 +977,8 @@
             delete s.brutos;
             return Object.assign(s, { itens });
         }).sort((a, b) => a.chave.localeCompare(b.chave));
-        return { saidas, relatorios, avulsas };
+        for (const r of Object.values(reservasStudio)) { r.links = [...new Set(r.links)].slice(0, 5); for (const k of Object.keys(r.eps)) r.eps[k] = [...new Set(r.eps[k])].slice(0, 5); if (!Object.keys(r.eps).length) delete r.eps; }
+        return { saidas, relatorios, avulsas, reservasStudio };
     }
     /**
      * A fonte do Cloud de uma saída (vai em listas/sidechain-fontes.json; o Cloud lê via "fontesDoStudio").
