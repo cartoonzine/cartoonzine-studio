@@ -801,6 +801,13 @@
     const TMDB_IMG = 'https://image.tmdb.org/t/p/';
 
     /** Melhor logo do título no TMDB: no idioma pedido, depois inglês, depois sem idioma; PNG antes de SVG; mais votado. */
+    /** Tela de prévia: o melhor backdrop que NÃO é o do banner (sem texto primeiro, depois o mais votado). */
+    function previaDoTMDB(backdrops, doBanner) {
+        const b = (backdrops || []).filter(x => x && x.file_path && x.file_path !== doBanner);
+        if (!b.length) return undefined;
+        b.sort((x, y) => (x.iso_639_1 ? 1 : 0) - (y.iso_639_1 ? 1 : 0) || (y.vote_average || 0) - (x.vote_average || 0) || (y.width || 0) - (x.width || 0));
+        return TMDB_IMG + 'w1280' + b[0].file_path;
+    }
     function logoDoTMDB(logos, idi) {
         const l = (logos || []).filter(x => x && x.file_path);
         if (!l.length) return undefined;
@@ -877,6 +884,7 @@
             descricao: sinopse || undefined,
             capa: d.poster_path ? TMDB_IMG + 'w500' + d.poster_path : undefined,
             banner: d.backdrop_path ? TMDB_IMG + 'w1280' + d.backdrop_path : undefined,
+            previa: previaDoTMDB(d.images && d.images.backdrops, d.backdrop_path),   // outra imagem grande para a tela de prévia (não repete o banner)
             ano: /^\d{4}/.test(data) ? parseInt(data, 10) : undefined,
             generos: (d.genres || []).map(g => g.name).filter(Boolean),
             bannerLogo: logoDoTMDB(d.images && d.images.logos, idi),   // logo PNG do título (o banner e o CZ-HUD usam no lugar do nome)
@@ -1436,6 +1444,7 @@
                 { k: 'imdb', rotulo: 'IMDb', tipo: 'texto', dica: 'cole o link ou o código tt… do IMDb' },
                 { k: 'links', rotulo: 'Link do vídeo (filme/desenho avulso)', tipo: 'links', dica: '1º link = principal; os outros viram reserva. Série? Deixe vazio e use as temporadas.' },
                 ...CAMPOS_COMUNS_MIDIA,
+                { k: 'previa', rotulo: 'Imagem da tela de prévia', tipo: 'url', imagem: true, avancado: true, dica: 'aparece na tela de prévia da categoria antes do vídeo — use outra imagem grande do filme/série para não repetir o banner · o TMDB preenche · vazio = usa o banner' },
                 { k: 'audio', rotulo: 'Áudio', tipo: 'escolha', opcoes: ['', 'Dublado', 'Legendado', 'Dual Áudio', 'Original'] },
                 { k: 'qualidade', rotulo: 'Qualidade', tipo: 'escolha', opcoes: ['', ...QUALIDADES], dica: 'a melhor que tem · vazio = descobre pelo nome do arquivo/link (1080p = FHD)' },
                 { k: 'classificacao', rotulo: 'Classificação indicativa', tipo: 'escolha', opcoes: ['', ...CLASSIFICACOES], dica: 'o TMDB preenche (Brasil)' },
@@ -1753,7 +1762,7 @@
         switch (colecao.tipo) {
             case 'video': {
                 const o = Object.assign(base, {
-                    thumb: item.capa, bannerThumb: item.banner, audio: item.audio,
+                    thumb: item.capa, bannerThumb: item.banner, previewThumb: item.previa, audio: item.audio,
                     imdbId: item.imdb, imdbRating: item.notaImdb, imdbVotes: item.votosImdb,
                     // busca fina (Filtros+): código do TMDB (o mesmo filme de listas diferentes vira um card),
                     // nota, classificação, popularidade, duração, áudios e a melhor qualidade

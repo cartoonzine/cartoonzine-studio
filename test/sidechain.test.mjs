@@ -245,3 +245,13 @@ test('robô: só os campos escolhidos do TMDB saem no JSON', () => {
     assert.equal(o.thumb, 'https://tmdb/capa.jpg'); assert.equal(o.imdbRating, 8.7);
     assert.ok(!o.bannerThumb && !o.desc && !o.tmdbId);
 });
+
+test('tela de prévia: imagem própria do TMDB (ou da ficha) sai como previewThumb', () => {
+    const cs = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="Filmes",Matrix (1999)\nhttp://v/m.mp4\n', 't').canais;
+    L.aplicarTMDB(cs[0], L.dadosDoTMDB({ tmdb: 'movie/603', banner: 'https://tmdb/b1.jpg', previa: 'https://tmdb/b2.jpg' }));
+    const e = L.envioPadrao({ id: 't', destino: { colecao: 'filmes' } });
+    const json = () => JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: e, canais: cs }], cfgMista).saidas[0].itens))[0];
+    assert.equal(json().previewThumb, 'https://tmdb/b2.jpg'); assert.equal(json().bannerThumb, 'https://tmdb/b1.jpg');
+    e.ajustes[L.chaveSC(cs[0])] = { ficha: { previa: 'https://minha/previa.jpg' } };
+    assert.equal(json().previewThumb, 'https://minha/previa.jpg');
+});
