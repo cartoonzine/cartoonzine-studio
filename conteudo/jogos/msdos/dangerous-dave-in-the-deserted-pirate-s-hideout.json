@@ -1,0 +1,26 @@
+{
+  "nome": "Dangerous Dave in the Deserted Pirate's Hideout",
+  "links": [
+    "https://archive.org/details/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-deserted-pirate-s-hideout--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Deserted_Pirates_Hideout_1990",
+  "descricao": "Jogo de MS-DOS · Action, Platform, Puzzle (1990), de Uptime Disk Monthly. Do acervo do Internet Archive.",
+  "ano": 1990,
+  "generos": [
+    "Action",
+    "Platform",
+    "Puzzle"
+  ],
+  "editora": "Uptime Disk Monthly",
+  "console": "msdos",
+  "jogadores": 1,
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 187523,
+  "_ssPreviaEm": "2026-11-18"
+}

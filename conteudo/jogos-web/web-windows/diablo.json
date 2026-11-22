@@ -3,11 +3,24 @@
   "links": [
     "https://d07riv.github.io/diabloweb/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/cced2922f69c1c789ba9d1c9c4210b1c.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/c26820b8a4c1b3c2aa868d6d57e14a79.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/ce943be8824807573e3d363d01058edb.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/d07RiV/diabloweb",
-  "descricao": "Port para navegador · d07riv.github.io",
+  "descricao": "Long ago a secret war raged between Heaven and Hell, each using humanity as its pawns. While the Prime Evils of Hell were engaged in war their lesser lieutenants conspired to overthrow them. They mutinied suddenly with the combined forces of Hell, overwhelming the three Primes. Stripped of their power, they were banished to the mortal realm. Human agents of Heaven, upon discovering this, found the three Primes and sealed them within gemstone prisons, each of them sent to a different corner of the earth and kept under guard to prevent them from escaping.\r\n\r\nAs years turns to centuries, however, the power of Heaven's agents waned, until eventually not even the people of the town of Tristram knew that buried deep under their chapel was the soul of the Lord of Terror, Diablo. As the strength of his prison waned Diablo reached out into the world, corrupting the dreams of the land's good king, driving him to attack his neighbors. The nation of Khanduras fought wars with no intention of winning, desiring only slaughter and suffering. Now the lands lay scorched, home only to monsters and the dead. Rumors spread of a way to stop the demons, as well as rumors of great wealth, and both draw adventurers from far to the small town of Tristram.",
+  "ano": 1996,
+  "generos": [
+    "Jogos de RPG",
+    "RPG de Ação"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 291004,
+  "_ssPreviaEm": "2026-11-17"
 }

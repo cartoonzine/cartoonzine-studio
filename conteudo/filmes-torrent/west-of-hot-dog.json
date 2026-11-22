@@ -7,6 +7,9 @@
   "tmdb": "movie/107294",
   "imdb": "tt0015477",
   "notaImdb": 5.6,
+  "notaTmdb": 5.8,
+  "popularidade": 0.5,
+  "duracao": 22,
   "votosImdb": 305,
   "capa": "https://archive.org/services/img/westofhotdog",
   "banner": "https://image.tmdb.org/t/p/w1280/xJX2H9RwzCThVksWgrIxGRTFpDh.jpg",
@@ -21,5 +24,5 @@
   "destaque": true,
   "destaqueOrdem": 9,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-01"
+  "_completadoEm": "2026-11-15"
 }

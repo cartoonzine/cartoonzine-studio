@@ -1,0 +1,22 @@
+{
+  "nome": "balatro",
+  "links": [
+    "https://degloved.net/games/public/gms/balatro/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--balatro--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--balatro--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--balatro--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--balatro--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--balatro--previa.jpg",
+  "descricao": "O roguelike de póquer. Balatro é um jogo de construção de baralhos de cartas hipnoticamente satisfatório onde vais jogar mãos de póquer ilegais, descobrir jóqueres que vão mudar o rumo do jogo e fazer combinações empolgantes.\r\nCombina mãos de póquer válidas com cartas de jóquer únicas para criar sinergias e baralhos variados. Ganha fichas suficientes para venceres blinds tortuosas, revelando baralhos e mãos de bónus escondidos à medida que progrides. Vais precisar de todas as vantagens que conseguires para chegares à boss blind, venceres a ante final e garantires a vitória.",
+  "ano": 2024,
+  "generos": [
+    "Simulação"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 465053,
+  "_ssPreviaEm": "2026-11-14"
+}

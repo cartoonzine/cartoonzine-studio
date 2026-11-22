@@ -16,5 +16,8 @@
   "engine": "Emscripten",
   "console": "web-remakes",
   "licenca": "livre",
-  "controles": "mouse"
+  "controles": "mouse",
+  "_completadoEm": "2026-11-21",
+  "_ssEm": "2026-11-16",
+  "_ssId": 0
 }

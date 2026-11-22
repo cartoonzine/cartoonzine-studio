@@ -3,10 +3,20 @@
   "links": [
     "https://mcsm-web.pages.dev/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/7a42d04dbcdcccece898bfbc2bb6d326.png",
+  "banner": "https://images.launchbox-app.com//56a32b29-458e-4082-a096-956582139b36.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/f4be00279ee2e0a53eafdaa94a151e2c.png",
+  "video": "https://images.launchbox-app.com//b01c371a-c728-4136-ba15-9304485eda43.jpg",
+  "previa": "https://images.launchbox-app.com//b01c371a-c728-4136-ba15-9304485eda43.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "descricao": "Port para navegador · mcsm-web.pages.dev",
   "console": "web-windows",
-  "licenca": "nao-verificada",
-  "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "licenca": "livre",
+  "fundoImagem": "banner",
+  "posFundo": 40,
+  "bannerVideo": "https://images.launchbox-app.com//b01c371a-c728-4136-ba15-9304485eda43.jpg",
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 0
 }

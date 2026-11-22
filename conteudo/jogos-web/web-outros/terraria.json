@@ -1,0 +1,25 @@
+{
+  "nome": "terraria",
+  "links": [
+    "https://degloved.net/games/public/gms/terraria/index.htmll",
+    "https://playterraria.lol/game/"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--terraria--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--terraria--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--terraria--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--terraria--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--terraria--previa.png",
+  "descricao": "O mundo é seu. Lute pela sua sobrevivência, explore pela sua fortuna e escave pela sua glória. Explore o subsolo, teste as suas capacidades de combate ou construa a sua própria cidade!\r\nTerraria é um jogo de plataformas de exploração e artesanato em 2D. Os jogadores podem recolher uma variedade de artigos do mundo, incluindo madeira, minério e até teias de aranha. Os recursos adquiridos do ambiente podem ser transformados em todo o tipo de artigos.\r\nA primeira prioridade é estabelecer uma base antes do anoitecer para se proteger de zombies e monstros oculares. Há muitos artigos que pode fazer para a sua casa, incluindo portas, paredes, mesas, cadeiras e camas.\r\nDurante o dia, os limos vagueiam e devem ser evitados ou eliminados com uma arma como uma espada ou um machado que pode ser actualizada com os materiais que recolhe.",
+  "ano": 2015,
+  "generos": [
+    "Plataforma"
+  ],
+  "console": "web-outros",
+  "jogadores": 4,
+  "fundoImagem": "banner",
+  "_completadoEm": "2026-11-14",
+  "_rascunho": true,
+  "_ssEm": "2026-11-15",
+  "_ssId": 12079,
+  "_ssPreviaEm": "2026-11-15"
+}

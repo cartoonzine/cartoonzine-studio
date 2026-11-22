@@ -1,0 +1,21 @@
+{
+  "nome": "portal",
+  "links": [
+    "https://degloved.net/games/public/gms/portal/index.html"
+  ],
+  "capa": "https://cdn2.steamgriddb.com/grid/41a69c66f821f25c8184aea3bb35225d.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--portal--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--portal--logo.png",
+  "descricao": "No Portal, o jogador controla uma personagem chamada Chell numa vista em primeira pessoa que deve atravessar uma série de salas utilizando um gerador de portal. Este gerador cria dois portais distintos, um laranja e um azul, sobre uma superfície plana de partículas lunares. Nem é necessariamente a entrada nem a saída, e qualquer objecto que passe por um portal sairá pelo outro, mantendo a sua velocidade. Os portais não podem ser criados em todas as superfícies, mas uma tentativa falhada de criar um portal não irá afectar os portais já criados. O jogador também pode apanhar objectos, mas não os pode atirar a longas distâncias. Estes itens, frequentemente cubos de armazenamento, podem ser utilizados para premir interruptores que activam plataformas ou portas abertas, ou para proteger contra fogo de torre, mas estes cubos não podem ser transportados de sala para sala.",
+  "ano": 2007,
+  "generos": [
+    "Quebra-cabeças"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 16378,
+  "_ssPreviaEm": "2026-11-15"
+}

@@ -3,10 +3,25 @@
   "links": [
     "http://pes6.optijuegos.net"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-6--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-6--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-6--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-6--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-6--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · pes6.optijuegos.net",
+  "descricao": "Pro Evolution Soccer 6 enters the display of 2006/2007 with up-to-date exchange of club and national players. Some new clubs were brought to their proper names (such as Manchester United instead of Man Red), while others have lose it (such as Chelsea which is now once again London FC). However, despite the names, players are correct as Chelsea does have Ballack and Schevchenko, Real Madrid now has Van Nistelrooy which was in Manchester United and so on.\r\n\r\nControls are the same, but moves and strategies have changed, as they tend to do from game to game. Fouls are not as easygoing as in previous game, but players turning is now too slow unless you know how to do it properly. Moves are much more realistic and goal keepers don't catch every ball with an ease, even easy one can sometimes slip by. That said, it all makes one step closer to reality, while it loses the reality factor on some other sides. Cameras are typical broadcast, tower, and bird-perspective, and cups, league and master league are still included.",
+  "ano": 2006,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 8,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 21929,
+  "_ssPreviaEm": "2026-11-16"
 }

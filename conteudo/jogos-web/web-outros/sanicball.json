@@ -1,0 +1,14 @@
+{
+  "nome": "sanicball",
+  "links": [
+    "https://degloved.net/games/public/gms/sanicball/index.html"
+  ],
+  "capa": "https://cdn2.steamgriddb.com/grid/01315434d7e46f46c461aa9e97303138.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/ce2f2c502e5d4a00b8909503dad1d127.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/c35a6d53e9dd68679cd7a9e1557dd68a.png",
+  "console": "web-outros",
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 0
+}

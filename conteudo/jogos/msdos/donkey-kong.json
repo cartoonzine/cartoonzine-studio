@@ -1,0 +1,25 @@
+{
+  "nome": "Donkey Kong",
+  "links": [
+    "https://archive.org/details/msdos_Donkey_Kong_1983"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--donkey-kong--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--donkey-kong--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--donkey-kong--logo.png",
+  "fonte": "https://archive.org/details/msdos_Donkey_Kong_1983",
+  "descricao": "Jogo de MS-DOS · Action, Arcade, Platform (1983), de Nintendo Co., Ltd.. Do acervo do Internet Archive.",
+  "ano": 1983,
+  "generos": [
+    "Action",
+    "Arcade",
+    "Platform"
+  ],
+  "editora": "Nintendo Co., Ltd.",
+  "console": "msdos",
+  "jogadores": 1,
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 187590,
+  "_ssPreviaEm": "2026-11-18"
+}

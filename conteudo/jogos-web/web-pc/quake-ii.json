@@ -1,0 +1,25 @@
+{
+  "nome": "Quake II",
+  "links": [
+    "https://q2.pieter.com/"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-ii--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-ii--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-ii--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-ii--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-pc--quake-ii--previa.png",
+  "descricao": "A sequel in name only, this follow up to id's 1996 Quake, is a first-person shooter revolving around the Earth-Strogg war. The Strogg alien race threatens the Earth, but Earth has launched a counter-offensive, Operation Alien Overlord. Overlord takes the battle to the Strogg homeworld with the ultimate objective of securing their capital city and killing their ruler.\r\n\r\nAs a FPS, Quake II contains a variety of weapons including the fall back Blaster, the Railgun, and the secret BFG10K. Health, armor, and ammunition pick-ups can be found during levels, as can the classic Quake's Quad Damage power-up. Game play involves mowing down alien opponents as the player progresses through levels, completing in-game objectives. Quake II also comes with multiplayer support for Deathmatches.",
+  "ano": 1997,
+  "generos": [
+    "Luta",
+    "Tiro",
+    "Luta / 3D"
+  ],
+  "console": "web-pc",
+  "jogadores": 32,
+  "_rascunho": true,
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 329980,
+  "_ssPreviaEm": "2026-11-16"
+}

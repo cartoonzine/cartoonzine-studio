@@ -3,10 +3,25 @@
   "links": [
     "https://pes12.online/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2012--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2012--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2012--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2012--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--pro-evolution-soccer-2012--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · pes12.online",
+  "descricao": "A série de futebol &quot;Winning&quot; da Konami retorna ao campo em 2012, com melhorias no jogo que dão aos jogadores mais controle direto da bola e melhorias na inteligência artificial que controla colegas de equipe e oponentes. O &quot; Off the Ball Control&quot; permite aos jogadores mover um cursor para destacar e selecionar rapidamente qualquer jogador da equipe a qualquer momento. A &quot;Assistência de Passe&quot; do jogo é ajustável através de cinco configurações, proporcionando passes assistidos por computador ou permitindo controle completo do jogador sobre a direção e a velocidade do chute.",
+  "ano": 2011,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 2,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 21956,
+  "_ssPreviaEm": "2026-11-16"
 }

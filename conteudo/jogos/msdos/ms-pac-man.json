@@ -1,0 +1,25 @@
+{
+  "nome": "Ms. Pac-Man",
+  "links": [
+    "https://archive.org/details/msdos_Ms._Pac-Man_1983"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--ms-pac-man--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Ms._Pac-Man_1983",
+  "descricao": "Jogo de MS-DOS · Action, Arcade (1983), de Midway Mfg. Co., General Computer Corporation. Do acervo do Internet Archive.",
+  "ano": 1983,
+  "generos": [
+    "Action",
+    "Arcade"
+  ],
+  "editora": "Midway Mfg. Co., General Computer Corporation",
+  "console": "msdos",
+  "jogadores": 2,
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 188183,
+  "_ssPreviaEm": "2026-11-18"
+}

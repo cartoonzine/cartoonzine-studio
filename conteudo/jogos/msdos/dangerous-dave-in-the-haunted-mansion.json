@@ -1,0 +1,25 @@
+{
+  "nome": "Dangerous Dave in the Haunted Mansion",
+  "links": [
+    "https://archive.org/details/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--dangerous-dave-in-the-haunted-mansion--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Dangerous_Dave_in_the_Haunted_Mansion_1991",
+  "descricao": "Jogo de MS-DOS · Action, Platform (1991), de Gamer's Edge, id Software. Do acervo do Internet Archive.",
+  "ano": 1991,
+  "generos": [
+    "Action",
+    "Platform"
+  ],
+  "editora": "Gamer's Edge, id Software",
+  "console": "msdos",
+  "jogadores": 1,
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 187524,
+  "_ssPreviaEm": "2026-11-18"
+}

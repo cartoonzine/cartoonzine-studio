@@ -1,0 +1,23 @@
+{
+  "nome": "Prince of Persia 2 - The Shadow & The Flame",
+  "links": [
+    "https://archive.org/details/msdos_Prince_of_Persia_2_-_The_Shadow__The_Flame_1993"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Prince_of_Persia_2_-_The_Shadow__The_Flame_1993",
+  "banner": "https://cdn2.steamgriddb.com/hero/ab6cddd653e5a262cf9792179aafae7f.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/e43e3fdcf035dc0dbff52eb64da61f79.png",
+  "fonte": "https://archive.org/details/msdos_Prince_of_Persia_2_-_The_Shadow__The_Flame_1993",
+  "descricao": "Jogo de MS-DOS · Action, Platform, Puzzle (1993), de Brøderbund Software. Do acervo do Internet Archive.",
+  "ano": 1993,
+  "generos": [
+    "Action",
+    "Platform",
+    "Puzzle"
+  ],
+  "editora": "Brøderbund Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-11",
+  "_ssId": 0
+}

@@ -1,0 +1,24 @@
+{
+  "nome": "Castle Wolfenstein",
+  "links": [
+    "https://archive.org/details/msdos_Castle_Wolfenstein_1984"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-wolfenstein--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-wolfenstein--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--castle-wolfenstein--logo.png",
+  "fonte": "https://archive.org/details/msdos_Castle_Wolfenstein_1984",
+  "descricao": "Jogo de MS-DOS · Action, Shooter, Stealth (1984), de Muse Software. Do acervo do Internet Archive.",
+  "ano": 1984,
+  "generos": [
+    "Action",
+    "Shooter",
+    "Stealth"
+  ],
+  "editora": "Muse Software",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 187396,
+  "_ssPreviaEm": "2026-11-18"
+}

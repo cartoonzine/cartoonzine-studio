@@ -1,0 +1,29 @@
+{
+  "nome": "Abuse",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/abuse/"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-dos--abuse--video.mp4",
+  "site": "https://github.com/Xenoveritas/abuse",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/Xenoveritas/abuse",
+  "descricao": "Clássico de ação da Crack dot Com: um soldado sozinho contra mutantes numa prisão subterrânea. Jogo livre (Domínio público / GPL / WTFPL (código e dados) · sons de Bobby Prince com permissão de redistribuição), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 1995,
+  "generos": [
+    "Ação",
+    "Plataforma"
+  ],
+  "engine": "Emscripten",
+  "console": "web-dos",
+  "licenca": "livre",
+  "controles": "teclado",
+  "jogadores": 1,
+  "_origem": "prateleira:cartoonzine-jogos",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 187109,
+  "_ssPreviaEm": "2026-11-18"
+}

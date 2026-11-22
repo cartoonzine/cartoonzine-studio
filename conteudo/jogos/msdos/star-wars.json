@@ -1,0 +1,26 @@
+{
+  "nome": "Star Wars",
+  "links": [
+    "https://archive.org/details/msdos_Star_Wars_1988"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--star-wars--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Star_Wars_1988",
+  "descricao": "Jogo de MS-DOS · Action, Arcade, Rail Shooter (1988), de Atari. Do acervo do Internet Archive.",
+  "ano": 1988,
+  "generos": [
+    "Action",
+    "Arcade",
+    "Rail Shooter"
+  ],
+  "editora": "Atari",
+  "console": "msdos",
+  "jogadores": 1,
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 188648,
+  "_ssPreviaEm": "2026-11-18"
+}

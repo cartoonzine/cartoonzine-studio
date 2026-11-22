@@ -1,5 +1,22 @@
 {
  "colecao": "desenhos-24h",
  "nome": "Desenhos 24 Horas",
- "channels": []
+ "channels": [
+  {
+   "title": "Gospel Cartoon",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/gospelcartoon.png",
+   "studio": "desenhos-24h/gospel-cartoon",
+   "url": "https://stmv1.srvif.com/gospelcartoon/gospelcartoon/playlist.m3u8",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  },
+  {
+   "title": "Os Jetsons",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/Jetsons.png",
+   "studio": "desenhos-24h/os-jetsons",
+   "url": "https://stmv1.srvif.com/jetsontv/jetsontv/playlist.m3u8",
+   "idioma": "Português",
+   "group": "Desenhos 24H"
+  }
+ ]
 }

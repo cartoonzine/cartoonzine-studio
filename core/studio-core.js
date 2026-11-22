@@ -316,11 +316,256 @@
 
     function hostDe(u) { try { return new URL(u).hostname; } catch (e) { return 'Sem nome'; } }
 
+    // ------------------------------------------------------------------
+    // Adição em MASSA: listas em arquivo
+    //   TXT/M3U (igual ao colar) · JSON (lista de objetos ou de links) · CSV/TSV (com ou sem cabeçalho)
+    //   RetroArch .lpl · EmulationStation gamelist.xml
+    // ------------------------------------------------------------------
+    const CHAVES_LISTA = {
+        nome: ['nome', 'name', 'title', 'titulo', 'label', 'jogo', 'game', 'filme', 'canal'],
+        link: ['link', 'url', 'href', 'rom', 'romurl', 'download', 'arquivo', 'file', 'path', 'caminho', 'pagina', 'page', 'stream', 'links'],
+        capa: ['capa', 'cover', 'image', 'imagem', 'img', 'thumb', 'thumbnail', 'poster', 'boxart', 'box', 'icone', 'icon'],
+        banner: ['banner', 'fanart', 'background', 'fundo'],
+        logo: ['logo', 'wheel', 'marquee'],
+        video: ['video', 'trailer', 'snap'],
+        console: ['console', 'sistema', 'system', 'plataforma', 'platform', 'dbname'],
+        descricao: ['descricao', 'desc', 'description', 'sinopse', 'synopsis', 'resumo'],
+        ano: ['ano', 'year', 'releasedate', 'lancamento', 'release', 'data'],
+        generos: ['generos', 'genero', 'genre', 'genres', 'categoria', 'category'],
+        jogadores: ['jogadores', 'players'],
+        licenca: ['licenca', 'license'],
+        pais: ['pais', 'country'], idioma: ['idioma', 'language', 'lingua']
+    };
+    const chaveSimples = (k) => semAcento(String(k || '')).toLowerCase().replace(/[^a-z0-9]/g, '');
+    function campoDaLista(obj, campo) {
+        const alvo = CHAVES_LISTA[campo];
+        for (const [k, v] of Object.entries(obj || {})) {
+            if (v === undefined || v === null || v === '') continue;
+            if (alvo.includes(chaveSimples(k))) return v;
+        }
+        return undefined;
+    }
+    /** "Nintendo - Super Nintendo Entertainment System", "Mega Drive", "SNES"… → id do console do Studio */
+    const SISTEMAS_POR_NOME = [
+        [/super\s*nintendo|\bsnes\b|super\s*famicom|\bsfc\b/i, 'snes'], [/game\s*boy\s*advance|\bgba\b/i, 'gba'], [/game\s*boy\s*colou?r|\bgbc\b/i, 'gbc'],
+        [/game\s*boy|\bgb\b/i, 'gb'], [/nintendo\s*64|\bn64\b/i, 'n64'], [/nintendo\s*3ds|\b3ds\b/i, '3ds'], [/nintendo\s*ds|\bnds\b/i, 'nds'],
+        [/virtual\s*boy/i, 'vb'], [/famicom\s*disk|nintendo\s*entertainment|\bnes\b|famicom/i, 'nes'],
+        [/mega[\s-]*cd|sega\s*cd/i, 'segacd'], [/\b32x\b/i, 'sega32x'], [/mega\s*drive|genesis/i, 'megadrive'], [/master\s*system|\bsms\b/i, 'mastersystem'],
+        [/game\s*gear/i, 'gamegear'], [/saturn/i, 'saturn'], [/playstation\s*portable|\bpsp\b/i, 'psp'], [/playstation|\bpsx\b|\bps1\b/i, 'ps1'],
+        [/(pc\s*engine|turbografx)[\s-]*(cd|16\s*cd)/i, 'pcenginecd'], [/pc\s*engine|turbografx/i, 'pcengine'], [/pc[\s-]*fx/i, 'pcfx'],
+        [/neo\s*geo\s*pocket/i, 'ngp'], [/neo\s*geo\s*cd/i, 'neogeocd'], [/atari\s*-?\s*2600/i, 'atari2600'], [/atari\s*-?\s*5200/i, 'atari5200'],
+        [/atari\s*-?\s*7800/i, 'atari7800'], [/lynx/i, 'lynx'], [/jaguar/i, 'jaguar'], [/wonder\s*swan/i, 'wonderswan'], [/coleco/i, 'colecovision'],
+        [/\bmsx/i, 'msx'], [/commodore\s*64|\bc64\b/i, 'c64'], [/amiga/i, 'amiga'], [/odyssey/i, 'odyssey2'], [/\b3do\b/i, '3do'],
+        [/ms[\s-]*dos|\bdos\b/i, 'msdos'], [/\bmame\b|fbneo|final\s*burn|arcade|cps[123]?\b/i, 'arcade'], [/neo\s*geo/i, 'neogeo']
+    ];
+    function consoleDoNomeSistema(texto, config) {
+        const t = String(texto || '').replace(/\.lpl$/i, '').trim();
+        if (!t) return '';
+        const ids = config ? todosConsoles(config).map(c => c.id) : null;
+        const direto = t.toLowerCase();
+        if (ids && ids.includes(direto)) return direto;
+        if (config) { const porNome = todosConsoles(config).find(c => normText(c.nome) === normText(t)); if (porNome) return porNome.id; }
+        for (const [re, id] of SISTEMAS_POR_NOME) if (re.test(t) && (!ids || ids.includes(id))) return id;
+        return '';
+    }
+    function xmlTexto(s) {
+        return String(s || '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'")
+            .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&amp;/g, '&').trim();
+    }
+    function lerCsv(texto) {
+        const linhas = String(texto || '').replace(/^﻿/, '').split(/\r?\n/).filter(l => l.trim());
+        if (!linhas.length) return [];
+        const conta = (c) => (linhas[0].match(new RegExp(c === '|' ? '\\|' : c, 'g')) || []).length;
+        const sep = [',', ';', '\t', '|'].sort((a, b) => conta(b) - conta(a))[0];
+        const celulas = (l) => {
+            const out = []; let cur = '', aspas = false;
+            for (let i = 0; i < l.length; i++) {
+                const ch = l[i];
+                if (aspas) { if (ch === '"' && l[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') aspas = false; else cur += ch; }
+                else if (ch === '"') aspas = true; else if (ch === sep) { out.push(cur.trim()); cur = ''; } else cur += ch;
+            }
+            out.push(cur.trim()); return out;
+        };
+        return linhas.map(celulas);
+    }
+    function entradaDeObjeto(o, base) {
+        if (typeof o === 'string') o = { link: o };
+        if (!o || typeof o !== 'object') return null;
+        // caminho local da lista (./roms/x.sfc, /home/eu/roms/x.sfc, C:\roms\x.sfc) + endereço base = link
+        const completar = (v) => {
+            v = String(v || '').trim();
+            if (!v || /^(https?:|magnet:|data:)/i.test(v) || !base) return v;
+            const b = base.endsWith('/') ? base : base + '/';
+            const absoluto = /^([a-z]:)?[\\/]/i.test(v);           // caminho do PC de quem fez a lista: vale só o nome do arquivo
+            try { return new URL(absoluto ? encodeURIComponent(v.replace(/^.*[\\/]/, '')) : v.replace(/\\/g, '/').replace(/^\.\//, ''), b).toString(); } catch (e) { return v; }
+        };
+        let link = campoDaLista(o, 'link');
+        if (Array.isArray(link)) link = link[0];
+        link = completar(link);
+        if (!link) return null;
+        const nomeBruto = String(campoDaLista(o, 'nome') || '').trim();
+        const e = Object.assign({}, analisarNome(nomeBruto || nomeDoLink(link) || link));
+        if (nomeBruto) e.nome = analisarNome(nomeBruto).nome || nomeBruto;
+        e.links = [limparLink(link)];
+        for (const k of ['capa', 'banner', 'logo', 'video']) { const v = campoDaLista(o, k); if (v) e[k] = completar(v); }
+        for (const k of ['descricao', 'licenca', 'pais', 'idioma']) { const v = campoDaLista(o, k); if (v) e[k] = String(v).trim(); }
+        const c = campoDaLista(o, 'console'); if (c) e.console = String(c).trim();
+        // "chd" da lista (lista-por-core.csv do separar-roms.py: mame_capcom/sfiii/cap-sf3-3.chd) vira o disco do jogo
+        const chd = Object.entries(o).find(([k, v]) => chaveSimples(k) === 'chd' && v);
+        if (chd) { const d = discosChd(chd[1]).map(completar).filter(Boolean); if (d.length) e.chd = d.join(' '); }
+        // "core" da lista (ex.: lista-por-core.csv do cartoonzine-jogos: mame_capcom) vira o "Core do emulador" do jogo
+        const core = Object.entries(o).find(([k, v]) => chaveSimples(k) === 'core' && v);
+        if (core && /^[a-z0-9_]+$/i.test(String(core[1]).trim()) && !/^_/.test(String(core[1]).trim())) e.core = String(core[1]).trim();
+        const a = campoDaLista(o, 'ano'); if (a && /(\d{4})/.test(String(a))) e.ano = +RegExp.$1;
+        const g = campoDaLista(o, 'generos'); if (g) e.generos = Array.isArray(g) ? g.map(String) : String(g).split(/[,;/]+/).map(x => x.trim()).filter(Boolean);
+        const j = campoDaLista(o, 'jogadores'); if (j && /(\d+)\s*$/.test(String(j))) e.jogadores = +RegExp.$1;
+        if (nomeBruto) e._nomeInformado = true;
+        return limparVazios(e);
+    }
+    /**
+     * Lê uma lista inteira de um arquivo (ou texto) e devolve "entradas" iguais às do colar:
+     *   lerListaArquivo('jogos.json', texto, { base: 'https://meusite/roms/' })
+     * `base` completa caminhos relativos (./roms/x.sfc) das listas do RetroArch/EmulationStation.
+     */
+    function lerListaArquivo(nomeArquivo, texto, opts = {}) {
+        const ext = (/\.([a-z0-9]+)$/i.exec(String(nomeArquivo || '')) || [])[1] || '';
+        const t = String(texto || '').replace(/^﻿/, '');
+        const base = opts.base || '';
+        const vindo = (lista) => lista.map(o => entradaDeObjeto(o, base)).filter(Boolean);
+        const tt = t.trim();
+        if (/^(json|lpl)$/i.test(ext) || /^[[{]/.test(tt)) {
+            try {
+                const j = JSON.parse(tt);
+                let lista = Array.isArray(j) ? j : (j.items || j.jogos || j.games || j.itens || j.lista || j.list || j.data || null);
+                if (!lista && j && typeof j === 'object') lista = Object.values(j).find(Array.isArray) || null;
+                if (Array.isArray(lista)) {
+                    const sistemaLista = (ext === 'lpl' && nomeArquivo) ? String(nomeArquivo).replace(/^.*[\\/]/, '').replace(/\.lpl$/i, '') : '';
+                    return vindo(lista).map(e => (!e.console && sistemaLista ? Object.assign(e, { console: sistemaLista }) : e));
+                }
+            } catch (e) { if (/^(json|lpl)$/i.test(ext)) throw new Error('JSON inválido em ' + nomeArquivo + ': ' + e.message); }
+        }
+        if (/^xml$/i.test(ext) || /<gameList[\s>]/i.test(tt)) {
+            const jogos = [];
+            const re = /<game\b[^>]*>([\s\S]*?)<\/game>/gi; let m;
+            while ((m = re.exec(tt))) {
+                const corpo = m[1], tag = (n) => { const x = new RegExp('<' + n + '\\b[^>]*>([\\s\\S]*?)</' + n + '>', 'i').exec(corpo); return x ? xmlTexto(x[1]) : ''; };
+                jogos.push({ name: tag('name'), path: tag('path'), image: tag('image') || tag('thumbnail'), marquee: tag('marquee'), video: tag('video'), desc: tag('desc'), releasedate: tag('releasedate'), genre: tag('genre'), players: tag('players') });
+            }
+            if (jogos.length) return vindo(jogos);
+        }
+        if (/^(csv|tsv)$/i.test(ext)) {
+            const linhas = lerCsv(tt);
+            if (!linhas.length) return [];
+            const cab = linhas[0].map(chaveSimples);
+            const conhecidas = new Set([].concat(...Object.values(CHAVES_LISTA)));
+            const temCab = cab.some(c => conhecidas.has(c)) && !linhas[0].some(c => /^(https?:|magnet:)/i.test(c));
+            if (temCab) return vindo(linhas.slice(1).map(l => Object.fromEntries(linhas[0].map((k, i) => [k, l[i]]))));
+            // sem cabeçalho: o 1º link é o arquivo, uma imagem é a capa, o 1º texto é o nome
+            return vindo(linhas.map(l => {
+                const urls = l.filter(c => /^(https?:|magnet:)/i.test(c));
+                const img = urls.find(u => /\.(jpe?g|png|webp|gif)(\?|$)/i.test(u));
+                return { link: urls.find(u => u !== img) || l.find(c => /\.[a-z0-9]{2,4}$/i.test(c)), capa: img, nome: l.find(c => c && !/^(https?:|magnet:)/i.test(c) && !/\.[a-z0-9]{2,4}$/i.test(c)) };
+            }));
+        }
+        // TXT, M3U e o resto: o mesmo leitor do "colar"
+        return lerTextoColado(t);
+    }
+
+    // ------------------------------------------------------------------
+    // ROMs em massa: console pela extensão + nome limpo do arquivo (o robô acerta o nome oficial depois)
+    // ------------------------------------------------------------------
+    const EXT_CONSOLE = {
+        nes: 'nes', fds: 'nes', unf: 'nes', unif: 'nes', sfc: 'snes', smc: 'snes', fig: 'snes', swc: 'snes', n64: 'n64', z64: 'n64', v64: 'n64',
+        nds: 'nds', '3ds': '3ds', cia: '3ds', gb: 'gb', gbc: 'gbc', gba: 'gba', md: 'megadrive', gen: 'megadrive', smd: 'megadrive', sms: 'mastersystem',
+        gg: 'gamegear', '32x': 'sega32x', a26: 'atari2600', a52: 'atari5200', a78: 'atari7800', lnx: 'lynx', j64: 'jaguar', jag: 'jaguar',
+        pce: 'pcengine', ngp: 'ngp', ngc: 'ngp', ws: 'wonderswan', wsc: 'wonderswan', vb: 'vb', vboy: 'vb', col: 'colecovision',
+        d64: 'c64', t64: 'c64', prg: 'c64', adf: 'amiga', mx1: 'msx', mx2: 'msx', cso: 'psp', pbp: 'ps1', jsdos: 'pcclassics'
+    };
+    /** console pela extensão do arquivo da ROM ('' quando a extensão serve para vários: zip, 7z, bin, iso, chd, cue…) */
+    function consoleDaExtensao(arquivo) {
+        const ext = ((/\.([a-z0-9]+)$/i.exec(String(arquivo || '').split(/[?#]/)[0]) || [])[1] || '').toLowerCase();
+        return EXT_CONSOLE[ext] || '';
+    }
+    const EXT_ROM = /\.(zip|7z|nes|fds|unf|unif|sfc|smc|fig|swc|n64|z64|v64|nds|3ds|cia|gb|gbc|gba|md|gen|smd|bin|sms|gg|32x|a26|a52|a78|lnx|j64|jag|pce|ngp|ngc|ws|wsc|vb|vboy|col|d64|t64|prg|crt|adf|dsk|rom|mx1|mx2|iso|cso|pbp|chd|cue|img|ccd|mds|jsdos)$/i;
+    /** "Legend of Zelda, The - A Link to the Past (USA) (Rev 1) [!].sfc" → "The Legend of Zelda - A Link to the Past" */
+    function limparNomeRom(arquivo) {
+        let s = String(arquivo || '').replace(/^.*[\\/]/, '');
+        try { s = decodeURIComponent(s); } catch (e) { /* */ }
+        s = s.replace(/\.(zip|7z|rar|gz)$/i, '');
+        if (EXT_ROM.test(s)) s = s.replace(/\.[a-z0-9]{1,5}$/i, '');
+        s = s.replace(/[_]+/g, ' ');
+        if (!/\s/.test(s) && /\./.test(s)) s = s.replace(/\.+/g, ' ');
+        s = s.replace(/\([^)]*\)|\[[^\]]*\]|\{[^}]*\}/g, ' ').replace(/\s+/g, ' ').trim();
+        // No-Intro: "Nome, The - Subtítulo" / "Nome, The"
+        s = s.replace(/^(.+?),\s*(The|A|An|O|A|Os|As|Le|La|Les|Der|Die|Das|El|Los)(\s+-\s+.*|$)/i, (_, a, art, resto) => art + ' ' + a + (resto || ''));
+        s = s.replace(/\s+-\s*$/, '').replace(/^\s*-\s+/, '').trim();
+        return s || String(arquivo || '').trim();
+    }
+    /**
+     * Prepara um jogo vindo de lista em massa:
+     *  • ROM (Jogos Retrô): console pela extensão (quando ela é de um console só) ou pelo nome do sistema da lista;
+     *    nome limpo do arquivo quando a lista não trouxe nome — marcado com `_nomeDoArquivo` para o robô trocar
+     *    pelo nome oficial (ScreenScraper, pela ROM); o arquivo original fica em `_romArquivo`.
+     *  • Jogo web: console/sistema da lista vira o id do sistema web, se der.
+     */
+    function prepararJogoEmMassa(item, colecao, config, consolePadrao) {
+        const it = Object.assign({}, item);
+        const avisos = [];
+        const web = colecao && colecao.consoles === 'consolesWeb';
+        const ids = consolesDaColecao(colecao, config).map(c => c.id);
+        if (it.console && !ids.includes(String(it.console).toLowerCase())) {
+            let c = consoleDoNomeSistema(it.console, config);
+            const WEB_DE = { msdos: 'web-dos', pcclassics: 'web-windows' };
+            if (web && c && !ids.includes(c)) c = ids.includes(WEB_DE[c]) ? WEB_DE[c] : ids.includes('web-' + c) ? 'web-' + c : c;   // "DOS" na lista de jogos web → web-dos
+            if (c && ids.includes(c)) it.console = c; else { avisos.push('Sistema da lista não reconhecido: ' + it.console); delete it.console; }
+        }
+        if (!web) {
+            const link = (it.links || [])[0] || '';
+            const arquivo = nomeDoLink(link);
+            if (arquivo && EXT_ROM.test(arquivo)) {
+                it._romArquivo = arquivo;
+                const doArq = consoleDaExtensao(arquivo);
+                if (!it.console && doArq && ids.includes(doArq)) it.console = doArq;
+                if (!item._nomeInformado) { it.nome = limparNomeRom(arquivo); it._nomeDoArquivo = true; }
+                // nome da lista no padrão No-Intro ("Super Metroid (USA)", "Contra [!]"): tira região, versão e marcas
+                else it.nome = String(it.nome || '').replace(/\s*\((USA|Europe|Japan|World|Brazil|Brasil|Korea|Asia|Spain|France|Germany|Italy|En|Ja|Fr|De|Es|It|Pt|Rev|Beta|Proto|Demo|Sample|Unl|v\d)[^)]*\)|\s*\[[^\]]*\]/gi, '').trim() || it.nome;
+            }
+        }
+        if (!it.console && /^mame_/.test(it.core || '') && ids.includes('arcade')) it.console = 'arcade';   // core do MAME = card Arcade
+        if (!it.console && consolePadrao) it.console = consolePadrao;
+        delete it._nomeInformado;
+        return { item: it, avisos };
+    }
+
     /**
      * Junta entradas soltas em itens: episódios da mesma série viram UM item com
      * temporadas; o resto vira item avulso (filme, canal, rádio, jogo).
      */
+    /** Links de disco (CHD) do MAME: aceita texto (espaço, vírgula, linha, |) ou lista; só os .chd */
+    function discosChd(v) {
+        const l = Array.isArray(v) ? v : String(v || '').split(/[\s,;|]+/);
+        return unicos(l.map(x => String(x || '').trim()).filter(x => /\.chd([?#]|$)/i.test(x)));
+    }
+    /** Romset de um link (…/sfiii.zip → sfiii) e a pasta de um .chd (…/sfiii/cap-sf3-3.chd → sfiii) */
+    const romsetDoLink = (u) => { try { return decodeURIComponent(String(u).split(/[?#]/)[0].split('/').pop()).replace(/\.(zip|7z)$/i, '').toLowerCase(); } catch (e) { return ''; } };
+    const pastaDoChd = (u) => { try { const p = String(u).split(/[?#]/)[0].split('/'); return decodeURIComponent(p[p.length - 2] || '').toLowerCase(); } catch (e) { return ''; } };
+
     function agruparEntradas(entradas, opts = {}) {
+        // .chd soltos na lista (colados junto com os .zip): vão para o jogo do mesmo romset (pasta do disco = romset)
+        entradas = entradas || [];
+        const soltos = entradas.filter(e => e && e.links && e.links.length && e.links.every(u => /\.chd([?#]|$)/i.test(u)));
+        if (soltos.length) {
+            const porRomset = new Map();
+            entradas.forEach(e => { if (e && e.links && !soltos.includes(e)) e.links.forEach(u => { const r = romsetDoLink(u); if (r && /\.(zip|7z)([?#]|$)/i.test(u) && !porRomset.has(r)) porRomset.set(r, e); }); });
+            const usados = new Set();
+            soltos.forEach(s => s.links.forEach(u => {
+                const dono = porRomset.get(pastaDoChd(u));
+                if (!dono) return;
+                dono.chd = discosChd([...discosChd(dono.chd), u]).join(' ');
+                usados.add(s);
+            }));
+            entradas = entradas.filter(e => !usados.has(e));
+        }
         const itens = [];
         const series = new Map();
         for (const e of entradas || []) {
@@ -348,7 +593,10 @@
                 const item = limparVazios({
                     nome: e.nome, links, capa: e.capa, ano: e.ano, audio: e.audio,
                     logo: e.logo, categoria: e.grupo, tvgId: e.tvgId, pais: e.pais, idioma: e.idioma,
-                    headers: e.headers, archive: e.archive, tmdb: e.tmdb, imdb: e.imdb
+                    headers: e.headers, archive: e.archive, tmdb: e.tmdb, imdb: e.imdb,
+                    // vindos das listas em arquivo (JSON/CSV/gamelist): o resto da ficha
+                    banner: e.banner, video: e.video, descricao: e.descricao, generos: e.generos, jogadores: e.jogadores,
+                    licenca: e.licenca, console: e.console, core: e.core, chd: e.chd, _nomeInformado: e._nomeInformado
                 });
                 itens.push(item);
             }
@@ -552,6 +800,23 @@
 
     const TMDB_IMG = 'https://image.tmdb.org/t/p/';
 
+    /** Melhor logo do título no TMDB: no idioma pedido, depois inglês, depois sem idioma; PNG antes de SVG; mais votado. */
+    /** Tela de prévia: o melhor backdrop que NÃO é o do banner (sem texto primeiro, depois o mais votado). */
+    function previaDoTMDB(backdrops, doBanner) {
+        const b = (backdrops || []).filter(x => x && x.file_path && x.file_path !== doBanner);
+        if (!b.length) return undefined;
+        b.sort((x, y) => (x.iso_639_1 ? 1 : 0) - (y.iso_639_1 ? 1 : 0) || (y.vote_average || 0) - (x.vote_average || 0) || (y.width || 0) - (x.width || 0));
+        return TMDB_IMG + 'w1280' + b[0].file_path;
+    }
+    function logoDoTMDB(logos, idi) {
+        const l = (logos || []).filter(x => x && x.file_path);
+        if (!l.length) return undefined;
+        const peso = (x) => (x.iso_639_1 === idi ? 0 : x.iso_639_1 === 'en' ? 1 : x.iso_639_1 == null ? 2 : 3);
+        l.sort((a, b) => peso(a) - peso(b) || (/\.png$/i.test(b.file_path) - /\.png$/i.test(a.file_path)) || (b.vote_average || 0) - (a.vote_average || 0) || (b.width || 0) - (a.width || 0));
+        const m = l[0];
+        return TMDB_IMG + (/\.svg$/i.test(m.file_path) ? 'original' : 'w500') + m.file_path;
+    }
+
     /** Aceita o "Token de leitura da API" (longo, v4) ou a "Chave da API" (32 letras, v3). */
     function clienteTMDB(chave, fetchFn) {
         const f = fetchFn || fetch;
@@ -607,7 +872,8 @@
         }
         if (!ref) return null;
         const [tipo, id] = ref.split('/');
-        const d = await api('/' + ref, { language: lang, append_to_response: 'external_ids' });
+        const idi = lang.split('-')[0];
+        const d = await api('/' + ref, { language: lang, append_to_response: 'external_ids,images,' + (tipo === 'tv' ? 'content_ratings' : 'release_dates'), include_image_language: `${idi},en,null` });
         if (!d) return null;
         let sinopse = d.overview;
         if (!sinopse) { const en = await api('/' + ref, { language: 'en-US' }); sinopse = en && en.overview; }
@@ -618,10 +884,17 @@
             descricao: sinopse || undefined,
             capa: d.poster_path ? TMDB_IMG + 'w500' + d.poster_path : undefined,
             banner: d.backdrop_path ? TMDB_IMG + 'w1280' + d.backdrop_path : undefined,
+            previa: previaDoTMDB(d.images && d.images.backdrops, d.backdrop_path),   // outra imagem grande para a tela de prévia (não repete o banner)
             ano: /^\d{4}/.test(data) ? parseInt(data, 10) : undefined,
             generos: (d.genres || []).map(g => g.name).filter(Boolean),
+            bannerLogo: logoDoTMDB(d.images && d.images.logos, idi),   // logo PNG do título (o banner e o CZ-HUD usam no lugar do nome)
             tmdb: ref,
             imdb: normImdb(d.imdb_id || (d.external_ids && d.external_ids.imdb_id)) || imdb,
+            // para a busca fina do app (Filtros+): nota, popularidade, duração e classificação indicativa do Brasil
+            notaTmdb: d.vote_count > 0 && d.vote_average ? Math.round(d.vote_average * 10) / 10 : undefined,
+            popularidade: d.popularity ? Math.round(d.popularity * 10) / 10 : undefined,
+            duracao: d.runtime || (Array.isArray(d.episode_run_time) && d.episode_run_time[0]) || undefined,
+            classificacao: classificacaoBR(d, tipo),
             porBusca: porBusca || undefined
         });
         if (tipo === 'tv' && temEps && opts.episodios !== false) {
@@ -648,6 +921,34 @@
         return out;
     }
 
+    /** Classificação indicativa do Brasil (L, 10, 12, 14, 16, 18) no detalhe do TMDB. */
+    function classificacaoBR(d, tipo) {
+        const lista = tipo === 'tv' ? ((d.content_ratings && d.content_ratings.results) || []) : ((d.release_dates && d.release_dates.results) || []);
+        const br = lista.find(r => r.iso_3166_1 === 'BR');
+        if (!br) return undefined;
+        const c = tipo === 'tv' ? br.rating : ((br.release_dates || []).map(x => x.certification).find(Boolean));
+        const v = String(c || '').trim().toUpperCase().replace(/^AL$/, 'L').replace(/\s*ANOS?$/, '');
+        return CLASSIFICACOES.includes(v) ? v : undefined;
+    }
+    const CLASSIFICACOES = ['L', '10', '12', '14', '16', '18'];
+    const QUALIDADES = ['4K', 'FHD', 'HD', 'SD'];
+    /** Qualidade pelo texto (nome do arquivo, link): 4K, FHD, HD ou SD — '' se não der para saber. */
+    function qualidadeDoTexto(t) {
+        let s = String(t || ''); try { s = decodeURIComponent(s); } catch (e) { /* */ }
+        return /\b(2160p|4k|uhd)\b/i.test(s) ? '4K' : /\b(1080p|full ?hd|fhd)\b/i.test(s) ? 'FHD' : /\b(720p|hd)\b/i.test(s) ? 'HD' : /\b(480p|360p|sd|dvdrip)\b/i.test(s) ? 'SD' : '';
+    }
+    const melhorQualidade = (lista) => QUALIDADES.find(q => lista.includes(q)) || '';
+    /** Áudios do título para os filtros: o campo Áudio + a lista "audios" (dublado, legendado, original). */
+    function audiosDo(item) {
+        const out = new Set((item.audios || []).map(a => String(a).toLowerCase()));
+        const a = String(item.audio || '').toLowerCase();
+        if (/dual/.test(a)) { out.add('dublado'); out.add('legendado'); }
+        else if (/dub/.test(a)) out.add('dublado');
+        else if (/leg/.test(a)) out.add('legendado');
+        else if (/orig/.test(a)) out.add('original');
+        return [...out].filter(x => ['dublado', 'legendado', 'original'].includes(x));
+    }
+
     /** Nota do IMDb pelo OMDb (chave grátis em omdbapi.com). */
     async function buscarNotaIMDb(imdb, chave, fetchFn) {
         const f = fetchFn || fetch;
@@ -669,8 +970,11 @@
     /** Coloca no item o que veio de fora, sem apagar o que você escreveu (a nota sempre atualiza). */
     function aplicarDadosExternos(item, achado) {
         if (!achado) return item;
-        const { temporadasMeta, tituloTMDB, porBusca, nome, notaImdb, votosImdb, ...resto } = achado;
+        const { temporadasMeta, tituloTMDB, porBusca, nome, notaImdb, votosImdb, notaTmdb, popularidade, ...resto } = achado;
         const out = mesclarSemSobrescrever(item, resto);
+        // nota e popularidade mudam com o tempo: sempre atualizam (como a nota do IMDb)
+        if (notaTmdb !== undefined) out.notaTmdb = notaTmdb;
+        if (popularidade !== undefined) out.popularidade = popularidade;
         // mesmo nome escrito diferente ("Serie X" x "Série X"): fica a grafia oficial, com acentos
         if (!out.nome || (nome && normText(out.nome) === normText(nome))) out.nome = nome || out.nome;
         if (notaImdb !== undefined) { out.notaImdb = notaImdb; if (votosImdb) out.votosImdb = votosImdb; }
@@ -694,9 +998,13 @@
      * quando pedido) e nota do IMDb (se tiver chave do OMDb).
      * Devolve { item, achados: ["TMDB: ...", ...], avisos: [...] }.
      */
-    /** Logo (PNG transparente) de um JOGO pelo SteamGridDB. Devolve '' quando não acha. */
-    async function buscarLogoSteamGrid(nome, chave, fetchFn) {
-        if (!nome || !chave) return '';
+    /**
+     * Artes de um JOGO pelo SteamGridDB (links públicos do CDN deles, sem senha):
+     *   logo (PNG transparente) · capa (grid vertical 600x900, estilo caixa/DVD) · banner (hero 1920x620).
+     * pedir: { logo, capa, banner } — só busca o que for pedido. Devolve { id, logo, capa, banner }.
+     */
+    async function buscarArtesSteamGrid(nome, chave, fetchFn, pedir = { logo: true }) {
+        if (!nome || !chave) return {};
         const f = fetchFn || ((...a) => fetch(...a));
         const h = { headers: { Authorization: 'Bearer ' + String(chave).trim() } };
         const base = 'https://www.steamgriddb.com/api/v2';
@@ -705,51 +1013,199 @@
         if (!rb.ok) throw new Error('busca HTTP ' + rb.status);
         const jb = await rb.json();
         const id = jb && jb.data && jb.data[0] && jb.data[0].id;
-        if (!id) return '';
-        const rl = await f(base + '/logos/game/' + id, h);
-        if (!rl.ok) throw new Error('logos HTTP ' + rl.status);
-        const jl = await rl.json();
-        return (jl && jl.data && jl.data[0] && jl.data[0].url) || '';
+        if (!id) return {};
+        const primeiro = async (caminho) => {
+            const r = await f(base + caminho, h);
+            if (!r.ok) return '';
+            const j = await r.json();
+            return (j && j.data && j.data[0] && j.data[0].url) || '';
+        };
+        const out = { id };
+        if (pedir.logo) out.logo = await primeiro('/logos/game/' + id);
+        if (pedir.capa) out.capa = await primeiro('/grids/game/' + id + '?dimensions=600x900') || await primeiro('/grids/game/' + id + '?dimensions=342x482,660x930');
+        if (pedir.banner) out.banner = await primeiro('/heroes/game/' + id);
+        return out;
+    }
+    /** (compatível) só o logo */
+    async function buscarLogoSteamGrid(nome, chave, fetchFn) {
+        return (await buscarArtesSteamGrid(nome, chave, fetchFn, { logo: true })).logo || '';
     }
 
-    /** ScreenScraper (jeuInfos): logo "wheel" + vídeo snap do jogo. Precisa das credenciais de dev + login. */
-    async function buscarScreenScraper(nome, ss, fetchFn) {
-        if (!nome || !ss || !ss.dev) return {};
+    /**
+     * ScreenScraper: logo "wheel" + vídeo snap do jogo. Precisa das credenciais de dev + login.
+     * Busca pelo NOME (jeuRecherche — o jeuInfos exige o CRC da ROM ou o sistema); quando o
+     * console do jogo é conhecido, procura primeiro só nele e, sem resultado, em todos.
+     */
+    const SS_SISTEMAS = {
+        msdos: 135, dos: 135, 'web-dos': 135, 'web-windows': 138, 'web-pc': 138, 'web-indie': 138,
+        ps1: 57, psx: 57, 'web-ps1': 57, ps2: 58, 'web-ps2': 58, psp: 61, 'web-psp': 61,
+        n64: 14, 'web-n64': 14, gamecube: 13, 'web-gamecube': 13, dreamcast: 23, 'web-dreamcast': 23,
+        megadrive: 1, genesis: 1, mastersystem: 2, nes: 3, snes: 4, gb: 9, gbc: 10, gba: 12, nds: 15,
+        sega32x: 19, segacd: 20, gamegear: 21, saturn: 22, arcade: 75, 'web-arcade': 75, neogeo: 142,
+        atari2600: 26, atari5200: 40, atari7800: 41, lynx: 28, jaguar: 27, pcengine: 31, pcenginecd: 114, pcfx: 72,
+        ngp: 25, neogeocd: 70, wonderswan: 45, vb: 11, colecovision: 48, msx: 113, c64: 66, amiga: 64, odyssey2: 104, '3do': 29, '3ds': 17,
+        pcclassics: 138
+    };
+    /** Erro do ScreenScraper traduzido (ele explica em francês, em texto) */
+    async function erroScreenScraper(r) {
+        let txt = ''; try { txt = String(await r.text()).trim().slice(0, 160); } catch (e) { /* */ }
+        if (/d[ée]veloppeur|devid|developer/i.test(txt)) return new Error('Dev ID / Dev password recusados — peça os seus no fórum do ScreenScraper (HTTP ' + r.status + ')');
+        if (/identifiant|login|utilisateur|ssid|password/i.test(txt)) return new Error('usuário/senha do site recusados (HTTP ' + r.status + ')');
+        if (r.status === 429 || r.status === 430 || r.status === 431 || /quota|threads|maximum/i.test(txt)) return new Error('limite de consultas do ScreenScraper atingido; tente mais tarde (HTTP ' + r.status + ')');
+        return new Error('HTTP ' + r.status + (txt ? ' — ' + txt : ''));
+    }
+
+    /**
+     * Procura um JOGO no ScreenScraper pelo nome (jeuRecherche) e devolve a ficha inteira dele
+     * (nomes, sinopses, datas, gêneros, jogadores, mídias…) — ou null.
+     * Escolhe o resultado cujo nome mais bate com o pedido (nunca "qualquer um"); com o console
+     * conhecido, procura primeiro só nele.
+     * ⚠ As URLs de mídia da ficha levam as credenciais: NUNCA grave essas URLs — baixe o arquivo.
+     */
+    async function buscarJogoScreenScraper(nome, ss, fetchFn, consoleId) {
+        if (!nome || !ss || !ss.dev) return null;
+        const f = fetchFn || ((...a) => fetch(...a));
+        const alvo = normText(nome).replace(/\s*\(.*?\)\s*/g, ' ').trim();
+        const nomesDe = (j) => (j.noms || []).map(n => normText(n.text || '').replace(/\s*\(.*?\)\s*/g, ' ').trim()).filter(Boolean);
+        const nota = (j) => {
+            const ns = nomesDe(j);
+            if (ns.includes(alvo)) return 3;
+            if (ns.some(n => n.startsWith(alvo) || alvo.startsWith(n))) return 2;
+            if (ns.some(n => n.includes(alvo) || alvo.includes(n))) return 1;
+            return 0;
+        };
+        const pedir = async (sistema) => {
+            const p = new URLSearchParams({
+                devid: ss.dev, devpassword: ss.devSenha || '', softname: ss.softname || 'cartoonzine',
+                output: 'json', ssid: ss.user || '', sspassword: ss.senha || '', recherche: nome
+            });
+            if (sistema) p.set('systemeid', String(sistema));
+            const r = await f('https://www.screenscraper.fr/api2/jeuRecherche.php?' + p.toString());
+            if (!r.ok) {
+                if (r.status === 404) return null;
+                throw await erroScreenScraper(r);
+            }
+            let j; try { j = await r.json(); } catch (e) { throw new Error('resposta inválida (confira as credenciais)'); }
+            const jogos = ((j && j.response && j.response.jeux) || []).filter(x => x && x.id);
+            let melhor = null, nm = 0;
+            for (const x of jogos) { const n = nota(x); if (n > nm) { nm = n; melhor = x; } }
+            return melhor;
+        };
+        const sis = SS_SISTEMAS[String(consoleId || '').toLowerCase()];
+        let jeu = sis ? await pedir(sis) : null;
+        if (!jeu) jeu = await pedir(null);
+        return jeu;
+    }
+
+    /**
+     * Identifica o jogo PELA ROM (jeuInfos: nome do arquivo + sistema, e o md5/tamanho quando o robô baixou o arquivo).
+     * É o jeito certo de achar o nome oficial de uma ROM com nome bagunçado. Devolve a ficha (como a da busca) ou null.
+     * ⚠ As URLs de mídia da ficha levam as credenciais: NUNCA grave essas URLs — baixe o arquivo.
+     */
+    async function buscarJogoPorRomScreenScraper(arquivo, ss, fetchFn, consoleId, extra = {}) {
+        if (!arquivo || !ss || !ss.dev) return null;
+        const sis = SS_SISTEMAS[String(consoleId || '').toLowerCase()];
+        if (!sis) return null;                       // sem o sistema o jeuInfos não funciona
         const f = fetchFn || ((...a) => fetch(...a));
         const p = new URLSearchParams({
             devid: ss.dev, devpassword: ss.devSenha || '', softname: ss.softname || 'cartoonzine',
-            output: 'json', ssid: ss.user || '', sspassword: ss.senha || '', romnom: nome
+            output: 'json', ssid: ss.user || '', sspassword: ss.senha || '', systemeid: String(sis), romtype: 'rom', romnom: String(arquivo).replace(/^.*[\\/]/, '')
         });
+        if (extra.md5) p.set('md5', extra.md5);
+        if (extra.tamanho) p.set('romtaille', String(extra.tamanho));
         const r = await f('https://www.screenscraper.fr/api2/jeuInfos.php?' + p.toString());
-        if (r.status === 401 || r.status === 403 || r.status === 430) throw new Error('credenciais recusadas (' + r.status + ')');
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        let j; try { j = await r.json(); } catch (e) { throw new Error('resposta inválida (confira as credenciais)'); }
-        const medias = (j && j.response && j.response.jeu && j.response.jeu.medias) || [];
-        const achar = (re) => { const m = medias.find(x => re.test(x.type || '') && /(wor|eu|us|ss)/i.test(x.region || 'wor')) || medias.find(x => re.test(x.type || '')); return (m && (m.url || '')) || ''; };
-        return { logo: achar(/wheel|logo/i), video: achar(/video/i), capa: achar(/box-2D|box2d|mixrbv|ss$/i) };
+        if (!r.ok) {
+            if (r.status === 404) return null;
+            throw await erroScreenScraper(r);
+        }
+        let j; try { j = await r.json(); } catch (e) { return null; }
+        const jeu = j && j.response && j.response.jeu;
+        return jeu && jeu.id ? jeu : null;
+    }
+    /** O nome oficial na ficha do ScreenScraper (Brasil → mundo → EUA → resto) */
+    function nomeScreenScraper(jeu) {
+        const ns = (jeu && jeu.noms) || [];
+        for (const r of ['br', 'wor', 'us', 'ss', 'eu', 'jp']) { const n = ns.find(x => x.region === r && x.text); if (n) return String(n.text).trim(); }
+        return ns[0] && ns[0].text ? String(ns[0].text).trim() : '';
+    }
+
+    /** Escolhe as mídias de uma ficha do ScreenScraper (URLs COM credenciais — só para baixar). */
+    function midiasScreenScraper(jeu) {
+        const medias = (jeu && jeu.medias) || [];
+        const ordemRegiao = ['br', 'wor', 'us', 'eu', 'ss', 'jp'];
+        const achar = (tipos) => {
+            for (const t of tipos) {
+                const ms = medias.filter(m => (m.type || '') === t && m.url);
+                if (!ms.length) continue;
+                ms.sort((a, b) => {
+                    const ra = ordemRegiao.indexOf(a.region || 'wor'), rb = ordemRegiao.indexOf(b.region || 'wor');
+                    return (ra < 0 ? 99 : ra) - (rb < 0 ? 99 : rb);
+                });
+                return ms[0];
+            }
+            return null;
+        };
+        return {
+            capa: achar(['box-2D', 'box-3D']),
+            logo: achar(['wheel-hd', 'wheel', 'wheel-carbon', 'wheel-steel']),
+            banner: achar(['fanart', 'screenmarquee']),
+            video: achar(['video-normalized', 'video']),
+            previa: achar(['sstitle', 'ss'])          // tela de título (ou uma tela do jogo) para antes do vídeo
+        };
+    }
+
+    /** Dados de texto de uma ficha do ScreenScraper (sem URLs): sinopse, ano, gêneros, jogadores. */
+    function dadosScreenScraper(jeu) {
+        if (!jeu) return {};
+        const porLingua = (arr, campo = 'text') => {
+            const a = Array.isArray(arr) ? arr : [];
+            const pt = a.find(x => /^pt/i.test(x.langue || '')), en = a.find(x => /^en/i.test(x.langue || ''));
+            const x = pt || en || a[0];
+            return x ? { texto: String(x[campo] || '').trim(), lingua: pt ? 'pt' : (en ? 'en' : (x.langue || '')) } : null;
+        };
+        const sin = porLingua(jeu.synopsis);
+        const datas = Array.isArray(jeu.dates) ? jeu.dates : [];
+        const data = ['wor', 'br', 'us', 'eu', 'jp'].map(r => datas.find(d => d.region === r)).find(Boolean) || datas[0];
+        const ano = data && /(\d{4})/.test(data.text || '') ? +RegExp.$1 : null;
+        const generos = (Array.isArray(jeu.genres) ? jeu.genres : [])
+            .sort((a, b) => (b.principale === '1') - (a.principale === '1'))
+            .map(g => { const n = porLingua(g.noms); return n && n.texto; })
+            .filter(Boolean).filter((g, i, a) => a.indexOf(g) === i).slice(0, 3);
+        const jog = jeu.joueurs && String(jeu.joueurs.text || '').match(/(\d+)\s*$/);
+        return {
+            sinopse: sin && sin.texto ? sin.texto : '', sinopseLingua: sin ? sin.lingua : '',
+            ano, generos, jogadores: jog ? +jog[1] : null,
+            nome: ((jeu.noms || []).find(n => n.region === 'wor') || (jeu.noms || [])[0] || {}).text || '',
+            sistema: jeu.systeme && jeu.systeme.text, id: jeu.id
+        };
+    }
+
+    /** (compatível com o teste da caixa de Chaves) logo/vídeo/capa encontrados — URLs com credenciais, NÃO grave. */
+    async function buscarScreenScraper(nome, ss, fetchFn, consoleId) {
+        const jeu = await buscarJogoScreenScraper(nome, ss, fetchFn, consoleId);
+        const m = midiasScreenScraper(jeu);
+        return { logo: (m.logo && m.logo.url) || '', video: (m.video && m.video.url) || '', capa: (m.capa && m.capa.url) || '' };
     }
 
     async function completarItem(item, { tmdb, omdb, steamgrid, screenscraper, wiki = false, fetchFn, tipoColecao = 'video' } = {}) {
         let out = Object.assign({}, item);
         const achados = [], avisos = [];
-        // JOGOS: logo (SteamGridDB) + logo/vídeo snap (ScreenScraper). Nunca sobrescreve o que você pôs à mão.
+        // JOGOS: logo, capa (estilo DVD) e banner pelo SteamGridDB. Nunca sobrescreve o que você pôs à mão.
+        // (ScreenScraper fica DESLIGADO: os links de mídia dele levam o seu usuário e as senhas
+        //  dentro da URL — gravados no catálogo público, eles vazariam.)
         if (tipoColecao === 'jogo') {
-            if (steamgrid && !out.logo) {
+            const pedir = { logo: !out.logo, capa: !out.capa, banner: !out.banner };
+            if (steamgrid && (pedir.logo || pedir.capa || pedir.banner)) {
                 try {
-                    const url = await buscarLogoSteamGrid(out.nome, steamgrid, fetchFn);
-                    if (url) { out.logo = url; achados.push('SteamGridDB: logo'); }
-                    else avisos.push('SteamGridDB: logo não encontrado para "' + (out.nome || '') + '".');
+                    const a = await buscarArtesSteamGrid(out.nome, steamgrid, fetchFn, pedir);
+                    const nomes = { logo: 'logo', capa: 'capa', banner: 'banner' };
+                    const veio = [];
+                    for (const k of ['logo', 'capa', 'banner']) if (pedir[k] && a[k]) { out[k] = a[k]; veio.push(nomes[k]); }
+                    if (veio.length) achados.push('SteamGridDB: ' + veio.join(' + '));
+                    else avisos.push('SteamGridDB: nada encontrado para "' + (out.nome || '') + '".');
                 } catch (e) { avisos.push('SteamGridDB: ' + e.message); }
             }
-            if (screenscraper && screenscraper.dev && (!out.logo || !out.video)) {
-                try {
-                    const ss = await buscarScreenScraper(out.nome, screenscraper, fetchFn);
-                    if (ss.logo && !out.logo) { out.logo = ss.logo; achados.push('ScreenScraper: logo'); }
-                    if (ss.video && !out.video) { out.video = ss.video; achados.push('ScreenScraper: vídeo'); }
-                    if (ss.capa && !out.capa) { out.capa = ss.capa; }
-                    if (!ss.logo && !ss.video && !out.logo) avisos.push('ScreenScraper: nada encontrado para "' + (out.nome || '') + '".');
-                } catch (e) { avisos.push('ScreenScraper: ' + e.message); }
-            }
+            if (screenscraper && screenscraper.dev) avisos.push('ScreenScraper desligado (as URLs de mídia dele expõem a senha).');
             return { item: out, achados, avisos };
         }
         if (tipoColecao !== 'video') return { item: out, achados, avisos };
@@ -972,6 +1428,8 @@
     const CAMPOS_COMUNS_MIDIA = [
         { k: 'capa', rotulo: 'Capa (imagem vertical)', tipo: 'url', imagem: true },
         { k: 'banner', rotulo: 'Banner (imagem horizontal)', tipo: 'url', imagem: true },
+        { k: 'fundoImagem', rotulo: 'Imagem do fundo do topo', tipo: 'seletorFundo', dica: 'qual imagem vira o fundo do topo da tela no app · sem banner, usa a capa' },
+        { k: 'posFundo', rotulo: 'Posição da imagem no fundo do topo', tipo: 'posicao', de: 'capa', dica: 'no app a imagem vira o fundo do topo da tela, cortada na horizontal: arraste a imagem (ou use a barra) até mostrar a melhor parte · vazio = centro' },
         { k: 'descricao', rotulo: 'Sinopse', tipo: 'textarea' },
         { k: 'ano', rotulo: 'Ano', tipo: 'numero' },
         { k: 'generos', rotulo: 'Gêneros', tipo: 'lista', dica: 'separados por vírgula' }
@@ -986,7 +1444,11 @@
                 { k: 'imdb', rotulo: 'IMDb', tipo: 'texto', dica: 'cole o link ou o código tt… do IMDb' },
                 { k: 'links', rotulo: 'Link do vídeo (filme/desenho avulso)', tipo: 'links', dica: '1º link = principal; os outros viram reserva. Série? Deixe vazio e use as temporadas.' },
                 ...CAMPOS_COMUNS_MIDIA,
+                { k: 'previa', rotulo: 'Imagem da tela de prévia', tipo: 'url', imagem: true, avancado: true, dica: 'aparece na tela de prévia da categoria antes do vídeo — use outra imagem grande do filme/série para não repetir o banner · o TMDB preenche · vazio = usa o banner' },
                 { k: 'audio', rotulo: 'Áudio', tipo: 'escolha', opcoes: ['', 'Dublado', 'Legendado', 'Dual Áudio', 'Original'] },
+                { k: 'qualidade', rotulo: 'Qualidade', tipo: 'escolha', opcoes: ['', ...QUALIDADES], dica: 'a melhor que tem · vazio = descobre pelo nome do arquivo/link (1080p = FHD)' },
+                { k: 'classificacao', rotulo: 'Classificação indicativa', tipo: 'escolha', opcoes: ['', ...CLASSIFICACOES], dica: 'o TMDB preenche (Brasil)' },
+                { k: 'duracao', rotulo: 'Duração (min)', tipo: 'numero', avancado: true, dica: 'o TMDB preenche' },
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'temporadas', rotulo: 'Temporadas e episódios', tipo: 'temporadas' },
                 ...CAMPOS_BANNER
@@ -1016,6 +1478,7 @@
                 { k: 'categoria', rotulo: 'Categoria', tipo: 'escolha', opcoesDe: 'categoriasCanais', livre: true, obrigatorio: true },
                 { k: 'logo', rotulo: 'Logo', tipo: 'url', imagem: true },
                 { k: 'tvgId', rotulo: 'ID do guia (tvg-id)', tipo: 'texto', dica: 'opcional, para a programação (EPG)' },
+                { k: 'epg', rotulo: 'Guia de programação (link XMLTV)', tipo: 'url', avancado: true, dica: 'o guia onde está o tvg-id acima (.xml ou .xml.gz) — o Link Edit preenche sozinho' },
                 { k: 'userAgent', rotulo: 'User-Agent', tipo: 'texto', avancado: true },
                 { k: 'referer', rotulo: 'Referer', tipo: 'texto', avancado: true }
             ]
@@ -1061,7 +1524,9 @@
                 { k: 'destaque', rotulo: 'Destaque no banner da home', tipo: 'bool' },
                 { k: 'soPC', rotulo: 'Só PC (não aparece na TV)', tipo: 'bool', dica: 'marque nos jogos pesados ou que precisam de mouse/teclado' },
                 { k: 'video', rotulo: 'Vídeo (snap)', tipo: 'url', avancado: true, dica: 'preenchido pelo ScreenScraper; vira a prévia do jogo no banner' },
+                { k: 'previa', rotulo: 'Imagem da tela de prévia', tipo: 'url', imagem: true, avancado: true, dica: 'aparece no banner antes do vídeo (snap) começar — ex.: a tela de título do jogo · vazio = usa o banner' },
                 { k: 'core', rotulo: 'Core do emulador', tipo: 'texto', avancado: true, dica: 'opcional; vazio = o core do console (studio.config.json → consoles → core). Arcade: fbneo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1, fbalpha2012_cps2 ou mame_capcom (MAME 0.289, jogos da Capcom; ROMs da versão 0.289) — todos ficam no card Arcade. Nos Jogos Web é sempre "web"' },
+                { k: 'chd', rotulo: 'Disco do jogo (CHD) — MAME', tipo: 'texto', avancado: true, dica: 'só arcade MAME com disco (CPS3, Konami 573, Naomi GD-ROM…): link(s) do .chd, separados por espaço, com o nome EXATO do MAME (ex.: …/sfiii/cap-sf3-3.chd). O jogo baixa o disco junto com o .zip · mesma versão do MAME dos cores (0.289)' },
                 { k: 'comandoDos', rotulo: 'Comando do jogo (MS-DOS)', tipo: 'texto', avancado: true, dica: 'só MS-DOS: o programa que abre o jogo dentro do zip (ex.: KEEN4E.EXE). Vazio = AUTORUN.BAT do zip ou o .exe principal, escolhido sozinho' },
                 // ---- só para os consoles Web Games (cartucho web: jogos que rodam direto no navegador) ----
                 { k: 'licenca', rotulo: 'Licença (Web Games)', tipo: 'escolha', opcoes: ['', ...LICENCAS_WEB], avancado: true, dica: 'livre = jogo/código aberto ou gratuito · autorizada = demo oficial ou o dono liberou · precisa-original = o jogador carrega os arquivos do próprio jogo · jogo web só é publicado com a licença conferida' },
@@ -1093,6 +1558,9 @@
         const out = {};
         out.nome = String(b.nome || b.titulo || b.title || b.name || '').trim();
         out.links = unicos(lista(b.links || b.link || b.url || b.urls || b.rom).map(limparLink));
+        // cópias desativadas na tela "Cópias": ficam guardadas aqui (não vão para o app)
+        const desat = unicos(lista(b.linksDesativados).map(limparLink)).filter(u => !out.links.includes(u));
+        if (desat.length) out.linksDesativados = desat;
         // link do TMDB/IMDb colado no campo de vídeo vira referência
         out.links = out.links.filter(u => { const r = refDoLink(u); if (r) { Object.assign(b, Object.assign({}, r, b.tmdb ? { tmdb: b.tmdb } : {}, b.imdb ? { imdb: b.imdb } : {})); return false; } return true; });
         const tm = normTmdb(b.tmdb), im = normImdb(b.imdb);
@@ -1100,9 +1568,18 @@
         if (im) out.imdb = im;
         const nota = parseFloat(b.notaImdb);
         if (Number.isFinite(nota)) out.notaImdb = nota;
+        for (const k of ['notaTmdb', 'popularidade']) { const n = parseFloat(b[k]); if (Number.isFinite(n) && n > 0) out[k] = n; }
+        const dur = inteiro(b.duracao || b.runtime);
+        if (dur) out.duracao = dur;
+        const cl = String(b.classificacao || b.age || '').trim().toUpperCase().replace(/\s*ANOS?|\+/g, '');
+        if (CLASSIFICACOES.includes(cl)) out.classificacao = cl;
+        const ql = String(b.qualidade || '').trim().toUpperCase();
+        if (QUALIDADES.includes(ql)) out.qualidade = ql;
+        const aus = lista(b.audios).map(x => String(x).trim().toLowerCase()).filter(x => ['dublado', 'legendado', 'original'].includes(x));
+        if (aus.length) out.audios = unicos(aus);
         const votos = parseInt(b.votosImdb, 10);
         if (Number.isFinite(votos)) out.votosImdb = votos;
-        for (const k of ['capa', 'banner', 'logo', 'video', 'site', 'fonte', 'repo']) if (b[k]) out[k] = String(b[k]).trim();
+        for (const k of ['capa', 'banner', 'logo', 'video', 'previa', 'site', 'fonte', 'repo']) if (b[k]) out[k] = String(b[k]).trim();
         if (!out.capa && (b.thumb || b.poster)) out.capa = String(b.thumb || b.poster).trim();
         const desc = b.descricao || b.sinopse || b.desc;
         if (desc) out.descricao = String(desc).trim();
@@ -1110,9 +1587,10 @@
         if (ano) out.ano = ano;
         const gen = lista(b.generos || b.genero || b.genre || b.estilos);
         if (gen.length) out.generos = gen;
-        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas', 'comandoDos']) {
+        for (const k of ['audio', 'cidade', 'idioma', 'categoria', 'tvgId', 'epg', 'userAgent', 'referer', 'core', 'archive', 'autor', 'editora', 'formato', 'serie', 'engine', 'teclas', 'comandoDos']) {
             if (b[k] !== undefined && b[k] !== '') out[k] = String(b[k]).trim();
         }
+        if (b.chd) { const d = discosChd(b.chd); if (d.length) out.chd = d.join(' '); }   // MAME: discos (CHD)
         if (b.pais) out.pais = codigoPais(b.pais);
         if (out.categoria) { out.categoria = traduzirCategoria(out.categoria); if (!out.categoria) delete out.categoria; }
         if (b.console) out.console = String(b.console).trim().toLowerCase();
@@ -1122,6 +1600,9 @@
         const jog = inteiro(b.jogadores);
         if (jog) out.jogadores = jog;
         for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
+        if (b.fundoImagem === 'banner') out.fundoImagem = 'banner';   // capa é o padrão (não precisa gravar)
+        const pf = parseFloat(b.posFundo);                 // 0 (topo da imagem) até 100 (pé); vazio = centro
+        if (Number.isFinite(pf)) out.posFundo = Math.max(0, Math.min(100, Math.round(pf)));
         if (b.destaque === true || b.destaque === 'true' || b.destaque === 'sim') out.destaque = true;
         if (b.soPC === true || b.soPC === 'true' || b.soPC === 'sim') out.soPC = true;
         for (const k of ['bannerLogo', 'bannerVideo']) if (b[k]) out[k] = String(b[k]).trim();
@@ -1231,6 +1712,37 @@
     // ------------------------------------------------------------------
     // Compilação: itens do Studio -> formato do cartoonzine-cloud
     // ------------------------------------------------------------------
+    /** Melhor qualidade pelos links do filme ou dos episódios (quando o campo Qualidade está vazio). */
+    function qualidadeDoItem(item) {
+        const links = (item.links || []).concat(...(item.temporadas || []).flatMap(t => t.episodios.map(e => e.links || [])));
+        return melhorQualidade(links.slice(0, 60).map(qualidadeDoTexto).concat(qualidadeDoTexto(item.nome))) || undefined;
+    }
+    /**
+     * Ordem das cópias de um título (aba Cópias). Nota de cada link pelos critérios, na ordem de importância:
+     *   qualidade (4K > FHD > HD > SD, pelo nome do arquivo/link) · dublado · https · abre rápido (teste do painel)
+     * teste: Map(url → { ok, ms }). Devolve { ordem:[{url, nota, qualidade, audio, https, teste}], certeza }
+     * certeza = false quando as primeiras empatam ou nada se sabe (vai para "Para olhar").
+     */
+    const CRITERIOS_COPIAS = ['qualidade', 'dublado', 'https', 'rapido'];
+    function ordenarCopias(links, opts = {}) {
+        const crit = opts.criterios || CRITERIOS_COPIAS, teste = opts.teste || new Map();
+        const QN = { '4K': 4, FHD: 3, HD: 2, SD: 1 };
+        const info = links.map((url, i) => {
+            let txt = url; try { txt = decodeURIComponent(url); } catch (e) { /* */ }
+            const t = teste.get(url) || null;
+            return { url, i, qualidade: qualidadeDoTexto(url), audio: /\b(dub|dublado|ptbr|pt-br|dual)\b/i.test(txt) ? 'dublado' : /\b(leg|legendado|sub)\b/i.test(txt) ? 'legendado' : '',
+                https: /^https:/i.test(url), teste: t };
+        });
+        const pesoDe = (x, c) => c === 'qualidade' ? (QN[x.qualidade] || 0) : c === 'dublado' ? (x.audio === 'dublado' ? 1 : 0) : c === 'https' ? (x.https ? 1 : 0)
+            : c === 'rapido' ? (x.teste ? (x.teste.ok ? 100000 - Math.min(99999, x.teste.ms || 99999) : -1) : 0) : 0;
+        // link que o teste deu como morto vai sempre para o fim
+        const chave = (x) => [x.teste && !x.teste.ok ? 0 : 1].concat(crit.map(c => pesoDe(x, c)));
+        const cmp = (a, b) => { const ka = chave(a), kb = chave(b); for (let k = 0; k < ka.length; k++) if (ka[k] !== kb[k]) return kb[k] - ka[k]; return a.i - b.i; };
+        const ordem = info.slice().sort(cmp);
+        const sabe = ordem.some(x => x.qualidade || x.audio || x.teste);
+        const certeza = ordem.length < 2 || (sabe && cmp(ordem[0], ordem[1]) !== 0 && chave(ordem[0]).join() !== chave(ordem[1]).join());
+        return { ordem, certeza };
+    }
     function paraCloud(item, colecao, chave, config) {
         const [url, ...espelhos] = item.links || [];
         const base = {
@@ -1241,14 +1753,24 @@
             destaque: item.destaque || undefined,
             destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
             bannerlogo: item.bannerLogo, preview: item.bannerVideo,
+            logo: item.bannerLogo,                           // filmes/séries: o CZ-HUD e o banner leem "logo" (PNG do título)
             bannerSkin: item.bannerSkin, bannerFx: item.bannerFx,
+            bgImg: item.fundoImagem === 'banner' ? 'banner' : undefined,   // fundo do topo: o banner no lugar da capa
+            bgPosY: item.posFundo,                         // altura da imagem no fundo do topo (0–100 %)
             studio: chave
         };
         switch (colecao.tipo) {
             case 'video': {
                 const o = Object.assign(base, {
-                    thumb: item.capa, bannerThumb: item.banner, audio: item.audio,
-                    imdbId: item.imdb, tmdbId: item.tmdb, imdbRating: item.notaImdb, imdbVotes: item.votosImdb
+                    thumb: item.capa, bannerThumb: item.banner, previewThumb: item.previa, audio: item.audio,
+                    imdbId: item.imdb, imdbRating: item.notaImdb, imdbVotes: item.votosImdb,
+                    // busca fina (Filtros+): código do TMDB (o mesmo filme de listas diferentes vira um card),
+                    // nota, classificação, popularidade, duração, áudios e a melhor qualidade
+                    tmdbId: item.tmdb ? +String(item.tmdb).split('/')[1] || undefined : undefined,
+                    tmdbTipo: item.tmdb ? String(item.tmdb).split('/')[0] : undefined,
+                    rating: item.notaImdb != null ? item.notaImdb : item.notaTmdb,
+                    age: item.classificacao, popularity: item.popularidade, runtime: item.duracao,
+                    audios: audiosDo(item), qualidadeMax: item.qualidade || qualidadeDoItem(item)
                 });
                 if (item.temporadas && item.temporadas.length) {
                     o.seasons = item.temporadas.map(t => ({
@@ -1280,7 +1802,7 @@
                 if (item.userAgent) headers['User-Agent'] = item.userAgent;
                 if (item.referer) headers['Referer'] = item.referer;
                 return limparVazios(Object.assign(base, {
-                    url, mirrors: espelhos, logo: item.logo, group: item.categoria, tvgId: item.tvgId,
+                    url, mirrors: espelhos, logo: item.logo, group: item.categoria, tvgId: item.tvgId, epg: item.epg,
                     country: item.pais, countryName: PAISES[item.pais], language: item.idioma,
                     headers: Object.keys(headers).length ? headers : undefined
                 }));
@@ -1293,9 +1815,11 @@
             case 'jogo': {
                 const o = Object.assign(base, {
                     url, mirrors: espelhos, thumb: item.capa, bannerThumb: item.banner,
-                    logo: item.logo, video: item.video, preview: item.bannerVideo || item.video,   // logo + vídeo snap (ScreenScraper) para o banner
+                    logo: item.logo, video: item.video, preview: item.bannerVideo || item.video, previewThumb: item.previa,
+                    bannerlogo: item.bannerLogo || item.logo,   // o banner do app usa "bannerlogo" no lugar do nome do jogo   // logo + vídeo snap (ScreenScraper) para o banner
                     console: item.console, players: item.jogadores, core: item.core || coreDoConsole(item.console, config),
                     dosrun: item.comandoDos,                                                    // MS-DOS: programa do jogo dentro do zip
+                    chd: discosChd(item.chd).length ? discosChd(item.chd) : undefined,          // MAME: discos do jogo (o cartucho baixa junto)
                     aparelhos: item.soPC ? ['pc'] : undefined                               // "Só PC": a TV não mostra
                 });
                 // cartucho web: o app abre a página do jogo no cartucho-web.html (core "web")
@@ -1324,8 +1848,13 @@
         return s + o.url + '\n';
     }
 
+    /** Guias (XMLTV) usados pelos canais: vão no url-tvg da M3U e no "epg" do JSON (o Cloud junta no manifest). */
+    function guiasDe(registros) {
+        return unicos(registros.flatMap(r => String(r.epg || '').split(',').map(x => x.trim())).filter(u => /^https?:\/\//i.test(u)));
+    }
     function gerarM3U(registros, extra) {
-        return '#EXTM3U\n' + registros.filter(o => o.url).map(o => linhaM3U(o, extra)).join('');
+        const guias = guiasDe(registros);
+        return '#EXTM3U' + (guias.length ? ' url-tvg="' + guias.join(',').replace(/"/g, '') + '"' : '') + '\n' + registros.filter(o => o.url).map(o => linhaM3U(o, extra)).join('');
     }
 
     function ordenar(a, b) {
@@ -1384,7 +1913,8 @@
         }
 
         const chaveLista = { canal: 'channels', canal24h: 'channels', radio: 'items' }[colecao.tipo] || 'items';
-        arquivos[`${colecao.id}.json`] = JSON.stringify({ colecao: colecao.id, nome: colecao.nome, [chaveLista]: regs }, null, 1);
+        const guiasCol = guiasDe(regs);
+        arquivos[`${colecao.id}.json`] = JSON.stringify(Object.assign({ colecao: colecao.id, nome: colecao.nome }, guiasCol.length ? { epg: guiasCol } : {}, { [chaveLista]: regs }), null, 1);
 
         // Uma lista por idioma (YouToon): youtoon/pt-br.json, youtoon/es.json… e uma fonte do cloud para cada uma.
         // Cada lista é publicada mesmo vazia, para a fonte do cloud nunca dar 404.
@@ -1431,7 +1961,8 @@
             for (const [p, lst] of [...porPais.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))) {
                 const cc = p.toLowerCase();
                 arquivos[`${colecao.id}/pais/${cc}.m3u`] = gerarM3U(lst, colecao.tipo === 'radio' ? { grupo: colecao.nome } : null);
-                arquivos[`${colecao.id}/pais/${cc}.json`] = JSON.stringify({ pais: p, nome: PAISES[p] || p, [chaveLista]: lst }, null, 1);
+                const gp = guiasDe(lst);
+                arquivos[`${colecao.id}/pais/${cc}.json`] = JSON.stringify(Object.assign({ pais: p, nome: PAISES[p] || p }, gp.length ? { epg: gp } : {}, { [chaveLista]: lst }), null, 1);
                 rel.porPais[p] = lst.length;
                 const cats = {};
                 for (const r of lst) if (r.group) cats[r.group] = (cats[r.group] || 0) + 1;
@@ -1561,8 +2092,9 @@
             destaqueOrdem: item.destaque ? item.destaqueOrdem : undefined,
             nota: item.notaImdb,
             eps: contarEpisodios(item) || undefined,
-            pais: item.pais, console: item.console, categoria: item.categoria,
+            pais: item.pais, console: item.console, categoria: item.categoria, tmdb: item.tmdb,
             licenca: item.licenca,
+            links: (item.links || []).length > 1 ? item.links.length : undefined,     // cópias (aba Cópias)
             soPC: item.soPC ? true : undefined,
             rascunho: item._rascunho ? true : undefined,
             auto: item._origem ? true : undefined
@@ -1578,9 +2110,10 @@
         VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, contarEpisodios, resumoItem,
         slugify, normText, semAcento, limparHtml, lista,
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
-        analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U,
+        qualidadeDoTexto, audiosDo, ordenarCopias, CRITERIOS_COPIAS, CLASSIFICACOES, QUALIDADES, analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
+        lerListaArquivo, consoleDoNomeSistema, consoleDaExtensao, limparNomeRom, prepararJogoEmMassa, buscarJogoPorRomScreenScraper, nomeScreenScraper,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
-        refDoLink, normTmdb, normImdb, buscarTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarScreenScraper, aplicarDadosExternos, completarItem,
+        refDoLink, normTmdb, normImdb, buscarTMDB, logoDoTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever, coreDoConsole, CORE_PADRAO,

@@ -1,0 +1,15 @@
+{
+  "nome": "Blockcraft Kart Rush",
+  "links": [
+    "https://deploy.combos.game/deploy/gamepreview/7bf26376-45b5-8bd6-85ad-8a9a2fce6167/"
+  ],
+  "capa": "https://cdn.combos.fun/uploads/1000005196/ede5966f-82f2-46ac-8cea-74e96a3c78ca.png?x-oss-process=image/format,webp/quality,Q_90/resize,w_1120",
+  "banner": "https://cdn.combos.fun/uploads/1000005196/ede5966f-82f2-46ac-8cea-74e96a3c78ca.png?x-oss-process=image/format,webp/quality,Q_90/resize,w_1120",
+  "logo": "https://cdn2.steamgriddb.com/logo/a85989fd272c51101df0c7fc984d1a5c.png",
+  "console": "web-indie",
+  "posFundo": 100,
+  "_rascunho": true,
+  "_ssEm": "2026-11-15",
+  "_ssId": 0,
+  "_completadoEm": "2026-11-15"
+}

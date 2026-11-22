@@ -11,6 +11,10 @@
  *
  * Precisa das chaves nas variáveis TMDB_TOKEN e/ou OMDB_KEY
  * (no GitHub: Settings → Secrets and variables → Actions). Sem TMDB_TOKEN usa a Wikipedia.
+ *
+ * JOGOS: com STEAMGRID_KEY busca LOGO, CAPA (estilo DVD) e BANNER dos jogos que ainda não têm (SteamGridDB).
+ *   node tools/completar.mjs --jogos               só os jogos
+ *   node tools/completar.mjs --jogos --minutos 15  para sozinho depois de 15 minutos
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,17 +25,34 @@ const config = lerConfig();
 const ch = chavesExternas();
 const limite = parseInt(args.limite || '150', 10);
 const soNotas = !!args.notas;
+const soJogos = !!args.jogos;
+const temChaveJogo = !!ch.steamgrid;
 
 if (soNotas && !ch.omdb) { console.log('Sem OMDB_KEY: nada a fazer com --notas.'); process.exit(0); }
-if (!ch.tmdb) console.log('ℹ Sem TMDB_TOKEN: vou usar a Wikipedia (só sinopse e capa).');
+if (!ch.tmdb && !soJogos) console.log('ℹ Sem TMDB_TOKEN: vou usar a Wikipedia (só sinopse e capa).');
+if (!temChaveJogo) console.log('ℹ Sem STEAMGRID_KEY: as artes dos jogos ficam como estão.');
 
+const PREVIA_DESDE = '2026-11-23';
 const fila = [];
 for (const colecao of config.colecoes) {
-    if (colecao.tipo !== 'video' || (args.colecao && args.colecao !== colecao.id)) continue;
+    if (args.colecao && args.colecao !== colecao.id) continue;
+    // jogos: só o logo / vídeo snap (SteamGridDB · ScreenScraper)
+    if (colecao.tipo === 'jogo') {
+        if (!soJogos || !temChaveJogo) continue;   // jogos só com --jogos (não disputam o lote dos vídeos)
+        for (const { caminho, item } of lerColecao(colecao).entradas) {
+            if (item._travado || item._semLogo) continue;
+            const n = Core.normalizarItem(item, colecao);
+            if (n.nome && (!n.logo || !n.capa || !n.banner)) fila.push({ caminho, colecao, item: n });
+        }
+        continue;
+    }
+    if (colecao.tipo !== 'video' || soJogos) continue;
     for (const { caminho, item } of lerColecao(colecao).entradas) {
         if (item._travado) continue;
         const n = Core.normalizarItem(item, colecao);
-        const falta = !n.descricao || !n.capa || !n.banner || (ch.tmdb && !n.tmdb) ||
+        // completados antes da "Imagem da tela de prévia" existir para vídeos: uma busca a mais para trazer a prévia
+        const semPrevia = ch.tmdb && n.tmdb && !n.previa && (n._completadoEm || '') < PREVIA_DESDE;
+        const falta = !n.descricao || !n.capa || !n.banner || (ch.tmdb && !n.tmdb) || semPrevia ||
             (n.temporadas || []).some(t => t.episodios.some(e => !e.titulo && !e.descricao));
         const precisaNota = ch.omdb && n.imdb;
         if (soNotas ? precisaNota : (falta || (args.tudo && true))) fila.push({ caminho, colecao, item: n });
@@ -43,10 +64,15 @@ const lote = fila.slice(0, limite);
 console.log(`${fila.length} itens para completar; vou fazer ${lote.length} agora.`);
 
 let mudou = 0;
+// --minutos N: para sozinho depois de N minutos (o que já foi feito fica salvo; o resto vai na próxima rodada)
+const prazo = args.minutos ? Date.now() + parseFloat(args.minutos) * 60000 : Infinity;
 for (const { caminho, colecao, item } of lote) {
+    if (Date.now() > prazo) { console.log(`⏱ Tempo de ${args.minutos} min esgotado: o resto fica para a próxima rodada.`); break; }
     const r = soNotas
         ? await Core.completarItem({ imdb: item.imdb }, { omdb: ch.omdb }).then(x => ({ ...x, item: Core.aplicarDadosExternos(item, { notaImdb: x.item.notaImdb, votosImdb: x.item.votosImdb }) }))
-        : await Core.completarItem(item, { tmdb: ch.tmdb, omdb: ch.omdb, wiki: true, tipoColecao: colecao.tipo });
+        : colecao.tipo === 'jogo'
+            ? await Core.completarItem(item, { steamgrid: ch.steamgrid, screenscraper: ch.screenscraper, tipoColecao: 'jogo' })
+            : await Core.completarItem(item, { tmdb: ch.tmdb, omdb: ch.omdb, wiki: true, tipoColecao: colecao.tipo });
     const novo = Core.normalizarItem(Object.assign(r.item, { _completadoEm: new Date().toISOString().slice(0, 10) }), colecao);
     const antes = JSON.stringify(Object.assign({}, item, { _completadoEm: undefined }));
     const depois = JSON.stringify(Object.assign({}, novo, { _completadoEm: undefined }));
