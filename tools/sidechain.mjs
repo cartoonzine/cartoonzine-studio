@@ -124,23 +124,33 @@ for (const envio of envios) {
 
 // 🔎 TMDB: capa, banner, sinopse, gênero e nota dos vídeos dos envios que pedem (uma busca por série/filme, guardada 30 dias)
 const TMDB = chavesExternas().tmdb;
-const MAX_TMDB = parseInt(args['max-tmdb'] || '200', 10);
+// até 3.000 títulos por rodada, 6 de cada vez, e no máximo 25 min (o resto fica para a próxima rodada)
+const MAX_TMDB = parseInt(args['max-tmdb'] || process.env.SC_MAX_TMDB || '3000', 10);
+const VEZES_TMDB = parseInt(args['vezes-tmdb'] || '6', 10);
+const ATE_TMDB = Date.now() + parseFloat(args['minutos-tmdb'] || '25') * 60e3;
 let buscasTmdb = 0;
-for (const { envio, canais } of lotes) {
-    if (!envio.tmdb) continue;
-    if (!TMDB) { console.log(`  ⚠ ${envio.nome}: TMDB ligado, mas sem a chave (secret TMDB_TOKEN do repositório)`); continue; }
+const statsTmdb = {};
+// quem você pediu agora ("🤖 completar agora") vai primeiro
+const ordemTmdb = lotes.filter(l => l.envio.tmdb).sort((a, b) => String(b.envio.tmdbPedidoEm || '').localeCompare(String(a.envio.tmdbPedidoEm || '')));
+for (const { envio, canais } of ordemTmdb) {
+    if (!TMDB) { console.log(`  ⚠ ${envio.nome}: TMDB ligado, mas sem a chave (secret TMDB_TOKEN do repositório)`); statsTmdb[envio.id] = { semChave: true }; continue; }
     const porChave = new Map();
     canais.filter(c => L.ehVideo(c) && L.passaFiltros(c, envio)).forEach(c => { const k = L.chaveTMDB(c); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(c); });
+    const velho = (g) => !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3;
+    const fila = [...porChave.keys()].filter(k => velho(estado.tmdb[k]));
+    await emLotes(fila, VEZES_TMDB, async (k) => {
+        if (buscasTmdb >= MAX_TMDB || Date.now() > ATE_TMDB) return;
+        buscasTmdb++;
+        try { const r = await Core.completarItem(L.pedidoTMDB(porChave.get(k)[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); estado.tmdb[k] = { em: Date.now(), dados: L.dadosDoTMDB(r.item) }; }
+        catch (e) { estado.tmdb[k] = { em: Date.now(), dados: null }; }
+    });
+    const st = { titulos: porChave.size, achados: 0, semAchar: 0, faltam: 0 };
     for (const [k, lista] of porChave) {
-        let g = estado.tmdb[k];
-        const velho = !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3;
-        if (velho && buscasTmdb < MAX_TMDB) {
-            buscasTmdb++;
-            try { const r = await Core.completarItem(L.pedidoTMDB(lista[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); g = estado.tmdb[k] = { em: Date.now(), dados: L.dadosDoTMDB(r.item) }; }
-            catch (e) { g = estado.tmdb[k] = { em: Date.now(), dados: null }; }
-        }
-        if (g && g.dados) lista.forEach(c => L.aplicarTMDB(c, g.dados));
+        const g = estado.tmdb[k];
+        if (!g) st.faltam++; else if (g.dados) { st.achados++; lista.forEach(c => L.aplicarTMDB(c, g.dados)); } else st.semAchar++;
     }
+    statsTmdb[envio.id] = st;
+    console.log(`  🔎 ${envio.nome}: TMDB ${st.achados} achados · ${st.semAchar} sem achar · ${st.faltam} para a próxima rodada (de ${st.titulos} títulos)`);
 }
 if (buscasTmdb) console.log(`\n🔎 TMDB: ${buscasTmdb} busca(s) nesta rodada`);
 
@@ -188,7 +198,7 @@ for (const { envio, canais, mantido } of lotes) {
     const enviados = Object.values(rel.porDestino).reduce((a, b) => a + b, 0);
     const hist = (ant.historico || []).concat({ em: quando, total: rel.total, enviados, mortos: rel.mortos, novos: rel.novos.length, sairam: sairamItens.length, mudaram: mudaramLink.length, pendentes: rel.pendentes.length, mantido: rel.mantido }).slice(-30);
     estado.envios[envio.id] = Object.assign({}, rel, { em: quando, sairam, novos: rel.novos.slice(0, 300), pendentes: rel.pendentes.slice(0, 1000),
-        sairamItens: sairamItens.slice(0, 300), mudaramLink: mudaramLink.slice(0, 300), historico: hist });
+        sairamItens: sairamItens.slice(0, 300), mudaramLink: mudaramLink.slice(0, 300), historico: hist, tmdb: statsTmdb[envio.id] || undefined, tmdbPedidoEm: envio.tmdbPedidoEm || undefined });
     console.log(`  ✓ ${envio.nome}: ${Object.entries(rel.porDestino).map(([k, n]) => `${n} → ${k}`).join(' · ') || 'nada enviado'}${rel.novos.length ? ` · ${rel.novos.length} novos` : ''}${rel.pendentes.length ? ` · ${rel.pendentes.length} esperando revisão` : ''}`);
 }
 // última versão boa de cada link (links que nenhum envio usa mais saem)

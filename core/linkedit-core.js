@@ -916,7 +916,7 @@
             const viver = envio.soVivos != null ? envio.soVivos : null;
             for (const c of canais) {
                 aplicarAjustesEnvio(c, envio);                  // tipo, dados de vídeo e ficha que você arrumou no Sidechain
-                if (envio.tmdb) c.tmdbPref = { modo: envio.tmdbModo || 'falta', fundo: envio.tmdbFundo !== false }; else delete c.tmdbPref;
+                if (envio.tmdb) c.tmdbPref = { modo: envio.tmdbModo || 'falta', fundo: envio.tmdbFundo !== false, campos: Array.isArray(envio.tmdbCampos) ? envio.tmdbCampos : undefined }; else delete c.tmdbPref;
                 if (!passaFiltros(c, envio)) { rel.filtrados++; continue; }
                 const r = rotaDe(c, envio);
                 if (avulsa && r.destino !== 'ignorar') {        // lista avulsa (M3U/JSON para outros players): tudo o que passou nos filtros
@@ -1215,6 +1215,14 @@
         return linhas.join('\n') + '\n';
     }
     /** JSON no formato que o Cartoonzine Cloud e o Studio leem (reservas em "mirrors"). */
+    // campos do "Completar pelo TMDB" → o que eles trazem dos dados do TMDB (o resto, como ano e duração, vem sempre)
+    const DADOS_DO_CAMPO = { capa: ['capa'], banner: ['banner'], bannerLogo: ['logo'], descricao: ['descricao'], generos: ['generos'], classificacao: ['classificacao'], imdb: ['imdb', 'notaImdb', 'votosImdb'], tmdb: ['tmdb', 'nota'] };
+    function dadosPelosCampos(d, campos) {
+        if (!campos) return d;
+        const o = Object.assign({}, d);
+        for (const [campo, ks] of Object.entries(DADOS_DO_CAMPO)) if (!campos.includes(campo)) ks.forEach(k => delete o[k]);
+        return o;
+    }
     function gerarJSON(canais) {
         return JSON.stringify(canais.map(c => {
             const o = { name: c.nome, url: c.url };
@@ -1236,7 +1244,7 @@
                 if (v.audio) o.audios = v.audio === 'dual' ? ['dublado', 'legendado'] : [v.audio];
                 if (v.qualidade) o.qualidadeMax = v.qualidade;
                 if (v.genero) o.genre = v.genero;
-                const d = v.dados || {};                      // TMDB (capa, banner, sinopse, nota…)
+                const d = dadosPelosCampos(v.dados || {}, c.tmdbPref && c.tmdbPref.campos);   // TMDB (capa, banner, sinopse, nota…)
                 if (d.capa || c.logo) o.thumb = d.capa || c.logo;
                 if (d.banner) o.bannerThumb = d.banner;
                 if (d.descricao) o.desc = d.descricao;
