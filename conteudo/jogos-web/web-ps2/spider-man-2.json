@@ -3,10 +3,25 @@
   "links": [
     "https://spiderman2.online/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--spider-man-2--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--spider-man-2--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--spider-man-2--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--spider-man-2--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--spider-man-2--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · spiderman2.online",
+  "descricao": "It is two years following the events of the first game. Spider-Man is trying to balance his civilian and superhero life, frequently late or absent for school, work, and leisure time with his friends. Following dinner with Mary Jane Watson, Peter thwarts an armed looting of an art museum, and tracks down an escaped robber, the Black Cat. Soon after this, he thwarts an attack in the streets of Manhattan by The Rhino. Meanwhile, Doctor Otto Octavius attempts to recreate nuclear fusion of that seen in the sun to provide an energy source for Manhattan. To control this fusion, he creates four metal arms which he can mentally control. His fusion creates a strong magnetic field, destroying the lab, killing his wife Rosie, and grafting his metal arms to his spine and giving his arms control over him. He blames Spider-Man for the incident, despite the fact that Spider-Man was not in the lab until the middle of it.",
+  "ano": 2004,
+  "generos": [
+    "Ação",
+    "Ação / Aventura"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22100,
+  "_ssPreviaEm": "2026-11-16"
 }

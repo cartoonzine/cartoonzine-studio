@@ -1,0 +1,23 @@
+{
+  "nome": "hollow knight",
+  "links": [
+    "https://degloved.net/games/public/gms/hollow-knight/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight--previa.jpg",
+  "descricao": "Explore as profundezas sombrias e misteriosas do reino de Hallownest, um vasto mundo subterrâneo repleto de insetos estranhos e antigas ruínas. Neste aclamado metroidvania, você controla um cavaleiro silencioso que deve desvendar segredos, enfrentar inimigos desafiadores e descobrir a história esquecida do reino.\r\nCom arte desenhada à mão, trilha sonora envolvente e jogabilidade precisa, Hollow Knight oferece uma experiência imersiva e desafiadora tanto para novatos quanto para veteranos. A versão para Nintendo Switch traz toda a magia do jogo com portabilidade e performance sólida.",
+  "ano": 2018,
+  "generos": [
+    "Aventura",
+    "Plataforma"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 196629,
+  "_ssPreviaEm": "2026-11-14"
+}

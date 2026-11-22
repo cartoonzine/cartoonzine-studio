@@ -1,0 +1,22 @@
+{
+  "nome": "hollow knight silksong",
+  "links": [
+    "https://degloved.net/games/public/gms/hollow-knight-silksong/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight-silksong--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight-silksong--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight-silksong--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight-silksong--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--hollow-knight-silksong--previa.jpg",
+  "descricao": "Hollow Knight: Silksong é a continuação épica de Hollow Knight, a galardoada aventura de ação. Explora terras completamente novas, descobre novos poderes, combate vastas hordas de insetos e monstros, e desvenda segredos relacionados com a tua natureza e o teu passado.",
+  "ano": 2025,
+  "generos": [
+    "Plataforma"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_ssEm": "2026-11-14",
+  "_ssId": 499460,
+  "_ssPreviaEm": "2026-11-14"
+}

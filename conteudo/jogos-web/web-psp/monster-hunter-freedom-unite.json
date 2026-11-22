@@ -3,10 +3,23 @@
   "links": [
     "https://mhfu.online/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-psp--monster-hunter-freedom-unite--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-psp--monster-hunter-freedom-unite--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-psp--monster-hunter-freedom-unite--logo.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · mhfu.online",
+  "descricao": "Monster Hunter Freedom Unite features over 400 quests and claims to provide 500 hours of game play. New environments, monster, weapons, and armor sets are available in this release of the game.\r\n\r\nThe game is an online RPG, with the focus being on cooperative multiplayer. You can form a party of up to 4 adventurers and fight monsters and/or complete quests as a group. Tactical considerations and strategies will play heavily on your party's success or failure as you progress through the game.\r\n\r\nNew to the series are pets for your character called &quot;Felynes&quot;, which can help you during combat and even be shared with other players. You can also form your own guilds in this version of the game.",
+  "ano": 2009,
+  "generos": [
+    "Jogos de RPG",
+    "RPG de Ação"
+  ],
   "console": "web-psp",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 142917,
+  "_ssPreviaEm": "2026-11-16"
 }

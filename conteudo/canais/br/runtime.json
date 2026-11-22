@@ -1,0 +1,10 @@
+{
+  "nome": "RunTime",
+  "links": [
+    "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2153"
+  ],
+  "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png",
+  "idioma": "Português",
+  "categoria": "Filmes e Séries",
+  "pais": "BR"
+}

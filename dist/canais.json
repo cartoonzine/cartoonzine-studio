@@ -1,5 +1,66 @@
 {
  "colecao": "canais",
  "nome": "Canais (TVzine)",
- "channels": []
+ "channels": [
+  {
+   "title": "RunTime",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png",
+   "studio": "canais/br/runtime",
+   "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2153",
+   "group": "Filmes e Séries",
+   "country": "BR",
+   "countryName": "Brasil",
+   "language": "Português"
+  },
+  {
+   "title": "RunTime Ação",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png",
+   "studio": "canais/br/runtime-acao",
+   "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2552",
+   "group": "Filmes e Séries",
+   "country": "BR",
+   "countryName": "Brasil",
+   "language": "Português"
+  },
+  {
+   "title": "RunTime CinEspanto",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png",
+   "studio": "canais/br/runtime-cinespanto",
+   "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=4865",
+   "group": "Filmes e Séries",
+   "country": "BR",
+   "countryName": "Brasil",
+   "language": "Português"
+  },
+  {
+   "title": "RunTime Comédia",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png",
+   "studio": "canais/br/runtime-comedia",
+   "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2553",
+   "group": "Filmes e Séries",
+   "country": "BR",
+   "countryName": "Brasil",
+   "language": "Português"
+  },
+  {
+   "title": "RunTime Crime",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png",
+   "studio": "canais/br/runtime-crime",
+   "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=4864",
+   "group": "Filmes e Séries",
+   "country": "BR",
+   "countryName": "Brasil",
+   "language": "Português"
+  },
+  {
+   "title": "RunTime Romance",
+   "logo": "https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png",
+   "studio": "canais/br/runtime-romance",
+   "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=4866",
+   "group": "Filmes e Séries",
+   "country": "BR",
+   "countryName": "Brasil",
+   "language": "Português"
+  }
+ ]
 }

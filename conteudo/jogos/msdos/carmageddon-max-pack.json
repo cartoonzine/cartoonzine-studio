@@ -1,0 +1,22 @@
+{
+  "nome": "Carmageddon Max Pack",
+  "links": [
+    "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--carmageddon-max-pack--video.mp4",
+  "fonte": "https://archive.org/details/msdos_Carmageddon_Max_Pack_1998",
+  "descricao": "This compilation contains:\r\n\r\nCarmageddon (base game)\r\nCarmageddon: Splat Pack (expansion)",
+  "ano": 1998,
+  "generos": [
+    "Corrida, Pilotagem"
+  ],
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 170544,
+  "_ssPreviaEm": "2026-11-18"
+}

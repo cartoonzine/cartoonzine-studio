@@ -3,11 +3,23 @@
   "links": [
     "https://battle-city.berrry.app"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/9b06c290e92cdb39f68f6581921c56e9.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/0129a222fe10c9896db191c537694699.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/a5537a7ededd2ffe4de474cc615ef5be.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/vgrichina/battlecity",
-  "descricao": "Port para navegador · battle-city.berrry.app",
+  "descricao": "Adaptação da versão de NES do jogo Battle City.\r\nSeu objetivo principal é destruir todos os tanques inimigos antes que eles se aproximem de sua base. Depois de ter destruído 20 tanques, você vai para a próxima fase. Muitos elementos de decoração podem ser usados para sua vantagem. Um modo de construção será desbloqueado uma vez que você tenha completado todas as fases.",
+  "ano": 2018,
+  "generos": [
+    "Ação",
+    "Ação / Labirinto"
+  ],
   "console": "web-remakes",
-  "licenca": "nao-verificada",
-  "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "licenca": "livre",
+  "jogadores": 2,
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 124878,
+  "_ssPreviaEm": "2026-11-16"
 }

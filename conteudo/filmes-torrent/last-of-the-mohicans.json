@@ -7,6 +7,9 @@
   "tmdb": "movie/71065",
   "imdb": "tt0011387",
   "notaImdb": 6.7,
+  "notaTmdb": 6.3,
+  "popularidade": 1.2,
+  "duracao": 73,
   "votosImdb": 1472,
   "capa": "https://archive.org/services/img/last_of_the_mohicans_1920",
   "banner": "https://image.tmdb.org/t/p/w1280/tmlQiAYNdYmyGBZfcWIKhmwbBA7.jpg",
@@ -18,6 +21,7 @@
     "Drama",
     "Silent"
   ],
+  "bannerLogo": "https://image.tmdb.org/t/p/w500/5fe1PXxAuwMv6kZaa4IVFTNNqH0.png",
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-01"
+  "_completadoEm": "2026-11-15"
 }

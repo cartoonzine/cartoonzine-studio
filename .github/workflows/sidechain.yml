@@ -1,0 +1,64 @@
+# Robô do LINK SIDECHAIN (substitui o das antigas Receitas): a cada 6 h relê os envios de sidechain/envios.json (listas boas que vivem atualizando),
+# manda cada item para a coleção certa (e o país certo, no TVzine), testa os canais e publica
+# listas/sc-*.json + listas/sidechain-fontes.json (o Cloud lê essas fontes sozinho, via "fontesDoStudio").
+name: Link Edit — sidechain
+
+on:
+  schedule:
+    - cron: "23 1-23/6 * * *"   # 4x por dia, longe das receitas (41 */6)
+  push:
+    branches: [main]
+    paths:
+      - "sidechain/envios.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: linkedit-sidechain
+  cancel-in-progress: false
+
+jobs:
+  sidechain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # o pesado (última versão boa de cada lista e os "vistos") fica no cache do Actions, fora do git
+      - name: Restaurar o cache do robô
+        uses: actions/cache/restore@v4
+        with:
+          path: sidechain/.cache
+          key: sidechain-cache-${{ github.run_id }}
+          restore-keys: sidechain-cache-
+
+      - name: Rodar os envios
+        run: |
+          if [ ! -f sidechain/envios.json ]; then echo "Sem envios ainda."; exit 0; fi
+          node tools/sidechain.mjs --max 4000
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+
+      - name: Guardar o cache do robô
+        if: always() && hashFiles('sidechain/.cache/**') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: sidechain/.cache
+          key: sidechain-cache-${{ github.run_id }}
+
+      - name: Publicar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add listas sidechain/estado.json sidechain/tmdb.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Nada mudou."; exit 0; fi
+          git commit -m "sidechain: listas atualizadas [skip sidechain]"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
+          exit 1

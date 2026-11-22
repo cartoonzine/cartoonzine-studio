@@ -3,10 +3,25 @@
   "links": [
     "https://fifastreet2.fun/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street-2--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street-2--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street-2--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street-2--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps2--fifa-street-2--previa.jpg",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · fifastreet2.fun",
+  "descricao": "FIFA Street 2 is second installment in EA's four-on-four soccer game. FIFA Street 2 will feature improved controls, many more tricks, and a new juggle mechanic. Take part in game modes, such as friendly, rule the street, and skills challenge. Choose from 20 national teams and 300-plus real-life soccer stars. There are 10 playable venues ranging from London's Westway Leisure Center to the sandy beaches of Brazil.",
+  "ano": 2006,
+  "generos": [
+    "Esporte",
+    "Esporte / Futebol"
+  ],
   "console": "web-ps2",
   "licenca": "nao-verificada",
+  "jogadores": 4,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 22250,
+  "_ssPreviaEm": "2026-11-16"
 }

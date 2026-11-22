@@ -1,0 +1,24 @@
+{
+  "nome": "Stunt Driver",
+  "links": [
+    "https://archive.org/details/msdos_Stunt_Driver_1990"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunt-driver--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunt-driver--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--stunt-driver--logo.png",
+  "fonte": "https://archive.org/details/msdos_Stunt_Driver_1990",
+  "descricao": "Jogo de MS-DOS · Racing / Driving, Simulation, Tricks / Stunts (1990), de Sphere. Do acervo do Internet Archive.",
+  "ano": 1990,
+  "generos": [
+    "Racing / Driving",
+    "Simulation",
+    "Tricks / Stunts"
+  ],
+  "editora": "Sphere",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 170829,
+  "_ssPreviaEm": "2026-11-18"
+}

@@ -1,0 +1,23 @@
+{
+  "nome": "the binding of isaac",
+  "links": [
+    "https://degloved.net/games/public/gms/the-binding-of-isaac/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--the-binding-of-isaac--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--the-binding-of-isaac--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--the-binding-of-isaac--logo.png",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--the-binding-of-isaac--previa.png",
+  "descricao": "The Binding of Isaac is an almost top-down game that borrows heavily from the roguelike genre. Players explore dungeons that consist of a series of connected, single-screen rooms with randomized environments, items and enemies for each gameplay session. Like the original games death is final and the player has to restart the entire game to continue. Each game consists of five series of dungeons leading up to a final confrontation. Each dungeon has a boss and defeating it opens a staircase to descend to a new environment.\r\n\r\nThe story is based on the one from the Hebrew bible where God asks Abraham to sacrifice his son Isaac. In the game Isaac is a young boy whose mother is called by a voice to kill her son to prove her allegiance. The introduction however hints that it is only the boy's imagination as he draws the scenes on sheets of paper. In his story, Isaac manages to flee from his mother by escaping through a trap door before she can kill him. That way he ends up in a dungeon and he has to find a way to kill her.",
+  "ano": 2011,
+  "generos": [
+    "Ação",
+    "Ação / Aventura",
+    "Ação / Labirinto"
+  ],
+  "console": "web-outros",
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-15",
+  "_ssId": 279182,
+  "_ssPreviaEm": "2026-11-15"
+}

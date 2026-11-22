@@ -1,0 +1,13 @@
+#EXTM3U
+#EXTINF:-1 tvg-name="RunTime" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png" tvg-country="BR" tvg-language="Português" group-title="Filmes e Séries",RunTime
+https://stream.ads.ottera.tv/playlist.m3u8?network_id=2153
+#EXTINF:-1 tvg-name="RunTime Ação" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png" tvg-country="BR" tvg-language="Português" group-title="Filmes e Séries",RunTime Ação
+https://stream.ads.ottera.tv/playlist.m3u8?network_id=2552
+#EXTINF:-1 tvg-name="RunTime CinEspanto" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png" tvg-country="BR" tvg-language="Português" group-title="Filmes e Séries",RunTime CinEspanto
+https://stream.ads.ottera.tv/playlist.m3u8?network_id=4865
+#EXTINF:-1 tvg-name="RunTime Comédia" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png" tvg-country="BR" tvg-language="Português" group-title="Filmes e Séries",RunTime Comédia
+https://stream.ads.ottera.tv/playlist.m3u8?network_id=2553
+#EXTINF:-1 tvg-name="RunTime Crime" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png" tvg-country="BR" tvg-language="Português" group-title="Filmes e Séries",RunTime Crime
+https://stream.ads.ottera.tv/playlist.m3u8?network_id=4864
+#EXTINF:-1 tvg-name="RunTime Romance" tvg-logo="https://raw.githubusercontent.com/mariosanthos/arquivos/main/runtime.png" tvg-country="BR" tvg-language="Português" group-title="Filmes e Séries",RunTime Romance
+https://stream.ads.ottera.tv/playlist.m3u8?network_id=4866

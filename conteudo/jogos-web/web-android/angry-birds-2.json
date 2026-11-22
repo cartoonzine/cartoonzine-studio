@@ -1,0 +1,24 @@
+{
+  "nome": "angry birds 2",
+  "links": [
+    "https://degloved.net/games/public/gms/angry-birds-2/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--angry-birds-2--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--angry-birds-2--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--angry-birds-2--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--angry-birds-2--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--angry-birds-2--previa.png",
+  "descricao": "Angry Bird 2 (não deve ser confundido com os outros Angry Birds para a Famicom) é um ROMhack do jogo &quot;Moai-kun&quot; com sprites baseados nos personagens de Angry Birds. A própria ROM é chamada de Angry Bird 2, mas a tela de título diz que é Angry Birds, com uma imagem de Red. Existem duas opções; Inicie e continue, e a música não será reproduzida até que o jogo principal seja iniciado.",
+  "ano": 2014,
+  "generos": [
+    "Quebra-cabeças"
+  ],
+  "console": "web-android",
+  "licenca": "livre",
+  "jogadores": 1,
+  "fundoImagem": "banner",
+  "posFundo": 75,
+  "_ssEm": "2026-11-14",
+  "_ssId": 109287,
+  "_ssPreviaEm": "2026-11-14"
+}

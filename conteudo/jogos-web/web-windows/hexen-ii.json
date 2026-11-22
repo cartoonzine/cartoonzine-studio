@@ -3,10 +3,23 @@
   "links": [
     "https://dos.zone/hexen-2-fteqw/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/dc62df457085974550d1ad13e5cb1830.jpg",
+  "banner": "https://cdn2.steamgriddb.com/hero/cdad431591373e47eba5ab6c984c2b55.jpg",
+  "logo": "https://cdn2.steamgriddb.com/logo/8735c937a659ef5138a7f5bd7bf59ae6.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · dos.zone",
+  "descricao": "The world of Thyrion was continuously conquered by the demon brothers known as the Serpent Riders. After two of them were defeated, the oldest and most powerful of the three, Eidolon, is the only one that stands between slavery and liberation. A lone hero must first defeat his generals, the Four Horsemen of the Apocalypse, and finally bring the fight to Eidolon himself.\r\n\r\nHexen II is the third game in the Heretic and Hexen series. Like its predecessors, it is a medieval fantasy-themed first-person shooter. Similarly to Hexen, the player can choose between different character classes - Paladin, Crusader, Assassin, and Necromancer (four as opposed to three in Hexen).",
+  "ano": 2007,
+  "generos": [
+    "Tiro",
+    "Tiro / Tiro em 1ª pessoa"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 306022,
+  "_ssPreviaEm": "2026-11-17"
 }

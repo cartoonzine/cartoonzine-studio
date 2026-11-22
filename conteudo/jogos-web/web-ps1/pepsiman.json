@@ -3,10 +3,21 @@
   "links": [
     "https://pepsiman.ol.mr/"
   ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--pepsiman--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--pepsiman--banner.jpg",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--pepsiman--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--pepsiman--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-ps1--pepsiman--previa.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · pepsiman.ol.mr",
+  "descricao": "Pepsiman foi um dos jogos mais bizarros dos anos 90. Era um endless runner, mais ou menos como os que vemos hoje para celulares. Sua missão, controlando o herói da Pepsi, é coletar latinhas do refrigerante, passar por obstáculos e ir o mais longe possível sem morrer.",
+  "ano": 1999,
   "console": "web-ps1",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-16",
+  "_ssId": 19682,
+  "_ssPreviaEm": "2026-11-16"
 }

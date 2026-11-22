@@ -1,0 +1,28 @@
+{
+  "nome": "Neverball",
+  "links": [
+    "https://cartoonzine.github.io/cartoonzine-jogos/neverball/"
+  ],
+  "capa": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co9ugw.jpg",
+  "banner": "https://images.igdb.com/igdb/image/upload/t_720p/sc80i3.webp",
+  "logo": "https://cdn2.steamgriddb.com/logo/a8ac75aabbfbe4781b90184495fb6a99.png",
+  "site": "https://neverball.org",
+  "fonte": "https://github.com/cartoonzine/cartoonzine-jogos",
+  "repo": "https://github.com/Neverball/neverball",
+  "descricao": "Incline o tabuleiro e leve a bola até a saída pegando as moedas. Mais de 100 fases. Jogo livre (GPL-2.0), hospedado sem propaganda no Cartoonzine Jogos.",
+  "ano": 2003,
+  "generos": [
+    "Puzzle",
+    "Habilidade"
+  ],
+  "engine": "Emscripten",
+  "console": "web-windows",
+  "licenca": "livre",
+  "controles": "gamepad",
+  "fundoImagem": "banner",
+  "posFundo": 0,
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 322494,
+  "_ssPreviaEm": "2026-11-17"
+}

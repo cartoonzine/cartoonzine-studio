@@ -1,0 +1,24 @@
+{
+  "nome": "Bust-A-Move",
+  "links": [
+    "https://archive.org/details/msdos_Bust-A-Move_1997"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Bust-A-Move_1997",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bust-a-move--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--bust-a-move--logo.png",
+  "fonte": "https://archive.org/details/msdos_Bust-A-Move_1997",
+  "descricao": "Jogo de MS-DOS · Puzzle, Arcade, Tile Matching Puzzle (1997), de Taito Corporation. Do acervo do Internet Archive.",
+  "ano": 1997,
+  "generos": [
+    "Puzzle",
+    "Arcade",
+    "Tile Matching Puzzle"
+  ],
+  "editora": "Taito Corporation",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 157652,
+  "_ssPreviaEm": "2026-11-18"
+}

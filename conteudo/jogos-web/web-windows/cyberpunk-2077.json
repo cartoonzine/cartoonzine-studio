@@ -3,10 +3,23 @@
   "links": [
     "https://cyberpunk2077.lol/"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/f39b781760a403dedaa05587e8889c1a.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/73338368669a521b1fff24d636c6bf7e.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/2b2e7393b05b5b52af65bf2ed7f4ad4f.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
-  "descricao": "Port para navegador · cyberpunk2077.lol",
+  "descricao": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.\r\n\r\nBecome a cyberpunk, an urban mercenary equipped with cybernetic enhancements and build your legend on the streets of Night City.\r\n\r\nEnter the massive open world of Night City, a place that sets new standards in terms of visuals, complexity and depth.\r\n\r\nTake the riskiest job of your life and go after a prototype implant that is the key to immortality.",
+  "ano": 2020,
+  "generos": [
+    "Jogos de RPG",
+    "RPG de Ação"
+  ],
   "console": "web-windows",
   "licenca": "nao-verificada",
+  "jogadores": 1,
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-17",
+  "_ssId": 288034,
+  "_ssPreviaEm": "2026-11-17"
 }

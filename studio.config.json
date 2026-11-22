@@ -176,10 +176,10 @@
     "Desenvolvimento Pessoal": ["Autoajuda", "Motivação", "Saúde e Bem-estar", "Relacionamentos", "Produtividade", "Meditação"],
     "Outros": ["Diversos"]
   },
-  "categoriasCanais": [
-    "TV Aberta", "Notícias", "Esportes", "Infantil", "Filmes e Séries", "Documentários",
-    "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"
-  ],
+
+  "_comentarioPaises": "Ordem dos países na coleção Canais (TVzine) e Rádios do Studio: estes primeiro (os que estão começando), depois os outros que tiverem canais. No app, o Cloud recebe um link só com todos (canais.json) e um por país (canais/pais/xx.json).",
+  "paisesPrioridade": ["BR", "VE", "AR", "CO", "CL", "PE", "EC", "BO", "PY", "UY", "US", "PT"],
+  "categoriasCanais": ["TV Aberta", "Notícias", "Esportes", "Infantil", "Filmes e Séries", "Documentários", "Variedades", "Música", "Religioso", "24 Horas", "Culinária", "Educativo"],
 
   "_comentarioConsoles": "Jogos Retrô: um DB por console. \"core\" = sistema do EmulatorJS que abre o jogo (o jogo pode trocar no campo Core). Arcade junta todos os cores de arcade: FBNeo (padrão), mame2003, mame2003_plus, fbalpha2012_cps1, fbalpha2012_cps2. \"threads\": precisa de SharedArrayBuffer (funciona no app do PC; navegador comum pode não abrir). \"semEmulador\": o EmulatorJS não tem esse sistema; o jogo precisa de outro jeito de abrir.",
   "consoles": [
@@ -207,6 +207,7 @@
     { "id": "colecovision", "nome": "ColecoVision",       "prefixoId": "COL", "core": "coleco" },
     { "id": "amiga",        "nome": "Amiga",              "prefixoId": "AMI", "core": "amiga" },
     { "id": "msdos",        "nome": "MS-DOS",             "prefixoId": "DOS", "core": "dos", "threads": true },
+    { "id": "pcclassics",   "nome": "PC Classics",        "prefixoId": "PCC", "semEmulador": true, "aparelhos": ["pc"], "dica": "Windows 95/98 e PC antigo: link do pacote .jsdos (js-dos 8). Abre no cartucho PC Classics do site cartoonzine-jogos." },
     { "id": "flash",        "nome": "Flash Player",       "prefixoId": "FLA", "semEmulador": true },
     { "id": "ps1",          "nome": "PlayStation 1",      "prefixoId": "PS1", "core": "psx" },
     { "id": "3do",          "nome": "3DO",                "prefixoId": "3DO", "core": "3do" },

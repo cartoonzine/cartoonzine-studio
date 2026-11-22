@@ -136,6 +136,43 @@ node tools/completar.mjs                          # completa o que está sem sin
 node tools/build.mjs                              # gera dist/ (o GitHub faz isso sozinho)
 ```
 
+### ⚡ Em massa: listas em arquivo (jogos web, ROMs e o resto)
+
+No **⚡ Adicionar rápido**, clique em **📂 Abrir lista em arquivo** (ou arraste os arquivos para a caixa). Vale para
+qualquer coleção e dá para abrir vários arquivos de uma vez:
+
+| Formato | Como o Studio lê |
+|---|---|
+| `.txt` / `.m3u` | igual ao colar: `Nome \| link \| capa`, links soltos, M3U |
+| `.json` | lista de objetos (`nome`/`name`/`title`, `link`/`url`/`rom`, `capa`/`cover`/`image`, `console`/`system`, `descricao`, `ano`, `generos`…), lista de links, ou `{ "jogos": [...] }` |
+| `.csv` / `.tsv` | com cabeçalho (mesmos nomes de coluna; separador `,` `;` tab ou `\|`) ou sem cabeçalho (texto = nome, link = arquivo, imagem = capa) |
+| `.lpl` (RetroArch) | `label` e `path`; o sistema sai do nome do arquivo (`Nintendo - Super Nintendo Entertainment System.lpl`) |
+| `gamelist.xml` (EmulationStation) | `name`, `path`, `image`, `video`, `desc`, `releasedate`, `genre`, `players` |
+
+- **Salvar tudo como rascunho** (já vem marcado nos jogos): entra tudo sem publicar. Depois, na lista, use o filtro
+  **Só rascunhos** e **☑ Mudar vários** para conferir licença/console e publicar de uma vez.
+- **Jogos web**: o sistema escrito na lista (`DOS`, `web-indie`…) vence o padrão escolhido. Rascunho pode ficar sem
+  licença; para publicar, a licença tem que estar conferida.
+- **ROMs (Jogos Retrô)**: o **console vem da extensão** (`.sfc`, `.gba`, `.md`, `.nes`…); para `.zip`, `.bin`, `.iso`, `.chd`
+  escolha o console no padrão. Sem nome na lista, o nome sai do arquivo (`Legend of Zelda, The (USA).sfc` →
+  `The Legend of Zelda`) e fica marcado: o robô do ScreenScraper **identifica a ROM pelo arquivo** (nome + sistema, e
+  md5/tamanho das ROMs pequenas), troca pelo **nome oficial** e baixa capa, logo, banner, tela de prévia e vídeo.
+  Nome escrito por você (na lista ou na prévia) nunca é trocado.
+- **Caminhos locais** (`./roms/x.sfc`, `C:\roms\x.sfc`) das listas do RetroArch/EmulationStation: preencha
+  **Endereço base dos arquivos** (ex.: `https://archive.org/download/minha-colecao/`).
+- Item que já existe só **ganha** o que falta (links de reserva, capa…): nunca volta para rascunho nem muda de nome.
+
+Pela linha de comando:
+
+```bash
+node tools/importar.mjs jogos-web jogos.json --console web-indie --rascunho
+node tools/importar.mjs jogos roms.txt --rascunho                       # .zip/.bin/.iso: --console snes
+node tools/importar.mjs jogos "Nintendo - Super Nintendo Entertainment System.lpl" --base https://archive.org/download/colecao/
+```
+
+O robô (`tools/midia-jogos.mjs`, no GitHub Actions) faz até 300 jogos por rodada: uma lista grande vai ganhando
+nome oficial e artes ao longo das rodadas.
+
 ### 3. Arquivos
 
 Um `.json` por item em `conteudo/<coleção>/`. Modelos prontos em [`exemplos/`](exemplos/).
@@ -203,6 +240,10 @@ O Studio grava a linha em `consolesWeb` no `studio.config.json`, o cloud pega a 
 
 Nintendo 64, DOS, PlayStation, Arcade e Neo Geo levam "(Web)" no nome para não confundir com os consoles do emulador.
 
+- **🔗 Link test** (no editor, embaixo do Link da ROM): abre o link numa janela antes de editar. Jogo web roda ali
+  mesmo (com Recarregar, tela cheia e Abrir em nova aba; com vários links, escolha o reserva). ROM de emulador só é
+  checada. Com o painel no PC (`node tools/painel.mjs`) ele também diz se o link está **quebrado** (404, sem resposta),
+  se o site **bloqueia** abrir dentro de outra página (aí o cartucho web do app também não abre), se redireciona e o tamanho.
 - **☑ Só PC**: marque no jogo (ou em vários de uma vez, na seleção em massa) e ele **não aparece na TV**.
   Vale para qualquer jogo, inclusive ROM pesada de emulador.
 - **Licença**: um jogo web só é publicado com a licença conferida (`livre`, `autorizada` ou `precisa-original`).

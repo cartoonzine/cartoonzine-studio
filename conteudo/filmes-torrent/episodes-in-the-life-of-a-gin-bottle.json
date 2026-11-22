@@ -7,6 +7,9 @@
   "tmdb": "movie/228696",
   "imdb": "tt1727500",
   "notaImdb": 5,
+  "notaTmdb": 4.4,
+  "popularidade": 0.6,
+  "duracao": 11,
   "votosImdb": 59,
   "capa": "https://archive.org/services/img/silent-episodes-in-the-life-of-a-gin-bottle",
   "banner": "https://image.tmdb.org/t/p/w1280/ecaVw0FXrKzwIjl2tGN0pAohwmM.jpg",
@@ -18,5 +21,5 @@
     "Drama"
   ],
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-01"
+  "_completadoEm": "2026-11-15"
 }

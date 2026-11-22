@@ -558,3 +558,63 @@ test('imagem do fundo do topo: capa (padrão) ou banner; vai para o app como bgI
     const campos = C.TIPOS.video.campos.map(c => c.k);
     assert.ok(campos.indexOf('fundoImagem') === campos.indexOf('posFundo') - 1);   // o seletor fica logo acima da prévia
 });
+
+test('jogo: CHD do MAME vai para o app como lista "chd"', () => {
+    const retro = config.colecoes.find(c => c.id === 'jogos') || config.colecoes.find(c => (c.campos || []).some(k => k.k === 'console'));
+    const it = C.normalizarItem({ nome: 'SF3', console: 'arcade', core: 'mame_capcom', links: ['https://r.x/sfiii.zip'], chd: 'https://r.x/sfiii/cap-sf3-3.chd  https://r.x/nada.txt' }, retro);
+    assert.equal(it.chd, 'https://r.x/sfiii/cap-sf3-3.chd');
+    const o = C.paraCloud(it, retro, 'jogos/x', config);
+    assert.deepEqual(o.chd, ['https://r.x/sfiii/cap-sf3-3.chd']);
+    assert.equal(C.paraCloud(C.normalizarItem({ nome: 'SF2', console: 'arcade', links: ['https://r.x/sf2.zip'] }, retro), retro, 'jogos/x', config).chd, undefined);
+});
+
+test('TMDB: logo do título — idioma pedido, depois inglês, PNG antes de SVG; exportado como logo e bannerlogo', () => {
+    const L = [
+        { file_path: '/en.png', iso_639_1: 'en', vote_average: 9 },
+        { file_path: '/pt.svg', iso_639_1: 'pt', vote_average: 5 },
+        { file_path: '/pt.png', iso_639_1: 'pt', vote_average: 3 },
+        { file_path: '/x.png', iso_639_1: null, vote_average: 10 }
+    ];
+    assert.equal(C.logoDoTMDB(L, 'pt'), 'https://image.tmdb.org/t/p/w500/pt.png');
+    assert.equal(C.logoDoTMDB(L.filter(x => x.iso_639_1 !== 'pt'), 'pt'), 'https://image.tmdb.org/t/p/w500/en.png');
+    assert.equal(C.logoDoTMDB([{ file_path: '/s.svg', iso_639_1: 'pt' }], 'pt'), 'https://image.tmdb.org/t/p/original/s.svg');
+    assert.equal(C.logoDoTMDB([], 'pt'), undefined);
+    const filmes = config.colecoes.find(c => c.tipo === 'video');
+    const o = C.paraCloud(C.normalizarItem({ nome: 'F', links: ['https://v.x/a.mp4'], capa: 'https://i.x/c.jpg', bannerLogo: 'https://i.x/l.png' }, filmes), filmes, 'x', config);
+    assert.equal(o.logo, 'https://i.x/l.png'); assert.equal(o.bannerlogo, 'https://i.x/l.png');
+});
+
+test('busca fina: TMDB traz nota, popularidade, duração e classificação do Brasil; a saída leva tmdbId/tmdbTipo, áudios e qualidade', async () => {
+    const f = async (url) => {
+        const u = new URL(url);
+        const j = u.pathname === '/3/search/movie' ? { results: [{ id: 1306368 }] }
+            : u.pathname === '/3/movie/1306368' ? { title: 'Dinheiro Suspeito', overview: 'Policiais…', release_date: '2026-03-01', vote_average: 7.13, vote_count: 900, popularity: 11.04, runtime: 112,
+                genres: [{ name: 'Ação' }], release_dates: { results: [{ iso_3166_1: 'US', release_dates: [{ certification: 'R' }] }, { iso_3166_1: 'BR', release_dates: [{ certification: '' }, { certification: '16' }] }] } } : null;
+        return { ok: !!j, status: j ? 200 : 404, json: async () => j };
+    };
+    const r = await C.completarItem({ nome: 'Dinheiro Suspeito', audio: 'Dual Áudio', links: ['https://v.exemplo.com/Dinheiro.2026.1080p.mp4', 'https://v.exemplo.com/d-720p.mp4'] }, { tmdb: 'a'.repeat(32), fetchFn: f });
+    const it = C.normalizarItem(r.item, col('filmes'));
+    assert.equal(it.notaTmdb, 7.1); assert.equal(it.popularidade, 11); assert.equal(it.duracao, 112); assert.equal(it.classificacao, '16'); assert.equal(it.tmdb, 'movie/1306368');
+    const o = C.paraCloud(it, col('filmes'), 'filmes/x', config);
+    assert.equal(o.tmdbId, 1306368); assert.equal(o.tmdbTipo, 'movie');
+    assert.equal(o.rating, 7.1); assert.equal(o.age, '16'); assert.equal(o.popularity, 11); assert.equal(o.runtime, 112);
+    assert.deepEqual(o.audios, ['dublado', 'legendado']); assert.equal(o.qualidadeMax, 'FHD', 'a melhor dos links (1080p)');
+    // a nota/popularidade novas atualizam; o resto que você escreveu fica
+    const outro = C.normalizarItem({ nome: 'S', classificacao: '12 anos', qualidade: 'hd', audios: ['Legendado', 'x'], temporadas: [{ numero: 1, episodios: [{ numero: 1, links: ['https://v.exemplo.com/s01e01.2160p.mkv'] }] }] }, col('series'));
+    assert.equal(outro.classificacao, '12'); assert.equal(outro.qualidade, 'HD'); assert.deepEqual(outro.audios, ['legendado']);
+    assert.equal(C.paraCloud(outro, col('series'), 'series/s', config).qualidadeMax, 'HD', 'a qualidade escrita vale');
+});
+
+test('cópias: ordem pela qualidade, dublado, https e teste; empate vai para "olhar"; desativadas ficam guardadas', () => {
+    const L = ['http://a.exemplo.com/filme-720p.mp4', 'https://b.exemplo.com/filme.1080p.dublado.mp4', 'http://c.exemplo.com/filme-1080p-leg.mkv'];
+    let r = C.ordenarCopias(L);
+    assert.deepEqual(r.ordem.map(x => x.url[7] === '/' ? x.url[8] : x.url[7]), ['b', 'c', 'a']); assert.equal(r.certeza, true);
+    r = C.ordenarCopias(L, { teste: new Map([[L[1], { ok: false }]]) });
+    assert.equal(r.ordem[2].url, L[1], 'morto no teste vai para o fim');
+    r = C.ordenarCopias(['http://x.exemplo.com/1.mp4', 'http://y.exemplo.com/2.mp4']);
+    assert.equal(r.certeza, false, 'nada se sabe: você olha');
+    const it = C.normalizarItem({ nome: 'F', links: ['https://a.exemplo.com/1.mp4'], linksDesativados: ['https://b.exemplo.com/2.mp4', 'https://a.exemplo.com/1.mp4'] }, col('filmes'));
+    assert.deepEqual(it.linksDesativados, ['https://b.exemplo.com/2.mp4']);
+    assert.equal(C.paraCloud(it, col('filmes'), 'filmes/f', config).mirrors, undefined, 'desativada não vai para o app');
+    assert.equal(C.resumoItem('conteudo/filmes/f.json', { nome: 'F', links: L }).links, 3);
+});

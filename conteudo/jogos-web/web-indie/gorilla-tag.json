@@ -3,11 +3,18 @@
   "links": [
     "https://gn-math.dev/?id=668"
   ],
+  "capa": "https://cdn2.steamgriddb.com/grid/b279efaa958b0ad1b1c43b43d1efaba5.png",
+  "banner": "https://cdn2.steamgriddb.com/hero/29a5441a7b97a5938b0b7c7341600996.png",
+  "logo": "https://cdn2.steamgriddb.com/logo/a66f8f0921301a9b92d41aec1644b0a5.png",
   "fonte": "https://github.com/Carter54git/Ultimate-Catalog-Of-Web-Game-Ports",
   "repo": "https://github.com/web-ports/gorilla-tag",
   "descricao": "Port para navegador · gn-math.dev",
   "console": "web-indie",
   "licenca": "nao-verificada",
   "_rascunho": true,
-  "_origem": "auto:Ultimate Catalog of Web Game Ports"
+  "_origem": "auto:Ultimate Catalog of Web Game Ports",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-12",
+  "_ssId": 302678,
+  "_ssPreviaEm": "2026-11-12"
 }

@@ -1,0 +1,16 @@
+{
+  "nome": "Minecraft: Story Mode",
+  "links": [
+    "https://mcsm-web.pages.dev/"
+  ],
+  "capa": "https://images.launchbox-app.com//7c56b521-38af-4f57-80e8-258a23939086.png",
+  "banner": "https://images.launchbox-app.com//56a32b29-458e-4082-a096-956582139b36.jpg",
+  "previa": "https://images.launchbox-app.com//b01c371a-c728-4136-ba15-9304485eda43.jpg",
+  "descricao": "O Episódio 1 já está GRÁTIS - por tempo limitado! Em Minecraft: Story Mode, jogando como um herói ou heroína chamado 'Jesse', você embarcará em uma aventura perigosa pelo Mundo Superior, pelo Mundo Inferior, até o Fim e além.",
+  "console": "web-windows",
+  "fundoImagem": "banner",
+  "posFundo": 41,
+  "bannerLogo": "https://images.launchbox-app.com//c89d84c6-580b-4596-9d7b-6b3978498310.png",
+  "bannerVideo": "http://cdn.akamai.steamstatic.com/steam/apps/256662212/movie_max.webm?t=1459277750",
+  "_rascunho": true
+}

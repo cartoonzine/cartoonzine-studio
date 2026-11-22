@@ -1,0 +1,22 @@
+{
+  "nome": "Crosscountry Canada",
+  "links": [
+    "https://archive.org/details/msdos_Crosscountry_Canada_1991"
+  ],
+  "capa": "https://archive.org/services/img/msdos_Crosscountry_Canada_1991",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--crosscountry-canada--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos--msdos--crosscountry-canada--logo.png",
+  "fonte": "https://archive.org/details/msdos_Crosscountry_Canada_1991",
+  "descricao": "Another installment in the geographical educational Crosscountry series represents the map of Canada.\n\nPlayers drive an 18-wheel truck around the country picking up and delivering a variety of commodities with typed-in commands (TURN ON MOTOR, LOOK AT MAP, REST, REPAIR, GO TO GAS STATION, etc.). As players travel between the cities, they learn valuable skills such as problem solving, map reading, and decision making. They'll learn time management, decide when to eat and sleep, and watch road conditions.\n\nThe game is available for 1-2 players.",
+  "ano": 1991,
+  "generos": [
+    "Educacional"
+  ],
+  "editora": "Didatech Software Ltd.",
+  "console": "msdos",
+  "_origem": "auto:Internet Archive MS-DOS",
+  "_completadoEm": "2026-11-11",
+  "_ssEm": "2026-11-18",
+  "_ssId": 170722,
+  "_ssPreviaEm": "2026-11-18"
+}

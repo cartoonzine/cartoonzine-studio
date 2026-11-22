@@ -13,14 +13,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Core, RAIZ, lerConfig, lerColecao, lerArgs } from './lib.mjs';
 import { build } from './build.mjs';
+import { testarCanal, baixarLista, tunel } from './linkedit-rede.mjs';
+import { canaisDoGuia, programacao } from './linkedit-epg.mjs';
 
 const TIPOS_MIME = {
     '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
     '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.m3u': 'audio/x-mpegurl; charset=utf-8',
     '.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon', '.md': 'text/plain; charset=utf-8'
 };
-const HOSTS_PROXY = /(^|\.)(archive\.org|wikipedia\.org)$/i;
-const CAMINHO_OK = /^conteudo\/[a-z0-9][a-z0-9._-]*(\/[a-z0-9][a-z0-9._-]*)*\.json$/;
+const HOSTS_PROXY = /(^|\.)(archive\.org|wikipedia\.org|screenscraper\.fr|steamgriddb\.com)$/i;
+const CAMINHO_OK = /^(conteudo\/[a-z0-9][a-z0-9._-]*(\/[a-z0-9][a-z0-9._-]*)*\.json|listas\/avulsas\.json|sidechain\/(envios|estado|tmdb)\.json)$/;   // + o Sidechain do Link Edit (envios, estado e o índice das listas avulsas)
 
 export function criarServidor({ raiz = RAIZ } = {}) {
     const indice = () => {
@@ -71,13 +73,71 @@ export function criarServidor({ raiz = RAIZ } = {}) {
                         fs.writeFileSync(abs, m.conteudo);
                     }
                 }
+                // só conteúdo e config mudam o dist/; Sidechain, listas e assets não precisam de build
+                if (!mudancas.some(m => /^conteudo\//.test(m.caminho) || m.caminho === 'studio.config.json')) return json(res, 200, { ok: true });
                 const r = build({ raiz, log: () => {} });
                 return json(res, 200, { ok: true, publicados: r.index.colecoes.reduce((n, c) => n + c.publicados, 0), erros: r.totalErros });
+            }
+            // 🔗 Link Edit: testar canal de verdade, baixar lista sem CORS e o túnel do visualizador
+            if (url.pathname === '/api/linkedit/testar') {
+                const alvo = url.searchParams.get('url') || '';
+                const r = await testarCanal(alvo, { modo: url.searchParams.get('modo') || 'completo', ua: url.searchParams.get('ua') || undefined, referer: url.searchParams.get('ref') || undefined });
+                return json(res, 200, r);
+            }
+            if (url.pathname === '/api/linkedit/lista') {
+                try { return json(res, 200, await baixarLista(url.searchParams.get('url') || '')); }
+                catch (e) { return json(res, 200, { erro: e.message }); }
+            }
+            // banco de assets do Link Edit (logos salvos): um arquivo na pasta do Studio, vale para todas as listas
+            if (url.pathname === '/api/linkedit/assets') {
+                const arq = path.join(raiz, 'dados', 'linkedit-assets.json');
+                if (req.method === 'POST') {
+                    const d = await corpo(req);
+                    if (!d || !Array.isArray(d.logos)) return json(res, 400, { erro: 'formato inválido' });
+                    fs.mkdirSync(path.dirname(arq), { recursive: true });
+                    fs.writeFileSync(arq, JSON.stringify({ versao: 1, logos: d.logos, guias: Array.isArray(d.guias) ? d.guias : [], categorias: Array.isArray(d.categorias) ? d.categorias : [] }, null, 1));
+                    return json(res, 200, { ok: true, total: d.logos.length });
+                }
+                try { return json(res, 200, JSON.parse(fs.readFileSync(arq, 'utf8'))); } catch (e) { return json(res, 200, { versao: 1, logos: [] }); }
+            }
+            // guias (EPG): índice de canais do guia e o que passa agora num canal
+            if (url.pathname === '/api/linkedit/epg/canais') {
+                try { const c = await canaisDoGuia(url.searchParams.get('url') || '', { forcar: url.searchParams.get('forcar') === '1' }); return json(res, 200, { canais: c }); }
+                catch (e) { return json(res, 200, { erro: e.message }); }
+            }
+            if (url.pathname === '/api/linkedit/epg/agora') {
+                try { return json(res, 200, await programacao(url.searchParams.get('url') || '', url.searchParams.get('id') || '')); }
+                catch (e) { return json(res, 200, { erro: e.message }); }
+            }
+            if (url.pathname === '/api/linkedit/tunel') return await tunel(req, res, '/api/linkedit/tunel');
+            // 🔗 Link test: o link responde? deixa abrir dentro de outra página (cartucho web)?
+            if (url.pathname === '/api/checar-link') {
+                let alvo; try { alvo = new URL(url.searchParams.get('url') || ''); } catch (e) { return json(res, 400, { erro: 'link inválido' }); }
+                if (!/^https?:$/.test(alvo.protocol)) return json(res, 400, { erro: 'só links http(s)' });
+                if (/^(localhost|0\.0\.0\.0|127\.|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.|\[?::1\]?$|\[?f[cd])/i.test(alvo.hostname)) return json(res, 403, { erro: 'endereço interno não é testado' });
+                const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 15000);
+                try {
+                    const r = await fetch(alvo, { redirect: 'follow', signal: ctl.signal, headers: { 'User-Agent': 'Mozilla/5.0 (cartoonzine-studio link test)', Range: 'bytes=0-0' } });
+                    try { await r.body?.cancel(); } catch (e) { /* */ }
+                    const xfo = (r.headers.get('x-frame-options') || '').trim();
+                    const csp = r.headers.get('content-security-policy') || '';
+                    const fa = /frame-ancestors\s+([^;]+)/i.exec(csp);
+                    let bloqueia = '';
+                    if (/deny|sameorigin/i.test(xfo)) bloqueia = 'X-Frame-Options: ' + xfo;
+                    else if (fa && !/(^|\s)\*(\s|$)/.test(fa[1])) bloqueia = 'frame-ancestors ' + fa[1].trim();
+                    const faixa = /\/(\d+)\s*$/.exec(r.headers.get('content-range') || '');
+                    return json(res, 200, { status: r.status === 206 ? 200 : r.status, final: r.url, tipo: (r.headers.get('content-type') || '').split(';')[0], tamanho: faixa ? +faixa[1] : (+r.headers.get('content-length') || 0), bloqueiaQuadro: bloqueia });
+                } catch (e) {
+                    return json(res, 200, { erro: e.name === 'AbortError' ? 'sem resposta em 15 s' : (e.cause && e.cause.code) || e.message });
+                } finally { clearTimeout(t); }
             }
             if (url.pathname === '/api/proxy') {
                 const alvo = new URL(url.searchParams.get('url') || '');
                 if (alvo.protocol !== 'https:' || !HOSTS_PROXY.test(alvo.hostname)) return json(res, 403, { erro: 'host não permitido' });
-                const r = await fetch(alvo, { headers: { 'User-Agent': 'cartoonzine-studio' } });
+                const cab = { 'User-Agent': 'cartoonzine-studio' };
+                const aut = req.headers['x-proxy-authorization'];
+                if (aut && /(^|\.)steamgriddb\.com$/i.test(alvo.hostname)) cab.Authorization = String(aut);
+                const r = await fetch(alvo, { headers: cab });
                 res.writeHead(r.status, { 'Content-Type': r.headers.get('content-type') || 'application/json' });
                 return res.end(Buffer.from(await r.arrayBuffer()));
             }

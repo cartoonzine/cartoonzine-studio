@@ -1,0 +1,23 @@
+{
+  "nome": "ultrakill",
+  "links": [
+    "https://degloved.net/games/public/gms/ultrakill/index.html"
+  ],
+  "capa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--ultrakill--capa.png",
+  "banner": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--ultrakill--banner.png",
+  "logo": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--ultrakill--logo.png",
+  "video": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--ultrakill--video.mp4",
+  "previa": "https://github.com/cartoonzine/cartoonzine-studio/releases/download/midia-jogos/jogos-web--web-outros--ultrakill--previa.png",
+  "descricao": "ULTRAKILL is a fast-paced ultraviolent retro FPS combining the skill-based style scoring from character action games with unadulterated carnage inspired by the best shooters of the '90s. Rip apart your foes with varied destructive weapons and shower in their blood to regain your health.",
+  "ano": 2020,
+  "generos": [
+    "Tiro"
+  ],
+  "console": "web-outros",
+  "jogadores": 1,
+  "_rascunho": true,
+  "_completadoEm": "2026-11-14",
+  "_ssEm": "2026-11-16",
+  "_ssId": 349908,
+  "_ssPreviaEm": "2026-11-16"
+}
