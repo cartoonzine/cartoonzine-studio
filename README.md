@@ -324,6 +324,15 @@ O TVzine pode abrir esse índice, mostrar os países e carregar só a lista do p
 (`canais/pais/br.json`, com os canais em `channels`). Pelo cartoonzine-cloud, cada canal também chega
 com `country` (`BR`), `countryName` (`Brasil`) e `language`.
 
+### 🧬 Multi Copy (o mesmo vídeo cadastrado mais de uma vez)
+Botão **🧬 Multi Copy** no topo do painel. Ele acha, nas coleções de vídeo, os itens que são o mesmo vídeo:
+- 🟢 **certeza** — mesmo TMDB, mesmo IMDb ou o mesmo link → **Juntar em 1 item**: o ★ fica com a ficha (o que estiver vazio
+  é completado pelos outros) e todos os links viram cópias dele. Os outros arquivos vão para `conteudo/lixeira/` (dá para restaurar).
+- 🟡 **provável** — mesmo nome limpo (sem 1080p, DUB…) e ano → você confirma, ou **São diferentes** (fica lembrado).
+- 🎞 **cópias** — um item com vários links: ☑ publicado (vai para o app; ★ = ativa, as outras = reserva automática),
+  desmarcado = desativado (guardado no Studio), 🗑 = removido (fica em 🗑 Removidas para restaurar).
+No app aparece **1 card**. A memória (são diferentes, lixeira, links removidos) fica em `conteudo/multicopy.json`.
+
 ### Criar uma coleção nova
 
 Copie um bloco de `colecoes` no `studio.config.json`, troque `id`, `nome`, `icone` e o `fonteCloud`

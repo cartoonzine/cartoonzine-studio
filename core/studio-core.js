@@ -2095,10 +2095,88 @@
             pais: item.pais, console: item.console, categoria: item.categoria, tmdb: item.tmdb,
             licenca: item.licenca,
             links: (item.links || []).length > 1 ? item.links.length : undefined,     // cópias (aba Cópias)
+            lks: (item.links || []).length ? item.links.slice(0, 30) : undefined,     // 🧬 Multi Copy: o mesmo link em dois itens = o mesmo vídeo
+            off: (item.linksDesativados || []).length || undefined,
+            imdb: item.imdb,
             soPC: item.soPC ? true : undefined,
             rascunho: item._rascunho ? true : undefined,
             auto: item._origem ? true : undefined
         });
+    }
+
+    // ------------------------------------------------------------------
+    // 🧬 MULTI COPY: o mesmo vídeo cadastrado mais de uma vez (na mesma coleção)
+    //   certeza  = mesmo TMDB, mesmo IMDb ou o mesmo link            → pode juntar sem medo
+    //   provável = mesmo nome limpo (sem 1080p/DUB/ano) e ano igual ou faltando, sem TMDB diferente → você confirma
+    //   copias   = um item só, com mais de um link (ativa + reservas) ou com cópias desativadas
+    // ------------------------------------------------------------------
+    const limparLinkMC = (u) => String(u || '').trim().replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase();
+    function nomeLimpoMC(r) { const a = analisarNome(r.nome || ''); return { nome: normText(a.nome || r.nome || ''), ano: r.ano || a.ano || '' }; }
+    const parMC = (a, b) => [a, b].sort().join('|');
+    /**
+     * Grupos do Multi Copy a partir do índice do painel (resumoItem).
+     * memoria = { naoIguais: ['caminhoA|caminhoB', …] } → "são diferentes" que você já respondeu.
+     * → [{ id, colecao, nivel: 'certeza'|'provavel'|'copias', motivos: [...], itens: [resumo…] }]
+     */
+    function gruposMultiCopy(indice, config, memoria) {
+        const video = new Set(((config && config.colecoes) || []).filter(c => c.tipo === 'video').map(c => c.id));
+        const nao = new Set((memoria && memoria.naoIguais) || []);
+        const porCol = new Map();
+        for (const r of indice || []) {
+            const col = (String(r.caminho).match(/^conteudo\/([^/]+)\//) || [])[1];
+            if (!col || !video.has(col)) continue;
+            if (!porCol.has(col)) porCol.set(col, []);
+            porCol.get(col).push(r);
+        }
+        const grupos = [];
+        for (const [col, rs] of porCol) {
+            const pai = rs.map((_, i) => i);
+            const raiz = (i) => { while (pai[i] !== i) { pai[i] = pai[pai[i]]; i = pai[i]; } return i; };
+            const motivo = new Map();               // raiz → Set de motivos
+            let provavel = new Set();               // raízes que só se juntaram pelo nome
+            const unir = (a, b, m, prov) => {
+                const ra = raiz(a), rb = raiz(b); if (ra === rb) return;
+                pai[rb] = ra;
+                const s = motivo.get(ra) || new Set(); (motivo.get(rb) || []).forEach(x => s.add(x)); s.add(m); motivo.set(ra, s);
+                if (prov || provavel.has(rb)) provavel.add(ra);
+            };
+            // 1) certeza: a mesma chave (TMDB, IMDb ou link)
+            const visto = new Map();
+            rs.forEach((r, i) => {
+                const chaves = [];
+                if (r.tmdb) chaves.push(['tmdb:' + r.tmdb, 'mesmo TMDB']);
+                if (r.imdb) chaves.push(['imdb:' + r.imdb, 'mesmo IMDb']);
+                (r.lks || []).forEach(u => { const l = limparLinkMC(u); if (l.length > 12) chaves.push(['link:' + l, 'mesmo link']); });
+                for (const [k, m] of chaves) {
+                    if (!visto.has(k)) { visto.set(k, i); continue; }
+                    const j = visto.get(k);
+                    if (!nao.has(parMC(rs[j].caminho, r.caminho))) unir(j, i, m, false);
+                }
+            });
+            // 2) provável: mesmo nome limpo, ano compatível, sem dois TMDB diferentes
+            const porNome = new Map();
+            rs.forEach((r, i) => { const n = nomeLimpoMC(r); if (n.nome.length < 2) return; if (!porNome.has(n.nome)) porNome.set(n.nome, []); porNome.get(n.nome).push({ i, ano: n.ano }); });
+            const tmdbsDe = (rt) => new Set(rs.filter((_, j) => raiz(j) === rt).map(r => r.tmdb).filter(Boolean));
+            for (const lista of porNome.values()) {
+                if (lista.length < 2) continue;
+                for (let a = 0; a < lista.length; a++) for (let b = a + 1; b < lista.length; b++) {
+                    const x = lista[a], y = lista[b];
+                    if (raiz(x.i) === raiz(y.i)) continue;
+                    if (x.ano && y.ano && String(x.ano) !== String(y.ano)) continue;
+                    if (new Set([...tmdbsDe(raiz(x.i)), ...tmdbsDe(raiz(y.i))]).size > 1) continue;   // dois TMDB diferentes: obras diferentes
+                    if (nao.has(parMC(rs[x.i].caminho, rs[y.i].caminho))) continue;
+                    unir(x.i, y.i, 'mesmo nome' + (x.ano && y.ano ? ' e ano' : ''), true);
+                }
+            }
+            const porRaiz = new Map();
+            rs.forEach((r, i) => { const rt = raiz(i); if (!porRaiz.has(rt)) porRaiz.set(rt, []); porRaiz.get(rt).push(r); });
+            for (const [rt, itens] of porRaiz) {
+                if (itens.length > 1) grupos.push({ id: itens.map(r => r.caminho).sort().join('|'), colecao: col, nivel: provavel.has(rt) ? 'provavel' : 'certeza', motivos: [...(motivo.get(rt) || [])], itens });
+                else if ((itens[0].lks || []).length > 1 || itens[0].off) grupos.push({ id: itens[0].caminho, colecao: col, nivel: 'copias', motivos: [], itens });
+            }
+        }
+        const ordem = { provavel: 0, certeza: 1, copias: 2 };
+        return grupos.sort((a, b) => ordem[a.nivel] - ordem[b.nivel] || String(a.itens[0].nome).localeCompare(String(b.itens[0].nome)));
     }
 
     /** Quantos episódios um item tem (0 = filme/canal avulso). */
@@ -2107,7 +2185,7 @@
     }
 
     return {
-        VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, contarEpisodios, resumoItem,
+        VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, gruposMultiCopy, contarEpisodios, resumoItem,
         slugify, normText, semAcento, limparHtml, lista,
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         qualidadeDoTexto, audiosDo, ordenarCopias, CRITERIOS_COPIAS, CLASSIFICACOES, QUALIDADES, analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
