@@ -236,3 +236,12 @@ test('TMDB automático do envio: "só o que falta" mantém a thumb da lista; ban
     e.tmdbModo = 'tudo'; e.tmdbFundo = false; o = it();
     assert.equal(o.thumb, 'https://tmdb/capa.jpg'); assert.ok(!o.bgImg);
 });
+
+test('robô: só os campos escolhidos do TMDB saem no JSON', () => {
+    const cs = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="Filmes",Matrix (1999)\nhttp://v/m.mp4\n', 't').canais;
+    L.aplicarTMDB(cs[0], { tmdb: 'movie/603', capa: 'https://tmdb/capa.jpg', banner: 'https://tmdb/fundo.jpg', descricao: 'Neo.', imdb: 'tt0133093', notaImdb: 8.7 });
+    const e = L.envioPadrao({ id: 't', destino: { colecao: 'filmes' }, tmdb: true, tmdbCampos: ['capa', 'imdb'] });
+    const o = JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: e, canais: cs }], cfgMista).saidas[0].itens))[0];
+    assert.equal(o.thumb, 'https://tmdb/capa.jpg'); assert.equal(o.imdbRating, 8.7);
+    assert.ok(!o.bannerThumb && !o.desc && !o.tmdbId);
+});

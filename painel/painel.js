@@ -56,6 +56,7 @@
             const r = await fetch('/api/salvar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mudancas }) });
             const j = await r.json();
             if (!r.ok) throw new Error(j.erro || 'erro ao salvar');
+            if (j.publicados == null) return 'Salvo no seu PC. Faça commit/push para ir pro ar.';
             return `Salvo no seu PC. ${j.publicados} itens publicados em dist/` + (j.erros ? ` (${j.erros} com erro)` : '') + '. Faça commit/push para ir pro ar.';
         }
     }

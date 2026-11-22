@@ -1156,6 +1156,36 @@
         if (SC.canais.has(velho)) { SC.canais.set(e.id, SC.canais.get(velho)); SC.canais.delete(velho); }
         if (SC.atual === velho) SC.atual = e.id;
     }
+    // ---------- 🤖 o robô do GitHub completa pelo TMDB/IMDb (rápido, sem você esperar) ----------
+    async function pedirRoboTMDB(e, opc) {
+        e.tmdb = true;
+        if (opc) { e.tmdbModo = opc.modo; e.tmdbFundo = opc.fundoBanner; e.tmdbCampos = opc.campos; }
+        e.tmdbPedidoEm = new Date().toISOString();       // muda o envios.json → o push chama o robô na hora
+        fixarIdSC(e);
+        try { await gravarSidechain(`Sidechain: ${e.nome} — robô, completar pelo TMDB`); }
+        catch (x) { return S.aviso('Não deu para gravar: ' + x.message, 'ruim'); }
+        S.aviso(local() ? '🤖 Pedido salvo no PC. Faça o commit/push (GitHub Desktop) para o robô começar; depois use 🔄 Atualizar no passo 4.'
+            : '🤖 Pedido enviado: o robô começa em ~1 min. Acompanhe no passo 4 (🔄 Atualizar).', 'ok');
+    }
+    /** "🤖 TMDB: 1.200 de 3.400 títulos…" (o robô escreve no estado a cada rodada) */
+    function andamentoTMDB(e, st) {
+        if (!e.tmdb && !e.tmdbPedidoEm) return '';
+        const t = st && st.tmdb, pedido = e.tmdbPedidoEm && (!st || !st.em || st.em < e.tmdbPedidoEm);
+        if (pedido) return `<div class="le-sc-and">⏳ Pedido enviado ${haQuanto(e.tmdbPedidoEm)} — o robô ainda não terminou. <button class="le-bt" data-sc-atualizar="1">🔄 Atualizar</button></div>`;
+        if (!t) return e.tmdb ? `<div class="le-sc-and">🤖 Ligado: o robô completa na próxima rodada. <button class="le-bt" data-sc-atualizar="1">🔄 Atualizar</button></div>` : '';
+        if (t.semChave) return `<div class="le-sc-and ruim">⚠ O robô está sem a chave do TMDB: crie o secret <b>TMDB_TOKEN</b> no GitHub (Settings → Secrets and variables → Actions).</div>`;
+        const pct = t.titulos ? Math.round((t.achados + t.semAchar) / t.titulos * 100) : 100;
+        return `<div class="le-sc-and"><div class="le-sc-andbar"><i style="width:${pct}%"></i></div>
+          🤖 TMDB ${haQuanto(st.em)}: <b>${numSC(t.achados)}</b> de ${numSC(t.titulos)} títulos completos${t.semAchar ? ` · ${numSC(t.semAchar)} sem achar (arrume o título no 🔀)` : ''}${t.faltam ? ` · <b>${numSC(t.faltam)}</b> na próxima rodada` : ' · ✓ tudo buscado'}
+          <button class="le-bt" data-sc-atualizar="1">🔄 Atualizar</button></div>`;
+    }
+    /** relê só o que o robô escreveu (não perde o que você mudou e ainda não salvou) */
+    async function atualizarEstadoSC() {
+        try { SC.estado = (await S.ler(ARQ_SC_ESTADO)) || SC.estado; } catch (x) { return S.aviso('Não deu para ler o estado do robô: ' + x.message, 'ruim'); }
+        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || e.vistos || {}; });
+        SC.saidaVer = (SC.saidaVer || 0) + 1;
+        S.aviso('🔄 Atualizado com a última rodada do robô.', 'ok');
+    }
     // ---------- 👁 SAÍDA (passo 4): como cada coleção de vídeo vai chegar no app, com o que falta ----------
     /** o que falta no card (mesma conta do gerarJSON: ficha > TMDB > lista) */
     function faltasSD(c) {
@@ -1217,7 +1247,7 @@
               ${cd.falta.length ? `<div class="le-sd-faltas">${cd.falta.map(f => `<span>sem ${f}</span>`).join('')}</div>` : ''}
             </div>`;
         };
-        return `<div class="le-sd"><div class="le-rot">👁 Saída — como vai chegar no app <small style="text-transform:none;letter-spacing:0">(clique no card para editar a ficha)</small></div>
+        return `<div class="le-sd"><div class="le-rot" style="display:flex;align-items:center;gap:8px">👁 Saída — como vai chegar no app <small style="text-transform:none;letter-spacing:0">(clique no card para editar a ficha)</small><button class="le-bt" data-sc-atualizar="1" style="margin-left:auto" title="Traz o que o robô já completou">🔄 Atualizar</button></div>
           <div class="le-sd-abas">${abas.map(x => `<button class="${x === a ? 'on' : ''}" data-sd-aba="${esc(x.col.id)}">${esc((x.col.icone ? x.col.icone + ' ' : '') + x.col.nome)} <b>${numSC(x.cards.length)}</b>${x.cards.some(cd => cd.falta.length) ? ` <small>⚠ ${numSC(x.cards.filter(cd => cd.falta.length).length)}</small>` : ''}</button>`).join('')}</div>
           <div class="le-imp-op"><div class="le-chips">${FALTAS_SD.map(([k, t]) => `<button class="le-chip ${ui.filtro === k ? 'on' : ''}" data-sd-fil="${k}">${t}${k ? ' ' + numSC(nF(k)) : ''}</button>`).join('')}</div>
             <button class="le-bt r" id="le-sd-tmdb" title="Completa os marcados (ou todos os desta lista, se nada estiver marcado)">🔎 Completar pelo TMDB ${ui.marcados.size ? `(${ui.marcados.size} marcados)` : `(${numSC(vis.length)} ${ui.filtro ? 'filtrados' : 'desta aba'})`}</button>
@@ -1309,7 +1339,9 @@
                 </div>
                 <span class="le-sc-tmdbauto"><label title="Ao salvar o robô roda e busca capa, banner, logo PNG, sinopse, gênero e notas (TMDB e IMDb) dos filmes e séries — e repete para os que chegarem. Precisa do secret TMDB_TOKEN no GitHub (e OMDB_KEY para a nota do IMDb)."><input type="checkbox" id="le-sc-tmdb" ${e.tmdb ? 'checked' : ''}> 🔎 Completar pelo TMDB/IMDb ao salvar (automático)</label>
                     <select class="le-campo" id="le-sc-tmdbmodo"><option value="falta" ${e.tmdbModo !== 'tudo' ? 'selected' : ''}>🧩 só o que falta (mantém a thumb da lista)</option><option value="tudo" ${e.tmdbModo === 'tudo' ? 'selected' : ''}>🎬 tudo do TMDB</option></select>
-                    <label><input type="checkbox" id="le-sc-tmdbfundo" ${e.tmdbFundo !== false ? 'checked' : ''}> 🎞 banner no fundo do topo</label></span>
+                    <label><input type="checkbox" id="le-sc-tmdbfundo" ${e.tmdbFundo !== false ? 'checked' : ''}> 🎞 banner no fundo do topo</label>
+                    <button class="le-bt r" id="le-sc-robo" title="Salva e chama o robô do GitHub agora (sem esperar a rodada de 6 h)">🤖 Completar agora</button>
+                    ${andamentoTMDB(e, st)}</span>
               ${SC.passo === 4 ? saidaHTML(e) : ''}
               <details class="le-sc-mais" ${filtrosAtivos(e) || e.avulsa ? 'open' : ''}>
                 <summary>Filtros e lista avulsa${filtrosAtivos(e) ? ` · <b>${filtrosAtivos(e)} filtro(s)</b>` : ''}</summary>
@@ -1387,6 +1419,8 @@
         };
         j.addEventListener('click', async (ev) => {
             const b = ev.target.closest('button');
+            if (b && b.dataset.scAtualizar) { lerForm(); b.disabled = true; await atualizarEstadoSC(); return abrirSidechain(SC.atual); }
+            if (b && b.id === 'le-sc-robo') { lerForm(); b.disabled = true; await pedirRoboTMDB(e); return abrirSidechain(e.id); }
             if (e && ev.target.closest('.le-sd')) { lerForm(); if (cliqueSaida(b, ev, e)) return; }
             if (!b) return;
             if (b.dataset.scAbrir) { lerForm(); return abrirSidechain(b.dataset.scAbrir); }
@@ -2213,6 +2247,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-fs-mais summary{cursor:pointer;color:#94a3b8}.le-fs-mais[open] summary{margin-bottom:8px}
 @media (max-width:640px){.le-fs .le-fs-grade{grid-template-columns:1fr}}
 .le-sc-tmdbauto{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:8px 10px;border-radius:8px;background:#0d1a1f;border:1px solid #1f5560}.le-sc-tmdbauto .le-campo{height:32px;padding:0 8px;line-height:30px}
+.le-sc-and{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12.5px;color:#cbd5e1}.le-sc-and.ruim{color:#fbbf24}.le-sc-and .le-bt{height:28px;padding:0 10px}
+.le-sc-andbar{flex-basis:100%;height:6px;border-radius:6px;background:#1e293b;overflow:hidden}.le-sc-andbar i{display:block;height:100%;background:linear-gradient(90deg,#22d3ee,#e879f9)}
 .le-sd{display:flex;flex-direction:column;gap:8px;margin-top:6px;padding:12px;border-radius:12px;background:#0b0f16;border:1px solid #2a3140}
 .le-sd-abas{display:flex;flex-wrap:wrap;gap:6px}.le-sd-abas button{background:#0d1016;border:1px solid #2a3140;color:#cbd5e1;border-radius:999px;padding:6px 12px;font:inherit;font-size:12.5px;cursor:pointer}.le-sd-abas button.on{border-color:#22d3ee;color:#fff;background:#0b2a33}.le-sd-abas small{color:#fbbf24}
 .le-sd-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
@@ -2586,9 +2622,18 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
           <div class="le-rot">O que trazer</div>
           <div class="le-tm-campos">${CAMPOS_TMDB.map(([k, t]) => `<label><input type="checkbox" data-tm="${k}" ${marcado(k) ? 'checked' : ''}> ${t}</label>`).join('')}</div>
           <label class="le-tm-estilo"><input type="checkbox" id="le-tm-fundo" ${pref.fundoBanner !== false ? 'checked' : ''}> 🎞 Estilo Cartoonzine: o <b>banner</b> vira o fundo do topo (quando tiver)</label>
-          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-tm-ok">🔎 Completar</button></div>`, 'media');
+          <div class="le-jan-botoes">${ctxEnvio() ? `<button class="le-bt r" id="le-tm-robo" style="margin-right:auto" title="O robô do GitHub faz as buscas (bem mais rápido, para o envio todo) — você vê o resultado no passo 4">🤖 Deixar com o robô (envio todo)</button>` : ''}<button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-tm-ok">🔎 Completar aqui${vids.length > 1 ? ' (' + vids.length + ')' : ''}</button></div>`, 'media');
         voltarSaidaAoFechar(j);
         j.addEventListener('change', () => j.querySelectorAll('.le-sc-tipo').forEach(x => x.classList.toggle('on', x.querySelector('input').checked)));
+        const rb = j.querySelector('#le-tm-robo');
+        if (rb) rb.onclick = async () => {
+            const modo = j.querySelector('[name="le-tm-modo"]:checked').value, campos = [...j.querySelectorAll('[data-tm]:checked')].map(x => x.dataset.tm), fundoBanner = j.querySelector('#le-tm-fundo').checked;
+            const e = ctxEnvio(), voltar = !!SC.saida || !!SC.modo;
+            fecharJanela();
+            await pedirRoboTMDB(e, { modo, campos, fundoBanner });
+            if (SC.saida) { SC.saida = null; abrirSidechain(e.id); }
+            else if (voltar) pintarBarraSC();
+        };
         j.querySelector('#le-tm-ok').onclick = async () => {
             const modo = j.querySelector('[name="le-tm-modo"]:checked').value, campos = [...j.querySelectorAll('[data-tm]:checked')].map(x => x.dataset.tm), fundoBanner = j.querySelector('#le-tm-fundo').checked;
             try { localStorage.setItem('czs-le-tmdb', JSON.stringify({ modo, campos, fundoBanner })); } catch (x) { /* */ }
