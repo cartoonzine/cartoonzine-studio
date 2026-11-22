@@ -136,12 +136,13 @@ for (const { envio, canais } of ordemTmdb) {
     if (!TMDB) { console.log(`  ⚠ ${envio.nome}: TMDB ligado, mas sem a chave (secret TMDB_TOKEN do repositório)`); statsTmdb[envio.id] = { semChave: true }; continue; }
     const porChave = new Map();
     canais.filter(c => L.ehVideo(c) && L.passaFiltros(c, envio)).forEach(c => { const k = L.chaveTMDB(c); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(c); });
-    const velho = (g) => !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3;
+    // v2 = já com a "Imagem da tela de prévia": as buscas guardadas antes dela são refeitas uma vez
+    const velho = (g) => !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3 || (g.dados && !g.v);
     const fila = [...porChave.keys()].filter(k => velho(estado.tmdb[k]));
     await emLotes(fila, VEZES_TMDB, async (k) => {
         if (buscasTmdb >= MAX_TMDB || Date.now() > ATE_TMDB) return;
         buscasTmdb++;
-        try { const r = await Core.completarItem(L.pedidoTMDB(porChave.get(k)[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); estado.tmdb[k] = { em: Date.now(), dados: L.dadosDoTMDB(r.item) }; }
+        try { const r = await Core.completarItem(L.pedidoTMDB(porChave.get(k)[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); estado.tmdb[k] = { em: Date.now(), v: 2, dados: L.dadosDoTMDB(r.item) }; }
         catch (e) { estado.tmdb[k] = { em: Date.now(), dados: null }; }
     });
     const st = { titulos: porChave.size, achados: 0, semAchar: 0, faltam: 0 };

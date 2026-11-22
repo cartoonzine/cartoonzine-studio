@@ -32,6 +32,7 @@ if (soNotas && !ch.omdb) { console.log('Sem OMDB_KEY: nada a fazer com --notas.'
 if (!ch.tmdb && !soJogos) console.log('ℹ Sem TMDB_TOKEN: vou usar a Wikipedia (só sinopse e capa).');
 if (!temChaveJogo) console.log('ℹ Sem STEAMGRID_KEY: as artes dos jogos ficam como estão.');
 
+const PREVIA_DESDE = '2026-11-23';
 const fila = [];
 for (const colecao of config.colecoes) {
     if (args.colecao && args.colecao !== colecao.id) continue;
@@ -49,7 +50,9 @@ for (const colecao of config.colecoes) {
     for (const { caminho, item } of lerColecao(colecao).entradas) {
         if (item._travado) continue;
         const n = Core.normalizarItem(item, colecao);
-        const falta = !n.descricao || !n.capa || !n.banner || (ch.tmdb && !n.tmdb) ||
+        // completados antes da "Imagem da tela de prévia" existir para vídeos: uma busca a mais para trazer a prévia
+        const semPrevia = ch.tmdb && n.tmdb && !n.previa && (n._completadoEm || '') < PREVIA_DESDE;
+        const falta = !n.descricao || !n.capa || !n.banner || (ch.tmdb && !n.tmdb) || semPrevia ||
             (n.temporadas || []).some(t => t.episodios.some(e => !e.titulo && !e.descricao));
         const precisaNota = ch.omdb && n.imdb;
         if (soNotas ? precisaNota : (falta || (args.tudo && true))) fila.push({ caminho, colecao, item: n });
