@@ -356,6 +356,8 @@
    ],
    "bannerlogo": "https://image.tmdb.org/t/p/w500/tdlaOn1i6JqOzvDu3mswwo1xEBk.png",
    "logo": "https://image.tmdb.org/t/p/w500/tdlaOn1i6JqOzvDu3mswwo1xEBk.png",
+   "bgImg": "banner",
+   "bgPosY": 39,
    "studio": "filmes-torrent/a-night-in-the-show",
    "thumb": "https://archive.org/services/img/ANightintheShow",
    "bannerThumb": "https://image.tmdb.org/t/p/w1280/n5oOMwzemLd81OARilBWDh2XR9A.jpg",
