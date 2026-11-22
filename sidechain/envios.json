@@ -1276,10 +1276,9 @@
         },
         "aria the animation": {
           "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/1XgXgWmsX1Un8eBHPjcBYpoae6M.jpg",
-          "fundoImagem": "banner",
-          "posFundo": 0,
           "banner": "https://image.tmdb.org/t/p/w1280/9ZfSM7eZVLbjYdZB31tlUi2egR8.jpg",
           "previa": "https://image.tmdb.org/t/p/w1280/jrFdmMblQlVHKcAyoZ9NPHJGqmI.jpg",
+          "fundoImagem": "banner",
           "descricao": "No planeta Aqua, repousa a cidade aquática de Neo Venezia, um ponto turístico onde as pessoas passeiam de gondolas. Gondoleiros profissionais conhecidos como Undines tem boa reputação atuando como guias turísticos para as pessoas. Akari Mizunashi é uma gondoleira em treinamento e também empregada da compania Aria. Ela conhece todos os tipos de pessoa enquanto trabalha nas gondolas.. de conselheiros amigáveis a indivíduos especiais, tudo isso acontece diante de um lindo cenário que é essa bela cidade.",
           "generos": [
             "Animação",
@@ -1287,8 +1286,6 @@
           ],
           "classificacao": "10",
           "imdb": "tt0977907",
-          "notaImdb": 7.2,
-          "votosImdb": 558,
           "tmdb": "tv/53787",
           "nota": 8.4
         },
@@ -2140,6 +2137,54 @@
         "imdb",
         "tmdb"
       ]
+    },
+    {
+      "id": "saimo-filmes",
+      "nome": "Saimo Filmes",
+      "url": "https://raw.githubusercontent.com/cartoonzine/sm-scraper-bridge/refs/heads/main/listas/filmes_sm.json",
+      "listas": [],
+      "ativo": true,
+      "tipoLista": "unica",
+      "destino": {
+        "colecao": "filmes"
+      },
+      "rotas": [
+        {
+          "id": "rmwsf3o221",
+          "destino": {
+            "colecao": "filmes"
+          },
+          "grupos": [
+            "(sem grupo)"
+          ]
+        }
+      ],
+      "gruposNovos": "esperar",
+      "modo": "auto",
+      "soVivos": null,
+      "filtros": {
+        "idiomas": [],
+        "tipos": [],
+        "paises": [],
+        "categorias": [],
+        "excluirTipos": [
+          "Adulto"
+        ],
+        "busca": "",
+        "confiancaMin": 0
+      },
+      "avulsa": false,
+      "tmdb": true,
+      "tmdbModo": "tudo",
+      "tmdbFundo": true,
+      "pularStudio": true,
+      "desvios": {},
+      "regras": [],
+      "ajustes": {},
+      "gruposRevisados": {},
+      "fichasSerie": {},
+      "criadoEm": "2026-11-22T22:35:37.766Z",
+      "tmdbPedidoEm": "2026-11-22T23:11:53.366Z"
     }
   ]
 }
