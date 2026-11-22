@@ -631,7 +631,7 @@
     }
     /** Mudança feita à mão (no painel ou num envio do Sidechain): natureza e/ou campos do vídeo. */
     // ---------- 🖼 FICHA (igual ao "Novo" das Coleções): capa, banner, fundo do topo, sinopse, banner da home… ----------
-    const CAMPOS_FICHA_SC = ['capa', 'banner', 'fundoImagem', 'posFundo', 'descricao', 'generos', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx', 'destaque', 'imdb', 'notaImdb', 'votosImdb', 'tmdb', 'nota'];
+    const CAMPOS_FICHA_SC = ['capa', 'banner', 'previa', 'fundoImagem', 'posFundo', 'descricao', 'generos', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx', 'destaque', 'imdb', 'notaImdb', 'votosImdb', 'tmdb', 'nota'];
     /** junta a ficha nova na antiga: '' / null apaga o campo */
     function juntarFicha(antiga, nova) {
         const f = Object.assign({}, antiga || {});
@@ -680,7 +680,7 @@
     /** O que veio do TMDB (item completado) → c.video.dados (só o que o app usa). Nada que você escreveu é trocado. */
     function dadosDoTMDB(it) {
         if (!it || !it.tmdb) return null;
-        const d = { tmdb: it.tmdb, imdb: it.imdb, titulo: it.nome, capa: it.capa, banner: it.banner, logo: it.bannerLogo, descricao: it.descricao,
+        const d = { tmdb: it.tmdb, imdb: it.imdb, titulo: it.nome, capa: it.capa, banner: it.banner, previa: it.previa, logo: it.bannerLogo, descricao: it.descricao,
             generos: it.generos && it.generos.length ? it.generos : undefined, ano: it.ano, nota: it.notaTmdb, notaImdb: it.notaImdb, votosImdb: it.votosImdb, popularidade: it.popularidade,
             duracao: it.duracao, classificacao: it.classificacao, porBusca: it.porBusca || undefined };
         Object.keys(d).forEach(k => d[k] == null && delete d[k]);
@@ -1216,7 +1216,7 @@
     }
     /** JSON no formato que o Cartoonzine Cloud e o Studio leem (reservas em "mirrors"). */
     // campos do "Completar pelo TMDB" → o que eles trazem dos dados do TMDB (o resto, como ano e duração, vem sempre)
-    const DADOS_DO_CAMPO = { capa: ['capa'], banner: ['banner'], bannerLogo: ['logo'], descricao: ['descricao'], generos: ['generos'], classificacao: ['classificacao'], imdb: ['imdb', 'notaImdb', 'votosImdb'], tmdb: ['tmdb', 'nota'] };
+    const DADOS_DO_CAMPO = { capa: ['capa'], banner: ['banner'], previa: ['previa'], bannerLogo: ['logo'], descricao: ['descricao'], generos: ['generos'], classificacao: ['classificacao'], imdb: ['imdb', 'notaImdb', 'votosImdb'], tmdb: ['tmdb', 'nota'] };
     function dadosPelosCampos(d, campos) {
         if (!campos) return d;
         const o = Object.assign({}, d);
@@ -1247,6 +1247,7 @@
                 const d = dadosPelosCampos(v.dados || {}, c.tmdbPref && c.tmdbPref.campos);   // TMDB (capa, banner, sinopse, nota…)
                 if (d.capa || c.logo) o.thumb = d.capa || c.logo;
                 if (d.banner) o.bannerThumb = d.banner;
+                if (d.previa) o.previewThumb = d.previa;            // tela de prévia: outra imagem grande (não repete o banner)
                 if (d.descricao) o.desc = d.descricao;
                 if (d.logo) o.logo = d.logo; else delete o.logo;   // em vídeo, "logo" é o PNG do título (o tvg-logo da lista já virou a capa)
                 if (d.tmdb) { o.tmdbId = String(d.tmdb).split('/').pop(); o.tmdbTipo = String(d.tmdb).split('/')[0]; }
@@ -1266,6 +1267,7 @@
                 const f = Object.assign({}, c.fichaSerie, c.ficha);
                 if (f.capa) o.thumb = f.capa;
                 if (f.banner) o.bannerThumb = f.banner;
+                if (f.previa) o.previewThumb = f.previa;
                 if (f.descricao) o.desc = f.descricao;
                 if (f.generos && f.generos.length) o.genre = f.generos;
                 if (f.classificacao) o.age = f.classificacao;

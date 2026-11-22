@@ -2605,7 +2605,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
      * "Só o que falta" mantém a capa que veio certa na lista; "Tudo do TMDB" troca tudo.
      * Episódios: grava na ficha da série (vale para todos, inclusive os que chegarem depois).
      */
-    const CAMPOS_TMDB = [['capa', 'Capa (thumb vertical)'], ['banner', 'Banner — fundo do topo e tela de prévia'], ['bannerLogo', 'Logo PNG do título'], ['descricao', 'Sinopse'], ['generos', 'Gêneros'], ['classificacao', 'Classificação'], ['imdb', 'IMDb: código e nota ⭐'], ['tmdb', 'Código e nota do TMDB']];
+    const CAMPOS_TMDB = [['capa', 'Capa (thumb vertical)'], ['banner', 'Banner — fundo do topo'], ['previa', 'Imagem da tela de prévia (outra, sem repetir o banner)'], ['bannerLogo', 'Logo PNG do título'], ['descricao', 'Sinopse'], ['generos', 'Gêneros'], ['classificacao', 'Classificação'], ['imdb', 'IMDb: código e nota ⭐'], ['tmdb', 'Código e nota do TMDB']];
     function abrirCompletarTMDB(lista) {
         const vids = (lista || []).filter(L.ehVideo);
         if (!vids.length) return S.aviso('Nenhum vídeo entre os marcados.', 'ruim');
@@ -2651,7 +2651,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 if (serie && feitas.has(serie)) continue;
                 const atual = Object.assign({}, serie ? c.fichaSerie : c.ficha), nova = {};
                 const tem = (k) => atual[k] != null && atual[k] !== '' && !(Array.isArray(atual[k]) && !atual[k].length);
-                const tmdb = { capa: d.capa, banner: d.banner, bannerLogo: d.logo, descricao: d.descricao, generos: d.generos, classificacao: d.classificacao, imdb: d.imdb, tmdb: d.tmdb };
+                const tmdb = { capa: d.capa, banner: d.banner, previa: d.previa, bannerLogo: d.logo, descricao: d.descricao, generos: d.generos, classificacao: d.classificacao, imdb: d.imdb, tmdb: d.tmdb };
                 for (const k of campos) {
                     if (!tmdb[k]) continue;
                     if (k === 'imdb' && (modo === 'tudo' || !tem('imdb'))) { nova.imdb = d.imdb; if (d.notaImdb) nova.notaImdb = d.notaImdb; if (d.votosImdb) nova.votosImdb = d.votosImdb; continue; }
@@ -2695,10 +2695,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     function abrirFichaItem(c) {
         if (!c || !L.ehVideo(c)) return S.aviso('A ficha é para filmes e episódios. Troque o tipo primeiro (Y).', 'ruim');
         const d = (c.video && c.video.dados) || {}, ep = c.natureza === 'episodio' && c.video && c.video.serie;
-        const base = { capa: d.capa || c.logo || '', banner: d.banner || '', descricao: d.descricao || '', generos: d.generos || [], classificacao: d.classificacao || '', bannerLogo: d.logo || '' };
+        const base = { capa: d.capa || c.logo || '', banner: d.banner || '', previa: d.previa || '', descricao: d.descricao || '', generos: d.generos || [], classificacao: d.classificacao || '', bannerLogo: d.logo || '' };
         const atual = Object.assign({}, base, c.fichaSerie, c.ficha);
         const v = (k) => atual[k] == null ? '' : atual[k];
-        const url = (k, rot, dica) => `<label class="le-fs-campo"><span>${rot}</span><div class="le-fs-url"><input class="le-campo" data-fs="${k}" value="${esc(v(k))}" placeholder="https://…" spellcheck="false">${['capa', 'banner', 'bannerLogo'].includes(k) ? `<img data-fs-img="${k}" alt="">` : ''}</div>${dica ? `<small>${dica}</small>` : ''}</label>`;
+        const url = (k, rot, dica) => `<label class="le-fs-campo"><span>${rot}</span><div class="le-fs-url"><input class="le-campo" data-fs="${k}" value="${esc(v(k))}" placeholder="https://…" spellcheck="false">${['capa', 'banner', 'previa', 'bannerLogo'].includes(k) ? `<img data-fs-img="${k}" alt="">` : ''}</div>${dica ? `<small>${dica}</small>` : ''}</label>`;
         const sel = (k, rot, ops, vazio) => `<label class="le-fs-campo"><span>${rot}</span><select class="le-campo" data-fs="${k}"><option value="">${vazio}</option>${ops.map(o => `<option ${String(v(k)) === o ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
         const pos = Number.isFinite(parseFloat(atual.posFundo)) ? Math.round(parseFloat(atual.posFundo)) : '';
         const j = janela(`<h3>🖼 Ficha — ${esc(ep ? c.video.serie : (c.video && c.video.titulo) || c.nome)}</h3>
@@ -2707,6 +2707,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
           <div class="le-fs-grade">
             ${url('capa', 'Capa (imagem vertical)')}
             ${url('banner', 'Banner (imagem horizontal)')}
+            ${url('previa', 'Imagem da tela de prévia', 'aparece na tela de prévia da categoria antes do vídeo — outra imagem grande, para não repetir o banner · vazio = usa o banner')}
             <div class="le-fs-campo cheio"><span>Imagem do fundo do topo</span><div class="le-chips">${[['', '🖼️ Capa'], ['banner', '🎞️ Banner']].map(([k, t]) => `<label class="le-chip ${String(v('fundoImagem')) === k ? 'on' : ''}"><input type="radio" name="le-fs-fundo" value="${k}" ${String(v('fundoImagem')) === k ? 'checked' : ''} hidden>${t}</label>`).join('')}</div><small>qual imagem vira o fundo do topo da tela no app · sem banner, usa a capa</small></div>
             <div class="le-fs-campo cheio"><span>Posição da imagem no fundo do topo</span>
               <div class="le-fs-quadro" title="Arraste a imagem para cima ou para baixo"><div class="le-fs-img"></div><div class="le-fs-degrade"></div><b class="le-fs-titulo">${esc(ep ? c.video.serie : (c.video && c.video.titulo) || c.nome)}</b></div>
@@ -2779,7 +2780,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         j.querySelector('#le-fs-tmdb').onclick = () => { const sd = SC.saida; fecharJanela(); SC.saida = sd; abrirCompletarTMDB(sd ? ctxCanais().filter(x => (L.chaveSerie(c) && L.chaveSerie(x) === L.chaveSerie(c)) || x === c) : [c]); };
         j.querySelector('#le-fs-ok').onclick = () => {
             const f = {};
-            ['capa', 'banner', 'descricao', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx'].forEach(k => { const x = val(k); if (x && x !== String(base[k] || '')) f[k] = x; });
+            ['capa', 'banner', 'previa', 'descricao', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx'].forEach(k => { const x = val(k); if (x && x !== String(base[k] || '')) f[k] = x; });
             const gen = val('generos').split(',').map(x => x.trim()).filter(Boolean);
             if (gen.length && gen.join(',') !== [].concat(base.generos || []).join(',')) f.generos = gen;
             const fundo = (j.querySelector('[name="le-fs-fundo"]:checked') || {}).value; if (fundo === 'banner') f.fundoImagem = 'banner';
