@@ -2111,7 +2111,15 @@
     //   copias   = um item só, com mais de um link (ativa + reservas) ou com cópias desativadas
     // ------------------------------------------------------------------
     const limparLinkMC = (u) => String(u || '').trim().replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase();
-    function nomeLimpoMC(r) { const a = analisarNome(r.nome || ''); return { nome: normText(a.nome || r.nome || ''), ano: r.ano || a.ano || '' }; }
+    const LIXO_MC = /\b(dub|dublado|dublada|leg|legendado|legendada|dual|audio|nacional|pt ?br|sub|4k|uhd|fhd|hd|sd|1080p?|720p?|480p?|2160p?|x26[45]|h26[45]|hevc|web ?dl|webrip|bluray|brrip|dvdrip|hdtv|remux|completo|filme)\b/g;
+    function nomeLimpoMC(r) {
+        const a = analisarNome(r.nome || '');
+        let n = normText(a.nome || r.nome || ''), ano = r.ano || a.ano || '';
+        const m = n.match(/\b(19[0-9]{2}|20[0-9]{2})\b/);
+        if (m && n.replace(m[0], '').trim().length > 1) { if (!ano) ano = +m[1]; n = n.replace(m[0], ' '); }
+        n = n.replace(LIXO_MC, ' ').replace(/\s+/g, ' ').trim();
+        return { nome: n, ano };
+    }
     const parMC = (a, b) => [a, b].sort().join('|');
     /**
      * Grupos do Multi Copy a partir do índice do painel (resumoItem).
@@ -2172,11 +2180,53 @@
             rs.forEach((r, i) => { const rt = raiz(i); if (!porRaiz.has(rt)) porRaiz.set(rt, []); porRaiz.get(rt).push(r); });
             for (const [rt, itens] of porRaiz) {
                 if (itens.length > 1) grupos.push({ id: itens.map(r => r.caminho).sort().join('|'), colecao: col, nivel: provavel.has(rt) ? 'provavel' : 'certeza', motivos: [...(motivo.get(rt) || [])], itens });
-                else if ((itens[0].lks || []).length > 1 || itens[0].off) grupos.push({ id: itens[0].caminho, colecao: col, nivel: 'copias', motivos: [], itens });
+                else if ((itens[0].lks || []).length > 1 || itens[0].off || itens[0].sc) grupos.push({ id: itens[0].caminho, colecao: col, nivel: 'copias', motivos: [], itens });
             }
         }
         const ordem = { provavel: 0, certeza: 1, copias: 2 };
         return grupos.sort((a, b) => ordem[a.nivel] - ordem[b.nivel] || String(a.itens[0].nome).localeCompare(String(b.itens[0].nome)));
+    }
+
+    /**
+     * 🧬 "Já existe?" — o item que você está colocando é um vídeo que já está na coleção?
+     * → { r: resumo do índice, nivel: 'certeza'|'provavel', motivo } ou null. Mesmas regras do Multi Copy.
+     */
+    function acharMesmoVideo(indice, col, item) {
+        const pasta = 'conteudo/' + col.id + '/';
+        const rs = (indice || []).filter(r => String(r.caminho).startsWith(pasta));
+        const tmdb = item.tmdb, imdb = item.imdb;
+        const links = new Set([].concat(item.links || [], item.linksDesativados || []).map(limparLinkMC).filter(l => l.length > 12));
+        for (const r of rs) {
+            if (tmdb && r.tmdb === tmdb) return { r, nivel: 'certeza', motivo: 'mesmo TMDB' };
+            if (imdb && r.imdb === imdb) return { r, nivel: 'certeza', motivo: 'mesmo IMDb' };
+            if ((r.lks || []).some(u => links.has(limparLinkMC(u)))) return { r, nivel: 'certeza', motivo: 'mesmo link' };
+        }
+        const n = nomeLimpoMC({ nome: item.nome, ano: item.ano });
+        if (n.nome.length < 2) return null;
+        for (const r of rs) {
+            const m = nomeLimpoMC(r);
+            if (m.nome !== n.nome) continue;
+            if (m.ano && n.ano && String(m.ano) !== String(n.ano)) continue;
+            if (tmdb && r.tmdb && tmdb !== r.tmdb) continue;
+            return { r, nivel: 'provavel', motivo: 'mesmo nome' + (m.ano && n.ano ? ' e ano' : '') };
+        }
+        return null;
+    }
+    /**
+     * Reservas que o Sidechain achou para itens da Studio (listas/sc-reservas.json) entram como cópias no DB do app.
+     * Nunca repete link, nunca volta um desativado. → quantos links entraram.
+     */
+    function aplicarReservasSC(item, res, max = 5) {
+        if (!res) return 0;
+        const fora = new Set([].concat(item.linksDesativados || []).map(limparLinkMC));
+        let n = 0;
+        const somar = (lista, novos) => { const tem = new Set(lista.map(limparLinkMC)); for (const u of novos || []) { if (n >= max * 20) break; const l = limparLinkMC(u); if (tem.has(l) || fora.has(l)) continue; lista.push(u); tem.add(l); n++; } return lista; };
+        if (res.links && res.links.length && (item.links || []).length) item.links = somar(item.links.slice(), res.links.slice(0, max));
+        if (res.eps) for (const t of item.temporadas || []) for (const e of t.episodios || []) {
+            const k = t.numero + '|' + e.numero;
+            if (res.eps[k] && (e.links || []).length) e.links = somar(e.links.slice(), res.eps[k].slice(0, max));
+        }
+        return n;
     }
 
     /** Quantos episódios um item tem (0 = filme/canal avulso). */
@@ -2185,7 +2235,7 @@
     }
 
     return {
-        VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, gruposMultiCopy, contarEpisodios, resumoItem,
+        VERSAO, TIPOS, PAISES, IDIOMAS, mesclarItem, gruposMultiCopy, acharMesmoVideo, aplicarReservasSC, contarEpisodios, resumoItem,
         slugify, normText, semAcento, limparHtml, lista,
         linkValido, nomeDoLink, idDoArchive, ehLinkDePaginaDoBot,
         qualidadeDoTexto, audiosDo, ordenarCopias, CRITERIOS_COPIAS, CLASSIFICACOES, QUALIDADES, analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,

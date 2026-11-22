@@ -1061,6 +1061,25 @@
                 return;
             }
             if (!novo.nome) { $('#ed-erros', fundo).textContent = 'Coloque pelo menos o nome.'; return; }
+            // 🧬 Multi Copy: o vídeo novo já existe na coleção? junta como cópia (1 card no app) ou cria mesmo assim
+            if (!caminho && col.tipo === 'video' && !rascunho) {
+                const m = C.acharMesmoVideo(estado.indice, col, novo);
+                if (m) {
+                    const quer = await perguntarJaExiste(m, novo, col);
+                    if (!quer) return;
+                    if (quer === 'juntar') {
+                        try {
+                            const atual = C.normalizarItem(await estado.repo.ler(m.r.caminho), col);
+                            const extra = Object.assign({}, novo); delete extra._rascunho; delete extra.nome;
+                            const junto = C.mesclarItem(atual, extra);
+                            await gravar([{ caminho: m.r.caminho, conteudo: C.serializar(C.normalizarItem(junto, col)) }], `Studio: junta um link novo em "${atual.nome}" como cópia (Multi Copy)`, $('#ed-salvar', fundo));
+                            aviso(`🧬 Juntado em "${atual.nome}" como cópia — no app continua 1 card.`, 'ok');
+                            fechar();
+                        } catch (e) { $('#ed-erros', fundo).textContent = 'Não deu para juntar: ' + e.message; }
+                        return;
+                    }
+                }
+            }
             const mudancas = [];
             let destino = caminho;
             const sub = col.subpasta;
@@ -1801,7 +1820,26 @@ https://archive.org/details/algum_desenho
         desenharPrevia(col);
     }
 
+    /** 🧬 "Já existe!": juntar como cópia, criar mesmo assim ou voltar → 'juntar' | 'criar' | null */
+    function perguntarJaExiste(m, novo, col) {
+        return new Promise(ok => {
+            const d = document.createElement('div');
+            d.className = 'mc-dlg-fundo';
+            const r = m.r, n = (r.lks || []).length;
+            d.innerHTML = `<div class="mc-dlg" role="dialog" aria-modal="true">
+              <h3>🧬 ${m.nivel === 'certeza' ? 'Já existe!' : 'Parece que já existe'}</h3>
+              <div class="mc-dlg-item">${r.capa ? `<img src="${esc(r.capa)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}<div><b>${esc(r.nome)}</b>${r.ano ? ` (${esc(r.ano)})` : ''}<br><span class="dica">${esc(col.nome)} · ${n} cópia${n === 1 ? '' : 's'} · ${esc(m.motivo)}</span></div></div>
+              <p class="dica">Juntando, o link novo vira mais uma cópia desse item: no app continua <b>1 card</b> e, se a ativa cair, o player troca sozinho.</p>
+              <div class="mc-dlg-bt"><button class="btn principal" data-r="juntar">Juntar como cópia</button><button class="btn" data-r="criar">Criar mesmo assim</button><button class="btn fantasma" data-r="">Voltar</button></div>
+            </div>`;
+            const fim = (v) => { d.remove(); ok(v || null); };
+            d.addEventListener('click', ev => { const b = ev.target.closest('[data-r]'); if (b) fim(b.dataset.r); else if (ev.target === d) fim(null); });
+            document.body.appendChild(d);
+            d.querySelector('[data-r="juntar"]').focus();
+        });
+    }
     function acharExistente(col, item) {
+        if (col.tipo === 'video') { const m = C.acharMesmoVideo(estado.indice, col, item); if (m) return Object.assign({ _mc: m.motivo }, m.r); }   // 🧬 mesmo TMDB/IMDb/link/nome
         const alvo = C.normText(item.nome);
         const sub = col.subpasta;
         return estado.indice.find(i => i.caminho.startsWith('conteudo/' + col.id + '/') && C.normText(i.nome) === alvo &&
@@ -1834,7 +1872,7 @@ https://archive.org/details/algum_desenho
                     ${l.erros.length ? `<div class="erros">${l.erros.map(esc).join('<br>')}</div>` : ''}
                     ${l.avisos.length ? `<div class="dica">${l.avisos.map(esc).join('<br>')}</div>` : ''}</td>
                   <td>${esc(resumo(l))}${l.item.ano ? ' · ' + l.item.ano : ''}</td>
-                  <td>${l.erros.length ? '<span class="tag erro">com erro</span>' : l.existente ? `<span class="tag junta" title="${esc(l.existente.caminho)}">junta com o existente</span>` : '<span class="tag novo">novo</span>'}${!l.erros.length && l.item._rascunho && !l.existente ? ' <span class="selo rasc">rascunho</span>' : ''}${l.item._nomeDoArquivo ? ' <span class="selo auto" title="O robô troca pelo nome oficial quando identificar a ROM">nome do arquivo</span>' : ''}</td>
+                  <td>${l.erros.length ? '<span class="tag erro">com erro</span>' : l.existente ? `<span class="tag junta" title="${esc(l.existente.caminho)}">🧬 junta com "${esc(l.existente.nome)}"${l.existente._mc ? ' · ' + esc(l.existente._mc) : ''}</span>` : '<span class="tag novo">novo</span>'}${!l.erros.length && l.item._rascunho && !l.existente ? ' <span class="selo rasc">rascunho</span>' : ''}${l.item._nomeDoArquivo ? ' <span class="selo auto" title="O robô troca pelo nome oficial quando identificar a ROM">nome do arquivo</span>' : ''}</td>
                 </tr>`).join('')}</tbody>
             </table></div>
           </div>`;
@@ -1879,6 +1917,8 @@ https://archive.org/details/algum_desenho
             for (const [caminho, item] of porCaminho) mudancas.push({ caminho, conteudo: C.serializar(item) });
             const emRasc = escolhidos.filter(l => l.item._rascunho && !l.existente).length;
             await gravar(mudancas, `Studio: +${mudancas.length} em ${col.nome} (adição ${rapido.arquivos.length || mudancas.length > 30 ? 'em massa' : 'rápida'}${emRasc ? ', ' + emRasc + ' como rascunho' : ''})`, btn);
+            const juntados = escolhidos.filter(l => l.existente).length;
+            if (juntados) aviso(`🧬 ${escolhidos.length - juntados} novos · ${juntados} já existiam e viraram cópia (1 card no app).`, 'ok');
             rapido.previa = null; rapido.texto = ''; rapido.arquivos = [];
             estado.aba = 'itens';
             desenharArea();

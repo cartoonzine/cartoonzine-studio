@@ -332,6 +332,13 @@ Botão **🧬 Multi Copy** no topo do painel. Ele acha, nas coleções de vídeo
 - 🎞 **cópias** — um item com vários links: ☑ publicado (vai para o app; ★ = ativa, as outras = reserva automática),
   desmarcado = desativado (guardado no Studio), 🗑 = removido (fica em 🗑 Removidas para restaurar).
 No app aparece **1 card**. A memória (são diferentes, lixeira, links removidos) fica em `conteudo/multicopy.json`.
+- **Já existe!** — no **Novo** de uma coleção de vídeo, se o vídeo já está cadastrado (mesmo TMDB, IMDb, link ou nome e ano),
+  o Studio pergunta: **Juntar como cópia** ou criar mesmo assim. Na adição rápida/em massa ele já junta e mostra
+  "N novos · M já existiam e viraram cópia".
+- **Sidechain** — o que já está cadastrado na Studio não some: o link vira **reserva** do item de lá
+  (`listas/sc-reservas.json`; o build junta como cópia no DB do app, sem mexer no seu arquivo). Aparece como 🔗 no Multi Copy.
+- **🤖 Robô de saúde** (`tools/saude-copias.mjs`, todo dia no workflow): se a ativa morreu (3 falhas no teste de links),
+  a primeira reserva que abrir vira a ativa e a morta vai para desativadas (🔴 Ativa trocada). A lixeira com mais de 30 dias sai de vez.
 
 ### Criar uma coleção nova
 

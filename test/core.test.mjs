@@ -638,3 +638,18 @@ test('🧬 Multi Copy: mesmo TMDB/link = certeza; mesmo nome = provável; TMDB d
     const r = C.resumoItem('conteudo/filmes/x.json', { nome: 'X', links: ['http://a/1', 'http://a/2'], linksDesativados: ['http://a/3'], imdb: 'tt1' });
     assert.deepEqual(r.lks, ['http://a/1', 'http://a/2']); assert.equal(r.off, 1); assert.equal(r.imdb, 'tt1');
 });
+
+test('🧬 Já existe? (na inserção) e reservas do Sidechain entram como cópias sem repetir nem voltar desativada', () => {
+    const col = { id: 'filmes', tipo: 'video' };
+    const I = [{ caminho: 'conteudo/filmes/m.json', nome: 'Matrix', ano: 1999, tmdb: 'movie/603', lks: ['http://cdn.x/matrix.mp4'] }, { caminho: 'conteudo/filmes/r.json', nome: 'O Rei Leão', ano: 1994, tmdb: 'movie/8587', lks: ['http://cdn.x/rl.mp4'] }];
+    assert.equal(C.acharMesmoVideo(I, col, { nome: 'Outro nome', tmdb: 'movie/603' }).motivo, 'mesmo TMDB');
+    assert.equal(C.acharMesmoVideo(I, col, { nome: 'X', links: ['http://cdn.x/matrix.mp4?t=1'] }).motivo, 'mesmo link');
+    assert.equal(C.acharMesmoVideo(I, col, { nome: 'Matrix.1999.1080p.DUB', links: ['http://n.x/1.mp4'] }).nivel, 'provavel');
+    assert.equal(C.acharMesmoVideo(I, col, { nome: 'O Rei Leão', ano: 2019, links: ['http://n.x/2.mp4'] }), null, 'ano diferente');
+    assert.equal(C.acharMesmoVideo(I, col, { nome: 'O Rei Leão', tmdb: 'movie/420818', links: ['http://n.x/3.mp4'] }), null, 'TMDB diferente');
+    const it = { nome: 'Matrix', links: ['http://cdn.x/matrix.mp4'], linksDesativados: ['http://morto.x/m.mp4'], temporadas: [{ numero: 1, episodios: [{ numero: 2, links: ['http://e.x/2.mp4'] }] }] };
+    const n = C.aplicarReservasSC(it, { links: ['http://sc.x/m.mp4', 'http://cdn.x/matrix.mp4', 'http://morto.x/m.mp4'], eps: { '1|2': ['http://sc.x/e2.mp4'] } });
+    assert.equal(n, 2);
+    assert.deepEqual(it.links, ['http://cdn.x/matrix.mp4', 'http://sc.x/m.mp4']);
+    assert.deepEqual(it.temporadas[0].episodios[0].links, ['http://e.x/2.mp4', 'http://sc.x/e2.mp4']);
+});

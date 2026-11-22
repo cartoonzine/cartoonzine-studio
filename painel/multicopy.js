@@ -30,7 +30,7 @@
     async function memoria() {
         if (E.memoria) return E.memoria;
         try { E.memoria = (await S.ler(ARQ)) || {}; } catch (e) { E.memoria = {}; }
-        E.memoria.naoIguais = E.memoria.naoIguais || []; E.memoria.lixeira = E.memoria.lixeira || []; E.memoria.linksRemovidos = E.memoria.linksRemovidos || [];
+        E.memoria.naoIguais = E.memoria.naoIguais || []; E.memoria.lixeira = E.memoria.lixeira || []; E.memoria.linksRemovidos = E.memoria.linksRemovidos || []; E.memoria.trocas = E.memoria.trocas || [];
         return E.memoria;
     }
     const memoriaJSON = () => JSON.stringify(E.memoria, null, 1) + '\n';
@@ -60,7 +60,9 @@
         const n = { certeza: 0, provavel: 0, copias: 0 };
         todos.forEach(g => n[g.nivel]++);
         const nCopias = todos.reduce((t, g) => t + g.itens.reduce((x, r) => x + (r.lks || []).length + (r.off || 0), 0), 0);
-        const lista = E.filtro === 'removidas' ? [] : E.filtro === 'todos' ? todos : todos.filter(g => g.nivel === E.filtro);
+        const trocados = new Set(E.memoria.trocas.map(t => t.caminho));
+        const lista = E.filtro === 'removidas' || E.filtro === 'trocas' ? [] : E.filtro === 'todos' ? todos : todos.filter(g => g.nivel === E.filtro);
+        E.trocados = trocados;
         const vis = lista.slice(0, E.mostrar);
         const cols = [...new Set((S.indice() || []).map(r => colDe(r.caminho)))].map(colecao).filter(c => c.tipo === 'video');
         const lix = E.memoria.lixeira.length + E.memoria.linksRemovidos.length;
@@ -71,21 +73,22 @@
             <div class="mc-k v"><b>${num(n.certeza)}</b><small>🟢 para juntar (certeza)</small></div>
             <div class="mc-k y"><b>${num(n.provavel)}</b><small>🟡 para olhar (provável)</small></div>
             <div class="mc-k r"><b>${num(n.copias)}</b><small>🎞 títulos com cópias</small></div>
-            <div class="mc-k c"><b>${num(nCopias)}</b><small>cópias no total</small></div>
+            <div class="mc-k d"><b>${num(E.memoria.trocas.length)}</b><small>🔴 ativa morreu → trocada (30 dias)</small></div>
           </div>
           <div class="mc-grade">
             <aside class="mc-lado">
               <input class="campo" id="mc-busca" placeholder="🔎 Buscar título, link, TMDB…" value="${esc(E.busca)}">
               <div class="mc-rot">Mostrar</div>
-              ${[['todos', 'Todos os grupos', todos.length], ['provavel', '🟡 Para olhar', n.provavel], ['certeza', '🟢 Para juntar', n.certeza], ['copias', '🎞 Títulos com cópias', n.copias], ['removidas', '🗑 Removidas', lix]]
+              ${[['todos', 'Todos os grupos', todos.length], ['provavel', '🟡 Para olhar', n.provavel], ['certeza', '🟢 Para juntar', n.certeza], ['copias', '🎞 Títulos com cópias', n.copias], ['trocas', '🔴 Ativa trocada', E.memoria.trocas.length], ['removidas', '🗑 Removidas', lix]]
                 .map(([k, t, c]) => `<button class="mc-f ${E.filtro === k ? 'on' : ''}" data-f="${k}"><span>${t}</span><i>${num(c)}</i></button>`).join('')}
               <div class="mc-rot">Onde</div>
               <div class="mc-chips"><button class="mc-chip ${!E.col ? 'on' : ''}" data-col="">Todas</button>${cols.map(c => `<button class="mc-chip ${E.col === c.id ? 'on' : ''}" data-col="${esc(c.id)}">${esc((c.icone ? c.icone + ' ' : '') + c.nome)}</button>`).join('')}</div>
               ${S.local() ? '<button class="btn mini" id="mc-testar" style="margin-top:14px;width:100%" title="Testa as cópias desta tela pelo painel do PC">⚡ Testar as cópias da tela</button>' : '<p class="dica" style="margin-top:14px">O teste das cópias funciona no painel do PC.</p>'}
-              <p class="dica" style="margin-top:12px">Como ele reconhece: <b>mesmo TMDB, IMDb ou link</b> = certeza · <b>mesmo nome e ano</b> = provável (você confirma) · TMDB diferente nunca junta.</p>
+              <p class="dica" style="margin-top:12px">🤖 Todo dia o robô testa as ativas: se a ativa morrer, a melhor reserva assume sozinha (🔴). O que está na lixeira há mais de 30 dias sai de vez.</p>
+            <p class="dica">Como ele reconhece: <b>mesmo TMDB, IMDb ou link</b> = certeza · <b>mesmo nome e ano</b> = provável (você confirma) · TMDB diferente nunca junta.</p>
             </aside>
             <section class="mc-lista">
-              ${E.filtro === 'removidas' ? removidasHTML() : vis.length ? vis.map((g, i) => grupoHTML(g, i)).join('') : '<div class="vazio"><b>Nada aqui 🎉</b>Nenhum vídeo repetido neste filtro.</div>'}
+              ${E.filtro === 'removidas' ? removidasHTML() : E.filtro === 'trocas' ? trocasHTML() : vis.length ? vis.map((g, i) => grupoHTML(g, i)).join('') : '<div class="vazio"><b>Nada aqui 🎉</b>Nenhum vídeo repetido neste filtro.</div>'}
               ${lista.length > vis.length ? `<button class="btn" id="mc-mais">Mostrar mais (${num(lista.length - vis.length)})</button>` : ''}
             </section>
           </div>
@@ -119,7 +122,9 @@
 
     function grupoHTML(g, gi) {
         const c = colecao(g.colecao), r0 = g.itens[0];
-        const tag = g.nivel === 'certeza' ? `<span class="mc-tag v">✓ certeza: ${esc(g.motivos.join(' · '))}</span>` : g.nivel === 'provavel' ? `<span class="mc-tag y">🟡 provável: ${esc(g.motivos.join(' · '))}</span>` : '<span class="mc-tag r">🎞 cópias do mesmo item</span>';
+        const extra = (g.itens.some(r => E.trocados.has(r.caminho)) ? '<span class="mc-tag d">🔁 ativa trocada pelo robô</span>' : '') +
+            (g.itens.some(r => r.sc) ? `<span class="mc-tag c" title="Links que o Sidechain achou para este item: vão para o app como reserva automática">🔗 +${g.itens.reduce((t, r) => t + (r.sc || 0), 0)} reservas do Sidechain</span>` : '');
+        const tag = extra + (g.nivel === 'certeza' ? `<span class="mc-tag v">✓ certeza: ${esc(g.motivos.join(' · '))}</span>` : g.nivel === 'provavel' ? `<span class="mc-tag y">🟡 provável: ${esc(g.motivos.join(' · '))}</span>` : '<span class="mc-tag r">🎞 cópias do mesmo item</span>');
         if (g.nivel === 'copias') {
             const it = E.itens.get(r0.caminho);
             const links = it ? it.links || [] : r0.lks || [], des = it ? it.linksDesativados || [] : [];
@@ -151,6 +156,12 @@
         return g.itens.slice().sort((a, b) => pts(b) - pts(a))[0].caminho;
     }
 
+    function trocasHTML() {
+        const t = E.memoria.trocas;
+        if (!t.length) return '<div class="vazio"><b>Nenhuma troca 🎉</b>Quando a cópia ativa de um vídeo morre, o robô coloca a melhor reserva no lugar e ela aparece aqui.</div>';
+        return `<div class="mc-g"><div class="mc-gh"><div><h3>🔴 Ativa morreu → trocada pelo robô</h3><small>a morta foi para desativadas (fica guardada); confira e, se quiser, remova no grupo do título</small></div></div>
+          <table><tr><th>Título</th><th>Morreu</th><th>Agora toca</th><th>Quando</th></tr>${t.map(x => `<tr><td><b>${esc(x.nome)}</b></td><td class="ruim" title="${esc(x.de)}">${esc(host(x.de))} <small>${esc(arquivo(x.de)).slice(0, 40)}</small></td><td class="ok" title="${esc(x.para)}">${esc(host(x.para))} <small>${esc(arquivo(x.para)).slice(0, 40)}</small></td><td class="dica">${esc(x.em)}</td></tr>`).join('')}</table></div>`;
+    }
     function removidasHTML() {
         const m = E.memoria;
         if (!m.lixeira.length && !m.linksRemovidos.length) return '<div class="vazio"><b>Lixeira vazia</b>O que você juntar ou remover aparece aqui e dá para restaurar.</div>';

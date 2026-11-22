@@ -33,10 +33,21 @@ export function build({ raiz = RAIZ, saida, log = console.log } = {}) {
     let totalErros = 0;
     const indicePainel = [];
 
+    // 🧬 reservas que o Sidechain achou para itens da Studio (listas/sc-reservas.json): entram como cópias no DB do app
+    let reservasSC = {};
+    try { reservasSC = JSON.parse(fs.readFileSync(path.join(raiz, 'listas', 'sc-reservas.json'), 'utf8')) || {}; } catch (e) { /* sem Sidechain */ }
     for (const colecao of config.colecoes) {
         const { entradas, quebrados } = lerColecao(colecao, raiz);
+        for (const e of entradas) {
+            const r = Core.resumoItem(e.caminho, e.item);           // o índice mostra o arquivo como ele é…
+            if (colecao.tipo === 'video' && reservasSC[e.caminho]) {
+                e.item = JSON.parse(JSON.stringify(e.item));
+                const n = Core.aplicarReservasSC(e.item, reservasSC[e.caminho]);    // …e o app recebe também as reservas
+                if (n) r.sc = n;
+            }
+            indicePainel.push(r);
+        }
         const { arquivos, fontes, relatorio: rel } = Core.compilarColecao(colecao, entradas, config);
-        for (const e of entradas) indicePainel.push(Core.resumoItem(e.caminho, e.item));
         rel.erros.unshift(...quebrados);
         rel.total += quebrados.length;
         totalErros += rel.erros.length;

@@ -80,6 +80,11 @@ jobs:
         continue-on-error: true
         run: node tools/verificar-links.mjs --limite 1500
 
+      - name: 🧬 Multi Copy — troca a ativa que morreu e limpa a lixeira
+        if: github.event_name != 'push'
+        continue-on-error: true
+        run: node tools/saude-copias.mjs
+
       - name: Gerar DBs
         run: node tools/build.mjs
 
