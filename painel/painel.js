@@ -257,7 +257,7 @@
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
 
-    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : location.hash === '#linkedit' ? 'linkedit' : 'colecoes';
+    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : location.hash === '#linkedit' ? 'linkedit' : location.hash === '#multicopy' ? 'multicopy' : 'colecoes';
 
     async function conectar(repo) {
         estado.repo = await repo.iniciar();
@@ -272,6 +272,7 @@
         $('#btn-vitrine').hidden = false;
         $('#btn-prateleira').hidden = false;
         $('#btn-linkedit').hidden = false;
+        $('#btn-multicopy').hidden = false;
         $('#btn-colecoes').hidden = false;
         estado.tela = telaDoHash();
         await recarregarIndice();
@@ -358,9 +359,11 @@
         $('#btn-vitrine').classList.toggle('ativo', estado.tela === 'vitrine');
         $('#btn-prateleira').classList.toggle('ativo', estado.tela === 'prateleira');
         $('#btn-linkedit').classList.toggle('ativo', estado.tela === 'linkedit');
+        $('#btn-multicopy').classList.toggle('ativo', estado.tela === 'multicopy');
         $('#btn-colecoes').classList.toggle('ativo', estado.tela === 'colecoes');
         if (estado.tela !== 'linkedit' && window.CZLinkEdit) window.CZLinkEdit.parar();     // saiu do Link Edit: o visualizador para
         if (estado.tela === 'vitrine') desenharVitrine();
+        else if (estado.tela === 'multicopy') window.CZMultiCopy.desenhar($('#area'), { C, esc, aviso, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), local: () => !!(estado.repo && estado.repo.usaProxy) });
         else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), temTmdb: () => !!chaves().tmdb, completar: (it) => C.completarItem(it, { tmdb: chaves().tmdb, omdb: chaves().omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: 'video' }) });
         else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
             RepoGitHub, aviso, esc, guardar,
@@ -2021,6 +2024,7 @@ https://archive.org/details/algum_desenho
     $('#btn-vitrine').addEventListener('click', () => { if (location.hash !== '#vitrine') location.hash = 'vitrine'; });
     $('#btn-prateleira').addEventListener('click', () => { if (location.hash !== '#prateleira') location.hash = 'prateleira'; });
     $('#btn-linkedit').addEventListener('click', () => { if (location.hash !== '#linkedit') location.hash = 'linkedit'; });
+    $('#btn-multicopy').addEventListener('click', () => { if (location.hash !== '#multicopy') location.hash = 'multicopy'; });
     // volta para as coleções (de qualquer tela: Link Edit, Vitrine, Prateleira)
     const irParaColecoes = () => {
         if (!estado.repo || estado.tela === 'colecoes') return;
@@ -2044,7 +2048,7 @@ https://archive.org/details/algum_desenho
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true; $('#btn-colecoes').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true; $('#btn-multicopy').hidden = true; $('#btn-colecoes').hidden = true;
         vit.lista = null; limparAjustes();
         telaConectar();
     });

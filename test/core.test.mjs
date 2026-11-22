@@ -618,3 +618,23 @@ test('cópias: ordem pela qualidade, dublado, https e teste; empate vai para "ol
     assert.equal(C.paraCloud(it, col('filmes'), 'filmes/f', config).mirrors, undefined, 'desativada não vai para o app');
     assert.equal(C.resumoItem('conteudo/filmes/f.json', { nome: 'F', links: L }).links, 3);
 });
+
+test('🧬 Multi Copy: mesmo TMDB/link = certeza; mesmo nome = provável; TMDB diferente nunca junta; "são diferentes" fica lembrado', () => {
+    const cfg = { colecoes: [{ id: 'filmes', tipo: 'video' }, { id: 'jogos', tipo: 'jogo' }] };
+    const I = [
+        { caminho: 'conteudo/filmes/a.json', nome: 'Matrix', ano: 1999, tmdb: 'movie/603', lks: ['http://cdn-a.x/matrix.mp4'] },
+        { caminho: 'conteudo/filmes/b.json', nome: 'Matrix.1999.1080p.DUB', tmdb: 'movie/603', lks: ['http://srv2.x/m.mkv'] },
+        { caminho: 'conteudo/filmes/c.json', nome: 'Matrix (1999)', lks: ['http://cdn-a.x/matrix.mp4?x=1'] },
+        { caminho: 'conteudo/filmes/d.json', nome: 'O Rei Leão', ano: 1994, tmdb: 'movie/8587', lks: ['http://x.y/rl94.mp4'] },
+        { caminho: 'conteudo/filmes/e.json', nome: 'O Rei Leão', ano: 2019, tmdb: 'movie/420818', lks: ['http://x.y/rl19.mp4'] },
+        { caminho: 'conteudo/filmes/f.json', nome: 'Shrek', lks: ['http://x.y/shrek1.mp4'] },
+        { caminho: 'conteudo/filmes/g.json', nome: 'shrek DUBLADO', lks: ['http://x.y/shrek2.mp4'] },
+        { caminho: 'conteudo/filmes/h.json', nome: 'Up', lks: ['http://x.y/up1.mp4', 'http://x.y/up2.mp4'] },
+        { caminho: 'conteudo/jogos/z.json', nome: 'Matrix', tmdb: 'movie/603' }
+    ];
+    const resumo = (m) => C.gruposMultiCopy(I, cfg, m).map(g => g.nivel + ':' + g.itens.map(x => x.caminho.split('/').pop()[0]).join(''));
+    assert.deepEqual(resumo({}), ['provavel:fg', 'certeza:abc', 'copias:h']);
+    assert.deepEqual(resumo({ naoIguais: ['conteudo/filmes/f.json|conteudo/filmes/g.json'] }), ['certeza:abc', 'copias:h']);
+    const r = C.resumoItem('conteudo/filmes/x.json', { nome: 'X', links: ['http://a/1', 'http://a/2'], linksDesativados: ['http://a/3'], imdb: 'tt1' });
+    assert.deepEqual(r.lks, ['http://a/1', 'http://a/2']); assert.equal(r.off, 1); assert.equal(r.imdb, 'tt1');
+});
