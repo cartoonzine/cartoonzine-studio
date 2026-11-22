@@ -224,3 +224,15 @@ test('🖼 ficha: a do item e a da série (vale para episódio que chegar depois
     // apagar campo: '' tira
     assert.deepEqual(L.juntarFicha({ capa: 'x', descricao: 'y' }, { capa: '' }), { descricao: 'y' });
 });
+
+test('TMDB automático do envio: "só o que falta" mantém a thumb da lista; banner vai para o fundo do topo; nota do IMDb', () => {
+    const cs = L.lerLista('#EXTM3U\n#EXTINF:-1 tvg-logo="https://lista/matrix.jpg" group-title="Filmes",Matrix (1999)\nhttp://v/m.mp4\n', 't').canais;
+    L.aplicarTMDB(cs[0], { tmdb: 'movie/603', capa: 'https://tmdb/capa.jpg', banner: 'https://tmdb/fundo.jpg', imdb: 'tt0133093', notaImdb: 8.7, votosImdb: 2000000 });
+    const e = L.envioPadrao({ id: 't', destino: { colecao: 'filmes' }, tmdb: true });
+    const it = () => JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: e, canais: cs }], cfgMista).saidas[0].itens))[0];
+    let o = it();
+    assert.equal(o.thumb, 'https://lista/matrix.jpg'); assert.equal(o.bannerThumb, 'https://tmdb/fundo.jpg'); assert.equal(o.bgImg, 'banner');
+    assert.equal(o.imdbId, 'tt0133093'); assert.equal(o.imdbRating, 8.7); assert.equal(o.rating, 8.7);
+    e.tmdbModo = 'tudo'; e.tmdbFundo = false; o = it();
+    assert.equal(o.thumb, 'https://tmdb/capa.jpg'); assert.ok(!o.bgImg);
+});
