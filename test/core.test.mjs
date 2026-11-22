@@ -653,3 +653,12 @@ test('🧬 Já existe? (na inserção) e reservas do Sidechain entram como cópi
     assert.deepEqual(it.links, ['http://cdn.x/matrix.mp4', 'http://sc.x/m.mp4']);
     assert.deepEqual(it.temporadas[0].episodios[0].links, ['http://e.x/2.mp4', 'http://sc.x/e2.mp4']);
 });
+
+test('🛡 TMDB achado pelo nome sai marcado (tmdbPorNome) para o Cloud desconfiar; escrito à mão não', () => {
+    const filmes = { id: 'filmes', tipo: 'video' };
+    const it = C.aplicarDadosExternos({ nome: 'Shrek', links: ['http://a/s.mp4'] }, { tmdb: 'movie/808', porBusca: true });
+    assert.equal(it._tmdbPorBusca, true);
+    assert.equal(C.paraCloud(C.normalizarItem(it, filmes), filmes, 'f', { colecoes: [filmes], publicacao: {} }).tmdbPorNome, true);
+    const manual = C.aplicarDadosExternos({ nome: 'Shrek', tmdb: 'movie/808', links: ['http://a/s.mp4'] }, { tmdb: 'movie/808', porBusca: true });
+    assert.ok(!manual._tmdbPorBusca);
+});

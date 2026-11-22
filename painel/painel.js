@@ -1055,6 +1055,7 @@
         async function salvar(rascunho) {
             const novo = lerItem();
             if (rascunho) novo._rascunho = true;
+            if (novo.tmdb !== item.tmdb) delete novo._tmdbPorBusca;      // TMDB escrito/trocado à mão: não é mais chute
             const { erros } = C.validarItem(novo, col, estado.config);
             if (erros.length && !rascunho) {
                 $('#ed-erros', fundo).innerHTML = '<b>Falta pouco:</b><br>' + erros.map(esc).join('<br>') + '<br><span class="dica">Ou use "Salvar como rascunho" para terminar depois.</span>';

@@ -682,7 +682,7 @@
         if (!it || !it.tmdb) return null;
         const d = { tmdb: it.tmdb, imdb: it.imdb, titulo: it.nome, capa: it.capa, banner: it.banner, previa: it.previa, logo: it.bannerLogo, descricao: it.descricao,
             generos: it.generos && it.generos.length ? it.generos : undefined, ano: it.ano, nota: it.notaTmdb, notaImdb: it.notaImdb, votosImdb: it.votosImdb, popularidade: it.popularidade,
-            duracao: it.duracao, classificacao: it.classificacao, porBusca: it.porBusca || undefined };
+            duracao: it.duracao, classificacao: it.classificacao, porBusca: it.porBusca || it._tmdbPorBusca || undefined };
         Object.keys(d).forEach(k => d[k] == null && delete d[k]);
         return d;
     }
@@ -1279,7 +1279,7 @@
                 if (d.previa) o.previewThumb = d.previa;            // tela de prévia: outra imagem grande (não repete o banner)
                 if (d.descricao) o.desc = d.descricao;
                 if (d.logo) o.logo = d.logo; else delete o.logo;   // em vídeo, "logo" é o PNG do título (o tvg-logo da lista já virou a capa)
-                if (d.tmdb) { o.tmdbId = String(d.tmdb).split('/').pop(); o.tmdbTipo = String(d.tmdb).split('/')[0]; }
+                if (d.tmdb) { o.tmdbId = String(d.tmdb).split('/').pop(); o.tmdbTipo = String(d.tmdb).split('/')[0]; if (d.porBusca) o.tmdbPorNome = true; }
                 if (d.imdb) o.imdbId = d.imdb;
                 if (d.nota) o.rating = d.nota;
                 if (d.notaImdb) { o.imdbRating = d.notaImdb; o.rating = d.notaImdb; if (d.votosImdb) o.imdbVotes = d.votosImdb; }
@@ -1307,7 +1307,7 @@
                 if (f.fundoImagem === 'banner') o.bgImg = 'banner';
                 if (Number.isFinite(+f.posFundo) && f.posFundo !== '') o.bgPosY = Math.max(0, Math.min(100, Math.round(+f.posFundo)));
                 if (f.destaque) o.destaque = true;
-                if (f.tmdb) { o.tmdbId = String(f.tmdb).split('/').pop(); o.tmdbTipo = String(f.tmdb).split('/')[0]; }
+                if (f.tmdb) { o.tmdbId = String(f.tmdb).split('/').pop(); o.tmdbTipo = String(f.tmdb).split('/')[0]; delete o.tmdbPorNome; }   // escolhido à mão: confiável
                 if (f.nota) o.rating = f.nota;
                 if (f.imdb) o.imdbId = f.imdb;
                 if (f.notaImdb) { o.imdbRating = f.notaImdb; o.rating = f.notaImdb; if (f.votosImdb) o.imdbVotes = f.votosImdb; }
