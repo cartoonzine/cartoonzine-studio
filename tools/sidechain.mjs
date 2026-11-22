@@ -136,7 +136,7 @@ for (const { envio, canais } of lotes) {
         const velho = !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3;
         if (velho && buscasTmdb < MAX_TMDB) {
             buscasTmdb++;
-            try { const r = await Core.completarItem(L.pedidoTMDB(lista[0]), { tmdb: TMDB, tipoColecao: 'video' }); g = estado.tmdb[k] = { em: Date.now(), dados: L.dadosDoTMDB(r.item) }; }
+            try { const r = await Core.completarItem(L.pedidoTMDB(lista[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); g = estado.tmdb[k] = { em: Date.now(), dados: L.dadosDoTMDB(r.item) }; }
             catch (e) { g = estado.tmdb[k] = { em: Date.now(), dados: null }; }
         }
         if (g && g.dados) lista.forEach(c => L.aplicarTMDB(c, g.dados));

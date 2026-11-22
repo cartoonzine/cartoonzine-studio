@@ -1214,8 +1214,11 @@
                   <label title="Canais, 24H e rádios são testados sempre (morto sai). Vídeos só se você pedir.">Testar links <select class="le-campo" id="le-sc-vivos"><option value="" ${e.soVivos == null ? 'selected' : ''}>automático</option><option value="1" ${e.soVivos === true ? 'selected' : ''}>sempre (morto sai)</option><option value="0" ${e.soVivos === false ? 'selected' : ''}>nunca</option></select></label>
                   <label><input type="checkbox" id="le-sc-ativo" ${e.ativo !== false ? 'checked' : ''}> ligado no robô</label>
                 </div>
-              <details class="le-sc-mais" ${filtrosAtivos(e) || e.avulsa || e.tmdb ? 'open' : ''}>
-                <summary>Filtros, lista avulsa e TMDB${filtrosAtivos(e) ? ` · <b>${filtrosAtivos(e)} filtro(s)</b>` : ''}</summary>
+                <span class="le-sc-tmdbauto"><label title="Ao salvar o robô roda e busca capa, banner, logo PNG, sinopse, gênero e notas (TMDB e IMDb) dos filmes e séries — e repete para os que chegarem. Precisa do secret TMDB_TOKEN no GitHub (e OMDB_KEY para a nota do IMDb)."><input type="checkbox" id="le-sc-tmdb" ${e.tmdb ? 'checked' : ''}> 🔎 Completar pelo TMDB/IMDb ao salvar (automático)</label>
+                    <select class="le-campo" id="le-sc-tmdbmodo"><option value="falta" ${e.tmdbModo !== 'tudo' ? 'selected' : ''}>🧩 só o que falta (mantém a thumb da lista)</option><option value="tudo" ${e.tmdbModo === 'tudo' ? 'selected' : ''}>🎬 tudo do TMDB</option></select>
+                    <label><input type="checkbox" id="le-sc-tmdbfundo" ${e.tmdbFundo !== false ? 'checked' : ''}> 🎞 banner no fundo do topo</label></span>
+              <details class="le-sc-mais" ${filtrosAtivos(e) || e.avulsa ? 'open' : ''}>
+                <summary>Filtros e lista avulsa${filtrosAtivos(e) ? ` · <b>${filtrosAtivos(e)} filtro(s)</b>` : ''}</summary>
                 <div class="le-rot" style="margin-top:6px">Só entram os itens que</div>
                 <div class="le-dica">Idioma</div>${chipsSC('idiomas', [...new Set(L.IDIOMAS.map(i => i.cod.split('-')[0]).concat(e.filtros.idiomas))].slice(0, 14), e)}
                 <div class="le-dica">Tipo</div>${chipsSC('tipos', L.TIPOS.filter(t => t !== 'Adulto'), e)}
@@ -1229,7 +1232,7 @@
                 <div class="le-imp-op" style="margin-top:8px">
                   <label title="Gera também listas/${esc(e.id)}.m3u e .json com link fixo — para usar em outros players (era a função das Receitas)"><input type="checkbox" id="le-sc-avulsa" ${e.avulsa ? 'checked' : ''}> Publicar também como lista avulsa (M3U/JSON)</label>
                   <label title="O que já está cadastrado à mão na mesma coleção da Studio não entra de novo (no app ficaria dobrado)"><input type="checkbox" id="le-sc-studio" ${e.pularStudio !== false ? 'checked' : ''}> Não repetir o que já está na Studio</label>
-                  <label title="O robô busca capa, banner, sinopse, gênero e nota dos filmes e séries no TMDB (precisa do secret TMDB_TOKEN no GitHub)"><input type="checkbox" id="le-sc-tmdb" ${e.tmdb ? 'checked' : ''}> 🔎 Buscar capa, sinopse e nota no TMDB (vídeos)</label>
+                  
                 </div>
                 ${e.avulsa ? linksAvulsa(e) : ''}
               </details>
@@ -1279,6 +1282,7 @@
             e.filtros.excluirTipos = j.querySelector('#le-sc-adulto').checked ? ['Adulto'] : [];
             e.avulsa = j.querySelector('#le-sc-avulsa').checked;
             e.tmdb = j.querySelector('#le-sc-tmdb').checked;
+            e.tmdbModo = j.querySelector('#le-sc-tmdbmodo').value; e.tmdbFundo = j.querySelector('#le-sc-tmdbfundo').checked;
             e.pularStudio = j.querySelector('#le-sc-studio').checked;
             e.url = j.querySelector('#le-sc-url').value.trim();
             e.nome = j.querySelector('#le-sc-nome').value.trim() || e.nome;
@@ -1448,6 +1452,7 @@
         el.innerHTML = `<b>🔀 SIDECHAIN</b><span>${esc(e.nome)} · ${cab}</span>
           <div class="le-chips">${[['', 'Todos'], ['novos', `🔔 Novos ${n.novos}`], ['pendentes', `⏳ Esperando ${n.pendentes}`], ['desviados', `Desviados ${n.desviados}`], ['padrao', e.tipoLista === 'mista' ? 'Pela rota' : 'No padrão']].map(([k, t]) => `<button class="le-chip ${SC.filtro === k ? 'on' : ''}" data-sc-filtro="${k}">${t}</button>`).join('')}</div>
           <button class="le-bt r" id="le-sc-enviar" title="Manda os marcados para outra coleção (Enter)">Enviar marcados para…</button>
+          <button class="le-bt" id="le-sc-btmdb" title="Capa, banner, logo PNG, sinopse… dos marcados (ou de todos, se nada estiver marcado)">🔎 TMDB</button>
           <button class="le-bt" id="le-sc-ignorar">🚫 Ignorar marcados</button>
           <button class="le-bt" id="le-sc-padrao" title="Tira o desvio: os marcados voltam ao destino do envio">↩ Voltar ao padrão</button>
           ${gr ? `<button class="le-bt" id="le-sc-ok" title="Volta para as rotas sem gravar (as mudanças ficam até você salvar o envio)">← Voltar</button><button class="le-bt p" id="le-sc-ok-grupo" title="Grava este grupo e volta para as rotas">💾 Salvar grupo e voltar</button>` : '<button class="le-bt p" id="le-sc-ok">✓ Concluir</button>'}
@@ -1457,6 +1462,7 @@
             if (b.dataset.scFiltro != null) { SC.filtro = b.dataset.scFiltro; desenharTabela(); return pintarBarraSC(); }
             if (b.dataset.scBsug != null) { const sg = sug[+b.dataset.scBsug]; if (sg) { e.regras.push({ campo: sg.campo, contem: sg.contem, para: sg.para }); SC.sujo = true; S.aviso('Regra criada (salve o envio ao concluir).', 'ok'); agendarTabela(); pintarBarraSC(); } return; }
             if (b.id === 'le-sc-ok') return sairModoSC(true);
+            if (b.id === 'le-sc-btmdb') { const m = selecionados(); return abrirCompletarTMDB(m.length ? m : E.canais); }
             if (b.id === 'le-sc-ok-grupo') {
                 (e.gruposRevisados = e.gruposRevisados || {})[gr] = new Date().toISOString();
                 fixarIdSC(e); b.disabled = true; b.textContent = 'Salvando…';
@@ -2110,6 +2116,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-fs-linha{display:flex;gap:8px;align-items:center}.le-fs-linha input[type=range]{flex:1}.le-fs-serie{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:8px;background:#1a1330;border:1px solid #6d28d9;font-size:12.5px;color:#e9d5ff}
 .le-fs-mais summary{cursor:pointer;color:#94a3b8}.le-fs-mais[open] summary{margin-bottom:8px}
 @media (max-width:640px){.le-fs .le-fs-grade{grid-template-columns:1fr}}
+.le-sc-tmdbauto{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:8px 10px;border-radius:8px;background:#0d1a1f;border:1px solid #1f5560}.le-sc-tmdbauto .le-campo{height:32px;padding:0 8px;line-height:30px}
+.le-tm-campos{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;font-size:13px;color:#cbd5e1}.le-tm-campos label,.le-tm-estilo{display:flex;gap:8px;align-items:center}.le-tm-estilo{margin-top:8px;padding:8px 10px;border-radius:8px;background:#0d1a1f;border:1px solid #1f5560;font-size:12.5px;color:#cbd5e1}
+.le-sc-tipo input[hidden]+b{cursor:pointer}
 .le-sc-rev{color:#4ade80;font-weight:700}
 .le-sc-auto{font-size:10.5px;background:#2e1065;color:#e9d5ff;border-radius:6px;padding:1px 6px;white-space:nowrap}
 .le-sc-vai{position:sticky;bottom:-18px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:6px;padding:10px 12px;border-radius:10px;background:#111827;border:1px solid #334155;font-size:12.5px;color:#cbd5e1;z-index:2}
@@ -2378,7 +2387,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const s = arv[+(b.dataset.srMarcar || b.dataset.srEditar || b.dataset.srTmdb)]; if (!s) return;
             if (b.dataset.srMarcar != null) { E.sel = new Set(s.itens.map(c => c.id)); fecharJanela(); desenharTabela(); return S.aviso(`${s.itens.length} episódios de "${s.serie}" marcados.`, 'ok'); }
             if (b.dataset.srEditar != null) { E.sel = new Set(s.itens.map(c => c.id)); fecharJanela(); desenharTabela(); return abrirDadosVideo(null); }
-            if (b.dataset.srTmdb != null) { fecharJanela(); return buscarTMDB(s.itens); }
+            if (b.dataset.srTmdb != null) { fecharJanela(); return abrirCompletarTMDB(s.itens); }
         });
     }
 
@@ -2416,7 +2425,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 
     // ---------- 🔎 TMDB no Link Edit: capa, banner, sinopse, gênero e nota (uma busca por série ou filme) ----------
     const CACHE_TMDB = new Map();
-    async function buscarTMDB(lista) {
+    async function buscarTMDB(lista, quieto) {
         const vids = lista.filter(L.ehVideo);
         if (!vids.length) return S.aviso('Nenhum vídeo entre os marcados.', 'ruim');
         if (!S.completar || !(S.temTmdb && S.temTmdb())) return S.aviso('Ponha a chave do TMDB em 🔑 Chaves (no topo da Studio) para buscar capas e sinopses.', 'ruim');
@@ -2434,7 +2443,77 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             E.canais.forEach(c => { if (L.ehVideo(c) && L.chaveTMDB(c) === k) L.aplicarTMDB(c, dados); });   // todos os episódios da série de uma vez
         }
         salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
+        if (quieto) return { achou, de: chaves.length };
         S.aviso(`🔎 TMDB: ${achou} de ${chaves.length} ${chaves.length === 1 ? 'título achado' : 'títulos achados'}${achou < chaves.length ? ' — arrume o título/série dos que faltaram (V) e tente de novo' : ''}.${SC.modo ? ' No Sidechain, marque "Buscar no TMDB" no envio para o robô fazer isso sozinho a cada rodada.' : ''}`, achou ? 'ok' : 'ruim');
+    }
+    /**
+     * 🔎 Completar pelo TMDB: busca e grava na FICHA (fica no envio; o robô não precisa buscar de novo).
+     * "Só o que falta" mantém a capa que veio certa na lista; "Tudo do TMDB" troca tudo.
+     * Episódios: grava na ficha da série (vale para todos, inclusive os que chegarem depois).
+     */
+    const CAMPOS_TMDB = [['capa', 'Capa (thumb vertical)'], ['banner', 'Banner — fundo do topo e tela de prévia'], ['bannerLogo', 'Logo PNG do título'], ['descricao', 'Sinopse'], ['generos', 'Gêneros'], ['classificacao', 'Classificação'], ['imdb', 'IMDb: código e nota ⭐'], ['tmdb', 'Código e nota do TMDB']];
+    function abrirCompletarTMDB(lista) {
+        const vids = (lista || []).filter(L.ehVideo);
+        if (!vids.length) return S.aviso('Nenhum vídeo entre os marcados.', 'ruim');
+        if (!S.completar || !(S.temTmdb && S.temTmdb())) return S.aviso('Ponha a chave do TMDB em 🔑 Chaves (no topo da Studio) para buscar capas e sinopses.', 'ruim');
+        const series = new Set(vids.filter(c => c.natureza === 'episodio').map(L.chaveSerie).filter(Boolean)).size, filmes = vids.filter(c => c.natureza !== 'episodio').length;
+        let pref = {}; try { pref = JSON.parse(localStorage.getItem('czs-le-tmdb') || '{}'); } catch (x) { /* */ }
+        const marcado = (k) => pref.campos ? pref.campos.includes(k) : true;
+        const j = janela(`<h3>🔎 Completar pelo TMDB</h3>
+          <p class="le-dica">A nota do IMDb vem pelo OMDb: ponha a chave <b>omdb</b> em 🔑 Chaves (grátis em omdbapi.com); sem ela vem só o código do IMDb.</p><p class="le-dica"><b>${vids.length}</b> vídeo${vids.length === 1 ? '' : 's'}: ${[filmes ? filmes + ' filme' + (filmes === 1 ? '' : 's') : '', series ? series + ' série' + (series === 1 ? '' : 's') + ' (uma busca por série, vale para todos os episódios)' : ''].filter(Boolean).join(' · ')}.</p>
+          <div class="le-sc-tipos" style="margin:4px 0 8px">
+            <label class="le-sc-tipo${pref.modo !== 'tudo' ? ' on' : ''}"><input type="radio" name="le-tm-modo" value="falta" ${pref.modo !== 'tudo' ? 'checked' : ''} hidden><b>🧩 Só o que falta</b><small>Mantém a capa que já veio certa na lista e o que você arrumou à mão; completa o resto.</small></label>
+            <label class="le-sc-tipo${pref.modo === 'tudo' ? ' on' : ''}"><input type="radio" name="le-tm-modo" value="tudo" ${pref.modo === 'tudo' ? 'checked' : ''} hidden><b>🎬 Tudo do TMDB</b><small>Troca capa, banner, logo e textos pelos do TMDB.</small></label>
+          </div>
+          <div class="le-rot">O que trazer</div>
+          <div class="le-tm-campos">${CAMPOS_TMDB.map(([k, t]) => `<label><input type="checkbox" data-tm="${k}" ${marcado(k) ? 'checked' : ''}> ${t}</label>`).join('')}</div>
+          <label class="le-tm-estilo"><input type="checkbox" id="le-tm-fundo" ${pref.fundoBanner !== false ? 'checked' : ''}> 🎞 Estilo Cartoonzine: o <b>banner</b> vira o fundo do topo (quando tiver)</label>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-tm-ok">🔎 Completar</button></div>`, 'media');
+        j.addEventListener('change', () => j.querySelectorAll('.le-sc-tipo').forEach(x => x.classList.toggle('on', x.querySelector('input').checked)));
+        j.querySelector('#le-tm-ok').onclick = async () => {
+            const modo = j.querySelector('[name="le-tm-modo"]:checked').value, campos = [...j.querySelectorAll('[data-tm]:checked')].map(x => x.dataset.tm), fundoBanner = j.querySelector('#le-tm-fundo').checked;
+            try { localStorage.setItem('czs-le-tmdb', JSON.stringify({ modo, campos, fundoBanner })); } catch (x) { /* */ }
+            if (!campos.length && !fundoBanner) return S.aviso('Marque o que trazer.', 'ruim');
+            fecharJanela();
+            const r = await buscarTMDB(vids, true);
+            if (!r) return;
+            lembrar();
+            const e = SC.modo && SC.modo.envio, feitas = new Set();
+            let mudou = 0;
+            for (const c of vids) {
+                const d = c.video && c.video.dados; if (!d) continue;
+                const serie = c.natureza === 'episodio' && L.chaveSerie(c);
+                if (serie && feitas.has(serie)) continue;
+                const atual = Object.assign({}, serie ? c.fichaSerie : c.ficha), nova = {};
+                const tem = (k) => atual[k] != null && atual[k] !== '' && !(Array.isArray(atual[k]) && !atual[k].length);
+                const tmdb = { capa: d.capa, banner: d.banner, bannerLogo: d.logo, descricao: d.descricao, generos: d.generos, classificacao: d.classificacao, imdb: d.imdb, tmdb: d.tmdb };
+                for (const k of campos) {
+                    if (!tmdb[k]) continue;
+                    if (k === 'imdb' && (modo === 'tudo' || !tem('imdb'))) { nova.imdb = d.imdb; if (d.notaImdb) nova.notaImdb = d.notaImdb; if (d.votosImdb) nova.votosImdb = d.votosImdb; continue; }
+                    if (k === 'tmdb' && (modo === 'tudo' || !tem('tmdb'))) { nova.tmdb = d.tmdb; if (d.nota) nova.nota = d.nota; continue; }
+                    if (modo === 'falta') {
+                        if (tem(k)) continue;
+                        if (k === 'capa' && c.logo) { nova.capa = c.logo; continue; }   // a thumb que veio certa na lista fica
+                    }
+                    nova[k] = tmdb[k];
+                }
+                if (fundoBanner && (nova.banner || atual.banner || d.banner) && (modo === 'tudo' || !tem('fundoImagem'))) nova.fundoImagem = 'banner';
+                if (!Object.keys(nova).length) continue;
+                mudou++;
+                if (serie) {
+                    feitas.add(serie);
+                    const f = L.juntarFicha(atual, nova);
+                    E.canais.forEach(x => { if (L.chaveSerie(x) === serie) x.fichaSerie = f; });
+                    if (e) { e.fichasSerie = e.fichasSerie || {}; e.fichasSerie[serie] = f; }
+                } else {
+                    c.ficha = L.juntarFicha(c.ficha, nova);
+                    if (e) { const k = L.chaveSC(c); e.ajustes = e.ajustes || {}; e.ajustes[k] = Object.assign({}, e.ajustes[k], { ficha: L.juntarFicha((e.ajustes[k] || {}).ficha, nova) }); }
+                }
+            }
+            if (e) SC.sujo = true;
+            salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco)); if (SC.modo) pintarBarraSC();
+            S.aviso(`🔎 TMDB: ${r.achou} de ${r.de} achado${r.de === 1 ? '' : 's'} · ${mudou} ficha${mudou === 1 ? '' : 's'} completada${mudou === 1 ? '' : 's'}${r.achou < r.de ? ' — arrume o título/série dos que faltaram (V) e tente de novo' : ''}.${e ? ' Salve o grupo/envio para o robô usar.' : ''}`, r.achou ? 'ok' : 'ruim');
+        };
     }
     function escolherNatureza(c) {
         const alvo = c && !(E.sel.has(c.id) && E.sel.size > 1) ? [c] : selecionados();
@@ -2480,7 +2559,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <label class="le-fs-campo cheio" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" data-fs="destaque" ${atual.destaque ? 'checked' : ''}> Destaque no banner da home</label>
               </div></details>
           </div>
-          <div class="le-jan-botoes"><button class="le-bt" id="le-fs-limpar" title="Volta tudo para o automático">Limpar ficha</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-fs-ok">Salvar ficha</button></div>`, 'media le-fs');
+          <div class="le-jan-botoes"><button class="le-bt" id="le-fs-tmdb" style="margin-right:auto" title="Completa esta ficha com capa, banner, logo e sinopse do TMDB">🔎 Completar pelo TMDB</button><button class="le-bt" id="le-fs-limpar" title="Volta tudo para o automático">Limpar ficha</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-fs-ok">Salvar ficha</button></div>`, 'media le-fs');
         const lim = (n) => Math.max(0, Math.min(100, Math.round(n)));
         const val = (k) => { const el = j.querySelector(`[data-fs="${k}"]`); return el ? el.value.trim() : ''; };
         const pintar = () => {
@@ -2524,6 +2603,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             S.aviso('Ficha salva.', 'ok');
         };
         j.querySelector('#le-fs-limpar').onclick = () => gravar(null);
+        j.querySelector('#le-fs-tmdb').onclick = () => { fecharJanela(); abrirCompletarTMDB([c]); };
         j.querySelector('#le-fs-ok').onclick = () => {
             const f = {};
             ['capa', 'banner', 'descricao', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx'].forEach(k => { const x = val(k); if (x && x !== String(base[k] || '')) f[k] = x; });
@@ -2560,7 +2640,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
           ${todosEp && !um ? '<label class="le-dica" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="le-vd-numerar"> Numerar os episódios na ordem da lista (1, 2, 3…)</label>' : ''}
           <div class="le-jan-botoes"><button class="le-bt" id="le-vd-tmdb" title="Capa, banner, sinopse, gênero e nota">🔎 TMDB</button><button class="le-bt" id="le-vd-auto">🔎 Detectar automático</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-vd-ok">Salvar</button></div>`, 'media');
         j.querySelector('#le-vd-auto').onclick = () => { fecharJanela(); detectarDeNovo(vids); };
-        j.querySelector('#le-vd-tmdb').onclick = () => { fecharJanela(); buscarTMDB(vids); };
+        j.querySelector('#le-vd-tmdb').onclick = () => { fecharJanela(); abrirCompletarTMDB(vids); };
         j.querySelector('#le-vd-ok').onclick = () => {
             const aj = {};
             j.querySelectorAll('[data-vd]').forEach(el => {
@@ -2612,7 +2692,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         if (um && L.ehVideo(um)) itens.push(['🖼 Ficha: capa, fundo do topo, sinopse… (F)', () => abrirFichaItem(um)]);
         const vidsMenu = lista.filter(L.ehVideo);
         if (vidsMenu.length && !SC.modo) colsVideo().forEach(cv => { if (!vidsMenu.every(x => x.video && x.video.colecao === cv.id)) itens.push([`🎬 Vai para ${cv.nome}`, () => editarVideo(vidsMenu, { colecao: cv.id })]); });
-        if (vidsMenu.length) itens.push(['🔎 Buscar no TMDB: capa, sinopse, nota', () => buscarTMDB(vidsMenu)]);
+        if (vidsMenu.length) itens.push([`🔎 Completar pelo TMDB${vidsMenu.length > 1 ? ' (' + vidsMenu.length + ')' : ''}: capa, banner, logo…`, () => abrirCompletarTMDB(vidsMenu)]);
         itens.push(['🔎 Detectar automático', () => detectarDeNovo(lista)]);
         itens.push(['✎ Arrumar nomes…', () => abrirNomes()]);
         itens.push('-');
@@ -2691,7 +2771,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (t.dataset.nat) { const cn = E.canais.find(c => c.id === t.dataset.nat); if (cn && !E.sel.has(cn.id)) E.ancora = cn.id; return escolherNatureza(cn); }
             if (t.dataset.fichasc) return abrirFichaItem(E.canais.find(c => c.id === t.dataset.fichasc));
             if (t.dataset.video) { const cv = E.canais.find(c => c.id === t.dataset.video); if (cv && !E.sel.has(cv.id)) E.ancora = cv.id; return abrirDadosVideo(cv); }
-            if (t.dataset.tmdb) { const ct = E.canais.find(c => c.id === t.dataset.tmdb); return ct && buscarTMDB([ct]); }
+            if (t.dataset.tmdb) { const ct = E.canais.find(c => c.id === t.dataset.tmdb); return ct && abrirCompletarTMDB(E.sel.has(ct.id) && E.sel.size > 1 ? selecionados() : [ct]); }
             if (t.dataset.vfAuto) { const ca = E.canais.find(c => c.id === t.dataset.vfAuto); return ca && detectarDeNovo([ca]); }
             if (t.dataset.sel) return marcar(t.dataset.sel, e.shiftKey);
             if (t.dataset.catCanal) { const cc = E.canais.find(c => c.id === t.dataset.catCanal); if (cc && !E.sel.has(cc.id)) E.ancora = cc.id; return escolherCategoria(cc); }

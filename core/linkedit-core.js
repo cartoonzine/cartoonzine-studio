@@ -631,7 +631,7 @@
     }
     /** Mudança feita à mão (no painel ou num envio do Sidechain): natureza e/ou campos do vídeo. */
     // ---------- 🖼 FICHA (igual ao "Novo" das Coleções): capa, banner, fundo do topo, sinopse, banner da home… ----------
-    const CAMPOS_FICHA_SC = ['capa', 'banner', 'fundoImagem', 'posFundo', 'descricao', 'generos', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx', 'destaque'];
+    const CAMPOS_FICHA_SC = ['capa', 'banner', 'fundoImagem', 'posFundo', 'descricao', 'generos', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx', 'destaque', 'imdb', 'notaImdb', 'votosImdb', 'tmdb', 'nota'];
     /** junta a ficha nova na antiga: '' / null apaga o campo */
     function juntarFicha(antiga, nova) {
         const f = Object.assign({}, antiga || {});
@@ -681,7 +681,7 @@
     function dadosDoTMDB(it) {
         if (!it || !it.tmdb) return null;
         const d = { tmdb: it.tmdb, imdb: it.imdb, titulo: it.nome, capa: it.capa, banner: it.banner, logo: it.bannerLogo, descricao: it.descricao,
-            generos: it.generos && it.generos.length ? it.generos : undefined, ano: it.ano, nota: it.notaTmdb, popularidade: it.popularidade,
+            generos: it.generos && it.generos.length ? it.generos : undefined, ano: it.ano, nota: it.notaTmdb, notaImdb: it.notaImdb, votosImdb: it.votosImdb, popularidade: it.popularidade,
             duracao: it.duracao, classificacao: it.classificacao, porBusca: it.porBusca || undefined };
         Object.keys(d).forEach(k => d[k] == null && delete d[k]);
         return d;
@@ -770,7 +770,7 @@
     function colecoesSidechain(config) { return ((config && config.colecoes) || []).filter(c => SC_TIPOS.includes(c.tipo) && c.fonteCloud); }
     function envioPadrao(extra) {
         const e = Object.assign({ id: '', nome: 'Envio novo', url: '', listas: [], ativo: true, tipoLista: '', destino: { colecao: '' }, rotas: [], gruposNovos: 'esperar',
-            modo: 'auto', soVivos: null, filtros: {}, avulsa: false, tmdb: false, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, gruposRevisados: {}, fichasSerie: {}, criadoEm: '' }, extra || {});
+            modo: 'auto', soVivos: null, filtros: {}, avulsa: false, tmdb: false, tmdbModo: 'falta', tmdbFundo: true, pularStudio: true, desvios: {}, regras: [], ajustes: {}, vistos: {}, gruposRevisados: {}, fichasSerie: {}, criadoEm: '' }, extra || {});
         e.filtros = Object.assign({ idiomas: [], tipos: [], paises: [], categorias: [], excluirTipos: ['Adulto'], busca: '', confiancaMin: 0 }, e.filtros || {});
         if (!e.tipoLista) e.tipoLista = (e.rotas || []).length ? 'mista' : 'unica';     // envios antigos: uma categoria
         // desvio igual ao destino do envio não muda nada (envios antigos chegaram a guardar centenas de milhares assim)
@@ -916,6 +916,7 @@
             const viver = envio.soVivos != null ? envio.soVivos : null;
             for (const c of canais) {
                 aplicarAjustesEnvio(c, envio);                  // tipo, dados de vídeo e ficha que você arrumou no Sidechain
+                if (envio.tmdb) c.tmdbPref = { modo: envio.tmdbModo || 'falta', fundo: envio.tmdbFundo !== false }; else delete c.tmdbPref;
                 if (!passaFiltros(c, envio)) { rel.filtrados++; continue; }
                 const r = rotaDe(c, envio);
                 if (avulsa && r.destino !== 'ignorar') {        // lista avulsa (M3U/JSON para outros players): tudo o que passou nos filtros
@@ -1243,11 +1244,16 @@
                 if (d.tmdb) { o.tmdbId = String(d.tmdb).split('/').pop(); o.tmdbTipo = String(d.tmdb).split('/')[0]; }
                 if (d.imdb) o.imdbId = d.imdb;
                 if (d.nota) o.rating = d.nota;
+                if (d.notaImdb) { o.imdbRating = d.notaImdb; o.rating = d.notaImdb; if (d.votosImdb) o.imdbVotes = d.votosImdb; }
                 if (d.popularidade) o.popularity = d.popularidade;
                 if (d.duracao) o.runtime = d.duracao;
                 if (d.classificacao) o.age = d.classificacao;
                 if (!o.year && d.ano && c.natureza === 'filme') o.year = d.ano;
                 if (!o.genre && d.generos) o.genre = d.generos;
+                // TMDB automático do envio: "só o que falta" mantém a thumb que veio na lista; estilo Cartoonzine = banner no fundo do topo
+                const pref = c.tmdbPref;
+                if (pref && pref.modo !== 'tudo' && c.logo) o.thumb = c.logo;
+                if (pref && pref.fundo && o.bannerThumb) o.bgImg = 'banner';
                 // 🖼 ficha arrumada à mão (a da série vale para todos os episódios; a do item manda por cima)
                 const f = Object.assign({}, c.fichaSerie, c.ficha);
                 if (f.capa) o.thumb = f.capa;
@@ -1262,6 +1268,10 @@
                 if (f.fundoImagem === 'banner') o.bgImg = 'banner';
                 if (Number.isFinite(+f.posFundo) && f.posFundo !== '') o.bgPosY = Math.max(0, Math.min(100, Math.round(+f.posFundo)));
                 if (f.destaque) o.destaque = true;
+                if (f.tmdb) { o.tmdbId = String(f.tmdb).split('/').pop(); o.tmdbTipo = String(f.tmdb).split('/')[0]; }
+                if (f.nota) o.rating = f.nota;
+                if (f.imdb) o.imdbId = f.imdb;
+                if (f.notaImdb) { o.imdbRating = f.notaImdb; o.rating = f.notaImdb; if (f.votosImdb) o.imdbVotes = f.votosImdb; }
                 delete o.tvgId; delete o.epg; delete o.tvgShift;
             }
             return o;
