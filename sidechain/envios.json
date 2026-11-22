@@ -104,7 +104,7 @@
       },
       "avulsa": false,
       "tmdb": true,
-      "tmdbModo": "falta",
+      "tmdbModo": "tudo",
       "tmdbFundo": true,
       "pularStudio": true,
       "desvios": {},
@@ -1198,14 +1198,945 @@
           "serie": "86",
           "temporada": 1,
           "colecao": "series"
+        },
+        "n:antes da lua cheia|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 100,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:hotel do medo|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:as loucuras|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 65,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         }
       },
       "gruposRevisados": {
         "SÉRIES | CRUNCHYROLL": "2026-11-22T05:31:55.448Z"
       },
-      "fichasSerie": {},
+      "fichasSerie": {
+        "86": {
+          "fundoImagem": "banner",
+          "posFundo": 50
+        },
+        "aria the animation": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/1XgXgWmsX1Un8eBHPjcBYpoae6M.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/9ZfSM7eZVLbjYdZB31tlUi2egR8.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/jrFdmMblQlVHKcAyoZ9NPHJGqmI.jpg",
+          "fundoImagem": "banner",
+          "descricao": "No planeta Aqua, repousa a cidade aquática de Neo Venezia, um ponto turístico onde as pessoas passeiam de gondolas. Gondoleiros profissionais conhecidos como Undines tem boa reputação atuando como guias turísticos para as pessoas. Akari Mizunashi é uma gondoleira em treinamento e também empregada da compania Aria. Ela conhece todos os tipos de pessoa enquanto trabalha nas gondolas.. de conselheiros amigáveis a indivíduos especiais, tudo isso acontece diante de um lindo cenário que é essa bela cidade.",
+          "generos": [
+            "Animação",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "10",
+          "imdb": "tt0977907",
+          "tmdb": "tv/53787",
+          "nota": 8.4
+        },
+        "fuuto tantei": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/41aC6J2oKla7YkIQ3fbj9VX1eUS.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/quBm72EXhp6RWdf19p7xmQ1IUgT.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/1LqAn4jxMonWrTipcQltsFBUhLJ.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Em Fuuto, a Cidade do Vento, misteriosos seres conhecidos como Dopants espalham o caos usando as perigosas Memórias Gaia. Contudo, há também na cidade dois heróis que usam essas mesmas Memórias Gaia para enfrentar criminosos: um detetive particular indeciso chamado Shotaro Hidari, e seu parceiro Philip, um investigador mais intelectual. Juntos, os dois se transformam no Kamen Rider W, o lendário herói da cidade de Fuuto!",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy",
+            "Mistério"
+          ],
+          "classificacao": "16",
+          "imdb": "tt14377292",
+          "tmdb": "tv/122369",
+          "nota": 7.3
+        },
+        "hokuto no ken legends of the dark king": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/p4Jimz8z4d1RJwaHFfA8TtFWOMB.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/grQ1rFm6QWYClrJxNxk3fJlpUWr.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Esta é a história do mundo anterior ao Punho da Estrela do Norte, e de como um homem tomou o futuro de um mundo selvagem em suas mãos mortais e remodelou seu destino. Não como um herói, mas como um conquistador. Porque na mente do homem chamado Raoh, a única forma de salvar a Humanidade é esmagando-a sob seu gigantesco calcanhar.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Drama"
+          ],
+          "classificacao": "16",
+          "imdb": "tt1308847",
+          "tmdb": "tv/23436",
+          "nota": 6.3
+        },
+        "lets play": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ohEVj2YPIyIJxuT9uw6r4eDMD5Q.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/b23N1e5KXiyBx6SEU0QUyqODoql.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Achievement Hunter takes on the hardest tests in the search for power, fame, and the coveted Tower of Pimps: a gold monolith that grants the winner special powers like arrogance and hatred from coworkers. Welcome to...Achievement City.",
+          "generos": [
+            "Comédia"
+          ],
+          "imdb": "tt13247236",
+          "tmdb": "tv/207655",
+          "nota": 7
+        },
+        "mono": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/lXsY3KHZptNv7MhMrUYXWjamh7m.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/dcGqAXOXEBKwg6Dz2CMgiZL8TaU.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/xDd7eha6XFOO6IQnJ2N4pwt5sYK.jpg",
+          "fundoImagem": "banner",
+          "descricao": "O Clube de Fotografia está em perigo de fechar?! E o Clube do Cinema também?! Não se preocupe, pois eles vão se fundir e se tornar... Cinephoto Club! Agora, os membros do clube, An e Sakurako são convidados para serem os personagens principais do novo trabalho da mangaká Haruno, que é centrado em torno de câmeras e fotografia. As meninas vão capturar os belos pontos turísticos do Japão, explorando os gadgets ao seu redor e, claro, saboreando as iguarias locais ao longo do caminho!",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "classificacao": "10",
+          "imdb": "tt35436997",
+          "tmdb": "tv/249854",
+          "nota": 8.2
+        },
+        "orient": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/bxTq9NmHnbcBGPLonj7c9Nidwqs.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/2IgdwHAtYmcyVZ0t56oTogj4uBJ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/nJi0XM4fwODlqJxmTAS8VUY9Jk8.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A história acompanha Musashi e Kojiro, dois jovem que viveram a vida admirando os feitos dos guerreiros que lutavam contra demônios e protegiam os inocentes. Porém, com o passar dos anos as coisas mudaram entre os dois, até que um súbito destino força com que ambos tenham que lutar pelo bem da humanidade.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "imdb": "tt15170340",
+          "tmdb": "tv/115911",
+          "nota": 7.4
+        },
+        "sakugan": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/h4v0id7U9YL8se3kIviAqyMNiqe.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/wV08VrILSe4pPS5CiBzPy0TLzeN.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/wFA7VOC5lw6GV6wBD4LbzzvTgEY.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A história se passa em um mundo onde a humanidade se refugia em labirintos subterrâneos, vivendo em pequenas colônias como se fosse natural. Devido aos perigos encontrados nos labirintos, a profissão de mapeador se tornou uma das mais bem remuneradas.\n\nMemempu é uma jovem entusiasta que sonha em explorar os labirintos e trabalhar como mapeadora, mas seu pai é contra essa ideia. Após várias tentativas, Memempu convence seu pai a deixá-la explorar o labirinto e juntos os dois parte em uma aventura que promete revelar muito mais coisas do que eles imaginam.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "imdb": "tt13580730",
+          "tmdb": "tv/96398",
+          "nota": 6.9
+        },
+        "shurato": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7CrlgdCfOrZQRO1KdNBvnZWAzxq.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/22raTd2mRTwBfWk60E6EBtLncsh.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/c8oUBAlw33JbN60t3oPpc31GH9T.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Conta a história de dois amigos de infância, Shurato Hidaka e Gai Kuroki, que são levados a um cruel destino que mudará completamente suas vidas. No meio de uma luta entre eles num campeonato de artes marciais, os dois são teletransportados ao Tenkukai. Após despertar nesse mundo, Shurato descobre que é a reencarnação de um Deus Deva, o lado do bem que mantém o equilíbrio e a paz tanto no Tenkukai quanto no mundo dos humanos, e que seu amigo Gai se converteu em um ser maligno, que deseja inclusive matar seu próprio amigo. A partir daí, começa uma grande aventura e inúmeros desafios para impedir que o Tenkukai seja destruído pelas forças malignas, e Shurato, sem entender nada, é obrigado a se jogar no meio desta terrível batalha e a enfrentar seu querido amigo Gai.",
+          "generos": [
+            "Sci-Fi & Fantasy",
+            "Animação",
+            "Action & Adventure"
+          ],
+          "classificacao": "10",
+          "imdb": "tt0433740",
+          "tmdb": "tv/72871",
+          "nota": 7.8
+        },
+        "sket dance": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/wYMBMX3s6X3aCTifAIrLRxR5A3f.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/svKHpqtqh8yv7FrIQmIrTQTTyrR.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/4OrWPSyIbiO51IU2O3yMre3OSJa.jpg",
+          "fundoImagem": "banner",
+          "descricao": "O Clube de Apoio das Atividades do Colégio (Sket-dan para os íntimos), foi criado para ajudar os alunos do Colégio Kaimei a resolverem seus problemas. Na maior parte do tempo, no entanto, eles ficam de pernas para o ar na sala do clube, entediados, com nada mais que alguns poucos problemas banais para resolver. Apesar disso, é com toda sua energia e determinação que eles resolvem até os menores dos problemas.",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Drama"
+          ],
+          "classificacao": "14",
+          "imdb": "tt1909586",
+          "tmdb": "tv/42419",
+          "nota": 6.5
+        },
+        "the file of young kindaichi returns": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/4pAtoEWIhL6hCAkMtv45RSzGso0.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/s2L4XH06kRusHz2qJXkSHGYR3fS.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/bAyxZYcbnuqn3Dl4hrooHWPkl9t.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Baseado no mangá de Seimaru Amagi e Fumiya Sato, Kindaichi Shounen no Jikenbo R gira em torno de Hajime Kindachi, neto do famoso detetive Kosuke Kindaichi. Apesar de parecer ser um simples estudante do ensino médio, quando casos difíceis chegam até ele, ao lado de sua amiga de infância Miyuki Nanase, do inspetor de polícia Isamu Kenmochi e de seu rival Kengo Akachi, Kindachi usará de todo seu poder de dedução para resolver cada mistério.",
+          "generos": [
+            "Animação",
+            "Mistério"
+          ],
+          "classificacao": "16",
+          "imdb": "tt3620020",
+          "tmdb": "tv/69355",
+          "nota": 8.4
+        },
+        "true beauty": {
+          "capa": "https://image.tmdb.org/t/p/w500/kXMsz2dKK43ripZZPaahLdWEojB.jpg",
+          "descricao": "Reality show que decide quem é o participante mais bonito por dentro e por fora.",
+          "generos": [
+            "Drama"
+          ],
+          "imdb": "tt1232714",
+          "tmdb": "tv/32945"
+        },
+        "dark moon the blood altar": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/3xMrv5JDbgy1AUj6GURBaTv8sNt.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/iKalNKa27eSiNgqGvDn55Q8fNjI.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/qRpeAuvoTJhkVD0u9qYqm3SohNt.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Em uma academia repleta de vampiros, a chegada de uma nova aluna desperta desejos, segredos e perigo.",
+          "generos": [
+            "Animação",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/A5fiKuueyFHpQHopCqXw2Emx74g.png",
+          "imdb": "tt38646055",
+          "tmdb": "tv/271609",
+          "nota": 8.3
+        },
+        "hana kimi": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/4BoA0q0oh1FJiRe9PlZCxlqX26T.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/w1PHC4nNeLuloUSXby2Z188IxHJ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/edZPx8lC6quLlNlaKUJGEu51ox6.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Conta a história de uma estudante chamada Mizuki Ashiya, que mora nos EUA, ela conhece Sano Izumi, durante uma competição de salto em altura nos EUA, onde Sano, se machuca enquanto salva Mizuki, de ladrões e com isso ele para de competir. Ela se sente culpada e vai para o Japão, estudar na mesma escola que ele, para que ela possa convence-lo a voltar a praticar o esporte, mas o único problema é que a escola é exclusiva para homens. Mizuki, então se anula como mulher e vai para o Japão, se tornar o novo colega de quarto do insociável Sano, e então a história começa.",
+          "generos": [
+            "Drama",
+            "Comédia"
+          ],
+          "classificacao": "12",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/zh4Afg5lX9UC5zyqsQsCHwCgePI.png",
+          "imdb": "tt1067118",
+          "tmdb": "tv/7030",
+          "nota": 7.4
+        },
+        "sentenced to be a hero": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/juGNOhRx7MXg3i2NuZ9lR6arVQw.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/k8uBEraJWZf9o7oJbaVHrECwvjC.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/zjGluuOB0gr8PKGyT3V89X6D9pc.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Em um mundo onde o heroísmo é uma punição, Xylo Forbartz luta contra hordas intermináveis de monstros como parte da Unidade Penal de Heróis 9004. Não há escapatória através da morte, uma vez que entram em um ciclo de ressurreição e voltam ao combate. Quando Xylo encontra uma nova e misteriosa deusa, sua improvável aliança desencadeia uma rebelião que pode quebrar as correntes da punição eterna.",
+          "generos": [
+            "Animação",
+            "Sci-Fi & Fantasy",
+            "Action & Adventure"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/8kLSoUMrRGWTUIEkJu0258ni7Hq.png",
+          "imdb": "tt32536168",
+          "tmdb": "tv/249907",
+          "nota": 8.2
+        },
+        "to your eternity": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/bohMYRVSIG68md0zQobyWbV4S8e.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/fBWZQOPl5CuYxdXRb0uNVX8mgcG.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/qmeC99iX9YPbxi3Dwsw5VvxIbCC.jpg",
+          "fundoImagem": "banner",
+          "descricao": "No começo, \"aquilo\" era uma orbe, lançada na Terra. \"Aquilo\" conseguia fazer duas coisas: tomar a forma de algo que \"o\" estimulasse; e voltar da morte. \"Aquilo\" se transformou de orbe em rocha, de rocha em lobo, e de lobo em garoto - vagando pelo mundo como um recém-nascido que nada sabe. Como garoto, \"aquilo\" virou Fushi. Ao ter contato com a bondade humana, Fushi não apenas aprende a sobreviver, mas também sobrevive como \"pessoa\". Sua jornada é ameaçada pelo inexplicável e destrutivo Nokker, e pelas crueis despedidas das pessoas amadas.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/nXXus1FPfyE0FB4nHIFQFBNHuNt.png",
+          "imdb": "tt12063450",
+          "tmdb": "tv/97525",
+          "nota": 8.2
+        },
+        "megalo box": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/jJNt35kX7Ovxm3zZqt0eaSzwFxO.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/l3uSouoBpxN3aanoD5PiiBz1DBm.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/qhSXmGkdZl6mJkuWON3XSAhRmLV.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Um jovem sem nome nem passado ganha a vida no ringue brigando em lutas clandestinas de um esporte chamado “Megalobox”.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Drama",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/uAcTtmyDwpRQKHdNdTNFaFN1UEh.png",
+          "imdb": "tt7965802",
+          "tmdb": "tv/77939",
+          "nota": 7.9
+        },
+        "you and i are polar opposites": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/xsqaVf4dtMYM9kcEgmtdDiTlkQl.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/5p423VlhPXf7681XyZCL4khIJLl.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/9AZq9CARteSIRa5tOCy1yjeVhm5.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Suzuki é uma garota animada e sociável, apaixonada pelo colega Yusuke Tani. O problema é que ele é o oposto completo: quieto, reservado e indiferente ao que os outros pensam. Será que Suzuki conseguirá vencer sua timidez e se declarar, ou descobrirá que os opostos realmente não se atraem?",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "classificacao": "12",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/pQNq6toEn7jSriHKZgnikofLNYJ.png",
+          "imdb": "tt36034547",
+          "tmdb": "tv/278043",
+          "nota": 8.6
+        },
+        "roll over and die i will fight for an ordinary life with my love and cursed sword": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/nH6Ch1q5rwdRs56bYTA9wuOhfbL.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/uLC9tdRSPcKsgvRLth38WEbm8pa.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/8dj5xST9YGQ7LX8J99jzLzS37ra.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Flum Apricot nunca foi destinada a ser uma heroína. Apesar de ter atributos zerados e um poder que não consegue nem mesmo usar, ela foi chamada para fazer parte do grupo dos heróis. No entanto, Flum chega ao fundo do poço quando Jean Inteige, um mago renomado que faz parte do grupo, decide que a garota é inútil e faz com que ela seja vendida como escrava. Jogada aos monstros para a diversão de seu mestre, Flum toma a decisão desesperada de usar uma arma amaldiçoada, o que desperta algo nela.",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/6ZCeTG4bvZBUoqpRGvWbGW2az2l.png",
+          "imdb": "tt37901124",
+          "tmdb": "tv/285357",
+          "nota": 6
+        },
+        "the world ends with you the animation": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/apHvxqMVuxIGDOL9lLOyA9q2a3z.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/mjyRFPrJ8SPF77STsbkR0X0rE6C.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/lAHp6TifdL8eYvNv9xlI5u8zhcY.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Baseado no jogo de sucesso da Square Enix, Neku morreu, mas não se lembra do que aconteceu. Ele entra no Jogo dos Shinigamis no Underground, uma competição para que os mortos sejam ressuscitados... e os perdedores serão apagados da existência.",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Mistério",
+            "Action & Adventure"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/dw93q9JnYxshaGD8DHPMqIhGz1V.png",
+          "imdb": "tt12643520",
+          "tmdb": "tv/105249",
+          "nota": 7.3
+        },
+        "hells paradise": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/uIqbxVaPzy9kLzntnpEt2LBKTs0.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/zlXW7Y5LvqTQBlhalMKc0gUrYYE.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/vjiIuR3XGpoGSumQ7DziPAmxIYR.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A era Edo está chegando ao fim. Gabimaru, tido como o mais forte ninja de Iwagakure, está condenado à morte, e sua única chance de sobreviver é obter o Elixir da Vida em uma certa ilha, que segundo rumores é a terra budista de Sukhavati. Na esperança de reencontrar sua querida esposa, Gabimaru segue para a ilha acompanhado de seu carrasco, Yamada Asaemon Sagiri. Ao chegar lá, eles encontram outros condenados em busca do mesmo Elixir... Além de criaturas desconhecidas, estátuas aterrorizantes e ermitões nativos. Será que Gabimaru conseguirá encontrar o Elixir da Vida e voltar vivo?",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/12gap9DNVqPvhwrAoa6W4mJj1Po.png",
+          "imdb": "tt13911284",
+          "tmdb": "tv/117465",
+          "nota": 8.2
+        },
+        "rumble garanndoll": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/vhAjlkMNe5bEafBNOYe6xO6un7t.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/dfCgeNUdRHZTfdwvaoIgVwV3zdx.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/evQgQ2dup0s5aDYZoGU9NokAg3W.jpg",
+          "fundoImagem": "banner",
+          "descricao": "No ano de 2019, pouco antes de haver a mudança para a era Reiwa no Japão, uma fenda estranha se abriu no céu, revelando ser um portal para o “Shinkoku Nippon”, um mundo alternativo onde o Japão ainda vive na era Showa.\n\nSem qualquer explicação, Shinkoku Nippon começa uma invasão ao Japão, atacando com armas feitas de gases e criaturas humanoides gigantes conhecidas como Garan. Em pouco tempo os invasores dominando quase todo o país, fazendo assim com que o Japão do nosso mundo nunca entre na era Reiwa.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "imdb": "tt14979584",
+          "tmdb": "tv/122286",
+          "nota": 4.3
+        },
+        "dorohedoro": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/mmpGV6laOLyNeo21aOFM9oB9HYw.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/sASxGVO6wioRG6jNM2LHOjBAgWu.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/hu7zUs0f7zZ1crYCP0xacj6M4k.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Sem memória, Caiman não consegue lembrar como ficou com uma cabeça de lagarto, mas vai tentar reverter a situação matando o feiticeiro responsável, custe o que custar.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Comédia",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/6sadh6DH71iCp3v8D1Jit3dpO1L.png",
+          "imdb": "tt11147852",
+          "tmdb": "tv/94404",
+          "nota": 8.3
+        },
+        "go for it nakamura kun": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/rCI8bgsqoq2ho04ZE0gUr36l8Pg.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/wpsLsjCcIf3QexYO6pCaLm9PI0Z.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/ezBxb6sz2wNbW4qCu0yWzZgadaZ.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Nakamura é um garoto muito tímido que se apaixona à primeira vista por seu colega de classe dos sonhos, Hirose. Mas há um problema: eles ainda nem se conhecem. E Nakamura é tão desajeitado que pode estragar tudo antes mesmo de começar.",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/mOVwyvH3MnDIyTDqP3tStCEGSsE.png",
+          "imdb": "tt37182080",
+          "tmdb": "tv/274622",
+          "nota": 9.3
+        },
+        "rilakkuma": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/8ye32KMcH245jAWOEfqjbCCYeAQ.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/lHIfDwuhQcLVI8bncg2gXATgINz.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/dein0solU03LjkQOf60UeAtKVzR.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Conheça o mundo descontraído do Rilakkuma, o ursinho relaxado que faz com que a preguiça pareça algo natural.",
+          "generos": [
+            "Animação",
+            "Kids"
+          ],
+          "classificacao": "L",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/pFfXK7C1wU3v9RCSGN6tEy5ptPh.png",
+          "imdb": "tt41448834",
+          "tmdb": "tv/299144",
+          "nota": 8.4
+        },
+        "snowball earth": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/pJ74xJ9ydynAewijm2vhgpwumSf.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/5Jhaxj3sBDGB5oLj9snBz2bdqBG.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/1QdLK6V9mNBsplrJrztjAJf6QKs.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Após Yukio ser destruído em combate, Tetsuo sobrevive numa cápsula de escape. Oito anos em animação suspensa se passam até ele retornar à Terra. Ao desembarcar, porém, ele se depara com um mundo devastado e congelado. Agora, Tetsuo precisa desvendar o destino da humanidade, a causa do congelamento global e descobrir se ainda pode cumprir a promessa final feita para Yukio.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/6Fcfqv111jiSdwvLN7bpwixc7Fn.png",
+          "imdb": "tt39229727",
+          "tmdb": "tv/296232",
+          "nota": 6.3
+        },
+        "daemons do reino das sombras": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/mNqW2jnAogZa0nJ94q1LUum8Hos.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/qc30hdrxHQgN5wiopU4bkRZow5L.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/vDsJE62o4kwkDbx5We56bS2WhdB.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Yuru, um jovem caçador de uma vila isolada nas montanhas, vive tranquilamente ao lado de sua irmã gêmea, Asa. Tudo muda quando o rugido de um dragão rompe os céus e abala seu mundo. Segredos ocultos vêm à tona, revelando mistérios, forças sobrenaturais e um destino inesperado.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/4mKM3eSTRNdz5ySFtSGkclJdHHE.png",
+          "imdb": "tt37532356",
+          "tmdb": "tv/260463",
+          "nota": 8.2
+        },
+        "welcome to demon school iruma kun": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/5o1PjfSTASqjUH6giJXiskDbXpj.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/d8bAI2EDM7L2q94wDZfjb82KRoh.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/9C1Wh0SFK7L5AEQCh4cBGIBtSzg.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Suzuki Iruma é um garoto de bom coração que acaba se tornando neto de Sullivan, um arquidemônio do mundo das trevas, e é matriculado numa escola para demônios onde seu avô é o diretor. Iruma tenta esconder sua identidade e levar uma vida tranquila, mas sempre acaba se tornando o centro das atenções - atraindo a ira dos demônios de elite, a afeição das garotas diabólicas e a repreensão do exigente presidente do conselho estudantil. Diante das inúmeras crises de sua vida escolar, Iruma precisa ser firme e encarar com sua peculiar natureza gentil.",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "12",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/lLTmuVREXrM4AQbpYeLvpHmXhok.png",
+          "imdb": "tt11034066",
+          "tmdb": "tv/91801",
+          "nota": 8.3
+        },
+        "witch hat atelier": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/1qGSBnrANHLX8C7KqGuPDCylns2.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/5NmmaK9dt38UXOwzPC2t9yR3HTv.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/uKDv7KsYGX0D5IIbeH9R1NSyf3g.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A pequena Coco mora com a mãe em um vilarejo e sempre sonhou em se tornar uma bruxa. Mas dizem que apenas aqueles que nasceram com o dom da magia podem se tornar bruxos... Ela já havia desistido de seu sonho, quando, então, Coco viu o bruxo Qifrey lançar uma magia e descobriu um segredo!",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "12",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/zr13I75ky1xxop8NOVbN4QNrn5j.png",
+          "imdb": "tt32550889",
+          "tmdb": "tv/196950",
+          "nota": 8.7
+        },
+        "darling in the franxx": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/rR8HgnD9tqFaSiJ69FpruHo9Gm9.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/tKh3pc5MEjCIGV7hSJX76qi8aGA.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/nDLUjFPSsOqXZJwPT04HzdKXz89.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Futuro distante: a humanidade se estabeleceu em Latifúndios, cidades-fortalezas erguidas sobre os destroços da guerra, e a civilização floresceu. Nessa cidade, há o Mistilteinn, um quartel de pilotos também conhecido como Gaiola. É lá que as crianças vivem... Alheios ao mundo de fora e da vastidão dos céus. Sua única missão em vida é lutar.\n\nSeus inimigos são os urrossauros, gigantescos organismos misteriosos. As crianças operam robôs chamados FRANXX para enfrentar esses inimigos desconhecidos, crentes de que esse é seu objetivo de vida.",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Sci-Fi & Fantasy",
+            "Comédia"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/f7f3HxjglduwLOpPNbEWfmGKgfK.png",
+          "imdb": "tt7865090",
+          "tmdb": "tv/76121",
+          "nota": 8.5
+        },
+        "lupin iii": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/2skqgT3iv8J5jnRyaghRxs7m6Td.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/961SQWKlq6EQKN5lvXLR04YxSkw.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/sYlsdRgTcURFGovvwmccw2Sd5xZ.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A história segue as aventuras de um grupo de ladrões liderados por Arsène Lupin III, neto de Arsène Lupin, o ladrão cavalheiro da série de romances de Maurice Leblanc. Lupin e a sua quadrilha fazem viagens pelo mundo todo para roubar tesouros imensos e escapar à lei.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/2mIkwOcPdCaRrJ39X4vT4qebutl.png",
+          "imdb": "tt0159175",
+          "tmdb": "tv/31572",
+          "nota": 8
+        },
+        "stand my heroes piece of truth": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/v6t3OIRMdWJ1w26Cwkv2uJIRODE.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/fArx4Rk3zt0x95svGALS6ItdWkr.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Na história acompanhamos uma equipe da narcóticos em vários casos policiais diferentes. No caso a comandante é uma mulher cercada de vários homens bonitões (é baseado em um game para mulheres).",
+          "generos": [
+            "Animação"
+          ],
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/4LwQfc6iPoNrgyTukAtz8lmjk1T.png",
+          "imdb": "tt11157544",
+          "tmdb": "tv/93818",
+          "nota": 5.4
+        },
+        "yuri on ice": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/t5yMv3UoRjvdhVqN7gC1KOT5Nbw.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/mWwWhDiQWONiSS4Go12TTjNw0E5.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/cTxMFhQ5ZyGMbJRbYl0vsUEtGFw.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Yuri Katsuki carregava a esperança de todo o Japão no Grande Prêmio de Patinação Artística, mas sofreu uma derrota esmagadora nas finais. Ele volta à sua terra natal em Kyushu e se esconde na casa de seus pais, indeciso entre continuar patinando e se aposentar de vez. É então que Viktor Nikiforov, pentacampeão mundial na categoria, aparece de repente com seu colega de treino, Yuri Plisetsky, um jovem atleta prestes a superar seus veteranos. É assim que os dois Yuri e o campeão russo partem para competir num Grande Prêmio como o mundo jamais viu!",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Drama"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/qWtV5mU1ZDWIMxTCWgps9ayLDmn.png",
+          "imdb": "tt6112556",
+          "tmdb": "tv/68129",
+          "nota": 8.5
+        },
+        "agents of the four seasons dance of spring": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/s8kMT6SmeAt7HovSJWbgIEvjmdm.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/lQcUbt8Rs0TcmIhsVGpoEeqWHwE.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/rF5hGefmwFRtoH8S59SQYetJrtv.jpg",
+          "fundoImagem": "banner",
+          "descricao": "O inverno já foi a única estação do mundo, mas sua existência solitária era difícil de suportar. Então, foi criada primavera, para amar e ser amado. Com o tempo, a terra desejou mais tempo de descanso no ciclo, e assim surgiu o verão e o outono. Aqueles que mantêm esse ciclo em equilíbrio são conhecidos como os Agentes das Quatro Estações. Hinagiku, a Agente da Primavera, desapareceu há 10 anos, levando consigo a estação das flores. Agora, após enfrentar grandes provações, ela retorna para restaurar o equilíbrio das estações e, como conta o mito passado desde os primórdios, ela envia seu amor ao inverno...",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/tjnM6aUvoxWJCPNI79UXq2MPEj9.png",
+          "imdb": "tt39267868",
+          "tmdb": "tv/288659",
+          "nota": 7.2
+        },
+        "marriagetoxin": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/bHCm3vz7Mg60wEO6HTm9g2g8IEH.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/edyP3Y3j5M1aponwAtDEUtTlPIA.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/lmJKqQMBrRYDwm5zCoubnQHl8rH.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Um assassino de aluguel e uma vigarista de casamentos se lançam na batalha mais difícil do mundo pelo casamento! Gero é um jovem de um clã de assassinos de aluguel que existe há centenas de anos. Como alguém que nunca foi à escola e viveu lidando com o lado obscuro do negócio, ele se considera \"sem perspectivas com as mulheres\" e o casamento como \"algo que não é para ele\". No entanto, um dia, com medo de que sua linhagem se dissolva, os integrantes de seu clã avisam Gero que, se ele não se casar e não gerar um herdeiro, eles não terão escolha a não ser... forçar sua irmãzinha a fazer \"isso\".",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Comédia"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/j8R8EltNILN9FkG5pGTbQK28Xkf.png",
+          "imdb": "tt39122769",
+          "tmdb": "tv/301944",
+          "nota": 7.4
+        },
+        "i want to end this love game": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ovS4qxFoBsXYj5homeXfMatdW82.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/rep8uV9N7jSYpxpxH7glSP6qOmp.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/1QU4W4YlxGJHbXWvPiwAV9JnIgi.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Depois de deixar pra trás seu jeito de nerd caladão, Yukiya está pronto para arrasar corações no ensino médio. Só que, bem, ele só tem uma garota em mente — sua melhor amiga, Miku. Usando o mangá shojo favorito da amiga como arma, ele está preparado para encostá-la contra parede e encará-la da forma mais provocativa possível. Será que suas tentativas farão o coração dela bater mais forte? Ou Yukiya acabará fazendo papel de trouxa?",
+          "generos": [
+            "Comédia",
+            "Animação"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/6HMVwU9NZ83yldk9iSAmDBziEW4.png",
+          "imdb": "tt39122671",
+          "tmdb": "tv/293697",
+          "nota": 7.3
+        },
+        "needy girl overdose": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/jl79CIc8yL0m5VKR2X1qkoAsre0.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/dot1NI6F5IrLck8xWIOn74ieaDH.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/cT46lkGnsqvvjzpBHV0ept28gU.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Conta o cotidiano da streamer \"OMGkawaiiAngel\", uma jovem com uma grande necessidade de aprovação que está tentando se tornar a melhor \"Anjo da Internet\". Trabalhe com OMGkawaiiAngel para conseguir seguidores enquanto a ajuda a lidar com o estresse e situações um tanto perturbadoras. Experimente todos os altos e baixos e descubra por si mesmo se esta história é ao menos capaz de ter um final feliz.",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Action & Adventure"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/jReCNmiabE7ySu5fcYJA87YjZ5Q.png",
+          "imdb": "tt39403976",
+          "tmdb": "tv/305329",
+          "nota": 6.8
+        },
+        "the beginning after the end": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/2NogAa2FQmZJkwHJTwiuCHfxIFD.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/epPoqwhas9lhZasJ9yVYJod2GQa.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/xiFu26relCPxf0OpU6gLswd51mj.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Após uma morte misteriosa, Rei Grey renasce como Arthur Leywin no continente mágico de Dicathen. Embora ele comece em sua segunda vida como um bebê, sua sabedoria da vida anterior permanece. Ele começa a dominar a magia e a forjar seu próprio caminho com o passar dos anos, buscando corrigir os erros de sua vida passada...",
+          "generos": [
+            "Animação",
+            "Action & Adventure"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/5yvQcGno2o29KUMTS8WcRKRHhzD.png",
+          "imdb": "tt34119820",
+          "tmdb": "tv/274671",
+          "nota": 6.9
+        },
+        "the defective": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/2pSdGI21DhBbq0ndGFde2kPs5WB.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/cUEIHemmpMqrxmwlftXoEWzDIli.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Dois homens completamente opostos lideram um grupo de \"Defectives\" na luta contra uma sociedade que depende da tecnologia futurista de ligação mental.",
+          "generos": [
+            "Animação",
+            "Sci-Fi & Fantasy"
+          ],
+          "imdb": "tt26758156",
+          "tmdb": "tv/128212",
+          "nota": 7.3
+        },
+        "muteking the dancing hero": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/6iKJnXWmCu1VjaYNRAPBRTqyIxN.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/38IHZ6GQLcY4Uft7AUtyU9TsCC0.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Tudo pode acontecer em Neo San Francisco: ataques de monstros, tecnologia do futuro retrô ou músicas que bombam pela cidade! Quando esses monstros ameaçam prejudicar a batida dessa cidade, o DJ agita o negócio para transformar Muteki em Muteking, o herói dançarino. Os invasores não conseguem acompanhar quando esse super-herói entra na pista de dança. O clássico anime retoma o palco!",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Sci-Fi & Fantasy"
+          ],
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/8VMy8lb1QHoM955IjTjp34OELo.png",
+          "imdb": "tt14338604",
+          "tmdb": "tv/121947",
+          "nota": 4
+        },
+        "blue exorcist": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/8TTa91UMjuH3TUqB7dblTZzxSrj.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/wJzHFl5mq6JFbD6equTleJuzlnk.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/s85RKl2eqRvXdcS4AQ2CK0CLS0J.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Determinado a se livrar da maldição de ser filho ilegítimo de Satã, Rin segue os passos de seu mentor e se alista na Academia Vera Cruz para se tornar exorcista.",
+          "generos": [
+            "Animação",
+            "Sci-Fi & Fantasy",
+            "Mistério",
+            "Action & Adventure"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/xwuurUmMt8RVmwlpdYW4g3IWRgN.png",
+          "imdb": "tt1799631",
+          "tmdb": "tv/38464",
+          "nota": 7.8
+        },
+        "black torch": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/qxPsSYAiNhFLETmFJZ0s5HWyYhr.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/ceirDIa8QgeeiFKFnLcQpfAH5V7.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/gDIaTb0ZZ14ftPv2er1nTkGAv6G.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Jiro Azuma não é um estudante qualquer. Descendente de ninjas e treinado na antiga arte marcial dos shinobis, também é capaz de se comunicar com os animais. Após um encontro misterioso com um gato ferido chamado Rago, Jiro descobre que o felino é, na verdade, a lendária estrela negra da perdição! Ao lado do serviço secreto, eles enfrentam mononokes que buscam explorar os poderes de Rago.",
+          "generos": [
+            "Animação",
+            "Mistério",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/30YIEUXI46N0KZjZH8ykL2GWGtY.png",
+          "imdb": "tt37532893",
+          "tmdb": "tv/285993",
+          "nota": 8.1
+        },
+        "odd taxi": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/9zLfAyCGLBYbSK7lEQpAY5BRBrc.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/m7RQ7l2FnCTEnH58Zm8SQzJGYQH.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/rPcgC8USOqNVOrAgeL7p8FBfazI.jpg",
+          "fundoImagem": "banner",
+          "descricao": "O taxista Odokawa leva uma vida bastante mundana. Ele é um antissocial cabeça-dura de poucas palavras, que não tem família e cujos poucos amigos são Gouriki, seu doutor, e Kakibana, um colega da época do colegial. Seus clientes também não são lá muito normais. Kabasawa, o estudante de faculdade que quer ser famoso online. Shirakawa, a enfermeira cheia de segredos. Homosapiens, uma dupla de humoristas numa maré de azar. Dobu, um malandro da vizinhança. Mystery Kiss, um grupo idol recém-formado... E todas essas conversas inócuas acabam tendo ligação com o desaparecimento de uma garota.",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Mistério",
+            "Crime"
+          ],
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/d0mTzrsJLN5zUCztncZsXCIzTUh.png",
+          "imdb": "tt14134550",
+          "tmdb": "tv/116727",
+          "nota": 8.2
+        },
+        "orange": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/oxnWNFG4cSLBXJTDLOJU8ucMpmD.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/zJiWhsEYCy5BkFCBONoMnUunyZQ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/kSIQWeamejVQAW5LCfgLAS8ZWv9.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Um crime cometido no passado coloca uma privilegiada nova-iorquina na prisão, onde ela faz várias amigas. E inimigas.",
+          "generos": [
+            "Drama",
+            "Comédia",
+            "Crime"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/zuLKxy1MeyrqYeQwJBLe4f7iq03.png",
+          "imdb": "tt2372162",
+          "tmdb": "tv/1424",
+          "nota": 7.6
+        },
+        "hanaori san still wants to fight in the next life": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/MtHcMTVjuIPta3pQJtCc9LqYdT.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/rGpovV6h1XSyksXyHRn0zzQNW8V.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/gnuFIVt3FG8QGQg3ODE7wQUXHoV.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Narukami Ryusei é o típico NEET. Ele passa os dias trancado no quarto jogando videogame sem se preocupar com nada, levando uma vida preguiçosa. Mas a verdade é que Ryusei costumava ser um poderoso rei demônio em outro mundo! Então, por que não aproveitar esta nova vida fazendo o que quiser? Só que ele não foi o único reencarnado neste mundo. A heroína que o derrotou também está aqui, e ela é uma garota do ensino médio muito fofa?! Será que Ryusei conseguirá sobreviver ao reencontro com sua inimiga em um novo mundo, ou se verá lutando até mesmo nesta vida?",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/5czzZqSKU1qTxxtOhQPKJRV8iTN.png",
+          "imdb": "tt41276828",
+          "tmdb": "tv/312266",
+          "nota": 7.1
+        },
+        "oshi no ko": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/qoW507a8RoGbpILCxt2N87USn8H.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/s76eYQi6hcAcOVYpVd9hofdyt11.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/rKKRrr9UywyCi1pxyRKSOoauO9q.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Um médico de cidade pequena entra no impiedoso mundo do entretenimento ao atender uma jovem famosa que esconde um segredo.",
+          "generos": [
+            "Animação",
+            "Drama"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/iCM2UAp4ZS6zUPBsAlE0RTogB89.png",
+          "imdb": "tt21030032",
+          "tmdb": "tv/203737",
+          "nota": 8.3
+        },
+        "tamon s b side": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/5X2Z4zEgMzKNLL3OrJccUjXKUUk.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/bj1TPffyPj6WtKSIrq8hYiZS3Qe.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/gb0ewH7HOO3PSduPANOTZhSFZjJ.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Utage Kinoshita é uma estudante do ensino médio que trabalha meio período como empregada doméstica. Ela dedicou sua vida ao seu ídolo favorito, Tamon Fukuhara, do grupo F/ACE. Então, um dia, Utage acaba sendo designada para trabalhar na casa de Tamon. Lá, ela descobre que, fora do palco, ele não tem nada a ver com sua persona selvagem de ídolo. Um garoto sombrio, introvertido e sem autoconfiança, Utage ainda assim se vê apaixonando por ele.",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/phaUeW6hVJPARVN1HlBEPLO4oCU.png",
+          "imdb": "tt37532722",
+          "tmdb": "tv/276393",
+          "nota": 8.1
+        },
+        "kaiju girl caramelise": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/tG2yE7HILQdH32RzYajSgXYSrRV.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/vvbIW2xspYigrgTHTmTSzVDgfKl.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/jixTjPxzMFv9yTDzeVBFACZRzdQ.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Kuroe Akaishi sofre com uma doença rara e sem cura que causa mudanças drásticas em seu corpo. Isso faz com que ela passe seus dias sozinha enquanto evita ter contato com seus colegas de classe, principalmente com Arata Minato, seu ídolo, e os amigos do rapaz. No entanto, como Arata faz seu coração bater mais forte do que ela aguenta, Kuroe descobre que sua doença tem um segredo monstruoso: Sua paixão a transforma, literalmente, no Amorzilla!",
+          "generos": [
+            "Animação",
+            "Sci-Fi & Fantasy",
+            "Comédia"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/2VL66zj0PkOBeanYQ6ckiAFVR7G.png",
+          "imdb": "tt39246964",
+          "tmdb": "tv/308874",
+          "nota": 7.5
+        },
+        "tomb raider king": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/1VYDx4K8TYoEaKiBA0FY6UameFx.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/irM3WhxOorkklhx5To9cfG2ktM6.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/wK1SL5EUJ6Bq2UhDCRtT1FA1HdN.jpg",
+          "fundoImagem": "banner",
+          "descricao": "O caos toma conta do mundo quando tumbas misteriosas surgem repletas de relíquias divinas capazes de conceder poderes imensos. Em meio à disputa global por seu controle, o saqueador Jooheon Suh é traído e dado como morto. Porém, uma segunda chance o envia anos ao passado. Com conhecimento do futuro e sede de vingança, ele decide saquear todas as tumbas antes de todos.",
+          "generos": [
+            "Action & Adventure",
+            "Animação",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/mLbvp4VUePIBLRKK9M2JFSuTGAg.png",
+          "imdb": "tt32869308",
+          "tmdb": "tv/297826",
+          "nota": 8
+        },
+        "trapped in a dating sim the world of otome games is tough for mobs": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/9fJYueAX0XTqFIPokQxFAoapGvr.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/c0oFoz7PttzMLsQOQn54Lcu8V9d.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/bRagESK8MMvWW1anNUDzqfz3K3C.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Após acordar em um mundo desconhecido, Leon percebe que foi reencarnado no universo de um otome game que jogou. Nesse mundo as mulheres dominam completamente os homens, os usando como bem entendem para alcançar seus objetivos.\n\nNão o bastante, as únicas rotas amorosas disponíveis no jogo são com um grupo de príncipes herdeiros. Percebendo sua situação, Leon decide usar seus conhecimentos do jogo para iniciar uma revolução contra as mulheres, mudando completamente aquele mundo.",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/hJ1HdeAZGlUfDa6ucBUpogNjbzV.png",
+          "imdb": "tt16255458",
+          "tmdb": "tv/139512",
+          "nota": 7.4
+        },
+        "though i am an inept villainess": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/42PzktVKixXyXlZcKWyESpeuXzL.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/iNhtAnOhqQjiw7NMHrWbUw8mh4w.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/dH35LJmivj8QcGpvnHJh9chEhQU.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Enquanto as jovens dos Cinco Clãs lutam pelo coração do príncipe herdeiro, a ciumenta Keigetsu usa magia proibida para trocar de corpo com a amada Reirin. A troca de corpos não garante a felicidade de Keigetsu, já que a saúde frágil de seu novo corpo a deixa à beira da morte. Enquanto isso, Reirin, agora com o rosto de uma pária desprezada, precisa responder pelos crimes de Keigetsu em um julgamento perigoso. A improvável dupla se vê cada vez mais envolvida na vida uma da outra e precisarão trabalhar em conjunto para sobreviver após descobrir as conspirações sombrias que se escondem sob a superfície amena do palácio. Para enfrentar as ameaças mortais que espreitam nas sombras, Reirin precisa abraçar sua nova identidade e desafiar as expectativas que as pessoas têm da vilã inepta da corte.",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "12",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/7VJw321l6B4g2ZjD9ttwqocztMt.png",
+          "imdb": "tt41293157",
+          "tmdb": "tv/286345",
+          "nota": 8
+        },
+        "jaadugar a witch in mongolia": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/A62nNZKHo1Ee8AjXHFAu6ykM66F.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/6AoGMlKo2DUsYWiF5zzjdRERCVi.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/y4QV6ivcpiFj1hEssoH9XIlekO.jpg",
+          "fundoImagem": "banner",
+          "descricao": "O momento: século XIII. O lugar: yeke Mongγol ulus, o maior império que o mundo já conheceu. A mulher: Fátima, vinda da Pérsia, onde as técnicas medicinais e o conhecimento científico superavam qualquer precedente. O desejo de Fátima por um lugar onde ela pudesse colocar seus conhecimentos à mostra a leva para o palácio dos mongóis, onde ela vira subordinada de Töregene, a sexta esposa de Ögedei, o segundo grande Khan. Ela é uma mulher poderosa que tem sentimentos confusos sobre o rumo que o império está tomando. Essas duas mulheres são o eixo que farão as políticas do palácio e, em breve, do próprio mundo, mudarem...",
+          "generos": [
+            "Animação",
+            "Drama",
+            "War & Politics"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/aMwwsoID1g9YbsY3xUNhnyyeW16.png",
+          "imdb": "tt39281887",
+          "tmdb": "tv/288971",
+          "nota": 8.2
+        },
+        "saga of tanya the evil": {
+          "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/y0NcqaEx6Md4MPcDWHAr8e5CQfF.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/xe2IkfzpGFObODJLTpBB9bdRpbB.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/f1akIkRpwRSiGQYtlGl60FByctj.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Junho de 1923. Uma jovem garota loira de olhos azuis, Tanya Degurechaff, estuda no último nível na Academia Militar Imperial e treina na terceira linha de patrulha do distrito militar do norte, o Norden Theater, como parte de seu serviço para as forças armadas. Na transição, Tanya é apontada para tarefas de observação, mas um ataque surpresa força Tanya a entrar em combate com as tropas de magos da Federação. Tanya está em menor número e não resistirá até a chegada de reforços, mas não pode fugir, sob pena de ser condenada ao crime de deserção.",
+          "generos": [
+            "Animação",
+            "Drama",
+            "Sci-Fi & Fantasy",
+            "War & Politics"
+          ],
+          "classificacao": "16",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/3cIrY4MdwYlTFzqaozc3vnCUd9d.png",
+          "imdb": "tt6455986",
+          "tmdb": "tv/69346",
+          "nota": 8.2
+        },
+        "a noiva do antigo mago o menino do oeste e o cavaleiro da tempestade azul": {
+          "posFundo": 26
+        }
+      },
       "criadoEm": "2026-11-21T18:30:47.516Z",
-      "tmdbPedidoEm": "2026-11-22T17:46:32.273Z"
+      "tmdbPedidoEm": "2026-11-22T17:58:54.840Z",
+      "tmdbCampos": [
+        "capa",
+        "banner",
+        "previa",
+        "bannerLogo",
+        "descricao",
+        "generos",
+        "classificacao",
+        "imdb",
+        "tmdb"
+      ]
     }
   ]
 }
