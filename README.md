@@ -340,6 +340,17 @@ No app aparece **1 card**. A memória (são diferentes, lixeira, links removidos
 - **🤖 Robô de saúde** (`tools/saude-copias.mjs`, todo dia no workflow): se a ativa morreu (3 falhas no teste de links),
   a primeira reserva que abrir vira a ativa e a morta vai para desativadas (🔴 Ativa trocada). A lixeira com mais de 30 dias sai de vez.
 
+### ☁️ CZ Cloud (o motor do catálogo, pelo Studio)
+Botão **☁️ CZ Cloud** no topo. Controla o repositório `cartoonzine-cloud` sem abrir o GitHub:
+- **🛡 Filtro de cópias** — modo desligado/analisar/ativo, travas opcionais (capa, título limpo, "(ano)") e o
+  **relatório** da última geração (o que foi juntado e o que as travas separaram, com as capas lado a lado).
+- **▶ Build** — gerar o catálogo agora (com "publicar mesmo se encolher" e "retestar todos os links"), andamento ao vivo e histórico.
+- **📡 Fontes** — ligar/desligar, editar e criar fontes, com os itens que cada uma trouxe e as que deram erro.
+- **📊 Visão geral** — totais, categorias e fontes com erro.
+Salvar grava o `sources.json` do Cloud (o build começa sozinho). Ler funciona sem token; para salvar e gerar, o token
+precisa de acesso ao `cartoonzine-cloud` (Contents e Actions: ler e gravar) — no painel do PC dá para colar um token só para o Cloud.
+O repositório pode ser trocado em `studio.config.json` → `"cloud": { "repo": "dono/repo" }`.
+
 ### Criar uma coleção nova
 
 Copie um bloco de `colecoes` no `studio.config.json`, troque `id`, `nome`, `icone` e o `fonteCloud`

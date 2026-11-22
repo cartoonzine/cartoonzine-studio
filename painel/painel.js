@@ -257,7 +257,7 @@
     const colecaoAtual = () => estado.config.colecoes.find(c => c.id === estado.col) || estado.config.colecoes[0];
     const itensDaColecao = id => estado.indice.filter(i => i.caminho.startsWith('conteudo/' + id + '/'));
 
-    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : location.hash === '#linkedit' ? 'linkedit' : location.hash === '#multicopy' ? 'multicopy' : 'colecoes';
+    const telaDoHash = () => location.hash === '#vitrine' ? 'vitrine' : location.hash === '#prateleira' ? 'prateleira' : location.hash === '#linkedit' ? 'linkedit' : location.hash === '#multicopy' ? 'multicopy' : location.hash === '#czcloud' ? 'czcloud' : 'colecoes';
 
     async function conectar(repo) {
         estado.repo = await repo.iniciar();
@@ -273,6 +273,7 @@
         $('#btn-prateleira').hidden = false;
         $('#btn-linkedit').hidden = false;
         $('#btn-multicopy').hidden = false;
+        $('#btn-czcloud').hidden = false;
         $('#btn-colecoes').hidden = false;
         estado.tela = telaDoHash();
         await recarregarIndice();
@@ -360,9 +361,12 @@
         $('#btn-prateleira').classList.toggle('ativo', estado.tela === 'prateleira');
         $('#btn-linkedit').classList.toggle('ativo', estado.tela === 'linkedit');
         $('#btn-multicopy').classList.toggle('ativo', estado.tela === 'multicopy');
+        $('#btn-czcloud').classList.toggle('ativo', estado.tela === 'czcloud');
+        if (estado.tela !== 'czcloud' && window.CZCloud) window.CZCloud.parar();
         $('#btn-colecoes').classList.toggle('ativo', estado.tela === 'colecoes');
         if (estado.tela !== 'linkedit' && window.CZLinkEdit) window.CZLinkEdit.parar();     // saiu do Link Edit: o visualizador para
         if (estado.tela === 'vitrine') desenharVitrine();
+        else if (estado.tela === 'czcloud') window.CZCloud.desenhar($('#area'), { RepoGitHub, esc, aviso, guardar, config: () => estado.config, token: () => (estado.repo && estado.repo.token) || (guardar.ler('czs-github') || {}).token || '' });
         else if (estado.tela === 'multicopy') window.CZMultiCopy.desenhar($('#area'), { C, esc, aviso, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), local: () => !!(estado.repo && estado.repo.usaProxy) });
         else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), temTmdb: () => !!chaves().tmdb, completar: (it) => C.completarItem(it, { tmdb: chaves().tmdb, omdb: chaves().omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: 'video' }) });
         else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
@@ -2066,6 +2070,7 @@ https://archive.org/details/algum_desenho
     $('#btn-prateleira').addEventListener('click', () => { if (location.hash !== '#prateleira') location.hash = 'prateleira'; });
     $('#btn-linkedit').addEventListener('click', () => { if (location.hash !== '#linkedit') location.hash = 'linkedit'; });
     $('#btn-multicopy').addEventListener('click', () => { if (location.hash !== '#multicopy') location.hash = 'multicopy'; });
+    $('#btn-czcloud').addEventListener('click', () => { if (location.hash !== '#czcloud') location.hash = 'czcloud'; });
     // volta para as coleções (de qualquer tela: Link Edit, Vitrine, Prateleira)
     const irParaColecoes = () => {
         if (!estado.repo || estado.tela === 'colecoes') return;
@@ -2089,7 +2094,7 @@ https://archive.org/details/algum_desenho
         guardar.apagar('czs-github');
         estado.repo = null;
         $('#status').textContent = 'desconectado'; $('#status').className = 'chip';
-        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true; $('#btn-multicopy').hidden = true; $('#btn-colecoes').hidden = true;
+        $('#btn-sair').hidden = true; $('#btn-publicacao').hidden = true; $('#btn-chaves').hidden = true; $('#btn-vitrine').hidden = true; $('#btn-prateleira').hidden = true; $('#btn-linkedit').hidden = true; $('#btn-multicopy').hidden = true; $('#btn-czcloud').hidden = true; $('#btn-colecoes').hidden = true;
         vit.lista = null; limparAjustes();
         telaConectar();
     });
