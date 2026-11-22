@@ -2155,7 +2155,37 @@
             "colecao": "filmes"
           },
           "grupos": [
-            "(sem grupo)"
+            "(sem grupo)",
+            "Filmes | Drama",
+            "Filmes | Filme",
+            "Filmes | Comédia",
+            "Filmes | Ação",
+            "Filmes | Terror",
+            "Filmes | Documentário",
+            "Filmes | Suspense",
+            "Filmes | Aventura",
+            "Filmes | Romance",
+            "Filmes | Crime",
+            "Filmes | Família",
+            "Filmes | Ficção científica",
+            "Filmes | Fantasia",
+            "Filmes | TV",
+            "Filmes | Mistério",
+            "Filmes | Música",
+            "Filmes | Faroeste",
+            "Filmes | Guerra",
+            "Filmes | História",
+            "Filmes | Cinema TV",
+            "Filmes | Ficção e fantasia"
+          ]
+        },
+        {
+          "id": "rmwsgq8f62",
+          "destino": {
+            "colecao": "cartoons"
+          },
+          "grupos": [
+            "Filmes | Animação"
           ]
         }
       ],
@@ -2180,11 +2210,78 @@
       "pularStudio": true,
       "desvios": {},
       "regras": [],
-      "ajustes": {},
+      "ajustes": {
+        "n:natal|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 100,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:10 horas para o natal|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 15,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:100 lobo|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 62,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        }
+      },
       "gruposRevisados": {},
       "fichasSerie": {},
       "criadoEm": "2026-11-22T22:35:37.766Z",
-      "tmdbPedidoEm": "2026-11-22T23:11:53.366Z"
+      "tmdbPedidoEm": "2026-11-22T23:25:50.369Z"
     }
   ]
 }
