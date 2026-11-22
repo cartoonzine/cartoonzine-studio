@@ -976,6 +976,18 @@
     const colSC = (id) => colsSC().find(c => c.id === id);
     const comPais = (col) => !!col && (col.tipo === 'canal' || col.tipo === 'radio');
     const vistoSC = () => { try { return JSON.parse(localStorage.getItem(GUARDA_SC_VISTO) || '{}'); } catch (e) { return {}; } };
+    /** o robô não manda mais todos os "vistos" (eram milhões de linhas): o NOVO do painel vem da lista de novos da última rodada */
+    function novosDoRobo(e) {
+        const st = SC.estado && SC.estado.envios && SC.estado.envios[e.id];
+        if (SC.estado && SC.estado.vistos) { delete e._novos; return; }
+        e._novos = new Set(((st && st.novos) || []).map(x => x.chave).filter(Boolean));
+    }
+    /** TMDB que o robô já buscou (arquivo à parte, lido só quando a Saída precisa) */
+    async function lerTmdbRobo(forcar) {
+        if (SC.tmdb && !forcar) return SC.tmdb;
+        try { SC.tmdb = (await S.ler('sidechain/tmdb.json')) || {}; } catch (x) { SC.tmdb = {}; }
+        return SC.tmdb;
+    }
     async function lerSidechain(forcar) {
         if (!S.ler) { SC.envios = SC.envios || []; SC.estado = SC.estado || {}; return; }
         if (SC.envios && !forcar) return;
@@ -984,7 +996,7 @@
         const [d, est, av] = await Promise.all([S.ler(ARQ_SC).catch(nada), S.ler(ARQ_SC_ESTADO).catch(nada), S.ler('listas/avulsas.json').catch(nada)]);
         if (d) { SC.envios = (d.envios || []).map(e => L.envioPadrao(e)); SC.globais = d.regrasGlobais || []; } else { SC.envios = SC.envios || []; SC.globais = SC.globais || []; }
         SC.estado = est || {}; SC.avulsas = av || {};
-        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || {}; e._globais = SC.globais; });
+        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || {}; e._globais = SC.globais; novosDoRobo(e); });
         pintarAvisoSC();
     }
     /** 🔔 no botão: novidades que o robô achou desde a última vez que você abriu aquele envio. */
@@ -1024,7 +1036,7 @@
         });
     }
     async function gravarSidechain(msg) {
-        const lista = SC.envios.map(e => { const o = Object.assign({}, e); delete o.vistos; delete o._globais; return o; });
+        const lista = SC.envios.map(e => { const o = Object.assign({}, e); delete o.vistos; delete o._globais; delete o._novos; return o; });
         await S.gravar([{ caminho: ARQ_SC, conteudo: JSON.stringify({ versao: 1, regrasGlobais: SC.globais || [], envios: lista }, null, 2) + '\n' }], msg);
         SC.sujo = false;
     }
@@ -1182,7 +1194,8 @@
     /** relê só o que o robô escreveu (não perde o que você mudou e ainda não salvou) */
     async function atualizarEstadoSC() {
         try { SC.estado = (await S.ler(ARQ_SC_ESTADO)) || SC.estado; } catch (x) { return S.aviso('Não deu para ler o estado do robô: ' + x.message, 'ruim'); }
-        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || e.vistos || {}; });
+        SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || e.vistos || {}; novosDoRobo(e); });
+        if (SC.tmdb) await lerTmdbRobo(true);
         SC.saidaVer = (SC.saidaVer || 0) + 1;
         S.aviso('🔄 Atualizado com a última rodada do robô.', 'ok');
     }
@@ -1202,7 +1215,7 @@
         if (!x || x.url !== L.linksDoEnvio(e).join('\n')) return null;
         const ver = (SC.saidaVer || 0) + '|' + JSON.stringify([e.tipoLista, e.destino, e.rotas, e.tmdb, e.tmdbModo, Object.keys(e.desvios || {}).length]);
         if (SC.sdCache && SC.sdCache.id === e.id && SC.sdCache.ver === ver && SC.sdCache.canais === x.canais) return SC.sdCache.abas;
-        const cols = colsSC(), tmdb = (SC.estado && SC.estado.tmdb) || {};
+        const cols = colsSC(), tmdb = SC.tmdb || (SC.estado && SC.estado.tmdb) || {};
         e._globais = SC.globais || []; e._mapaGrupos = L.mapaGrupos(e); e._cols = cols;
         const abas = new Map();
         for (const c of x.canais) {
@@ -1291,6 +1304,7 @@
         const e = SC.envios.find(x => x.id === SC.atual) || null;
         if (e && !SC.passo) SC.passo = e.url ? 4 : 1;
         const rolagem = [...document.querySelectorAll('.le-jan, .le-sc-gtab')].map(x => x.scrollTop);
+        if (e && SC.passo === 4 && (e.tmdb || e.tmdbPedidoEm) && !SC.tmdb) await lerTmdbRobo();
         if (e) { const st = SC.estado.envios && SC.estado.envios[e.id]; if (st) { const v = vistoSC(); v[e.id] = st.em; try { localStorage.setItem(GUARDA_SC_VISTO, JSON.stringify(v)); } catch (x) { /* */ } } }
         const cols = colsSC();
         const st = e && SC.estado.envios ? SC.estado.envios[e.id] : null;

@@ -864,9 +864,17 @@
      * Para onde o item vai e por quê: { destino, motivo: 'manual'|'regra'|'padrao'|'pendente'|'ignorar', novo, regra }
      * novo = nunca visto neste envio (envio.vistos). No modo 'revisar', o novo sem desvio nem regra fica PENDENTE.
      */
+    /** objeto não vazio, sem listar as chaves (Object.keys de 200 mil vistos por item deixava o robô parado por horas) */
+    // (nem for-in: o V8 monta a lista inteira de chaves antes). Uma vez com chave, fica guardado.
+    const COM_CHAVE = new WeakSet();
+    function temChave(o) {
+        if (COM_CHAVE.has(o)) return true;
+        for (const k in o) { COM_CHAVE.add(o); return true; }
+        return false;
+    }
     function rotaDe(c, envio) {
         const k = chaveSC(c);
-        const novo = !!(envio.vistos && Object.keys(envio.vistos).length && !envio.vistos[k]);
+        const novo = envio._novos ? envio._novos.has(k) : !!(envio.vistos && temChave(envio.vistos) && !envio.vistos[k]);
         const d = envio.desvios && envio.desvios[k];
         if (d === 'ignorar') return { destino: 'ignorar', motivo: 'ignorar', novo };
         if (d && d.colecao) return { destino: d, motivo: 'manual', novo };
@@ -1223,8 +1231,10 @@
         for (const [campo, ks] of Object.entries(DADOS_DO_CAMPO)) if (!campos.includes(campo)) ks.forEach(k => delete o[k]);
         return o;
     }
-    function gerarJSON(canais) {
-        return JSON.stringify(canais.map(c => {
+    function gerarJSON(canais) { return JSON.stringify(objetosJSON(canais), null, 2) + '\n'; }
+    /** os itens no formato do JSON do app (o gerarJSON é isto, com indentação) */
+    function objetosJSON(canais) {
+        return canais.map(c => {
             const o = { name: c.nome, url: c.url };
             const res = (c.reservas || []).map(r => (typeof r === 'string' ? r : r.url)).filter(Boolean);
             if (res.length) o.mirrors = res;
@@ -1285,7 +1295,7 @@
                 delete o.tvgId; delete o.epg; delete o.tvgShift;
             }
             return o;
-        }), null, 2) + '\n';
+        });
     }
     /** TXT simples: "Nome, link" por linha. */
     function gerarTXT(canais) { return canais.map(c => `${c.nome}, ${c.url}`).join('\n') + '\n'; }
@@ -1303,6 +1313,6 @@
         CAMPOS_FICHA_SC, juntarFicha, chaveSerie, aplicarAjustesEnvio,
         SEM_GRUPO, grupoDe, mapaGrupos, sugerirGrupo, analisarGrupos, aplicarSugestoes, moverGrupo,
         colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
-        agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
+        agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, objetosJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });
