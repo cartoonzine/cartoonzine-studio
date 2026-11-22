@@ -1143,9 +1143,66 @@
             "tmdb": "",
             "nota": ""
           }
+        },
+        "n:86 s01e01|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e02|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e03|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e04|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e05|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e06|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e07|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e08|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e09|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e10|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
+        },
+        "n:86 s01e11|": {
+          "serie": "86",
+          "temporada": 1,
+          "colecao": "series"
         }
       },
-      "gruposRevisados": {},
+      "gruposRevisados": {
+        "SÉRIES | CRUNCHYROLL": "2026-11-22T05:30:14.808Z"
+      },
       "fichasSerie": {},
       "criadoEm": "2026-11-21T18:30:47.516Z",
       "tmdbPedidoEm": "2026-11-22T04:49:02.437Z"
