@@ -104,6 +104,7 @@ Clique no **nome de um grupo** na tabela para abrir só os itens dele no editor;
 No editor, **🖼 Ficha (F)** (botão na ficha ao lado, menu do botão direito ou tecla F) edita capa, banner, imagem e **posição do fundo do topo**, sinopse, gêneros, classificação e o banner da home (logo, vídeo, skin, efeito, destaque) — igual ao Novo das Coleções. Em episódio, marque "vale para a série toda": vale também para os episódios que chegarem depois. Em branco = automático (TMDB/lista).
 **🔎 Completar pelo TMDB** (barra do 🔀, botão direito ou na ficha): para 1, vários ou todos os vídeos do grupo — capa, banner (fundo do topo e tela de prévia), logo PNG, sinopse, gêneros, classificação e IMDb (código + nota, com a chave omdb). "Só o que falta" mantém a thumb certa da lista; "Tudo do TMDB" troca tudo. Vai para a ficha (série toda nos episódios).
 No passo 4, **Completar pelo TMDB/IMDb ao salvar** faz o robô fazer isso sozinho a cada rodada (secrets `TMDB_TOKEN` e `OMDB_KEY`).
+**👁 Saída** (passo 4): uma aba por coleção de vídeo com os cards como vão chegar no app (capa; banner com logo ao passar o mouse; notas; episódios). Filtros "⚠ Falta algo", sem capa/banner/sinopse/logo; clique no card abre a 🖼 Ficha; marque cards (ou use o filtro) e 🔎 Completar pelo TMDB. Mostra também o que o robô já buscou no TMDB.
 Só as **exceções** (o filme que caiu no grupo errado) ficam guardadas item por item no 🔀 Sidechain.
 Envios antigos viram "uma categoria" e os desvios iguais ao destino do envio são apagados (não mudavam nada).
 

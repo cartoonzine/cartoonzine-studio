@@ -1156,6 +1156,98 @@
         if (SC.canais.has(velho)) { SC.canais.set(e.id, SC.canais.get(velho)); SC.canais.delete(velho); }
         if (SC.atual === velho) SC.atual = e.id;
     }
+    // ---------- 👁 SAÍDA (passo 4): como cada coleção de vídeo vai chegar no app, com o que falta ----------
+    /** o que falta no card (mesma conta do gerarJSON: ficha > TMDB > lista) */
+    function faltasSD(c) {
+        const f = Object.assign({}, c.fichaSerie, c.ficha), d = (c.video && c.video.dados) || {}, fl = [];
+        if (!(f.capa || d.capa || c.logo)) fl.push('capa');
+        if (!(f.banner || d.banner)) fl.push('banner');
+        if (!(f.descricao || d.descricao)) fl.push('sinopse');
+        if (!(f.bannerLogo || d.logo)) fl.push('logo');
+        return fl;
+    }
+    /** monta as abas (uma por coleção de vídeo) com os cards: filme = 1 card, série = 1 card com os episódios */
+    function modeloSaida(e) {
+        const x = SC.canais.get(e.id);
+        if (!x || x.url !== L.linksDoEnvio(e).join('\n')) return null;
+        const ver = (SC.saidaVer || 0) + '|' + JSON.stringify([e.tipoLista, e.destino, e.rotas, e.tmdb, e.tmdbModo, Object.keys(e.desvios || {}).length]);
+        if (SC.sdCache && SC.sdCache.id === e.id && SC.sdCache.ver === ver && SC.sdCache.canais === x.canais) return SC.sdCache.abas;
+        const cols = colsSC(), tmdb = (SC.estado && SC.estado.tmdb) || {};
+        e._globais = SC.globais || []; e._mapaGrupos = L.mapaGrupos(e); e._cols = cols;
+        const abas = new Map();
+        for (const c of x.canais) {
+            if (!L.ehVideo(c) || !L.passaFiltros(c, e)) continue;
+            if (e.tmdb && !(c.video && c.video.dados)) { const g = tmdb[L.chaveTMDB(c)]; if (g && g.dados) L.aplicarTMDB(c, g.dados); }   // o que o robô já buscou
+            const r = L.rotaDe(c, e);
+            if (!r.destino || r.destino === 'ignorar') continue;
+            const col = cols.find(k => k.id === r.destino.colecao);
+            if (!col || col.tipo !== 'video') continue;
+            if (!abas.has(col.id)) abas.set(col.id, { col, cards: [], porSerie: new Map() });
+            const a = abas.get(col.id), ks = L.chaveSerie(c);
+            if (ks) { let cd = a.porSerie.get(ks); if (!cd) { cd = { serie: c.video.serie, itens: [] }; a.porSerie.set(ks, cd); a.cards.push(cd); } cd.itens.push(c); }
+            else a.cards.push({ itens: [c] });
+        }
+        delete e._mapaGrupos; delete e._cols;
+        const lista = [...abas.values()].map(a => { a.cards.forEach(cd => { cd.falta = faltasSD(cd.itens[0]); }); delete a.porSerie; return a; });
+        SC.sdCache = { id: e.id, ver, canais: x.canais, abas: lista };
+        return lista;
+    }
+    const FALTAS_SD = [['', 'Todos'], ['falta', '⚠ Falta algo'], ['capa', 'sem capa'], ['banner', 'sem banner'], ['sinopse', 'sem sinopse'], ['logo', 'sem logo']];
+    function saidaHTML(e) {
+        const abas = modeloSaida(e);
+        if (!abas) return `<div class="le-sd"><div class="le-rot">👁 Saída — como vai chegar no app</div><p class="le-dica">Leia a lista para ver a saída. <button class="le-bt" data-sc-ler="1">📥 Ler lista</button></p></div>`;
+        if (!abas.length) return `<div class="le-sd"><div class="le-rot">👁 Saída — como vai chegar no app</div><p class="le-dica">Nenhum vídeo indo para coleção de vídeo (canais e rádios não têm ficha).</p></div>`;
+        const ui = SC.sdUI = SC.sdUI || { aba: '', filtro: '', pag: 1, marcados: new Set() };
+        const a = abas.find(x => x.col.id === ui.aba) || abas[0]; ui.aba = a.col.id;
+        const nF = (k) => a.cards.filter(cd => k === 'falta' ? cd.falta.length : cd.falta.includes(k)).length;
+        const vis = ui.filtro ? a.cards.filter(cd => ui.filtro === 'falta' ? cd.falta.length : cd.falta.includes(ui.filtro)) : a.cards;
+        const mostra = vis.slice(0, ui.pag * 48);
+        SC.sdVista = mostra;
+        const card = (cd, i) => {
+            const c = cd.itens[0], o = JSON.parse(L.gerarJSON([c]))[0] || {}, d = (c.video && c.video.dados) || {};
+            const titulo = cd.serie || o.title || c.nome, mk = ui.marcados.has(cd.serie ? 's:' + L.chaveSerie(c) : L.chaveSC(c));
+            const notas = [o.imdbRating ? `<span title="IMDb">⭐ ${esc(o.imdbRating)}</span>` : '', !o.imdbRating && o.rating ? `<span title="TMDB">★ ${esc(o.rating)}</span>` : ''].join('');
+            return `<div class="le-sd-card${cd.falta.length ? ' falta' : ''}${mk ? ' on' : ''}" data-sd-card="${i}" title="Clique para abrir a ficha">
+              <div class="le-sd-capa">${o.thumb ? `<img src="${esc(o.thumb)}" alt="" loading="lazy">` : '<div class="le-sd-sem">sem capa</div>'}
+                ${o.bannerThumb ? `<div class="le-sd-ban" style="background-image:url('${esc(String(o.bannerThumb).replace(/'/g, '%27'))}');background-position:center ${o.bgPosY != null ? o.bgPosY : 50}%">${o.logo ? `<img src="${esc(o.logo)}" alt="">` : `<b>${esc(titulo)}</b>`}</div>` : ''}
+                <label class="le-sd-mk" title="Marcar"><input type="checkbox" data-sd-marca="${i}" ${mk ? 'checked' : ''}></label>
+                ${cd.serie ? `<span class="le-sd-eps">${cd.itens.length} ep.</span>` : ''}</div>
+              <b class="le-sd-tit">${esc(titulo)}</b>
+              <small>${[o.year || (d.ano || ''), o.age ? '🔞 ' + o.age : '', notas].filter(Boolean).join(' · ')}</small>
+              ${cd.falta.length ? `<div class="le-sd-faltas">${cd.falta.map(f => `<span>sem ${f}</span>`).join('')}</div>` : ''}
+            </div>`;
+        };
+        return `<div class="le-sd"><div class="le-rot">👁 Saída — como vai chegar no app <small style="text-transform:none;letter-spacing:0">(clique no card para editar a ficha)</small></div>
+          <div class="le-sd-abas">${abas.map(x => `<button class="${x === a ? 'on' : ''}" data-sd-aba="${esc(x.col.id)}">${esc((x.col.icone ? x.col.icone + ' ' : '') + x.col.nome)} <b>${numSC(x.cards.length)}</b>${x.cards.some(cd => cd.falta.length) ? ` <small>⚠ ${numSC(x.cards.filter(cd => cd.falta.length).length)}</small>` : ''}</button>`).join('')}</div>
+          <div class="le-imp-op"><div class="le-chips">${FALTAS_SD.map(([k, t]) => `<button class="le-chip ${ui.filtro === k ? 'on' : ''}" data-sd-fil="${k}">${t}${k ? ' ' + numSC(nF(k)) : ''}</button>`).join('')}</div>
+            <button class="le-bt r" id="le-sd-tmdb" title="Completa os marcados (ou todos os desta lista, se nada estiver marcado)">🔎 Completar pelo TMDB ${ui.marcados.size ? `(${ui.marcados.size} marcados)` : `(${numSC(vis.length)} ${ui.filtro ? 'filtrados' : 'desta aba'})`}</button>
+            ${ui.marcados.size ? '<button class="le-bt" id="le-sd-desmarca">Desmarcar</button>' : ''}</div>
+          <div class="le-sd-grade">${mostra.map(card).join('') || '<p class="le-dica">Nada aqui. 🎉</p>'}</div>
+          ${vis.length > mostra.length ? `<button class="le-bt" id="le-sd-mais" style="align-self:center">Mostrar mais (${numSC(vis.length - mostra.length)})</button>` : ''}
+        </div>`;
+    }
+    function cliqueSaida(b, ev, e) {
+        const ui = SC.sdUI; if (!ui) return false;
+        if (b && b.dataset.sdAba) { ui.aba = b.dataset.sdAba; ui.pag = 1; ui.filtro = ''; ui.marcados.clear(); abrirSidechain(e.id); return true; }
+        if (b && b.dataset.sdFil != null) { ui.filtro = b.dataset.sdFil; ui.pag = 1; abrirSidechain(e.id); return true; }
+        if (b && b.id === 'le-sd-mais') { ui.pag++; abrirSidechain(e.id); return true; }
+        if (b && b.id === 'le-sd-desmarca') { ui.marcados.clear(); abrirSidechain(e.id); return true; }
+        if (!SC.canais.get(e.id)) return false;
+        const canais = SC.canais.get(e.id).canais;
+        if (b && b.id === 'le-sd-tmdb') {
+            const abas = modeloSaida(e), a = abas.find(x => x.col.id === ui.aba) || abas[0];
+            const cards = ui.marcados.size ? a.cards.filter(cd => ui.marcados.has(cd.serie ? 's:' + L.chaveSerie(cd.itens[0]) : L.chaveSC(cd.itens[0])))
+                : ui.filtro ? a.cards.filter(cd => ui.filtro === 'falta' ? cd.falta.length : cd.falta.includes(ui.filtro)) : a.cards;
+            SC.saida = { envio: e, canais };
+            abrirCompletarTMDB(cards.flatMap(cd => cd.itens));
+            return true;
+        }
+        const mk = ev.target.closest('[data-sd-marca]');
+        if (mk) { const cd = SC.sdVista[+mk.dataset.sdMarca], k = cd.serie ? 's:' + L.chaveSerie(cd.itens[0]) : L.chaveSC(cd.itens[0]); if (mk.checked) ui.marcados.add(k); else ui.marcados.delete(k); abrirSidechain(e.id); return true; }
+        const cardEl = ev.target.closest('[data-sd-card]');
+        if (cardEl && !ev.target.closest('.le-sd-mk')) { const cd = SC.sdVista[+cardEl.dataset.sdCard]; SC.saida = { envio: e, canais }; abrirFichaItem(cd.itens[0]); return true; }
+        return false;
+    }
     async function abrirSidechain(id) {
         if (!S.ler || !S.gravar || !S.config) return S.aviso('Abra o Link Edit pelo Studio para usar o Sidechain.', 'ruim');
         if (!SC.envios) {               // 1ª vez: abre a página na hora e lê os arquivos; clique repetido não dispara outra leitura
@@ -1164,7 +1256,8 @@
             janela('<h3>🔗 Link Sidechain</h3><p class="le-dica" style="padding:30px 0">⏳ Carregando os envios…</p>', 'pagina');
             try { await lerSidechain(); } finally { SC.abrindo = false; }
         }
-        if (id !== undefined) { if (id !== SC.atual) SC.passo = 0; SC.atual = id; }
+        SC.saida = null;
+        if (id !== undefined) { if (id !== SC.atual) { SC.passo = 0; SC.sdUI = null; } SC.atual = id; }
         const e = SC.envios.find(x => x.id === SC.atual) || null;
         if (e && !SC.passo) SC.passo = e.url ? 4 : 1;
         const rolagem = [...document.querySelectorAll('.le-jan, .le-sc-gtab')].map(x => x.scrollTop);
@@ -1217,6 +1310,7 @@
                 <span class="le-sc-tmdbauto"><label title="Ao salvar o robô roda e busca capa, banner, logo PNG, sinopse, gênero e notas (TMDB e IMDb) dos filmes e séries — e repete para os que chegarem. Precisa do secret TMDB_TOKEN no GitHub (e OMDB_KEY para a nota do IMDb)."><input type="checkbox" id="le-sc-tmdb" ${e.tmdb ? 'checked' : ''}> 🔎 Completar pelo TMDB/IMDb ao salvar (automático)</label>
                     <select class="le-campo" id="le-sc-tmdbmodo"><option value="falta" ${e.tmdbModo !== 'tudo' ? 'selected' : ''}>🧩 só o que falta (mantém a thumb da lista)</option><option value="tudo" ${e.tmdbModo === 'tudo' ? 'selected' : ''}>🎬 tudo do TMDB</option></select>
                     <label><input type="checkbox" id="le-sc-tmdbfundo" ${e.tmdbFundo !== false ? 'checked' : ''}> 🎞 banner no fundo do topo</label></span>
+              ${SC.passo === 4 ? saidaHTML(e) : ''}
               <details class="le-sc-mais" ${filtrosAtivos(e) || e.avulsa ? 'open' : ''}>
                 <summary>Filtros e lista avulsa${filtrosAtivos(e) ? ` · <b>${filtrosAtivos(e)} filtro(s)</b>` : ''}</summary>
                 <div class="le-rot" style="margin-top:6px">Só entram os itens que</div>
@@ -1292,7 +1386,9 @@
             SC.sujo = true;
         };
         j.addEventListener('click', async (ev) => {
-            const b = ev.target.closest('button'); if (!b) return;
+            const b = ev.target.closest('button');
+            if (e && ev.target.closest('.le-sd')) { lerForm(); if (cliqueSaida(b, ev, e)) return; }
+            if (!b) return;
             if (b.dataset.scAbrir) { lerForm(); return abrirSidechain(b.dataset.scAbrir); }
             if (b.dataset.scNovo) {
                 lerForm();
@@ -2117,6 +2213,16 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-fs-mais summary{cursor:pointer;color:#94a3b8}.le-fs-mais[open] summary{margin-bottom:8px}
 @media (max-width:640px){.le-fs .le-fs-grade{grid-template-columns:1fr}}
 .le-sc-tmdbauto{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:8px 10px;border-radius:8px;background:#0d1a1f;border:1px solid #1f5560}.le-sc-tmdbauto .le-campo{height:32px;padding:0 8px;line-height:30px}
+.le-sd{display:flex;flex-direction:column;gap:8px;margin-top:6px;padding:12px;border-radius:12px;background:#0b0f16;border:1px solid #2a3140}
+.le-sd-abas{display:flex;flex-wrap:wrap;gap:6px}.le-sd-abas button{background:#0d1016;border:1px solid #2a3140;color:#cbd5e1;border-radius:999px;padding:6px 12px;font:inherit;font-size:12.5px;cursor:pointer}.le-sd-abas button.on{border-color:#22d3ee;color:#fff;background:#0b2a33}.le-sd-abas small{color:#fbbf24}
+.le-sd-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.le-sd-card{display:flex;flex-direction:column;gap:3px;cursor:pointer;min-width:0}.le-sd-card .le-sd-tit{font-size:12.5px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.le-sd-card small{font-size:11px;color:#94a3b8}
+.le-sd-capa{position:relative;aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:#111827;border:1px solid #1f2937}.le-sd-card.falta .le-sd-capa{border-color:#a16207}.le-sd-card.on .le-sd-capa{outline:2px solid #22d3ee}
+.le-sd-capa>img{width:100%;height:100%;object-fit:cover}.le-sd-sem{position:absolute;inset:0;display:grid;place-items:center;color:#64748b;font-size:12px}
+.le-sd-ban{position:absolute;inset:0;background-size:cover;opacity:0;transition:opacity .2s;display:flex;align-items:flex-end;justify-content:center;padding:8px}.le-sd-ban::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.85))}.le-sd-ban>*{position:relative;max-width:90%;max-height:40%;color:#fff;font-size:12px;text-align:center}
+.le-sd-card:hover .le-sd-ban{opacity:1}.le-sd-mk{position:absolute;top:6px;left:6px;z-index:2;background:rgba(0,0,0,.6);border-radius:6px;padding:2px 4px;opacity:.6}.le-sd-card:hover .le-sd-mk,.le-sd-card.on .le-sd-mk{opacity:1}
+.le-sd-eps{position:absolute;right:6px;bottom:6px;z-index:2;background:rgba(0,0,0,.7);color:#e2e8f0;font-size:10.5px;border-radius:6px;padding:1px 6px}
+.le-sd-faltas{display:flex;flex-wrap:wrap;gap:3px}.le-sd-faltas span{font-size:10px;color:#fbbf24;background:#2a1d05;border-radius:5px;padding:0 5px}
 .le-tm-campos{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;font-size:13px;color:#cbd5e1}.le-tm-campos label,.le-tm-estilo{display:flex;gap:8px;align-items:center}.le-tm-estilo{margin-top:8px;padding:8px 10px;border-radius:8px;background:#0d1a1f;border:1px solid #1f5560;font-size:12.5px;color:#cbd5e1}
 .le-sc-tipo input[hidden]+b{cursor:pointer}
 .le-sc-rev{color:#4ade80;font-weight:700}
@@ -2425,6 +2531,18 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 
     // ---------- 🔎 TMDB no Link Edit: capa, banner, sinopse, gênero e nota (uma busca por série ou filme) ----------
     const CACHE_TMDB = new Map();
+    // de onde a ficha/TMDB está sendo usada: o editor 🔀 (SC.modo) ou a 👁 Saída do passo 4 (SC.saida)
+    const ctxEnvio = () => (SC.saida && SC.saida.envio) || (SC.modo && SC.modo.envio) || null;
+    const ctxCanais = () => (SC.saida && SC.saida.canais) || E.canais;
+    function depoisDeEditar() {
+        if (SC.saida) { const id = SC.saida.envio.id; SC.sujo = true; SC.saida = null; SC.saidaVer = (SC.saidaVer || 0) + 1; return abrirSidechain(id); }
+        salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco)); if (SC.modo) pintarBarraSC();
+    }
+    /** janela aberta a partir da Saída: fechar/cancelar volta para a página do Sidechain */
+    function voltarSaidaAoFechar(j) {
+        if (!SC.saida) return;
+        j.addEventListener('click', (ev) => { if ((ev.target === j || ev.target.closest('[data-fechar]')) && SC.saida) { const id = SC.saida.envio.id; SC.saida = null; setTimeout(() => abrirSidechain(id)); } });
+    }
     async function buscarTMDB(lista, quieto) {
         const vids = lista.filter(L.ehVideo);
         if (!vids.length) return S.aviso('Nenhum vídeo entre os marcados.', 'ruim');
@@ -2440,7 +2558,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             }
             if (!dados) continue;
             achou++;
-            E.canais.forEach(c => { if (L.ehVideo(c) && L.chaveTMDB(c) === k) L.aplicarTMDB(c, dados); });   // todos os episódios da série de uma vez
+            ctxCanais().forEach(c => { if (L.ehVideo(c) && L.chaveTMDB(c) === k) L.aplicarTMDB(c, dados); });   // todos os episódios da série de uma vez
         }
         salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
         if (quieto) return { achou, de: chaves.length };
@@ -2469,16 +2587,18 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
           <div class="le-tm-campos">${CAMPOS_TMDB.map(([k, t]) => `<label><input type="checkbox" data-tm="${k}" ${marcado(k) ? 'checked' : ''}> ${t}</label>`).join('')}</div>
           <label class="le-tm-estilo"><input type="checkbox" id="le-tm-fundo" ${pref.fundoBanner !== false ? 'checked' : ''}> 🎞 Estilo Cartoonzine: o <b>banner</b> vira o fundo do topo (quando tiver)</label>
           <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-tm-ok">🔎 Completar</button></div>`, 'media');
+        voltarSaidaAoFechar(j);
         j.addEventListener('change', () => j.querySelectorAll('.le-sc-tipo').forEach(x => x.classList.toggle('on', x.querySelector('input').checked)));
         j.querySelector('#le-tm-ok').onclick = async () => {
             const modo = j.querySelector('[name="le-tm-modo"]:checked').value, campos = [...j.querySelectorAll('[data-tm]:checked')].map(x => x.dataset.tm), fundoBanner = j.querySelector('#le-tm-fundo').checked;
             try { localStorage.setItem('czs-le-tmdb', JSON.stringify({ modo, campos, fundoBanner })); } catch (x) { /* */ }
             if (!campos.length && !fundoBanner) return S.aviso('Marque o que trazer.', 'ruim');
             fecharJanela();
+            if (SC.saida) S.aviso('🔎 Buscando no TMDB…', 'ok');
             const r = await buscarTMDB(vids, true);
             if (!r) return;
             lembrar();
-            const e = SC.modo && SC.modo.envio, feitas = new Set();
+            const e = ctxEnvio(), feitas = new Set();
             let mudou = 0;
             for (const c of vids) {
                 const d = c.video && c.video.dados; if (!d) continue;
@@ -2503,7 +2623,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 if (serie) {
                     feitas.add(serie);
                     const f = L.juntarFicha(atual, nova);
-                    E.canais.forEach(x => { if (L.chaveSerie(x) === serie) x.fichaSerie = f; });
+                    ctxCanais().forEach(x => { if (L.chaveSerie(x) === serie) x.fichaSerie = f; });
                     if (e) { e.fichasSerie = e.fichasSerie || {}; e.fichasSerie[serie] = f; }
                 } else {
                     c.ficha = L.juntarFicha(c.ficha, nova);
@@ -2511,7 +2631,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 }
             }
             if (e) SC.sujo = true;
-            salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco)); if (SC.modo) pintarBarraSC();
+            depoisDeEditar();
             S.aviso(`🔎 TMDB: ${r.achou} de ${r.de} achado${r.de === 1 ? '' : 's'} · ${mudou} ficha${mudou === 1 ? '' : 's'} completada${mudou === 1 ? '' : 's'}${r.achou < r.de ? ' — arrume o título/série dos que faltaram (V) e tente de novo' : ''}.${e ? ' Salve o grupo/envio para o robô usar.' : ''}`, r.achou ? 'ok' : 'ruim');
         };
     }
@@ -2560,6 +2680,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               </div></details>
           </div>
           <div class="le-jan-botoes"><button class="le-bt" id="le-fs-tmdb" style="margin-right:auto" title="Completa esta ficha com capa, banner, logo e sinopse do TMDB">🔎 Completar pelo TMDB</button><button class="le-bt" id="le-fs-limpar" title="Volta tudo para o automático">Limpar ficha</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-fs-ok">Salvar ficha</button></div>`, 'media le-fs');
+        voltarSaidaAoFechar(j);
         const lim = (n) => Math.max(0, Math.min(100, Math.round(n)));
         const val = (k) => { const el = j.querySelector(`[data-fs="${k}"]`); return el ? el.value.trim() : ''; };
         const pintar = () => {
@@ -2589,21 +2710,28 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const serie = ep && j.querySelector('#le-fs-serie') && j.querySelector('#le-fs-serie').checked;
             fecharJanela();
             if (serie) {
-                const k = L.chaveSerie(c), mesmas = E.canais.filter(x => L.chaveSerie(x) === k);
-                lembrar();
+                const k = L.chaveSerie(c), mesmas = ctxCanais().filter(x => L.chaveSerie(x) === k), env = ctxEnvio();
+                if (!SC.saida) lembrar();
                 const nova = ficha ? L.juntarFicha({}, ficha) : {};
                 mesmas.forEach(x => { if (Object.keys(nova).length) x.fichaSerie = nova; else delete x.fichaSerie; });
-                if (SC.modo) { const e = SC.modo.envio; e.fichasSerie = e.fichasSerie || {}; if (Object.keys(nova).length) e.fichasSerie[k] = nova; else delete e.fichasSerie[k]; SC.sujo = true; }
-                salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco)); if (SC.modo) pintarBarraSC();
-                return S.aviso(`Ficha da série salva (${mesmas.length} episódio${mesmas.length === 1 ? '' : 's'} aqui${SC.modo ? ' e os que chegarem' : ''}).`, 'ok');
+                if (env) { env.fichasSerie = env.fichasSerie || {}; if (Object.keys(nova).length) env.fichasSerie[k] = nova; else delete env.fichasSerie[k]; SC.sujo = true; }
+                S.aviso(`Ficha da série salva (${mesmas.length} episódio${mesmas.length === 1 ? '' : 's'}${env ? ' e os que chegarem' : ''}).${SC.saida ? ' Salve o envio para o robô usar.' : ''}`, 'ok');
+                return depoisDeEditar();
             }
             // só o item: guarda as diferenças (em branco = automático)
             const limpo = {}; L.CAMPOS_FICHA_SC.forEach(k => { limpo[k] = ''; });
-            editarVideo([c], { ficha: Object.assign(limpo, ficha || {}) });
+            const aj = { ficha: Object.assign(limpo, ficha || {}) };
+            if (SC.saida) {
+                const env = SC.saida.envio, k = L.chaveSC(c);
+                L.ajustarVideo(c, aj); env.ajustes = env.ajustes || {}; env.ajustes[k] = Object.assign({}, env.ajustes[k], aj);
+                S.aviso('Ficha salva. Salve o envio para o robô usar.', 'ok');
+                return depoisDeEditar();
+            }
+            editarVideo([c], aj);
             S.aviso('Ficha salva.', 'ok');
         };
         j.querySelector('#le-fs-limpar').onclick = () => gravar(null);
-        j.querySelector('#le-fs-tmdb').onclick = () => { fecharJanela(); abrirCompletarTMDB([c]); };
+        j.querySelector('#le-fs-tmdb').onclick = () => { const sd = SC.saida; fecharJanela(); SC.saida = sd; abrirCompletarTMDB(sd ? ctxCanais().filter(x => (L.chaveSerie(c) && L.chaveSerie(x) === L.chaveSerie(c)) || x === c) : [c]); };
         j.querySelector('#le-fs-ok').onclick = () => {
             const f = {};
             ['capa', 'banner', 'descricao', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx'].forEach(k => { const x = val(k); if (x && x !== String(base[k] || '')) f[k] = x; });
