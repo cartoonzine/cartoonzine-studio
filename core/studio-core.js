@@ -972,6 +972,8 @@
         if (!achado) return item;
         const { temporadasMeta, tituloTMDB, porBusca, nome, notaImdb, votosImdb, notaTmdb, popularidade, ...resto } = achado;
         const out = mesclarSemSobrescrever(item, resto);
+        // 🛡 o código do TMDB veio de uma busca pelo nome (pode ser chute): o Cloud só junta cópias por ele se o título/ano baterem
+        if (porBusca && !item.tmdb && out.tmdb) out._tmdbPorBusca = true;
         // nota e popularidade mudam com o tempo: sempre atualizam (como a nota do IMDb)
         if (notaTmdb !== undefined) out.notaTmdb = notaTmdb;
         if (popularidade !== undefined) out.popularidade = popularidade;
@@ -1768,6 +1770,7 @@
                     // nota, classificação, popularidade, duração, áudios e a melhor qualidade
                     tmdbId: item.tmdb ? +String(item.tmdb).split('/')[1] || undefined : undefined,
                     tmdbTipo: item.tmdb ? String(item.tmdb).split('/')[0] : undefined,
+                    tmdbPorNome: item.tmdb && item._tmdbPorBusca ? true : undefined,
                     rating: item.notaImdb != null ? item.notaImdb : item.notaTmdb,
                     age: item.classificacao, popularity: item.popularidade, runtime: item.duracao,
                     audios: audiosDo(item), qualidadeMax: item.qualidade || qualidadeDoItem(item)
