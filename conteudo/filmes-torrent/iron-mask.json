@@ -13,6 +13,7 @@
   "votosImdb": 1587,
   "capa": "https://archive.org/services/img/iron_mask",
   "banner": "https://image.tmdb.org/t/p/w1280/l6dxdIQMsqTzKlWBCVk3AdB7Dv5.jpg",
+  "previa": "https://image.tmdb.org/t/p/w1280/gIXofYbBoXvnxUC7hfu5lx2J3Yq.jpg",
   "fonte": "https://archive.org/details/iron_mask",
   "descricao": "A swashbuckling Alexandre Dumas adventure featuring Douglas Fairbanks.\nYou can find more information regarding this film on its IMDb page.",
   "ano": 1929,
@@ -24,5 +25,5 @@
   "bannerLogo": "https://image.tmdb.org/t/p/w500/2uwjZfzD4yVMeRfuVLkQtWAng4w.png",
   "destaqueOrdem": 3,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15"
+  "_completadoEm": "2026-11-22"
 }

@@ -8,7 +8,7 @@
   "imdb": "tt0015477",
   "notaImdb": 5.6,
   "notaTmdb": 5.8,
-  "popularidade": 0.5,
+  "popularidade": 0.8,
   "duracao": 22,
   "votosImdb": 305,
   "capa": "https://archive.org/services/img/westofhotdog",
@@ -24,5 +24,5 @@
   "destaque": true,
   "destaqueOrdem": 9,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-15"
+  "_completadoEm": "2026-11-22"
 }
