@@ -749,7 +749,7 @@
     // Formulário (gerado a partir de StudioCore.TIPOS)
     // ==================================================================
     // barra do app desenhada por cima do topo (📱 Simular navbar) — o topo do app começa embaixo dela
-    const NAVBAR_SIM = '<div class="nav-sim" aria-hidden="true"><b>CZ</b><span>Início</span><span>Filmes</span><span>Séries</span><span>Animes</span><span>Kids</span><i>🔍</i><i>👤</i></div>';
+    const NAVBAR_SIM = '<div class="nav-sim" aria-hidden="true"><span class="ns-logo"><i>⚡</i><b>CARTOONZINE</b></span><span class="ns-menu"><em class="on">CARTOONS</em><em>ANIMES</em><em>DESENHOS 24H</em><em>FILMES</em><em>SÉRIES</em><s></s><em class="d" style="--c:#ec4899">GAMES</em><s></s><em class="d" style="--c:#22d3ee">IPTV</em><em class="d" style="--c:#8b5cf6">RADIOKÊ</em><em class="d" style="--c:#eab308">LIVROS</em><s></s><em class="d" style="--c:#f97316">LOJA</em></span><span class="ns-dir"><u>🔍</u><span class="ns-conta"><i>M</i>MINHA CONTA</span><u class="ns-sair">⇥</u></span></div>';
     const navbarSim = () => { try { return localStorage.getItem('cz-navbar-sim') !== '0'; } catch (e) { return true; } };
     function campoHtml(c, valor, prefixo = 'f', item) {
         const id = prefixo + '-' + c.k;
