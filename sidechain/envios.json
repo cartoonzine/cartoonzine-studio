@@ -244,11 +244,12 @@
         },
         "n:a ascensao dos mortos|": {
           "ficha": {
-            "capa": "",
+            "capa": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/giSnlWJHLixMjcarPWW25VXXKn2.jpg",
             "banner": "",
             "previa": "",
             "fundoImagem": "banner",
-            "posFundo": 28,
+            "posFundo": 26,
+            "bannerOk": true,
             "descricao": "",
             "generos": "",
             "classificacao": "",
@@ -3328,23 +3329,23 @@
       "tmdbPedidoEm": "2026-11-23T03:19:59.618Z"
     },
     {
-      "id": "envio-3",
-      "nome": "Lista CZ fire Categorias",
-      "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/filmes.json",
+      "id": "saimo-series",
+      "nome": "Saimo Séries",
+      "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/series.json",
       "listas": [],
       "ativo": true,
       "tipoLista": "unica",
       "destino": {
-        "colecao": "filmes"
+        "colecao": "series"
       },
       "rotas": [
         {
-          "id": "rmwslfx1h1",
+          "id": "rmwsqfo7u",
           "destino": {
-            "colecao": "filmes"
+            "colecao": "series"
           },
           "grupos": [
-            "Filmes"
+            "Séries"
           ]
         }
       ],
