@@ -195,3 +195,15 @@ test('⭐ principal escolhida no Conferir vai primeiro (as outras viram reserva)
     const j = JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config).saidas[0].itens));
     assert.equal(j.length, 1); assert.equal(j[0].url, 'http://b/m.mp4'); assert.deepEqual(j[0].mirrors, ['http://a/m.mp4']);
 });
+
+test('✂ tirar UMA cópia do grupo: as outras continuam juntas (mesmo com ano numa e sem ano na outra)', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const ler = (t, id) => L.lerLista('#EXTM3U\n' + t, id).canais;
+    const la = ler('#EXTINF:-1,Código de Honra\nhttp://a/1.mp4\n', 'a'), lb = ler('#EXTINF:-1,Código de Honra (2019)\nhttp://b/2.mp4\n', 'b'), lc = ler('#EXTINF:-1,Código de Honra\nhttp://c/3.mp4\n', 'c');
+    const sep = { 'http://a/1.mp4': { soDados: true, grupo: 'g:http://a/1.mp4' }, 'http://b/2.mp4': { soDados: true, grupo: 'g:http://a/1.mp4' }, 'http://c/3.mp4': { titulo: 'Código de Honra (o outro)' } };
+    const es = ['a', 'b', 'c'].map(id => Object.assign(L.envioPadrao({ id, nome: id, destino: { colecao: 'filmes' } }), { _sep: sep }));
+    const j = JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: es[0], canais: la }, { envio: es[1], canais: lb }, { envio: es[2], canais: lc }], config).saidas[0].itens));
+    assert.equal(j.length, 2);
+    assert.ok(j.some(x => x.mirrors && x.mirrors.length === 1));
+    assert.ok(j.some(x => x.title === 'Código de Honra (o outro)'));
+});

@@ -1274,6 +1274,8 @@
         const card = (it, i) => { const s = sep[it.sep] || {}; return `<div class="le-cf-card">
             <div class="le-cf-capa" data-cf-prev="${i}">${(s.capa || it.capa) ? `<img src="${esc(s.capa || it.capa)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '<span>sem capa</span>'}</div>
             <div class="le-cf-info"><span class="le-cp-l">${esc(it.l || '?')}</span>
+              <div class="le-cf-papel" role="radiogroup"><label><input type="radio" name="le-cf-papel-${i}" value="mesmo" ${sep[it.sep] && !sep[it.sep].soDados ? '' : 'checked'}><span>✓ Mesmo filme (fica no grupo)</span></label><label><input type="radio" name="le-cf-papel-${i}" value="outro" ${sep[it.sep] && !sep[it.sep].soDados ? 'checked' : ''}><span>✂ Outro filme (tirar do grupo)</span></label></div>
+              ${sep[it.sep] && !sep[it.sep].soDados ? '<small class="le-cf-salvo">✂ já está fora do grupo (salvo · o relatório atualiza na próxima rodada do robô)</small>' : ''}
               <b>${esc(it.nome || x.nome)}</b>
               <small>${[it.ano ? 'ano ' + it.ano : 'sem ano', it.tmdb ? 'TMDB ' + it.tmdb : 'sem TMDB'].map(esc).join(' · ')}</small>
               <label class="le-cf-princ"><input type="radio" name="le-cf-princ" value="${i}" ${s.principal ? 'checked' : ''}> ⭐ Principal <small>(1º link no app)</small></label>
@@ -1294,9 +1296,9 @@
           <div class="le-cf-grade">${itens.map(card).join('')}</div>
           ${itens.length < (x.n || 0) + 1 && !x.serie ? '<p class="le-dica">Mostrando as 8 primeiras cópias.</p>' : ''}
           <div class="le-jan-botoes">
-            ${temSep ? '<button class="le-bt" id="le-cf-desfazer" style="margin-right:auto">↩ Desfazer separação</button>' : ''}
-            <button class="le-bt" id="le-cf-mesmo" title="Junta como um só e salva o que você preencheu (capa, banner, título, ano, TMDB)">✓ São o mesmo — salvar</button>
-            <button class="le-bt p" id="le-cf-separar">✂ Separar</button>
+            ${temSep ? '<button class="le-bt" id="le-cf-desfazer" style="margin-right:auto" title="Apaga tudo o que foi salvo aqui: voltam a se juntar pelo nome">↩ Desfazer tudo</button>' : ''}
+            <button class="le-bt" id="le-cf-todos-outro" title="Marca todas como filmes diferentes">✂ Todos diferentes</button>
+            <button class="le-bt p" id="le-cf-salvar" title="Salva o papel de cada cópia (fica / sai do grupo), a principal e os dados que você preencheu">💾 Salvar</button>
           </div>`, 'le-cf-jan');
         const voltar = () => { pararFicha(j.querySelector('.le-tv video')); setTimeout(() => abrirSidechain('__copias'), 0); };
         j.querySelectorAll('[data-cf-tocar]').forEach(b => b.onclick = () => { const i = +b.dataset.cfTocar, it = itens[i]; j.querySelectorAll('.le-cf-card').forEach((cd, n) => cd.classList.toggle('tocando', n === i)); tocarEm(j.querySelector('.le-tv'), { headers: {} }, it.url, (it.l || '') + ' · ' + (it.nome || x.nome)); });
@@ -1311,19 +1313,24 @@
             const o = {};
             if (m) o.tmdb = m[2] ? m[1] + '/' + m[2] : (x.serie ? 'tv/' : 'movie/') + m[1];
             if (+v('ano')) o.ano = +v('ano');
-            if (v('titulo')) o.titulo = v('titulo');
+            if (v('titulo')) { const t = v('titulo'), mt = t.match(/(movie|tv)\/(\d+)/i); if (mt && /^(https?:\/\/\S*themoviedb\.org\/)?(movie|tv)\/\d+/i.test(t)) { if (!o.tmdb) o.tmdb = mt[1].toLowerCase() + '/' + mt[2]; } else o.titulo = t; }   // TMDB colado no Título vira TMDB
             ['capa', 'banner'].forEach(k => { if (/^https?:\/\//i.test(v(k))) o[k] = v(k); });
             return o;
         };
-        j.querySelector('#le-cf-mesmo').onclick = () => {
-            // é a mesma obra: o que você preencheu (em qualquer cópia) vale para todas — assim o item juntado mostra, seja qual for a principal
-            const junto = {}; itens.forEach((it, i) => { const o = lerCopia(i); Object.keys(o).forEach(k => { if (junto[k] == null) junto[k] = o[k]; }); });
-            const p = +((j.querySelector('[name="le-cf-princ"]:checked') || {}).value ?? -1);
-            const tem = Object.keys(junto).length || p >= 0;
-            itens.forEach((it, i) => { if (tem) sep[it.sep] = Object.assign({ em: new Date().toISOString().slice(0, 10), soDados: true }, junto, i === p ? { principal: true } : {}); else delete sep[it.sep]; });
-            if (p >= 0) junto.principal = (itens[p].l || 'escolhida');
-            conf[x.k] = new Date().toISOString().slice(0, 10);
-            salvar('🧬 cópias conferidas: ' + x.nome, tem ? `Salvo: ${Object.keys(junto).join(', ')} — vale na próxima rodada do robô.` : 'Marcado como o mesmo. O robô continua juntando.');
+        j.querySelector('#le-cf-todos-outro').onclick = () => { j.querySelectorAll('.le-cf-papel input[value="outro"]').forEach(r => { r.checked = true; }); };
+        j.querySelector('#le-cf-salvar').onclick = () => {
+            const hoje = new Date().toISOString().slice(0, 10);
+            const papel = (i) => (j.querySelector(`[name="le-cf-papel-${i}"]:checked`) || {}).value || 'mesmo';
+            const mesmos = itens.map((it, i) => i).filter(i => papel(i) === 'mesmo'), outros = itens.map((it, i) => i).filter(i => papel(i) === 'outro');
+            const junto = {}; mesmos.forEach(i => { const o = lerCopia(i); Object.keys(o).forEach(k => { if (junto[k] == null) junto[k] = o[k]; }); });
+            let p = +((j.querySelector('[name="le-cf-princ"]:checked') || {}).value ?? -1); if (!mesmos.includes(p)) p = -1;
+            const grupo = outros.length && mesmos.length ? 'g:' + itens[mesmos[0]].sep : '';
+            const marcaMesmos = outros.length || Object.keys(junto).length || p >= 0;
+            mesmos.forEach(i => { const it = itens[i]; if (marcaMesmos) sep[it.sep] = Object.assign({ em: hoje, soDados: true }, grupo ? { grupo } : {}, junto, i === p ? { principal: true } : {}); else delete sep[it.sep]; });
+            outros.forEach(i => { sep[itens[i].sep] = Object.assign({ em: hoje }, lerCopia(i)); });
+            if (outros.length) delete conf[x.k]; else conf[x.k] = hoje;
+            const txt = outros.length ? `${outros.length} tirada(s) do grupo${mesmos.length > 1 ? `, ${mesmos.length} continuam juntas` : ''}` : 'continuam juntas' + (Object.keys(junto).length ? ` · salvo: ${Object.keys(junto).join(', ')}` : '');
+            salvar('🧬 conferido: ' + x.nome, `${txt}. Vale na próxima rodada do robô (🤖 Completar agora ou a de 6 h).`);
         };
         j.querySelectorAll('[data-cf-ficha]').forEach(bt => bt.onclick = () => {
             const it = itens[+bt.dataset.cfFicha], col = (SC.cpUI && SC.cpUI.col) || '';
@@ -1332,13 +1339,8 @@
             SC.sdUI = { aba: col, filtro: '', pag: 1, marcados: new Set(), busca: x.nome };
             setTimeout(() => abrirSidechain(), 0);
         });
-        j.querySelector('#le-cf-separar').onclick = () => {
-            itens.forEach((it, i) => { sep[it.sep] = Object.assign({ em: new Date().toISOString().slice(0, 10) }, lerCopia(i)); });
-            delete conf[x.k];
-            salvar('🧬 cópias separadas: ' + x.nome, `Separado em ${itens.length}. Vale na próxima rodada do robô (🤖 Completar agora ou a de 6 h).`);
-        };
         const d = j.querySelector('#le-cf-desfazer');
-        if (d) d.onclick = () => { itens.forEach(it => { delete sep[it.sep]; }); salvar('🧬 separação desfeita: ' + x.nome, 'Desfeito: na próxima rodada voltam a se juntar.'); };
+        if (d) d.onclick = () => { itens.forEach(it => { delete sep[it.sep]; }); delete conf[x.k]; salvar('🧬 separação desfeita: ' + x.nome, 'Desfeito: na próxima rodada voltam a se juntar.'); };
     }
     function copiasHTML() {
         const cols = colsSC(), todas = (SC.copias && SC.copias.colecoes) || {}, ui = SC.cpUI || (SC.cpUI = { col: '', busca: '' });

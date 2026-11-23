@@ -712,15 +712,18 @@
     const chaveSepSerie = (envioId, c) => 's:' + envioId + ':' + chaveSerie(c);
     function aplicarSeparacao(c, envio) {
         const sep = envio._sep; if (!sep || !ehVideo(c)) return;
-        const sp = sep[c.url] || (chaveSerie(c) && sep[chaveSepSerie(envio.id, c)]);
+        let sp = sep[c.url] || (chaveSerie(c) && sep[chaveSepSerie(envio.id, c)]);
         if (!sp) return;
+        // TMDB colado no campo Título ("movie/123" ou o link): vale como TMDB, não como nome
+        if (sp.titulo && /^(https?:\/\/\S*themoviedb\.org\/)?(movie|tv)\/\d+/i.test(sp.titulo.trim())) { const m = sp.titulo.match(/(movie|tv)\/(\d+)/i); sp = Object.assign({}, sp, { tmdb: sp.tmdb || m[1].toLowerCase() + '/' + m[2] }); delete sp.titulo; }
         const v = c.video = c.video || {};
         if (sp.tmdb) { v.tmdbRef = sp.tmdb; if (v.dados) delete v.dados.porBusca; }
         if (sp.ano) v.ano = sp.ano;
         if (sp.titulo) { if (c.natureza === 'episodio') v.serie = sp.titulo; else v.titulo = sp.titulo; }
         const fx = {}; ['capa', 'banner'].forEach(k => { if (sp[k]) fx[k] = sp[k]; }); if (Object.keys(fx).length) c.ficha = juntarFicha(c.ficha, fx);   // capa/banner escolhidos à mão
         if (sp.principal) c.fixo = true;               // ⭐ escolhida no 🧬 Conferir: vai primeiro para o app (as outras viram reserva)
-        if (!sp.soDados) c._obra = sp.tmdb ? 't:' + String(sp.tmdb).replace(/^.*?(movie|tv)\//, '$1/') : 'u:' + (c.natureza === 'episodio' ? envio.id + ':' + chaveSerie(c) : c.url);
+        if (sp.grupo) c._obra = sp.grupo;              // ✓ "mesmo filme" no Conferir: as cópias que ficaram no grupo continuam juntas
+        else if (!sp.soDados) c._obra = sp.tmdb ? 't:' + String(sp.tmdb).replace(/^.*?(movie|tv)\//, '$1/') : 'u:' + (c.natureza === 'episodio' ? envio.id + ':' + chaveSerie(c) : c.url);
     }
     function ajustarVideo(c, aj) {
         if (!aj) return c;
@@ -1052,7 +1055,7 @@
             relatorios[envio.id] = rel;
             if (avulsa) avulsas.push({ id: envio.id, nome: envio.nome, itens: agrupar(avulsa.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas) });
         }
-        for (const s of porSaida.values()) { s.brutos.forEach(c => { c.chave = chaveSC(c); }); refinarChaves(s.brutos); }   // mesmo nome, obras diferentes (ano/TMDB) não se juntam
+        for (const s of porSaida.values()) { s.brutos.forEach(c => { c.chave = chaveObraSC(c); }); refinarChaves(s.brutos); }   // mesmo nome, obras diferentes (ano/TMDB) não se juntam
         const copias = copiasDasSaidas([...porSaida.values()], naStudioCopias);
         const saidas = [...porSaida.values()].map(s => {
             const itens = agrupar(s.brutos.map(c => Object.assign({}, c))).map(canalComReservas)
@@ -1081,6 +1084,11 @@
         const ref = v.tmdbRef || (d.tmdb && !d.porBusca ? d.tmdb : '') || (c.ficha && c.ficha.tmdb) || (c.fichaSerie && c.fichaSerie.tmdb) || '';
         const ano = parseInt(v.ano || (c.natureza !== 'episodio' && d.ano) || 0, 10) || 0;
         return { tmdb: ref ? String(ref).replace(/^.*?(movie|tv)\//, '$1/') : '', ano, obra: c._obra || '' };
+    }
+    /** chave para juntar cópias de FILME: o título sem o ano ("Matrix (1999)" e "Matrix" são candidatos; o ano decide depois em refinarChaves) */
+    function chaveObraSC(c) {
+        if (ehVideo(c) && c.natureza !== 'episodio' && c.video && c.video.titulo) return 'v:' + norm(c.video.titulo) + '|' + (c.pais || '');
+        return chaveSC(c);
     }
     function refinarChaves(lista) {
         const grupos = new Map();

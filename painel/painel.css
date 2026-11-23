@@ -639,3 +639,12 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-cf-jan .le-tv { grid-template-columns: minmax(0, 1fr) 260px; }
 .le-cf-jan .le-tv-tela video { max-height: 520px; min-height: 300px; }
 .le-fs .le-tv-tela video { max-height: 440px; min-height: 240px; }
+.le-cf-papel { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 3px; border: 1px solid #1f2937; border-radius: 999px; align-self: flex-start; }
+.le-cf-papel label { cursor: pointer; }
+.le-cf-papel input { position: absolute; opacity: 0; pointer-events: none; }
+.le-cf-papel span { display: inline-block; padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #8b95a7; }
+.le-cf-papel input[value="mesmo"]:checked + span { background: #14532d; color: #bbf7d0; }
+.le-cf-papel input[value="outro"]:checked + span { background: #7c2d12; color: #fed7aa; }
+.le-cf-papel input:focus-visible + span { outline: 2px solid #fff; }
+.le-cf-salvo { color: #fdba74 !important; }
+.le-cf-card:has(input[value="outro"]:checked) { border-color: #9a3412; }
