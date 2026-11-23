@@ -3427,6 +3427,11 @@
           "posFundo": 0,
           "bannerOk": true,
           "bannerLogo": "https://static.wikia.nocookie.net/kamenrider/images/f/f8/Kamen_Rider_Gavv_Logo.png/revision/latest?cb=20240630225129"
+        },
+        "ar momentaneo": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
         }
       },
       "criadoEm": "2026-11-23T04:24:39.790Z",
