@@ -983,7 +983,7 @@
      */
     function montarSidechain(lotes, config, opts = {}) {
         const cols = colecoesSidechain(config);
-        const porSaida = new Map(), relatorios = {}, avulsas = [], reservasStudio = {};
+        const porSaida = new Map(), relatorios = {}, avulsas = [], reservasStudio = {}, naStudioCopias = new Map();
         for (const { envio, canais, mantido, erro } of lotes) {
             const rel = { total: canais.length, porDestino: {}, novos: [], pendentes: [], gruposNovos: {}, ignorados: 0, filtrados: 0, mortos: 0, mantido: !!mantido, erro: erro || '' };
             envio._mapaGrupos = mapaGrupos(envio); envio._cols = cols;
@@ -1010,6 +1010,7 @@
                     const j = jaNaStudio(c, opts.studio);
                     if (j && j.colecao === col.id) {
                         rel.naStudio = (rel.naStudio || 0) + 1;
+                        { const ks = chaveSerie(c), k = col.id + '\u0001' + (ks ? 's|' + ks : 'f|' + chaveSC(c)); const x = naStudioCopias.get(k) || { col: col.id, k: ks ? 's|' + ks : 'f|' + chaveSC(c), nome: ks ? c.video.serie : c.nome, serie: !!ks, listas: new Set(), studio: j.nome }; x.listas.add(envio.nome); naStudioCopias.set(k, x); }
                         // 🧬 não some: o link vira RESERVA do item da Studio (o app troca sozinho se o principal cair)
                         if (ehVideo(c) && c.url && j.caminho) {
                             const r = reservasStudio[j.caminho] || (reservasStudio[j.caminho] = { nome: j.nome, links: [], eps: {} });
@@ -1023,6 +1024,7 @@
                 const testar = viver != null ? viver : (col.tipo !== 'video');
                 if (testar && c.teste && !VIVO_RECEITA(c.teste.status)) { rel.mortos++; continue; }
                 const it = itemNoDestino(c, r.destino, col);
+                it._env = envio.nome;                           // 🧬 de que lista veio (para o relatório de cópias)
                 const sd = saidaDe(r.destino, col, it);
                 if (!porSaida.has(sd.chave)) porSaida.set(sd.chave, Object.assign(sd, { brutos: [] }));
                 porSaida.get(sd.chave).brutos.push(it);
@@ -1033,6 +1035,7 @@
             relatorios[envio.id] = rel;
             if (avulsa) avulsas.push({ id: envio.id, nome: envio.nome, itens: agrupar(avulsa.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas) });
         }
+        const copias = copiasDasSaidas([...porSaida.values()], naStudioCopias);
         const saidas = [...porSaida.values()].map(s => {
             const itens = agrupar(s.brutos.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas)
                 .sort((a, b) => String(a.grupoSaida || '').localeCompare(String(b.grupoSaida || ''), 'pt') || String(a.nome).localeCompare(String(b.nome), 'pt'));
@@ -1040,7 +1043,37 @@
             return Object.assign(s, { itens });
         }).sort((a, b) => a.chave.localeCompare(b.chave));
         for (const r of Object.values(reservasStudio)) { r.links = [...new Set(r.links)].slice(0, 5); for (const k of Object.keys(r.eps)) r.eps[k] = [...new Set(r.eps[k])].slice(0, 5); if (!Object.keys(r.eps).length) delete r.eps; }
-        return { saidas, relatorios, avulsas, reservasStudio };
+        return { saidas, relatorios, avulsas, reservasStudio, copias };
+    }
+    /**
+     * 🧬 Relatório de cópias (só informativo): o mesmo filme ou episódio vindo mais de uma vez para a mesma coleção
+     * (de listas diferentes ou repetido na mesma lista). O robô já junta: a 1ª vira o item e as outras viram reserva.
+     * → { [colecao]: [{ k, nome, serie, n, eps?, listas: { [nomeDaLista]: quantos } , studio? }] }
+     */
+    function copiasDasSaidas(saidas, naStudio) {
+        const out = {};
+        for (const s of saidas) {
+            const porChave = new Map();
+            for (const it of s.brutos) { const k = chaveSC(it); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(it); }
+            const porItem = new Map();
+            for (const lista of porChave.values()) {
+                if (lista.length < 2) continue;
+                const c = lista[0], ks = chaveSerie(c), k = ks ? 's|' + ks : 'f|' + chaveSC(c);
+                const x = porItem.get(k) || { k, nome: ks ? c.video.serie : (c.video && c.video.titulo) || c.nome, serie: !!ks, n: 0, eps: 0, listas: {} };
+                x.n += lista.length - 1; if (ks) x.eps++;
+                for (const it of lista) x.listas[it._env || '?'] = (x.listas[it._env || '?'] || 0) + 1;
+                porItem.set(k, x);
+            }
+            const arr = out[s.colecao] = (out[s.colecao] || []);
+            for (const x of porItem.values()) { if (!x.serie) delete x.eps; arr.push(x); }
+        }
+        for (const x of naStudio.values()) {
+            const arr = out[x.col] = (out[x.col] || []);
+            const ja = arr.find(y => y.k === x.k);
+            if (ja) ja.studio = x.studio; else arr.push({ k: x.k, nome: x.nome, serie: x.serie, n: x.listas.size, studio: x.studio, listas: Object.fromEntries([...x.listas].map(l => [l, 1])) });
+        }
+        for (const k of Object.keys(out)) { out[k].sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt')); if (!out[k].length) delete out[k]; else out[k] = out[k].slice(0, 5000); }
+        return out;
     }
     /**
      * A fonte do Cloud de uma saída (vai em listas/sidechain-fontes.json; o Cloud lê via "fontesDoStudio").
