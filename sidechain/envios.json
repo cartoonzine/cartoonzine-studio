@@ -3375,6 +3375,43 @@
       "fichasSerie": {},
       "criadoEm": "2026-11-23T01:34:32.756Z",
       "tmdbPedidoEm": "2026-11-23T04:24:24.480Z"
+    },
+    {
+      "id": "saimo-doramas",
+      "nome": "Saimo Doramas",
+      "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/doramas.json",
+      "listas": [],
+      "ativo": true,
+      "tipoLista": "unica",
+      "destino": {
+        "colecao": "series"
+      },
+      "rotas": [],
+      "gruposNovos": "esperar",
+      "modo": "auto",
+      "soVivos": null,
+      "filtros": {
+        "idiomas": [],
+        "tipos": [],
+        "paises": [],
+        "categorias": [],
+        "excluirTipos": [
+          "Adulto"
+        ],
+        "busca": "",
+        "confiancaMin": 0
+      },
+      "avulsa": false,
+      "tmdb": false,
+      "tmdbModo": "falta",
+      "tmdbFundo": true,
+      "pularStudio": true,
+      "desvios": {},
+      "regras": [],
+      "ajustes": {},
+      "gruposRevisados": {},
+      "fichasSerie": {},
+      "criadoEm": "2026-11-23T04:24:39.790Z"
     }
   ]
 }
