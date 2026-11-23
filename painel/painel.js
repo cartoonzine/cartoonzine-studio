@@ -368,7 +368,7 @@
         if (estado.tela === 'vitrine') desenharVitrine();
         else if (estado.tela === 'czcloud') window.CZCloud.desenhar($('#area'), { RepoGitHub, esc, aviso, guardar, config: () => estado.config, token: () => (estado.repo && estado.repo.token) || (guardar.ler('czs-github') || {}).token || '' });
         else if (estado.tela === 'multicopy') window.CZMultiCopy.desenhar($('#area'), { C, esc, aviso, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), local: () => !!(estado.repo && estado.repo.usaProxy) });
-        else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), temTmdb: () => !!chaves().tmdb, completar: (it) => C.completarItem(it, { tmdb: chaves().tmdb, omdb: chaves().omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: 'video' }) });
+        else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, navbarSim, NAVBAR_SIM, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), temTmdb: () => !!chaves().tmdb, completar: (it) => C.completarItem(it, { tmdb: chaves().tmdb, omdb: chaves().omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: 'video' }) });
         else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
             RepoGitHub, aviso, esc, guardar,
             indice: () => estado.indice,
@@ -505,7 +505,7 @@
               const marcado = estado.selecionando && sel.has(i.caminho);
               return `<button class="card ${largo ? 'largo' : ''} ${marcado ? 'marcado' : ''}" data-caminho="${esc(i.caminho)}" data-idx="${idx}" ${estado.selecionando ? `aria-pressed="${marcado}"` : ''}>
                 ${estado.selecionando ? `<span class="marca" aria-hidden="true">${marcado ? '✓' : ''}</span>` : ''}
-                ${i.rascunho ? '<span class="selo rasc">rascunho</span>' : ''}${i.auto ? '<span class="selo auto">auto</span>' : ''}
+                ${i.bannerOk ? '<i class="led on card-led" title="Banner do topo ajustado"></i>' : ''}${i.rascunho ? '<span class="selo rasc">rascunho</span>' : ''}${i.auto ? '<span class="selo auto">auto</span>' : ''}
                 <div class="img">${i.capa ? `<img src="${esc(i.capa)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</div>
                 <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc(meta || (i.pendente ? 'publicando…' : ' '))}</div></div>
               </button>`;
@@ -748,7 +748,10 @@
     // ==================================================================
     // Formulário (gerado a partir de StudioCore.TIPOS)
     // ==================================================================
-    function campoHtml(c, valor, prefixo = 'f') {
+    // barra do app desenhada por cima do topo (📱 Simular navbar) — o topo do app começa embaixo dela
+    const NAVBAR_SIM = '<div class="nav-sim" aria-hidden="true"><b>CZ</b><span>Início</span><span>Filmes</span><span>Séries</span><span>Animes</span><span>Kids</span><i>🔍</i><i>👤</i></div>';
+    const navbarSim = () => { try { return localStorage.getItem('cz-navbar-sim') !== '0'; } catch (e) { return true; } };
+    function campoHtml(c, valor, prefixo = 'f', item) {
         const id = prefixo + '-' + c.k;
         const obr = c.obrigatorio ? ' <span class="obr">*</span>' : '';
         const dica = c.dica ? `<div class="dica">${esc(c.dica)}</div>` : '';
@@ -787,17 +790,17 @@
             case 'temporadas':
                 return `<div class="cheio" id="temporadas-box"></div>`;
             case 'seletorFundo': {
-                const ban = valor === 'banner';
-                return `<div class="cheio">${rot}<div class="seg-fundo" role="radiogroup" aria-label="${esc(c.rotulo)}">
+                const ban = valor === 'banner', ok = !!(item && item.bannerOk);
+                return `<div class="cheio">${rot}<div class="pos-topo"><div class="seg-fundo" role="radiogroup" aria-label="${esc(c.rotulo)}">
                     <label><input type="radio" name="${id}" data-k="${c.k}" value="capa" ${ban ? '' : 'checked'}><span>🖼️ Capa</span></label>
                     <label><input type="radio" name="${id}" data-k="${c.k}" value="banner" ${ban ? 'checked' : ''}><span>🎞️ Banner</span></label>
-                  </div>${dica}</div>`;
+                  </div><div class="pos-ferr"><label class="pos-ok" title="Marque quando o banner do topo estiver no lugar: o card ganha a bolinha verde"><input type="checkbox" class="pos-ok-in" ${ok ? 'checked' : ''}><i class="led"></i>Banner ajustado</label><label class="pos-nav" title="Mostra a barra do app por cima do topo, para posicionar a imagem"><input type="checkbox" class="pos-nav-in" ${navbarSim() ? 'checked' : ''}>📱 Simular navbar</label></div></div>${dica}</div>`;
             }
             case 'posicao': {
                 // prévia do fundo do topo do app (mesmo corte e degradê); ligarPosicoes() desenha e cuida do arraste
                 const n = Number.isFinite(parseFloat(valor)) ? Math.round(parseFloat(valor)) : '';
                 return `<div class="cheio pos-campo" data-de="${esc(c.de || 'capa')}">${rot}
-                  <div class="pos-quadro" title="Arraste a imagem para cima ou para baixo"><div class="pos-img"></div><div class="pos-degrade"></div><span class="pos-sem">Coloque a imagem (capa ou banner) para ajustar</span></div>
+                  <div class="pos-quadro" title="Arraste a imagem para cima ou para baixo"><div class="pos-img"></div><div class="pos-degrade"></div>${NAVBAR_SIM}<span class="pos-sem">Coloque a imagem (capa ou banner) para ajustar</span></div>
                   <div class="dica pos-aviso" hidden>Este item ainda não tem banner: o app usa a capa.</div>
                   <div class="pos-linha"><span class="dica">topo</span><input type="range" class="pos-barra" min="0" max="100" step="1" value="${n === '' ? 50 : n}" aria-label="${esc(c.rotulo)}"><span class="dica">pé</span>
                     <input class="campo pos-num" id="${id}" data-k="${c.k}" type="number" min="0" max="100" inputmode="numeric" placeholder="centro" value="${n}"><span class="dica">%</span>
@@ -814,6 +817,7 @@
             if (c.tipo === 'seletorFundo') {
                 const r = raiz.querySelector(`[data-k="${c.k}"]:checked`);
                 if (r && r.value === 'banner') out[c.k] = 'banner';
+                const ok = raiz.querySelector('.pos-ok-in'); if (ok && ok.checked) out.bannerOk = true;
                 continue;
             }
             const e = raiz.querySelector(`[data-k="${c.k}"]`);
@@ -850,15 +854,19 @@
             barra.value = y;
             b.classList.toggle('pos-vazio', !url);
         });
+        const marcarOk = () => { const ok = form.querySelector('.pos-ok-in'); if (ok) ok.checked = true; };
+        const navbar = () => { const n = form.querySelector('.pos-nav-in'); form.classList.toggle('com-navbar', !n || n.checked); };
         if (!form._posLigado) {
             form._posLigado = true;
             form.addEventListener('input', (e) => {
                 if (e.target.classList && e.target.classList.contains('pos-barra')) e.target.closest('.pos-campo').querySelector('.pos-num').value = e.target.value;
+                if (e.target.classList && (e.target.classList.contains('pos-barra') || e.target.classList.contains('pos-num'))) marcarOk();
+                if (e.target.classList && e.target.classList.contains('pos-nav-in')) { try { localStorage.setItem('cz-navbar-sim', e.target.checked ? '1' : '0'); } catch (x) { /* */ } navbar(); }
                 pintar();
             });
             form.addEventListener('click', (e) => {
                 const bt = e.target.closest && e.target.closest('.pos-centro');
-                if (bt) { bt.closest('.pos-campo').querySelector('.pos-num').value = ''; pintar(); }
+                if (bt) { bt.closest('.pos-campo').querySelector('.pos-num').value = ''; marcarOk(); pintar(); }
             });
             form.addEventListener('pointerdown', (e) => {
                 const q = e.target.closest && e.target.closest('.pos-quadro');
@@ -869,11 +877,12 @@
                 try { q.setPointerCapture(e.pointerId); } catch (err) { /* */ }
                 q.classList.add('arrastando');
                 // arrastar para baixo puxa a imagem para baixo → aparece a parte de CIMA (porcentagem menor)
-                const mover = (ev) => { num.value = lim(v0 - (ev.clientY - y0) / q.clientHeight * 100); pintar(); };
+                const mover = (ev) => { num.value = lim(v0 - (ev.clientY - y0) / q.clientHeight * 100); marcarOk(); pintar(); };
                 const fim = () => { q.classList.remove('arrastando'); q.removeEventListener('pointermove', mover); q.removeEventListener('pointerup', fim); q.removeEventListener('pointercancel', fim); };
                 q.addEventListener('pointermove', mover); q.addEventListener('pointerup', fim); q.addEventListener('pointercancel', fim);
             });
         }
+        navbar();
         pintar();
     }
 
@@ -1014,8 +1023,8 @@
             ${col.tipo === 'jogo' ? barraJogo(item) : ''}
             <div class="caixa-erros" id="ed-erros"></div>
             <form class="form" id="ed-form" style="margin-top:16px" novalidate>
-              ${normais.map(c => campoHtml(c, item[c.k])).join('')}
-              ${avancados.length ? `<details class="avancado cheio"><summary>Opções avançadas</summary><div class="form" style="margin-top:12px">${avancados.map(c => campoHtml(c, item[c.k])).join('')}</div></details>` : ''}
+              ${normais.map(c => campoHtml(c, item[c.k], 'f', item)).join('')}
+              ${avancados.length ? `<details class="avancado cheio"><summary>Opções avançadas</summary><div class="form" style="margin-top:12px">${avancados.map(c => campoHtml(c, item[c.k], 'f', item)).join('')}</div></details>` : ''}
             </form>
             <div class="linha-acoes">
               <button class="btn principal" id="ed-salvar">Salvar</button>
@@ -1038,6 +1047,7 @@
             const novo = Object.assign({}, item);
             delete novo._rascunho;
             for (const c of tipo.campos) delete novo[c.k];
+            delete novo.bannerOk;
             Object.assign(novo, lerCampos(form, tipo.campos));
             const t = lerTemps();
             if (t && t.length) novo.temporadas = t;
@@ -1131,8 +1141,8 @@
                 delete atual.archive;
                 item = Object.assign({}, item, atual);
                 // redesenha o formulário com o que foi achado
-                form.innerHTML = normais.map(c => campoHtml(c, item[c.k])).join('') +
-                    (avancados.length ? `<details class="avancado cheio"><summary>Opções avançadas</summary><div class="form" style="margin-top:12px">${avancados.map(c => campoHtml(c, item[c.k])).join('')}</div></details>` : '');
+                form.innerHTML = normais.map(c => campoHtml(c, item[c.k], 'f', item)).join('') +
+                    (avancados.length ? `<details class="avancado cheio"><summary>Opções avançadas</summary><div class="form" style="margin-top:12px">${avancados.map(c => campoHtml(c, item[c.k], 'f', item)).join('')}</div></details>` : '');
                 const nb = $('#temporadas-box', fundo);
                 if (nb) lerTemps = editorTemporadas(nb, item.temporadas);
                 ligarPosicoes(form);

@@ -1603,6 +1603,7 @@
         if (jog) out.jogadores = jog;
         for (const k of ['volume', 'paginas']) { const n = inteiro(b[k]); if (n) out[k] = n; }
         if (b.fundoImagem === 'banner') out.fundoImagem = 'banner';   // capa é o padrão (não precisa gravar)
+        if (b.bannerOk === true || b.bannerOk === 'true') out.bannerOk = true;   // 🟢 banner do topo já ajustado (só no Studio, não vai para o app)
         const pf = parseFloat(b.posFundo);                 // 0 (topo da imagem) até 100 (pé); vazio = centro
         if (Number.isFinite(pf)) out.posFundo = Math.max(0, Math.min(100, Math.round(pf)));
         if (b.destaque === true || b.destaque === 'true' || b.destaque === 'sim') out.destaque = true;
@@ -2102,6 +2103,7 @@
             off: (item.linksDesativados || []).length || undefined,
             imdb: item.imdb,
             soPC: item.soPC ? true : undefined,
+            bannerOk: item.bannerOk ? true : undefined,
             rascunho: item._rascunho ? true : undefined,
             auto: item._origem ? true : undefined
         });

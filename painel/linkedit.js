@@ -1200,6 +1200,7 @@
         S.aviso('🔄 Atualizado com a última rodada do robô.', 'ok');
     }
     // ---------- 👁 SAÍDA (passo 4): como cada coleção de vídeo vai chegar no app, com o que falta ----------
+    const filtroSD = (cd, k) => k === 'falta' ? cd.falta.length > 0 : k === 'ajuste' ? !cd.ok : cd.falta.includes(k);
     /** o que falta no card (mesma conta do gerarJSON: ficha > TMDB > lista) */
     function faltasSD(c) {
         const f = Object.assign({}, c.fichaSerie, c.ficha), d = (c.video && c.video.dados) || {}, fl = [];
@@ -1231,19 +1232,19 @@
             else a.cards.push({ itens: [c] });
         }
         delete e._mapaGrupos; delete e._cols;
-        const lista = [...abas.values()].map(a => { a.cards.forEach(cd => { cd.falta = faltasSD(cd.itens[0]); }); delete a.porSerie; return a; });
+        const lista = [...abas.values()].map(a => { a.cards.forEach(cd => { cd.falta = faltasSD(cd.itens[0]); cd.ok = !!Object.assign({}, cd.itens[0].fichaSerie, cd.itens[0].ficha).bannerOk; }); delete a.porSerie; return a; });
         SC.sdCache = { id: e.id, ver, canais: x.canais, abas: lista };
         return lista;
     }
-    const FALTAS_SD = [['', 'Todos'], ['falta', '⚠ Falta algo'], ['capa', 'sem capa'], ['banner', 'sem banner'], ['sinopse', 'sem sinopse'], ['logo', 'sem logo']];
+    const FALTAS_SD = [['', 'Todos'], ['falta', '⚠ Falta algo'], ['capa', 'sem capa'], ['banner', 'sem banner'], ['sinopse', 'sem sinopse'], ['logo', 'sem logo'], ['ajuste', '⚪ falta ajustar o topo']];
     function saidaHTML(e) {
         const abas = modeloSaida(e);
         if (!abas) return `<div class="le-sd"><div class="le-rot">👁 Saída — como vai chegar no app</div><p class="le-dica">Leia a lista para ver a saída. <button class="le-bt" data-sc-ler="1">📥 Ler lista</button></p></div>`;
         if (!abas.length) return `<div class="le-sd"><div class="le-rot">👁 Saída — como vai chegar no app</div><p class="le-dica">Nenhum vídeo indo para coleção de vídeo (canais e rádios não têm ficha).</p></div>`;
         const ui = SC.sdUI = SC.sdUI || { aba: '', filtro: '', pag: 1, marcados: new Set() };
         const a = abas.find(x => x.col.id === ui.aba) || abas[0]; ui.aba = a.col.id;
-        const nF = (k) => a.cards.filter(cd => k === 'falta' ? cd.falta.length : cd.falta.includes(k)).length;
-        const vis = ui.filtro ? a.cards.filter(cd => ui.filtro === 'falta' ? cd.falta.length : cd.falta.includes(ui.filtro)) : a.cards;
+        const nF = (k) => a.cards.filter(cd => filtroSD(cd, k)).length;
+        const vis = ui.filtro ? a.cards.filter(cd => filtroSD(cd, ui.filtro)) : a.cards;
         const mostra = vis.slice(0, ui.pag * 48);
         SC.sdVista = mostra;
         const card = (cd, i) => {
@@ -1253,7 +1254,7 @@
             return `<div class="le-sd-card${cd.falta.length ? ' falta' : ''}${mk ? ' on' : ''}" data-sd-card="${i}" title="Clique para abrir a ficha">
               <div class="le-sd-capa">${o.thumb ? `<img src="${esc(o.thumb)}" alt="" loading="lazy">` : '<div class="le-sd-sem">sem capa</div>'}
                 ${o.bannerThumb ? `<div class="le-sd-ban" style="background-image:url('${esc(String(o.bannerThumb).replace(/'/g, '%27'))}');background-position:center ${o.bgPosY != null ? o.bgPosY : 50}%">${o.logo ? `<img src="${esc(o.logo)}" alt="">` : `<b>${esc(titulo)}</b>`}</div>` : ''}
-                <label class="le-sd-mk" title="Marcar"><input type="checkbox" data-sd-marca="${i}" ${mk ? 'checked' : ''}></label>
+                ${cd.ok ? '<i class="led on le-sd-led" title="Banner do topo ajustado"></i>' : ''}<label class="le-sd-mk" title="Marcar"><input type="checkbox" data-sd-marca="${i}" ${mk ? 'checked' : ''}></label>
                 ${cd.serie ? `<span class="le-sd-eps">${cd.itens.length} ep.</span>` : ''}</div>
               <b class="le-sd-tit">${esc(titulo)}</b>
               <small>${[o.year || (d.ano || ''), o.age ? '🔞 ' + o.age : '', notas].filter(Boolean).join(' · ')}</small>
@@ -1280,7 +1281,7 @@
         if (b && b.id === 'le-sd-tmdb') {
             const abas = modeloSaida(e), a = abas.find(x => x.col.id === ui.aba) || abas[0];
             const cards = ui.marcados.size ? a.cards.filter(cd => ui.marcados.has(cd.serie ? 's:' + L.chaveSerie(cd.itens[0]) : L.chaveSC(cd.itens[0])))
-                : ui.filtro ? a.cards.filter(cd => ui.filtro === 'falta' ? cd.falta.length : cd.falta.includes(ui.filtro)) : a.cards;
+                : ui.filtro ? a.cards.filter(cd => filtroSD(cd, ui.filtro)) : a.cards;
             SC.saida = { envio: e, canais };
             abrirCompletarTMDB(cards.flatMap(cd => cd.itens));
             return true;
@@ -2722,9 +2723,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             ${url('capa', 'Capa (imagem vertical)')}
             ${url('banner', 'Banner (imagem horizontal)')}
             ${url('previa', 'Imagem da tela de prévia', 'aparece na tela de prévia da categoria antes do vídeo — outra imagem grande, para não repetir o banner · vazio = usa o banner')}
-            <div class="le-fs-campo cheio"><span>Imagem do fundo do topo</span><div class="le-chips">${[['', '🖼️ Capa'], ['banner', '🎞️ Banner']].map(([k, t]) => `<label class="le-chip ${String(v('fundoImagem')) === k ? 'on' : ''}"><input type="radio" name="le-fs-fundo" value="${k}" ${String(v('fundoImagem')) === k ? 'checked' : ''} hidden>${t}</label>`).join('')}</div><small>qual imagem vira o fundo do topo da tela no app · sem banner, usa a capa</small></div>
+            <div class="le-fs-campo cheio"><span>Imagem do fundo do topo</span><div class="pos-topo"><div class="le-chips">${[['', '🖼️ Capa'], ['banner', '🎞️ Banner']].map(([k, t]) => `<label class="le-chip ${String(v('fundoImagem')) === k ? 'on' : ''}"><input type="radio" name="le-fs-fundo" value="${k}" ${String(v('fundoImagem')) === k ? 'checked' : ''} hidden>${t}</label>`).join('')}</div><div class="pos-ferr"><label class="pos-ok" title="Marque quando o banner do topo estiver no lugar: o card ganha a bolinha verde"><input type="checkbox" id="le-fs-ok-banner" ${atual.bannerOk ? 'checked' : ''}><i class="led"></i>Banner ajustado</label><label class="pos-nav" title="Mostra a barra do app por cima do topo, para posicionar a imagem"><input type="checkbox" id="le-fs-nav" ${S.navbarSim() ? 'checked' : ''}>📱 Simular navbar</label></div></div><small>qual imagem vira o fundo do topo da tela no app · sem banner, usa a capa</small></div>
             <div class="le-fs-campo cheio"><span>Posição da imagem no fundo do topo</span>
-              <div class="le-fs-quadro" title="Arraste a imagem para cima ou para baixo"><div class="le-fs-img"></div><div class="le-fs-degrade"></div><b class="le-fs-titulo">${esc(ep ? c.video.serie : (c.video && c.video.titulo) || c.nome)}</b></div>
+              <div class="le-fs-quadro" title="Arraste a imagem para cima ou para baixo"><div class="le-fs-img"></div><div class="le-fs-degrade"></div>${S.NAVBAR_SIM}<b class="le-fs-titulo">${esc(ep ? c.video.serie : (c.video && c.video.titulo) || c.nome)}</b></div>
               <div class="le-fs-linha"><small>topo</small><input type="range" id="le-fs-barra" min="0" max="100" value="${pos === '' ? 50 : pos}"><small>pé</small><input class="le-campo" id="le-fs-pos" type="number" min="0" max="100" placeholder="centro" value="${pos}" style="width:80px"><small>%</small><button class="le-bt" id="le-fs-centro">Centro</button></div>
               <small>no app a imagem vira o fundo do topo da tela, cortada na horizontal: arraste até mostrar a melhor parte · vazio = centro</small></div>
             <label class="le-fs-campo cheio"><span>Sinopse</span><textarea class="le-campo" data-fs="descricao" rows="4">${esc(v('descricao'))}</textarea></label>
@@ -2752,16 +2753,19 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             j.querySelectorAll('[data-fs-img]').forEach(im => { const u = val(im.dataset.fsImg); im.hidden = !u; if (u && im.src !== u) im.src = u; });
             j.querySelectorAll('.le-fs-grade .le-chip').forEach(ch => ch.classList.toggle('on', ch.querySelector('input').checked));
         };
-        j.addEventListener('input', (ev) => { if (ev.target.id === 'le-fs-barra') j.querySelector('#le-fs-pos').value = ev.target.value; pintar(); });
+        const marcarOk = () => { j.querySelector('#le-fs-ok-banner').checked = true; };
+        const navbar = () => { const on = j.querySelector('#le-fs-nav').checked; j.querySelector('.le-fs-quadro').classList.toggle('com-navbar', on); try { localStorage.setItem('cz-navbar-sim', on ? '1' : '0'); } catch (x) { /* */ } };
+        j.querySelector('#le-fs-nav').addEventListener('change', navbar); navbar();
+        j.addEventListener('input', (ev) => { if (ev.target.id === 'le-fs-barra') j.querySelector('#le-fs-pos').value = ev.target.value; if (ev.target.id === 'le-fs-barra' || ev.target.id === 'le-fs-pos') marcarOk(); pintar(); });
         j.addEventListener('change', pintar);
-        j.querySelector('#le-fs-centro').onclick = () => { j.querySelector('#le-fs-pos').value = ''; pintar(); };
+        j.querySelector('#le-fs-centro').onclick = () => { j.querySelector('#le-fs-pos').value = ''; marcarOk(); pintar(); };
         const quadro = j.querySelector('.le-fs-quadro');
         quadro.addEventListener('pointerdown', (e) => {
             e.preventDefault();
             const num = j.querySelector('#le-fs-pos'), y0 = e.clientY, v0 = num.value === '' ? 50 : lim(+num.value);
             try { quadro.setPointerCapture(e.pointerId); } catch (x) { /* */ }
             quadro.classList.add('arrastando');
-            const mover = (ev) => { num.value = lim(v0 - (ev.clientY - y0) / quadro.clientHeight * 100); pintar(); };   // puxar para baixo mostra a parte de cima
+            const mover = (ev) => { num.value = lim(v0 - (ev.clientY - y0) / quadro.clientHeight * 100); marcarOk(); pintar(); };   // puxar para baixo mostra a parte de cima
             const fim = () => { quadro.classList.remove('arrastando'); quadro.removeEventListener('pointermove', mover); quadro.removeEventListener('pointerup', fim); };
             quadro.addEventListener('pointermove', mover); quadro.addEventListener('pointerup', fim);
         });
@@ -2800,6 +2804,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const fundo = (j.querySelector('[name="le-fs-fundo"]:checked') || {}).value; if (fundo === 'banner') f.fundoImagem = 'banner';
             const p = j.querySelector('#le-fs-pos').value; if (p !== '') f.posFundo = lim(+p);
             if (j.querySelector('[data-fs="destaque"]').checked) f.destaque = true;
+            if (j.querySelector('#le-fs-ok-banner').checked) f.bannerOk = true;
             gravar(f);
         };
     }
