@@ -604,7 +604,7 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-cf-campos .le-campo { padding: 6px 8px; font-size: 12.5px; }
 .le-cf-acoes { display: flex; flex-wrap: wrap; gap: 6px; }
 .le-fs-links { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
-.le-fs-link { display: grid; grid-template-columns: minmax(110px, auto) 1fr auto auto auto; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid #1f2937; border-radius: 8px; background: #0d121b; font-size: 12.5px; }
+.le-fs-link { display: grid; grid-template-columns: minmax(110px, auto) 1fr auto auto auto auto; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid #1f2937; border-radius: 8px; background: #0d121b; font-size: 12.5px; }
 .le-fs-link code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #8b95a7; font-size: 11.5px; }
 .le-fs-res { font-size: 12px; white-space: nowrap; }
 .le-fs-tela { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
@@ -624,3 +624,9 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-cf-princ small { color: #8b95a7; }
 .le-cf-card.tocando { border-color: #22d3ee; box-shadow: 0 0 0 1px #22d3ee inset; }
 @media (max-width: 720px) { .le-tv { grid-template-columns: 1fr; } }
+.le-tv-falha { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: rgba(0,0,0,.78); text-align: center; padding: 12px; }
+.le-tv-falha[hidden] { display: none; }
+.le-tv-falha p { margin: 0; color: #e5e7eb; font-size: 13px; }
+.le-tv-falha small { color: #9ca3af; }
+.le-tv-dados a.le-tv-abrir { margin-top: 4px; text-align: center; text-decoration: none; }
+.le-tv-falha a.le-tv-abrir { text-decoration: none; }

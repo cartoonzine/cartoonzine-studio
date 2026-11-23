@@ -2846,33 +2846,38 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         return out.slice(0, 10);
     }
     // ---------- 📺 tela de teste com mostrador (Ficha e 🧬 Conferir): toca o link e mostra resolução, tempo, duração… ----------
-    let fichaPlayer = null;
+    let fichaPlayer = null, tvToken = 0;
     function pararFicha(v) { if (fichaPlayer) { try { fichaPlayer.destroy(); } catch (e) { /* */ } fichaPlayer = null; } if (v) { try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* */ } } }
     const DADOS_TV = [['st', 'Status'], ['abriu', 'Abriu em'], ['res', 'Resolução'], ['q', 'Qualidade'], ['dur', 'Duração'], ['fmt', 'Formato'], ['srv', 'Servidor'], ['teste', 'Teste do link']];
-    const telaHTML = (titulo) => `<div class="le-tv" hidden><div class="le-tv-tela"><video controls playsinline></video><b class="le-tv-tit"></b></div>
-        <div class="le-tv-dados">${DADOS_TV.map(([k, r]) => `<div><span>${r}</span><b data-tv="${k}">—</b></div>`).join('')}</div></div>`;
+    const telaHTML = (titulo) => `<div class="le-tv" hidden><div class="le-tv-tela"><video controls playsinline></video><b class="le-tv-tit"></b>
+          <div class="le-tv-falha" hidden><p>O navegador não tocou aqui dentro.</p><a class="le-bt p le-tv-abrir" target="_blank" rel="noopener noreferrer">↗ Abrir no navegador</a><small>abre o vídeo numa aba nova, como antes</small></div></div>
+        <div class="le-tv-dados">${DADOS_TV.map(([k, r]) => `<div><span>${r}</span><b data-tv="${k}">—</b></div>`).join('')}<a class="le-bt le-tv-abrir" target="_blank" rel="noopener noreferrer">↗ Abrir no navegador</a></div></div>`;
     const qualidadeDe = (h) => !h ? '—' : h >= 2000 ? '4K' : h >= 1000 ? 'FHD (1080p)' : h >= 700 ? 'HD (720p)' : h >= 460 ? 'SD (480p)' : 'baixa (' + h + 'p)';
     const formatoDe = (u) => /\.m3u8(\?|$)/i.test(u) ? 'HLS (m3u8)' : (String(u).match(/\.(mp4|mkv|avi|ts|webm|mov|flv)(\?|$)/i) || [, '—'])[1].toUpperCase();
     async function tocarEm(box, c, url, titulo) {
         const v = box.querySelector('video'), put = (k, t) => { const e = box.querySelector(`[data-tv="${k}"]`); if (e) e.textContent = t; };
         pararFicha(v); box.hidden = false; DADOS_TV.forEach(([k]) => put(k, '—'));
+        const falha = box.querySelector('.le-tv-falha'); falha.hidden = true;
+        box.querySelectorAll('.le-tv-abrir').forEach(a => { a.href = url; });
+        const tk = ++tvToken, naoTocou = (t) => { if (tk !== tvToken) return; put('st', t); falha.hidden = false; };
         box.querySelector('.le-tv-tit').textContent = titulo || '';
         put('st', '⏳ abrindo…'); put('fmt', formatoDe(url)); try { put('srv', new URL(url).host); } catch (e) { /* */ }
         const t0 = performance.now(), src = viaTunel(c, url);
         v.onloadedmetadata = () => { if (v.videoWidth) { put('res', v.videoWidth + '×' + v.videoHeight); put('q', qualidadeDe(v.videoHeight)); } if (isFinite(v.duration) && v.duration > 0) { const m = Math.round(v.duration / 60); put('dur', m >= 60 ? Math.floor(m / 60) + ' h ' + (m % 60) + ' min' : m + ' min'); } };
         v.onplaying = () => { put('st', '✅ tocando'); put('abriu', ((performance.now() - t0) / 1000).toFixed(1).replace('.', ',') + ' s'); };
-        v.onerror = () => put('st', '❌ não tocou no navegador (formato?) — veja o Teste do link');
+        v.onerror = () => naoTocou(location.protocol === 'https:' && /^http:/i.test(url) && !local() ? '❌ bloqueado: link http dentro de página https (no painel do PC toca)' : '❌ não tocou aqui (formato?) — veja o Teste do link');
+        setTimeout(() => { if (v.readyState < 2 && !v.error && box.isConnected) naoTocou('⌛ não começou em 15 s'); }, 15000);
         testarNaFicha(c, url, box.querySelector('[data-tv="teste"]'));
         try {
             if (/m3u8/i.test(url) && !(v.canPlayType('application/vnd.apple.mpegurl') && !window.MediaSource)) {
                 if (!(await carregarLib('hls'))) return put('st', 'não consegui carregar o hls.js');
                 fichaPlayer = new window.Hls({ startLevel: -1, maxBufferLength: 8 });
-                fichaPlayer.on(window.Hls.Events.ERROR, (ev, d) => { if (d && d.fatal) put('st', '❌ ' + (d.details || d.type)); });
+                fichaPlayer.on(window.Hls.Events.ERROR, (ev, d) => { if (d && d.fatal) naoTocou('❌ ' + (d.details || d.type)); });
                 fichaPlayer.on(window.Hls.Events.MANIFEST_PARSED, (ev, d) => { const top = (d.levels || []).reduce((a, l) => Math.max(a, l.height || 0), 0); if (top) put('q', qualidadeDe(top) + ' (melhor do link)'); });
                 fichaPlayer.loadSource(src); fichaPlayer.attachMedia(v);
             } else v.src = src;
             v.muted = false; await v.play().catch(() => {});
-        } catch (e) { put('st', '❌ ' + e.message); }
+        } catch (e) { naoTocou('❌ ' + e.message); }
         box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
     async function testarNaFicha(c, url, el) {
@@ -2923,7 +2928,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <label class="le-fs-campo cheio" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" data-fs="destaque" ${atual.destaque ? 'checked' : ''}> Destaque no banner da home</label>
               </div></details>
             <details class="le-fs-campo cheio le-fs-mais le-fs-video"><summary>▶ Testar o vídeo (${linksDaFicha(c).length} link${linksDaFicha(c).length > 1 ? 's' : ''})</summary>
-              <div class="le-fs-links">${linksDaFicha(c).map((l, i) => `<div class="le-fs-link"><b>${esc(l.rot)}</b><code title="${esc(l.url)}">${esc(l.url)}</code><span class="le-fs-res" data-fs-res="${i}"></span><button class="le-bt" data-fs-tocar="${i}">▶ Tocar</button><button class="le-bt" data-fs-testar="${i}">🔎 Testar</button></div>`).join('')}</div>
+              <div class="le-fs-links">${linksDaFicha(c).map((l, i) => `<div class="le-fs-link"><b>${esc(l.rot)}</b><code title="${esc(l.url)}">${esc(l.url)}</code><span class="le-fs-res" data-fs-res="${i}"></span><button class="le-bt" data-fs-tocar="${i}">▶ Tocar</button><button class="le-bt" data-fs-testar="${i}">🔎 Testar</button><a class="le-bt" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer" title="Abrir no navegador (aba nova)">↗</a></div>`).join('')}</div>
               ${telaHTML()}
             </details>
           </div>
