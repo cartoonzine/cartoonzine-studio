@@ -1,7 +1,18 @@
 {
   "versao": 1,
   "regrasGlobais": [],
-  "separacoes": {},
+  "separacoes": {
+    "http://dbonline.tech-cdn.top:80/movie/ke-vin-0928392083/PZjF6XATTZ/12389.mp4": {
+      "em": "2026-11-23",
+      "soDados": true,
+      "ano": 2022
+    },
+    "http://dbonline.tech-cdn.top:80/movie/ke-vin-0928392083/PZjF6XATTZ/54010.mp4": {
+      "em": "2026-11-23",
+      "soDados": true,
+      "ano": 2022
+    }
+  },
   "conferidos": {
     "f|n:codigo de honra|": "2026-11-23",
     "f|n:codigo de etica|": "2026-11-23",
@@ -11,7 +22,8 @@
     "f|n:re nascer|": "2026-11-23",
     "f|n:des controle|": "2026-11-23",
     "f|n:salverosa|": "2026-11-23",
-    "f|n:a extraordinaria garota chamada estrela|": "2026-11-23"
+    "f|n:a extraordinaria garota chamada estrela|": "2026-11-23",
+    "f|n:a extraordinaria garota chamada estrela em hollywood|": "2026-11-23"
   },
   "envios": [
     {
