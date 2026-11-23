@@ -1276,7 +1276,9 @@
             <div class="le-cf-info"><span class="le-cp-l">${esc(it.l || '?')}</span>
               <b>${esc(it.nome || x.nome)}</b>
               <small>${[it.ano ? 'ano ' + it.ano : 'sem ano', it.tmdb ? 'TMDB ' + it.tmdb : 'sem TMDB'].map(esc).join(' · ')}</small>
-              <div class="le-cf-acoes">${it.url ? `<a class="le-bt" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">▶ Abrir o vídeo</a>` : ''}${it.envId ? `<button class="le-bt" data-cf-ficha="${i}" title="Abre a 👁 Saída da lista ${esc(it.l || '')} já buscando este título — clique no card para a ficha completa">✏️ Ficha completa</button>` : ''}</div>
+              <label class="le-cf-princ"><input type="radio" name="le-cf-princ" value="${i}" ${s.principal ? 'checked' : ''}> ⭐ Principal <small>(1º link no app)</small></label>
+              <span class="le-fs-res" data-cf-res="${i}"></span>
+              <div class="le-cf-acoes">${it.url ? `<button class="le-bt" data-cf-tocar="${i}">▶ Tocar aqui</button><button class="le-bt" data-cf-testar="${i}">🔎 Testar</button><a class="le-bt" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer" title="Abrir em outra aba">↗</a>` : ''}${it.envId ? `<button class="le-bt" data-cf-ficha="${i}" title="Abre a 👁 Saída da lista ${esc(it.l || '')} já buscando este título — clique no card para a ficha completa">✏️ Ficha completa</button>` : ''}</div>
               <div class="le-cf-campos">
                 <label>Título<input class="le-campo" data-cf="titulo" data-i="${i}" value="${esc(s.titulo || '')}" placeholder="${esc(x.nome)}"></label>
                 <label>Ano<input class="le-campo" data-cf="ano" data-i="${i}" type="number" value="${esc(s.ano || '')}" placeholder="${esc(it.ano || '')}" style="width:90px"></label>
@@ -1287,6 +1289,8 @@
         const j = janela(`<h3>🧬 Conferir — ${esc(x.nome)}</h3>
           <p class="le-dica">${x.serie ? `Série repetida em ${itens.length} lista(s) · ${x.eps || 0} episódio(s) em comum.` : `${itens.length} cópias com o mesmo nome.`} Abra os vídeos e veja se é a mesma obra. Se <b>não for</b>, preencha o ano ou o TMDB de cada uma (o que souber) e clique em <b>✂ Separar</b>: cada cópia vira ${x.serie ? 'uma série' : 'um filme'} própria, com a capa certa. Fica guardado pelo link — o robô respeita em toda rodada.</p>
           ${conf[x.k] ? `<p class="le-dica" style="color:#86efac">✓ Você já conferiu: é o mesmo (${esc(conf[x.k])}).</p>` : ''}
+          ${telaHTML()}
+          <label class="le-cf-princ" style="margin-top:8px"><input type="radio" name="le-cf-princ" value="-1" ${itens.some(it => (sep[it.sep] || {}).principal) ? '' : 'checked'}> 🤖 Principal automática <small>(o robô escolhe a que abre melhor)</small></label>
           <div class="le-cf-grade">${itens.map(card).join('')}</div>
           ${itens.length < (x.n || 0) + 1 && !x.serie ? '<p class="le-dica">Mostrando as 8 primeiras cópias.</p>' : ''}
           <div class="le-jan-botoes">
@@ -1294,7 +1298,9 @@
             <button class="le-bt" id="le-cf-mesmo" title="Junta como um só e salva o que você preencheu (capa, banner, título, ano, TMDB)">✓ São o mesmo — salvar</button>
             <button class="le-bt p" id="le-cf-separar">✂ Separar</button>
           </div>`);
-        const voltar = () => setTimeout(() => abrirSidechain('__copias'), 0);
+        const voltar = () => { pararFicha(j.querySelector('.le-tv video')); setTimeout(() => abrirSidechain('__copias'), 0); };
+        j.querySelectorAll('[data-cf-tocar]').forEach(b => b.onclick = () => { const i = +b.dataset.cfTocar, it = itens[i]; j.querySelectorAll('.le-cf-card').forEach((cd, n) => cd.classList.toggle('tocando', n === i)); tocarEm(j.querySelector('.le-tv'), { headers: {} }, it.url, (it.l || '') + ' · ' + (it.nome || x.nome)); });
+        j.querySelectorAll('[data-cf-testar]').forEach(b => b.onclick = () => testarNaFicha({ headers: {} }, itens[+b.dataset.cfTestar].url, j.querySelector(`[data-cf-res="${b.dataset.cfTestar}"]`)));
         j.addEventListener('input', (ev) => { const el = ev.target; if (el.dataset.cf !== 'capa') return; const box = j.querySelector(`[data-cf-prev="${el.dataset.i}"]`), u = el.value.trim(); if (box && /^https?:\/\//i.test(u)) box.innerHTML = `<img src="${esc(u)}" alt="" referrerpolicy="no-referrer">`; });
         j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]')) voltar(); });
         const salvar = async (msg, aviso) => { SC.sujo = true; try { await gravarSidechain(msg); S.aviso(aviso, 'ok'); } catch (e) { S.aviso('Não consegui salvar: ' + e.message, 'ruim'); } fecharJanela(); voltar(); };
@@ -1312,14 +1318,16 @@
         j.querySelector('#le-cf-mesmo').onclick = () => {
             // é a mesma obra: o que você preencheu (em qualquer cópia) vale para todas — assim o item juntado mostra, seja qual for a principal
             const junto = {}; itens.forEach((it, i) => { const o = lerCopia(i); Object.keys(o).forEach(k => { if (junto[k] == null) junto[k] = o[k]; }); });
-            const tem = Object.keys(junto).length;
-            itens.forEach(it => { if (tem) sep[it.sep] = Object.assign({ em: new Date().toISOString().slice(0, 10), soDados: true }, junto); else delete sep[it.sep]; });
+            const p = +((j.querySelector('[name="le-cf-princ"]:checked') || {}).value ?? -1);
+            const tem = Object.keys(junto).length || p >= 0;
+            itens.forEach((it, i) => { if (tem) sep[it.sep] = Object.assign({ em: new Date().toISOString().slice(0, 10), soDados: true }, junto, i === p ? { principal: true } : {}); else delete sep[it.sep]; });
+            if (p >= 0) junto.principal = (itens[p].l || 'escolhida');
             conf[x.k] = new Date().toISOString().slice(0, 10);
             salvar('🧬 cópias conferidas: ' + x.nome, tem ? `Salvo: ${Object.keys(junto).join(', ')} — vale na próxima rodada do robô.` : 'Marcado como o mesmo. O robô continua juntando.');
         };
         j.querySelectorAll('[data-cf-ficha]').forEach(bt => bt.onclick = () => {
             const it = itens[+bt.dataset.cfFicha], col = (SC.cpUI && SC.cpUI.col) || '';
-            fecharJanela();
+            pararFicha(j.querySelector('.le-tv video')); fecharJanela();
             SC.atual = it.envId; SC.passo = 4;
             SC.sdUI = { aba: col, filtro: '', pag: 1, marcados: new Set(), busca: x.nome };
             setTimeout(() => abrirSidechain(), 0);
@@ -2837,24 +2845,35 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         }
         return out.slice(0, 10);
     }
+    // ---------- 📺 tela de teste com mostrador (Ficha e 🧬 Conferir): toca o link e mostra resolução, tempo, duração… ----------
     let fichaPlayer = null;
     function pararFicha(v) { if (fichaPlayer) { try { fichaPlayer.destroy(); } catch (e) { /* */ } fichaPlayer = null; } if (v) { try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* */ } } }
-    async function tocarNaFicha(j, c, url) {
-        const v = j.querySelector('#le-fs-video'), st = j.querySelector('#le-fs-vstatus');
-        const dizer = (t) => { st.textContent = t; };
-        pararFicha(v); j.querySelector('.le-fs-tela').hidden = false; dizer('Abrindo…');
+    const DADOS_TV = [['st', 'Status'], ['abriu', 'Abriu em'], ['res', 'Resolução'], ['q', 'Qualidade'], ['dur', 'Duração'], ['fmt', 'Formato'], ['srv', 'Servidor'], ['teste', 'Teste do link']];
+    const telaHTML = (titulo) => `<div class="le-tv" hidden><div class="le-tv-tela"><video controls playsinline></video><b class="le-tv-tit"></b></div>
+        <div class="le-tv-dados">${DADOS_TV.map(([k, r]) => `<div><span>${r}</span><b data-tv="${k}">—</b></div>`).join('')}</div></div>`;
+    const qualidadeDe = (h) => !h ? '—' : h >= 2000 ? '4K' : h >= 1000 ? 'FHD (1080p)' : h >= 700 ? 'HD (720p)' : h >= 460 ? 'SD (480p)' : 'baixa (' + h + 'p)';
+    const formatoDe = (u) => /\.m3u8(\?|$)/i.test(u) ? 'HLS (m3u8)' : (String(u).match(/\.(mp4|mkv|avi|ts|webm|mov|flv)(\?|$)/i) || [, '—'])[1].toUpperCase();
+    async function tocarEm(box, c, url, titulo) {
+        const v = box.querySelector('video'), put = (k, t) => { const e = box.querySelector(`[data-tv="${k}"]`); if (e) e.textContent = t; };
+        pararFicha(v); box.hidden = false; DADOS_TV.forEach(([k]) => put(k, '—'));
+        box.querySelector('.le-tv-tit').textContent = titulo || '';
+        put('st', '⏳ abrindo…'); put('fmt', formatoDe(url)); try { put('srv', new URL(url).host); } catch (e) { /* */ }
         const t0 = performance.now(), src = viaTunel(c, url);
-        v.onplaying = () => dizer(`✅ Tocou em ${((performance.now() - t0) / 1000).toFixed(1).replace('.', ',')} s${v.videoWidth ? ' · ' + v.videoWidth + '×' + v.videoHeight : ''}`);
-        v.onerror = () => dizer('❌ Não tocou no navegador (pode ser o formato — no app o VLC/ExoPlayer às vezes abre). Use 🔎 Testar para ver se o link está vivo.');
+        v.onloadedmetadata = () => { if (v.videoWidth) { put('res', v.videoWidth + '×' + v.videoHeight); put('q', qualidadeDe(v.videoHeight)); } if (isFinite(v.duration) && v.duration > 0) { const m = Math.round(v.duration / 60); put('dur', m >= 60 ? Math.floor(m / 60) + ' h ' + (m % 60) + ' min' : m + ' min'); } };
+        v.onplaying = () => { put('st', '✅ tocando'); put('abriu', ((performance.now() - t0) / 1000).toFixed(1).replace('.', ',') + ' s'); };
+        v.onerror = () => put('st', '❌ não tocou no navegador (formato?) — veja o Teste do link');
+        testarNaFicha(c, url, box.querySelector('[data-tv="teste"]'));
         try {
             if (/m3u8/i.test(url) && !(v.canPlayType('application/vnd.apple.mpegurl') && !window.MediaSource)) {
-                if (!(await carregarLib('hls'))) return dizer('Não consegui carregar o hls.js.');
-                fichaPlayer = new window.Hls({ startLevel: 0, maxBufferLength: 8 });
-                fichaPlayer.on(window.Hls.Events.ERROR, (ev, d) => { if (d && d.fatal) dizer('❌ Não tocou: ' + (d.details || d.type)); });
+                if (!(await carregarLib('hls'))) return put('st', 'não consegui carregar o hls.js');
+                fichaPlayer = new window.Hls({ startLevel: -1, maxBufferLength: 8 });
+                fichaPlayer.on(window.Hls.Events.ERROR, (ev, d) => { if (d && d.fatal) put('st', '❌ ' + (d.details || d.type)); });
+                fichaPlayer.on(window.Hls.Events.MANIFEST_PARSED, (ev, d) => { const top = (d.levels || []).reduce((a, l) => Math.max(a, l.height || 0), 0); if (top) put('q', qualidadeDe(top) + ' (melhor do link)'); });
                 fichaPlayer.loadSource(src); fichaPlayer.attachMedia(v);
             } else v.src = src;
             v.muted = false; await v.play().catch(() => {});
-        } catch (e) { dizer('❌ ' + e.message); }
+        } catch (e) { put('st', '❌ ' + e.message); }
+        box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
     async function testarNaFicha(c, url, el) {
         if (!podeTestar()) { el.textContent = 'teste: abra o painel do PC'; return; }
@@ -2905,7 +2924,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               </div></details>
             <details class="le-fs-campo cheio le-fs-mais le-fs-video"><summary>▶ Testar o vídeo (${linksDaFicha(c).length} link${linksDaFicha(c).length > 1 ? 's' : ''})</summary>
               <div class="le-fs-links">${linksDaFicha(c).map((l, i) => `<div class="le-fs-link"><b>${esc(l.rot)}</b><code title="${esc(l.url)}">${esc(l.url)}</code><span class="le-fs-res" data-fs-res="${i}"></span><button class="le-bt" data-fs-tocar="${i}">▶ Tocar</button><button class="le-bt" data-fs-testar="${i}">🔎 Testar</button></div>`).join('')}</div>
-              <div class="le-fs-tela" hidden><video id="le-fs-video" controls playsinline></video><small id="le-fs-vstatus"></small></div>
+              ${telaHTML()}
             </details>
           </div>
           <div class="le-jan-botoes"><button class="le-bt" id="le-fs-tmdb" style="margin-right:auto" title="Completa esta ficha com capa, banner, logo e sinopse do TMDB">🔎 Completar pelo TMDB</button><button class="le-bt" id="le-fs-limpar" title="Volta tudo para o automático">Limpar ficha</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-fs-ok">Salvar ficha</button></div>`, 'media le-fs');
@@ -2963,9 +2982,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             S.aviso('Ficha salva.', 'ok');
         };
         { const ls = linksDaFicha(c);
-          j.querySelectorAll('[data-fs-tocar]').forEach(b => b.onclick = (ev) => { ev.preventDefault(); tocarNaFicha(j, c, ls[+b.dataset.fsTocar].url); });
+          j.querySelectorAll('[data-fs-tocar]').forEach(b => b.onclick = (ev) => { ev.preventDefault(); tocarEm(j.querySelector('.le-fs-video .le-tv'), c, ls[+b.dataset.fsTocar].url, ls[+b.dataset.fsTocar].rot); });
           j.querySelectorAll('[data-fs-testar]').forEach(b => b.onclick = (ev) => { ev.preventDefault(); testarNaFicha(c, ls[+b.dataset.fsTestar].url, j.querySelector(`[data-fs-res="${b.dataset.fsTestar}"]`)); });
-          j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]') || ev.target.closest('#le-fs-ok') || ev.target.closest('#le-fs-limpar')) pararFicha(j.querySelector('#le-fs-video')); }, true); }
+          j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]') || ev.target.closest('#le-fs-ok') || ev.target.closest('#le-fs-limpar')) pararFicha(j.querySelector('.le-fs-video video')); }, true); }
         j.querySelector('#le-fs-limpar').onclick = () => gravar(null);
         j.querySelector('#le-fs-tmdb').onclick = () => { const sd = SC.saida; fecharJanela(); SC.saida = sd; abrirCompletarTMDB(sd ? ctxCanais().filter(x => (L.chaveSerie(c) && L.chaveSerie(x) === L.chaveSerie(c)) || x === c) : [c]); };
         j.querySelector('#le-fs-ok').onclick = () => {
