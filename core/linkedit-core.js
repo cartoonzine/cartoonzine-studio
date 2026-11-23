@@ -704,8 +704,21 @@
         const aj = envio.ajustes && envio.ajustes[chaveSC(c)];
         if (aj) ajustarVideo(c, aj);
         const fs = envio.fichasSerie && chaveSerie(c) && envio.fichasSerie[chaveSerie(c)];
+        aplicarSeparacao(c, envio);
         if (fs) c.fichaSerie = fs; else delete c.fichaSerie;
         return c;
+    }
+    /** ✂ separação feita à mão no 🧬 Cópias: a cópia (pelo link; série: pela lista + série) vira obra própria */
+    const chaveSepSerie = (envioId, c) => 's:' + envioId + ':' + chaveSerie(c);
+    function aplicarSeparacao(c, envio) {
+        const sep = envio._sep; if (!sep || !ehVideo(c)) return;
+        const sp = sep[c.url] || (chaveSerie(c) && sep[chaveSepSerie(envio.id, c)]);
+        if (!sp) return;
+        const v = c.video = c.video || {};
+        if (sp.tmdb) { v.tmdbRef = sp.tmdb; if (v.dados) delete v.dados.porBusca; }
+        if (sp.ano) v.ano = sp.ano;
+        if (sp.titulo) { if (c.natureza === 'episodio') v.serie = sp.titulo; else v.titulo = sp.titulo; }
+        c._obra = sp.tmdb ? 't:' + String(sp.tmdb).replace(/^.*?(movie|tv)\//, '$1/') : 'u:' + (c.natureza === 'episodio' ? envio.id + ':' + chaveSerie(c) : c.url);
     }
     function ajustarVideo(c, aj) {
         if (!aj) return c;
@@ -1024,7 +1037,7 @@
                 const testar = viver != null ? viver : (col.tipo !== 'video');
                 if (testar && c.teste && !VIVO_RECEITA(c.teste.status)) { rel.mortos++; continue; }
                 const it = itemNoDestino(c, r.destino, col);
-                it._env = envio.nome;                           // 🧬 de que lista veio (para o relatório de cópias)
+                it._env = envio.nome; it._envId = envio.id;                           // 🧬 de que lista veio (para o relatório de cópias)
                 const sd = saidaDe(r.destino, col, it);
                 if (!porSaida.has(sd.chave)) porSaida.set(sd.chave, Object.assign(sd, { brutos: [] }));
                 porSaida.get(sd.chave).brutos.push(it);
@@ -1035,9 +1048,10 @@
             relatorios[envio.id] = rel;
             if (avulsa) avulsas.push({ id: envio.id, nome: envio.nome, itens: agrupar(avulsa.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas) });
         }
+        for (const s of porSaida.values()) { s.brutos.forEach(c => { c.chave = chaveSC(c); }); refinarChaves(s.brutos); }   // mesmo nome, obras diferentes (ano/TMDB) não se juntam
         const copias = copiasDasSaidas([...porSaida.values()], naStudioCopias);
         const saidas = [...porSaida.values()].map(s => {
-            const itens = agrupar(s.brutos.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas)
+            const itens = agrupar(s.brutos.map(c => Object.assign({}, c))).map(canalComReservas)
                 .sort((a, b) => String(a.grupoSaida || '').localeCompare(String(b.grupoSaida || ''), 'pt') || String(a.nome).localeCompare(String(b.nome), 'pt'));
             delete s.brutos;
             return Object.assign(s, { itens });
@@ -1050,17 +1064,55 @@
      * (de listas diferentes ou repetido na mesma lista). O robô já junta: a 1ª vira o item e as outras viram reserva.
      * → { [colecao]: [{ k, nome, serie, n, eps?, listas: { [nomeDaLista]: quantos } , studio? }] }
      */
+    /**
+     * Mesmo nome, obras diferentes: antes de juntar as cópias, separa pelo que as diferencia.
+     *  - TMDB vindo da lista/ficha (não o achado só pelo nome) manda: TMDB diferente = obra diferente.
+     *  - Sem TMDB, o ano decide (e o ano de quem tem TMDB liga as duas coisas).
+     *  - Cópia sem ano e sem TMDB só se junta quando o grupo tem uma obra só; se houver duas ou mais, fica à parte.
+     * Muda c.chave (acrescenta #t:… / #a:… / #?) só nos grupos que precisam; o resto continua igual.
+     */
+    function identidadeVideo(c) {
+        if (!ehVideo(c)) return {};
+        const v = c.video || {}, d = v.dados || {};
+        const ref = v.tmdbRef || (d.tmdb && !d.porBusca ? d.tmdb : '') || (c.ficha && c.ficha.tmdb) || (c.fichaSerie && c.fichaSerie.tmdb) || '';
+        const ano = parseInt(v.ano || (c.natureza !== 'episodio' && d.ano) || 0, 10) || 0;
+        return { tmdb: ref ? String(ref).replace(/^.*?(movie|tv)\//, '$1/') : '', ano, obra: c._obra || '' };
+    }
+    function refinarChaves(lista) {
+        const grupos = new Map();
+        for (const c of lista) { if (!ehVideo(c)) continue; const k = c.chave; if (!grupos.has(k)) grupos.set(k, []); grupos.get(k).push(c); }
+        for (const [k, g] of grupos) {
+            if (g.length < 2) continue;
+            const ids = g.map(identidadeVideo);
+            const tmdbs = new Set(ids.map(x => x.tmdb).filter(Boolean)), anos = new Set(ids.map(x => x.ano).filter(Boolean));
+            if (tmdbs.size <= 1 && anos.size <= 1 && !ids.some(x => x.obra)) continue;                     // nada contradiz: junta como sempre
+            const anoDoTmdb = new Map();                                        // ano ↔ TMDB (de quem tem os dois)
+            ids.forEach(x => { if (x.tmdb && x.ano) anoDoTmdb.set(x.ano, anoDoTmdb.has(x.ano) && anoDoTmdb.get(x.ano) !== x.tmdb ? null : x.tmdb); });
+            const obra = (x) => x.obra ? x.obra : x.tmdb ? 't:' + x.tmdb : x.ano ? (anoDoTmdb.get(x.ano) ? 't:' + anoDoTmdb.get(x.ano) : 'a:' + x.ano) : '';
+            const obras = new Set(ids.map(obra).filter(Boolean));
+            const unica = obras.size === 1 && !ids.some(x => x.obra) ? [...obras][0] : '';   // separado à mão: os outros não vão atrás
+            g.forEach((c, i) => { const o = obra(ids[i]) || unica || '?'; c.chave = k + '#' + o; c._separado = obras.size > 1 || undefined; });
+        }
+        return lista;
+    }
+    const limparVazios = (o) => { Object.keys(o).forEach(k => (o[k] == null || o[k] === '') && delete o[k]); return o; };
     function copiasDasSaidas(saidas, naStudio) {
         const out = {};
         for (const s of saidas) {
             const porChave = new Map();
-            for (const it of s.brutos) { const k = chaveSC(it); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(it); }
+            for (const it of s.brutos) { const k = it.chave || chaveSC(it); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(it); }
             const porItem = new Map();
             for (const lista of porChave.values()) {
                 if (lista.length < 2) continue;
                 const c = lista[0], ks = chaveSerie(c), k = ks ? 's|' + ks : 'f|' + chaveSC(c);
                 const x = porItem.get(k) || { k, nome: ks ? c.video.serie : (c.video && c.video.titulo) || c.nome, serie: !!ks, n: 0, eps: 0, listas: {} };
                 x.n += lista.length - 1; if (ks) x.eps++;
+                x.itens = x.itens || [];
+                for (const it of lista) {                       // cada cópia (série: uma amostra por lista) para conferir na janela
+                    if (x.itens.length >= 8 || (ks && x.itens.some(y => y.envId === it._envId))) continue;
+                    const v = it.video || {}, d = v.dados || {}, id = identidadeVideo(it);
+                    x.itens.push(limparVazios({ l: it._env, envId: it._envId, nome: it.nome, url: it.url, sep: ks ? chaveSepSerie(it._envId, it) : it.url, ano: id.ano || d.ano || undefined, tmdb: id.tmdb || (d.tmdb ? String(d.tmdb) + (d.porBusca ? ' (pelo nome)' : '') : undefined), capa: d.capa || it.logo || undefined }));
+                }
                 for (const it of lista) x.listas[it._env || '?'] = (x.listas[it._env || '?'] || 0) + 1;
                 porItem.set(k, x);
             }

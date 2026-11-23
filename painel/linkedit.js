@@ -994,7 +994,7 @@
         // os 3 arquivos juntos (antes era um depois do outro — o estado do robô é grande e segurava a abertura)
         const nada = () => null;
         const [d, est, av] = await Promise.all([S.ler(ARQ_SC).catch(nada), S.ler(ARQ_SC_ESTADO).catch(nada), S.ler('listas/avulsas.json').catch(nada)]);
-        if (d) { SC.envios = (d.envios || []).map(e => L.envioPadrao(e)); SC.globais = d.regrasGlobais || []; } else { SC.envios = SC.envios || []; SC.globais = SC.globais || []; }
+        if (d) { SC.envios = (d.envios || []).map(e => L.envioPadrao(e)); SC.globais = d.regrasGlobais || []; SC.sep = d.separacoes || {}; SC.conf = d.conferidos || {}; } else { SC.envios = SC.envios || []; SC.globais = SC.globais || []; }
         SC.estado = est || {}; SC.avulsas = av || {};
         SC.envios.forEach(e => { e.vistos = ((SC.estado.vistos || {})[e.id]) || {}; e._globais = SC.globais; novosDoRobo(e); });
         pintarAvisoSC();
@@ -1036,8 +1036,8 @@
         });
     }
     async function gravarSidechain(msg) {
-        const lista = SC.envios.map(e => { const o = Object.assign({}, e); delete o.vistos; delete o._globais; delete o._novos; return o; });
-        await S.gravar([{ caminho: ARQ_SC, conteudo: JSON.stringify({ versao: 1, regrasGlobais: SC.globais || [], envios: lista }, null, 2) + '\n' }], msg);
+        const lista = SC.envios.map(e => { const o = Object.assign({}, e); delete o.vistos; delete o._globais; delete o._novos; delete o._sep; return o; });
+        await S.gravar([{ caminho: ARQ_SC, conteudo: JSON.stringify({ versao: 1, regrasGlobais: SC.globais || [], separacoes: SC.sep || {}, conferidos: SC.conf || {}, envios: lista }, null, 2) + '\n' }], msg);
         SC.sujo = false;
     }
     async function canaisDoEnvio(e, forcar) {
@@ -1259,10 +1259,58 @@
         const todas = (SC.copias && SC.copias.colecoes) || {};
         const arr = (todas[ui.col] || []).filter(x => (!ui.busca || normCP(x.nome).includes(normCP(ui.busca))) && (!ui.so || (ui.so === 'entre' ? Object.keys(x.listas || {}).length > 1 || x.studio : Object.keys(x.listas || {}).length === 1 && !x.studio)));
         if (!arr.length) return `<p class="le-dica" style="padding:14px 0">${ui.busca ? 'Nada com esse nome.' : 'Nenhuma cópia nesta coleção.'}</p>`;
-        return `<table class="le-cp-tab"><thead><tr><th>Título</th><th>Cópias</th><th>De que listas veio</th></tr></thead><tbody>${arr.slice(0, 400).map(x => `<tr>
-            <td><b>${x.serie ? '🎞' : '🎬'} ${esc(x.nome)}</b>${x.serie && x.eps ? `<small>${x.eps} episódio${x.eps > 1 ? 's' : ''} repetido${x.eps > 1 ? 's' : ''}</small>` : ''}</td>
+        SC.cpVista = arr;
+        return `<table class="le-cp-tab"><thead><tr><th>Título</th><th>Cópias</th><th>De que listas veio</th></tr></thead><tbody>${arr.slice(0, 400).map((x, i) => `<tr data-cp-abrir="${i}" title="Clique para conferir">
+            <td><b>${x.serie ? '🎞' : '🎬'} ${esc(x.nome)}</b>${SC.conf && SC.conf[x.k] ? ' <span class="le-cf-ok">✓ conferido</span>' : ''}${x.serie && x.eps ? `<small>${x.eps} episódio${x.eps > 1 ? 's' : ''} repetido${x.eps > 1 ? 's' : ''}</small>` : ''}</td>
             <td class="le-cp-n">+${x.n}</td>
             <td><div class="le-cp-listas">${Object.entries(x.listas || {}).map(([l, n]) => `<span class="le-cp-l">${esc(l)}${n > 1 ? ` <i>${n}×</i>` : ''}</span>`).join('')}${x.studio ? `<span class="le-cp-l st" title="${esc(x.studio)}">📚 Coleções</span>` : ''}</div></td></tr>`).join('')}</tbody></table>${arr.length > 400 ? `<p class="le-dica">Mostrando 400 de ${arr.length} · use a busca.</p>` : ''}`;
+    }
+
+    /** ✂ Conferir um grupo de cópias: são o mesmo filme? Se não, cada cópia vira obra própria (vale no robô, pelo link) */
+    function abrirConferir(x) {
+        const sep = SC.sep || (SC.sep = {}), conf = SC.conf || (SC.conf = {});
+        const itens = x.itens || [];
+        const temSep = itens.some(it => sep[it.sep]);
+        const card = (it, i) => { const s = sep[it.sep] || {}; return `<div class="le-cf-card">
+            <div class="le-cf-capa">${it.capa ? `<img src="${esc(it.capa)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '<span>sem capa</span>'}</div>
+            <div class="le-cf-info"><span class="le-cp-l">${esc(it.l || '?')}</span>
+              <b>${esc(it.nome || x.nome)}</b>
+              <small>${[it.ano ? 'ano ' + it.ano : 'sem ano', it.tmdb ? 'TMDB ' + it.tmdb : 'sem TMDB'].map(esc).join(' · ')}</small>
+              ${it.url ? `<a class="le-bt" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">▶ Abrir o vídeo</a>` : ''}
+              <div class="le-cf-campos">
+                <label>Título<input class="le-campo" data-cf="titulo" data-i="${i}" value="${esc(s.titulo || '')}" placeholder="${esc(x.nome)}"></label>
+                <label>Ano<input class="le-campo" data-cf="ano" data-i="${i}" type="number" value="${esc(s.ano || '')}" placeholder="${esc(it.ano || '')}" style="width:90px"></label>
+                <label>TMDB<input class="le-campo" data-cf="tmdb" data-i="${i}" value="${esc(s.tmdb || '')}" placeholder="link ou ${x.serie ? 'tv' : 'movie'}/123"></label>
+              </div></div></div>`; };
+        const j = janela(`<h3>🧬 Conferir — ${esc(x.nome)}</h3>
+          <p class="le-dica">${x.serie ? `Série repetida em ${itens.length} lista(s) · ${x.eps || 0} episódio(s) em comum.` : `${itens.length} cópias com o mesmo nome.`} Abra os vídeos e veja se é a mesma obra. Se <b>não for</b>, preencha o ano ou o TMDB de cada uma (o que souber) e clique em <b>✂ Separar</b>: cada cópia vira ${x.serie ? 'uma série' : 'um filme'} própria, com a capa certa. Fica guardado pelo link — o robô respeita em toda rodada.</p>
+          ${conf[x.k] ? `<p class="le-dica" style="color:#86efac">✓ Você já conferiu: é o mesmo (${esc(conf[x.k])}).</p>` : ''}
+          <div class="le-cf-grade">${itens.map(card).join('')}</div>
+          ${itens.length < (x.n || 0) + 1 && !x.serie ? '<p class="le-dica">Mostrando as 8 primeiras cópias.</p>' : ''}
+          <div class="le-jan-botoes">
+            ${temSep ? '<button class="le-bt" id="le-cf-desfazer" style="margin-right:auto">↩ Desfazer separação</button>' : ''}
+            <button class="le-bt" id="le-cf-mesmo">✓ São o mesmo</button>
+            <button class="le-bt p" id="le-cf-separar">✂ Separar</button>
+          </div>`);
+        const voltar = () => setTimeout(() => abrirSidechain('__copias'), 0);
+        j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]')) voltar(); });
+        const salvar = async (msg, aviso) => { SC.sujo = true; try { await gravarSidechain(msg); S.aviso(aviso, 'ok'); } catch (e) { S.aviso('Não consegui salvar: ' + e.message, 'ruim'); } fecharJanela(); voltar(); };
+        j.querySelector('#le-cf-mesmo').onclick = () => { conf[x.k] = new Date().toISOString().slice(0, 10); itens.forEach(it => { delete sep[it.sep]; }); salvar('🧬 cópias conferidas: ' + x.nome, 'Marcado como o mesmo. O robô continua juntando.'); };
+        j.querySelector('#le-cf-separar').onclick = () => {
+            itens.forEach((it, i) => {
+                const v = (k) => (j.querySelector(`[data-cf="${k}"][data-i="${i}"]`) || {}).value || '';
+                const tm = v('tmdb').trim(), m = tm.match(/(movie|tv)\/(\d+)/) || tm.match(/^(\d+)$/);
+                const o = { em: new Date().toISOString().slice(0, 10) };
+                if (m) o.tmdb = m[2] ? m[1] + '/' + m[2] : (x.serie ? 'tv/' : 'movie/') + m[1];
+                if (+v('ano')) o.ano = +v('ano');
+                if (v('titulo').trim()) o.titulo = v('titulo').trim();
+                sep[it.sep] = o;
+            });
+            delete conf[x.k];
+            salvar('🧬 cópias separadas: ' + x.nome, `Separado em ${itens.length}. Vale na próxima rodada do robô (🤖 Completar agora ou a de 6 h).`);
+        };
+        const d = j.querySelector('#le-cf-desfazer');
+        if (d) d.onclick = () => { itens.forEach(it => { delete sep[it.sep]; }); salvar('🧬 separação desfeita: ' + x.nome, 'Desfeito: na próxima rodada voltam a se juntar.'); };
     }
     function copiasHTML() {
         const cols = colsSC(), todas = (SC.copias && SC.copias.colecoes) || {}, ui = SC.cpUI || (SC.cpUI = { col: '', busca: '' });
@@ -1481,6 +1529,7 @@
             if (b && b.dataset.scAtualizar) { lerForm(); b.disabled = true; await atualizarEstadoSC(); return abrirSidechain(SC.atual); }
             if (b && b.id === 'le-sc-robo') { lerForm(); b.disabled = true; await pedirRoboTMDB(e); return abrirSidechain(e.id); }
             if (e && ev.target.closest('.le-sd')) { lerForm(); if (cliqueSaida(b, ev, e)) return; }
+            { const tr = !b && ev.target.closest('[data-cp-abrir]'); if (tr && SC.cpVista) return abrirConferir(SC.cpVista[+tr.dataset.cpAbrir]); }
             if (!b) return;
             if (b.dataset.scAbrir) { lerForm(); return abrirSidechain(b.dataset.scAbrir); }
             if (b.dataset.cpSo != null) { SC.cpUI.so = b.dataset.cpSo; return abrirSidechain('__copias'); }

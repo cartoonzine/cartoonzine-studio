@@ -67,7 +67,7 @@ estado.tmdb = Object.assign({}, estado.tmdb || {}, lerJSON(ARQ_TMDB, {}));
 delete estado.ultimo; delete estado.vistos;
 const novoUltimo = {};
 // os "vistos" moram no estado do robô (o envios.json é só seu: o robô nunca grava nele)
-envios.forEach(e => { e.vistos = vistosCache[e.id] || {}; e._globais = dados.regrasGlobais || []; });
+envios.forEach(e => { e.vistos = vistosCache[e.id] || {}; e._globais = dados.regrasGlobais || []; e._sep = dados.separacoes || {}; });
 // o que já está cadastrado na Studio (dist/indice-painel.json): para não mandar de novo para a mesma coleção
 const mapaStudio = L.mapaStudio(lerJSON(path.join(RAIZ, 'dist', 'indice-painel.json'), []));
 const antes = {};          // envio → { chave: { nome, url } } da rodada anterior (para "saíram" e "mudaram de link")
