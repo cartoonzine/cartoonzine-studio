@@ -690,7 +690,7 @@
     }
     /** Mudança feita à mão (no painel ou num envio do Sidechain): natureza e/ou campos do vídeo. */
     // ---------- 🖼 FICHA (igual ao "Novo" das Coleções): capa, banner, fundo do topo, sinopse, banner da home… ----------
-    const CAMPOS_FICHA_SC = ['capa', 'banner', 'previa', 'fundoImagem', 'posFundo', 'descricao', 'generos', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx', 'destaque', 'imdb', 'notaImdb', 'votosImdb', 'tmdb', 'nota'];
+    const CAMPOS_FICHA_SC = ['capa', 'banner', 'previa', 'fundoImagem', 'posFundo', 'bannerOk', 'descricao', 'generos', 'classificacao', 'bannerLogo', 'bannerVideo', 'bannerSkin', 'bannerFx', 'destaque', 'imdb', 'notaImdb', 'votosImdb', 'tmdb', 'nota'];
     /** junta a ficha nova na antiga: '' / null apaga o campo */
     function juntarFicha(antiga, nova) {
         const f = Object.assign({}, antiga || {});
