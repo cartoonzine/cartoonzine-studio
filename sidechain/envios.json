@@ -3410,7 +3410,25 @@
       "regras": [],
       "ajustes": {},
       "gruposRevisados": {},
-      "fichasSerie": {},
+      "fichasSerie": {
+        "kamen rider zero one": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true,
+          "bannerLogo": "https://upload.wikimedia.org/wikipedia/en/8/82/KR-01-logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+        },
+        "advogada de divorcio": {
+          "fundoImagem": "banner",
+          "posFundo": 10,
+          "bannerOk": true
+        },
+        "kamen rider gavv": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true,
+          "bannerLogo": "https://static.wikia.nocookie.net/kamenrider/images/f/f8/Kamen_Rider_Gavv_Logo.png/revision/latest?cb=20240630225129"
+        }
+      },
       "criadoEm": "2026-11-23T04:24:39.790Z",
       "tmdbPedidoEm": "2026-11-23T04:27:20.157Z"
     }
