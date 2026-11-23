@@ -2141,7 +2141,7 @@
     {
       "id": "saimo-filmes",
       "nome": "Saimo Filmes",
-      "url": "https://raw.githubusercontent.com/cartoonzine/sm-scraper-bridge/refs/heads/main/listas/filmes_sm.json",
+      "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/filmes.json",
       "listas": [],
       "ativo": true,
       "tipoLista": "unica",
@@ -2176,7 +2176,8 @@
             "Filmes | Guerra",
             "Filmes | História",
             "Filmes | Cinema TV",
-            "Filmes | Ficção e fantasia"
+            "Filmes | Ficção e fantasia",
+            "Filmes"
           ]
         },
         {
@@ -2787,7 +2788,54 @@
       "gruposRevisados": {},
       "fichasSerie": {},
       "criadoEm": "2026-11-22T22:35:37.766Z",
-      "tmdbPedidoEm": "2026-11-23T00:22:11.064Z"
+      "tmdbPedidoEm": "2026-11-23T02:48:09.060Z"
+    },
+    {
+      "id": "envio-3",
+      "nome": "Lista CZ fire Categorias",
+      "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/filmes.json",
+      "listas": [],
+      "ativo": true,
+      "tipoLista": "unica",
+      "destino": {
+        "colecao": "filmes"
+      },
+      "rotas": [
+        {
+          "id": "rmwslfx1h1",
+          "destino": {
+            "colecao": "filmes"
+          },
+          "grupos": [
+            "Filmes"
+          ]
+        }
+      ],
+      "gruposNovos": "esperar",
+      "modo": "auto",
+      "soVivos": null,
+      "filtros": {
+        "idiomas": [],
+        "tipos": [],
+        "paises": [],
+        "categorias": [],
+        "excluirTipos": [
+          "Adulto"
+        ],
+        "busca": "",
+        "confiancaMin": 0
+      },
+      "avulsa": false,
+      "tmdb": false,
+      "tmdbModo": "falta",
+      "tmdbFundo": true,
+      "pularStudio": true,
+      "desvios": {},
+      "regras": [],
+      "ajustes": {},
+      "gruposRevisados": {},
+      "fichasSerie": {},
+      "criadoEm": "2026-11-23T01:34:32.756Z"
     }
   ]
 }
