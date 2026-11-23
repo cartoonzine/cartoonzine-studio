@@ -1277,6 +1277,30 @@
             "tmdb": "",
             "nota": ""
           }
+        },
+        "n:codigo de honra|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/original/dlLRtzSiCK2PGc4DPFG6ScYS4xG.jpg",
+            "banner": "https://image.tmdb.org/t/p/original/lUcLOYtdFIWOeZFnj4EztN6ssW1.jpg",
+            "previa": "https://image.tmdb.org/t/p/original/m3wiIULlXUndRVttFEAATJtymOL.jpg",
+            "fundoImagem": "banner",
+            "posFundo": 40,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "movie/14684",
+            "nota": ""
+          },
+          "ano": 1992
         }
       },
       "gruposRevisados": {
