@@ -127,3 +127,19 @@ test('arrumar nomes em lote', () => {
     assert.equal(L.arrumarNome('Canal ABC HD', { procurar: ' HD', trocar: '' }), 'Canal ABC');
     assert.equal(L.arrumarNome('a1 b22', { procurar: '\\d+', trocar: '#', regex: true }), 'a# b#');
 });
+
+test('🧬 Sidechain: relatório de cópias diz quais vídeos chegaram repetidos e de que lista', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const la = L.lerLista('#EXTM3U\n#EXTINF:-1,Matrix (1999)\nhttp://a/matrix.mp4\n#EXTINF:-1,Avatar (2009)\nhttp://a/avatar.mp4\n#EXTINF:-1,Lost S01E01\nhttp://a/l1.mp4\n#EXTINF:-1,Lost S01E02\nhttp://a/l2.mp4\n', 'a').canais;
+    const lb = L.lerLista('#EXTM3U\n#EXTINF:-1,Matrix (1999)\nhttp://b/matrix.mp4\n#EXTINF:-1,Lost S01E01\nhttp://b/l1.mp4\n#EXTINF:-1,Lost S01E02\nhttp://b/l2.mp4\n', 'b').canais;
+    const ea = L.envioPadrao({ id: 'a', nome: 'Lista A', destino: { colecao: 'filmes' } }), eb = L.envioPadrao({ id: 'b', nome: 'Lista B', destino: { colecao: 'filmes' } });
+    const { saidas, copias } = L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config);
+    const arr = copias.filmes;
+    const m = arr.find(x => !x.serie), s = arr.find(x => x.serie);
+    assert.equal(m.nome, 'Matrix'); assert.equal(m.n, 1); assert.deepEqual(m.listas, { 'Lista A': 1, 'Lista B': 1 });
+    assert.equal(s.nome, 'Lost'); assert.equal(s.eps, 2); assert.equal(s.n, 2);
+    assert.ok(!arr.some(x => x.nome === 'Avatar'));
+    const j = JSON.parse(L.gerarJSON(saidas[0].itens));
+    assert.equal(j.filter(x => /Matrix/.test(x.title)).length, 1);            // o app recebe um só (a outra é reserva)
+    assert.ok(!JSON.stringify(j).includes('_env'));
+});

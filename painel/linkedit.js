@@ -1200,7 +1200,7 @@
         S.aviso('🔄 Atualizado com a última rodada do robô.', 'ok');
     }
     // ---------- 👁 SAÍDA (passo 4): como cada coleção de vídeo vai chegar no app, com o que falta ----------
-    const filtroSD = (cd, k) => k === 'falta' ? cd.falta.length > 0 : k === 'ajuste' ? !cd.ok : cd.falta.includes(k);
+    const filtroSD = (cd, k) => k === 'falta' ? cd.falta.length > 0 : k === 'ajuste' ? !cd.ok : k === 'copias' ? !!cd.cp : cd.falta.includes(k);
     /** o que falta no card (mesma conta do gerarJSON: ficha > TMDB > lista) */
     function faltasSD(c) {
         const f = Object.assign({}, c.fichaSerie, c.ficha), d = (c.video && c.video.dados) || {}, fl = [];
@@ -1214,7 +1214,7 @@
     function modeloSaida(e) {
         const x = SC.canais.get(e.id);
         if (!x || x.url !== L.linksDoEnvio(e).join('\n')) return null;
-        const ver = (SC.saidaVer || 0) + '|' + JSON.stringify([e.tipoLista, e.destino, e.rotas, e.tmdb, e.tmdbModo, Object.keys(e.desvios || {}).length]);
+        const ver = (SC.saidaVer || 0) + '|' + (SC.copias ? SC.copias.em : '') + '|' + JSON.stringify([e.tipoLista, e.destino, e.rotas, e.tmdb, e.tmdbModo, Object.keys(e.desvios || {}).length]);
         if (SC.sdCache && SC.sdCache.id === e.id && SC.sdCache.ver === ver && SC.sdCache.canais === x.canais) return SC.sdCache.abas;
         const cols = colsSC(), tmdb = SC.tmdb || (SC.estado && SC.estado.tmdb) || {};
         e._globais = SC.globais || []; e._mapaGrupos = L.mapaGrupos(e); e._cols = cols;
@@ -1232,11 +1232,51 @@
             else a.cards.push({ itens: [c] });
         }
         delete e._mapaGrupos; delete e._cols;
-        const lista = [...abas.values()].map(a => { a.cards.forEach(cd => { cd.falta = faltasSD(cd.itens[0]); cd.ok = !!Object.assign({}, cd.itens[0].fichaSerie, cd.itens[0].ficha).bannerOk; }); delete a.porSerie; return a; });
+        const lista = [...abas.values()].map(a => { a.cards.forEach(cd => { cd.falta = faltasSD(cd.itens[0]); cd.ok = !!Object.assign({}, cd.itens[0].fichaSerie, cd.itens[0].ficha).bannerOk; cd.cp = copiaDoCard(a.col.id, cd); }); delete a.porSerie; return a; });
         SC.sdCache = { id: e.id, ver, canais: x.canais, abas: lista };
         return lista;
     }
-    const FALTAS_SD = [['', 'Todos'], ['falta', '⚠ Falta algo'], ['capa', 'sem capa'], ['banner', 'sem banner'], ['sinopse', 'sem sinopse'], ['logo', 'sem logo'], ['ajuste', '⚪ falta ajustar o topo']];
+
+    // ---------- 🧬 CÓPIAS entre listas (informativo: o robô já junta — a 1ª vira o item e as outras viram reserva) ----------
+    async function lerCopiasSC(forcar) {
+        if (SC.copias && !forcar) return SC.copias;
+        try { SC.copias = (await S.ler('sidechain/copias.json')) || { colecoes: {} }; } catch (x) { SC.copias = { colecoes: {} }; }
+        SC.copiasMapa = {};
+        for (const [col, arr] of Object.entries(SC.copias.colecoes || {})) { const m = SC.copiasMapa[col] = new Map(); arr.forEach(x => { m.set(x.k, x); m.set('n|' + normCP(x.nome), x); }); }
+        return SC.copias;
+    }
+    const normCP = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+    const totalCopias = () => Object.values((SC.copias && SC.copias.colecoes) || {}).reduce((t, a) => t + a.length, 0);
+    /** a cópia de um card da Saída (filme: chave do item · série: chave da série) */
+    function copiaDoCard(colId, cd) {
+        const m = SC.copiasMapa && SC.copiasMapa[colId]; if (!m) return null;
+        const c = cd.itens[0], ks = L.chaveSerie(c);
+        return m.get(ks ? 's|' + ks : 'f|' + L.chaveSC(c)) || m.get('n|' + normCP(cd.serie || (c.video && c.video.titulo) || c.nome)) || null;
+    }
+    const listasCP = (x) => Object.entries(x.listas || {}).map(([l, n]) => `${l}${n > 1 ? ` (${n}×)` : ''}`).join(' · ') + (x.studio ? ' · 📚 já nas Coleções' : '');
+    function copiasLinhasHTML() {
+        const cols = colsSC(), ui = SC.cpUI || (SC.cpUI = { col: '', busca: '' });
+        const todas = (SC.copias && SC.copias.colecoes) || {};
+        const arr = (todas[ui.col] || []).filter(x => !ui.busca || normCP(x.nome).includes(normCP(ui.busca)));
+        if (!arr.length) return `<p class="le-dica" style="padding:14px 0">${ui.busca ? 'Nada com esse nome.' : 'Nenhuma cópia nesta coleção.'}</p>`;
+        return `<table class="le-cp-tab"><thead><tr><th>Título</th><th>Cópias</th><th>De que listas veio</th></tr></thead><tbody>${arr.slice(0, 400).map(x => `<tr>
+            <td><b>${x.serie ? '🎞' : '🎬'} ${esc(x.nome)}</b>${x.serie && x.eps ? `<small>${x.eps} episódio${x.eps > 1 ? 's' : ''} repetido${x.eps > 1 ? 's' : ''}</small>` : ''}</td>
+            <td class="le-cp-n">+${x.n}</td>
+            <td><div class="le-cp-listas">${Object.entries(x.listas || {}).map(([l, n]) => `<span class="le-cp-l">${esc(l)}${n > 1 ? ` <i>${n}×</i>` : ''}</span>`).join('')}${x.studio ? `<span class="le-cp-l st" title="${esc(x.studio)}">📚 Coleções</span>` : ''}</div></td></tr>`).join('')}</tbody></table>${arr.length > 400 ? `<p class="le-dica">Mostrando 400 de ${arr.length} · use a busca.</p>` : ''}`;
+    }
+    function copiasHTML() {
+        const cols = colsSC(), todas = (SC.copias && SC.copias.colecoes) || {}, ui = SC.cpUI || (SC.cpUI = { col: '', busca: '' });
+        const ids = Object.keys(todas).filter(k => todas[k].length);
+        if (!ids.includes(ui.col)) ui.col = ids[0] || '';
+        const nome = (id) => { const c = cols.find(x => x.id === id); return c ? (c.icone ? c.icone + ' ' : '') + c.nome : id; };
+        return `<div class="le-rot">🧬 Cópias entre listas</div>
+          <p class="le-dica">O mesmo filme ou episódio chegando mais de uma vez na mesma coleção (de listas diferentes, ou repetido na mesma lista). <b>Não precisa fazer nada:</b> o robô já junta — a primeira vira o item e as outras viram <b>reserva</b> (o app troca sozinho se a principal cair). 📚 = já estava cadastrado nas Coleções. ${SC.copias && SC.copias.em ? `· rodada de ${new Date(SC.copias.em).toLocaleString('pt-BR')}` : ''}</p>
+          ${ids.length ? `<div class="le-chips" style="margin:8px 0">${ids.map(id => `<button class="le-chip ${ui.col === id ? 'on' : ''}" data-cp-col="${esc(id)}">${esc(nome(id))} ${numSC(todas[id].length)}</button>`).join('')}</div>
+          <input class="le-campo" id="le-cp-busca" placeholder="🔎 Buscar título…" value="${esc(ui.busca)}" style="max-width:340px">
+          <div id="le-cp-lista" style="margin-top:10px">${copiasLinhasHTML()}</div>`
+          : `<p class="le-dica" style="padding:14px 0">${SC.copias && SC.copias.em ? 'Nenhuma cópia na última rodada do robô. 🎉' : 'O relatório aparece depois da próxima rodada do robô (🤖 Completar agora, ou a rodada de 6 h).'}</p>`}`;
+    }
+    const FALTAS_SD = [['', 'Todos'], ['falta', '⚠ Falta algo'], ['capa', 'sem capa'], ['banner', 'sem banner'], ['sinopse', 'sem sinopse'], ['logo', 'sem logo'], ['ajuste', '⚪ falta ajustar o topo'], ['copias', '🧬 com cópias']];
     function saidaHTML(e) {
         const abas = modeloSaida(e);
         if (!abas) return `<div class="le-sd"><div class="le-rot">👁 Saída — como vai chegar no app</div><p class="le-dica">Leia a lista para ver a saída. <button class="le-bt" data-sc-ler="1">📥 Ler lista</button></p></div>`;
@@ -1255,7 +1295,7 @@
               <div class="le-sd-capa">${o.thumb ? `<img src="${esc(o.thumb)}" alt="" loading="lazy">` : '<div class="le-sd-sem">sem capa</div>'}
                 ${o.bannerThumb ? `<div class="le-sd-ban" style="background-image:url('${esc(String(o.bannerThumb).replace(/'/g, '%27'))}');background-position:center ${o.bgPosY != null ? o.bgPosY : 50}%">${o.logo ? `<img src="${esc(o.logo)}" alt="">` : `<b>${esc(titulo)}</b>`}</div>` : ''}
                 ${cd.ok ? '<i class="led on le-sd-led" title="Banner do topo ajustado"></i>' : ''}<label class="le-sd-mk" title="Marcar"><input type="checkbox" data-sd-marca="${i}" ${mk ? 'checked' : ''}></label>
-                ${cd.serie ? `<span class="le-sd-eps">${cd.itens.length} ep.</span>` : ''}</div>
+                ${cd.serie ? `<span class="le-sd-eps">${cd.itens.length} ep.</span>` : ''}${cd.cp ? `<span class="le-sd-cp" title="🧬 chegou repetido (virou reserva) · veio de: ${esc(listasCP(cd.cp))}">🧬 +${cd.cp.n}</span>` : ''}</div>
               <b class="le-sd-tit">${esc(titulo)}</b>
               <small>${[o.year || (d.ano || ''), o.age ? '🔞 ' + o.age : '', notas].filter(Boolean).join(' · ')}</small>
               ${cd.falta.length ? `<div class="le-sd-faltas">${cd.falta.map(f => `<span>sem ${f}</span>`).join('')}</div>` : ''}
@@ -1306,6 +1346,7 @@
         if (e && !SC.passo) SC.passo = e.url ? 4 : 1;
         const rolagem = [...document.querySelectorAll('.le-jan, .le-sc-gtab')].map(x => x.scrollTop);
         if (e && SC.passo === 4 && (e.tmdb || e.tmdbPedidoEm) && !SC.tmdb) await lerTmdbRobo();
+        if ((SC.atual === '__copias' || (e && SC.passo === 4)) && !SC.copias) await lerCopiasSC();
         if (e) { const st = SC.estado.envios && SC.estado.envios[e.id]; if (st) { const v = vistoSC(); v[e.id] = st.em; try { localStorage.setItem(GUARDA_SC_VISTO, JSON.stringify(v)); } catch (x) { /* */ } } }
         const cols = colsSC();
         const st = e && SC.estado.envios ? SC.estado.envios[e.id] : null;
@@ -1317,6 +1358,7 @@
             <div class="le-rc-lista">
               <div class="le-rot">Envios</div>
               ${SC.envios.map(x => { const n = novidadesSC(x); return `<button class="le-rc-item${e && x.id === e.id ? ' on' : ''}" data-sc-abrir="${esc(x.id)}"><b>${esc(x.nome)}${n.novos ? ` <span class="le-sc-sino">🔔${n.novos}</span>` : ''}${n.pendentes ? ` <span class="le-sc-pend">⏳${n.pendentes}</span>` : ''}</b><small>→ ${esc(x.tipoLista === 'mista' ? '🔀 mista · ' + (x.rotas || []).length + ' rota(s)' : x.destino && x.destino.colecao ? L.destinoTexto(x.destino, cols) : 'só lista avulsa')}${x.ativo === false ? ' · ⏸ pausado' : ''}${problemaSC(SC.estado.envios && SC.estado.envios[x.id]) ? ' · <span style="color:#fbbf24">⚠ ' + esc(problemaSC(SC.estado.envios[x.id])) + '</span>' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhum envio ainda.</p>'}
+              <button class="le-rc-item${SC.atual === '__copias' ? ' on' : ''}" data-sc-abrir="__copias" style="margin-top:6px"><b>🧬 Cópias entre listas</b><small>${SC.copias ? numSC(totalCopias()) + ' título(s) repetido(s) · informativo' : 'quais vídeos chegaram repetidos e de que lista'}</small></button>
               <button class="le-rc-item${SC.atual === '__globais' ? ' on' : ''}" data-sc-abrir="__globais" style="margin-top:6px"><b>⚙ Regras para todos os envios</b><small>${(SC.globais || []).length} regra(s) · valem depois das regras de cada envio</small></button>
               <button class="le-bt p" data-sc-novo="1" style="margin-top:6px">+ Criar envio</button>
               ${SC.sujo ? '<p class="le-dica" style="color:#fbbf24">● mudanças não salvas</p>' : ''}
@@ -1403,10 +1445,11 @@
               <div class="le-rot">⚙ Regras para todos os envios</div>
               <p class="le-dica">Valem em todos os envios, depois das regras de cada um. Ex.: "Texto contém <b>adult | xxx | +18</b> → 🚫 Ignorar", ou "Tipo 🎞 Episódio + grupo contém <b>anime</b> → Animes".</p>
               ${regrasHTML(SC.globais || (SC.globais = []), cols)}
-              <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" id="le-sc-salvar-g">💾 Salvar regras</button></div>` : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
+              <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" id="le-sc-salvar-g">💾 Salvar regras</button></div>` : SC.atual === '__copias' ? copiasHTML() : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
             </div>
           </div>`, 'pagina');
         ligarDestino(j);
+        { const bc = j.querySelector('#le-cp-busca'); if (bc) bc.addEventListener('input', () => { SC.cpUI.busca = bc.value; j.querySelector('#le-cp-lista').innerHTML = copiasLinhasHTML(); }); }
         j.querySelectorAll('.le-jan, .le-sc-gtab').forEach((x, i) => { if (rolagem[i]) x.scrollTop = rolagem[i]; });
         const lerForm = () => {
             if (!e || !j.querySelector('#le-sc-url')) return;
@@ -1439,6 +1482,7 @@
             if (e && ev.target.closest('.le-sd')) { lerForm(); if (cliqueSaida(b, ev, e)) return; }
             if (!b) return;
             if (b.dataset.scAbrir) { lerForm(); return abrirSidechain(b.dataset.scAbrir); }
+            if (b.dataset.cpCol != null) { SC.cpUI.col = b.dataset.cpCol; SC.cpUI.busca = ''; return abrirSidechain('__copias'); }
             if (b.dataset.scNovo) {
                 lerForm();
                 const n = L.envioPadrao({ id: L.idEnvio('envio ' + (SC.envios.length + 1), new Set(SC.envios.map(x => x.id))), nome: 'Envio ' + (SC.envios.length + 1), criadoEm: new Date().toISOString() });

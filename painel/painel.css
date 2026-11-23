@@ -576,3 +576,15 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .ns-conta { display: inline-flex; align-items: center; gap: .4cqw; padding: .25cqw .9cqw .25cqw .3cqw; border: 1px solid #27272a; border-radius: 999px; background: #111117; color: #fff; }
 .ns-conta i { display: grid; place-items: center; width: 1.2cqw; height: 1.2cqw; min-width: 8px; min-height: 8px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-style: normal; }
 .com-navbar .nav-sim, .le-fs-quadro.com-navbar .nav-sim { display: flex; }
+
+/* 🧬 Sidechain: cópias entre listas */
+.le-sd-cp { position: absolute; left: 6px; bottom: 6px; z-index: 2; padding: 2px 7px; border-radius: 999px; background: rgba(139,92,246,.88); color: #fff; font-size: 11px; font-weight: 700; }
+.le-cp-tab { width: 100%; border-collapse: collapse; font-size: 13px; }
+.le-cp-tab th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #8b95a7; padding: 6px 8px; border-bottom: 1px solid #1f2937; }
+.le-cp-tab td { padding: 8px; border-bottom: 1px solid #161d29; vertical-align: top; }
+.le-cp-tab td small { display: block; color: #8b95a7; margin-top: 2px; }
+.le-cp-n { color: #c4b5fd; font-weight: 700; white-space: nowrap; }
+.le-cp-listas { display: flex; flex-wrap: wrap; gap: 5px; }
+.le-cp-l { padding: 3px 9px; border-radius: 999px; background: #1e1b2e; border: 1px solid #3b2f63; color: #ddd6fe; font-size: 12px; }
+.le-cp-l i { font-style: normal; color: #a78bfa; }
+.le-cp-l.st { background: #0f2a1d; border-color: #166534; color: #bbf7d0; }
