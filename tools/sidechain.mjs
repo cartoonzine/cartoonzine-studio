@@ -163,19 +163,20 @@ for (const { envio, canais } of ordemTmdb) {
     const porChave = new Map();
     canais.filter(c => L.ehVideo(c) && L.passaFiltros(c, envio)).forEach(c => { const k = L.chaveTMDB(c); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(c); });
     // v2 = já com a "Imagem da tela de prévia": as buscas guardadas antes dela são refeitas uma vez
-    const velho = (g) => !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3 || (g.dados && !g.v);
-    const fila = [...porChave.keys()].filter(k => velho(estado.tmdb[k]));
+    // v3 = escolhe o resultado pelo título exato (não o 1º da lista): as buscas pelo NOME feitas antes são refeitas uma vez
+    const velho = (g, k) => !g || Date.now() - (g.em || 0) > (g.dados ? 30 : 7) * 86400e3 || (g.dados && !g.v) || (g.dados && !/^id\|/.test(k) && (g.v || 0) < 3);
+    const fila = [...porChave.keys()].filter(k => velho(estado.tmdb[k], k));
     if (fila.length) console.log(`  🔎 ${envio.nome}: ${fila.length} títulos para buscar no TMDB… (${passou()})`);
     await emLotes(fila, VEZES_TMDB, async (k) => {
         if (buscasTmdb >= MAX_TMDB || Date.now() > ATE_TMDB) return;
         if (++buscasTmdb % 200 === 0) console.log(`     ${buscasTmdb} buscas (${passou()})`);
-        try { const r = await Core.completarItem(L.pedidoTMDB(porChave.get(k)[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); estado.tmdb[k] = { em: Date.now(), v: 2, dados: L.dadosDoTMDB(r.item) }; }
+        try { const r = await Core.completarItem(L.pedidoTMDB(porChave.get(k)[0]), { tmdb: TMDB, omdb: chavesExternas().omdb, tipoColecao: 'video' }); const dd = L.dadosDoTMDB(r.item); if (dd && !/^id\|/.test(k)) dd.porBusca = true; estado.tmdb[k] = { em: Date.now(), v: 3, dados: dd }; }
         catch (e) { estado.tmdb[k] = { em: Date.now(), dados: null }; }
     });
     const st = { titulos: porChave.size, achados: 0, semAchar: 0, faltam: 0 };
     for (const [k, lista] of porChave) {
         const g = estado.tmdb[k];
-        if (!g) st.faltam++; else if (g.dados) { st.achados++; lista.forEach(c => L.aplicarTMDB(c, g.dados)); } else st.semAchar++;
+        if (!g) st.faltam++; else if (g.dados) { st.achados++; if (!/^id\|/.test(k)) g.dados.porBusca = true; lista.forEach(c => L.aplicarTMDB(c, g.dados)); } else st.semAchar++;
     }
     statsTmdb[envio.id] = st;
     console.log(`  🔎 ${envio.nome}: TMDB ${st.achados} achados · ${st.semAchar} sem achar · ${st.faltam} para a próxima rodada (de ${st.titulos} títulos)`);

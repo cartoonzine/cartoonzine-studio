@@ -817,6 +817,33 @@
         return TMDB_IMG + (/\.svg$/i.test(m.file_path) ? 'original' : 'w500') + m.file_path;
     }
 
+    /**
+     * Dos resultados da busca do TMDB, o que é MESMO o título procurado (não só o 1º da lista).
+     * "Estrela em Hollywood" não pode virar "Estrela": título com palavra a menos ou a mais perde pontos.
+     */
+    function escolherResultadoTMDB(lista, nome, ano) {
+        if (!Array.isArray(lista) || !lista.length) return null;
+        const n = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/&/g, ' e ').replace(/[^a-z0-9]+/g, ' ').trim();
+        const alvo = n(nome), pal = new Set(alvo.split(' ').filter(Boolean));
+        const nota = (r, i) => {
+            const nomes = [r.title, r.name, r.original_title, r.original_name].filter(Boolean);
+            let melhor = nomes.length ? -1 : 20;                // resultado sem título (raro): não descarta
+            for (const t of nomes) {
+                const x = n(t); if (!x) continue;
+                if (x === alvo) { melhor = Math.max(melhor, 100); continue; }
+                const px = new Set(x.split(' ').filter(Boolean));
+                const comuns = [...pal].filter(w => px.has(w)).length;
+                const faltam = pal.size - comuns, sobram = px.size - comuns;
+                melhor = Math.max(melhor, 60 * comuns / Math.max(pal.size, 1) - 12 * faltam - 6 * sobram);
+            }
+            const data = String(r.release_date || r.first_air_date || ''), a = parseInt(data, 10);
+            if (ano && a) melhor += a === +ano ? 15 : Math.abs(a - ano) === 1 ? 5 : -8;
+            return melhor - i * 0.5 + Math.min(5, Math.log10((r.popularity || 0) + 1));   // empate: a ordem do TMDB e a popularidade decidem
+        };
+        let top = null, topN = -Infinity;
+        lista.slice(0, 10).forEach((r, i) => { const v = nota(r, i); if (v > topN) { topN = v; top = r; } });
+        return topN < 15 ? null : top;                    // nada parecido: melhor não chutar
+    }
     /** Aceita o "Token de leitura da API" (longo, v4) ou a "Chave da API" (32 letras, v3). */
     function clienteTMDB(chave, fetchFn) {
         const f = fetchFn || fetch;
@@ -861,11 +888,11 @@
                 const p = { query: item.nome, language: lang, include_adult: 'false' };
                 if (item.ano) p[t === 'tv' ? 'first_air_date_year' : 'year'] = item.ano;
                 let r = await api('/search/' + t, p);
-                let hit = r && r.results && r.results[0];
+                let hit = escolherResultadoTMDB(r && r.results, item.nome, item.ano);
                 if (!hit && item.ano) {
                     delete p.year; delete p.first_air_date_year;
                     r = await api('/search/' + t, p);
-                    hit = r && r.results && r.results[0];
+                    hit = escolherResultadoTMDB(r && r.results, item.nome, item.ano);
                 }
                 if (hit) { ref = t + '/' + hit.id; porBusca = true; break; }
             }
@@ -2246,7 +2273,7 @@
         qualidadeDoTexto, audiosDo, ordenarCopias, CRITERIOS_COPIAS, CLASSIFICACOES, QUALIDADES, analisarNome, lerM3U, lerTextoColado, agruparEntradas, gerarM3U, discosChd,
         lerListaArquivo, consoleDoNomeSistema, consoleDaExtensao, limparNomeRom, prepararJogoEmMassa, buscarJogoPorRomScreenScraper, nomeScreenScraper,
         itemDoArchive, importarArchive, buscarWikipedia, livroDoArchive, formatoDoLink, valorSubpasta,
-        refDoLink, normTmdb, normImdb, buscarTMDB, logoDoTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,
+        refDoLink, normTmdb, normImdb, buscarTMDB, escolherResultadoTMDB, logoDoTMDB, buscarNotaIMDb, buscarLogoSteamGrid, buscarArtesSteamGrid, buscarScreenScraper, buscarJogoScreenScraper, midiasScreenScraper, dadosScreenScraper, aplicarDadosExternos, completarItem,
         codigoPais, bandeira, traduzirCategoria, normalizarItem, validarItem, limparVazios,
         caminhoItem, colecaoDoCaminho, slugLivre, serializar,
         paraCloud, compilarColecao, opcoesDe, mesclarSemSobrescrever, coreDoConsole, CORE_PADRAO,
