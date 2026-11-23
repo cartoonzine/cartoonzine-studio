@@ -2584,12 +2584,210 @@
             "tmdb": "",
             "nota": ""
           }
+        },
+        "n:skyking|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 26,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:seacabo diario das campeas|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "https://image.tmdb.org/t/p/w1280/8pSb6TrJp1RIW8wd6p5Tm1CLzd8.jpg",
+            "fundoImagem": "banner",
+            "posFundo": 8,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:semsaida|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:sem filtro noite sangrenta|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 30,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:uberxtaxis|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 52,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:eagoraoque|": {
+          "ficha": {
+            "capa": "",
+            "banner": "https://www.cinemaescrito.com/wp-content/uploads/2020/10/eagoraoque-still-3-1024x576.jpg",
+            "previa": "https://m.media-amazon.com/images/M/MV5BZTNiMjc4MmQtYjIyMi00ZjQ1LWE5NzctM2UwYWM4YTdmZTBiXkEyXkFqcGc@._V1_.jpg",
+            "fundoImagem": "banner",
+            "posFundo": 10,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:des encontro perfeito|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:in seguros|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:des conhecidos|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "",
+            "posFundo": 45,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         }
       },
       "gruposRevisados": {},
       "fichasSerie": {},
       "criadoEm": "2026-11-22T22:35:37.766Z",
-      "tmdbPedidoEm": "2026-11-23T00:12:58.051Z"
+      "tmdbPedidoEm": "2026-11-23T00:22:11.064Z"
     }
   ]
 }
