@@ -1272,7 +1272,7 @@
         const itens = x.itens || [];
         const temSep = itens.some(it => sep[it.sep]);
         const card = (it, i) => { const s = sep[it.sep] || {}; return `<div class="le-cf-card">
-            <div class="le-cf-capa">${it.capa ? `<img src="${esc(it.capa)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '<span>sem capa</span>'}</div>
+            <div class="le-cf-capa" data-cf-prev="${i}">${(s.capa || it.capa) ? `<img src="${esc(s.capa || it.capa)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '<span>sem capa</span>'}</div>
             <div class="le-cf-info"><span class="le-cp-l">${esc(it.l || '?')}</span>
               <b>${esc(it.nome || x.nome)}</b>
               <small>${[it.ano ? 'ano ' + it.ano : 'sem ano', it.tmdb ? 'TMDB ' + it.tmdb : 'sem TMDB'].map(esc).join(' · ')}</small>
@@ -1281,6 +1281,8 @@
                 <label>Título<input class="le-campo" data-cf="titulo" data-i="${i}" value="${esc(s.titulo || '')}" placeholder="${esc(x.nome)}"></label>
                 <label>Ano<input class="le-campo" data-cf="ano" data-i="${i}" type="number" value="${esc(s.ano || '')}" placeholder="${esc(it.ano || '')}" style="width:90px"></label>
                 <label>TMDB<input class="le-campo" data-cf="tmdb" data-i="${i}" value="${esc(s.tmdb || '')}" placeholder="link ou ${x.serie ? 'tv' : 'movie'}/123"></label>
+                <label class="cheio">Capa (link da imagem)<input class="le-campo" data-cf="capa" data-i="${i}" value="${esc(s.capa || '')}" placeholder="https://…  (vazio = a do TMDB)"></label>
+                <label class="cheio">Banner (link da imagem)<input class="le-campo" data-cf="banner" data-i="${i}" value="${esc(s.banner || '')}" placeholder="https://…  (vazio = o do TMDB)"></label>
               </div></div></div>`; };
         const j = janela(`<h3>🧬 Conferir — ${esc(x.nome)}</h3>
           <p class="le-dica">${x.serie ? `Série repetida em ${itens.length} lista(s) · ${x.eps || 0} episódio(s) em comum.` : `${itens.length} cópias com o mesmo nome.`} Abra os vídeos e veja se é a mesma obra. Se <b>não for</b>, preencha o ano ou o TMDB de cada uma (o que souber) e clique em <b>✂ Separar</b>: cada cópia vira ${x.serie ? 'uma série' : 'um filme'} própria, com a capa certa. Fica guardado pelo link — o robô respeita em toda rodada.</p>
@@ -1293,6 +1295,7 @@
             <button class="le-bt p" id="le-cf-separar">✂ Separar</button>
           </div>`);
         const voltar = () => setTimeout(() => abrirSidechain('__copias'), 0);
+        j.addEventListener('input', (ev) => { const el = ev.target; if (el.dataset.cf !== 'capa') return; const box = j.querySelector(`[data-cf-prev="${el.dataset.i}"]`), u = el.value.trim(); if (box && /^https?:\/\//i.test(u)) box.innerHTML = `<img src="${esc(u)}" alt="" referrerpolicy="no-referrer">`; });
         j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]')) voltar(); });
         const salvar = async (msg, aviso) => { SC.sujo = true; try { await gravarSidechain(msg); S.aviso(aviso, 'ok'); } catch (e) { S.aviso('Não consegui salvar: ' + e.message, 'ruim'); } fecharJanela(); voltar(); };
         j.querySelector('#le-cf-mesmo').onclick = () => { conf[x.k] = new Date().toISOString().slice(0, 10); itens.forEach(it => { delete sep[it.sep]; }); salvar('🧬 cópias conferidas: ' + x.nome, 'Marcado como o mesmo. O robô continua juntando.'); };
@@ -1304,6 +1307,7 @@
                 if (m) o.tmdb = m[2] ? m[1] + '/' + m[2] : (x.serie ? 'tv/' : 'movie/') + m[1];
                 if (+v('ano')) o.ano = +v('ano');
                 if (v('titulo').trim()) o.titulo = v('titulo').trim();
+                ['capa', 'banner'].forEach(k => { if (/^https?:\/\//i.test(v(k).trim())) o[k] = v(k).trim(); });
                 sep[it.sep] = o;
             });
             delete conf[x.k];
@@ -1333,7 +1337,8 @@
         const ui = SC.sdUI = SC.sdUI || { aba: '', filtro: '', pag: 1, marcados: new Set() };
         const a = abas.find(x => x.col.id === ui.aba) || abas[0]; ui.aba = a.col.id;
         const nF = (k) => a.cards.filter(cd => filtroSD(cd, k)).length;
-        const vis = ui.filtro ? a.cards.filter(cd => filtroSD(cd, ui.filtro)) : a.cards;
+        const bq = normCP(ui.busca || ''), achaSD = (cd) => !bq || normCP(cd.serie || ((cd.itens[0].video || {}).titulo) || cd.itens[0].nome).includes(bq);
+        const vis = a.cards.filter(cd => (!ui.filtro || filtroSD(cd, ui.filtro)) && achaSD(cd));
         const mostra = vis.slice(0, ui.pag * 48);
         SC.sdVista = mostra;
         const card = (cd, i) => {
@@ -1352,6 +1357,7 @@
         };
         return `<div class="le-sd"><div class="le-rot" style="display:flex;align-items:center;gap:8px">👁 Saída — como vai chegar no app <small style="text-transform:none;letter-spacing:0">(clique no card para editar a ficha)</small><button class="le-bt" data-sc-atualizar="1" style="margin-left:auto" title="Traz o que o robô já completou">🔄 Atualizar</button></div>
           <div class="le-sd-abas">${abas.map(x => `<button class="${x === a ? 'on' : ''}" data-sd-aba="${esc(x.col.id)}">${esc((x.col.icone ? x.col.icone + ' ' : '') + x.col.nome)} <b>${numSC(x.cards.length)}</b>${x.cards.some(cd => cd.falta.length) ? ` <small>⚠ ${numSC(x.cards.filter(cd => cd.falta.length).length)}</small>` : ''}</button>`).join('')}</div>
+          <input class="le-campo" id="le-sd-busca" placeholder="🔎 Buscar título nesta aba…" value="${esc(ui.busca || '')}" style="max-width:360px;margin-bottom:8px">
           <div class="le-imp-op"><div class="le-chips">${FALTAS_SD.map(([k, t]) => `<button class="le-chip ${ui.filtro === k ? 'on' : ''}" data-sd-fil="${k}">${t}${k ? ' ' + numSC(nF(k)) : ''}</button>`).join('')}</div>
             <button class="le-bt r" id="le-sd-tmdb" title="Completa os marcados (ou todos os desta lista, se nada estiver marcado)">🔎 Completar pelo TMDB ${ui.marcados.size ? `(${ui.marcados.size} marcados)` : `(${numSC(vis.length)} ${ui.filtro ? 'filtrados' : 'desta aba'})`}</button>
             ${ui.marcados.size ? '<button class="le-bt" id="le-sd-desmarca">Desmarcar</button>' : ''}</div>
@@ -1370,7 +1376,7 @@
         if (b && b.id === 'le-sd-tmdb') {
             const abas = modeloSaida(e), a = abas.find(x => x.col.id === ui.aba) || abas[0];
             const cards = ui.marcados.size ? a.cards.filter(cd => ui.marcados.has(cd.serie ? 's:' + L.chaveSerie(cd.itens[0]) : L.chaveSC(cd.itens[0])))
-                : ui.filtro ? a.cards.filter(cd => filtroSD(cd, ui.filtro)) : a.cards;
+                : a.cards.filter(cd => (!ui.filtro || filtroSD(cd, ui.filtro)) && (!ui.busca || normCP(cd.serie || ((cd.itens[0].video || {}).titulo) || cd.itens[0].nome).includes(normCP(ui.busca))));
             SC.saida = { envio: e, canais };
             abrirCompletarTMDB(cards.flatMap(cd => cd.itens));
             return true;
@@ -1498,6 +1504,7 @@
             </div>
           </div>`, 'pagina');
         ligarDestino(j);
+        { const bs = j.querySelector('#le-sd-busca'); if (bs && SC.sdUI) { if (SC.sdUI._foco) { bs.focus(); bs.setSelectionRange(bs.value.length, bs.value.length); SC.sdUI._foco = false; } let t; bs.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { SC.sdUI.busca = bs.value; SC.sdUI.pag = 1; SC.sdUI._foco = true; abrirSidechain(SC.atual); }, 250); }); } }
         { const bc = j.querySelector('#le-cp-busca'); if (bc) bc.addEventListener('input', () => { SC.cpUI.busca = bc.value; j.querySelector('#le-cp-lista').innerHTML = copiasLinhasHTML(); }); }
         j.querySelectorAll('.le-jan, .le-sc-gtab').forEach((x, i) => { if (rolagem[i]) x.scrollTop = rolagem[i]; });
         const lerForm = () => {
@@ -2815,6 +2822,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
           <p class="le-dica">O mesmo que o <b>Novo</b> das Coleções. Em branco = automático (o que veio do TMDB/da lista). ${SC.modo ? 'Fica guardado no envio: o robô repete a cada rodada.' : ''}</p>
           ${ep ? `<label class="le-fs-serie"><input type="checkbox" id="le-fs-serie" ${c.ficha && !c.fichaSerie ? '' : 'checked'}> Vale para a <b>série toda</b> (${esc(c.video.serie)}) — todos os episódios, inclusive os que chegarem depois</label>` : ''}
           <div class="le-fs-grade">
+            ${!ep ? `<label class="le-fs-campo"><span>Título</span><input class="le-campo" id="le-fs-titulo" value="${esc((c.video && c.video.titulo) || '')}" placeholder="${esc(c.nome)}"></label>
+            <label class="le-fs-campo"><span>Ano</span><input class="le-campo" id="le-fs-ano" type="number" value="${esc((c.video && c.video.ano) || '')}" placeholder="—"></label>` : ''}
+            <label class="le-fs-campo cheio"><span>TMDB da obra</span><input class="le-campo" data-fs="tmdb" value="${esc(v('tmdb') || '')}" placeholder="cole o link do TMDB ou ${ep ? 'tv' : 'movie'}/123 — vazio = automático"><small>diz exatamente qual obra é (o robô busca a capa, o banner e a sinopse dela) · use quando o nome é igual ao de outra produção</small></label>
             ${url('capa', 'Capa (imagem vertical)')}
             ${url('banner', 'Banner (imagem horizontal)')}
             ${url('previa', 'Imagem da tela de prévia', 'aparece na tela de prévia da categoria antes do vídeo — outra imagem grande, para não repetir o banner · vazio = usa o banner')}
@@ -2865,7 +2875,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             quadro.addEventListener('pointermove', mover); quadro.addEventListener('pointerup', fim);
         });
         pintar();
-        const gravar = (ficha) => {
+        const gravar = (ficha, extra) => {
             const serie = ep && j.querySelector('#le-fs-serie') && j.querySelector('#le-fs-serie').checked;
             fecharJanela();
             if (serie) {
@@ -2879,7 +2889,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             }
             // só o item: guarda as diferenças (em branco = automático)
             const limpo = {}; L.CAMPOS_FICHA_SC.forEach(k => { limpo[k] = ''; });
-            const aj = { ficha: Object.assign(limpo, ficha || {}) };
+            const aj = Object.assign({ ficha: Object.assign(limpo, ficha || {}) }, extra || {});
             if (SC.saida) {
                 const env = SC.saida.envio, k = L.chaveSC(c);
                 L.ajustarVideo(c, aj); env.ajustes = env.ajustes || {}; env.ajustes[k] = Object.assign({}, env.ajustes[k], aj);
@@ -2900,7 +2910,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const p = j.querySelector('#le-fs-pos').value; if (p !== '') f.posFundo = lim(+p);
             if (j.querySelector('[data-fs="destaque"]').checked) f.destaque = true;
             if (j.querySelector('#le-fs-ok-banner').checked) f.bannerOk = true;
-            gravar(f);
+            { const tm = val('tmdb'), m = tm.match(/(movie|tv)\/(\d+)/) || tm.match(/^(\d+)$/); if (m) f.tmdb = m[2] ? m[1] + '/' + m[2] : (ep ? 'tv/' : 'movie/') + m[1]; }
+            const extra = {};
+            if (!ep) { const t = j.querySelector('#le-fs-titulo').value.trim(), a = j.querySelector('#le-fs-ano').value.trim(); if (t !== ((c.video && c.video.titulo) || '')) extra.titulo = t; if (a !== String((c.video && c.video.ano) || '')) extra.ano = a ? +a : ''; }
+            gravar(f, extra);
         };
     }
     function abrirDadosVideo(c) {
