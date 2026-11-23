@@ -25,5 +25,6 @@
   "bannerLogo": "https://image.tmdb.org/t/p/w500/mIduG24mQKG0AMhsNNcDYwIA8zY.png",
   "destaqueOrdem": 6,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-22"
+  "_completadoEm": "2026-11-22",
+  "_tmdbPorBusca": true
 }

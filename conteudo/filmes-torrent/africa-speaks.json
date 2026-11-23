@@ -8,7 +8,7 @@
   "imdb": "tt0174450",
   "notaImdb": 5.1,
   "notaTmdb": 7,
-  "popularidade": 0.4,
+  "popularidade": 0.3,
   "duracao": 75,
   "votosImdb": 143,
   "capa": "https://archive.org/services/img/africa_speaks",
@@ -23,5 +23,6 @@
   "destaque": true,
   "destaqueOrdem": 1,
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-22"
+  "_completadoEm": "2026-11-23",
+  "_tmdbPorBusca": true
 }

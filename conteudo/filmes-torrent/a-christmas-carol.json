@@ -8,7 +8,7 @@
   "imdb": "tt0001544",
   "notaImdb": 6,
   "notaTmdb": 6.3,
-  "popularidade": 0.5,
+  "popularidade": 0.4,
   "duracao": 13,
   "votosImdb": 965,
   "capa": "https://archive.org/services/img/AChristmasCarol",
@@ -23,5 +23,6 @@
     "Christmas"
   ],
   "_origem": "auto:Filmes em domínio público (Internet Archive · torrent)",
-  "_completadoEm": "2026-11-22"
+  "_completadoEm": "2026-11-23",
+  "_tmdbPorBusca": true
 }
