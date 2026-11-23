@@ -3364,7 +3364,7 @@
         "confiancaMin": 0
       },
       "avulsa": false,
-      "tmdb": false,
+      "tmdb": true,
       "tmdbModo": "falta",
       "tmdbFundo": true,
       "pularStudio": true,
@@ -3373,7 +3373,8 @@
       "ajustes": {},
       "gruposRevisados": {},
       "fichasSerie": {},
-      "criadoEm": "2026-11-23T01:34:32.756Z"
+      "criadoEm": "2026-11-23T01:34:32.756Z",
+      "tmdbPedidoEm": "2026-11-23T04:24:24.480Z"
     }
   ]
 }
