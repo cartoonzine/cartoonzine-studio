@@ -1,6 +1,8 @@
 {
   "versao": 1,
   "regrasGlobais": [],
+  "separacoes": {},
+  "conferidos": {},
   "envios": [
     {
       "id": "ramys-filmes-e-series",
