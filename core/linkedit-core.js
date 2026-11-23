@@ -1035,9 +1035,10 @@
             relatorios[envio.id] = rel;
             if (avulsa) avulsas.push({ id: envio.id, nome: envio.nome, itens: agrupar(avulsa.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas) });
         }
+        for (const s of porSaida.values()) { s.brutos.forEach(c => { c.chave = chaveSC(c); }); refinarChaves(s.brutos); }   // mesmo nome, obras diferentes (ano/TMDB) não se juntam
         const copias = copiasDasSaidas([...porSaida.values()], naStudioCopias);
         const saidas = [...porSaida.values()].map(s => {
-            const itens = agrupar(s.brutos.map(c => Object.assign({}, c, { chave: chaveSC(c) }))).map(canalComReservas)
+            const itens = agrupar(s.brutos.map(c => Object.assign({}, c))).map(canalComReservas)
                 .sort((a, b) => String(a.grupoSaida || '').localeCompare(String(b.grupoSaida || ''), 'pt') || String(a.nome).localeCompare(String(b.nome), 'pt'));
             delete s.brutos;
             return Object.assign(s, { itens });
@@ -1050,11 +1051,42 @@
      * (de listas diferentes ou repetido na mesma lista). O robô já junta: a 1ª vira o item e as outras viram reserva.
      * → { [colecao]: [{ k, nome, serie, n, eps?, listas: { [nomeDaLista]: quantos } , studio? }] }
      */
+    /**
+     * Mesmo nome, obras diferentes: antes de juntar as cópias, separa pelo que as diferencia.
+     *  - TMDB vindo da lista/ficha (não o achado só pelo nome) manda: TMDB diferente = obra diferente.
+     *  - Sem TMDB, o ano decide (e o ano de quem tem TMDB liga as duas coisas).
+     *  - Cópia sem ano e sem TMDB só se junta quando o grupo tem uma obra só; se houver duas ou mais, fica à parte.
+     * Muda c.chave (acrescenta #t:… / #a:… / #?) só nos grupos que precisam; o resto continua igual.
+     */
+    function identidadeVideo(c) {
+        if (!ehVideo(c)) return {};
+        const v = c.video || {}, d = v.dados || {};
+        const ref = v.tmdbRef || (d.tmdb && !d.porBusca ? d.tmdb : '') || (c.ficha && c.ficha.tmdb) || (c.fichaSerie && c.fichaSerie.tmdb) || '';
+        const ano = parseInt(v.ano || (c.natureza !== 'episodio' && d.ano) || 0, 10) || 0;
+        return { tmdb: ref ? String(ref).replace(/^.*?(movie|tv)\//, '$1/') : '', ano };
+    }
+    function refinarChaves(lista) {
+        const grupos = new Map();
+        for (const c of lista) { if (!ehVideo(c)) continue; const k = c.chave; if (!grupos.has(k)) grupos.set(k, []); grupos.get(k).push(c); }
+        for (const [k, g] of grupos) {
+            if (g.length < 2) continue;
+            const ids = g.map(identidadeVideo);
+            const tmdbs = new Set(ids.map(x => x.tmdb).filter(Boolean)), anos = new Set(ids.map(x => x.ano).filter(Boolean));
+            if (tmdbs.size <= 1 && anos.size <= 1) continue;                     // nada contradiz: junta como sempre
+            const anoDoTmdb = new Map();                                        // ano ↔ TMDB (de quem tem os dois)
+            ids.forEach(x => { if (x.tmdb && x.ano) anoDoTmdb.set(x.ano, anoDoTmdb.has(x.ano) && anoDoTmdb.get(x.ano) !== x.tmdb ? null : x.tmdb); });
+            const obra = (x) => x.tmdb ? 't:' + x.tmdb : x.ano ? (anoDoTmdb.get(x.ano) ? 't:' + anoDoTmdb.get(x.ano) : 'a:' + x.ano) : '';
+            const obras = new Set(ids.map(obra).filter(Boolean));
+            const unica = obras.size === 1 ? [...obras][0] : '';
+            g.forEach((c, i) => { const o = obra(ids[i]) || unica || '?'; c.chave = k + '#' + o; c._separado = obras.size > 1 || undefined; });
+        }
+        return lista;
+    }
     function copiasDasSaidas(saidas, naStudio) {
         const out = {};
         for (const s of saidas) {
             const porChave = new Map();
-            for (const it of s.brutos) { const k = chaveSC(it); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(it); }
+            for (const it of s.brutos) { const k = it.chave || chaveSC(it); if (!porChave.has(k)) porChave.set(k, []); porChave.get(k).push(it); }
             const porItem = new Map();
             for (const lista of porChave.values()) {
                 if (lista.length < 2) continue;

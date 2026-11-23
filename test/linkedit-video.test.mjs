@@ -143,3 +143,17 @@ test('🧬 Sidechain: relatório de cópias diz quais vídeos chegaram repetidos
     assert.equal(j.filter(x => /Matrix/.test(x.title)).length, 1);            // o app recebe um só (a outra é reserva)
     assert.ok(!JSON.stringify(j).includes('_env'));
 });
+
+test('🧬 mesmo nome, obras diferentes: ano ou TMDB diferente não se juntam', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const la = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://a/ch1.mp4\n#EXTINF:-1,Matrix (1999)\nhttp://a/m.mp4\n#EXTINF:-1,Duna (1984)\nhttp://a/d84.mp4\n', 'a').canais;
+    const lb = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://b/ch2.mp4\n#EXTINF:-1,Matrix (1999)\nhttp://b/m.mp4\n#EXTINF:-1,Duna (2021)\nhttp://b/d21.mp4\n#EXTINF:-1,Duna\nhttp://b/d.mp4\n', 'b').canais;
+    la[0].video.tmdbRef = 'movie/111'; lb[0].video.tmdbRef = 'movie/222';
+    const ea = L.envioPadrao({ id: 'a', nome: 'A', destino: { colecao: 'filmes' } }), eb = L.envioPadrao({ id: 'b', nome: 'B', destino: { colecao: 'filmes' } });
+    const { saidas } = L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config);
+    const j = JSON.parse(L.gerarJSON(saidas[0].itens));
+    const n = (re) => j.filter(x => re.test(x.title)).length;
+    assert.equal(n(/^Código de Honra/), 2);          // TMDB diferente → dois filmes
+    assert.equal(n(/^Matrix/), 1);                   // mesmo ano → junta (a outra vira reserva)
+    assert.equal(n(/^Duna/), 3);                     // 1984, 2021 e o sem ano (não dá para saber qual) ficam à parte
+});
