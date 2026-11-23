@@ -47,6 +47,15 @@
     "https://nixplay.lat/movie/saimo-vods/221097/1171693.mp4": {
       "em": "2026-11-23",
       "titulo": "movie/1171693"
+    },
+    "http://dbonline.tech-cdn.top:80/movie/ke-vin-0928392083/PZjF6XATTZ/300790.mp4": {
+      "em": "2026-11-23",
+      "soDados": true
+    },
+    "https://nixplay.lat/movie/saimo-vods/221097/36557.mp4": {
+      "em": "2026-11-23",
+      "soDados": true,
+      "principal": true
     }
   },
   "conferidos": {
@@ -62,7 +71,8 @@
     "f|n:a extraordinaria garota chamada estrela em hollywood|": "2026-11-23",
     "f|n:in seguros|": "2026-11-23",
     "f|n:red aposentados e perigosos|": "2026-11-23",
-    "f|n:000 especies de abelhas|": "2026-11-23"
+    "f|n:000 especies de abelhas|": "2026-11-23",
+    "f|n:007 cassino royale 2006|": "2026-11-23"
   },
   "envios": [
     {
