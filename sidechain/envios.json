@@ -2,7 +2,9 @@
   "versao": 1,
   "regrasGlobais": [],
   "separacoes": {},
-  "conferidos": {},
+  "conferidos": {
+    "f|n:codigo de honra|": "2026-11-23"
+  },
   "envios": [
     {
       "id": "ramys-filmes-e-series",
