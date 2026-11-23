@@ -2825,6 +2825,49 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     }
     // ---------- 🖼 FICHA do item (o mesmo do "Novo" das Coleções): capa, banner, fundo do topo, sinopse, banner da home ----------
     const SKINS_FS = ['cinema', 'arcade', 'poster', 'vintage'], FX_FS = ['none', 'crt', 'vhs', 'scan', 'cinema', 'neon', 'bw'], CLASSIF_FS = ['L', '10', '12', '14', '16', '18'];
+
+    /** ▶ Testar o vídeo na ficha: o link deste item e as cópias que chegaram repetidas (de outras listas) */
+    function linksDaFicha(c) {
+        const out = [{ rot: 'Este item' + (c.natureza === 'episodio' && c.video ? ` (T${c.video.temporada || 1} E${c.video.episodio || 1})` : ''), url: c.url }];
+        (c.reservas || []).forEach((r, i) => { const u = typeof r === 'string' ? r : r && r.url; if (u) out.push({ rot: 'Reserva ' + (i + 1), url: u }); });
+        const nome = (c.natureza === 'episodio' && c.video && c.video.serie) || (c.video && c.video.titulo) || c.nome;
+        for (const m of Object.values(SC.copiasMapa || {})) {
+            const x = m.get('n|' + normCP(nome)); if (!x) continue;
+            (x.itens || []).forEach(it => { if (it.url && !out.some(o => o.url === it.url)) out.push({ rot: '🧬 ' + (it.l || 'cópia'), url: it.url }); });
+        }
+        return out.slice(0, 10);
+    }
+    let fichaPlayer = null;
+    function pararFicha(v) { if (fichaPlayer) { try { fichaPlayer.destroy(); } catch (e) { /* */ } fichaPlayer = null; } if (v) { try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* */ } } }
+    async function tocarNaFicha(j, c, url) {
+        const v = j.querySelector('#le-fs-video'), st = j.querySelector('#le-fs-vstatus');
+        const dizer = (t) => { st.textContent = t; };
+        pararFicha(v); j.querySelector('.le-fs-tela').hidden = false; dizer('Abrindo…');
+        const t0 = performance.now(), src = viaTunel(c, url);
+        v.onplaying = () => dizer(`✅ Tocou em ${((performance.now() - t0) / 1000).toFixed(1).replace('.', ',')} s${v.videoWidth ? ' · ' + v.videoWidth + '×' + v.videoHeight : ''}`);
+        v.onerror = () => dizer('❌ Não tocou no navegador (pode ser o formato — no app o VLC/ExoPlayer às vezes abre). Use 🔎 Testar para ver se o link está vivo.');
+        try {
+            if (/m3u8/i.test(url) && !(v.canPlayType('application/vnd.apple.mpegurl') && !window.MediaSource)) {
+                if (!(await carregarLib('hls'))) return dizer('Não consegui carregar o hls.js.');
+                fichaPlayer = new window.Hls({ startLevel: 0, maxBufferLength: 8 });
+                fichaPlayer.on(window.Hls.Events.ERROR, (ev, d) => { if (d && d.fatal) dizer('❌ Não tocou: ' + (d.details || d.type)); });
+                fichaPlayer.loadSource(src); fichaPlayer.attachMedia(v);
+            } else v.src = src;
+            v.muted = false; await v.play().catch(() => {});
+        } catch (e) { dizer('❌ ' + e.message); }
+    }
+    async function testarNaFicha(c, url, el) {
+        if (!podeTestar()) { el.textContent = 'teste: abra o painel do PC'; return; }
+        el.textContent = '⏳ testando…';
+        const p = new URLSearchParams({ url, modo: E.modoTeste });
+        if (c.headers && c.headers['User-Agent']) p.set('ua', c.headers['User-Agent']);
+        if (c.headers && c.headers.Referer) p.set('ref', c.headers.Referer);
+        try {
+            const r = await (await fetch(local() ? '/api/linkedit/testar?' + p : urlNuvem('/testar', p))).json();
+            const ok = ['vivo', 'lento', 'pede-ua'].includes(r.status);
+            el.textContent = `${ok ? '🟢' : r.status === 'morto' ? '🔴' : '⚪'} ${r.status}${r.ms ? ' · ' + (r.ms / 1000).toFixed(1).replace('.', ',') + ' s' : ''}${r.resolucao ? ' · ' + r.resolucao : ''}${r.motivo ? ' · ' + r.motivo : ''}`;
+        } catch (e) { el.textContent = '⚪ não consegui testar'; }
+    }
     function abrirFichaItem(c) {
         if (!c || !L.ehVideo(c)) return S.aviso('A ficha é para filmes e episódios. Troque o tipo primeiro (Y).', 'ruim');
         const d = (c.video && c.video.dados) || {}, ep = c.natureza === 'episodio' && c.video && c.video.serie;
@@ -2860,6 +2903,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 ${sel('bannerFx', 'Efeito no banner', FX_FS, 'o do aparelho')}
                 <label class="le-fs-campo cheio" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" data-fs="destaque" ${atual.destaque ? 'checked' : ''}> Destaque no banner da home</label>
               </div></details>
+            <details class="le-fs-campo cheio le-fs-mais le-fs-video"><summary>▶ Testar o vídeo (${linksDaFicha(c).length} link${linksDaFicha(c).length > 1 ? 's' : ''})</summary>
+              <div class="le-fs-links">${linksDaFicha(c).map((l, i) => `<div class="le-fs-link"><b>${esc(l.rot)}</b><code title="${esc(l.url)}">${esc(l.url)}</code><span class="le-fs-res" data-fs-res="${i}"></span><button class="le-bt" data-fs-tocar="${i}">▶ Tocar</button><button class="le-bt" data-fs-testar="${i}">🔎 Testar</button></div>`).join('')}</div>
+              <div class="le-fs-tela" hidden><video id="le-fs-video" controls playsinline></video><small id="le-fs-vstatus"></small></div>
+            </details>
           </div>
           <div class="le-jan-botoes"><button class="le-bt" id="le-fs-tmdb" style="margin-right:auto" title="Completa esta ficha com capa, banner, logo e sinopse do TMDB">🔎 Completar pelo TMDB</button><button class="le-bt" id="le-fs-limpar" title="Volta tudo para o automático">Limpar ficha</button><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-fs-ok">Salvar ficha</button></div>`, 'media le-fs');
         voltarSaidaAoFechar(j);
@@ -2915,6 +2962,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             editarVideo([c], aj);
             S.aviso('Ficha salva.', 'ok');
         };
+        { const ls = linksDaFicha(c);
+          j.querySelectorAll('[data-fs-tocar]').forEach(b => b.onclick = (ev) => { ev.preventDefault(); tocarNaFicha(j, c, ls[+b.dataset.fsTocar].url); });
+          j.querySelectorAll('[data-fs-testar]').forEach(b => b.onclick = (ev) => { ev.preventDefault(); testarNaFicha(c, ls[+b.dataset.fsTestar].url, j.querySelector(`[data-fs-res="${b.dataset.fsTestar}"]`)); });
+          j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]') || ev.target.closest('#le-fs-ok') || ev.target.closest('#le-fs-limpar')) pararFicha(j.querySelector('#le-fs-video')); }, true); }
         j.querySelector('#le-fs-limpar').onclick = () => gravar(null);
         j.querySelector('#le-fs-tmdb').onclick = () => { const sd = SC.saida; fecharJanela(); SC.saida = sd; abrirCompletarTMDB(sd ? ctxCanais().filter(x => (L.chaveSerie(c) && L.chaveSerie(x) === L.chaveSerie(c)) || x === c) : [c]); };
         j.querySelector('#le-fs-ok').onclick = () => {
