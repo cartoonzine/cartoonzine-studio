@@ -602,3 +602,4 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-cf-campos { display: flex; flex-wrap: wrap; gap: 6px; }
 .le-cf-campos label { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: #8b95a7; }
 .le-cf-campos .le-campo { padding: 6px 8px; font-size: 12.5px; }
+.le-cf-acoes { display: flex; flex-wrap: wrap; gap: 6px; }

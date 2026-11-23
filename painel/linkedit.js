@@ -1276,7 +1276,7 @@
             <div class="le-cf-info"><span class="le-cp-l">${esc(it.l || '?')}</span>
               <b>${esc(it.nome || x.nome)}</b>
               <small>${[it.ano ? 'ano ' + it.ano : 'sem ano', it.tmdb ? 'TMDB ' + it.tmdb : 'sem TMDB'].map(esc).join(' · ')}</small>
-              ${it.url ? `<a class="le-bt" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">▶ Abrir o vídeo</a>` : ''}
+              <div class="le-cf-acoes">${it.url ? `<a class="le-bt" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">▶ Abrir o vídeo</a>` : ''}${it.envId ? `<button class="le-bt" data-cf-ficha="${i}" title="Abre a 👁 Saída da lista ${esc(it.l || '')} já buscando este título — clique no card para a ficha completa">✏️ Ficha completa</button>` : ''}</div>
               <div class="le-cf-campos">
                 <label>Título<input class="le-campo" data-cf="titulo" data-i="${i}" value="${esc(s.titulo || '')}" placeholder="${esc(x.nome)}"></label>
                 <label>Ano<input class="le-campo" data-cf="ano" data-i="${i}" type="number" value="${esc(s.ano || '')}" placeholder="${esc(it.ano || '')}" style="width:90px"></label>
@@ -1291,25 +1291,41 @@
           ${itens.length < (x.n || 0) + 1 && !x.serie ? '<p class="le-dica">Mostrando as 8 primeiras cópias.</p>' : ''}
           <div class="le-jan-botoes">
             ${temSep ? '<button class="le-bt" id="le-cf-desfazer" style="margin-right:auto">↩ Desfazer separação</button>' : ''}
-            <button class="le-bt" id="le-cf-mesmo">✓ São o mesmo</button>
+            <button class="le-bt" id="le-cf-mesmo" title="Junta como um só e salva o que você preencheu (capa, banner, título, ano, TMDB)">✓ São o mesmo — salvar</button>
             <button class="le-bt p" id="le-cf-separar">✂ Separar</button>
           </div>`);
         const voltar = () => setTimeout(() => abrirSidechain('__copias'), 0);
         j.addEventListener('input', (ev) => { const el = ev.target; if (el.dataset.cf !== 'capa') return; const box = j.querySelector(`[data-cf-prev="${el.dataset.i}"]`), u = el.value.trim(); if (box && /^https?:\/\//i.test(u)) box.innerHTML = `<img src="${esc(u)}" alt="" referrerpolicy="no-referrer">`; });
         j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]')) voltar(); });
         const salvar = async (msg, aviso) => { SC.sujo = true; try { await gravarSidechain(msg); S.aviso(aviso, 'ok'); } catch (e) { S.aviso('Não consegui salvar: ' + e.message, 'ruim'); } fecharJanela(); voltar(); };
-        j.querySelector('#le-cf-mesmo').onclick = () => { conf[x.k] = new Date().toISOString().slice(0, 10); itens.forEach(it => { delete sep[it.sep]; }); salvar('🧬 cópias conferidas: ' + x.nome, 'Marcado como o mesmo. O robô continua juntando.'); };
+        /** o que você preencheu numa cópia (só o que tem valor) */
+        const lerCopia = (i) => {
+            const v = (k) => ((j.querySelector(`[data-cf="${k}"][data-i="${i}"]`) || {}).value || '').trim();
+            const tm = v('tmdb'), m = tm.match(/(movie|tv)\/(\d+)/) || tm.match(/^(\d+)$/);
+            const o = {};
+            if (m) o.tmdb = m[2] ? m[1] + '/' + m[2] : (x.serie ? 'tv/' : 'movie/') + m[1];
+            if (+v('ano')) o.ano = +v('ano');
+            if (v('titulo')) o.titulo = v('titulo');
+            ['capa', 'banner'].forEach(k => { if (/^https?:\/\//i.test(v(k))) o[k] = v(k); });
+            return o;
+        };
+        j.querySelector('#le-cf-mesmo').onclick = () => {
+            // é a mesma obra: o que você preencheu (em qualquer cópia) vale para todas — assim o item juntado mostra, seja qual for a principal
+            const junto = {}; itens.forEach((it, i) => { const o = lerCopia(i); Object.keys(o).forEach(k => { if (junto[k] == null) junto[k] = o[k]; }); });
+            const tem = Object.keys(junto).length;
+            itens.forEach(it => { if (tem) sep[it.sep] = Object.assign({ em: new Date().toISOString().slice(0, 10), soDados: true }, junto); else delete sep[it.sep]; });
+            conf[x.k] = new Date().toISOString().slice(0, 10);
+            salvar('🧬 cópias conferidas: ' + x.nome, tem ? `Salvo: ${Object.keys(junto).join(', ')} — vale na próxima rodada do robô.` : 'Marcado como o mesmo. O robô continua juntando.');
+        };
+        j.querySelectorAll('[data-cf-ficha]').forEach(bt => bt.onclick = () => {
+            const it = itens[+bt.dataset.cfFicha], col = (SC.cpUI && SC.cpUI.col) || '';
+            fecharJanela();
+            SC.atual = it.envId; SC.passo = 4;
+            SC.sdUI = { aba: col, filtro: '', pag: 1, marcados: new Set(), busca: x.nome };
+            setTimeout(() => abrirSidechain(), 0);
+        });
         j.querySelector('#le-cf-separar').onclick = () => {
-            itens.forEach((it, i) => {
-                const v = (k) => (j.querySelector(`[data-cf="${k}"][data-i="${i}"]`) || {}).value || '';
-                const tm = v('tmdb').trim(), m = tm.match(/(movie|tv)\/(\d+)/) || tm.match(/^(\d+)$/);
-                const o = { em: new Date().toISOString().slice(0, 10) };
-                if (m) o.tmdb = m[2] ? m[1] + '/' + m[2] : (x.serie ? 'tv/' : 'movie/') + m[1];
-                if (+v('ano')) o.ano = +v('ano');
-                if (v('titulo').trim()) o.titulo = v('titulo').trim();
-                ['capa', 'banner'].forEach(k => { if (/^https?:\/\//i.test(v(k).trim())) o[k] = v(k).trim(); });
-                sep[it.sep] = o;
-            });
+            itens.forEach((it, i) => { sep[it.sep] = Object.assign({ em: new Date().toISOString().slice(0, 10) }, lerCopia(i)); });
             delete conf[x.k];
             salvar('🧬 cópias separadas: ' + x.nome, `Separado em ${itens.length}. Vale na próxima rodada do robô (🤖 Completar agora ou a de 6 h).`);
         };

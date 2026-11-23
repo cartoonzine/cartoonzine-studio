@@ -175,3 +175,13 @@ test('✂ separação feita à mão (pelo link) vira obra própria; relatório t
     assert.ok(j.some(x => x.year === 1992));
     assert.ok(!r.copias.filmes);
 });
+
+test('✓ São o mesmo com capa preenchida: continua junto e a capa vale', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const la = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://a/ch1.mp4\n', 'a').canais, lb = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://b/ch2.mp4\n', 'b').canais;
+    const sep = { 'http://a/ch1.mp4': { soDados: true, capa: 'https://img/x.jpg' }, 'http://b/ch2.mp4': { soDados: true, capa: 'https://img/x.jpg' } };
+    const ea = L.envioPadrao({ id: 'a', nome: 'A', destino: { colecao: 'filmes' } }), eb = L.envioPadrao({ id: 'b', nome: 'B', destino: { colecao: 'filmes' } });
+    ea._sep = sep; eb._sep = sep;
+    const j = JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config).saidas[0].itens));
+    assert.equal(j.length, 1); assert.equal(j[0].thumb, 'https://img/x.jpg');
+});
