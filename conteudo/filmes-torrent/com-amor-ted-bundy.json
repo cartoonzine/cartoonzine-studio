@@ -1,0 +1,32 @@
+{
+  "nome": "Com Amor, Ted Bundy",
+  "links": [
+    "magnet:?xt=urn:btih:obys7rm77m5i7rrbs3np6c2m6rmcamfj&dn=ComAmorTedBundy.2026.1080p.WEB-DL.x264.DUAL.2.0&tr=udptracker.opentrackr.org1337announce"
+  ],
+  "tmdb": "movie/1630801",
+  "imdb": "tt39402072",
+  "notaImdb": 8.4,
+  "popularidade": 1.2,
+  "duracao": 84,
+  "classificacao": "14",
+  "qualidade": "HD",
+  "votosImdb": 13,
+  "capa": "https://image.tmdb.org/t/p/w500/93QnAEW9ILJEp1U1zUUak0huCJL.jpg",
+  "banner": "https://image.tmdb.org/t/p/w1280/eKCWNTQyHEk62sFO1ZWH6F8AYzP.jpg",
+  "previa": "https://image.tmdb.org/t/p/w1280/ptb6BsyatWDhzECE1yBsMrib12b.jpg",
+  "descricao": "Enquanto Ted Bundy, o mais notório assassino em série dos Estados Unidos, aguardava sua execução, ele trocou uma série de cartas do corredor da morte com sua prima, Edna Martin, que o amava como a um irmão.",
+  "ano": 2026,
+  "generos": [
+    "Documentário",
+    "Crime"
+  ],
+  "audio": "Dublado",
+  "fundoImagem": "banner",
+  "bannerOk": true,
+  "posFundo": 25,
+  "destaque": true,
+  "bannerLogo": "https://image.tmdb.org/t/p/w500/472gmRu4Ippz34WJUSVlBkBPK5c.png",
+  "bannerSkin": "cinema",
+  "bannerFx": "crt",
+  "_tmdbPorBusca": true
+}
