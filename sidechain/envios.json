@@ -1330,6 +1330,31 @@
             "nota": ""
           },
           "ano": 1992
+        },
+        "n:sem filtro noite sangrenta|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 12,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "movie/1119257",
+            "nota": ""
+          },
+          "titulo": "Aposentados e Curiosos",
+          "ano": 2023
         }
       },
       "gruposRevisados": {
