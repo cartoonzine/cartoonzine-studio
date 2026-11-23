@@ -2217,7 +2217,7 @@
             "banner": "",
             "previa": "",
             "fundoImagem": "banner",
-            "posFundo": 100,
+            "posFundo": 55,
             "descricao": "",
             "generos": "",
             "classificacao": "",
@@ -2276,12 +2276,320 @@
             "tmdb": "",
             "nota": ""
           }
+        },
+        "n:10000 anos depois|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 100,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:0 0mhz|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:amfad all my friends are dead|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 68,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:alto realidade|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 32,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:annefrank parallel stories|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:captured|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 31,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:comvoce volume 1|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 54,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:comvoce volume 2|": {
+          "ficha": {
+            "capa": "",
+            "banner": "https://images-01.ottvs.com.br/0273182/partner-background-original.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/fHHoGAj2XwbrQsrXoTt3pDaA71e.jpg",
+            "fundoImagem": "banner",
+            "posFundo": 23,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:horror|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 80,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:like|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 19,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:manhole desvio fatal|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 82,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:nudes|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 5,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:partiufama cancelado no amor|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 24,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:realityhigh|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 33,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         }
       },
       "gruposRevisados": {},
       "fichasSerie": {},
       "criadoEm": "2026-11-22T22:35:37.766Z",
-      "tmdbPedidoEm": "2026-11-22T23:56:42.452Z"
+      "tmdbPedidoEm": "2026-11-23T00:12:58.051Z"
     }
   ]
 }
