@@ -1297,7 +1297,7 @@
             ${temSep ? '<button class="le-bt" id="le-cf-desfazer" style="margin-right:auto">↩ Desfazer separação</button>' : ''}
             <button class="le-bt" id="le-cf-mesmo" title="Junta como um só e salva o que você preencheu (capa, banner, título, ano, TMDB)">✓ São o mesmo — salvar</button>
             <button class="le-bt p" id="le-cf-separar">✂ Separar</button>
-          </div>`);
+          </div>`, 'le-cf-jan');
         const voltar = () => { pararFicha(j.querySelector('.le-tv video')); setTimeout(() => abrirSidechain('__copias'), 0); };
         j.querySelectorAll('[data-cf-tocar]').forEach(b => b.onclick = () => { const i = +b.dataset.cfTocar, it = itens[i]; j.querySelectorAll('.le-cf-card').forEach((cd, n) => cd.classList.toggle('tocando', n === i)); tocarEm(j.querySelector('.le-tv'), { headers: {} }, it.url, (it.l || '') + ' · ' + (it.nome || x.nome)); });
         j.querySelectorAll('[data-cf-testar]').forEach(b => b.onclick = () => testarNaFicha({ headers: {} }, itens[+b.dataset.cfTestar].url, j.querySelector(`[data-cf-res="${b.dataset.cfTestar}"]`)));
