@@ -630,3 +630,9 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-tv-falha small { color: #9ca3af; }
 .le-tv-dados a.le-tv-abrir { margin-top: 4px; text-align: center; text-decoration: none; }
 .le-tv-falha a.le-tv-abrir { text-decoration: none; }
+/* 🧬 Conferir mais largo: capa inteira */
+.le-jan.le-cf-jan { width: min(1180px, 100%); }
+.le-cf-jan .le-cf-grade { grid-template-columns: repeat(auto-fill, minmax(460px, 1fr)); }
+.le-cf-jan .le-cf-capa { width: 150px; align-self: flex-start; }
+.le-cf-jan .le-cf-capa img { object-fit: contain; background: #000; }
+@media (max-width: 700px) { .le-cf-jan .le-cf-grade { grid-template-columns: 1fr; } .le-cf-jan .le-cf-capa { width: 110px; } }
