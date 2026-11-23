@@ -718,6 +718,7 @@
         if (sp.tmdb) { v.tmdbRef = sp.tmdb; if (v.dados) delete v.dados.porBusca; }
         if (sp.ano) v.ano = sp.ano;
         if (sp.titulo) { if (c.natureza === 'episodio') v.serie = sp.titulo; else v.titulo = sp.titulo; }
+        const fx = {}; ['capa', 'banner'].forEach(k => { if (sp[k]) fx[k] = sp[k]; }); if (Object.keys(fx).length) c.ficha = juntarFicha(c.ficha, fx);   // capa/banner escolhidos à mão
         c._obra = sp.tmdb ? 't:' + String(sp.tmdb).replace(/^.*?(movie|tv)\//, '$1/') : 'u:' + (c.natureza === 'episodio' ? envio.id + ':' + chaveSerie(c) : c.url);
     }
     function ajustarVideo(c, aj) {
@@ -738,7 +739,8 @@
     /** Chave da busca: 'tv|naruto' (todos os episódios da série) ou 'movie|matrix|1999'. */
     function chaveTMDB(c) {
         const v = c.video || {};
-        if (c.lista && c.lista.tmdb) return 'id|' + c.lista.tmdb;          // a lista já disse qual é a obra: sem chute
+        const ref = (c.lista && c.lista.tmdb) || v.tmdbRef || (c.ficha && c.ficha.tmdb) || (c.fichaSerie && c.fichaSerie.tmdb);
+        if (ref) return 'id|' + ref;                                        // a lista (ou você) já disse qual é a obra: sem chute
         return c.natureza === 'episodio' ? 'tv|' + norm(v.serie || v.titulo || c.nome) : 'movie|' + norm(v.titulo || c.nome) + '|' + (v.ano || '');
     }
     /** O pedido no formato do StudioCore.completarItem (episódio vai com temporada → o TMDB procura série primeiro). */
@@ -746,7 +748,8 @@
         const v = c.video || {};
         const o = { nome: c.natureza === 'episodio' ? (v.serie || v.titulo || c.nome) : (v.titulo || c.nome), links: [c.url] };
         if (v.ano) o.ano = v.ano;
-        if (v.tmdbRef) o.tmdb = v.tmdbRef;
+        const ref = v.tmdbRef || (c.ficha && c.ficha.tmdb) || (c.fichaSerie && c.fichaSerie.tmdb);
+        if (ref) o.tmdb = ref;
         if (c.natureza === 'episodio') o.temporadas = [{ numero: v.temporada || 1, episodios: [{ numero: v.episodio || 1, links: [c.url] }] }];
         return o;
     }
