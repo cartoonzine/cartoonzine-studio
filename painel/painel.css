@@ -636,3 +636,6 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-cf-jan .le-cf-capa { width: 150px; align-self: flex-start; }
 .le-cf-jan .le-cf-capa img { object-fit: contain; background: #000; }
 @media (max-width: 700px) { .le-cf-jan .le-cf-grade { grid-template-columns: 1fr; } .le-cf-jan .le-cf-capa { width: 110px; } }
+.le-cf-jan .le-tv { grid-template-columns: minmax(0, 1fr) 260px; }
+.le-cf-jan .le-tv-tela video { max-height: 520px; min-height: 300px; }
+.le-fs .le-tv-tela video { max-height: 440px; min-height: 240px; }
