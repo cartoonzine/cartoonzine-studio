@@ -2206,7 +2206,7 @@
       },
       "avulsa": false,
       "tmdb": true,
-      "tmdbModo": "falta",
+      "tmdbModo": "tudo",
       "tmdbFundo": true,
       "pularStudio": true,
       "desvios": {},
@@ -3027,6 +3027,298 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
+          }
+        },
+        "n:e o vento levou 1939|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:b o x|": {
+          "ficha": {
+            "descricao": "Two brothers are haunted by a mysterious box that shows up at their apartment door.",
+            "generos": [
+              "Drama"
+            ],
+            "tmdb": "movie/824112"
+          }
+        },
+        "n:budapest|": {
+          "ficha": {
+            "descricao": "The earliest surviving film featuring the Hungarian capital. The only information it came with, from the Austrian film archive, is that it was shot in 1916. Apart from the Sió fountains of Városliget featured in the opening sequences, all other monuments can still be visited today. The last reel is probably lost.",
+            "generos": [
+              "Documentário"
+            ],
+            "tmdb": "movie/672406"
+          }
+        },
+        "n:bunkerdown|": {
+          "ficha": {
+            "descricao": "A group of strangers get stuck in a bunker",
+            "generos": [
+              "Drama",
+              "Thriller"
+            ],
+            "tmdb": "movie/1259115",
+            "nota": 10
+          }
+        },
+        "n:chapeuzinho vermelho|": {
+          "ficha": {
+            "generos": [
+              "Comédia"
+            ],
+            "imdb": "tt0279015",
+            "tmdb": "movie/440703",
+            "nota": 9
+          }
+        },
+        "n:c ur de pirate aux francofolies de la rochelle|": {
+          "ficha": {
+            "tmdb": "movie/291318"
+          }
+        },
+        "n:david guetta miami ultra music festival 2015|": {
+          "ficha": {
+            "tmdb": "movie/353367"
+          }
+        },
+        "n:do luto a luta|": {
+          "ficha": {
+            "descricao": "This documentary gives a look without prejudice into Down syndrome, exposing families and individuals with Down syndrome. Parents discloses their experiences from the moment the doctors tell them that their babies have Down syndrome and how they supersede their initial rejection by the feeling of the motherhood and parenthood. But the most important, the director and writer shows how the patients with Down syndrome may succeed in their lives, dancing, practicing sports, reading and even loving and getting married.",
+            "generos": [
+              "Documentário"
+            ],
+            "imdb": "tt0477165",
+            "tmdb": "movie/167343",
+            "nota": 8.5
+          }
+        },
+        "n:dresden|": {
+          "ficha": {
+            "descricao": "Unique documentary film scenes from the Hirsch Film Archive enable a journey through time into the past of the city of Dresden between 1913 and 2007.",
+            "generos": [
+              "Documentário"
+            ],
+            "tmdb": "movie/968374"
+          }
+        },
+        "n:first moon|": {
+          "ficha": {
+            "descricao": "A young waitress is abducted by a religious cult, who are hell-bent on curing her from a sexually transmitted werewolf virus or killing her in the process. She must escape before the first full moon.",
+            "generos": [
+              "Terror"
+            ],
+            "tmdb": "movie/1650027"
+          }
+        },
+        "n:flyboy|": {
+          "ficha": {
+            "descricao": "Flyboy' is a quirky, magical tale following the creation of a wooden aviator and his plane. After the death of his inventor, an elderly toymaker, Flyboy is left in the back garden of the house on the hill as a weather vane. As the seasons pass he remains routed to the same spot until one fateful day a young boy finds his way into the garden.",
+            "generos": [
+              "Animação"
+            ],
+            "imdb": "tt0847486",
+            "tmdb": "movie/776776"
+          }
+        },
+        "n:fukushima|": {
+          "ficha": {
+            "descricao": "On March 11 2011, after a magnitude 9 earthquake, a giant tsunami  destroyed most of the north eastern japanese coast, killing almost 20,000 people.",
+            "generos": [
+              "Documentário"
+            ],
+            "tmdb": "movie/393750"
+          }
+        },
+        "n:lar doce lar|": {
+          "ficha": {
+            "descricao": "A terminal patient needs to choose where he wants to live after his death. Two real estate agents specialized in business of this nature offer him some options on the market with different points of view about a property so intangible and unlikely.",
+            "imdb": "tt3431306",
+            "tmdb": "movie/326372"
+          }
+        },
+        "n:mulan 15th anniversary the voices of mulan ii|": {
+          "ficha": {
+            "descricao": "Mushu the Dragon takes a quick look behind the scenes of Mulan's recording sessions, with interviews from several cast members.",
+            "imdb": "tt5221354",
+            "tmdb": "movie/439207",
+            "nota": 3.5
+          }
+        },
+        "n:nas asas da pan am|": {
+          "ficha": {
+            "descricao": "O filme é uma autobiografia do diretor Silvio Tendler, que completou 70 anos, e uma análise dos avanços e retrocessos do mundo que cerca o artista. O documentário retrata o jovem que viveu em autoexílio no Chile, nos anos 1970, onde vivenciou o sonho do socialismo com liberdade; que estudou cinema em Paris; esteve em Portugal na Revolução dos Cravos; e voltou ao Brasil, na época em que o país começava o processo de redemocratização. Tendler também esteve em Cuba, na União Soviética e na Alemanha durante a Guerra Fria, registrando mundos que não existem mais.",
+            "generos": [
+              "Documentário"
+            ],
+            "classificacao": "12",
+            "imdb": "tt14361086",
+            "tmdb": "movie/703036"
+          }
+        },
+        "n:o mundo e uma cabeca|": {
+          "ficha": {
+            "descricao": "O Manguebeat é um movimento que eclodiu no início dos anos 90 em Pernambuco. E o filme mostra essa história e a trajetória do seu principal protagonista: Chico Science.  Quando ninguém esperava, uma nova revolução musical eclodiu no país. Veja e ouça o Manguebeat - de Recife para o mundo!",
+            "generos": [
+              "Documentário",
+              "Música"
+            ],
+            "tmdb": "movie/1248782"
+          }
+        },
+        "n:o nosso amor vai embora|": {
+          "ficha": {
+            "descricao": "When a love leaves, what piece does it take from us that we will never find again?",
+            "generos": [
+              "Documentário"
+            ],
+            "tmdb": "movie/735554"
+          }
+        },
+        "n:o sexomaniaco|": {
+          "ficha": {
+            "descricao": "In Petrópolis, sex maniac Severino Barba de Bode flees the forensic asylum, leaving the city in an uproar.",
+            "generos": [
+              "Comédia"
+            ],
+            "imdb": "tt0241940",
+            "tmdb": "movie/266573",
+            "nota": 8.2
+          }
+        },
+        "n:president s dans l objectif|": {
+          "ficha": {
+            "generos": [
+              "Documentário"
+            ],
+            "tmdb": "movie/955030"
+          }
+        },
+        "n:rambo 1|": {
+          "ficha": {
+            "tmdb": "movie/1128565",
+            "nota": 9.5
+          }
+        },
+        "n:sandman|": {
+          "ficha": {
+            "descricao": "When Fantasyworld veteran, Early Knapp, decides to retire because the kids of the World no longer believe in him or the need for sleep, Fantasyworld's middle-management fairy-official in charge of Non-Human Resources, Marigold Pixietwiddle, gets involved. Together they go out in to the \"field\" to investigate a child who can actually see Knapp. Once there, the child, Tina Golden, manages to steal their magic, freeing the World's children from nightly sleep, jeopardizing the existence of Fantasyworld and generally unleashing a slapsticky Mayhem on the duo. In the end, both Knapp and the children learn valuable lessons about doing the right thing and the necessity for kids to go to sleep.",
+            "imdb": "tt0176118",
+            "tmdb": "movie/1072060",
+            "nota": 9
+          }
+        },
+        "n:santos imigrantes|": {
+          "ficha": {
+            "descricao": "Santos Imigrantes é um curta independente que conta com a participação do ator Weslley Baiano e lida com as religiões de matriz africana no Brasil a partir da presença marcante do orishá Exú como um personagem. Você já ouviu a palavra de Exú hoje?",
+            "tmdb": "movie/891396"
+          }
+        },
+        "n:scorched earth|": {
+          "ficha": {
+            "descricao": "\"scorched earth is a film that is part of the Untitled Fragments Project. It's 60 minutes at dusk, just one shot of the burned over forest (from this summer's fire) near my Two Cabins in the Sierra Nevada.\" - James Benning. This work first premiered at MSU in Zagreb as an installation with Ash 01 under the title Ash 01, curated by Tanja Vrvilo as a prologue to the 10th edition of her film festival, Film Mutations: Festival of Invisible Cinema (Filmske Mutacije: festival nevidljivog filma).",
+            "tmdb": "movie/433183"
+          }
+        },
+        "n:stowaway|": {
+          "ficha": {
+            "descricao": "Sam, a financially struggling car thief, and his partner Mia find a toddler in the back seat of the car they just stole.",
+            "imdb": "tt17505414",
+            "tmdb": "movie/1083655"
+          }
+        },
+        "n:street racers|": {
+          "ficha": {
+            "descricao": "The streets of night-time Petersburg attract a motley crew of young kids. They are united by a common passion - high-speed street racing. They all have \"petrol in their blood,\" but some of them have decided to make some easy money, even if it means spilling the blood of other racers.",
+            "tmdb": "movie/304596"
+          }
+        },
+        "n:superbook paul and the shipwreck|": {
+          "ficha": {
+            "descricao": "At a disaster relief effort, Joy has to choose between finishing her mission or giving up. Suddenly, Superbook sends Joy, Chris, and Gizmo to a time when Paul chooses to focus on his mission, no matter the circumstances. This encourages Joy when she returns to face her relief project.",
+            "generos": [
+              "Animação"
+            ],
+            "tmdb": "movie/284748"
+          }
+        },
+        "n:the 1066 hastings campaign|": {
+          "ficha": {
+            "descricao": "The Battle of Hastings in 1066 is with out a doubt one of the most significant events in English history. In the aftermath of the battle, King Harold's Saxon England was brutally swept away by the Conqueror to be replaced by Norman Feudalism. With the decisive nature of the battle, it is often forgotten just how narrowly Duke William succeeded. This DVD identifies and examines those turning points in the 1066 Campaign and explains why Harold lost. Not only is Hastings covered in detail but also the first battle of the campaign against Harold Hardrarder's victorious Vikings at Fulford, William's landing at Pevensy, along with Harold's march north to victory over the Vikings at Stamford Bridge. Vignettes provided by leading living historians help paint a vivid picture of the men who fought the three battles, along with their weapons.",
+            "generos": [
+              "Documentário"
+            ],
+            "tmdb": "movie/389360"
+          }
+        },
+        "n:the blackmist group|": {
+          "ficha": {
+            "descricao": "The Blackmist Group",
+            "generos": [
+              "Aventura"
+            ],
+            "tmdb": "movie/811229"
+          }
+        },
+        "n:the cut|": {
+          "ficha": {
+            "descricao": "A girl tries to open a saloon and gets close to a crazy old lady.",
+            "tmdb": "movie/1526160"
+          }
+        },
+        "n:the innocents|": {
+          "ficha": {
+            "banner": "https://image.tmdb.org/t/p/w1280/SLhsxZz5bcaD6Dh0Wed8nM5o8s.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Jean-Paul Kelly's elegant and enigmatic The Innocents is partially constructed around a shot-by-shot re-enactment of segments from the Maysles brothers' 1966 documentary With Love from Truman, with Kelly ingeniously recasting Capote's desire as the speaker. With its own formal predilections, the film succeeds in drawing parallels with the legendary author's brazen statements about form and style.",
+            "imdb": "tt3946136",
+            "tmdb": "movie/293019"
+          }
+        },
+        "n:the invite|": {
+          "ficha": {
+            "descricao": "A short comedy film following a vampire who needs to take a shit.",
+            "generos": [
+              "Comédia"
+            ],
+            "imdb": "tt11858526",
+            "tmdb": "movie/880557"
+          }
+        },
+        "n:un plan maestro|": {
+          "ficha": {
+            "descricao": "From my work window I watch the days go by in downtown Buenos Aires. Someone brings a can of 16mm film material with a newsreel from the North American Intelligence Service from the 60s, I see it on a monitor. A neutral voice orders the world. A Rolling Stones song is heard. Another neutral voice amplified by a megaphone offers on the streets to buy the waste hidden in the houses.",
+            "tmdb": "movie/1388932"
+          }
+        },
+        "n:vingadores ultimato encore|": {
+          "ficha": {
+            "tmdb": "movie/29953400"
+          }
+        },
+        "n:wccw christmas star wars 85|": {
+          "ficha": {
+            "descricao": "Testemunhe uma batalha brutal quando os Von Erichs colidem com os Freebirds.",
+            "tmdb": "movie/778832"
           }
         }
       },
