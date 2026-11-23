@@ -1072,7 +1072,7 @@
             const ja = arr.find(y => y.k === x.k);
             if (ja) ja.studio = x.studio; else arr.push({ k: x.k, nome: x.nome, serie: x.serie, n: x.listas.size, studio: x.studio, listas: Object.fromEntries([...x.listas].map(l => [l, 1])) });
         }
-        for (const k of Object.keys(out)) { out[k].sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt')); if (!out[k].length) delete out[k]; else out[k] = out[k].slice(0, 5000); }
+        for (const k of Object.keys(out)) { out[k].sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt')); if (!out[k].length) delete out[k]; else out[k] = out[k].slice(0, 60000); }
         return out;
     }
     /**

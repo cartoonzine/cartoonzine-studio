@@ -1257,7 +1257,7 @@
     function copiasLinhasHTML() {
         const cols = colsSC(), ui = SC.cpUI || (SC.cpUI = { col: '', busca: '' });
         const todas = (SC.copias && SC.copias.colecoes) || {};
-        const arr = (todas[ui.col] || []).filter(x => !ui.busca || normCP(x.nome).includes(normCP(ui.busca)));
+        const arr = (todas[ui.col] || []).filter(x => (!ui.busca || normCP(x.nome).includes(normCP(ui.busca))) && (!ui.so || (ui.so === 'entre' ? Object.keys(x.listas || {}).length > 1 || x.studio : Object.keys(x.listas || {}).length === 1 && !x.studio)));
         if (!arr.length) return `<p class="le-dica" style="padding:14px 0">${ui.busca ? 'Nada com esse nome.' : 'Nenhuma cópia nesta coleção.'}</p>`;
         return `<table class="le-cp-tab"><thead><tr><th>Título</th><th>Cópias</th><th>De que listas veio</th></tr></thead><tbody>${arr.slice(0, 400).map(x => `<tr>
             <td><b>${x.serie ? '🎞' : '🎬'} ${esc(x.nome)}</b>${x.serie && x.eps ? `<small>${x.eps} episódio${x.eps > 1 ? 's' : ''} repetido${x.eps > 1 ? 's' : ''}</small>` : ''}</td>
@@ -1271,7 +1271,8 @@
         const nome = (id) => { const c = cols.find(x => x.id === id); return c ? (c.icone ? c.icone + ' ' : '') + c.nome : id; };
         return `<div class="le-rot">🧬 Cópias entre listas</div>
           <p class="le-dica">O mesmo filme ou episódio chegando mais de uma vez na mesma coleção (de listas diferentes, ou repetido na mesma lista). <b>Não precisa fazer nada:</b> o robô já junta — a primeira vira o item e as outras viram <b>reserva</b> (o app troca sozinho se a principal cair). 📚 = já estava cadastrado nas Coleções. ${SC.copias && SC.copias.em ? `· rodada de ${new Date(SC.copias.em).toLocaleString('pt-BR')}` : ''}</p>
-          ${ids.length ? `<div class="le-chips" style="margin:8px 0">${ids.map(id => `<button class="le-chip ${ui.col === id ? 'on' : ''}" data-cp-col="${esc(id)}">${esc(nome(id))} ${numSC(todas[id].length)}</button>`).join('')}</div>
+          ${ids.length ? `<div class="le-chips" style="margin:8px 0">${ids.map(id => `<button class="le-chip ${ui.col === id ? 'on' : ''}" data-cp-col="${esc(id)}">${esc(nome(id))} ${numSC(todas[id].length)} · +${numSC(todas[id].reduce((t, x) => t + (x.n || 0), 0))}</button>`).join('')}</div>
+          <div class="le-chips" style="margin:0 0 8px">${[['', 'Todas'], ['entre', '🔀 entre listas diferentes'], ['mesma', '🔁 repetido na mesma lista']].map(([k, t]) => `<button class="le-chip ${(ui.so || '') === k ? 'on' : ''}" data-cp-so="${k}">${t}</button>`).join('')}</div>
           <input class="le-campo" id="le-cp-busca" placeholder="🔎 Buscar título…" value="${esc(ui.busca)}" style="max-width:340px">
           <div id="le-cp-lista" style="margin-top:10px">${copiasLinhasHTML()}</div>`
           : `<p class="le-dica" style="padding:14px 0">${SC.copias && SC.copias.em ? 'Nenhuma cópia na última rodada do robô. 🎉' : 'O relatório aparece depois da próxima rodada do robô (🤖 Completar agora, ou a rodada de 6 h).'}</p>`}`;
@@ -1482,6 +1483,7 @@
             if (e && ev.target.closest('.le-sd')) { lerForm(); if (cliqueSaida(b, ev, e)) return; }
             if (!b) return;
             if (b.dataset.scAbrir) { lerForm(); return abrirSidechain(b.dataset.scAbrir); }
+            if (b.dataset.cpSo != null) { SC.cpUI.so = b.dataset.cpSo; return abrirSidechain('__copias'); }
             if (b.dataset.cpCol != null) { SC.cpUI.col = b.dataset.cpCol; SC.cpUI.busca = ''; return abrirSidechain('__copias'); }
             if (b.dataset.scNovo) {
                 lerForm();
