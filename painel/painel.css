@@ -559,9 +559,20 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .card { position: relative; }
 .card-led { position: absolute; top: 9px; left: 9px; z-index: 3; width: 12px; height: 12px; border: 2px solid rgba(0,0,0,.55); }
 .le-sd-led { position: absolute; top: 7px; right: 7px; z-index: 3; width: 11px; height: 11px; border: 2px solid rgba(0,0,0,.55); }
-.nav-sim { display: none; position: absolute; left: 0; right: 0; top: 0; z-index: 2; height: 10.5%; min-height: 18px; align-items: center; gap: 2.2%; padding: 0 3%; background: linear-gradient(180deg, rgba(0,0,0,.78), rgba(0,0,0,.35)); color: #e5e7eb; font-size: clamp(8px, 1.15vw, 13px); pointer-events: none; }
-.nav-sim b { color: #fff; font-weight: 800; letter-spacing: .5px; margin-right: 2%; }
-.nav-sim span:first-of-type { color: #fff; font-weight: 700; }
-.nav-sim i { font-style: normal; margin-left: auto; opacity: .85; }
-.nav-sim i + i { margin-left: 0; }
+.pos-quadro, .le-fs-quadro { container-type: inline-size; }
+/* fiel ao app: barra de ~80px numa tela 2560×1432 → 8% da altura do fundo do topo */
+.nav-sim { display: none; position: absolute; left: 0; right: 0; top: 0; z-index: 2; height: 8%; align-items: center; gap: 1.3cqw; padding: 0 1.6cqw; background: rgba(8,8,14,.94); border-bottom: 1px solid rgba(255,255,255,.07); color: #a1a1aa; font: 700 max(5px, .5cqw)/1 system-ui, sans-serif; letter-spacing: .14em; pointer-events: none; white-space: nowrap; overflow: hidden; }
+.ns-logo { display: inline-flex; align-items: center; gap: .6cqw; }
+.ns-logo i { display: grid; place-items: center; width: 1.6cqw; height: 1.6cqw; min-width: 9px; min-height: 9px; border-radius: 22%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-style: normal; font-size: max(5px, .75cqw); }
+.ns-logo b { color: #fff; font-style: italic; font-weight: 900; letter-spacing: -.02em; font-size: max(7px, 1.05cqw); }
+.ns-menu { display: inline-flex; align-items: center; gap: 1cqw; margin-left: .6cqw; }
+.ns-menu em { font-style: normal; color: #d4d4d8; }
+.ns-menu em.on { color: #22d3ee; letter-spacing: .2em; }
+.ns-menu em.d::before { content: ''; display: inline-block; width: .32cqw; height: .32cqw; min-width: 3px; min-height: 3px; border-radius: 50%; background: var(--c); margin-right: .35cqw; vertical-align: middle; }
+.ns-menu s { width: 1px; height: 1.1cqw; background: rgba(255,255,255,.15); }
+.ns-dir { margin-left: auto; display: inline-flex; align-items: center; gap: .9cqw; }
+.ns-dir u { text-decoration: none; display: grid; place-items: center; width: 1.7cqw; height: 1.7cqw; min-width: 10px; min-height: 10px; border-radius: 50%; background: #18181b; border: 1px solid #27272a; font-size: max(5px, .6cqw); }
+.ns-dir u.ns-sair { background: none; border: 0; color: #a1a1aa; }
+.ns-conta { display: inline-flex; align-items: center; gap: .4cqw; padding: .25cqw .9cqw .25cqw .3cqw; border: 1px solid #27272a; border-radius: 999px; background: #111117; color: #fff; }
+.ns-conta i { display: grid; place-items: center; width: 1.2cqw; height: 1.2cqw; min-width: 8px; min-height: 8px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-style: normal; }
 .com-navbar .nav-sim, .le-fs-quadro.com-navbar .nav-sim { display: flex; }
