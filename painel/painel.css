@@ -588,3 +588,17 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-cp-l { padding: 3px 9px; border-radius: 999px; background: #1e1b2e; border: 1px solid #3b2f63; color: #ddd6fe; font-size: 12px; }
 .le-cp-l i { font-style: normal; color: #a78bfa; }
 .le-cp-l.st { background: #0f2a1d; border-color: #166534; color: #bbf7d0; }
+.le-cp-tab tr[data-cp-abrir] { cursor: pointer; }
+.le-cp-tab tr[data-cp-abrir]:hover td { background: rgba(139,92,246,.07); }
+.le-cf-ok { font-size: 11px; color: #86efac; font-weight: 600; }
+.le-cf-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; margin: 12px 0; }
+.le-cf-card { display: flex; gap: 12px; padding: 12px; border: 1px solid #1f2937; border-radius: 12px; background: #0d121b; }
+.le-cf-capa { flex: none; width: 92px; aspect-ratio: 2/3; border-radius: 8px; overflow: hidden; background: #111827; display: grid; place-items: center; color: #6b7280; font-size: 11px; }
+.le-cf-capa img { width: 100%; height: 100%; object-fit: cover; }
+.le-cf-info { display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1; }
+.le-cf-info .le-cp-l { align-self: flex-start; }
+.le-cf-info small { color: #8b95a7; }
+.le-cf-info a.le-bt { align-self: flex-start; text-decoration: none; }
+.le-cf-campos { display: flex; flex-wrap: wrap; gap: 6px; }
+.le-cf-campos label { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: #8b95a7; }
+.le-cf-campos .le-campo { padding: 6px 8px; font-size: 12.5px; }

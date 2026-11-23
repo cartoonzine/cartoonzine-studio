@@ -157,3 +157,21 @@ test('🧬 mesmo nome, obras diferentes: ano ou TMDB diferente não se juntam', 
     assert.equal(n(/^Matrix/), 1);                   // mesmo ano → junta (a outra vira reserva)
     assert.equal(n(/^Duna/), 3);                     // 1984, 2021 e o sem ano (não dá para saber qual) ficam à parte
 });
+
+test('✂ separação feita à mão (pelo link) vira obra própria; relatório traz cada cópia', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const la = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://a/ch1.mp4\n', 'a').canais;
+    const lb = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://b/ch2.mp4\n', 'b').canais;
+    const ea = L.envioPadrao({ id: 'a', nome: 'A', destino: { colecao: 'filmes' } }), eb = L.envioPadrao({ id: 'b', nome: 'B', destino: { colecao: 'filmes' } });
+    let r = L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config);
+    assert.equal(r.saidas[0].itens.length, 1);
+    assert.deepEqual(r.copias.filmes[0].itens.map(x => [x.l, x.url]), [['A', 'http://a/ch1.mp4'], ['B', 'http://b/ch2.mp4']]);
+    const sep = { 'http://b/ch2.mp4': { tmdb: 'movie/999', ano: 1992 } };
+    ea._sep = sep; eb._sep = sep;
+    const la2 = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://a/ch1.mp4\n', 'a').canais, lb2 = L.lerLista('#EXTM3U\n#EXTINF:-1,Código de Honra\nhttp://b/ch2.mp4\n', 'b').canais;
+    r = L.montarSidechain([{ envio: ea, canais: la2 }, { envio: eb, canais: lb2 }], config);
+    const j = JSON.parse(L.gerarJSON(r.saidas[0].itens));
+    assert.equal(j.length, 2);
+    assert.ok(j.some(x => x.year === 1992));
+    assert.ok(!r.copias.filmes);
+});
