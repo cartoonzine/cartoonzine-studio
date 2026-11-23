@@ -185,3 +185,13 @@ test('✓ São o mesmo com capa preenchida: continua junto e a capa vale', () =>
     const j = JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config).saidas[0].itens));
     assert.equal(j.length, 1); assert.equal(j[0].thumb, 'https://img/x.jpg');
 });
+
+test('⭐ principal escolhida no Conferir vai primeiro (as outras viram reserva)', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const la = L.lerLista('#EXTM3U\n#EXTINF:-1,Matrix (1999)\nhttp://a/m.mp4\n', 'a').canais, lb = L.lerLista('#EXTM3U\n#EXTINF:-1,Matrix (1999)\nhttp://b/m.mp4\n', 'b').canais;
+    const sep = { 'http://a/m.mp4': { soDados: true }, 'http://b/m.mp4': { soDados: true, principal: true } };
+    const ea = L.envioPadrao({ id: 'a', nome: 'A', destino: { colecao: 'filmes' } }), eb = L.envioPadrao({ id: 'b', nome: 'B', destino: { colecao: 'filmes' } });
+    ea._sep = sep; eb._sep = sep;
+    const j = JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config).saidas[0].itens));
+    assert.equal(j.length, 1); assert.equal(j[0].url, 'http://b/m.mp4'); assert.deepEqual(j[0].mirrors, ['http://a/m.mp4']);
+});

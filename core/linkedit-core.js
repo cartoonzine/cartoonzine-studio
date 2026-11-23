@@ -719,6 +719,7 @@
         if (sp.ano) v.ano = sp.ano;
         if (sp.titulo) { if (c.natureza === 'episodio') v.serie = sp.titulo; else v.titulo = sp.titulo; }
         const fx = {}; ['capa', 'banner'].forEach(k => { if (sp[k]) fx[k] = sp[k]; }); if (Object.keys(fx).length) c.ficha = juntarFicha(c.ficha, fx);   // capa/banner escolhidos à mão
+        if (sp.principal) c.fixo = true;               // ⭐ escolhida no 🧬 Conferir: vai primeiro para o app (as outras viram reserva)
         if (!sp.soDados) c._obra = sp.tmdb ? 't:' + String(sp.tmdb).replace(/^.*?(movie|tv)\//, '$1/') : 'u:' + (c.natureza === 'episodio' ? envio.id + ':' + chaveSerie(c) : c.url);
     }
     function ajustarVideo(c, aj) {
