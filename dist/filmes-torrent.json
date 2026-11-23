@@ -29,6 +29,42 @@
    ]
   },
   {
+   "title": "Com Amor, Ted Bundy",
+   "desc": "Enquanto Ted Bundy, o mais notório assassino em série dos Estados Unidos, aguardava sua execução, ele trocou uma série de cartas do corredor da morte com sua prima, Edna Martin, que o amava como a um irmão.",
+   "year": 2026,
+   "genre": [
+    "Documentário",
+    "Crime"
+   ],
+   "destaque": true,
+   "bannerlogo": "https://image.tmdb.org/t/p/w500/472gmRu4Ippz34WJUSVlBkBPK5c.png",
+   "logo": "https://image.tmdb.org/t/p/w500/472gmRu4Ippz34WJUSVlBkBPK5c.png",
+   "bannerSkin": "cinema",
+   "bannerFx": "crt",
+   "bgImg": "banner",
+   "bgPosY": 25,
+   "studio": "filmes-torrent/com-amor-ted-bundy",
+   "thumb": "https://image.tmdb.org/t/p/w500/93QnAEW9ILJEp1U1zUUak0huCJL.jpg",
+   "bannerThumb": "https://image.tmdb.org/t/p/w1280/eKCWNTQyHEk62sFO1ZWH6F8AYzP.jpg",
+   "previewThumb": "https://image.tmdb.org/t/p/w1280/ptb6BsyatWDhzECE1yBsMrib12b.jpg",
+   "audio": "Dublado",
+   "imdbId": "tt39402072",
+   "imdbRating": 8.4,
+   "imdbVotes": 13,
+   "tmdbId": 1630801,
+   "tmdbTipo": "movie",
+   "tmdbPorNome": true,
+   "rating": 8.4,
+   "age": "14",
+   "popularity": 1.2,
+   "runtime": 84,
+   "audios": [
+    "dublado"
+   ],
+   "qualidadeMax": "HD",
+   "url": "magnet:?xt=urn:btih:obys7rm77m5i7rrbs3np6c2m6rmcamfj&dn=ComAmorTedBundy.2026.1080p.WEB-DL.x264.DUAL.2.0&tr=udptracker.opentrackr.org1337announce"
+  },
+  {
    "title": "Intolerance",
    "desc": "Director D.W. Griffith's expensive, most ambitious silent film masterpiece Intolerance (1916) is one of the milestones and landmarks in cinematic history. \nMany reviewers and film historians consider it the greatest film of the silent era. \nThe mammoth film was also subtitled: \"A Sun-Play of the Ages\" and \"Love's Struggle Throughout the Ages.\" Griffith was inspired to make this film after watching the revolutionary Italian silent film epic Cabiria (1914) by director Giovanni Pastrone.\nIntolerance was a colossal undertaking filled with monumental sets, lavish period costumes, and more than 3,000 extras. \nThe film consisted of four distinct but parallel stories that demonstrated mankind's intolerance during four different ages in world history.",
    "year": 1916,
