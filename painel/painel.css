@@ -686,3 +686,7 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .fx-tab small { display: block; color: #8b95a7; margin-top: 2px; }
 .fx-ok { color: #86efac; font-weight: 700; } .fx-ruim { color: #fca5a5; font-weight: 700; }
 .fx-resumo, .fx-tab { flex: none; }
+.cz-modo.on.nenhum { border-color: #c084fc; background: rgba(192, 132, 252, .08); } .cz-modo.on.nenhum b { color: #d8b4fe; }
+.cz-modos { flex-wrap: wrap; }
+.cz-tab span.ok { color: var(--verde); font-weight: 700; } .cz-tab span.ruim { color: var(--erro); font-weight: 700; }
+.cz-tab td small.dica { display: block; margin-top: 2px; }

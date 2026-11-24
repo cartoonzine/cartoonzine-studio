@@ -22,7 +22,7 @@ const TIPOS_MIME = {
     '.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon', '.md': 'text/plain; charset=utf-8'
 };
 const HOSTS_PROXY = /(^|\.)(archive\.org|wikipedia\.org|screenscraper\.fr|steamgriddb\.com)$/i;
-const CAMINHO_OK = /^(conteudo\/[a-z0-9][a-z0-9._-]*(\/[a-z0-9][a-z0-9._-]*)*\.json|listas\/avulsas\.json|sidechain\/(envios|estado|tmdb|copias)\.json)$/;   // + o Sidechain do Link Edit (envios, estado e o índice das listas avulsas)
+const CAMINHO_OK = /^(conteudo\/[a-z0-9][a-z0-9._-]*(\/[a-z0-9][a-z0-9._-]*)*\.json|listas\/(avulsas|sidechain-fontes)\.json|sidechain\/(envios|estado|tmdb|copias)\.json)$/;   // + o Sidechain do Link Edit (envios, estado e o índice das listas avulsas)
 
 export function criarServidor({ raiz = RAIZ } = {}) {
     const indice = () => {
