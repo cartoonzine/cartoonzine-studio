@@ -3655,7 +3655,7 @@
             "banner": "",
             "previa": "",
             "fundoImagem": "banner",
-            "posFundo": 63,
+            "posFundo": 65,
             "bannerOk": true,
             "descricao": "",
             "generos": "",
@@ -3668,7 +3668,7 @@
             "imdb": "",
             "notaImdb": "",
             "votosImdb": "",
-            "tmdb": "",
+            "tmdb": "movie/520946",
             "nota": ""
           },
           "colecao": "filmes"
@@ -4286,7 +4286,28 @@
           }
         },
         "n:100 percent wolf|": {
-          "colecao": "filmes"
+          "colecao": "filmes",
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 65,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         },
         "n:101 dalmatas|": {
           "colecao": "filmes"
@@ -11036,7 +11057,6 @@
           "tmdb": "tv/132559"
         },
         "a casa coruja": {
-          "capa": "https://image.tmdb.org/t/p/w342/c3ygNz5qEETOUSAWa7v6B7gT8JS.jpg",
           "fundoImagem": "banner",
           "posFundo": 10,
           "bannerOk": true,
@@ -11055,6 +11075,24 @@
           "posFundo": 81,
           "bannerOk": true,
           "tmdb": "tv/232869"
+        },
+        "a aranha": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true,
+          "tmdb": "tv/888"
+        },
+        "44 gatos": {
+          "fundoImagem": "banner",
+          "posFundo": 46,
+          "bannerOk": true,
+          "tmdb": "tv/89387"
+        },
+        "2 cachorros bobos": {
+          "fundoImagem": "banner",
+          "posFundo": 23,
+          "bannerOk": true,
+          "tmdb": "tv/1916"
         }
       },
       "criadoEm": "2026-11-24T01:05:48.749Z",
