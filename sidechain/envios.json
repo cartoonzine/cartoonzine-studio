@@ -4886,19 +4886,24 @@
           "genero": "Drama",
           "ficha": {
             "capa": "https://image.tmdb.org/t/p/w342/21EIQjnnye94SjoIWrdilhcbKmL.jpg",
-            "banner": "https://image.tmdb.org/t/p/w1280/x4J0G0EDyfi8GsWJRgCWQ4fU0k0.jpg",
-            "previa": "https://image.tmdb.org/t/p/w1280/d284uzct0NWXljqo8CGxrDm8r3.jpg",
+            "banner": "",
+            "previa": "",
             "fundoImagem": "banner",
-            "descricao": "O ar puro é o bem mais precioso do homem. Os sonhos de um soldado tornam-se uma obsessiva visão do futuro do planeta. Estranhas visões se transformam em realidade. Uma pequena garota possui a Chave Para o Futuro",
-            "generos": [
-              "Drama",
-              "Fantasia",
-              "Ficção científica",
-              "Animação"
-            ],
-            "imdb": "tt0206827",
+            "posFundo": 10,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
             "tmdb": "movie/108183",
-            "nota": 4.9
+            "nota": ""
           }
         },
         "n:a concierge pokemon s01e01|": {
@@ -4923,7 +4928,28 @@
           "audio": "dublado",
           "qualidade": "",
           "colecao": "series",
-          "genero": "Animação"
+          "genero": "Animação",
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 29,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         },
         "n:a heroina da fita 2026|": {
           "titulo": "A Heroína da Fita",
@@ -4931,7 +4957,28 @@
           "audio": "dublado",
           "qualidade": "",
           "colecao": "filmes",
-          "genero": "Animação"
+          "genero": "Animação",
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 35,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         },
         "n:a ilha da caveira s01e01|": {
           "audio": "dublado",
@@ -4976,12 +5023,54 @@
         "n:a lenda do demonio|": {
           "audio": "dublado",
           "colecao": "filmes",
-          "genero": "Animação"
+          "genero": "Animação",
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 34,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         },
         "n:a lenda do dragao milenar|": {
           "audio": "dublado",
           "colecao": "filmes",
-          "genero": "Animação"
+          "genero": "Animação",
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 0,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         },
         "n:a mansao foster para amigos imaginarios s01e01|": {
           "serie": "A Mansão Foster para Amigos Imaginários",
@@ -6668,6 +6757,69 @@
           "imdb": "tt19383782",
           "tmdb": "tv/196257",
           "nota": 6.7
+        },
+        "vivy fluorite eye s song": {
+          "fundoImagem": "banner",
+          "posFundo": 32,
+          "bannerOk": true
+        },
+        "des encanto": {
+          "fundoImagem": "banner",
+          "posFundo": 29,
+          "bannerOk": true
+        },
+        "i m looking for a zombie": {
+          "fundoImagem": "banner",
+          "posFundo": 10,
+          "bannerOk": true
+        },
+        "100 coisas para fazer antes de virar zumbi": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
+        },
+        "100 namoradas que te amam muuuuuito": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
+        },
+        "2020 japao submerso": {
+          "fundoImagem": "banner"
+        },
+        "4 contra o apocalipse": {
+          "fundoImagem": "banner",
+          "posFundo": 11,
+          "bannerOk": true
+        },
+        "86 eighty six": {
+          "fundoImagem": "banner",
+          "posFundo": 33,
+          "bannerOk": true
+        },
+        "a certain dark item": {
+          "fundoImagem": "banner",
+          "posFundo": 9,
+          "bannerOk": true
+        },
+        "a concierge pokemon": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
+        },
+        "a couple of cuckoos": {
+          "fundoImagem": "banner",
+          "posFundo": 100,
+          "bannerOk": true
+        },
+        "a ilha da caveira": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
+        },
+        "a ilha das sombras": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
         }
       },
       "criadoEm": "2026-11-24T01:43:00.783Z",
