@@ -4302,7 +4302,7 @@
         "confiancaMin": 0
       },
       "avulsa": false,
-      "tmdb": false,
+      "tmdb": true,
       "tmdbModo": "falta",
       "tmdbFundo": true,
       "pularStudio": true,
@@ -5989,7 +5989,8 @@
         "Animes": "2026-11-24T02:53:02.931Z"
       },
       "fichasSerie": {},
-      "criadoEm": "2026-11-24T01:43:00.783Z"
+      "criadoEm": "2026-11-24T01:43:00.783Z",
+      "tmdbPedidoEm": "2026-11-24T02:53:25.758Z"
     }
   ]
 }
