@@ -4883,7 +4883,23 @@
           "audio": "dublado",
           "qualidade": "",
           "colecao": "filmes",
-          "genero": "Drama"
+          "genero": "Drama",
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/21EIQjnnye94SjoIWrdilhcbKmL.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/x4J0G0EDyfi8GsWJRgCWQ4fU0k0.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/d284uzct0NWXljqo8CGxrDm8r3.jpg",
+            "fundoImagem": "banner",
+            "descricao": "O ar puro é o bem mais precioso do homem. Os sonhos de um soldado tornam-se uma obsessiva visão do futuro do planeta. Estranhas visões se transformam em realidade. Uma pequena garota possui a Chave Para o Futuro",
+            "generos": [
+              "Drama",
+              "Fantasia",
+              "Ficção científica",
+              "Animação"
+            ],
+            "imdb": "tt0206827",
+            "tmdb": "movie/108183",
+            "nota": 4.9
+          }
         },
         "n:a concierge pokemon s01e01|": {
           "audio": "dublado",
@@ -5983,12 +5999,677 @@
           "qualidade": "",
           "colecao": "filmes",
           "genero": "Animação"
+        },
+        "n:bungo stray dogs dead apple|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/sTpizAe0qdYljfMn2U2hWLMVtOL.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/vjnS4iu0SdwXm2LLqZGNCfpId9t.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/AI7cC7OK7hTDvkusMQX5lr3hsV.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Atsushi Nakajima e Osamu Dazai são membros da Companhia de Detetives Armados, uma liga de gênios da literatura munidos de poderes especiais. Seu mais novo caso envolve investigar uma onda de suicídios que assola o mundo, onde todas as vítimas também possuem poderes especiais. A pedido de Ango Sakaguchi, a Agência sai em busca de pistas sobre uma misteriosa névoa que aparece nos locais dos incidentes, e sobre Tatsuhiko Shibusawa, um suspeito que se auto-intitula o Colecionador.",
+            "generos": [
+              "Animação",
+              "Ação",
+              "Comédia",
+              "Mistério"
+            ],
+            "classificacao": "12",
+            "imdb": "tt8391976",
+            "tmdb": "movie/483455",
+            "nota": 8.1
+          }
+        },
+        "n:death billiards|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/9AJ8LdRLQN77PAwgGCQ7p1ZF3Wz.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/rNSQoUBzW8qXHniyYxN2OrwlKI7.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/qcgKYnlH5d3f1YbmeQwZR7YUbbN.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Onde é este lugar ou o que ele é? Temo não poder responder estas perguntas. Deixarei que vocês dois comecem o seu jogo, um jogo que coloca suas próprias vidas em perigo. Até que ele acabe, vocês não podem sair. Death Billiards é um dos quatro projetos do Anime Mirai 2013.",
+            "generos": [
+              "Animação",
+              "Drama",
+              "Mistério"
+            ],
+            "imdb": "tt2807626",
+            "tmdb": "movie/186919",
+            "nota": 7.2
+          }
+        },
+        "n:digimon adventure 02 revenge of diaboromon|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/xE2FzwcFOEh1EPb13oZE0UU0znx.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/puKn1ECCvZCpUqAHiZ1T6zCehki.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/rrEpOnrghpDSkr1lA5TSqUeeqmq.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Após os acontecimentos de Digimon Adventure 02, tudo está finalmente voltando ao normal. Até que um ícone estranhamente familiar começa a mostrar-se em sistemas de computadores ao redor do Japão. E não apenas os sistemas de computador ... TVs, celulares, jogos de vídeo; qualquer coisa com uma tela com recursos on-line. E este ícone parece estar procurando por alguém ... Yagami Taichi, e Ishida Yamato, que o derrotou vários anos antes. Então percebe-se que este digimon é, de fato Diablomon, o tipo de vírus Digimon que foi derrotado em \"Bokura no War Game\". Mas desta vez, ele aprendeu a tornar-se físico, e está enviando milhares de cópias de si mesmo para o mundo real.",
+            "generos": [
+              "Aventura",
+              "Animação",
+              "Família",
+              "Ficção científica"
+            ],
+            "imdb": "tt0804905",
+            "tmdb": "movie/36201",
+            "nota": 6.9
+          }
+        },
+        "n:eureka seven hi evolution 1|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/r95fcsW69mkij8seCOFZb33CLci.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/pY6Cq1aXXLSAdcfR6pXMRIBbQGV.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/44NMul7qYrs0y4XDpE7jmFUg8BT.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Nada muito emocionante acontece na vida de Renton até o dia em que um gigante mecha LFO cai sobre ele com uma linda garota dentro, Eureka. No entanto, Eureka e seu mecha roubado estão fugindo dos militares.",
+            "generos": [
+              "Drama",
+              "Animação",
+              "Ficção científica",
+              "Aventura",
+              "Ação"
+            ],
+            "imdb": "tt7480958",
+            "tmdb": "movie/467169",
+            "nota": 6.3
+          }
+        },
+        "n:fureru 2024|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/aGEpQkhj1rY5dHfaapnx7qUqh2d.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/jJa4qWcDqw8ACEkNJh219On1CgX.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/xr0iTKEAvPirE2vvfinzRN5THTr.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Aki, Ryo e Yuta cresceram em uma pequena ilha japonesa com Fureru, um pequeno ouriço amarelo com poderes misteriosos. Agora, na casa dos 20 anos e buscando um novo começo em Tóquio, o trio tenta construir uma nova vida enquanto mantém seu companheiro incomum longe dos olhares curiosos. Mas, à medida que os poderes de Fureru despertam, emoções reprimidas e antigas tensões ressurgem, levando a amizade deles a um território imprevisível.",
+            "generos": [
+              "Animação",
+              "Drama",
+              "Fantasia"
+            ],
+            "classificacao": "14",
+            "imdb": "tt30317151",
+            "tmdb": "movie/1214138",
+            "nota": 6.2
+          }
+        },
+        "n:fuuto pi the portrait of kamen rider skull|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/fZ5Rl7b8ZeFuVjXpsybswT8kbBg.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/AwgmO9qXGTp9q1jyzWhgOTBDgrN.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/2LjsA5G2FV2GXOIhRmLuuDQD5bL.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Quando os monstros Dopants, que usam o poder da Gaia Memory, começam a operar na cidade ventosa de Fuuto, o jovem Shotaro torna-se assistente do detetive Narumi Soukichi e passa seus dias perseguindo-o. Shotaro, que nada sabe sobre Soukichi, que secretamente trabalha como Kamen Rider Skull além de seu trabalho de detetive, fica cada vez mais frustrado. Um dia, um novo caso chega à Agência de Detetives Narumi, levando Shotaro e sua equipe a uma noite fatídica.",
+            "generos": [
+              "Animação",
+              "Ação",
+              "Aventura",
+              "Comédia"
+            ],
+            "imdb": "tt32809227",
+            "tmdb": "movie/1310672",
+            "nota": 8
+          }
+        },
+        "n:gavin um ratinho corajoso 2015|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/q8lhqfcL1E8m7iWZUaBaP4gCOLB.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/37KwB59zhL2Jdn1CRkMj8rM5efA.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/6zV8xsJ4yKna6FGRTbrw0v4cHYo.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Sonhando com aventura, Gavin e seu amigo Matthew se juntam a uma tripulação de ratos de navio prontos para partir, assim como o jovem Chester que aparece implorando por ajuda. Arrumando um barco, a gangue se dirige à Ilha dos Sonhos para defender a família de ratos de Chester contra um perverso clã de doninhas, mas a coragem deles será suficiente?",
+            "generos": [
+              "Família",
+              "Animação"
+            ],
+            "imdb": "tt4668834",
+            "tmdb": "movie/400328",
+            "nota": 5.6
+          }
+        },
+        "n:great pretender razbliuto 2024|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/wkalOqdReuGR71Og0kSn96vg78k.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/j4DYmIBt5WneR7T7sMB7Vz7e5xY.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/2BVFrn3X8uH3hJh2403RMkiEgzF.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Há três anos, o WIT Studio cativou o mundo com as artimanhas vertiginosas e os enredos engenhosos da série GREAT PRETENDER. Desta vez, este novo filme de ação e aventura segue Dorothy, a autoproclamada gênio da arte da trapaça, que recrutou o infame Laurent Thierry para a vida do crime. Recentemente, ela foi derrotada em seu próprio jogo por Shanghai Longu Bang e é considerada morta, mas logo reaparece em uma pequena vila à beira-mar. Perseguida pelo submundo de Taipei, ela segue para Quioto, mas o que será que a espera por lá?!",
+            "generos": [
+              "Animação",
+              "Crime",
+              "Ação"
+            ],
+            "classificacao": "16",
+            "imdb": "tt30827040",
+            "tmdb": "movie/1220441",
+            "nota": 6.7
+          }
+        },
+        "n:hibike euphonium ensemble contest hen 2023|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/8XXCFL95E0B2yJ9uhOxIODNsie8.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/dNW8mR87Z85U5c6v264ciFv0Ilj.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/xHx4rT1V9O1DyIe8NB4B4QsJNyM.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Aguardando o novo líder do clube, Kumiko, está o Ensemble Contest - também conhecido como \"EnCon\" - e a competição preliminar da escola para determinar a equipe representativa a participar. Kumiko faz o possível para chegar às preliminares sem incidentes, mas o clube da banda de concerto é tão grande que parece não haver fim para os problemas... E como líder do clube, ela se encontra ocupada prestando consultoria em todos os tipos de assuntos. . Enquanto os membros do clube decidem seus times, a própria Kumiko ainda nem decidiu em qual deles irá ingressar...",
+            "generos": [
+              "Animação",
+              "Drama",
+              "Música"
+            ],
+            "imdb": "tt20860298",
+            "tmdb": "movie/1108306",
+            "nota": 7.6
+          }
+        },
+        "n:initial d third stage|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/gywSZeEkyLcHwxECjqzFJ3Qlu6G.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/vi1FKA8ntkEikvaxFZlzJvJ2wXP.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/bNsDAT6mRmLIyP5zDJTSwFFT0vS.jpg",
+            "fundoImagem": "banner",
+            "descricao": "O filme começa exatamente onde acabou a segunda temporada, com Takumi já tendo aprendido a controlar o seu AE86 modificado (na disputa com o AE86 Turbo), e indo para sua revanche contra o 4WD do Kyouichi. Depois dessa super-corrida, o ritmo do filme cai um pouco e mostra os personagens vivendo suas vidas e se preocupando com o futuro, agora que o colegial está terminando. Paralelo a isso, surge um novo competidor querendo se vingar do Takumi e, lógico, nada melhor que desafiá-lo para um racha. Além disso, é mostrado um pouco do passado do Bunta, pai do Takumi.",
+            "generos": [
+              "Ação",
+              "Animação",
+              "Romance"
+            ],
+            "bannerLogo": "https://image.tmdb.org/t/p/w500/xGkIYVaZc1AsMyWAiXDX6sx02E1.png",
+            "imdb": "tt0388130",
+            "tmdb": "movie/80741",
+            "nota": 6.8
+          }
+        },
+        "n:leo o rei leao 1994|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/kjZH1gd5gv17EEC5XrRw3Mvfbc3.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/71Zq6ajD1X9qaWhM582849IlqsF.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Esta é a história do Rei Leão em sua luta para recuperar o respeito de seus amigos da floresta. Rei da Floresta, Leo age como um valentão e pensa que por ser rei pode fazer o que quiser com seus amigos. Ocupado em dormir e se gabar, percebe que a floresta está em perigo, pois um grupo de caçadores está raptando animais para vende-los ao zoológico. Até que uma linda leoa é capturada e seu amável filhotinho vem lhe pedir socorro. Mas, quando o Rei Leão pede ajuda aos outros animais da floresta e eles se recusam, ele aprende uma importante lição sobre liderança e amizade. Arrependido, Leo deixa de lado sua arrogância e se junta aos amigos, planejando soltar todos os bichos e mandar embora os malvados caçadores que aterrorizam a floresta. Cheia de personagens inesquecíveis, com um desenho rico em detalhes, esta bem humorada aventura é um excelente divertimento para toda a família.",
+            "generos": [
+              "Animação",
+              "Aventura",
+              "Família"
+            ],
+            "imdb": "tt0234092",
+            "tmdb": "movie/256285",
+            "nota": 6.8
+          }
+        },
+        "n:love nijigasaki high school idol club next sky|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/bcEl5C4vvSULfFxLHeTr7FlK7ax.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/p73odItYnfWr5ZbVWYPPrXK4zDI.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/73o4WaQUQTliBajDosAzoen9gOI.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Ayumu retorna ao Japão acompanhada de Isla, uma amiga de Londres que sonha em ser School Idol em seu país. Embora a estadia de Isla no Japão seja curta, as meninas do Clube de School Idols fazem uma experiência imersiva sobre School Idols com a intercambista!",
+            "generos": [
+              "Animação",
+              "Música"
+            ],
+            "classificacao": "12",
+            "imdb": "tt28228898",
+            "tmdb": "movie/1053075",
+            "nota": 7
+          }
+        },
+        "n:lupin iii o ouro da babilonia|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/AdjxQ4DO9WpgMEsUZ5jAPSx9577.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/b6AuqUdYl5BV7eIeEL8BuMBfwJ7.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/4918ZIaHhB8PxjlDjRHuUzazHIo.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Em busca do ouro da Babilônia, Lupin III e seus amigos provocam muita confusão e são perseguidos até pela Máfia. Com tantas trapalhadas, eles conseguirão vencer os perseguidores e encontrar o tesouro?",
+            "generos": [
+              "Animação",
+              "Aventura",
+              "Comédia",
+              "Ação",
+              "Crime"
+            ],
+            "imdb": "tt0089943",
+            "tmdb": "movie/32873",
+            "nota": 6.1
+          }
+        },
+        "n:naruto to boruto the 2019 2019|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/8OkxtHotJnegiBbWQSz8fD60NEc.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/kfLlBmKDLAdTZSpj8bzFEnnVh1c.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/eGa0w1EbNnb2wF696NVbF65IR4Y.jpg",
+            "fundoImagem": "banner",
+            "descricao": "“NARUTO to BORUTO THE LIVE 2019”, a special event for the 20th anniversary of the first publication of “NARUTO” series in Weekly Shonen Jump!! Featuring live performances by artists performing the theme songs of both “NARUTO” and “BORUTO: NARUTO NEXT GENERATIONS”, anime cast members reading original story episodes, and more.",
+            "generos": [
+              "Animação"
+            ],
+            "tmdb": "movie/638566",
+            "nota": 7.5
+          }
+        },
+        "n:o navio fantasma voador|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/a0cMFOZW75oxtPvBeKGj2nFvUIk.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/7yTq1lgALffPonYWusueldqTc7F.jpg",
+            "previa": "https://image.tmdb.org/t/p/w1280/otvGiYNUaOIYOITQnsjovSei3JA.jpg",
+            "fundoImagem": "banner",
+            "descricao": "A cidade onde Hayato vive é devastada por um robô gigante, e seus pais são mortos no massacre. O único amigo que lhe resta é seu cachorro Jack, as únicas coisas deixadas são o sapato da mãe e uma foto de um homem e uma mulher que, como seu pai lhe diz em seu leito de morte, são seus pais verdadeiros. Agora Hayato quer se vingar de quem se diz ter enviado o robô: o terrível Navio Fantasma, que ameaça navios e há rumores de que pretendem exterminar tudo.",
+            "generos": [
+              "Animação",
+              "Ficção científica",
+              "Terror"
+            ],
+            "imdb": "tt0065021",
+            "tmdb": "movie/76722",
+            "nota": 6.2
+          }
+        },
+        "n:shiboyugi playing death games to put food on the table 44 cloudy beach|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/1hwe1CNgFThbU8irK8Qn1bfu65P.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/wEArA15wjHybHLKrj9ySVTY2Rck.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Depois de Yuuki ultrapassar a maldição da “parede dos trinta anos”, que reduz drasticamente a taxa de sobrevivência dos jogadores. Yuuki continua a jogar, desta vez numa ilha remota no meio do oceano com outros sete jogadores, e entre eles está alguém que Yuuki conhece. O jogo que estão prestes a jogar chama-se “Praia Nublada”.",
+            "generos": [
+              "Animação",
+              "Ação"
+            ],
+            "classificacao": "16",
+            "imdb": "tt41189965",
+            "tmdb": "movie/1659338",
+            "nota": 9.7
+          }
+        },
+        "n:super onze o filme a forca final a equipe ogro ataca 2010|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/iCWxuUZUx8dn1vLvKZqjntkkyvO.jpg",
+            "banner": "https://image.tmdb.org/t/p/w1280/g08t3r6oesgg2Js0bQgWY4ZnHY1.jpg",
+            "fundoImagem": "banner",
+            "descricao": "Uma organização do futuro envia a Equipe Ogro, especialmente treinada, para derrotar Endou Mamoru e sua equipe, a fim de evitar que ele influencie o mundo com seu futebol.",
+            "generos": [
+              "Fantasia",
+              "Animação"
+            ],
+            "imdb": "tt1794796",
+            "tmdb": "movie/118301",
+            "nota": 7.6
+          }
         }
       },
       "gruposRevisados": {
         "Animes": "2026-11-24T02:53:02.931Z"
       },
-      "fichasSerie": {},
+      "fichasSerie": {
+        "a mansao foster para amigos imaginarios": {
+          "fundoImagem": "banner",
+          "posFundo": 46,
+          "bannerOk": true
+        },
+        "bikini warriors": {
+          "capa": "https://image.tmdb.org/t/p/w342/5Rw670afDjPI99jUJ6pC61O4GqR.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/eQFs77gRr7osCLa0csrRDpK3xJN.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/pr3vRUUzuop9ENpQEadgGZwCCKZ.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Ambientado num mundo de RPG com espadas e magias, guerreiras devem formar uma party para derrotar o Rei Demônio, mas essas guerreiras usam armaduras de biquíni!",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "imdb": "tt5020030",
+          "tmdb": "tv/70716",
+          "nota": 5.5
+        },
+        "carrapatos e catapultas": {
+          "capa": "https://image.tmdb.org/t/p/w342/mjYrK471qrFxMSO9Rvb7gRTQq1n.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/yUbvA9skrScyLaNNwTn0AMQonb.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Carrapatos e Catapultas é uma série de animação brasileira que se passa em outro planeta, chamado Vaca, habitado por carrapatos com bicos de pato. A premissa central gira em torno do modo de vida peculiar desses seres, que utilizam catapultas como meio de transporte e têm como objetivo principal explodir para alcançar o \"Mundo dos Carrapatos Fantasmas.",
+          "generos": [
+            "Animação"
+          ],
+          "imdb": "tt11560856",
+          "tmdb": "tv/310084"
+        },
+        "cordelicos": {
+          "capa": "https://image.tmdb.org/t/p/w342/tnDW4yJjLXJKvscauqoT2pWg9Qw.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/lwcHhpTqMAxemfD8rjUHVhB60LJ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/5lh4wa0Xdm15BytRblxdKEOSQZG.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Cinco cangaceiros são mandados para o futuro distante do ano de 3333, no Neo Nordeste. Lugar dominado pelo maligno Cabra da Peste, que usurpa os recursos naturais e deixa o lugar ainda mais árido do que o sertão de onde vieram.",
+          "generos": [
+            "Kids",
+            "Animação"
+          ],
+          "classificacao": "L",
+          "imdb": "tt23037544",
+          "tmdb": "tv/254101"
+        },
+        "d4dj": {
+          "capa": "https://image.tmdb.org/t/p/w342/cdwGRZbx3bf1HPGINlztepouVAV.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/kANQdiIPfPOG970FG1eROltGeAZ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/fEbRSsPI33s3OGW5p8Kra2xP58p.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Aimoto Rinku, que tem o hábito de dizer “Happy Around!”, Voltou do exterior para o Japão, onde se transferiu para a Academia Yoba, onde DJing é popular. Ela fica profundamente comovida com um show de DJ que vê ali, e decide formar um grupo próprio com Akashi Maho, Oonaruto Muni e Togetsu Rei. Enquanto interage com outros grupos de DJ como Peaky P-key e Photon Maiden, Rinku e seus amigos buscam chegar ao topo!",
+          "generos": [
+            "Comédia",
+            "Animação"
+          ],
+          "imdb": "tt12768008",
+          "tmdb": "tv/102655",
+          "nota": 5.5
+        },
+        "dame x prince anime caravan": {
+          "capa": "https://image.tmdb.org/t/p/w342/6OaqJemoz2j1nmuVATxr638xNyJ.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/chY93NxVc5VIA9BV6aU1a3UYzJQ.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A história segue Ani, uma princesa da nação menor de Inako. Ani é enviado à cerimônia de assinatura que trará paz às nações rivais da Mildonia, um poderoso país militar, e Selenfaren, uma poderosa teocracia. Ani deve ajudar a dirigir a cerimônia de assinatura, mas ela se depara com problemas quando ela encontra um punhado de príncipes obstinados.",
+          "generos": [
+            "Sci-Fi & Fantasy",
+            "Drama",
+            "Animação"
+          ],
+          "imdb": "tt15011762",
+          "tmdb": "tv/76120",
+          "nota": 6
+        },
+        "dinastia de jade": {
+          "capa": "https://image.tmdb.org/t/p/w342/AhzeMHlNs0JmnZwxVhERMVic2J0.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/jWPuVVKHC9yCJByPMCxccRmHsMb.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/riw6gEEfUFbP6FXJpsto3mXvzal.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Zhang Xiaofan, que ficou tragicamente órfão da noite para o dia, foi aceito como discípulo por Qingyunmen. Após cinco anos de treinamento duro, ele se destacou nas artes marciais dos Sete Vasos dos Mestres. Ele é enviado para a Montanha Kongsang para derrotar o mal. Durante a viagem, ele e seu ancião Lu Xueqi tiveram acidentes, conheceram e salvaram a senhora da seita demoníaca. Ao mesmo tempo, novos perigos também os aguardavam.",
+          "generos": [
+            "Animação",
+            "Action & Adventure"
+          ],
+          "imdb": "tt28651453",
+          "tmdb": "tv/206484",
+          "nota": 8
+        },
+        "dororo": {
+          "capa": "https://image.tmdb.org/t/p/w342/6TX5aQHlJKdRZqV9nFPty3dOdfe.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/lLjIOxGIVnUVBHQFCBYzo7OAMHt.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/xXY9WxE3KxwxftTmJIU8LwY5ojD.jpg",
+          "fundoImagem": "banner",
+          "descricao": "No Japão feudal, Lord Daigo Kagemitsu faz um acordo com 12 demônios, trocando seu filho ainda não nascido pela prosperidade de suas terras. A criança deformada é abandonada em um rio, enquanto as terras de Kagemitsu prosperam. Anos depois, um jovem ladrão chamado Dororo conhece o misterioso “Hyakkimaru”, um garoto com lâminas no lugar dos braços e olhos sem visão que podem ver monstros.",
+          "generos": [
+            "Animação",
+            "Action & Adventure"
+          ],
+          "classificacao": "16",
+          "imdb": "tt9458304",
+          "tmdb": "tv/83100",
+          "nota": 8.5
+        },
+        "from far away": {
+          "capa": "https://image.tmdb.org/t/p/w342/rHI61poyqC6GF0HRurV6Hq12K81.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/inwM4LXqXYYauU1eJkfJ6uDkV11.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/qNOt3rrHfsoNMK5kkxLUbr4Xat6.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Certo dia, enquanto estava voltando da escola, Noriko é transportada de repente para um mundo de fantasia. Suas preocupações aumentam ainda mais quando ela é resgatada por um belo rapaz chamado Isaac, que logo se torna seu amigo. Apesar das características heroicas, Isaac tem selado dentro de si um mal inimaginável. E, de acordo com uma profecia antiga, Noriko tem o poder libertar esse mal. Agora que estão inevitavelmente unidos pelo destino eles precisam viajar por um mundo que, ao mesmo tempo que é cheio de maravilhas, também é lotado de hostilidade.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "imdb": "tt43691315",
+          "tmdb": "tv/329096",
+          "nota": 7.5
+        },
+        "fudencio e seus amigos": {
+          "capa": "https://image.tmdb.org/t/p/w342/frBE50gPrLjg3IDC2Vv0togtfQ2.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/4BTaVvtbJuvJ6pqRch1a5w1F0ID.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Fudêncio e Seus Amigos é um desenho de comédia da MTV Brasil. A essência do desenho é a crítica social e o politicamente incorreto, o que faz com que o desenho seja recomendado apenas a maiores de 14 anos. O personagem de maior destaque é Conrado, um caqui que é sempre confundido com um tomate, e sempre se envolve em confusões, dando-se mal no final de todas as histórias.",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "classificacao": "14",
+          "imdb": "tt2665368",
+          "tmdb": "tv/59309",
+          "nota": 5.1
+        },
+        "g i joe sigma 6": {
+          "capa": "https://image.tmdb.org/t/p/w342/wh1ao1EjyuhQ9IsgGNTG3t0vr0r.jpg",
+          "descricao": "SIGMA 6 is the code name for a group of highly trained covert special mission operatives. Duke, Snake Eyes, Heavy Duty, Scarlett, Long Range and Tunnel Rat - who use high-tech, state-of-the-art gear along with their other hero skills to go up against the forces of evil.",
+          "generos": [
+            "Animação"
+          ],
+          "tmdb": "tv/11000",
+          "nota": 7.3
+        },
+        "hanabi chan wa okuregachi": {
+          "capa": "https://image.tmdb.org/t/p/w342/p7eHnuydyPmG4ncpGo2vgNCg6nu.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/o3XfIlZ6EUcPAyPHRoPdLU8vis9.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/4AUTmQxQ2qrEXpqg43cGYYN5XZF.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Musashi herda uma loja de Pachinko de seu avô, mas acaba descobrindo uma garota lá. Acontece que ela diz ser também uma máquina de Pachinko.",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "imdb": "tt16270300",
+          "tmdb": "tv/130857",
+          "nota": 4.5
+        },
+        "historias da pequena margo": {
+          "capa": "https://image.tmdb.org/t/p/w500/ju1dqSQcCRZ61KkTq6tLGr6SoFS.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/25Ix6sWd7o85N8FO04Crhj4fuoR.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/peDmLOAEstkr9YEDB6sRvC7pFSm.jpg",
+          "fundoImagem": "banner",
+          "descricao": "\"Little Margo Stories\" acompanha as doces aventuras de Margo, uma toupeirinha curiosa que descobre as maravilhas do dia a dia no mundo da natureza.",
+          "generos": [
+            "Animação",
+            "Família"
+          ],
+          "imdb": "tt32142148",
+          "tmdb": "tv/252512"
+        },
+        "hokuto no ken legends of the dark king": {
+          "capa": "https://image.tmdb.org/t/p/w342/p4Jimz8z4d1RJwaHFfA8TtFWOMB.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/grQ1rFm6QWYClrJxNxk3fJlpUWr.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Esta é a história do mundo anterior ao Punho da Estrela do Norte, e de como um homem tomou o futuro de um mundo selvagem em suas mãos mortais e remodelou seu destino. Não como um herói, mas como um conquistador. Porque na mente do homem chamado Raoh, a única forma de salvar a Humanidade é esmagando-a sob seu gigantesco calcanhar.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Drama"
+          ],
+          "classificacao": "16",
+          "imdb": "tt1308847",
+          "tmdb": "tv/23436",
+          "nota": 6.2
+        },
+        "housing complex c": {
+          "capa": "https://image.tmdb.org/t/p/w342/dJHp3WlbbBhhKo2h0avTHTrwp4C.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/kKFUtMcC6oVT18O34MeEWAHMkty.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/180HeiJvRG3I0BkrqVFrSad6JbA.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Kimi mora em um pequeno complexo habitacional numa cidade litorânea, onde os problemas parecem segui-la por onde quer que ela vá, e incidentes horríveis começam a acontecer. Será que um espírito maligno persegue os moradores do complexo?",
+          "generos": [
+            "Animação",
+            "Mistério"
+          ],
+          "classificacao": "16",
+          "imdb": "tt21826010",
+          "tmdb": "tv/195382",
+          "nota": 7.1
+        },
+        "i chu halfway through the idol": {
+          "capa": "https://image.tmdb.org/t/p/w342/qiHi7A3ffLA4wzzlV0cpUJd7qba.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/ofw482PXwueS0odWyk6NtIwWzRi.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/oNt7KDaWkhaehVvUAVUgrcfMh39.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A escola começa na Escola Étoile Vio, onde estudantes esperançosos de ídolos, conhecidos como \"I-Chu\", passarão por treinamento para se tornarem ídolos completos. No entanto, as coisas começaram de maneira estranha quando os novos alunos ouviram um discurso de seu diretor urso ?! O I-Chu trabalha firmemente em direção a seus objetivos e pergunta: \"O que é um ídolo?\" Cada menino aprenderá a brilhar enquanto lutam para encontrar a resposta.",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "imdb": "tt13415416",
+          "tmdb": "tv/112667",
+          "nota": 7.7
+        },
+        "idolls": {
+          "capa": "https://image.tmdb.org/t/p/w342/g9vXLkUeZukspxhBfeJcZZzpuXw.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/8pcgtI2wuyyNFxt4Qq5jxOe2HAJ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/uhunOeprWa2Yzm84hkDiLi9qaKn.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A produção do anime usará tecnologia de captura de movimento para capturar os movimentos do elenco de voz enquanto simultaneamente produz gravações de voz.",
+          "generos": [
+            "Animação",
+            "Comédia"
+          ],
+          "imdb": "tt13592988",
+          "tmdb": "tv/110792",
+          "nota": 5.7
+        },
+        "jeannie": {
+          "capa": "https://image.tmdb.org/t/p/w342/mcWuaGFgzDzD7VANZio63oyrrzb.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/2fCsDG0ImQxG7VraU3b3EZUcs7U.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Average teenager Corey Anders finds an unusual-looking bottle on the beach, when he opens it a beautiful genie named Jeannie emerges.",
+          "generos": [
+            "Animação",
+            "Sci-Fi & Fantasy",
+            "Comédia"
+          ],
+          "imdb": "tt0069596",
+          "tmdb": "tv/10091",
+          "nota": 6.9
+        },
+        "kiiyii": {
+          "capa": "https://image.tmdb.org/t/p/w342/A2sxe8XjxRUZqAg1BQKvw1m9Odr.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/iPSKOa6zvPV1zG4vhN4Mk1kb9oG.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Neste show animado de ficção científica para crianças em idade pré-escolar, Kii e Yii viajam para o futuro, encontrando carros que se transformam em amigos robôs ao longo do caminho.",
+          "generos": [
+            "Animação"
+          ],
+          "tmdb": "tv/218998"
+        },
+        "magi as aventuras de sinbad": {
+          "capa": "https://image.tmdb.org/t/p/w342/9fWs8Mi8L8bXmLYHuWHHsTxDVT.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/kLx1IuDOeAK6MhNAD7lUPdkhw2G.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/yTfxzjdANjwLNuO0ciFJPL25bwB.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Determinado a transformar o mundo em um lugar melhor, o garoto Sinbad irá se tornar o Grande Rei dos Sete Mares. Ele inicia sua jornada com uma perigosa dungeon.",
+          "generos": [
+            "Animação",
+            "Action & Adventure"
+          ],
+          "classificacao": "12",
+          "imdb": "tt4431276",
+          "tmdb": "tv/66870",
+          "nota": 8
+        },
+        "new panty stocking with garterbelt": {
+          "capa": "https://image.tmdb.org/t/p/w342/iCKyoA65JrbYytIC4esGQI27EyM.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/gy5b64sYb2xsyEESVInfeBE1jcC.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/fm54HqrfKS6MxP6lBt9PBOG1nAr.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Em Daten City, entre o Céu e o Inferno, \"fantasmas\" sinistros se alimentam dos desejos e ressentimentos humanos.Duas figuras misteriosas surgem para destruir esses seres com luz divina: Panty & Stocking.Essas irmãs anjos que caíram do Céu precisam dissipar as trevas que engoliram a Terra.Mas quem elas são de fato? Mensageiras de Deus ou agentes do Diabo? As irmãs enfrentam forças sobrenaturais.",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "16",
+          "tmdb": "tv/246862",
+          "nota": 8.6
+        },
+        "orient": {
+          "capa": "https://image.tmdb.org/t/p/w342/bxTq9NmHnbcBGPLonj7c9Nidwqs.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/2IgdwHAtYmcyVZ0t56oTogj4uBJ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/nJi0XM4fwODlqJxmTAS8VUY9Jk8.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A história acompanha Musashi e Kojiro, dois jovem que viveram a vida admirando os feitos dos guerreiros que lutavam contra demônios e protegiam os inocentes. Porém, com o passar dos anos as coisas mudaram entre os dois, até que um súbito destino força com que ambos tenham que lutar pelo bem da humanidade.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "imdb": "tt15170340",
+          "tmdb": "tv/115911",
+          "nota": 7.4
+        },
+        "osmar a primeira fatia do pao de forma a serie": {
+          "capa": "https://image.tmdb.org/t/p/w500/bChQyjEf1i9GfwhkG0NlUTn0txQ.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/pwvZEcIJjbyrmKI0L6EwWP6DNmS.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Osmar é a otimista primeira fatia de pão de forma que tenta achar seu lugar ao sol neste universo de eterno café da manhã. Ele parte rumo à metrópole Trigueirópolis atrás de sua grande oportunidade e consegue entrar no universo televisivo. Num turbilhão de eventos desastrados, Osmar acaba conseguindo ser protagonista de sua própria novela. Mas na vida de qualquer perecível tudo tem um prazo de validade.",
+          "generos": [
+            "Comédia",
+            "Animação"
+          ],
+          "classificacao": "10",
+          "imdb": "tt12798364",
+          "tmdb": "tv/111790",
+          "nota": 9.3
+        },
+        "ragnarok the animation": {
+          "capa": "https://image.tmdb.org/t/p/w342/abB39KcMPQEIg7FA5IjYJsOqKVi.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/v8SzfCbHQjONondEN3anYU7KRwJ.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/6sh99k5vsdjQqaRDdXI5fG2pgNi.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Ragnarok the Animation conta a história do Espadachim Roan, e da Noviça Yuufa, se aventurando pelo mundo de Rune-Midgard. Mais tarde se unem a eles a Maga Takius, a Mercadora Maya, o Mercenário Iruga e a Caçadora Judia.",
+          "generos": [
+            "Animação",
+            "Action & Adventure",
+            "Drama",
+            "Sci-Fi & Fantasy"
+          ],
+          "classificacao": "14",
+          "imdb": "tt0446584",
+          "tmdb": "tv/45615",
+          "nota": 7.2
+        },
+        "space ghost": {
+          "tmdb": "tv/291637"
+        },
+        "the world is dancing": {
+          "capa": "https://image.tmdb.org/t/p/w342/mcxKZoHg7pY2OvlG4IgQv9LBz4H.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/kF67uM6KikiWfuib1lze9t9fZeX.jpg",
+          "previa": "https://image.tmdb.org/t/p/w1280/yAjGiVs1W5PdkNgJAc7kyVvCTqU.jpg",
+          "fundoImagem": "banner",
+          "descricao": "Em 1374, durante a turbulenta época em que as cortes do Norte e do Sul estavam em conflito, o xogum da corte do Norte, Ashikaga Yoshimitsu, tornava-se uma força cada vez mais dominante. Filho de Kan’ami, chefe da trupe Kanze de artistas de sarugaku, Oniyasha passa os dias com uma pergunta nebulosa em seu coração: por que as pessoas dançam? Seu espírito permanece nebuloso até o dia em que encontra uma dança verdadeiramente “boa”. Curioso, sensível e impressionantemente bonito, o menino conhece pessoas, ri, chora, enfrenta suas próprias fraquezas e, aos poucos, começa a moldar uma nova forma de dança para um mundo imerso na impermanência.",
+          "generos": [
+            "Animação",
+            "Drama"
+          ],
+          "imdb": "tt41279522",
+          "tmdb": "tv/312020",
+          "nota": 5.8
+        },
+        "viewtiful joe": {
+          "capa": "https://image.tmdb.org/t/p/w342/A5qfZOO5VXao6IT3kLHi4835pp2.jpg",
+          "descricao": "A história começa quando Joe leva sua namorada Sylvia para assistir um filme antigo do seu super–herói favorito, Capitão Azul. Na sala vazia, numa tentaviva de se conquistarem, algo inesperado acontece e ambos são levados para dentro do filme. Joe então ganha o poder de se transformar em Viewtiful Joe para resgatar Sylvia.",
+          "generos": [
+            "Animação",
+            "Comédia",
+            "Action & Adventure"
+          ],
+          "classificacao": "14",
+          "bannerLogo": "https://image.tmdb.org/t/p/w500/hakIAzZ5jigh2eNw1lnTpayVFaA.png",
+          "imdb": "tt0464782",
+          "tmdb": "tv/16097",
+          "nota": 8.3
+        },
+        "yu gi oh go rush": {
+          "capa": "https://image.tmdb.org/t/p/w342/kNIcSCbWTP3dYPclZw4iiMf2064.jpg",
+          "banner": "https://image.tmdb.org/t/p/w1280/nbqLNw7zXUsAUlgpUbOclsVkAS8.jpg",
+          "fundoImagem": "banner",
+          "descricao": "A história é ambientada no local de nascimento do Rush Duel, Mutsuba-cho. Os irmãos Yuuhi e Yuamu dirigem o UTS, um grupo que se livra de alienígenas problemáticos. Um dia eles encontram uma nave espacial, e dentro encontram Udias, um alienígena do planeta Belgar. Udias veio à Terra para participar dos famosos Rush Duels para levar ele e seus amigos (que foram expulsos de seu sistema estelar) para um novo futuro. No entanto, o próprio Udias não sabe nada sobre o Rush Duel...",
+          "generos": [
+            "Animação",
+            "Kids",
+            "Sci-Fi & Fantasy"
+          ],
+          "imdb": "tt19383782",
+          "tmdb": "tv/196257",
+          "nota": 6.7
+        }
+      },
       "criadoEm": "2026-11-24T01:43:00.783Z",
       "tmdbPedidoEm": "2026-11-24T03:13:12.595Z"
     }
