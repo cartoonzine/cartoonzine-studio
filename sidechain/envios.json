@@ -9444,6 +9444,25 @@
           "fundoImagem": "banner",
           "posFundo": 0,
           "bannerOk": true
+        },
+        "100 man no inochi no ue ni ore wa tatte iru": {
+          "capa": "https://image.tmdb.org/t/p/w342/fbBY1UEW7Vx2alMrjg6xNNM3Pv9.jpg",
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true,
+          "tmdb": "tv/99995"
+        },
+        "100 man no inochi no ue ni ore wa tatteiru": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
+        },
+        "12 sai chiccha na mune no tokimeki": {
+          "capa": "https://image.tmdb.org/t/p/w342/q5MQhvVnEUc8VztssOVcrt1WocP.jpg",
+          "fundoImagem": "banner",
+          "posFundo": 14,
+          "bannerOk": true,
+          "tmdb": "tv/65928"
         }
       },
       "criadoEm": "2026-11-24T01:43:00.783Z",
