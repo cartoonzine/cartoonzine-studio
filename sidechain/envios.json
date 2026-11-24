@@ -11001,6 +11001,20 @@
         },
         "n:a danca dos esqueletos|": {
           "colecao": "filmes"
+        },
+        "n:a escola de susto do gasparzinho|": {
+          "ficha": {
+            "capa": "https://image.tmdb.org/t/p/w342/a0ssnK1juLUIJehJ3sVsz3q3fqH.jpg",
+            "descricao": "Gasparzinho se matricula em uma escola aprender a lidar com o seu lado mau e se tornar uma assombração realmente assustadora. Mas o Fantasminha Camarada acaba descobrindo que o ambicioso dono da escola tem um plano secreto para dominar o mundo. Desenho totalmente produzido por computação gráfica.",
+            "generos": [
+              "Animação"
+            ],
+            "imdb": "tt0884322",
+            "notaImdb": 4.5,
+            "votosImdb": 992,
+            "tmdb": "movie/31170",
+            "nota": 5.3
+          }
         }
       },
       "gruposRevisados": {
