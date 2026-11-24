@@ -4009,7 +4009,13 @@
             "votosImdb": "",
             "tmdb": "movie/657561",
             "nota": ""
-          }
+          },
+          "titulo": "A Arvore dos Desejos",
+          "ano": 2020,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
         },
         "n:a bailarina 2016|": {
           "ficha": {
@@ -4032,7 +4038,8 @@
             "votosImdb": "",
             "tmdb": "movie/342473",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a bela adormecida 1959|": {
           "ficha": {
@@ -4055,7 +4062,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a bela e a fera 1991|": {
           "ficha": {
@@ -4078,7 +4086,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a bela e a fera 2009|": {
           "ficha": {
@@ -4101,7 +4110,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a bela e a fera o natal encantado|": {
           "ficha": {
@@ -4124,7 +4134,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a bruxinha e o dragao|": {
           "ficha": {
@@ -4147,7 +4158,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a caminho da lua 2020|": {
           "ficha": {
@@ -4170,7 +4182,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a caminho de casa 2019|": {
           "ficha": {
@@ -4193,7 +4206,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a cancao do sul 1946|": {
           "ficha": {
@@ -4216,7 +4230,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a casa magica da gabby o filme 2025|": {
           "ficha": {
@@ -7971,10 +7986,1802 @@
           "ano": 1996,
           "colecao": "series",
           "genero": "Comédia"
+        },
+        "n:a arvore familiar dos croods s01e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s01e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s01e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s01e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s01e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s01e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e07|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e08|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e09|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e10|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e11|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e12|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e13|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e14|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e15|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e16|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e17|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e18|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s02e19|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s03e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s03e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s03e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s03e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s03e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s03e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s04e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s04e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s04e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s04e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s04e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s04e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s04e07|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s05e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s05e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s05e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s05e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s05e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s05e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s06e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s06e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s06e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s06e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s06e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s06e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s06e07|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s07e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s07e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s07e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s07e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s07e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s07e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s08e01|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s08e02|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s08e03|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s08e04|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s08e05|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s08e06|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a arvore familiar dos croods s08e07|": {
+          "serie": "A Árvore Familiar dos Croods",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a cara do pai s01e01|": {
+          "serie": "A Cara do Pai",
+          "titulo": "A Cara do Pai S01E01",
+          "temporada": 1,
+          "episodio": 1,
+          "ano": 2016,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a bailarina|": {
+          "colecao": "filmes"
+        },
+        "n:a bailarina 2023|": {
+          "colecao": "filmes"
+        },
+        "n:a bela e a fera|": {
+          "colecao": "filmes"
+        },
+        "n:a bela e a fera 2014|": {
+          "colecao": "filmes"
+        },
+        "n:a bela e a fera 2017|": {
+          "colecao": "filmes"
+        },
+        "n:a cara do pai s01e02|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s01e03|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e01|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e02|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e03|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e04|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e05|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e06|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e07|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e08|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e09|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e10|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e11|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a cara do pai s02e12|": {
+          "serie": "A Cara do Pai",
+          "ano": 2016,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a casa da raven s01e01|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e02|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e03|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e04|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e05|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e06|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e07|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e08|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e09|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e10|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e11|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e12|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s01e13|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e01|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e02|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e03|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e04|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e05|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e06|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e07|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e08|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e09|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e10|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e11|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e12|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e13|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e14|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e15|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e16|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e17|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e18|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e19|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e20|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s02e21|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e01|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e02|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e03|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e04|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e05|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e06|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e07|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e08|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e09|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e10|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e11|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e12|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e13|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e14|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e15|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e16|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e17|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e18|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e19|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e20|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e21|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e22|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e23|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e24|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e25|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s03e26|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e01|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e02|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e03|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e04|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e05|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e06|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e07|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e08|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e09|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e10|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e11|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e12|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e13|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e14|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e15|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e16|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e17|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e18|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e19|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s04e20|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e01|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e02|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e03|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e04|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e05|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e06|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e07|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e08|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e09|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e10|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e11|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e12|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e13|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e14|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e15|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e16|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e17|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e18|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e19|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e20|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e21|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e22|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e23|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e24|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s05e25|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e01|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e02|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e03|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e04|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e05|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e06|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e07|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e08|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e09|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e10|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e11|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e12|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e13|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e14|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e15|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e16|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e17|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa da raven s06e18|": {
+          "serie": "A Casa da Raven",
+          "ano": 2017,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Família"
+        },
+        "n:a casa do mickey mouse mais s01e01|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e02|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e03|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e04|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e05|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e06|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e07|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e08|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e09|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse mais s01e10|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e01|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e02|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e03|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e04|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e05|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e06|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e07|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e08|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e09|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e10|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e11|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e12|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e13|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e14|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e15|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e16|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e17|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e18|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e19|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e20|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e21|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e22|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e23|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e24|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e25|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s01e26|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e01|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e02|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e03|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e04|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e05|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e06|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e07|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e08|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e09|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e10|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e11|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e12|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e13|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e14|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e15|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e16|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e17|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e18|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e19|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e20|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e21|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e22|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e23|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e24|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e25|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e26|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e27|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e28|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e29|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e30|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e31|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e32|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e33|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e34|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e35|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e36|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e37|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e38|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s02e39|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e01|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e02|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e03|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e04|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e05|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e06|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e07|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e08|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e09|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e10|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e11|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e12|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e13|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e14|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e15|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e16|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e17|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e18|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e19|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e20|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e21|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e22|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e23|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e24|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e25|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e26|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e27|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e28|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e29|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e30|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e31|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e32|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e33|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e34|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s03e35|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e01|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e02|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e03|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e04|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e05|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e06|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e07|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e08|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e09|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e10|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e11|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e12|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e13|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e14|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e15|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e16|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e17|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e18|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e19|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e20|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e21|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s04e22|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e01|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e02|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e03|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e04|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e05|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e06|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e07|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e08|": {
+          "colecao": "series"
+        },
+        "n:a casa do mickey mouse s05e09|": {
+          "colecao": "series"
         }
       },
       "gruposRevisados": {
-        "Kids": "2026-11-24T07:09:27.384Z"
+        "Kids": "2026-11-24T14:53:02.300Z"
       },
       "fichasSerie": {
         "7 chances para": {
