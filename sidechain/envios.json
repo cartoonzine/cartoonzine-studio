@@ -3605,6 +3605,54 @@
       },
       "criadoEm": "2026-11-23T04:24:39.790Z",
       "tmdbPedidoEm": "2026-11-23T04:27:20.157Z"
+    },
+    {
+      "id": "saimo-kids",
+      "nome": "Saimo Kids",
+      "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/kids.json",
+      "listas": [],
+      "ativo": true,
+      "tipoLista": "unica",
+      "destino": {
+        "colecao": "filmes"
+      },
+      "rotas": [
+        {
+          "id": "rmwtzusfx1",
+          "destino": {
+            "colecao": "cartoons"
+          },
+          "grupos": [
+            "Kids"
+          ]
+        }
+      ],
+      "gruposNovos": "esperar",
+      "modo": "auto",
+      "soVivos": null,
+      "filtros": {
+        "idiomas": [],
+        "tipos": [],
+        "paises": [],
+        "categorias": [],
+        "excluirTipos": [
+          "Adulto"
+        ],
+        "busca": "",
+        "confiancaMin": 0
+      },
+      "avulsa": false,
+      "tmdb": true,
+      "tmdbModo": "falta",
+      "tmdbFundo": true,
+      "pularStudio": true,
+      "desvios": {},
+      "regras": [],
+      "ajustes": {},
+      "gruposRevisados": {},
+      "fichasSerie": {},
+      "criadoEm": "2026-11-24T01:05:48.749Z",
+      "tmdbPedidoEm": "2026-11-24T01:08:02.188Z"
     }
   ]
 }
