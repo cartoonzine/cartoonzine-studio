@@ -272,17 +272,23 @@
         // o que o Sidechain mandou (balanço da rodada): por categoria do Cloud
         const fx = E.scFluxo, scNoApp = {};
         if (fx && fx.saidas) for (const s of fx.saidas) { const f = (E.scFontes || []).find(x => String(x.url || '').endsWith('/' + s.chave + '.json')); if (f) scNoApp[f.targetCategory] = (scNoApp[f.targetCategory] || 0) + (s.noApp || 0); }
+        const soma = (fs, k) => fs.reduce((t, f) => t + (f[k] || 0), 0);
+        const temTipos = fontes.some(f => f.recebidos != null);
         const linhas = cats.map(c => {
-            const fs = fontes.filter(f => catDe(f) === c.nome && f.ok);
-            const sc = fs.filter(ehSC).reduce((t, f) => t + (f.itens || 0), 0), out = fs.filter(f => !ehSC(f)).reduce((t, f) => t + (f.itens || 0), 0);
-            const env = scNoApp[c.nome];
-            const conf = env == null ? '<small class="dica">—</small>' : env === sc ? '<span class="ok">✅ bate</span>' : `<span class="ruim" title="o Sidechain publicou ${num(env)}; chegaram ${num(sc)}">⚠ ${num(sc - env)}</span>`;
-            return `<tr><td><b>${esc(c.nome)}</b><small class="dica">${c.type === 'series' ? 'séries (episódios nas fontes)' : 'filmes'}</small></td><td>${num(sc)}</td><td>${env == null ? '—' : num(env)}</td><td>${conf}</td><td>${num(out)}${fs.filter(f => !ehSC(f)).length ? `<small class="dica">${fs.filter(f => !ehSC(f)).map(f => esc(f.nome)).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</small>` : ''}</td><td>${num(sc + out)}</td><td><b>${num(c.total)}</b></td></tr>`;
+            const fs = fontes.filter(f => catDe(f) === c.nome && f.ok), fsc = fs.filter(ehSC), fout = fs.filter(f => !ehSC(f));
+            const env = scNoApp[c.nome], scChegou = temTipos ? soma(fsc, 'recebidos') : soma(fsc, 'itens');
+            const conf = env == null ? '<small class="dica">—</small>' : env === scChegou ? '<span class="ok">✅ bate</span>' : `<span class="ruim" title="o Sidechain publicou ${num(env)}; chegaram ${num(scChegou)}">⚠ ${num(scChegou - env)}</span>`;
+            const cd = c.cards || null;
+            const filmesCh = temTipos ? soma(fs, 'filmes') : null, epsCh = temTipos ? soma(fs, 'episodios') : null;
+            return `<tr><td><b>${esc(c.nome)}</b>${fout.length ? `<small class="dica">+ ${fout.map(f => esc(f.nome)).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</small>` : ''}</td>
+              <td>${filmesCh == null ? '—' : num(filmesCh)}</td><td><b>${cd ? num(cd.filmes) : num(c.total)}</b>${cd && filmesCh != null && filmesCh > cd.filmes ? `<small class="dica">${num(filmesCh - cd.filmes)} viraram reserva</small>` : ''}</td>
+              <td>${epsCh == null ? '—' : num(epsCh)}</td><td>${cd ? `<b>${num(cd.series)}</b> séries<small class="dica">${num(cd.episodios)} episódios</small>` : '—'}</td>
+              <td>${num(scChegou)}${env != null ? `<small class="dica">publicou ${num(env)}</small>` : ''}</td><td>${conf}</td></tr>`;
         }).join('');
         const rs = E.resumo || {};
         return `<div class="cz-rot">📥 Chegada por categoria</div>
-          <table class="cz-tab"><tr><th>Categoria</th><th>🔗 Do Sidechain</th><th>Sidechain publicou</th><th>Conferência</th><th>Outras fontes</th><th>Total que chegou</th><th>Cards no app</th></tr>${linhas || '<tr><td colspan="7" class="dica">Nenhuma categoria de filmes/séries.</td></tr>'}</table>
-          <p class="dica"><b>Do Sidechain</b> = o que o Cloud recebeu das listas do Sidechain · <b>Sidechain publicou</b> = o "📱 No app" do 📊 Fluxo da última rodada (✅ bate = nada se perdeu no caminho). <b>Cards no app</b> é menor que o total porque as cópias viram 1 card com reserva${rs.modo ? ` (filtro: <b>${esc(rs.modo)}</b>${rs.cardsDeFilmesNoApp != null ? ` · filmes: ${num(rs.filmesNasFontes)} chegaram → ${num(rs.cardsDeFilmesNoApp)} cards` : ''})` : ''}. Nas séries, o card é a série e as fontes contam episódios. Para conferir os filmes 1 a 1, use o modo <b>🧪 Teste</b> no 🛡 Filtro: aí os cards de filmes ≈ o total que chegou.</p>`;
+          <table class="cz-tab"><tr><th>Categoria</th><th>🎬 Filmes chegaram</th><th>🎬 Cards de filme</th><th>🎞 Episódios chegaram</th><th>🎞 Séries no app</th><th>🔗 Do Sidechain</th><th>Conferência</th></tr>${linhas || '<tr><td colspan="7" class="dica">Nenhuma categoria de filmes/séries.</td></tr>'}</table>${temTipos ? '' : '<p class="dica">⏳ A separação filmes × episódios aparece depois da próxima geração do catálogo (precisa do PR do Cloud).</p>'}
+          <p class="dica"><b>Filmes</b> se comparam com <b>cards de filme</b> (a diferença virou link reserva: mesmo filme de duas fontes). <b>Episódios</b> se comparam com os <b>episódios das séries</b> no app (cada série é 1 card). <b>Do Sidechain</b> × <b>publicou</b> (o "📱 No app" do 📊 Fluxo): ✅ bate = nada se perdeu no caminho${rs.modo ? ` (filtro: <b>${esc(rs.modo)}</b>${rs.cardsDeFilmesNoApp != null ? ` · filmes: ${num(rs.filmesNasFontes)} chegaram → ${num(rs.cardsDeFilmesNoApp)} cards` : ''})` : ''}. Nas séries, o card é a série e as fontes contam episódios. Para conferir os filmes 1 a 1, use o modo <b>🧪 Teste</b> no 🛡 Filtro: aí os cards de filmes ≈ o total que chegou.</p>`;
     }
 
     // ---------- 📊 visão geral
