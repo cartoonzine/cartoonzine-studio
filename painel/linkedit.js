@@ -2804,7 +2804,11 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             </div>`;
         };
         box.className = 'le-cards tam-' + vista.tam;
-        box.innerHTML = cardsVisiveis.slice(0, cardsMostrar).map(card).join('') + (cardsVisiveis.length > cardsMostrar ? `<button class="le-bt le-cards-mais" data-cards-mais>Mostrar mais (${cardsVisiveis.length - cardsMostrar})</button>` : '') || '<p class="le-dica" style="padding:20px">Nada aqui.</p>';
+        const nVis = E.visiveis.length, nMarc = E.visiveis.filter(c => E.sel.has(c.id)).length, cardsMarc = cardsVisiveis.filter(g => g.itens.every(x => E.sel.has(x.id))).length;
+        const barra = `<div class="le-cards-barra"><button class="le-caixa ${nMarc && nMarc === nVis ? 'on' : nMarc ? 'meio' : ''}" data-cards-todos title="Marcar / desmarcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button>
+          <span>${nMarc ? `<b>${numSC(cardsMarc)}</b> card(s) marcado(s) · <b>${numSC(nMarc)}</b> itens` : `Marcar todos os <b>${numSC(cardsVisiveis.length)}</b> cards visíveis`}</span>
+          ${nMarc ? '<button class="le-bt" data-cards-limpar>Desmarcar</button><small class="le-dica">Trocar a rota num card marcado leva <b>todos os marcados</b> juntos.</small>' : '<small class="le-dica">Marque vários cards e troque a rota em qualquer um deles: todos vão juntos (com todos os episódios).</small>'}</div>`;
+        box.innerHTML = barra + cardsVisiveis.slice(0, cardsMostrar).map(card).join('') + (cardsVisiveis.length > cardsMostrar ? `<button class="le-bt le-cards-mais" data-cards-mais>Mostrar mais (${cardsVisiveis.length - cardsMostrar})</button>` : '') || '<p class="le-dica" style="padding:20px">Nada aqui.</p>';
     }
     function aplicarVista() {
         const lista = vista.modo === 'cards', corpo = $('#le-corpo'), box = $('#le-cards'), cab = raiz.querySelector('.le-cab');
@@ -2814,6 +2818,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     }
     function cliqueCards(ev) {
         if (ev.target.closest('[data-cards-mais]')) { cardsMostrar += 300; return desenharCards(); }
+        if (ev.target.closest('[data-cards-todos]')) { marcarTodos(); if (SC.modo) pintarBarraSC(); return; }
+        if (ev.target.closest('[data-cards-limpar]')) { E.sel.clear(); desenharTabela(); if (SC.modo) pintarBarraSC(); return; }
         if (ev.target.closest('select')) return;            // trocar a rota no card não marca/desmarca
         const el = ev.target.closest('[data-card]'); if (!el) return;
         const g = cardsVisiveis[+el.dataset.card]; if (!g) return;
@@ -3432,7 +3438,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-cards').addEventListener('click', cliqueCards);
         $('#le-cards').addEventListener('change', (ev) => {
             const sel = ev.target.closest('[data-card-rota]'); if (!sel) return;
-            const g = cardsVisiveis[+sel.dataset.cardRota], v = sel.value; if (!g || !v) return;
+            const g0 = cardsVisiveis[+sel.dataset.cardRota], v = sel.value; if (!g0 || !v) return;
+            // card marcado + outros marcados = vão todos juntos (como o "Enviar marcados para…" da lista); card não marcado = só ele
+            const g = { itens: g0.itens.every(x => E.sel.has(x.id)) && E.sel.size > g0.itens.length ? selecionados() : g0.itens };
             if (SC.modo) {
                 if (v === '__padrao') { const e = SC.modo.envio; g.itens.forEach(x => { delete x.colecaoManual; const k = L.chaveSC(x); if (e.ajustes && e.ajustes[k]) { delete e.ajustes[k].colecao; if (!Object.keys(e.ajustes[k]).length) delete e.ajustes[k]; } }); }
                 desviarSC(g.itens, v === '__padrao' ? null : v === 'ignorar' ? 'ignorar' : { colecao: v });
