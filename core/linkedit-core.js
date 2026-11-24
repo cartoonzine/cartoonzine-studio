@@ -897,9 +897,12 @@
     /** Resumo dos grupos da lista: [{ grupo, n, nats:{canal,filme,episodio,radio}, rota, sugestao }] (maiores primeiro) */
     function analisarGrupos(canais, e, cols) {
         const m = new Map(), mg = mapaGrupos(e);
-        canais.forEach(c => { const g = grupoDe(c); if (!m.has(g)) m.set(g, { grupo: g, n: 0, nats: {}, manual: {}, nManual: 0 }); const x = m.get(g); x.n++;
-            // itens deste grupo com destino escolhido um a um (desvio ou "Vai para"): não seguem a rota do grupo
-            { const dv = e.desvios && e.desvios[chaveSC(c)], k = dv === 'ignorar' ? 'ignorar' : dv && dv.colecao ? dv.colecao : c.colecaoManual || ''; if (k) { x.manual[k] = (x.manual[k] || 0) + 1; x.nManual++; } } const nt = c.natureza || 'canal'; x.nats[nt] = (x.nats[nt] || 0) + 1; });
+        const regras = (e.regras || []).concat(e._globais || []).filter(r => r && r.para && r.ativo !== false);
+        canais.forEach(c => { const g = grupoDe(c); if (!m.has(g)) m.set(g, { grupo: g, n: 0, nats: {}, manual: {}, nManual: 0, regra: {}, nRegra: 0 }); const x = m.get(g); x.n++;
+            // itens deste grupo com destino escolhido um a um (desvio ou "Vai para") ou por regra (ex.: ✂ Separar por tipo): não seguem a rota do grupo
+            { const dv = e.desvios && e.desvios[chaveSC(c)], k = dv === 'ignorar' ? 'ignorar' : dv && dv.colecao ? dv.colecao : c.colecaoManual || '';
+              if (k) { x.manual[k] = (x.manual[k] || 0) + 1; x.nManual++; }
+              else { const r = regras.find(r => passaRegra(c, r)); if (r) { const kr = r.para === 'ignorar' ? 'ignorar' : r.para.colecao; x.regra[kr] = (x.regra[kr] || 0) + 1; x.nRegra++; } } } const nt = c.natureza || 'canal'; x.nats[nt] = (x.nats[nt] || 0) + 1; });
         return [...m.values()].map(x => Object.assign(x, { rota: mg.get(x.grupo) || null, sugestao: sugerirGrupo(x.grupo, x.nats, cols) })).sort((a, b) => b.n - a.n);
     }
     /** Monta as rotas pelas sugestões (só para grupos sem rota). Cria a rota da coleção se ainda não existe. Devolve quantos grupos ganhou rota. */

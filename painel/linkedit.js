@@ -1129,23 +1129,51 @@
         if (e.tipoLista !== 'mista') return e.destino && e.destino.colecao ? `<b>${numSC(total)}</b> → ${esc(L.destinoTexto(e.destino, cols))}` : `<b>${numSC(total)}</b> itens · escolha o destino no passo 3`;
         const por = new Map(); let sem = 0, semG = 0;
         grupos.forEach(g => {
-            Object.entries(g.manual || {}).forEach(([c, n]) => { const col = cols.find(x => x.id === c); const k = c === 'ignorar' ? '🚫 fora' : col ? col.nome : c; por.set(k, (por.get(k) || 0) + n); });
-            const resto = g.n - (g.nManual || 0); if (!resto) return;
+            [g.manual, g.regra].forEach(mp => Object.entries(mp || {}).forEach(([c, n]) => { const col = cols.find(x => x.id === c); const k = c === 'ignorar' ? '🚫 fora' : col ? col.nome : c; por.set(k, (por.get(k) || 0) + n); }));
+            const resto = g.n - (g.nManual || 0) - (g.nRegra || 0); if (!resto) return;
             if (!g.rota) { sem += resto; semG++; return; } const k = nomeRota(g.rota, cols); por.set(k, (por.get(k) || 0) + resto); });
         return [...por].map(([k, n]) => `<b>${numSC(n)}</b> ${esc(k)}`).join(' · ') + (sem ? `${por.size ? ' · ' : ''}<span style="color:#fbbf24">🔔 <b>${numSC(sem)}</b> esperando rota (${semG} grupo${semG === 1 ? '' : 's'})</span>` : '');
     }
+
+    /** ✂ Separar por tipo: uma regra por tipo de item (filme → Filmes, episódio → Séries…) para a lista toda */
+    function abrirSepararTipo(e) {
+        const grupos = gruposSC(e), cols = colsSC();
+        if (!grupos) return S.aviso('Leia a lista primeiro (📥 Ler lista).', 'ruim');
+        const nats = {}; grupos.forEach(g => Object.entries(g.nats).forEach(([k, n]) => { nats[k] = (nats[k] || 0) + n; }));
+        const atual = (k) => { const r = (e.regras || []).find(r => r.porTipo && r.natureza === k); return r ? (r.para === 'ignorar' ? 'ignorar' : r.para.colecao) : ''; };
+        const linhas = L.NATUREZAS.filter(([k]) => nats[k]).map(([k, ic, nm]) => `<tr><td>${ic} <b>${esc(nm)}</b></td><td>${numSC(nats[k])}</td><td><select class="le-campo" data-pt="${esc(k)}">
+            <option value="">↳ segue a rota do grupo</option>${cols.map(c => `<option value="${esc(c.id)}" ${atual(k) === c.id ? 'selected' : ''}>${esc((c.icone ? c.icone + ' ' : '') + c.nome)}</option>`).join('')}<option value="ignorar" ${atual(k) === 'ignorar' ? 'selected' : ''}>🚫 Fica de fora</option></select></td></tr>`).join('');
+        const j = janela(`<h3>✂ Separar por tipo — ${esc(e.nome)}</h3>
+          <p class="le-dica">Escolha para onde vai cada tipo de item desta lista. Vale para <b>todos os grupos</b> e para o que chegar depois. O que você escolheu <b>à mão</b> (✎ Vai para / Enviar marcados) continua valendo por cima. "Segue a rota do grupo" = não muda nada.</p>
+          <table class="le-cp-tab"><thead><tr><th>Tipo</th><th>Itens</th><th>Vai para</th></tr></thead><tbody>${linhas}</tbody></table>
+          <div class="le-jan-botoes"><button class="le-bt" data-fechar>Cancelar</button><button class="le-bt p" id="le-pt-ok">💾 Salvar e ver as rotas</button></div>`, 'media');
+        j.addEventListener('click', (ev) => { if (ev.target === j || ev.target.closest('[data-fechar]')) setTimeout(() => abrirSidechain(e.id), 0); });
+        j.querySelector('#le-pt-ok').onclick = async () => {
+            e.regras = (e.regras || []).filter(r => !r.porTipo);
+            const novas = [];
+            j.querySelectorAll('[data-pt]').forEach(sel => { const v = sel.value; if (!v) return; novas.push({ natureza: sel.dataset.pt, contem: '', campo: 'tudo', porTipo: true, para: v === 'ignorar' ? 'ignorar' : { colecao: v } }); });
+            e.regras = novas.concat(e.regras);           // na frente: valem antes das outras regras do envio
+            // as coleções escolhidas ganham rota (para aparecer nas caixinhas e no Fluxo)
+            novas.forEach(r => { if (r.para === 'ignorar') return; if (!(e.rotas || []).some(x => chaveRota(x.destino) === r.para.colecao)) e.rotas.push({ id: 'r' + Date.now().toString(36) + e.rotas.length, destino: { colecao: r.para.colecao }, grupos: [] }); });
+            SC.sujo = true; fecharJanela();
+            try { await gravarSidechain(`Sidechain: ${e.nome} · separar por tipo`); S.aviso(novas.length ? `Separado por tipo (${novas.length} regra${novas.length > 1 ? 's' : ''}). Vale na próxima rodada do robô.` : 'Separação por tipo desfeita.', 'ok'); }
+            catch (x) { S.aviso('Não deu para gravar: ' + x.message, 'ruim'); }
+            abrirSidechain(e.id);
+        };
+    }
     function rotasHTML(e, grupos, cols) {
         // itens com destino escolhido um a um (✎ Vai para / Enviar marcados) contam na coleção escolhida, não na rota do grupo
-        const conta = (r) => grupos ? grupos.filter(g => g.rota === r).reduce((t, g) => t + g.n - (g.nManual || 0), 0) + grupos.reduce((t, g) => t + ((g.manual || {})[chaveRota(r.destino)] || 0), 0) : null;
-        const manuais = {}; (grupos || []).forEach(g => Object.entries(g.manual || {}).forEach(([k, n]) => { manuais[k] = (manuais[k] || 0) + n; }));
-        const semRotaManual = Object.entries(manuais).filter(([k]) => !(e.rotas || []).some(r => chaveRota(r.destino) === k));
+        const fora = (g) => (g.nManual || 0) + (g.nRegra || 0);
+        const conta = (r) => grupos ? grupos.filter(g => g.rota === r).reduce((t, g) => t + g.n - fora(g), 0) + grupos.reduce((t, g) => t + ((g.manual || {})[chaveRota(r.destino)] || 0) + ((g.regra || {})[chaveRota(r.destino)] || 0), 0) : null;
+        const manuais = {}, porRegra = {}; (grupos || []).forEach(g => { Object.entries(g.manual || {}).forEach(([k, n]) => { manuais[k] = (manuais[k] || 0) + n; }); Object.entries(g.regra || {}).forEach(([k, n]) => { porRegra[k] = (porRegra[k] || 0) + n; }); });
+        const semRotaManual = [...new Set(Object.keys(manuais).concat(Object.keys(porRegra)))].filter(k => !(e.rotas || []).some(r => chaveRota(r.destino) === k)).map(k => [k, (manuais[k] || 0) + (porRegra[k] || 0)]);
         const nomeCol = (k) => k === 'ignorar' ? '🚫 fora' : (() => { const c = cols.find(x => x.id === k); return c ? (c.icone ? c.icone + ' ' : '') + c.nome : k; })();
         const cards = (e.rotas || []).map(r => { const n = conta(r); return `<div class="le-sc-rcard" style="--rc:${corRota(r)}"><div class="le-sc-rtop"><b>${esc(nomeRota(r, cols))}</b>${n != null ? `<strong>${numSC(n)}</strong>` : ''}</div>
             <small>${r.grupos.length} grupo${r.grupos.length === 1 ? '' : 's'}</small>
             <div class="le-sc-rgr">${r.grupos.slice(0, 5).map(g => `<span>${esc(g)}</span>`).join('')}${r.grupos.length > 5 ? `<span>+${r.grupos.length - 5}</span>` : ''}</div>
-            ${(manuais[chaveRota(r.destino)] || 0) ? `<small class="le-sc-man" title="Escolhidos um a um no editor (✎ Vai para / Enviar marcados para…)">📌 ${numSC(manuais[chaveRota(r.destino)])} escolhidos à mão</small>` : ''}
+            ${(porRegra[chaveRota(r.destino)] || 0) ? `<small class="le-sc-man" title="Pelas regras do envio (✂ Separar por tipo)">⚙ ${numSC(porRegra[chaveRota(r.destino)])} por regra</small>` : ''}${(manuais[chaveRota(r.destino)] || 0) ? `<small class="le-sc-man" title="Escolhidos um a um no editor (✎ Vai para / Enviar marcados para…)">📌 ${numSC(manuais[chaveRota(r.destino)])} escolhidos à mão</small>` : ''}
             <button data-sc-rtira="${esc(r.id)}" title="Apagar rota (os grupos dela voltam a esperar)" aria-label="Apagar rota">✕</button></div>`; }).join('') +
-            semRotaManual.map(([k, n]) => `<div class="le-sc-rcard" style="--rc:#94a3b8" title="Itens escolhidos um a um para uma coleção que não tem rota neste envio"><div class="le-sc-rtop"><b>${esc(nomeCol(k))}</b><strong>${numSC(n)}</strong></div><small class="le-sc-man">📌 só escolhidos à mão</small></div>`).join('');
+            semRotaManual.map(([k, n]) => `<div class="le-sc-rcard" style="--rc:#94a3b8" title="Itens escolhidos um a um para uma coleção que não tem rota neste envio"><div class="le-sc-rtop"><b>${esc(nomeCol(k))}</b><strong>${numSC(n)}</strong></div><small class="le-sc-man">${porRegra[k] ? '⚙ por regra' : ''}${porRegra[k] && manuais[k] ? ' + ' : ''}${manuais[k] ? '📌 à mão' : ''}</small></div>`).join('');
         const sem = grupos ? grupos.filter(g => !g.rota) : [];
         const nSug = sem.filter(g => g.sugestao).length;
         SC.gruposVista = grupos || [];
@@ -1161,9 +1189,10 @@
           <div class="le-sc-mx-b"><div class="le-rot">Grupos da lista → rota</div>
           ${grupos ? `<div class="le-imp-op"><span class="le-dica"><b>${grupos.length}</b> grupos na lista${sem.length ? ` · <span style="color:#fbbf24">🔔 ${sem.length} sem rota</span>` : ' · todos com rota ✓'}</span>
               ${nSug ? `<button class="le-bt r" id="le-sc-sugerir">✨ Aplicar sugestões (${nSug})</button>` : ''}
+              <button class="le-bt" id="le-sc-portipo" title="Filmes para uma coleção, episódios para outra… vale para a lista toda (o que você escolheu à mão continua valendo por cima)">✂ Separar por tipo</button>
               <label title="Quando a lista ganhar um grupo que ainda não tem rota">Grupo novo na lista <select class="le-campo" id="le-sc-gnovos"><option value="esperar" ${e.gruposNovos !== 'sugestao' ? 'selected' : ''}>🔔 espera eu escolher</option><option value="sugestao" ${e.gruposNovos === 'sugestao' ? 'selected' : ''}>🤖 vai pela sugestão</option></select></label></div>
             <div class="le-sc-gtab"><table><thead><tr><th>Grupo da lista</th><th>Itens</th><th>Tipo</th><th>Rota</th></tr></thead><tbody>
-              ${grupos.slice(0, 600).map((g, i) => `<tr class="${g.rota ? '' : 'nova'}"><td><button class="le-sc-gnome" data-sc-gabrir="${i}" title="Abrir só este grupo no editor: ver os itens, corrigir e salvar">${g.rota ? '' : '🔔 '}${esc(g.grupo)} <span>✎</span></button>${(e.gruposRevisados || {})[g.grupo] ? ` <span class="le-sc-rev" title="Revisado em ${esc(new Date(e.gruposRevisados[g.grupo]).toLocaleString('pt-BR'))}">✓</span>` : ''}</td><td>${numSC(g.n)}${g.nManual ? `<small class="le-sc-man" title="${esc(Object.entries(g.manual).map(([k, n]) => n + ' → ' + nomeCol(k)).join(' · '))}">📌 ${numSC(g.nManual)} à mão</small>` : ''}</td><td>${nat(g)}</td><td><select class="le-campo" data-sc-grupo="${i}" style="--rc:${g.rota ? corRota(g.rota) : '#fbbf24'}">${opc(g)}</select> ${auto(g)}</td></tr>`).join('')}
+              ${grupos.slice(0, 600).map((g, i) => `<tr class="${g.rota ? '' : 'nova'}"><td><button class="le-sc-gnome" data-sc-gabrir="${i}" title="Abrir só este grupo no editor: ver os itens, corrigir e salvar">${g.rota ? '' : '🔔 '}${esc(g.grupo)} <span>✎</span></button>${(e.gruposRevisados || {})[g.grupo] ? ` <span class="le-sc-rev" title="Revisado em ${esc(new Date(e.gruposRevisados[g.grupo]).toLocaleString('pt-BR'))}">✓</span>` : ''}</td><td>${numSC(g.n)}${g.nRegra ? `<small class="le-sc-man" title="${esc(Object.entries(g.regra).map(([k, n]) => n + ' → ' + nomeCol(k)).join(' · '))}">⚙ ${numSC(g.nRegra)} por regra</small>` : ''}${g.nManual ? `<small class="le-sc-man" title="${esc(Object.entries(g.manual).map(([k, n]) => n + ' → ' + nomeCol(k)).join(' · '))}">📌 ${numSC(g.nManual)} à mão</small>` : ''}</td><td>${nat(g)}</td><td><select class="le-campo" data-sc-grupo="${i}" style="--rc:${g.rota ? corRota(g.rota) : '#fbbf24'}">${opc(g)}</select> ${auto(g)}</td></tr>`).join('')}
             </tbody></table>${grupos.length > 600 ? `<p class="le-dica">… e mais ${grupos.length - 600} grupos pequenos (use ✨ Aplicar sugestões).</p>` : ''}</div>`
           : `<div class="le-dica" style="margin-top:8px">Para montar as rotas eu preciso ler a lista. <button class="le-bt" data-sc-ler="1">📥 Ler lista</button></div>`}
           </div></div>
@@ -1682,6 +1711,7 @@
                 lerForm();
                 return entrarModoSC(e, g.grupo);
             }
+            if (b.id === 'le-sc-portipo') { lerForm(); return abrirSepararTipo(e); }
             if (b.id === 'le-sc-sugerir') { lerForm(); const n = L.aplicarSugestoes(e, gruposSC(e) || []); SC.sujo = true; S.aviso(`${n} grupo(s) ganharam rota.`, 'ok'); return abrirSidechain(e.id); }
             if (b.id === 'le-sc-rota-nova') { const x = j.querySelector('#le-sc-nrota'); x.hidden = !x.hidden; return; }
             if (b.id === 'le-sc-rota-add') {

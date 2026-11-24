@@ -235,3 +235,15 @@ test('✎ "Vai para" escolhido no item vale como rota no Sidechain (lista mista 
     assert.equal(g.nManual, 2); assert.deepEqual(g.manual, { filmes: 1, series: 1 });
     assert.ok(relatorios.k);
 });
+
+test('✂ Separar por tipo: filmes e episódios por regra; o que foi escolhido à mão continua valendo por cima', () => {
+    const config = { colecoes: ['cartoons', 'filmes', 'series'].map(id => ({ id, nome: id, tipo: 'video', fonteCloud: { nome: id, tipo: 'vod_json' } })) };
+    const cs = L.lerLista('#EXTM3U\n#EXTINF:-1 group-title="Kids",Toy Story (1995)\nhttp://k/ts.mp4\n#EXTINF:-1 group-title="Kids",Peppa S01E01\nhttp://k/p1.mp4\n#EXTINF:-1 group-title="Kids",Pica-Pau 1x01\nhttp://k/pp.mp4\n', 'k').canais;
+    const e = L.envioPadrao({ id: 'k', nome: 'Kids', tipoLista: 'mista', rotas: [{ id: 'r1', destino: { colecao: 'cartoons' }, grupos: ['Kids'] }],
+        regras: [{ natureza: 'filme', contem: '', campo: 'tudo', porTipo: true, para: { colecao: 'filmes' } }, { natureza: 'episodio', contem: '', campo: 'tudo', porTipo: true, para: { colecao: 'series' } }] });
+    e.ajustes[L.chaveSC(cs[2])] = { colecao: 'cartoons' };            // Pica-Pau escolhido à mão
+    const por = Object.fromEntries(L.montarSidechain([{ envio: e, canais: cs }], config).saidas.map(s => [s.colecao, s.itens.length]));
+    assert.deepEqual(por, { filmes: 1, series: 1, cartoons: 1 });
+    const g = L.analisarGrupos(cs.map(c => L.aplicarAjustesEnvio(c, e)), e, config.colecoes)[0];
+    assert.equal(g.nRegra, 2); assert.equal(g.nManual, 1);
+});
