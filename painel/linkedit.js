@@ -1342,6 +1342,86 @@
         const d = j.querySelector('#le-cf-desfazer');
         if (d) d.onclick = () => { itens.forEach(it => { delete sep[it.sep]; }); delete conf[x.k]; salvar('🧬 separação desfeita: ' + x.nome, 'Desfeito: na próxima rodada voltam a se juntar.'); };
     }
+
+    // ---------- 📊 FLUXO: da nascente (cada lista) até o app, com o balanço de tudo o que entrou ----------
+    function fluxoDados() {
+        const est = SC.estado || {}, envs = est.envios || {}, cols = colsSC();
+        const nomeCol = (id) => { const c = cols.find(x => x.id === id); return c ? (c.icone ? c.icone + ' ' : '') + c.nome : id; };
+        const fontes = SC.envios.filter(e => envs[e.id]).map(e => {
+            const r = envs[e.id], pend = Array.isArray(r.pendentes) ? r.pendentes.length : (r.pendentes || 0);
+            const fora = { filtrados: r.filtrados || 0, ignorados: r.ignorados || 0, mortos: r.mortos || 0, pendentes: pend, tipoErrado: r.tipoErrado || 0 };
+            let porCol = r.porColecao;
+            if (!porCol) { porCol = {}; for (const [txt, n] of Object.entries(r.porDestino || {})) { const c = cols.find(x => txt === x.nome || txt.startsWith(x.nome + ' ')) ; const k = c ? c.id : txt; porCol[k] = (porCol[k] || 0) + n; } }   // rodada antiga: pelo nome do destino
+            const enviados = Object.values(porCol).reduce((t, n) => t + n, 0) || Object.values(r.porDestino || {}).reduce((t, n) => t + n, 0);
+            const soma = enviados + (r.naStudio || 0) + Object.values(fora).reduce((t, n) => t + n, 0);
+            return { id: e.id, nome: e.nome, total: r.total || 0, porCol, enviados, naStudio: r.naStudio || 0, fora, foraTotal: Object.values(fora).reduce((t, n) => t + n, 0), soma, erro: r.erro, mantido: r.mantido, antigo: !r.porColecao, em: r.em };
+        });
+        const saidas = {};
+        for (const s of ((est.fluxo && est.fluxo.saidas) || [])) { const x = saidas[s.colecao] || (saidas[s.colecao] = { id: s.colecao, nome: nomeCol(s.colecao), entrou: 0, noApp: 0, juntados: 0, desativados: 0, partes: 0 }); ['entrou', 'noApp', 'juntados', 'desativados'].forEach(k => { x[k] += s[k] || 0; }); x.partes++; }
+        fontes.forEach(f => Object.keys(f.porCol).forEach(c => { if (!saidas[c]) saidas[c] = { id: c, nome: nomeCol(c), entrou: 0, noApp: 0, juntados: 0, desativados: 0, partes: 0, semBalanco: true }; }));
+        return { fontes, saidas: Object.values(saidas), em: est.fluxo && est.fluxo.em };
+    }
+    function fluxoSVG(d) {
+        const W = 1000, H = 520, NW = 150, gap = 10, cores = ['#22d3ee', '#a78bfa', '#f472b6', '#fbbf24', '#34d399', '#60a5fa', '#fb7185', '#c084fc'];
+        const col0 = d.fontes, totFora = col0.reduce((t, f) => t + f.foraTotal, 0), totStudio = col0.reduce((t, f) => t + f.naStudio, 0);
+        const col1 = d.saidas.map(s => ({ k: 'c:' + s.id, nome: s.nome, v: Math.max(s.entrou, col0.reduce((t, f) => t + (f.porCol[s.id] || 0), 0)), s }));
+        if (totStudio) col1.push({ k: 'studio', nome: '📚 Já nas Coleções', v: totStudio, dica: 'viraram reserva do item que você cadastrou à mão' });
+        if (totFora) col1.push({ k: 'fora', nome: '🚫 Não entram', v: totFora, dica: 'filtrados, ignorados, mortos, pendentes ou tipo trocado' });
+        const app = d.saidas.reduce((t, s) => t + s.noApp, 0), res = d.saidas.reduce((t, s) => t + s.juntados, 0), des = d.saidas.reduce((t, s) => t + s.desativados, 0);
+        const col2 = [{ k: 'app', nome: '📱 No app', v: app }]; if (res) col2.push({ k: 'res', nome: '🧬 Reservas (cópias)', v: res }); if (des) col2.push({ k: 'des', nome: '⏸ Desativados', v: des });
+        const soma = (a) => a.reduce((t, n) => t + n.v, 0);
+        const esc1 = Math.min(...[col0.map(f => ({ v: f.total })), col1, col2].map(a => (H - gap * (a.length - 1)) / Math.max(1, soma(a))));
+        const h = (v) => Math.max(v ? 3 : 0, v * esc1);
+        const pos = (arr, x, get) => { let y = 0; const tot = arr.reduce((t, n) => t + h(get(n)) + gap, -gap); y = (H - tot) / 2; return arr.map(n => { const o = { x, y, h: h(get(n)), n }; y += o.h + gap; return o; }); };
+        const P0 = pos(col0, 0, f => f.total), P1 = pos(col1, (W - NW) / 2, n => n.v), P2 = pos(col2, W - NW, n => n.v);
+        const ini1 = new Map(P1.map(p => [p.n.k, p.y])), ini2 = new Map(P2.map(p => [p.n.k, p.y])), saida1 = new Map(P1.map(p => [p.n.k, p.y]));
+        const fita = (x0, y0, x1, y1, w, cor, titulo, i) => { const m = (x0 + x1) / 2, yc0 = y0 + w / 2, yc1 = y1 + w / 2;
+            const dd = `M${x0},${yc0} C${m},${yc0} ${m},${yc1} ${x1},${yc1}`;
+            return `<g class="fx-fita"><title>${esc(titulo)}</title><path d="${dd}" stroke="${cor}" stroke-opacity=".28" stroke-width="${w}" fill="none"/><path class="fx-anda" d="${dd}" stroke="${cor}" stroke-width="${Math.max(1.2, Math.min(3, w / 3))}" fill="none" style="animation-delay:-${(i % 7) * .37}s"/></g>`; };
+        let fitas = '', i = 0;
+        P0.forEach((p, n) => {
+            const cor = cores[n % cores.length]; let y = p.y;
+            const destinos = [...d.saidas.map(s => ['c:' + s.id, p.n.porCol[s.id] || 0, s.nome]), ['studio', p.n.naStudio, '📚 Já nas Coleções'], ['fora', p.n.foraTotal, '🚫 Não entram']];
+            for (const [k, v, nome] of destinos) { if (!v || !ini1.has(k)) continue; const w = h(v); fitas += fita(NW, y, (W - NW) / 2, ini1.get(k), w, cor, `${p.n.nome} → ${nome}: ${numSC(v)}`, i++); y += w; ini1.set(k, ini1.get(k) + w); }
+        });
+        P1.forEach(p => { if (!p.n.s) return; let y = p.y; for (const [k, v, cor, nome] of [['app', p.n.s.noApp, '#22c55e', '📱 No app'], ['res', p.n.s.juntados, '#a78bfa', '🧬 Reservas'], ['des', p.n.s.desativados, '#6b7280', '⏸ Desativados']]) { if (!v || !ini2.has(k)) continue; const w = h(v); fitas += fita((W - NW) / 2 + NW, y, W - NW, ini2.get(k), w, cor, `${p.n.nome} → ${nome}: ${numSC(v)}`, i++); y += w; ini2.set(k, ini2.get(k) + w); } });
+        const no = (p, cor, sub) => `<g class="fx-no"><rect x="${p.x}" y="${p.y}" width="${NW}" height="${Math.max(p.h, 3)}" rx="6" fill="${cor}" fill-opacity=".16" stroke="${cor}" stroke-opacity=".7"/>
+            <text x="${p.x + 8}" y="${p.y + Math.max(p.h, 3) / 2 - (p.h > 30 ? 6 : 0)}" dominant-baseline="middle" class="fx-t">${esc(p.n.nome)}</text>${p.h > 30 ? `<text x="${p.x + 8}" y="${p.y + p.h / 2 + 10}" dominant-baseline="middle" class="fx-v">${esc(sub)}</text>` : ''}<title>${esc(p.n.nome + ': ' + sub)}</title></g>`;
+        const nos = P0.map((p, n) => no(p, cores[n % cores.length], numSC(p.n.total))).join('') +
+            P1.map(p => no(p, p.n.k === 'fora' ? '#ef4444' : p.n.k === 'studio' ? '#fbbf24' : '#22d3ee', numSC(p.n.v))).join('') +
+            P2.map(p => no(p, p.n.k === 'app' ? '#22c55e' : p.n.k === 'res' ? '#a78bfa' : '#6b7280', numSC(p.n.v))).join('');
+        return `<svg class="fx-svg" viewBox="-4 -24 ${W + 8} ${H + 30}" role="img" aria-label="Fluxo das listas até o app">
+            <text x="0" y="-8" class="fx-col">NASCENTES (listas)</text><text x="${(W - NW) / 2}" y="-8" class="fx-col">🔗 SIDECHAIN → COLEÇÕES</text><text x="${W - NW}" y="-8" class="fx-col">CHEGADA</text>
+            ${fitas}${nos}</svg>`;
+    }
+    function fluxoHTML() {
+        const d = fluxoDados();
+        if (!d.fontes.length) return '<div class="le-rot">📊 Fluxo</div><p class="le-dica" style="padding:14px 0">O relatório aparece depois da primeira rodada do robô.</p>';
+        const ok = (a, b) => a === b ? '<span class="fx-ok">✅ fecha</span>' : `<span class="fx-ruim" title="diferença de ${numSC(Math.abs(a - b))}">⚠ ${numSC(a - b)}</span>`;
+        const entrou = d.fontes.reduce((t, f) => t + f.total, 0), app = d.saidas.reduce((t, s) => t + s.noApp, 0), res = d.saidas.reduce((t, s) => t + s.juntados, 0);
+        const fora = d.fontes.reduce((t, f) => t + f.foraTotal, 0), studio = d.fontes.reduce((t, f) => t + f.naStudio, 0), des = d.saidas.reduce((t, s) => t + s.desativados, 0);
+        const tudoFecha = d.fontes.every(f => f.antigo || f.soma === f.total) && d.saidas.every(s => s.semBalanco || s.entrou === s.noApp + s.juntados + s.desativados);
+        return `<div class="le-rot">📊 Fluxo — da nascente até o app</div>
+          <p class="le-dica">Cada fita é conteúdo andando: das listas (à esquerda) para as coleções, e das coleções para o app. Passe o mouse para ver os números. ${d.em ? 'Rodada do robô de ' + new Date(d.em).toLocaleString('pt-BR') + '.' : ''}</p>
+          <div class="fx-resumo">
+            <div><span>Entrou</span><b>${numSC(entrou)}</b></div><i>=</i>
+            <div class="fx-app"><span>📱 No app</span><b>${numSC(app)}</b></div><i>+</i>
+            <div class="fx-res"><span>🧬 Reservas</span><b>${numSC(res)}</b></div><i>+</i>
+            <div class="fx-st"><span>📚 Reserva nas Coleções</span><b>${numSC(studio)}</b></div><i>+</i>
+            <div class="fx-fo"><span>🚫 Não entram</span><b>${numSC(fora + des)}</b></div>
+            <div class="${tudoFecha ? 'fx-selo ok' : 'fx-selo ruim'}">${tudoFecha ? '✅ Tudo o que entrou está contado' : '⚠ Alguma conta não fechou — veja abaixo'}</div>
+          </div>
+          <div class="fx-quadro">${fluxoSVG(d)}</div>
+          <div class="le-rot" style="margin-top:14px">Nascentes (cada lista)</div>
+          <table class="le-cp-tab fx-tab"><thead><tr><th>Lista</th><th>Entrou</th><th>→ Coleções</th><th>📚 Já nas Coleções</th><th>🚫 Não entram</th><th>Conta</th></tr></thead><tbody>
+            ${d.fontes.map(f => `<tr><td><b>${esc(f.nome)}</b>${f.erro ? `<small style="color:#f87171">erro: ${esc(f.erro)}</small>` : f.mantido ? '<small style="color:#fbbf24">a lista não abriu: usou a última versão boa</small>' : ''}</td><td>${numSC(f.total)}</td><td>${numSC(f.enviados)}</td><td>${numSC(f.naStudio)}</td>
+              <td>${numSC(f.foraTotal)}${f.foraTotal ? `<small>${Object.entries(f.fora).filter(([, n]) => n).map(([k, n]) => `${({ filtrados: 'filtrados', ignorados: 'ignorados', mortos: 'mortos', pendentes: 'pendentes', tipoErrado: 'tipo trocado' })[k]} ${numSC(n)}`).join(' · ')}</small>` : ''}</td>
+              <td>${f.antigo ? '<small>na próxima rodada</small>' : ok(f.total, f.soma)}</td></tr>`).join('')}</tbody></table>
+          <div class="le-rot" style="margin-top:14px">Coleções (chegada)</div>
+          <table class="le-cp-tab fx-tab"><thead><tr><th>Coleção</th><th>Entrou</th><th>📱 No app</th><th>🧬 Reservas</th><th>⏸ Desativados</th><th>Conta</th></tr></thead><tbody>
+            ${d.saidas.map(s => `<tr><td><b>${esc(s.nome)}</b>${s.partes > 1 ? `<small>${s.partes} arquivos</small>` : ''}</td><td>${numSC(s.entrou)}</td><td>${numSC(s.noApp)}</td><td>${numSC(s.juntados)}</td><td>${numSC(s.desativados)}</td><td>${s.semBalanco ? '<small>na próxima rodada</small>' : ok(s.entrou, s.noApp + s.juntados + s.desativados)}</td></tr>`).join('')}</tbody></table>
+          <p class="le-dica" style="margin-top:8px"><b>Como ler:</b> nada some no caminho. O que não chega ao app como item próprio vira <b>reserva</b> (cópia do mesmo vídeo, usada se a principal cair), está nas <b>Coleções</b> que você cadastrou à mão, ou ficou de fora por um motivo (filtro, ignorado, morto, pendente de rota). "✅ fecha" = a soma bate com o que entrou.</p>`;
+    }
     function copiasHTML() {
         const cols = colsSC(), todas = (SC.copias && SC.copias.colecoes) || {}, ui = SC.cpUI || (SC.cpUI = { col: '', busca: '' });
         const ids = Object.keys(todas).filter(k => todas[k].length);
@@ -1439,6 +1519,7 @@
             <div class="le-rc-lista">
               <div class="le-rot">Envios</div>
               ${SC.envios.map(x => { const n = novidadesSC(x); return `<button class="le-rc-item${e && x.id === e.id ? ' on' : ''}" data-sc-abrir="${esc(x.id)}"><b>${esc(x.nome)}${n.novos ? ` <span class="le-sc-sino">🔔${n.novos}</span>` : ''}${n.pendentes ? ` <span class="le-sc-pend">⏳${n.pendentes}</span>` : ''}</b><small>→ ${esc(x.tipoLista === 'mista' ? '🔀 mista · ' + (x.rotas || []).length + ' rota(s)' : x.destino && x.destino.colecao ? L.destinoTexto(x.destino, cols) : 'só lista avulsa')}${x.ativo === false ? ' · ⏸ pausado' : ''}${problemaSC(SC.estado.envios && SC.estado.envios[x.id]) ? ' · <span style="color:#fbbf24">⚠ ' + esc(problemaSC(SC.estado.envios[x.id])) + '</span>' : ''}</small></button>`; }).join('') || '<p class="le-dica">Nenhum envio ainda.</p>'}
+              <button class="le-rc-item${SC.atual === '__fluxo' ? ' on' : ''}" data-sc-abrir="__fluxo" style="margin-top:6px"><b>📊 Fluxo (relatório)</b><small>da nascente até o app · tudo contado</small></button>
               <button class="le-rc-item${SC.atual === '__copias' ? ' on' : ''}" data-sc-abrir="__copias" style="margin-top:6px"><b>🧬 Cópias entre listas</b><small>${SC.copias ? numSC(totalCopias()) + ' título(s) repetido(s) · informativo' : 'quais vídeos chegaram repetidos e de que lista'}</small></button>
               <button class="le-rc-item${SC.atual === '__globais' ? ' on' : ''}" data-sc-abrir="__globais" style="margin-top:6px"><b>⚙ Regras para todos os envios</b><small>${(SC.globais || []).length} regra(s) · valem depois das regras de cada envio</small></button>
               <button class="le-bt p" data-sc-novo="1" style="margin-top:6px">+ Criar envio</button>
@@ -1526,7 +1607,7 @@
               <div class="le-rot">⚙ Regras para todos os envios</div>
               <p class="le-dica">Valem em todos os envios, depois das regras de cada um. Ex.: "Texto contém <b>adult | xxx | +18</b> → 🚫 Ignorar", ou "Tipo 🎞 Episódio + grupo contém <b>anime</b> → Animes".</p>
               ${regrasHTML(SC.globais || (SC.globais = []), cols)}
-              <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" id="le-sc-salvar-g">💾 Salvar regras</button></div>` : SC.atual === '__copias' ? copiasHTML() : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
+              <div class="le-jan-botoes" style="justify-content:flex-start"><button class="le-bt p" id="le-sc-salvar-g">💾 Salvar regras</button></div>` : SC.atual === '__copias' ? copiasHTML() : SC.atual === '__fluxo' ? fluxoHTML() : '<p class="le-dica" style="padding:20px">Clique em <b>+ Criar envio</b>: cole o link de uma lista boa, escolha para onde ela vai e salve.</p>'}
             </div>
           </div>`, 'pagina');
         ligarDestino(j);

@@ -277,5 +277,7 @@ for (const k of Object.keys(vistosCache)) if (!ids.has(k)) delete vistosCache[k]
 for (const k of Object.keys(estado.envios)) if (!ids.has(k)) delete estado.envios[k];
 fs.writeFileSync(path.join(CACHE, 'vistos.json'), JSON.stringify(vistosCache));
 fs.mkdirSync(path.dirname(ESTADO), { recursive: true });
+// 📊 fluxo (Sidechain → 📊 Fluxo): o balanço de cada saída (entrou = no app + juntado como reserva + desativado)
+estado.fluxo = { em: quando, saidas: saidas.map(s => Object.assign({ chave: s.chave, colecao: s.colecao, pais: s.pais || undefined }, s.balanco)) };
 fs.writeFileSync(ESTADO, JSON.stringify(estado));
 console.log(`\nPronto em ${passou()}: ${envios.length} envio(s), ${saidas.length} lista(s), ${testados} links testados. estado.json: ${(fs.statSync(ESTADO).size / 1e3).toFixed(0)} KB`);
