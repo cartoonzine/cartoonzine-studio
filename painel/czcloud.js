@@ -66,7 +66,9 @@
             lerTexto('sources.json').then(t => { E.cfg = lerJSONTolerante(t); E.cfgOrig = JSON.stringify(E.cfg); }),
             lerTexto('catalog/manifest.json').then(t => { E.manifest = JSON.parse(t); }),
             lerTexto('catalog/analise/resumo.json').then(t => { E.resumo = JSON.parse(t); }).catch(() => { E.resumo = null; }),
-            carregarRuns()
+            carregarRuns(),
+            // 📥 para conferir com o Sidechain: o que ele publicou (fontes) e o balanço da última rodada (fluxo)
+            (S.lerStudio ? Promise.all([S.lerStudio('listas/sidechain-fontes.json').catch(() => null), S.lerStudio('sidechain/estado.json').catch(() => null)]).then(([f, e]) => { E.scFontes = Array.isArray(f) ? f : []; E.scFluxo = (e && e.fluxo) || null; }) : Promise.resolve())
         ];
         if (tudo || E.separados) tarefas.push(lerTexto('catalog/analise/separados-pela-capa.json').then(t => { E.separados = JSON.parse(t); }).catch(() => { E.separados = []; }));
         const r = await Promise.allSettled(tarefas);
@@ -136,9 +138,9 @@
         const fixa = (rot, sub) => `<div class="cz-trava">🛡 <div><b>${rot}</b><i>${sub}</i></div><span class="cz-cad">sempre ligada</span><span class="cz-sw lock"></span></div>`;
         return `<div class="cz-g2">
           <div class="cz-card"><div class="cz-rot">Modo do filtro</div>
-            <div class="cz-modos">${[['desligado', '⏸ Desligado', 'Tudo aparece como vem das listas. Só as travas valem.'], ['analisar', '🔍 Analisar', 'Nada muda no app. Gera o relatório do que <u>seria</u> juntado.'], ['ativo', '✅ Ativo', 'As cópias viram 1 card, com os links de reserva.']]
+            <div class="cz-modos">${[['desligado', '⏸ Desligado', 'Tudo aparece como vem das listas. Só as travas valem.'], ['analisar', '🔍 Analisar', 'Nada muda no app. Gera o relatório do que <u>seria</u> juntado.'], ['ativo', '✅ Ativo', 'As cópias viram 1 card, com os links de reserva.'], ['nenhum', '🧪 Teste', 'Nada junta, nem o mesmo TMDB: cada filme que chega vira um card. Para conferir se a soma bate.']]
                 .map(([k, n, t]) => `<button class="cz-modo ${modo === k ? 'on ' + k : ''}" data-modo="${k}"><b>${n}</b><small>${t}</small></button>`).join('')}</div>
-            ${modo === 'desligado' ? '' : '<p class="dica">⚠ Saindo do <b>desligado</b>, os filmes com "(ano)" no nome passam a ser reconhecidos pelo ano e o id deles muda (o favorito desses títulos se perde uma vez). Melhor fazer isso logo.</p>'}
+            ${modo === 'nenhum' ? '<p class="dica">🧪 <b>Modo teste:</b> o app vai mostrar filmes repetidos (é de propósito). Depois de conferir na 📊 Visão geral → 📥 Chegada, volte para Desligado ou Ativo.</p>' : ''}${modo === 'desligado' || modo === 'nenhum' ? '' : '<p class="dica">⚠ Saindo do <b>desligado</b>, os filmes com "(ano)" no nome passam a ser reconhecidos pelo ano e o id deles muda (o favorito desses títulos se perde uma vez). Melhor fazer isso logo.</p>'}
             <div class="cz-rot" style="margin-top:8px">Travas</div>
             ${fixa('TMDB diferente nunca junta', 'O Rei Leão 1994 × 2019')}
             ${fixa('Séries homônimas separadas', 'Doctor Who 1963 × 2005')}
@@ -260,6 +262,29 @@
         return f;
     }
 
+    // ---------- 📥 chegada por categoria: o que entrou de cada fonte × o que virou card (e a conferência com o Sidechain)
+    function chegadaHTML() {
+        const m = E.manifest || {}, fontes = m.fontes || [], cfgF = ((E.cfg && (E.cfg.fontes || E.cfg.sources)) || []);
+        const scPorNome = new Map((E.scFontes || []).map(f => [f.nome, f]));
+        const catDe = (f) => f.categoria || (scPorNome.get(f.nome) || {}).targetCategory || (cfgF.find(x => x.nome === f.nome) || {}).targetCategory || '';
+        const ehSC = (f) => scPorNome.has(f.nome) || / · Sidechain/.test(f.nome);
+        const cats = (m.categories || []).filter(c => c.type === 'vod' || c.type === 'series');
+        // o que o Sidechain mandou (balanço da rodada): por categoria do Cloud
+        const fx = E.scFluxo, scNoApp = {};
+        if (fx && fx.saidas) for (const s of fx.saidas) { const f = (E.scFontes || []).find(x => String(x.url || '').endsWith('/' + s.chave + '.json')); if (f) scNoApp[f.targetCategory] = (scNoApp[f.targetCategory] || 0) + (s.noApp || 0); }
+        const linhas = cats.map(c => {
+            const fs = fontes.filter(f => catDe(f) === c.nome && f.ok);
+            const sc = fs.filter(ehSC).reduce((t, f) => t + (f.itens || 0), 0), out = fs.filter(f => !ehSC(f)).reduce((t, f) => t + (f.itens || 0), 0);
+            const env = scNoApp[c.nome];
+            const conf = env == null ? '<small class="dica">—</small>' : env === sc ? '<span class="ok">✅ bate</span>' : `<span class="ruim" title="o Sidechain publicou ${num(env)}; chegaram ${num(sc)}">⚠ ${num(sc - env)}</span>`;
+            return `<tr><td><b>${esc(c.nome)}</b><small class="dica">${c.type === 'series' ? 'séries (episódios nas fontes)' : 'filmes'}</small></td><td>${num(sc)}</td><td>${env == null ? '—' : num(env)}</td><td>${conf}</td><td>${num(out)}${fs.filter(f => !ehSC(f)).length ? `<small class="dica">${fs.filter(f => !ehSC(f)).map(f => esc(f.nome)).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</small>` : ''}</td><td>${num(sc + out)}</td><td><b>${num(c.total)}</b></td></tr>`;
+        }).join('');
+        const rs = E.resumo || {};
+        return `<div class="cz-rot">📥 Chegada por categoria</div>
+          <table class="cz-tab"><tr><th>Categoria</th><th>🔗 Do Sidechain</th><th>Sidechain publicou</th><th>Conferência</th><th>Outras fontes</th><th>Total que chegou</th><th>Cards no app</th></tr>${linhas || '<tr><td colspan="7" class="dica">Nenhuma categoria de filmes/séries.</td></tr>'}</table>
+          <p class="dica"><b>Do Sidechain</b> = o que o Cloud recebeu das listas do Sidechain · <b>Sidechain publicou</b> = o "📱 No app" do 📊 Fluxo da última rodada (✅ bate = nada se perdeu no caminho). <b>Cards no app</b> é menor que o total porque as cópias viram 1 card com reserva${rs.modo ? ` (filtro: <b>${esc(rs.modo)}</b>${rs.cardsDeFilmesNoApp != null ? ` · filmes: ${num(rs.filmesNasFontes)} chegaram → ${num(rs.cardsDeFilmesNoApp)} cards` : ''})` : ''}. Nas séries, o card é a série e as fontes contam episódios. Para conferir os filmes 1 a 1, use o modo <b>🧪 Teste</b> no 🛡 Filtro: aí os cards de filmes ≈ o total que chegou.</p>`;
+    }
+
     // ---------- 📊 visão geral
     function geralHTML() {
         const m = E.manifest || {}, t = m.totals || {}, pt = t.porTipo || {};
@@ -271,6 +296,7 @@
             <div class="cz-rot" style="margin-top:12px">⚠ Fontes com erro na última geração (${erros.length})</div>
             ${erros.length ? `<table class="cz-tab">${erros.map(x => `<tr><td><b>${esc(x.nome)}</b>${x.parte ? ' <small class="dica">parte ' + esc(x.parte) + '</small>' : ''}</td><td class="ruim">${esc(x.erro || 'erro')}</td></tr>`).join('')}</table>` : '<p class="dica">Nenhuma 🎉</p>'}
           </div>
+          <div class="cz-card" style="grid-column:1/-1">${chegadaHTML()}</div>
           <div class="cz-card"><div class="cz-rot">Categorias do app</div>
             <table class="cz-tab"><tr><th>Categoria</th><th>Tipo</th><th>Onde</th><th>Itens</th></tr>${(m.categories || []).map(c => `<tr><td><b>${esc(c.nome)}</b></td><td>${esc(c.type)}</td><td>${esc(c.destino || '')}</td><td>${num(c.total)}</td></tr>`).join('')}</table>
           </div></div>`;

@@ -366,7 +366,7 @@
         $('#btn-colecoes').classList.toggle('ativo', estado.tela === 'colecoes');
         if (estado.tela !== 'linkedit' && window.CZLinkEdit) window.CZLinkEdit.parar();     // saiu do Link Edit: o visualizador para
         if (estado.tela === 'vitrine') desenharVitrine();
-        else if (estado.tela === 'czcloud') window.CZCloud.desenhar($('#area'), { RepoGitHub, esc, aviso, guardar, config: () => estado.config, token: () => (estado.repo && estado.repo.token) || (guardar.ler('czs-github') || {}).token || '' });
+        else if (estado.tela === 'czcloud') window.CZCloud.desenhar($('#area'), { RepoGitHub, esc, aviso, guardar, lerStudio: (c) => estado.repo ? estado.repo.ler(c) : Promise.reject(new Error('sem repositório')), config: () => estado.config, token: () => (estado.repo && estado.repo.token) || (guardar.ler('czs-github') || {}).token || '' });
         else if (estado.tela === 'multicopy') window.CZMultiCopy.desenhar($('#area'), { C, esc, aviso, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), local: () => !!(estado.repo && estado.repo.usaProxy) });
         else if (estado.tela === 'linkedit') window.CZLinkEdit.desenhar($('#area'), { aviso, esc, navbarSim, NAVBAR_SIM, local: () => !!(estado.repo && estado.repo.usaProxy), C, config: () => estado.config, indice: () => estado.indice, ler: (c) => estado.repo.ler(c), gravar: (m, msg) => gravar(m, msg), temTmdb: () => !!chaves().tmdb, completar: (it) => C.completarItem(it, { tmdb: chaves().tmdb, omdb: chaves().omdb, wiki: true, fetchFn: fetchExterno, tipoColecao: 'video' }) });
         else if (estado.tela === 'prateleira') window.CZPrateleira.desenhar($('#area'), {
