@@ -3612,7 +3612,7 @@
       "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/kids.json",
       "listas": [],
       "ativo": true,
-      "tipoLista": "unica",
+      "tipoLista": "mista",
       "destino": {
         "colecao": "filmes"
       },
@@ -3670,7 +3670,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:10 horas para o natal 2020|": {
           "ficha": {
@@ -3693,7 +3694,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:1001 historias do pernalonga 1982|": {
           "ficha": {
@@ -3716,7 +3718,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:101 dalmatas 1961|": {
           "ficha": {
@@ -3739,7 +3742,8 @@
             "votosImdb": "",
             "tmdb": "movie/12230",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:101 dalmatas 1996|": {
           "ficha": {
@@ -3762,7 +3766,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:101 dalmatas 2 a aventura de patch em londres 2003|": {
           "ficha": {
@@ -3785,7 +3790,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:102 dalmatas 2000|": {
           "ficha": {
@@ -3808,7 +3814,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:200 wolf 2024|": {
           "ficha": {
@@ -3831,7 +3838,9 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "audio": "dublado",
+          "colecao": "filmes"
         },
         "n:3 palavrinhas vol 2|": {
           "ficha": {
@@ -3854,7 +3863,9 @@
             "votosImdb": "",
             "tmdb": "movie/648614",
             "nota": ""
-          }
+          },
+          "audio": "dublado",
+          "colecao": "filmes"
         },
         "n:3 palavrinhas vol 3|": {
           "ficha": {
@@ -3877,7 +3888,9 @@
             "votosImdb": "",
             "tmdb": "movie/648621",
             "nota": ""
-          }
+          },
+          "audio": "dublado",
+          "colecao": "filmes"
         },
         "n:a abelha maya o filme 2014|": {
           "ficha": {
@@ -3900,7 +3913,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a abelhinha maya e o ovo dourado|": {
           "ficha": {
@@ -3923,7 +3937,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a abelhinha maya o filme 2018|": {
           "ficha": {
@@ -3946,7 +3961,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a academia do sr kleks 2024|": {
           "ficha": {
@@ -3969,7 +3985,8 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "colecao": "filmes"
         },
         "n:a arvore dos desejos 2020|": {
           "ficha": {
@@ -4223,9 +4240,3742 @@
             "tmdb": "",
             "nota": ""
           }
+        },
+        "n:a extraordinaria garota chamada estrela|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 12,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
+        },
+        "n:100 percent wolf|": {
+          "colecao": "filmes"
+        },
+        "n:101 dalmatas|": {
+          "colecao": "filmes"
+        },
+        "n:2 cachorros bobos s01e01|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e02|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e03|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e04|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e05|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e06|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e07|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e08|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e09|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e10|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e11|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e12|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s01e13|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e01|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e02|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e03|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e04|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e05|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e06|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e07|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e08|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e09|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e10|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e11|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e12|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:2 cachorros bobos s02e13|": {
+          "serie": "2 Cachorros Bobos",
+          "ano": 1993,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:3hz s01e01|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e02|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e03|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e04|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e05|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e06|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e07|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e08|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e09|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e10|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e11|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e12|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:3hz s01e13|": {
+          "serie": "3Hz",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Mistério"
+        },
+        "n:4 mulheres e 1 marido s01e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s01e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s01e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s01e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s01e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s01e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s02e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s03e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s04e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s05e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e14|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e15|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e16|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e17|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e18|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e19|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s06e20|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s07e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s08e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s09e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s10e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s11e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s12e14|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s13e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e14|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s14e15|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s15e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s16e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e14|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e15|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e16|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s17e17|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e14|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e15|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e16|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e17|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s18e18|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e14|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e15|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e16|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e17|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e18|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e19|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e20|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e21|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e22|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e23|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e24|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e25|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e26|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e27|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s19e28|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e01|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e02|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e03|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e04|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e05|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e06|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e07|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e08|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e09|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e10|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e11|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e12|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e13|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e14|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e15|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e16|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e17|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e18|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:4 mulheres e 1 marido s20e19|": {
+          "serie": "4 Mulheres e 1 Marido",
+          "ano": 2010,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Reality"
+        },
+        "n:44 gatos s01e01|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e02|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e03|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e04|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e05|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e06|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e07|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e08|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e09|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e10|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e11|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e12|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e13|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e14|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e15|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e16|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e17|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e18|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e19|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e20|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e21|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e22|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e23|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e24|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e25|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e26|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e27|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e28|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e29|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e30|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e31|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e32|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e33|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e34|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e35|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e36|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e37|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e38|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e39|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e40|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e41|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e42|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e43|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e44|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e45|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e46|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e47|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e48|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e49|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e50|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e51|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:44 gatos s01e52|": {
+          "serie": "44 Gatos",
+          "temporada": 1,
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:7 chances para s01e01|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e02|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e03|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e04|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e05|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e06|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e07|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e08|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e09|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e10|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e11|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e12|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e13|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e14|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e15|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e16|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e17|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e18|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e19|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:7 chances para s01e20|": {
+          "serie": "7 Chances Para...",
+          "temporada": 1,
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Ação e aventura"
+        },
+        "n:a aprendiz de feiticeira s01e01|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e02|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e03|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e04|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e05|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e06|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e07|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e08|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e09|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e10|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e11|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e12|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e13|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e14|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e15|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e16|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e17|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e18|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e19|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e20|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e21|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e22|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e23|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s01e24|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e01|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e02|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e03|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e04|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e05|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e06|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e07|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e08|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e09|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e10|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e11|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e12|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e13|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e14|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e15|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e16|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e17|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e18|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e19|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e20|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e21|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e22|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e23|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e24|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e25|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s02e26|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e01|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e02|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e03|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e04|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e05|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e06|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e07|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e08|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e09|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e10|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e11|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e12|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e13|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e14|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e15|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e16|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e17|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e18|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e19|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e20|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e21|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e22|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e23|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e24|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s03e25|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e01|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e02|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e03|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e04|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e05|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e06|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e07|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e08|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e09|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e10|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e11|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e12|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e13|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e14|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e15|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e16|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e17|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e18|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e19|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e20|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e21|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s04e22|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e01|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e02|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e03|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e04|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e05|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e06|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e07|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e08|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e09|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e10|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e11|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e12|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e13|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e14|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e15|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e16|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e17|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e18|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e19|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e20|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e21|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s05e22|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e01|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e02|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e03|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e04|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e05|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e06|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e07|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e08|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e09|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e10|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e11|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e12|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e13|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e14|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e15|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e16|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e17|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e18|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e19|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e20|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e21|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s06e22|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e01|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e02|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e03|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e04|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e05|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e06|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e07|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e08|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e09|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e10|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e11|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e12|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e13|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e14|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e15|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e16|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e17|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e18|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e19|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e20|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e21|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
+        },
+        "n:a aprendiz de feiticeira s07e22|": {
+          "serie": "a Aprendiz de Feiticeira",
+          "ano": 1996,
+          "colecao": "series",
+          "genero": "Comédia"
         }
       },
-      "gruposRevisados": {},
+      "gruposRevisados": {
+        "Kids": "2026-11-24T06:57:34.862Z"
+      },
       "fichasSerie": {
         "7 chances para": {
           "capa": "https://image.tmdb.org/t/p/w342/6312oradpXb5zcw98dfDTYYLIVm.jpg",
