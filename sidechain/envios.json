@@ -4254,7 +4254,13 @@
             "votosImdb": "",
             "tmdb": "",
             "nota": ""
-          }
+          },
+          "titulo": "A Casa Magica da Gabby O Filme",
+          "ano": 2025,
+          "audio": "dual",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Aventura"
         },
         "n:a extraordinaria garota chamada estrela|": {
           "ficha": {
@@ -6438,7 +6444,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e02|": {
@@ -6446,7 +6452,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e03|": {
@@ -6454,7 +6460,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e04|": {
@@ -6462,7 +6468,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e05|": {
@@ -6470,7 +6476,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e06|": {
@@ -6478,7 +6484,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e07|": {
@@ -6486,7 +6492,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e08|": {
@@ -6494,7 +6500,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e09|": {
@@ -6502,7 +6508,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e10|": {
@@ -6510,7 +6516,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e11|": {
@@ -6518,7 +6524,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e12|": {
@@ -6526,7 +6532,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e13|": {
@@ -6534,7 +6540,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e14|": {
@@ -6542,7 +6548,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e15|": {
@@ -6550,7 +6556,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e16|": {
@@ -6558,7 +6564,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e17|": {
@@ -6566,7 +6572,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e18|": {
@@ -6574,7 +6580,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e19|": {
@@ -6582,7 +6588,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e20|": {
@@ -6590,7 +6596,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e21|": {
@@ -6598,7 +6604,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e22|": {
@@ -6606,7 +6612,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e23|": {
@@ -6614,7 +6620,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e24|": {
@@ -6622,7 +6628,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e25|": {
@@ -6630,7 +6636,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e26|": {
@@ -6638,7 +6644,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e27|": {
@@ -6646,7 +6652,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e28|": {
@@ -6654,7 +6660,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e29|": {
@@ -6662,7 +6668,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e30|": {
@@ -6670,7 +6676,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e31|": {
@@ -6678,7 +6684,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e32|": {
@@ -6686,7 +6692,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e33|": {
@@ -6694,7 +6700,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e34|": {
@@ -6702,7 +6708,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e35|": {
@@ -6710,7 +6716,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e36|": {
@@ -6718,7 +6724,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e37|": {
@@ -6726,7 +6732,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e38|": {
@@ -6734,7 +6740,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e39|": {
@@ -6742,7 +6748,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e40|": {
@@ -6750,7 +6756,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e41|": {
@@ -6758,7 +6764,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e42|": {
@@ -6766,7 +6772,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e43|": {
@@ -6774,7 +6780,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e44|": {
@@ -6782,7 +6788,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e45|": {
@@ -6790,7 +6796,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e46|": {
@@ -6798,7 +6804,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e47|": {
@@ -6806,7 +6812,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e48|": {
@@ -6814,7 +6820,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e49|": {
@@ -6822,7 +6828,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e50|": {
@@ -6830,7 +6836,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e51|": {
@@ -6838,7 +6844,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:44 gatos s01e52|": {
@@ -6846,7 +6852,7 @@
           "temporada": 1,
           "ano": 2018,
           "audio": "dublado",
-          "colecao": "series",
+          "colecao": "cartoons",
           "genero": "Animação"
         },
         "n:7 chances para s01e01|": {
@@ -9816,10 +9822,1189 @@
         "n:alvin e os esquilos 3|": {
           "audio": "dublado",
           "colecao": "filmes"
+        },
+        "n:a aranha s01e01|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e02|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e03|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e04|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e05|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e06|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e07|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e08|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e09|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e10|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e11|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e12|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e13|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e14|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e15|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e16|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e17|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e18|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e19|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e20|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e21|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e22|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e23|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e24|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e25|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s01e26|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e01|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e02|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e03|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e04|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e05|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e06|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e07|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e08|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e09|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e10|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e11|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e12|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e13|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s02e14|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e01|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e02|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e03|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e04|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e05|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e06|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e07|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e08|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e09|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e10|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e11|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e12|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e13|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s03e14|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e01|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e02|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e03|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e04|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e05|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e06|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e07|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e08|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e09|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e10|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s04e11|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e01|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e02|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e03|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e04|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e05|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e06|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e07|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e08|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e09|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e10|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e11|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e12|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a aranha s05e13|": {
+          "serie": "a Aranha",
+          "colecao": "cartoons"
+        },
+        "n:a casa coruja s01e01|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e02|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e03|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e04|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e05|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e06|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e07|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e08|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e09|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e10|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e11|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e12|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e13|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e14|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e15|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e16|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e17|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e18|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s01e19|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e01|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e02|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e03|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e04|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e05|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e06|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e07|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e08|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e09|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e10|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e11|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e12|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e13|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e14|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e15|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e16|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e17|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e18|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e19|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e20|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s02e21|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s03e01|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s03e02|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa coruja s03e03|": {
+          "serie": "A Casa Coruja",
+          "ano": 2020,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a casa do mickey mouse s05e10|": {
+          "serie": "A Casa do Mickey Mouse",
+          "titulo": "A Casa do Mickey Mouse S05E10",
+          "temporada": 5,
+          "episodio": 10,
+          "ano": 2006,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e07|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e08|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e09|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s01e10|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e07|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s02e08|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s03e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s03e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s03e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s03e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s03e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s03e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s03e07|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e07|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s04e08|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s05e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s05e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s05e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s05e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s05e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s05e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s06e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s06e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s06e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s06e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s06e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s06e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s07e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s07e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s07e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s07e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s07e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s07e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s08e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s08e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s08e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s08e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s08e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s08e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s08e07|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s09e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s09e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s09e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s09e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s09e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s09e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s10e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s10e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s10e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s10e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s10e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s10e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s11e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s11e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s11e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s11e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s11e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s11e06|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s12e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s12e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s12e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s12e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s12e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s13e01|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s13e02|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s13e03|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s13e04|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa magica da gabby s13e05|": {
+          "serie": "A Casa Mágica da Gabby",
+          "ano": 2021,
+          "colecao": "series",
+          "genero": "Infantil"
+        },
+        "n:a casa monstro 2006|": {
+          "colecao": "filmes"
+        },
+        "n:a charlie brown celebration|": {
+          "colecao": "filmes"
+        },
+        "n:a cidade sem luz|": {
+          "colecao": "filmes"
+        },
+        "n:a cinderela|": {
+          "colecao": "filmes"
+        },
+        "n:a concha de sapatos|": {
+          "colecao": "filmes"
+        },
+        "n:a cratera 2023|": {
+          "colecao": "filmes"
+        },
+        "n:a creche do papai|": {
+          "colecao": "filmes"
+        },
+        "n:a criacao 2023|": {
+          "colecao": "filmes"
+        },
+        "n:a dama e o vagabundo|": {
+          "colecao": "filmes"
+        },
+        "n:a dama e o vagabundo 1955|": {
+          "colecao": "filmes"
+        },
+        "n:a dama e o vagabundo 2019|": {
+          "colecao": "filmes"
+        },
+        "n:a dama e o vagabundo 2 as aventuras de banze 2001|": {
+          "colecao": "filmes"
+        },
+        "n:a danca dos esqueletos|": {
+          "colecao": "filmes"
         }
       },
       "gruposRevisados": {
-        "Kids": "2026-11-24T15:14:09.167Z"
+        "Kids": "2026-11-24T15:21:06.052Z"
       },
       "fichasSerie": {
         "7 chances para": {
