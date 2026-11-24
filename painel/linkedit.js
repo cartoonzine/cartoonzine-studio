@@ -2819,7 +2819,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         const g = cardsVisiveis[+el.dataset.card]; if (!g) return;
         const todos = g.itens.every(x => E.sel.has(x.id));
         g.itens.forEach(x => { if (todos) E.sel.delete(x.id); else E.sel.add(x.id); });
-        E.foco = g.itens[0].id; pintarFicha(g.itens[0]); atualizarLupa(g.itens[0]);
+        // série: o 1º episódio (menor temporada/episódio) vai para a tela de prévia; filme: ele mesmo
+        const ord = (x) => ((x.video && x.video.temporada) || 1) * 100000 + ((x.video && x.video.episodio) || 0);
+        const prim = g.itens.reduce((a, b) => ord(b) < ord(a) ? b : a, g.itens[0]);
+        E.foco = prim.id; pintarFicha(prim); atualizarLupa(prim); tocar(prim);
         desenharCards(); if (SC.modo) pintarBarraSC();
         const r = $('#le-rodape'); if (r) { const sel = r.querySelector('.le-cards-sel') || r.appendChild(Object.assign(document.createElement('span'), { className: 'le-cards-sel' })); sel.innerHTML = `<b>${E.sel.size}</b> marcados`; }
     }
