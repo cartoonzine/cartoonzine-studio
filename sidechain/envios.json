@@ -4265,6 +4265,53 @@
       },
       "criadoEm": "2026-11-24T01:05:48.749Z",
       "tmdbPedidoEm": "2026-11-24T01:08:02.188Z"
+    },
+    {
+      "id": "saimo-animes",
+      "nome": "Saimo Animes",
+      "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/animes.json",
+      "listas": [],
+      "ativo": true,
+      "tipoLista": "mista",
+      "destino": {
+        "colecao": ""
+      },
+      "rotas": [
+        {
+          "id": "rmwu167ik1",
+          "destino": {
+            "colecao": "animes"
+          },
+          "grupos": [
+            "Animes"
+          ]
+        }
+      ],
+      "gruposNovos": "esperar",
+      "modo": "auto",
+      "soVivos": null,
+      "filtros": {
+        "idiomas": [],
+        "tipos": [],
+        "paises": [],
+        "categorias": [],
+        "excluirTipos": [
+          "Adulto"
+        ],
+        "busca": "",
+        "confiancaMin": 0
+      },
+      "avulsa": false,
+      "tmdb": false,
+      "tmdbModo": "falta",
+      "tmdbFundo": true,
+      "pularStudio": true,
+      "desvios": {},
+      "regras": [],
+      "ajustes": {},
+      "gruposRevisados": {},
+      "fichasSerie": {},
+      "criadoEm": "2026-11-24T01:43:00.783Z"
     }
   ]
 }
