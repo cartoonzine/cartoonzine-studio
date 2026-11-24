@@ -207,3 +207,18 @@ test('✂ tirar UMA cópia do grupo: as outras continuam juntas (mesmo com ano n
     assert.ok(j.some(x => x.mirrors && x.mirrors.length === 1));
     assert.ok(j.some(x => x.title === 'Código de Honra (o outro)'));
 });
+
+test('📊 fluxo: tudo o que entra é contado (envio e saída fecham a conta)', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const la = L.lerLista('#EXTM3U\n#EXTINF:-1,Matrix (1999)\nhttp://a/m.mp4\n#EXTINF:-1,Duna (2021)\nhttp://a/d.mp4\n#EXTINF:-1,Rádio X\nhttp://a/r.mp3\n', 'a').canais;
+    const lb = L.lerLista('#EXTM3U\n#EXTINF:-1,Matrix (1999)\nhttp://b/m.mp4\n', 'b').canais;
+    const ea = L.envioPadrao({ id: 'a', nome: 'A', destino: { colecao: 'filmes' } }), eb = L.envioPadrao({ id: 'b', nome: 'B', destino: { colecao: 'filmes' } });
+    const { saidas, relatorios } = L.montarSidechain([{ envio: ea, canais: la }, { envio: eb, canais: lb }], config);
+    const b = saidas[0].balanco;
+    assert.equal(b.entrou, b.noApp + b.juntados + b.desativados);
+    assert.equal(b.noApp, 2); assert.equal(b.juntados, 1);
+    for (const r of Object.values(relatorios)) {
+        const fora = (r.filtrados || 0) + (r.ignorados || 0) + (r.mortos || 0) + (r.pendentes || []).length + (r.tipoErrado || 0) + (r.naStudio || 0);
+        assert.equal(r.total, Object.values(r.porColecao || {}).reduce((t, n) => t + n, 0) + fora);
+    }
+});

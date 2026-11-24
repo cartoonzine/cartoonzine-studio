@@ -1050,6 +1050,7 @@
                 porSaida.get(sd.chave).brutos.push(it);
                 const rot = destinoTexto(sd.pais ? Object.assign({}, r.destino, { pais: sd.pais }) : r.destino, cols);
                 rel.porDestino[rot] = (rel.porDestino[rot] || 0) + 1;
+                rel.porColecao = rel.porColecao || {}; rel.porColecao[col.id] = (rel.porColecao[col.id] || 0) + 1;   // 📊 fluxo
             }
             delete envio._mapaGrupos; delete envio._cols;
             relatorios[envio.id] = rel;
@@ -1058,7 +1059,10 @@
         for (const s of porSaida.values()) { s.brutos.forEach(c => { c.chave = chaveObraSC(c); }); refinarChaves(s.brutos); }   // mesmo nome, obras diferentes (ano/TMDB) não se juntam
         const copias = copiasDasSaidas([...porSaida.values()], naStudioCopias);
         const saidas = [...porSaida.values()].map(s => {
-            const itens = agrupar(s.brutos.map(c => Object.assign({}, c))).map(canalComReservas)
+            const grupos = agrupar(s.brutos.map(c => Object.assign({}, c)));
+            // 📊 balanço da saída: tudo o que entrou = no app + juntado como reserva + desativado
+            s.balanco = { entrou: s.brutos.length, noApp: grupos.length, juntados: grupos.reduce((t, g) => t + g.reservas.length, 0), desativados: s.brutos.filter(c => c.desativado).length };
+            const itens = grupos.map(canalComReservas)
                 .sort((a, b) => String(a.grupoSaida || '').localeCompare(String(b.grupoSaida || ''), 'pt') || String(a.nome).localeCompare(String(b.nome), 'pt'));
             delete s.brutos;
             return Object.assign(s, { itens });

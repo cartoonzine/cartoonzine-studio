@@ -664,3 +664,25 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .cz-lupa-nome { font-size: 12.5px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cz-lupa-meta { font-size: 11px; color: #8b95a7; }
 #le-lupa.on { border-color: #22d3ee; color: #22d3ee; }
+/* 📊 Sidechain → Fluxo */
+.fx-quadro { flex: none; margin-top: 10px; padding: 14px; border: 1px solid #1f2937; border-radius: 14px; background: radial-gradient(1200px 400px at 50% 0%, rgba(34,211,238,.06), transparent), #0a0e15; overflow-x: auto; }
+.fx-svg { width: 100%; min-width: 760px; height: auto; display: block; }
+.fx-svg .fx-t { fill: #f3f4f6; font: 700 12px system-ui, sans-serif; }
+.fx-svg .fx-v { fill: #9ca3af; font: 600 11px system-ui, sans-serif; }
+.fx-svg .fx-col { fill: #6b7280; font: 700 10px system-ui, sans-serif; letter-spacing: .12em; }
+.fx-svg .fx-anda { stroke-dasharray: 2 16; stroke-linecap: round; opacity: .85; animation: fx-anda 2.6s linear infinite; }
+.fx-svg .fx-fita:hover path:first-child { stroke-opacity: .5; }
+@keyframes fx-anda { to { stroke-dashoffset: -72; } }
+@media (prefers-reduced-motion: reduce) { .fx-svg .fx-anda { animation: none; } }
+.fx-resumo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
+.fx-resumo > div:not(.fx-selo) { display: flex; flex-direction: column; padding: 8px 12px; border: 1px solid #1f2937; border-radius: 10px; background: #0d121b; min-width: 110px; }
+.fx-resumo span { font-size: 11px; color: #8b95a7; }
+.fx-resumo b { font-size: 18px; color: #fff; }
+.fx-resumo .fx-app b { color: #4ade80; } .fx-resumo .fx-res b { color: #c4b5fd; } .fx-resumo .fx-st b { color: #fcd34d; } .fx-resumo .fx-fo b { color: #fca5a5; }
+.fx-resumo i { font-style: normal; color: #6b7280; font-weight: 700; }
+.fx-selo { margin-left: auto; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; }
+.fx-selo.ok { background: rgba(34,197,94,.14); color: #86efac; border: 1px solid #166534; }
+.fx-selo.ruim { background: rgba(239,68,68,.12); color: #fca5a5; border: 1px solid #7f1d1d; }
+.fx-tab small { display: block; color: #8b95a7; margin-top: 2px; }
+.fx-ok { color: #86efac; font-weight: 700; } .fx-ruim { color: #fca5a5; font-weight: 700; }
+.fx-resumo, .fx-tab { flex: none; }
