@@ -2783,14 +2783,24 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const c = g.itens[0], img = (c.video && c.video.dados && c.video.dados.capa) || c.logo;
             const nSel = g.itens.filter(x => E.sel.has(x.id)).length, todos = nSel === g.itens.length;
             const tRev = g.itens.every(x => rv[L.chaveSC(x)]);
-            const rotas = SC.modo ? [...new Set(g.itens.map(x => { const r = rotaSC(x); return r.destino === 'ignorar' ? '🚫 fora' : r.destino ? L.destinoTexto(r.destino, colsSC()) : '⏳ esperando'; }))] : [];
+            // para onde vai: no Sidechain a rota de cada episódio; fora dele o "Vai para" (coleção do vídeo)
+            const destinoDe = (x) => { if (SC.modo) { const r = rotaSC(x); return r.destino === 'ignorar' ? 'ignorar' : r.destino && r.destino.colecao ? r.destino.colecao : ''; } return (x.video && x.video.colecao) || ''; };
+            const dests = [...new Set(g.itens.map(destinoDe))], um = dests.length === 1 ? dests[0] : null;
+            const cols = SC.modo ? colsSC() : colsVideo();
+            const nat = NAT[c.natureza || 'canal'] || NAT.canal, grp = [...new Set(g.itens.map(x => x.grupo || ''))];
             const temps = g.serie ? [...new Set(g.itens.map(x => x.video && x.video.temporada || 1))].length : 0;
             return `<div class="le-card${todos ? ' on' : nSel ? ' meio' : ''}${g.itens.some(x => x.id === E.foco) ? ' foco' : ''}" data-card="${i}" title="Clique: marca/desmarca ${g.serie ? 'todos os ' + g.itens.length + ' episódios' : 'o item'} · Duplo clique: ficha">
               <div class="le-card-capa">${ehImagem(img) ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : `<span>${g.serie ? '🎞' : '🎬'}</span>`}
                 <span class="le-card-caixa">${todos ? '✓' : nSel ? '–' : ''}</span>${tRev ? '<b class="le-card-rv" title="Todos revisados">✔</b>' : ''}
+                <span class="le-card-tipo" title="${esc(g.serie ? 'Série (' + g.itens.length + ' episódios)' : nat.nome)}">${g.serie ? '🎞 Série' : nat.ic + ' ' + esc(nat.nome.split(' ')[0])}</span>
                 ${g.serie ? `<span class="le-card-eps">${g.itens.length} ep.${temps > 1 ? ' · ' + temps + ' temp.' : ''}</span>` : ''}</div>
               <b class="le-card-nome">${esc(g.nome)}</b>
-              ${rotas.length ? `<small class="le-card-rota${rotas.length > 1 ? ' misto' : ''}">${esc(rotas.length > 1 ? 'misto: ' + rotas.join(' · ') : '→ ' + rotas[0])}</small>` : `<small>${esc((c.video && c.video.ano) || c.grupo || '')}</small>`}
+              <small class="le-card-grupo" title="Grupo da lista">📂 ${esc(grp.length > 1 ? grp.length + ' grupos' : grp[0] || 'sem grupo')}${c.video && c.video.ano ? ' · ' + esc(c.video.ano) : ''}</small>
+              ${L.ehVideo(c) || SC.modo ? `<select class="le-card-rota${um === null ? ' misto' : ''}" data-card-rota="${i}" title="${SC.modo ? 'Rota de todos os itens deste card' : 'Vai para (coleção) de todos os itens deste card'}">
+                ${um === null ? '<option value="" selected>⚠ misto: ' + esc(dests.map(d => d === 'ignorar' ? 'fora' : (cols.find(x => x.id === d) || {}).nome || 'esperando').join(' · ')) + '</option>' : ''}
+                ${SC.modo ? `<option value="__padrao" ${um === '' ? 'selected' : ''}>↩ pela rota do grupo</option>` : `<option value="" ${um === '' ? 'selected' : ''}>— automático</option>`}
+                ${cols.map(k => `<option value="${esc(k.id)}" ${um === k.id ? 'selected' : ''}>→ ${esc((k.icone ? k.icone + ' ' : '') + k.nome)}</option>`).join('')}
+                ${SC.modo ? `<option value="ignorar" ${um === 'ignorar' ? 'selected' : ''}>🚫 fica de fora</option>` : ''}</select>` : ''}
             </div>`;
         };
         box.className = 'le-cards tam-' + vista.tam;
@@ -2804,6 +2814,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     }
     function cliqueCards(ev) {
         if (ev.target.closest('[data-cards-mais]')) { cardsMostrar += 300; return desenharCards(); }
+        if (ev.target.closest('select')) return;            // trocar a rota no card não marca/desmarca
         const el = ev.target.closest('[data-card]'); if (!el) return;
         const g = cardsVisiveis[+el.dataset.card]; if (!g) return;
         const todos = g.itens.every(x => E.sel.has(x.id));
@@ -3419,6 +3430,16 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-lupa').onclick = () => alternarLupa();
         raiz.querySelectorAll('[data-vista]').forEach(b => b.onclick = () => { if (b.dataset.vista === 'lista') vista.modo = 'lista'; else { vista.modo = 'cards'; vista.tam = b.dataset.vista; } cardsMostrar = 300; guardarVista(); aplicarVista(); });
         $('#le-cards').addEventListener('click', cliqueCards);
+        $('#le-cards').addEventListener('change', (ev) => {
+            const sel = ev.target.closest('[data-card-rota]'); if (!sel) return;
+            const g = cardsVisiveis[+sel.dataset.cardRota], v = sel.value; if (!g || !v) return;
+            if (SC.modo) {
+                if (v === '__padrao') { const e = SC.modo.envio; g.itens.forEach(x => { delete x.colecaoManual; const k = L.chaveSC(x); if (e.ajustes && e.ajustes[k]) { delete e.ajustes[k].colecao; if (!Object.keys(e.ajustes[k]).length) delete e.ajustes[k]; } }); }
+                desviarSC(g.itens, v === '__padrao' ? null : v === 'ignorar' ? 'ignorar' : { colecao: v });
+            }
+            else editarVideo(g.itens.filter(L.ehVideo), { colecao: v });
+            desenharCards();
+        });
         $('#le-cards').addEventListener('dblclick', (ev) => { const el = ev.target.closest('[data-card]'); const g = el && cardsVisiveis[+el.dataset.card]; if (g && L.ehVideo(g.itens[0])) abrirFichaItem(g.itens[0]); });
         aplicarVista();
         if (lupaEstado.on) alternarLupa(true);
