@@ -8,12 +8,20 @@
     "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sc-animes.json"
   },
   {
-    "nome": "Filmes (Studio) · Sidechain",
+    "nome": "Filmes (Studio) · Sidechain · parte 1/2",
     "tipo": "vod_json",
     "prefixoId": "VOD_STU_SC",
     "targetCategory": "Filmes",
     "_colecao": "sidechain",
     "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sc-filmes.json"
+  },
+  {
+    "nome": "Filmes (Studio) · Sidechain · parte 2/2",
+    "tipo": "vod_json",
+    "prefixoId": "VOD_STU_SC",
+    "targetCategory": "Filmes",
+    "_colecao": "sidechain",
+    "url": "https://raw.githubusercontent.com/cartoonzine/cartoonzine-studio/main/listas/sc-filmes-2.json"
   },
   {
     "nome": "Séries · Sidechain · parte 1/7",
