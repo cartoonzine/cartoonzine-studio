@@ -648,3 +648,19 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-cf-papel input:focus-visible + span { outline: 2px solid #fff; }
 .le-cf-salvo { color: #fdba74 !important; }
 .le-cf-card:has(input[value="outro"]:checked) { border-color: #9a3412; }
+/* 🔍 Lupa da capa (Link Edit / Sidechain): janela flutuante que arrasta e redimensiona */
+.cz-lupa { position: fixed; z-index: 9000; display: flex; flex-direction: column; min-width: 180px; min-height: 220px; max-width: 95vw; max-height: 95vh; resize: both; overflow: hidden; background: #0b0d13; border: 1px solid #22d3ee; border-radius: 12px; box-shadow: 0 18px 50px rgba(0,0,0,.65); }
+.cz-lupa-topo { display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: #111827; cursor: move; user-select: none; touch-action: none; }
+.cz-lupa-topo b { font-size: 12px; color: #e5e7eb; white-space: nowrap; }
+.cz-lupa-modos { display: flex; gap: 2px; margin-left: auto; }
+.cz-lupa-modos button, .cz-lupa-x { border: 0; background: transparent; color: #9ca3af; font: 600 11px system-ui, sans-serif; padding: 4px 7px; border-radius: 6px; cursor: pointer; }
+.cz-lupa-modos button.on { background: #22d3ee; color: #00141a; }
+.cz-lupa-x:hover, .cz-lupa-modos button:hover:not(.on) { background: #1f2937; color: #fff; }
+.cz-lupa-img { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; background: #000; }
+.cz-lupa-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.cz-lupa-img img[hidden] { display: none; }
+.cz-lupa-sem { position: absolute; color: #6b7280; font-size: 12px; }
+.cz-lupa-pe { padding: 6px 10px 8px; display: flex; flex-direction: column; gap: 2px; border-top: 1px solid #1f2937; }
+.cz-lupa-nome { font-size: 12.5px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cz-lupa-meta { font-size: 11px; color: #8b95a7; }
+#le-lupa.on { border-color: #22d3ee; color: #22d3ee; }

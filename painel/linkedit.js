@@ -534,7 +534,7 @@
             ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
-            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['U', '🔍 lupa da capa (janela flutuante)'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
             ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['Y', 'tipo do item: canal, filme, episódio ou rádio'], ['V', 'dados de vídeo: série, temporada, episódio, ano, áudio, qualidade, coleção'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
@@ -2131,10 +2131,74 @@
         E.visiveis.forEach(c => (todos ? E.sel.delete(c.id) : E.sel.add(c.id)));
         desenharTabela();
     }
+
+    // ---------- 🔍 LUPA DA CAPA: janela flutuante (arrasta e redimensiona) com a capa/logo/banner do item em foco ----------
+    const GUARDA_LUPA = 'cz-lupa';
+    const lupaEstado = (() => { try { return Object.assign({ on: false, x: 0, y: 0, w: 300, h: 460, modo: 'capa' }, JSON.parse(localStorage.getItem(GUARDA_LUPA) || '{}')); } catch (e) { return { on: false, x: 0, y: 0, w: 300, h: 460, modo: 'capa' }; } })();
+    let lupaItem = null, lupaVigia = null;
+    const guardarLupa = () => { try { localStorage.setItem(GUARDA_LUPA, JSON.stringify(lupaEstado)); } catch (e) { /* */ } };
+    function imagensDoItem(c) {
+        const f = Object.assign({}, c.fichaSerie, c.ficha), d = (c.video && c.video.dados) || {}, l = c.lista || {};
+        return { capa: f.capa || d.capa || l.capa || c.logo || '', logo: c.logo || f.bannerLogo || d.logo || '', banner: f.banner || d.banner || l.banner || '' };
+    }
+    function lupaEl() {
+        let el = document.getElementById('cz-lupa');
+        if (el) return el;
+        el = document.createElement('div'); el.id = 'cz-lupa'; el.className = 'cz-lupa';
+        el.innerHTML = `<div class="cz-lupa-topo" title="Arraste para mover"><b>🔍 Lupa</b><div class="cz-lupa-modos">${[['capa', 'Capa'], ['logo', 'Logo'], ['banner', 'Banner']].map(([k, t]) => `<button data-lupa-modo="${k}">${t}</button>`).join('')}</div><button class="cz-lupa-x" data-lupa-fechar title="Fechar (U)">✕</button></div>
+          <div class="cz-lupa-img"><img alt="" referrerpolicy="no-referrer"><span class="cz-lupa-sem"></span></div>
+          <div class="cz-lupa-pe"><b class="cz-lupa-nome"></b><small class="cz-lupa-meta"></small></div>`;
+        document.body.appendChild(el);
+        const vw = window.innerWidth, vh = window.innerHeight;
+        if (!lupaEstado.x && !lupaEstado.y) { lupaEstado.x = vw - lupaEstado.w - 24; lupaEstado.y = 150; }
+        Object.assign(el.style, { left: Math.max(0, Math.min(vw - 160, lupaEstado.x)) + 'px', top: Math.max(0, Math.min(vh - 80, lupaEstado.y)) + 'px', width: lupaEstado.w + 'px', height: lupaEstado.h + 'px' });
+        el.addEventListener('click', (e) => {
+            const m = e.target.closest('[data-lupa-modo]'); if (m) { lupaEstado.modo = m.dataset.lupaModo; guardarLupa(); atualizarLupa(lupaItem); }
+            if (e.target.closest('[data-lupa-fechar]')) alternarLupa(false);
+        });
+        const topo = el.querySelector('.cz-lupa-topo');
+        topo.addEventListener('pointerdown', (e) => {
+            if (e.target.closest('button')) return;
+            e.preventDefault();
+            const x0 = e.clientX - el.offsetLeft, y0 = e.clientY - el.offsetTop;
+            const mover = (ev) => { el.style.left = Math.max(0, Math.min(window.innerWidth - 80, ev.clientX - x0)) + 'px'; el.style.top = Math.max(0, Math.min(window.innerHeight - 40, ev.clientY - y0)) + 'px'; };
+            const fim = () => { window.removeEventListener('pointermove', mover); window.removeEventListener('pointerup', fim); lupaEstado.x = el.offsetLeft; lupaEstado.y = el.offsetTop; guardarLupa(); };
+            window.addEventListener('pointermove', mover); window.addEventListener('pointerup', fim);
+        });
+        if (window.ResizeObserver) new ResizeObserver(() => { if (el.offsetWidth > 50) { lupaEstado.w = el.offsetWidth; lupaEstado.h = el.offsetHeight; guardarLupa(); } }).observe(el);
+        return el;
+    }
+    function atualizarLupa(c) {
+        if (c) lupaItem = c;
+        if (!lupaEstado.on) return;
+        const el = lupaEl(), it = lupaItem;
+        el.querySelectorAll('[data-lupa-modo]').forEach(b => b.classList.toggle('on', b.dataset.lupaModo === lupaEstado.modo));
+        const img = el.querySelector('img'), sem = el.querySelector('.cz-lupa-sem');
+        if (!it) { img.hidden = true; sem.textContent = 'Clique num item da lista'; el.querySelector('.cz-lupa-nome').textContent = ''; el.querySelector('.cz-lupa-meta').textContent = ''; return; }
+        const ims = imagensDoItem(it), u = ims[lupaEstado.modo] || '';
+        sem.textContent = u ? '' : `sem ${lupaEstado.modo}`;
+        if (u) { img.hidden = false; if (img.getAttribute('src') !== u) img.src = u; img.onerror = () => { img.hidden = true; sem.textContent = 'a imagem não abriu'; }; } else { img.hidden = true; img.removeAttribute('src'); }
+        const v = it.video || {};
+        el.querySelector('.cz-lupa-nome').textContent = it.natureza === 'episodio' && v.serie ? `${v.serie} · T${v.temporada || 1} E${v.episodio || 1}` : (v.titulo || it.nome);
+        el.querySelector('.cz-lupa-meta').textContent = [v.ano, it.grupo].filter(Boolean).join(' · ');
+    }
+    function alternarLupa(on) {
+        lupaEstado.on = on == null ? !lupaEstado.on : on; guardarLupa();
+        const el = document.getElementById('cz-lupa');
+        if (!lupaEstado.on) { if (el) el.remove(); clearInterval(lupaVigia); lupaVigia = null; }
+        else {
+            if (!lupaItem && E.foco) lupaItem = E.canais.find(x => x.id === E.foco) || null;
+            atualizarLupa();
+            clearInterval(lupaVigia);   // saiu do Link Edit (outra tela do Studio): a lupa some junto
+            lupaVigia = setInterval(() => { if (!raiz || !raiz.isConnected) { const x = document.getElementById('cz-lupa'); if (x) x.remove(); clearInterval(lupaVigia); lupaVigia = null; } }, 1000);
+        }
+        const bt = raiz && raiz.querySelector('#le-lupa'); if (bt) bt.classList.toggle('on', lupaEstado.on);
+    }
     function focar(id, tocarJa = true) {
         E.foco = id;
         const c = E.canais.find(x => x.id === id);
         pintarFicha(c);
+        atualizarLupa(c);
         raiz.querySelectorAll('.le-linha.foco').forEach(el => el.classList.remove('foco'));
         const el = raiz.querySelector(`.le-linha[data-id="${CSS.escape(id)}"]`);
         if (el) el.classList.add('foco');
@@ -2472,6 +2536,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <button class="le-bt" id="le-quarentena" title="Tira da lista principal (pode voltar depois)">Quarentena</button>
                 <button class="le-bt" id="le-guias" title="Liga os marcados (ou visíveis) ao guia de programação, pelo nome — igual ao TVzine">Ligar guias</button>
                 <button class="le-bt" id="le-logos" title="Coloca o logo que falta nos marcados (ou visíveis), pelo banco aberto do iptv-org">Achar logos</button>
+                <button class="le-bt ${lupaEstado.on ? 'on' : ''}" id="le-lupa" title="Lupa da capa: janela flutuante com a capa do item em foco (U)">🔍 Lupa</button>
                 <button class="le-bt" id="le-series" title="Séries em árvore: temporadas, episódios que faltam e repetidos">📂 Séries</button>
                 <button class="le-bt" id="le-nomes" title="Arrumar nomes em lote: procurar/trocar, tirar prefixo de país e [tags]">✎ Nomes</button>
                 <button class="le-bt r" id="le-jogar">➜ Jogar na lista nova</button>
@@ -2895,6 +2960,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         } catch (e) { el.textContent = '⚪ não consegui testar'; }
     }
     function abrirFichaItem(c) {
+        atualizarLupa(c);
         if (!c || !L.ehVideo(c)) return S.aviso('A ficha é para filmes e episódios. Troque o tipo primeiro (Y).', 'ruim');
         const d = (c.video && c.video.dados) || {}, ep = c.natureza === 'episodio' && c.video && c.video.serie;
         const base = { capa: d.capa || c.logo || '', banner: d.banner || '', previa: d.previa || '', descricao: d.descricao || '', generos: d.generos || [], classificacao: d.classificacao || '', bannerLogo: d.logo || '' };
@@ -3152,6 +3218,8 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-cab-todos').onclick = marcarTodos;
         $('#le-logos').onclick = acharLogosQueFaltam;
         $('#le-series').onclick = abrirSeries;
+        $('#le-lupa').onclick = () => alternarLupa();
+        if (lupaEstado.on) alternarLupa(true);
         $('#le-nomes').onclick = abrirNomes;
         $('#le-guias').onclick = () => ligarGuiasAuto();
         $('#le-ajuda').onclick = mostrarAtalhos;
@@ -3227,6 +3295,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 'v' && (c || E.sel.size)) { e.preventDefault(); abrirDadosVideo(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'f' && c && L.ehVideo(c)) { e.preventDefault(); abrirFichaItem(c); }
             else if (!ctrl && k === 'y' && (c || E.sel.size)) { e.preventDefault(); escolherNatureza(E.sel.size > 1 ? null : c); }
+            else if (!ctrl && k === 'u') { e.preventDefault(); alternarLupa(); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
             else if (!ctrl && (k === '-' || k === '_')) { e.preventDefault(); mudarSom({ vol: E.som.vol - 0.1 }); }
