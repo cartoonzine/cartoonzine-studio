@@ -715,3 +715,8 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .le-card small { font-size: 11px; color: #8b95a7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .le-card-rota { color: #67e8f9 !important; } .le-card-rota.misto { color: #fbbf24 !important; }
 .le-cards-mais { grid-column: 1 / -1; justify-self: center; }
+.le-card-tipo { position: absolute; top: 6px; left: 32px; z-index: 2; background: rgba(0,0,0,.72); color: #e5e7eb; border-radius: 999px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+.le-card-grupo { color: #a5b4fc !important; }
+select.le-card-rota { width: 100%; margin-top: 2px; padding: 5px 6px; border-radius: 8px; border: 1px solid #1f2937; background: #0d121b; color: #67e8f9; font: 600 11.5px system-ui, sans-serif; cursor: pointer; }
+select.le-card-rota.misto { color: #fbbf24; border-color: #a16207; }
+.tam-g select.le-card-rota { font-size: 12.5px; padding: 6px 8px; }
