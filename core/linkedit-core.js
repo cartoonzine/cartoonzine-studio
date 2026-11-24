@@ -733,6 +733,8 @@
         if (ehVideo(c)) {
             if (!c.video) detectarVideo(c);
             const v = Object.assign({}, c.video || {});
+            // "Vai para" escolhido à mão (✎ Editar dados): vale como rota deste item no Sidechain
+            if ('colecao' in aj) { if (aj.colecao) c.colecaoManual = aj.colecao; else delete c.colecaoManual; }
             ['titulo', 'serie', 'temporada', 'episodio', 'ano', 'audio', 'qualidade', 'colecao', 'genero'].forEach(k => { if (k in aj) { if (aj[k] === '' || aj[k] == null) delete v[k]; else v[k] = aj[k]; } });
             if (c.natureza === 'filme') { delete v.serie; delete v.temporada; delete v.episodio; }
             c.video = v; c.videoManual = true;
@@ -895,7 +897,9 @@
     /** Resumo dos grupos da lista: [{ grupo, n, nats:{canal,filme,episodio,radio}, rota, sugestao }] (maiores primeiro) */
     function analisarGrupos(canais, e, cols) {
         const m = new Map(), mg = mapaGrupos(e);
-        canais.forEach(c => { const g = grupoDe(c); if (!m.has(g)) m.set(g, { grupo: g, n: 0, nats: {} }); const x = m.get(g); x.n++; const nt = c.natureza || 'canal'; x.nats[nt] = (x.nats[nt] || 0) + 1; });
+        canais.forEach(c => { const g = grupoDe(c); if (!m.has(g)) m.set(g, { grupo: g, n: 0, nats: {}, manual: {}, nManual: 0 }); const x = m.get(g); x.n++;
+            // itens deste grupo com destino escolhido um a um (desvio ou "Vai para"): não seguem a rota do grupo
+            { const dv = e.desvios && e.desvios[chaveSC(c)], k = dv === 'ignorar' ? 'ignorar' : dv && dv.colecao ? dv.colecao : c.colecaoManual || ''; if (k) { x.manual[k] = (x.manual[k] || 0) + 1; x.nManual++; } } const nt = c.natureza || 'canal'; x.nats[nt] = (x.nats[nt] || 0) + 1; });
         return [...m.values()].map(x => Object.assign(x, { rota: mg.get(x.grupo) || null, sugestao: sugerirGrupo(x.grupo, x.nats, cols) })).sort((a, b) => b.n - a.n);
     }
     /** Monta as rotas pelas sugestões (só para grupos sem rota). Cria a rota da coleção se ainda não existe. Devolve quantos grupos ganhou rota. */
@@ -965,6 +969,7 @@
         const d = envio.desvios && envio.desvios[k];
         if (d === 'ignorar') return { destino: 'ignorar', motivo: 'ignorar', novo };
         if (d && d.colecao) return { destino: d, motivo: 'manual', novo };
+        if (c.colecaoManual) return { destino: { colecao: c.colecaoManual }, motivo: 'manual', novo };   // "Vai para" do item (✎ Editar dados)
         const r = (envio.regras || []).concat(envio._globais || []).find(x => x && x.para && x.ativo !== false && passaRegra(c, x));
         if (r) return r.para === 'ignorar' ? { destino: 'ignorar', motivo: 'regra', regra: r, novo } : { destino: r.para, motivo: 'regra', regra: r, novo };
         if (envio.tipoLista === 'mista') {
