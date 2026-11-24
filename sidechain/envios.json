@@ -3618,9 +3618,9 @@
       },
       "rotas": [
         {
-          "id": "rmwtzusfx1",
+          "id": "rmwuu33cj",
           "destino": {
-            "colecao": "cartoons"
+            "colecao": "series"
           },
           "grupos": [
             "Kids"
