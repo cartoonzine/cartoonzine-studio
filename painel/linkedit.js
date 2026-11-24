@@ -534,7 +534,7 @@
             ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
-            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['U', '🔍 lupa da capa (janela flutuante)'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['R', '✔ revisado (Sidechain: marca/desmarca o item ou os marcados)'], ['U', '🔍 lupa da capa (janela flutuante)'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
             ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['Y', 'tipo do item: canal, filme, episódio ou rádio'], ['V', 'dados de vídeo: série, temporada, episódio, ano, áudio, qualidade, coleção'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
@@ -1807,6 +1807,9 @@
         E.sel.clear(); E.foco = null; E.f.busca = ''; SC.filtro = '';
         const b = $('#le-busca'); if (b) b.value = '';
         desenharTudo(); pintarBarraSC();
+        // continua de onde parou: o último item em foco desta lista/grupo
+        try { const k = localStorage.getItem('cz-sc-foco:' + e.id + ':' + (grupo || '')); const alvo = k && E.canais.find(c => L.chaveSC(c) === k); if (alvo) setTimeout(() => { focar(alvo.id, false); const corpo = $('#le-corpo'), idx = E.visiveis.indexOf(alvo); if (corpo && idx >= 0) corpo.scrollTop = Math.max(0, idx * ALTURA_LINHA - 120); }, 50); } catch (x) { /* */ }
+        if (!window._czScAvisoSair) { window._czScAvisoSair = true; window.addEventListener('beforeunload', (ev) => { if (SC.modo && SC.sujo) { ev.preventDefault(); ev.returnValue = ''; } }); }
         S.aviso(grupo ? `Grupo "${grupo}": ${canais.length} itens. Corrija o que precisar e clique em 💾 Salvar grupo.` : `Sidechain: ${canais.length} itens de "${e.nome}". Marque e use "Enviar marcados para…".`, 'ok');
     }
     function sairModoSC(voltarJanela) {
@@ -1822,20 +1825,23 @@
     function rotaSC(c) { return SC.modo ? L.rotaDe(c, SC.modo.envio) : null; }
     function filtroSC(lista) {
         if (!SC.modo || !SC.filtro) return lista;
+        if (SC.filtro === 'revisar' || SC.filtro === 'revisados') { const rv = SC.modo.envio.revisados || {}; return lista.filter(c => SC.filtro === 'revisados' ? !!rv[L.chaveSC(c)] : !rv[L.chaveSC(c)]); }
         return lista.filter(c => { const r = rotaSC(c); return SC.filtro === 'novos' ? r.novo : SC.filtro === 'pendentes' ? r.motivo === 'pendente' : SC.filtro === 'desviados' ? (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') : SC.filtro === 'padrao' ? (r.motivo === 'padrao' || r.motivo === 'rota' || r.motivo === 'sugestao') : true; });
     }
     function tagSC(c) {
         const r = rotaSC(c); if (!r) return '';
         const cls = r.motivo === 'pendente' ? 'pend' : r.motivo === 'ignorar' ? 'ign' : (r.motivo === 'padrao' || r.motivo === 'rota' || r.motivo === 'sugestao') ? 'pad' : 'desv';
         const txt = r.motivo === 'pendente' ? '⏳ esperando' : r.destino === 'ignorar' ? '🚫 ignorado' : '→ ' + L.destinoTexto(r.destino, colsSC()) + (r.motivo === 'regra' ? ' ⚙' : '');
-        return `${r.novo ? '<b class="le-sc-novo">NOVO</b>' : ''}<span class="le-sc-tag ${cls}" title="${r.motivo === 'regra' ? 'Por regra: ' + esc(r.regra.contem) : r.motivo === 'manual' ? 'Desviado por você' : r.motivo === 'padrao' ? 'Destino do envio' : r.motivo === 'rota' ? 'Rota do grupo "' + esc(L.grupoDe(c)) + '"' : r.motivo === 'sugestao' ? 'Sugestão (grupo novo)' : r.grupoNovo ? 'Grupo novo, sem rota: escolha no passo 3' : ''}">${esc(txt)}</span>`;
+        const rv = SC.modo && SC.modo.envio.revisados && SC.modo.envio.revisados[L.chaveSC(c)];
+        return `${rv ? `<b class="le-sc-rv" title="Revisado em ${esc(rv)}">✔</b>` : ''}${r.novo ? '<b class="le-sc-novo">NOVO</b>' : ''}<span class="le-sc-tag ${cls}" title="${r.motivo === 'regra' ? 'Por regra: ' + esc(r.regra.contem) : r.motivo === 'manual' ? 'Desviado por você' : r.motivo === 'padrao' ? 'Destino do envio' : r.motivo === 'rota' ? 'Rota do grupo "' + esc(L.grupoDe(c)) + '"' : r.motivo === 'sugestao' ? 'Sugestão (grupo novo)' : r.grupoNovo ? 'Grupo novo, sem rota: escolha no passo 3' : ''}">${esc(txt)}</span>`;
     }
     function pintarBarraSC() {
         const el = $('#le-sc-barra'); if (!el) return;
         if (!SC.modo) { el.hidden = true; el.innerHTML = ''; return; }
         const e = SC.modo.envio, cols = colsSC();
         const n = { novos: 0, pendentes: 0, desviados: 0 };
-        E.canais.forEach(c => { const r = rotaSC(c); if (r.novo) n.novos++; if (r.motivo === 'pendente') n.pendentes++; if (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') n.desviados++; });
+        n.revisar = 0; const rvs = e.revisados || {};
+        E.canais.forEach(c => { const r = rotaSC(c); if (!rvs[L.chaveSC(c)]) n.revisar++; if (r.novo) n.novos++; if (r.motivo === 'pendente') n.pendentes++; if (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') n.desviados++; });
         const sug = L.sugerirRegras(E.canais, e).slice(0, 3);
         el.hidden = false;
         const gr = SC.modo.grupo;
@@ -1843,7 +1849,10 @@
         const cab = gr ? `grupo <b>${esc(gr)}</b> → <b>${esc(rotaGr ? (rotaGr.destino === 'ignorar' ? 'fica de fora' : L.destinoTexto(rotaGr.destino, cols)) : 'sem rota')}</b>`
             : e.tipoLista === 'mista' ? `<b>lista mista</b> · ${e.rotas.length} rotas por grupo` : `padrão → <b>${esc(L.destinoTexto(e.destino, cols))}</b>`;
         el.innerHTML = `<b>🔀 SIDECHAIN</b><span>${esc(e.nome)} · ${cab}</span>
-          <div class="le-chips">${[['', 'Todos'], ['novos', `🔔 Novos ${n.novos}`], ['pendentes', `⏳ Esperando ${n.pendentes}`], ['desviados', `Desviados ${n.desviados}`], ['padrao', e.tipoLista === 'mista' ? 'Pela rota' : 'No padrão']].map(([k, t]) => `<button class="le-chip ${SC.filtro === k ? 'on' : ''}" data-sc-filtro="${k}">${t}</button>`).join('')}</div>
+          <div class="le-chips">${[['', 'Todos'], ['novos', `🔔 Novos ${n.novos}`], ['pendentes', `⏳ Esperando ${n.pendentes}`], ['desviados', `Desviados ${n.desviados}`], ['padrao', e.tipoLista === 'mista' ? 'Pela rota' : 'No padrão'], ['revisar', `⬜ Falta revisar ${n.revisar}`], ['revisados', `✔ Revisados ${E.canais.length - n.revisar}`]].map(([k, t]) => `<button class="le-chip ${SC.filtro === k ? 'on' : ''}" data-sc-filtro="${k}">${t}</button>`).join('')}</div>
+          <button class="le-bt" id="le-sc-rev" title="Marca os itens marcados (caixinhas) como revisados: fica gravado e aparece ✔ na próxima vez (R)">✔ Revisados</button>
+          <button class="le-bt" id="le-sc-desrev" title="Tira o ✔ dos itens marcados">⬜ Tirar ✔</button>
+          <button class="le-bt" id="le-sc-gravar" title="Grava agora tudo o que você fez (rotas, revisados, ajustes) e continua aqui">💾 Salvar progresso${SC.sujo ? ' ●' : ''}</button>
           <button class="le-bt r" id="le-sc-enviar" title="Manda os marcados para outra coleção (Enter)">Enviar marcados para…</button>
           <button class="le-bt" id="le-sc-btmdb" title="Capa, banner, logo PNG, sinopse… dos marcados (ou de todos, se nada estiver marcado)">🔎 TMDB</button>
           <button class="le-bt" id="le-sc-ignorar">🚫 Ignorar marcados</button>
@@ -1855,6 +1864,8 @@
             if (b.dataset.scFiltro != null) { SC.filtro = b.dataset.scFiltro; desenharTabela(); return pintarBarraSC(); }
             if (b.dataset.scBsug != null) { const sg = sug[+b.dataset.scBsug]; if (sg) { e.regras.push({ campo: sg.campo, contem: sg.contem, para: sg.para }); SC.sujo = true; S.aviso('Regra criada (salve o envio ao concluir).', 'ok'); agendarTabela(); pintarBarraSC(); } return; }
             if (b.id === 'le-sc-ok') return sairModoSC(true);
+            if (b.id === 'le-sc-gravar') { b.disabled = true; b.textContent = 'Salvando…'; return gravarSidechain(`Sidechain: ${e.nome}${gr ? ' · grupo ' + gr : ''} · progresso`).then(() => S.aviso('Progresso salvo ✓ — na próxima sessão continua daqui.', 'ok'), (x) => S.aviso('Não deu para gravar: ' + x.message, 'ruim')).then(pintarBarraSC); }
+            if (b.id === 'le-sc-rev' || b.id === 'le-sc-desrev') { const m = selecionados(); if (!m.length) return S.aviso('Marque os itens primeiro (caixinha, ou ☑ marcar todos os visíveis).', 'ruim'); marcarRevisados(m, b.id === 'le-sc-rev'); return; }
             if (b.id === 'le-sc-btmdb') { const m = selecionados(); return abrirCompletarTMDB(m.length ? m : E.canais); }
             if (b.id === 'le-sc-ok-grupo') {
                 (e.gruposRevisados = e.gruposRevisados || {})[gr] = new Date().toISOString();
@@ -1879,9 +1890,19 @@
         ligarDestino(j);
         j.querySelector('#le-dv-ok').onclick = () => { const d = lerDestino(j, 'dv'); if (!d) return S.aviso('Escolha a coleção.', 'ruim'); fecharJanela(); desviarSC(marcados, d); };
     }
+    /** ✔ revisado: fica gravado no envio (por item) — o ponto de referência para continuar na próxima sessão */
+    function marcarRevisados(lista, sim) {
+        const e = SC.modo && SC.modo.envio; if (!e) return;
+        const rv = e.revisados = e.revisados || {}, hoje = new Date().toISOString().slice(0, 10);
+        lista.forEach(c => { const k = L.chaveSC(c); if (sim) rv[k] = hoje; else delete rv[k]; });
+        SC.sujo = true; E.sel.clear();
+        S.aviso(`${lista.length} ${sim ? 'marcado(s) como ✔ revisado' : 'sem ✔'}. Use 💾 Salvar progresso para guardar.`, 'ok');
+        desenharTabela(); pintarBarraSC();
+    }
     function desviarSC(marcados, d) {
         const e = SC.modo.envio;
-        marcados.forEach(c => { const k = L.chaveSC(c); if (d == null) delete e.desvios[k]; else e.desvios[k] = d; });
+        const hoje = new Date().toISOString().slice(0, 10); e.revisados = e.revisados || {};
+        marcados.forEach(c => { const k = L.chaveSC(c); if (d == null) delete e.desvios[k]; else { e.desvios[k] = d; e.revisados[k] = hoje; } });
         SC.sujo = true; E.sel.clear();
         S.aviso(d == null ? `${marcados.length} voltaram ao destino do envio.` : `${marcados.length} → ${L.destinoTexto(d, colsSC())}. Clique em ✓ Concluir e depois em 💾 Salvar.`, 'ok');
         desenharTabela(); pintarBarraSC();
@@ -2316,6 +2337,7 @@
     }
     function focar(id, tocarJa = true) {
         E.foco = id;
+        if (SC.modo) { try { const c0 = E.canais.find(x => x.id === id); if (c0) localStorage.setItem('cz-sc-foco:' + SC.modo.envio.id + ':' + (SC.modo.grupo || ''), L.chaveSC(c0)); } catch (x) { /* */ } }   // volta aqui na próxima sessão
         const c = E.canais.find(x => x.id === id);
         pintarFicha(c);
         atualizarLupa(c);
@@ -2813,7 +2835,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         lembrar();
         lista.forEach(c => {
             L.ajustarVideo(c, aj);
-            if (SC.modo) { const k = L.chaveSC(c), e = SC.modo.envio; e.ajustes = e.ajustes || {}; e.ajustes[k] = Object.assign({}, e.ajustes[k], aj); SC.sujo = true; }
+            if (SC.modo) { const k = L.chaveSC(c), e = SC.modo.envio; e.ajustes = e.ajustes || {}; e.ajustes[k] = Object.assign({}, e.ajustes[k], aj); SC.sujo = true; if (aj.colecao) (e.revisados = e.revisados || {})[k] = new Date().toISOString().slice(0, 10); }
         });
         salvar(); agendarTabela(); pintarFicha(E.canais.find(x => x.id === E.foco));
         if (SC.modo) pintarBarraSC();
@@ -3416,6 +3438,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 'f' && c && L.ehVideo(c)) { e.preventDefault(); abrirFichaItem(c); }
             else if (!ctrl && k === 'y' && (c || E.sel.size)) { e.preventDefault(); escolherNatureza(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'u') { e.preventDefault(); alternarLupa(); }
+            else if (!ctrl && k === 'r' && SC.modo && (c || E.sel.size)) { e.preventDefault(); const l = E.sel.size ? selecionados() : [c]; const rv = SC.modo.envio.revisados || {}; marcarRevisados(l, !l.every(x => rv[L.chaveSC(x)])); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
             else if (!ctrl && (k === '-' || k === '_')) { e.preventDefault(); mudarSom({ vol: E.som.vol - 0.1 }); }
