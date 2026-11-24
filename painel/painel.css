@@ -692,3 +692,26 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .cz-tab td small.dica { display: block; margin-top: 2px; }
 .le-sc-man { display: block; font-size: 11px; color: #fbbf24; margin-top: 2px; }
 .le-sc-rv { display: inline-block; margin-right: 4px; color: #4ade80; font-size: 12px; }
+/* 🗂 Link Edit: vista agrupada em cards */
+.le-vistas { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid #1f2937; border-radius: 999px; }
+.le-vistas button { border: 0; background: transparent; color: #9ca3af; font: 600 12px system-ui, sans-serif; padding: 6px 10px; border-radius: 999px; cursor: pointer; }
+.le-vistas button.on { background: #22d3ee; color: #00141a; }
+.le-cards { flex: 1; overflow: auto; display: grid; gap: 12px; padding: 12px; align-content: start; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+.le-cards[hidden] { display: none; }
+.le-cards.tam-g { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.le-card { display: flex; flex-direction: column; gap: 4px; cursor: pointer; min-width: 0; user-select: none; }
+.le-card-capa { position: relative; aspect-ratio: 2/3; border-radius: 10px; overflow: hidden; background: #111827; border: 2px solid #1f2937; display: grid; place-items: center; font-size: 28px; color: #4b5563; transition: border-color .12s, transform .12s; }
+.le-card-capa img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.le-card:hover .le-card-capa { transform: translateY(-2px); border-color: #374151; }
+.le-card.on .le-card-capa { border-color: #22d3ee; box-shadow: 0 0 0 2px rgba(34,211,238,.35); }
+.le-card.meio .le-card-capa { border-color: #0e7490; }
+.le-card.foco .le-card-nome { color: #22d3ee; }
+.le-card-caixa { position: absolute; top: 6px; left: 6px; z-index: 2; width: 20px; height: 20px; border-radius: 6px; background: rgba(0,0,0,.6); border: 1.5px solid #9ca3af; color: #00141a; font: 800 13px/17px system-ui; text-align: center; }
+.le-card.on .le-card-caixa, .le-card.meio .le-card-caixa { background: #22d3ee; border-color: #22d3ee; }
+.le-card-rv { position: absolute; top: 6px; right: 6px; z-index: 2; background: rgba(0,0,0,.65); color: #4ade80; border-radius: 6px; padding: 0 5px; font-size: 13px; }
+.le-card-eps { position: absolute; bottom: 6px; right: 6px; z-index: 2; background: rgba(0,0,0,.72); color: #fff; border-radius: 999px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+.le-card-nome { font-size: 12.5px; color: #f3f4f6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tam-g .le-card-nome { font-size: 13.5px; }
+.le-card small { font-size: 11px; color: #8b95a7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.le-card-rota { color: #67e8f9 !important; } .le-card-rota.misto { color: #fbbf24 !important; }
+.le-cards-mais { grid-column: 1 / -1; justify-self: center; }

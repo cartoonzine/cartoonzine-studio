@@ -2678,6 +2678,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
                 <button class="le-bt" id="le-quarentena" title="Tira da lista principal (pode voltar depois)">Quarentena</button>
                 <button class="le-bt" id="le-guias" title="Liga os marcados (ou visíveis) ao guia de programação, pelo nome — igual ao TVzine">Ligar guias</button>
                 <button class="le-bt" id="le-logos" title="Coloca o logo que falta nos marcados (ou visíveis), pelo banco aberto do iptv-org">Achar logos</button>
+                <span class="le-vistas" title="Vista: lista ou cards agrupados (as séries viram um card só; clique marca todos os episódios)"><button data-vista="lista">☰ Lista</button><button data-vista="m">🗂 Cards</button><button data-vista="g">🗂 Cards grandes</button></span>
                 <button class="le-bt ${lupaEstado.on ? 'on' : ''}" id="le-lupa" title="Lupa da capa: janela flutuante com a capa do item em foco (U)">🔍 Lupa</button>
                 <button class="le-bt" id="le-series" title="Séries em árvore: temporadas, episódios que faltam e repetidos">📂 Séries</button>
                 <button class="le-bt" id="le-nomes" title="Arrumar nomes em lote: procurar/trocar, tirar prefixo de país e [tags]">✎ Nomes</button>
@@ -2688,6 +2689,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               <div class="le-scan" id="le-scan-barra" hidden></div>
               <div class="le-cab" role="row"><button class="le-caixa" id="le-cab-todos" title="Marcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span title="Guia de programação (EPG)">Guia</span><span>Status</span><span>Abre em</span></div>
               <div id="le-corpo" role="table" aria-label="Canais"><div id="le-alto" style="position:relative"></div></div>
+              <div id="le-cards" class="le-cards" hidden></div>
               <div class="le-rodape" id="le-rodape"></div>
             </main>
             <aside class="le-dir" aria-label="Visualizador e lista nova">
@@ -2757,11 +2759,65 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     }
     let pedidoTabela = 0;
     function agendarTabela() { if (pedidoTabela) return; pedidoTabela = requestAnimationFrame(() => { pedidoTabela = 0; desenharTabela(); }); }
+
+    // ---------- 🗂 VISTA AGRUPADA: as séries viram um card só (clique = marca todos os episódios), filmes um card cada ----------
+    const GUARDA_VISTA = 'cz-le-vista';
+    const vista = (() => { try { return Object.assign({ modo: 'lista', tam: 'm' }, JSON.parse(localStorage.getItem(GUARDA_VISTA) || '{}')); } catch (x) { return { modo: 'lista', tam: 'm' }; } })();
+    const guardarVista = () => { try { localStorage.setItem(GUARDA_VISTA, JSON.stringify(vista)); } catch (x) { /* */ } };
+    let cardsVisiveis = [], cardsMostrar = 300;
+    function gruposVista(lista) {
+        const m = new Map(), out = [];
+        for (const c of lista) {
+            const ks = L.ehVideo(c) ? L.chaveSerie(c) : '';
+            if (!ks) { out.push({ k: 'i:' + c.id, itens: [c], nome: (c.video && c.video.titulo) || c.nome }); continue; }
+            let g = m.get(ks); if (!g) { g = { k: 's:' + ks, itens: [], nome: c.video.serie, serie: true }; m.set(ks, g); out.push(g); }
+            g.itens.push(c);
+        }
+        return out;
+    }
+    function desenharCards() {
+        const box = $('#le-cards'); if (!box) return;
+        cardsVisiveis = gruposVista(E.visiveis);
+        const rv = (SC.modo && SC.modo.envio.revisados) || {};
+        const card = (g, i) => {
+            const c = g.itens[0], img = (c.video && c.video.dados && c.video.dados.capa) || c.logo;
+            const nSel = g.itens.filter(x => E.sel.has(x.id)).length, todos = nSel === g.itens.length;
+            const tRev = g.itens.every(x => rv[L.chaveSC(x)]);
+            const rotas = SC.modo ? [...new Set(g.itens.map(x => { const r = rotaSC(x); return r.destino === 'ignorar' ? '🚫 fora' : r.destino ? L.destinoTexto(r.destino, colsSC()) : '⏳ esperando'; }))] : [];
+            const temps = g.serie ? [...new Set(g.itens.map(x => x.video && x.video.temporada || 1))].length : 0;
+            return `<div class="le-card${todos ? ' on' : nSel ? ' meio' : ''}${g.itens.some(x => x.id === E.foco) ? ' foco' : ''}" data-card="${i}" title="Clique: marca/desmarca ${g.serie ? 'todos os ' + g.itens.length + ' episódios' : 'o item'} · Duplo clique: ficha">
+              <div class="le-card-capa">${ehImagem(img) ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : `<span>${g.serie ? '🎞' : '🎬'}</span>`}
+                <span class="le-card-caixa">${todos ? '✓' : nSel ? '–' : ''}</span>${tRev ? '<b class="le-card-rv" title="Todos revisados">✔</b>' : ''}
+                ${g.serie ? `<span class="le-card-eps">${g.itens.length} ep.${temps > 1 ? ' · ' + temps + ' temp.' : ''}</span>` : ''}</div>
+              <b class="le-card-nome">${esc(g.nome)}</b>
+              ${rotas.length ? `<small class="le-card-rota${rotas.length > 1 ? ' misto' : ''}">${esc(rotas.length > 1 ? 'misto: ' + rotas.join(' · ') : '→ ' + rotas[0])}</small>` : `<small>${esc((c.video && c.video.ano) || c.grupo || '')}</small>`}
+            </div>`;
+        };
+        box.className = 'le-cards tam-' + vista.tam;
+        box.innerHTML = cardsVisiveis.slice(0, cardsMostrar).map(card).join('') + (cardsVisiveis.length > cardsMostrar ? `<button class="le-bt le-cards-mais" data-cards-mais>Mostrar mais (${cardsVisiveis.length - cardsMostrar})</button>` : '') || '<p class="le-dica" style="padding:20px">Nada aqui.</p>';
+    }
+    function aplicarVista() {
+        const lista = vista.modo === 'cards', corpo = $('#le-corpo'), box = $('#le-cards'), cab = raiz.querySelector('.le-cab');
+        if (corpo) corpo.hidden = lista; if (box) box.hidden = !lista; if (cab) cab.style.visibility = lista ? 'hidden' : '';
+        raiz.querySelectorAll('[data-vista]').forEach(b => b.classList.toggle('on', b.dataset.vista === (lista ? vista.tam : 'lista')));
+        if (lista) desenharCards();
+    }
+    function cliqueCards(ev) {
+        if (ev.target.closest('[data-cards-mais]')) { cardsMostrar += 300; return desenharCards(); }
+        const el = ev.target.closest('[data-card]'); if (!el) return;
+        const g = cardsVisiveis[+el.dataset.card]; if (!g) return;
+        const todos = g.itens.every(x => E.sel.has(x.id));
+        g.itens.forEach(x => { if (todos) E.sel.delete(x.id); else E.sel.add(x.id); });
+        E.foco = g.itens[0].id; pintarFicha(g.itens[0]); atualizarLupa(g.itens[0]);
+        desenharCards(); if (SC.modo) pintarBarraSC();
+        const r = $('#le-rodape'); if (r) { const sel = r.querySelector('.le-cards-sel') || r.appendChild(Object.assign(document.createElement('span'), { className: 'le-cards-sel' })); sel.innerHTML = `<b>${E.sel.size}</b> marcados`; }
+    }
     function desenharTabela() {
         const corpo = $('#le-corpo'), alto = $('#le-alto'); if (!corpo || !alto) return;
         E.visiveis = filtrados();
         alto.style.height = E.visiveis.length * ALTURA_LINHA + 'px';
         pintarJanela();
+        if (vista.modo === 'cards') desenharCards();
         const ct = $('#le-cab-todos');
         if (ct) {
             const n = E.visiveis.filter(c => E.sel.has(c.id)).length;
@@ -3361,6 +3417,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-logos').onclick = acharLogosQueFaltam;
         $('#le-series').onclick = abrirSeries;
         $('#le-lupa').onclick = () => alternarLupa();
+        raiz.querySelectorAll('[data-vista]').forEach(b => b.onclick = () => { if (b.dataset.vista === 'lista') vista.modo = 'lista'; else { vista.modo = 'cards'; vista.tam = b.dataset.vista; } cardsMostrar = 300; guardarVista(); aplicarVista(); });
+        $('#le-cards').addEventListener('click', cliqueCards);
+        $('#le-cards').addEventListener('dblclick', (ev) => { const el = ev.target.closest('[data-card]'); const g = el && cardsVisiveis[+el.dataset.card]; if (g && L.ehVideo(g.itens[0])) abrirFichaItem(g.itens[0]); });
+        aplicarVista();
         if (lupaEstado.on) alternarLupa(true);
         $('#le-nomes').onclick = abrirNomes;
         $('#le-guias').onclick = () => ligarGuiasAuto();
