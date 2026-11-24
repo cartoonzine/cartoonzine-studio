@@ -4308,8 +4308,1686 @@
       "pularStudio": true,
       "desvios": {},
       "regras": [],
-      "ajustes": {},
-      "gruposRevisados": {},
+      "ajustes": {
+        "n:des encanto s01e01|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e02|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e03|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e04|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e05|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e06|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e07|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e08|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e09|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e10|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e11|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e12|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e13|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e14|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e15|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e16|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e17|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e18|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e19|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s01e20|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e01|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e02|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e03|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e04|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e05|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e06|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e07|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e08|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e09|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s02e10|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e01|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e02|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e03|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e04|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e05|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e06|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e07|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e08|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e09|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s03e10|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e01|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e02|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e03|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e05|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e06|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e07|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e08|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e09|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s04e10|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e01|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e02|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e03|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e04|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e05|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e06|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e07|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e08|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e09|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:des encanto s05e10|": {
+          "serie": "(Des)encanto",
+          "ano": 2018,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e01|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e02|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e03|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e04|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e05|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e06|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e07|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e08|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e09|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e10|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s01e11|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e01|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e02|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e03|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e04|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e05|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e06|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e07|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e08|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e09|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s02e10|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e01|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e02|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e03|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e04|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e05|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e06|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e07|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e08|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e09|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:4 contra o apocalipse s03e10|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a chave do futuro|": {
+          "titulo": "A Chave do Futuro",
+          "ano": 1988,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Drama"
+        },
+        "n:a concierge pokemon s01e01|": {
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a concierge pokemon s01e02|": {
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a concierge pokemon s01e03|": {
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a concierge pokemon s01e04|": {
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a corrida dos 100 metros 2025|": {
+          "titulo": "A Corrida dos 100 Metros",
+          "ano": 2025,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a heroina da fita 2026|": {
+          "titulo": "A Heroína da Fita",
+          "ano": 2026,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e01|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e02|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e03|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e04|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e05|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e06|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e07|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a ilha da caveira s01e08|": {
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a lenda do demonio|": {
+          "audio": "dublado",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:a lenda do dragao milenar|": {
+          "audio": "dublado",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:a mansao foster para amigos imaginarios s01e01|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e02|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e03|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e04|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e05|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e06|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e07|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e08|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e09|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e10|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e11|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e12|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s01e13|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e01|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e02|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e03|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e04|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e05|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e06|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e07|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e08|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e09|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e10|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e11|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e12|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s02e13|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e01|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e02|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e03|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e04|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e05|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e06|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e07|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e08|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e09|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e10|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e11|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e12|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e13|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s03e14|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e01|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e02|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e03|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e04|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e05|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e06|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e07|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e08|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e09|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e10|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e11|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e12|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s04e13|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e01|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e02|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e03|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e04|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e05|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e06|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e07|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e08|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e09|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e10|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e11|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e12|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s05e13|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e01|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e02|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e03|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e04|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e05|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e06|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e07|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e08|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e09|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a mansao foster para amigos imaginarios s06e10|": {
+          "serie": "A Mansão Foster para Amigos Imaginários",
+          "ano": 2004,
+          "audio": "dublado",
+          "colecao": "cartoons"
+        },
+        "n:a melhor familia feliz dos eua s01e01|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a melhor familia feliz dos eua s01e02|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a melhor familia feliz dos eua s01e03|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a melhor familia feliz dos eua s01e04|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a melhor familia feliz dos eua s01e05|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a melhor familia feliz dos eua s01e06|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a melhor familia feliz dos eua s01e07|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a melhor familia feliz dos eua s01e08|": {
+          "serie": "A MELHOR FAMÍLIA FELIZ DOS EUA",
+          "temporada": 1,
+          "ano": 2025,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:a nossa guerra dos 7 dias|": {
+          "colecao": "series"
+        },
+        "n:a princesa e o piloto|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s01e01|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s01e02|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s01e03|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s01e04|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s01e05|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s01e06|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s02e01|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s02e02|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s02e03|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s02e04|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s02e05|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s02e06|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s02e07|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s03e01|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s03e02|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s03e03|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s03e04|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s03e05|": {
+          "colecao": "series"
+        },
+        "n:a saga wingfeather s03e06|": {
+          "colecao": "series"
+        },
+        "n:a tia e top s01e01|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e02|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e03|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e04|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e05|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e06|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e07|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e08|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e09|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e10|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e11|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e12|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e13|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e14|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e15|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a tia e top s01e16|": {
+          "serie": "A Tia é Top",
+          "temporada": 1,
+          "ano": 2021,
+          "audio": "dublado",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e01|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e02|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e03|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e04|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e05|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e06|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e07|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e08|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e09|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e10|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e11|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e12|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s01e13|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 1,
+          "ano": 1983,
+          "audio": "dublado",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:a viagem de chihiro 2001|": {
+          "audio": "dublado",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:a voz do silencio 2016|": {
+          "audio": "dublado",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:abominavel e a cidade escondida s01e01|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e02|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e03|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e04|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e05|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e06|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e07|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e08|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e09|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s01e10|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e01|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e02|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e03|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e04|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e05|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e06|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e07|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e08|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e09|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:abominavel e a cidade escondida s02e10|": {
+          "serie": "Abominável e a Cidade Escondida",
+          "ano": 2022,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e01|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e02|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e03|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e04|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e05|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e06|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e07|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s01e08|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s02e01|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s02e02|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s02e03|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:academia unicornio segredos revelados s02e04|": {
+          "serie": "Academia Unicórnio: Segredos Revelados",
+          "ano": 2026,
+          "audio": "dublado",
+          "colecao": "series"
+        },
+        "n:accel world infinite burst|": {
+          "titulo": "Accel World: Infinite Burst",
+          "ano": 2016,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        }
+      },
+      "gruposRevisados": {
+        "Animes": "2026-11-24T02:53:02.931Z"
+      },
       "fichasSerie": {},
       "criadoEm": "2026-11-24T01:43:00.783Z"
     }
