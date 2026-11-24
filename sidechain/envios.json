@@ -5585,10 +5585,20 @@
           "colecao": "series"
         },
         "n:a nossa guerra dos 7 dias|": {
-          "colecao": "series"
+          "colecao": "filmes",
+          "titulo": "A Nossa Guerra dos 7 Dias",
+          "ano": 2019,
+          "audio": "dual",
+          "qualidade": "",
+          "genero": "Animação"
         },
         "n:a princesa e o piloto|": {
-          "colecao": "series"
+          "colecao": "filmes",
+          "titulo": "A Princesa e o Piloto",
+          "ano": 2011,
+          "audio": "dual",
+          "qualidade": "",
+          "genero": "Aventura"
         },
         "n:a saga wingfeather s01e01|": {
           "colecao": "series"
@@ -6380,10 +6390,2624 @@
             "tmdb": "movie/118301",
             "nota": 7.6
           }
+        },
+        "n:des encanto s04e04|": {
+          "serie": "(Des)encanto",
+          "titulo": "(Des)encanto S04E04",
+          "temporada": 4,
+          "episodio": 4,
+          "ano": 2018,
+          "audio": "dual",
+          "qualidade": "",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s02e01|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 2,
+          "ano": 1983,
+          "audio": "dual",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s02e02|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 2,
+          "ano": 1983,
+          "audio": "dual",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s02e03|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 2,
+          "ano": 1983,
+          "audio": "dual",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s02e04|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 2,
+          "ano": 1983,
+          "audio": "dual",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:a turma do charlie brown e snoopy s02e05|": {
+          "serie": "A Turma do Charlie Brown e Snoopy",
+          "temporada": 2,
+          "ano": 1983,
+          "audio": "dual",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:agente p disfarcado s01e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:agente p disfarcado s01e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:agente p disfarcado s01e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:agente p disfarcado s01e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:agente p disfarcado s01e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:agente p disfarcado s01e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:agente p disfarcado s01e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:agente p disfarcado s01e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:alem do ceu|": {
+          "titulo": "Além do Céu",
+          "ano": 2020,
+          "audio": "dual",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:akira 1988|": {
+          "titulo": "Akira",
+          "ano": 1988,
+          "audio": "dual",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:altered carbon nova capa 2020|": {
+          "titulo": "Altered Carbon: Nova Capa",
+          "ano": 2020,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:american dad s01e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s01e23|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s02e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s03e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s04e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s05e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s06e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s07e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s08e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s09e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s10e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s11e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s12e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s13e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s14e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s15e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s16e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e23|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s17e24|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s18e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s19e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s20e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e03|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e04|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e05|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e06|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e07|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e08|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e09|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e10|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e11|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e12|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e13|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e14|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e15|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e16|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e17|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e18|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e19|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e20|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e21|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s21e22|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s22e01|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:american dad s22e02|": {
+          "audio": "dual",
+          "colecao": "series"
+        },
+        "n:among us s01e01|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e02|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e03|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e04|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e05|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e06|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e07|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e08|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e09|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:among us s01e10|": {
+          "serie": "Among Us",
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:amor destinado|": {
+          "titulo": "AMOR DESTINADO",
+          "ano": 1989,
+          "audio": "legendado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:ancien e o mundo magico|": {
+          "titulo": "Ancien e o Mundo Mágico",
+          "ano": 2017,
+          "audio": "dual",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Fantasia"
+        },
+        "n:animatrix|": {
+          "titulo": "Animatrix",
+          "ano": 2003,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:ano hana o filme|": {
+          "titulo": "Ano Hana: O Filme",
+          "ano": 2013,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "filmes",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e01|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e02|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e03|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e04|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e05|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e06|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e07|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e08|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e09|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e10|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e11|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e12|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e13|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e14|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e15|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e16|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:apenas um show as fitas perdidas s01e17|": {
+          "temporada": 1,
+          "ano": 2026,
+          "audio": "dual",
+          "colecao": "cartoons",
+          "genero": "Animação"
+        },
+        "n:appleseed ex machina|": {
+          "titulo": "Appleseed Ex Machina",
+          "ano": 2007,
+          "audio": "dublado",
+          "qualidade": "",
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e11|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e12|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e13|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e14|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e15|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e16|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e17|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s01e18|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e11|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e12|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e13|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e14|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e15|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e16|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e17|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e18|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e19|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e20|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e21|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e22|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e23|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s02e24|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e11|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e12|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s03e13|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e11|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e12|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s04e13|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s05e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s06e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e11|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s07e12|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s08e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s09e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s10e10|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e05|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e06|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e07|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e08|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s11e09|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s12e01|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s12e02|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s12e03|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s12e04|": {
+          "colecao": "series",
+          "genero": "Animação"
+        },
+        "n:aqua teen esquadrao forca total s12e05|": {
+          "colecao": "series",
+          "genero": "Animação"
         }
       },
       "gruposRevisados": {
-        "Animes": "2026-11-24T02:53:02.931Z"
+        "Animes": "2026-11-24T04:43:36.967Z"
       },
       "fichasSerie": {
         "a mansao foster para amigos imaginarios": {
