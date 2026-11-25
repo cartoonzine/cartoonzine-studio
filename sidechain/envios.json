@@ -13576,6 +13576,29 @@
             "tmdb": "movie/31170",
             "nota": 5.3
           }
+        },
+        "n:a pequena locomotiva|": {
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 88,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         }
       },
       "gruposRevisados": {
@@ -13624,15 +13647,80 @@
         },
         "44 gatos": {
           "fundoImagem": "banner",
-          "posFundo": 46,
+          "posFundo": 34,
           "bannerOk": true,
           "tmdb": "tv/89387"
         },
         "2 cachorros bobos": {
           "fundoImagem": "banner",
-          "posFundo": 23,
+          "posFundo": 18,
           "bannerOk": true,
           "tmdb": "tv/1916"
+        },
+        "a sombra do batman": {
+          "fundoImagem": "banner",
+          "posFundo": 27,
+          "bannerOk": true
+        },
+        "a corrida maluca": {
+          "fundoImagem": "banner",
+          "posFundo": 18,
+          "bannerOk": true
+        },
+        "a escola de susto do gasparzinho": {
+          "fundoImagem": "banner",
+          "posFundo": 100,
+          "bannerOk": true
+        },
+        "a nova escola do imperador": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
+        },
+        "a pedra dos sonhos": {
+          "fundoImagem": "banner",
+          "posFundo": 34,
+          "bannerOk": true
+        },
+        "a pequena espia": {
+          "fundoImagem": "banner",
+          "posFundo": 28,
+          "bannerOk": true
+        },
+        "a rocha encantada": {
+          "fundoImagem": "banner",
+          "posFundo": 36,
+          "bannerOk": true
+        },
+        "a rocha encantada de volta a caverna": {
+          "fundoImagem": "banner",
+          "posFundo": 25,
+          "bannerOk": true
+        },
+        "a surda absurda": {
+          "fundoImagem": "banner",
+          "posFundo": 40,
+          "bannerOk": true
+        },
+        "a turma do pateta": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
+        },
+        "a turma do ze colmeia": {
+          "fundoImagem": "banner",
+          "posFundo": 72,
+          "bannerOk": true
+        },
+        "a vaca e o frango": {
+          "fundoImagem": "banner",
+          "posFundo": 100,
+          "bannerOk": true
+        },
+        "a irma do meio": {
+          "fundoImagem": "banner",
+          "posFundo": 0,
+          "bannerOk": true
         }
       },
       "criadoEm": "2026-11-24T01:05:48.749Z",
