@@ -75,6 +75,34 @@
       "tmdb": "movie/10020",
       "capa": "https://image.tmdb.org/t/p/original/A4B9rtXMLruzATIzIZETryVq9xm.jpg",
       "banner": "https://image.tmdb.org/t/p/original/fW4ZCoEZRBqLAJGFQ2g5AdAfPQR.jpg"
+    },
+    "http://dbonline.tech-cdn.top:80/movie/ke-vin-0928392083/PZjF6XATTZ/33361.mp4": {
+      "em": "2026-11-25",
+      "soDados": true,
+      "tmdb": "movie/321612",
+      "ano": 2017,
+      "titulo": "A Bela e a Fera",
+      "capa": "https://image.tmdb.org/t/p/original/1PQgoDrWgh9GCr8jTdrLl3CtJpP.jpg",
+      "banner": "https://image.tmdb.org/t/p/original/km9oNn58WnCiSPcl0w82mg3ILRz.jpg",
+      "principal": true
+    },
+    "http://dbonline.tech-cdn.top:80/movie/ke-vin-0928392083/PZjF6XATTZ/33369.mp4": {
+      "em": "2026-11-25",
+      "soDados": true,
+      "tmdb": "movie/321612",
+      "ano": 2017,
+      "titulo": "A Bela e a Fera",
+      "capa": "https://image.tmdb.org/t/p/original/1PQgoDrWgh9GCr8jTdrLl3CtJpP.jpg",
+      "banner": "https://image.tmdb.org/t/p/original/km9oNn58WnCiSPcl0w82mg3ILRz.jpg"
+    },
+    "https://nixplay.lat/movie/saimo-vods/221097/321612.mp4": {
+      "em": "2026-11-25",
+      "soDados": true,
+      "tmdb": "movie/321612",
+      "ano": 2017,
+      "titulo": "A Bela e a Fera",
+      "capa": "https://image.tmdb.org/t/p/original/1PQgoDrWgh9GCr8jTdrLl3CtJpP.jpg",
+      "banner": "https://image.tmdb.org/t/p/original/km9oNn58WnCiSPcl0w82mg3ILRz.jpg"
     }
   },
   "conferidos": {
@@ -92,7 +120,8 @@
     "f|n:red aposentados e perigosos|": "2026-11-23",
     "f|n:000 especies de abelhas|": "2026-11-23",
     "f|n:007 cassino royale 2006|": "2026-11-23",
-    "f|v:100 escovadas antes de dormir|": "2026-11-24"
+    "f|v:100 escovadas antes de dormir|": "2026-11-24",
+    "f|v:a bela e a fera|#t:movie/321612": "2026-11-25"
   },
   "envios": [
     {
