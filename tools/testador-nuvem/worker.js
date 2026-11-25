@@ -94,12 +94,43 @@ async function testar(url, modo, ua0, ref) {
         motivo: ua === UA_VLC ? 'só abre com o User-Agent de player (VLC)' : undefined });
 }
 
+/**
+ * 📺 Túnel do visualizador (Studio online): /tunel?u=<link>&ua=&ref=&t=<senha>
+ * Repassa o vídeo em https com CORS (o navegador não toca http:// dentro de uma página https://),
+ * com Range (para adiantar) e reescrevendo listas HLS para os pedaços também passarem pelo túnel.
+ */
+async function tunel(req, u, env) {
+    const alvo = permitida(u.searchParams.get('u') || '');
+    if (!alvo) return new Response('link inválido ou endereço interno', { status: 403, headers: CORS });
+    const ua = u.searchParams.get('ua') || UA, ref = u.searchParams.get('ref') || '';
+    const via = (x) => `${u.origin}/tunel?u=${encodeURIComponent(x)}${u.searchParams.get('ua') ? '&ua=' + encodeURIComponent(ua) : ''}${ref ? '&ref=' + encodeURIComponent(ref) : ''}${env.TOKEN ? '&t=' + encodeURIComponent(env.TOKEN) : ''}`;
+    const headers = { 'User-Agent': ua, Accept: '*/*' };
+    if (ref) { headers.Referer = ref; try { headers.Origin = new URL(ref).origin; } catch (e) { /* */ } }
+    const faixa = req.headers.get('range'); if (faixa) headers.Range = faixa;
+    let r;
+    try { r = await fetch(alvo.href, { redirect: 'follow', headers }); } catch (e) { return new Response('não abriu: ' + e.message, { status: 502, headers: CORS }); }
+    const tipo = r.headers.get('content-type') || '';
+    if (r.ok && (/mpegurl|m3u/i.test(tipo) || /\.m3u8?(\?|$)/i.test(alvo.pathname))) {
+        const txt = await r.text();
+        if (/^\s*#EXTM3U/.test(txt)) {
+            const base = r.url || alvo.href, abs = (x) => { try { return new URL(x, base).href; } catch (e) { return x; } };
+            const novo = txt.split(/\r?\n/).map(l => { const t = l.trim(); if (!t) return l; if (t[0] === '#') return l.replace(/URI="([^"]+)"/g, (m, x) => `URI="${via(abs(x))}"`); return via(abs(t)); }).join('\n');
+            return new Response(novo, { status: 200, headers: Object.assign({ 'Content-Type': 'application/vnd.apple.mpegurl' }, CORS) });
+        }
+        return new Response(txt, { status: r.status, headers: Object.assign({ 'Content-Type': tipo || 'text/plain' }, CORS) });
+    }
+    const h = Object.assign({}, CORS);
+    for (const k of ['content-type', 'content-length', 'content-range', 'accept-ranges']) { const v = r.headers.get(k); if (v) h[k] = v; }
+    return new Response(r.body, { status: r.status, headers: h });
+}
+
 export default {
     async fetch(req, env) {
         if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
         const u = new URL(req.url);
         if (env.TOKEN && u.searchParams.get('t') !== env.TOKEN) return json({ erro: 'token errado' }, 401);
         const alvo = u.searchParams.get('url') || '';
+        if (u.pathname === '/tunel') return tunel(req, u, env);
         if (u.pathname === '/testar') return json(await testar(alvo, u.searchParams.get('modo') || 'rapido', u.searchParams.get('ua') || '', u.searchParams.get('ref') || ''));
         if (u.pathname === '/lista') {
             if (!permitida(alvo)) return json({ erro: 'link inválido ou endereço interno' }, 400);
@@ -107,6 +138,6 @@ export default {
             if (!r.ok) return json({ erro: r.erro || 'HTTP ' + r.status }, 502);
             return json({ texto: texto(r.buf), final: r.final });
         }
-        return json({ ok: true, servico: 'Testador do Link Edit (Cartoonzine Studio)' });
+        return json({ ok: true, servico: 'Testador do Link Edit (Cartoonzine Studio)', tunel: true });
     }
 };

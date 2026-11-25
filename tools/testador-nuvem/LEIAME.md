@@ -13,6 +13,8 @@ Roda de graça no Cloudflare Workers (100 mil pedidos por dia no plano grátis).
 
 Pronto: o Scan, o ⚡ Testar e o "Abrir link" usam a nuvem quando você não está no painel do PC.
 
+**📺 Túnel do visualizador:** com o worker atualizado (cole de novo o `worker.js` desta pasta → Deploy), a prévia do Link Edit, o 🧬 Conferir e a ▶ Ficha tocam pelo worker no Studio online — em `https`, com permissão liberada e o Referer/User-Agent do canal. Assim toca quase tudo o que toca na barra de endereço (inclusive links `http://`). Só o que o navegador não decodifica (alguns MKV com áudio AC3, HEVC) continua só no app.
+
 ## Bom saber
 - O Cloudflare fica fora do Brasil: canal que só abre no Brasil aparece como **bloqueado** (não morto) — igual ao robô.
 - No painel do PC o teste continua sendo pelo seu computador (mais fiel para canais brasileiros).

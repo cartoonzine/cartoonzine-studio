@@ -433,12 +433,22 @@
         const v = $('#le-video');
         if (v) { try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* */ } }
     }
+    /** o worker da nuvem tem o túnel? (versão nova do worker.js) — pergunta uma vez */
+    const tunelNuvem = { ok: null };
+    function checarTunelNuvem() {
+        if (tunelNuvem.ok != null || tunelNuvem.pedindo || !nuvem()) return;
+        tunelNuvem.pedindo = true;
+        fetch(urlNuvem('/', new URLSearchParams())).then(r => r.json()).then(j => { tunelNuvem.ok = !!(j && j.tunel); }, () => { tunelNuvem.ok = false; }).finally(() => { tunelNuvem.pedindo = false; });
+    }
     function viaTunel(c, url) {
-        if (!local()) return url;
         const p = new URLSearchParams({ u: url });
-        if (c.headers && c.headers['User-Agent']) p.set('ua', c.headers['User-Agent']);
-        if (c.headers && c.headers.Referer) p.set('ref', c.headers.Referer);
-        return '/api/linkedit/tunel?' + p;
+        if (c && c.headers && c.headers['User-Agent']) p.set('ua', c.headers['User-Agent']);
+        if (c && c.headers && c.headers.Referer) p.set('ref', c.headers.Referer);
+        if (local()) return '/api/linkedit/tunel?' + p;
+        // Studio online: pelo ☁️ Testador na nuvem (worker com /tunel), se configurado — toca http:// e servidores sem permissão
+        if (nuvem() && tunelNuvem.ok && /^https?:/i.test(url) && !url.startsWith(location.origin)) return urlNuvem('/tunel', p);
+        if (nuvem() && tunelNuvem.ok == null) checarTunelNuvem();
+        return url;
     }
     async function tocar(c) {
         pararVideo();
@@ -2640,6 +2650,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     function desenhar(area, ferramentas) {
         S = ferramentas;
         css();
+        if (!local()) setTimeout(checarTunelNuvem, 0);   // ☁️ worker com túnel? (para a prévia tocar http:// no Studio online)
         const cfg = S.config && S.config();
         if (cfg && cfg.categoriasCanais) L.usarCategorias(cfg.categoriasCanais);   // a lista oficial é a do Studio (TVzine)
         if (!E.listas.length && !E.canais.length) carregar();
