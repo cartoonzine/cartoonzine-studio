@@ -534,7 +534,7 @@
             ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
-            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['R', '✔ revisado (Sidechain: marca/desmarca o item ou os marcados)'], ['U', '🔍 lupa da capa (janela flutuante)'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['R', '✔ revisado (Sidechain: marca/desmarca o item ou os marcados)'], ['🗂 Cards: ← → ↑ ↓', 'anda de card em card (Shift marca o caminho) · Espaço/X marca a série inteira · Shift+clique marca o trecho · botão direito: menu · sem nada marcado, as letras agem no card em foco inteiro'], ['U', '🔍 lupa da capa (janela flutuante)'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
             ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['Y', 'tipo do item: canal, filme, episódio ou rádio'], ['V', 'dados de vídeo: série, temporada, episódio, ano, áudio, qualidade, coleção'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
@@ -2816,15 +2816,45 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         raiz.querySelectorAll('[data-vista]').forEach(b => b.classList.toggle('on', b.dataset.vista === (lista ? vista.tam : 'lista')));
         if (lista) desenharCards();
     }
+    const primeiroDoCard = (g) => { const ord = (x) => ((x.video && x.video.temporada) || 1) * 100000 + ((x.video && x.video.episodio) || 0); return g.itens.reduce((a, b) => ord(b) < ord(a) ? b : a, g.itens[0]); };
+    const cardDoFoco = () => cardsVisiveis.findIndex(g => g.itens.some(x => x.id === E.foco));
+    function focarCard(i, tocarJa = true) {
+        const g = cardsVisiveis[i]; if (!g) return;
+        if (i >= cardsMostrar) cardsMostrar = i + 60;
+        const prim = primeiroDoCard(g);
+        E.foco = prim.id; pintarFicha(prim); atualizarLupa(prim); if (tocarJa) tocar(prim);
+        desenharCards();
+        const el = raiz.querySelector(`[data-card="${i}"]`); if (el) el.scrollIntoView({ block: 'nearest' });
+    }
+    function alternarCard(g, marcar) { const todos = g.itens.every(x => E.sel.has(x.id)); const sim = marcar != null ? marcar : !todos; g.itens.forEach(x => { if (sim) E.sel.add(x.id); else E.sel.delete(x.id); }); }
+    /** quantos cards cabem numa linha (para ↑ ↓ andarem uma linha) */
+    function colunasCards() { const els = raiz.querySelectorAll('[data-card]'); if (els.length < 2) return 1; const t = els[0].offsetTop; let n = 0; for (const el of els) { if (el.offsetTop !== t) break; n++; } return Math.max(1, n); }
+    /** teclado na vista em cards: setas andam de card em card, Espaço/X marca a série inteira, Shift+seta marca o caminho */
+    function teclaCards(e) {
+        if (vista.modo !== 'cards' || !cardsVisiveis.length) return false;
+        const k = e.key, i = Math.max(0, cardDoFoco()), col = colunasCards();
+        const passo = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: col, ArrowUp: -col, PageDown: col * 4, PageUp: -col * 4, Home: -1e9, End: 1e9 }[k];
+        if (passo != null) {
+            e.preventDefault();
+            const j = Math.max(0, Math.min(cardsVisiveis.length - 1, i + passo));
+            if (e.shiftKey) { const [a, b] = i < j ? [i, j] : [j, i]; for (let x = a; x <= b; x++) alternarCard(cardsVisiveis[x], true); }
+            focarCard(j); if (SC.modo) pintarBarraSC(); return true;
+        }
+        if ((k === ' ' || (k.toLowerCase() === 'x' && !e.ctrlKey && !e.metaKey)) && cardDoFoco() >= 0) { e.preventDefault(); alternarCard(cardsVisiveis[i]); desenharCards(); if (SC.modo) pintarBarraSC(); return true; }
+        // as outras teclas (V, F, R, Y, T, Del…) agem nos marcados; sem nada marcado, no card em foco inteiro (todos os episódios)
+        if (!E.sel.size && cardDoFoco() >= 0 && /^[a-z]$/i.test(k) && !e.ctrlKey && !e.metaKey && !'mu'.includes(k.toLowerCase())) { alternarCard(cardsVisiveis[i], true); desenharCards(); }
+        if (k === 'Delete' && !E.sel.size && cardDoFoco() >= 0) alternarCard(cardsVisiveis[i], true);
+        return false;
+    }
     function cliqueCards(ev) {
         if (ev.target.closest('[data-cards-mais]')) { cardsMostrar += 300; return desenharCards(); }
         if (ev.target.closest('[data-cards-todos]')) { marcarTodos(); if (SC.modo) pintarBarraSC(); return; }
         if (ev.target.closest('[data-cards-limpar]')) { E.sel.clear(); desenharTabela(); if (SC.modo) pintarBarraSC(); return; }
         if (ev.target.closest('select')) return;            // trocar a rota no card não marca/desmarca
         const el = ev.target.closest('[data-card]'); if (!el) return;
-        const g = cardsVisiveis[+el.dataset.card]; if (!g) return;
-        const todos = g.itens.every(x => E.sel.has(x.id));
-        g.itens.forEach(x => { if (todos) E.sel.delete(x.id); else E.sel.add(x.id); });
+        const idx = +el.dataset.card, g = cardsVisiveis[idx]; if (!g) return;
+        if (ev.shiftKey && cardDoFoco() >= 0) { const i0 = cardDoFoco(), [a, b] = i0 < idx ? [i0, idx] : [idx, i0]; for (let x = a; x <= b; x++) alternarCard(cardsVisiveis[x], true); }   // Shift+clique: marca o trecho
+        else alternarCard(g);
         // série: o 1º episódio (menor temporada/episódio) vai para a tela de prévia; filme: ele mesmo
         const ord = (x) => ((x.video && x.video.temporada) || 1) * 100000 + ((x.video && x.video.episodio) || 0);
         const prim = g.itens.reduce((a, b) => ord(b) < ord(a) ? b : a, g.itens[0]);
@@ -3439,6 +3469,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-lupa').onclick = () => alternarLupa();
         raiz.querySelectorAll('[data-vista]').forEach(b => b.onclick = () => { if (b.dataset.vista === 'lista') vista.modo = 'lista'; else { vista.modo = 'cards'; vista.tam = b.dataset.vista; } cardsMostrar = 300; guardarVista(); aplicarVista(); });
         $('#le-cards').addEventListener('click', cliqueCards);
+        $('#le-cards').addEventListener('contextmenu', (ev) => { const el = ev.target.closest('[data-card]'); if (!el) return; ev.preventDefault(); const g = cardsVisiveis[+el.dataset.card]; if (!g) return; if (!g.itens.every(x => E.sel.has(x.id))) { E.sel.clear(); alternarCard(g, true); } E.foco = primeiroDoCard(g).id; desenharCards(); abrirMenu(ev.clientX, ev.clientY, null); });
         $('#le-cards').addEventListener('change', (ev) => {
             const sel = ev.target.closest('[data-card-rota]'); if (!sel) return;
             const g0 = cardsVisiveis[+sel.dataset.cardRota], v = sel.value; if (!g0 || !v) return;
@@ -3495,12 +3526,14 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             if (raiz.querySelector('.le-menu')) { if (e.key === 'Escape') { e.preventDefault(); fecharMenu(); } return; }
             if (e.key === 'ContextMenu' || (e.key === 'F10' && e.shiftKey)) {
                 e.preventDefault();
+                if (vista.modo === 'cards' && !E.sel.size && cardDoFoco() >= 0) { alternarCard(cardsVisiveis[cardDoFoco()], true); desenharCards(); }
                 const alvo = E.sel.size ? null : E.foco;
-                const l = raiz.querySelector(`.le-linha[data-id="${CSS.escape(alvo || [...E.sel][0] || '')}"]`) || raiz.querySelector('#le-corpo');
+                const l = (vista.modo === 'cards' && raiz.querySelector('.le-card.foco')) || raiz.querySelector(`.le-linha[data-id="${CSS.escape(alvo || [...E.sel][0] || '')}"]`) || raiz.querySelector('#le-corpo');
                 const r = l.getBoundingClientRect();
                 return abrirMenu(r.left + 160, r.top + 20, alvo);
             }
             if (/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) { if (e.key === 'Escape') e.target.blur(); return; }
+            if (teclaCards(e)) return;
             const c = E.canais.find(x => x.id === E.foco);
             const ctrl = e.ctrlKey || e.metaKey, k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
             if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && e.shiftKey) {
