@@ -442,6 +442,7 @@
     }
     async function tocar(c) {
         pararVideo();
+        { const a = $('#le-abrir-nav'); if (a && c && /^https?:/i.test(c.url || '')) { a.href = c.url; a.hidden = false; } else if (a) a.hidden = true; }
         const v = $('#le-video'), msg = $('#le-tela-msg');
         if (!v || !c) return;
         const meu = player.token;
@@ -2696,6 +2697,9 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               <div style="padding:14px 16px">
                 <div class="le-tela"><video id="le-video" muted playsinline></video><div id="le-tela-msg">PRÉVIA</div></div>
                 <div class="le-som"><button class="le-bt" id="le-mudo" aria-label="Som da prévia">🔇</button><input type="range" id="le-vol" min="0" max="1" step="0.05" aria-label="Volume da prévia"><span id="le-vol-n" class="le-mono"></span></div>
+                <div class="le-prog" id="le-prog" hidden><button class="le-bt" id="le-play" aria-label="Tocar / pausar">⏸</button><span class="le-mono" id="le-t">0:00</span><input type="range" id="le-busca-t" min="0" max="1000" value="0" aria-label="Posição do vídeo"><span class="le-mono" id="le-dur">0:00</span>
+                  <button class="le-bt" data-pular="-10" title="Voltar 10 s">−10s</button><button class="le-bt" data-pular="10" title="Avançar 10 s">+10s</button><button class="le-bt" data-pular="85" title="Pular a abertura (+1:25)">⏭ intro</button></div>
+                <a class="le-bt le-abrir-nav" id="le-abrir-nav" target="_blank" rel="noopener noreferrer" hidden title="Abre o vídeo numa aba nova do navegador (toca quase tudo)">↗ Abrir no navegador</a>
                 <div id="le-ficha"></div>
                 <div class="le-nav">
                   <button class="le-bt" id="le-ant">◀ Anterior</button>
@@ -2808,8 +2812,11 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         const barra = `<div class="le-cards-barra"><button class="le-caixa ${nMarc && nMarc === nVis ? 'on' : nMarc ? 'meio' : ''}" data-cards-todos title="Marcar / desmarcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button>
           <span>${nMarc ? `<b>${numSC(cardsMarc)}</b> card(s) marcado(s) · <b>${numSC(nMarc)}</b> itens` : `Marcar todos os <b>${numSC(cardsVisiveis.length)}</b> cards visíveis`}</span>
           ${nMarc ? '<button class="le-bt" data-cards-limpar>Desmarcar</button><small class="le-dica">Trocar a rota num card marcado leva <b>todos os marcados</b> juntos.</small>' : '<small class="le-dica">Marque vários cards e troque a rota em qualquer um deles: todos vão juntos (com todos os episódios).</small>'}</div>`;
+        const rolou = box.scrollTop;   // redesenhar não pode mexer na rolagem (o card clicado ficava descendo)
         box.innerHTML = barra + cardsVisiveis.slice(0, cardsMostrar).map(card).join('') + (cardsVisiveis.length > cardsMostrar ? `<button class="le-bt le-cards-mais" data-cards-mais>Mostrar mais (${cardsVisiveis.length - cardsMostrar})</button>` : '') || '<p class="le-dica" style="padding:20px">Nada aqui.</p>';
+        manterRolagem(box, rolou);
     }
+    const manterRolagem = (box, y) => { box.scrollTop = y; requestAnimationFrame(() => { box.scrollTop = y; }); };
     function aplicarVista() {
         const lista = vista.modo === 'cards', corpo = $('#le-corpo'), box = $('#le-cards'), cab = raiz.querySelector('.le-cab');
         if (corpo) corpo.hidden = lista; if (box) box.hidden = !lista; if (cab) cab.style.visibility = lista ? 'hidden' : '';
@@ -3467,6 +3474,16 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         $('#le-logos').onclick = acharLogosQueFaltam;
         $('#le-series').onclick = abrirSeries;
         $('#le-lupa').onclick = () => alternarLupa();
+        { // ⏯ barra de progresso da prévia (adiantar a abertura etc.) + ↗ abrir no navegador
+            const v = $('#le-video'), barra = $('#le-busca-t'), fmt = (t) => !isFinite(t) ? '—' : Math.floor(t / 3600) ? `${Math.floor(t / 3600)}:${String(Math.floor(t / 60) % 60).padStart(2, '0')}:${String(Math.floor(t % 60)).padStart(2, '0')}` : `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+            let arrastando = false;
+            const pintar = () => { const d = v.duration; $('#le-prog').hidden = !(v.currentSrc || v.src) ; $('#le-t').textContent = fmt(v.currentTime); $('#le-dur').textContent = isFinite(d) ? fmt(d) : 'ao vivo'; barra.disabled = !isFinite(d); if (!arrastando && isFinite(d) && d > 0) barra.value = Math.round(v.currentTime / d * 1000); $('#le-play').textContent = v.paused ? '▶' : '⏸'; };
+            ['timeupdate', 'loadedmetadata', 'play', 'pause', 'emptied', 'durationchange'].forEach(ev => v.addEventListener(ev, pintar));
+            barra.addEventListener('input', () => { arrastando = true; if (isFinite(v.duration)) $('#le-t').textContent = fmt(barra.value / 1000 * v.duration); });
+            barra.addEventListener('change', () => { arrastando = false; if (isFinite(v.duration)) v.currentTime = barra.value / 1000 * v.duration; });
+            $('#le-play').onclick = () => { if (v.paused) v.play().catch(() => {}); else v.pause(); };
+            raiz.querySelectorAll('[data-pular]').forEach(b => b.onclick = () => { if (isFinite(v.duration)) v.currentTime = Math.max(0, Math.min(v.duration - 1, v.currentTime + (+b.dataset.pular))); });
+        }
         raiz.querySelectorAll('[data-vista]').forEach(b => b.onclick = () => { if (b.dataset.vista === 'lista') vista.modo = 'lista'; else { vista.modo = 'cards'; vista.tam = b.dataset.vista; } cardsMostrar = 300; guardarVista(); aplicarVista(); });
         $('#le-cards').addEventListener('click', cliqueCards);
         $('#le-cards').addEventListener('contextmenu', (ev) => { const el = ev.target.closest('[data-card]'); if (!el) return; ev.preventDefault(); const g = cardsVisiveis[+el.dataset.card]; if (!g) return; if (!g.itens.every(x => E.sel.has(x.id))) { E.sel.clear(); alternarCard(g, true); } E.foco = primeiroDoCard(g).id; desenharCards(); abrirMenu(ev.clientX, ev.clientY, null); });
