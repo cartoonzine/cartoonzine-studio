@@ -3646,7 +3646,584 @@
       "tmdbModo": "falta",
       "tmdbFundo": true,
       "pularStudio": true,
-      "desvios": {},
+      "desvios": {
+        "n:a corrida maluca s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e12|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e13|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e14|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e15|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e16|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e17|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e18|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e19|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e20|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e21|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e22|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e23|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e24|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e25|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e26|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e27|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e28|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e29|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e30|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e31|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e32|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e33|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e34|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e35|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e36|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e37|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e38|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e39|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s01e40|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e09|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e10|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e11|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e12|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e13|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e14|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e15|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e16|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e17|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e18|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e19|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e20|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e21|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e22|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e23|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e24|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e25|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e26|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e27|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e28|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e29|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e30|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e31|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e32|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e33|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e34|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e35|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e36|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e37|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida maluca s02e38|": {
+          "colecao": "cartoons"
+        },
+        "n:a era do gelo 2002|": {
+          "colecao": "filmes"
+        },
+        "n:a elefanta do magico 2023|": {
+          "colecao": "filmes"
+        },
+        "n:a era do gelo 2 2006|": {
+          "colecao": "filmes"
+        },
+        "n:a era do gelo 3 2009|": {
+          "colecao": "filmes"
+        },
+        "n:a era do gelo 4 2012|": {
+          "colecao": "filmes"
+        },
+        "n:a era do gelo a grande cacada aos ovos de pascoa|": {
+          "colecao": "filmes"
+        },
+        "n:a escola de susto do gasparzinho|": {
+          "colecao": "filmes"
+        },
+        "n:a escola de susto do gasparzinho s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e12|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e13|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e14|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e15|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e16|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e17|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e18|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e19|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e20|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e21|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e22|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e23|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e24|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e25|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e26|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e27|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e28|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e29|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e30|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e31|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e32|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e33|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e34|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e35|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e36|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e37|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e38|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e39|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e40|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e41|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e42|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e43|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e44|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e45|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e46|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e47|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e48|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e49|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e50|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e51|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s01e52|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e09|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e10|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e11|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e12|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e13|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e14|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e15|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e16|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e17|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e18|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e19|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e20|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e21|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e22|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e23|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e24|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e25|": {
+          "colecao": "cartoons"
+        },
+        "n:a escola de susto do gasparzinho s02e26|": {
+          "colecao": "cartoons"
+        },
+        "n:a espada era a lei 1963|": {
+          "colecao": "filmes"
+        },
+        "n:a espada magica a lenda de camelot 1998|": {
+          "colecao": "filmes"
+        },
+        "n:a estranha vida de timothy green 2012|": {
+          "colecao": "filmes"
+        },
+        "n:a estrela de belem 2017|": {
+          "colecao": "filmes"
+        },
+        "n:a estrelinha magica|": {
+          "colecao": "filmes"
+        },
+        "n:a extraordinaria garota chamada estrela|": {
+          "colecao": "filmes"
+        },
+        "n:a fabulosa gilly hopkins|": {
+          "colecao": "filmes"
+        },
+        "n:a fada do dente 2022|": {
+          "colecao": "filmes"
+        },
+        "n:a familia addams 2 pe na estrada 2021|": {
+          "colecao": "filmes"
+        },
+        "n:a familia buscape 1993|": {
+          "colecao": "filmes"
+        },
+        "n:a familia do futuro 2007|": {
+          "colecao": "filmes"
+        },
+        "n:a familia mitchell e a revolta das maquinas 2021|": {
+          "colecao": "filmes"
+        },
+        "n:a familia noel|": {
+          "colecao": "filmes"
+        },
+        "n:a familia radical o filme|": {
+          "colecao": "filmes"
+        },
+        "n:a fantastica fabrica de chocolate 2005|": {
+          "colecao": "filmes"
+        },
+        "n:a felicidade nao se compra 1946|": {
+          "colecao": "filmes"
+        },
+        "n:a fera|": {
+          "colecao": "filmes"
+        },
+        "n:a fera 2018|": {
+          "colecao": "filmes"
+        },
+        "n:a fera 2022|": {
+          "colecao": "filmes"
+        },
+        "n:a fera do mar 2022|": {
+          "colecao": "filmes"
+        },
+        "n:a festa do garfield|": {
+          "colecao": "filmes"
+        },
+        "n:a fita cassete 2021|": {
+          "colecao": "filmes"
+        },
+        "n:a forja o poder da transformacao|": {
+          "colecao": "filmes"
+        },
+        "n:a fuga das galinhas 2000|": {
+          "colecao": "filmes"
+        },
+        "n:a fuga das galinhas a ameaca dos nuggets 2023|": {
+          "colecao": "filmes"
+        },
+        "n:a fuga do planeta terra 2013|": {
+          "colecao": "filmes"
+        },
+        "n:a galinha turuleca 2020|": {
+          "colecao": "filmes"
+        },
+        "n:a garota invisivel 2020|": {
+          "colecao": "filmes"
+        },
+        "n:a grande aventura de blue na cidade 2022|": {
+          "colecao": "filmes"
+        }
+      },
       "regras": [],
       "ajustes": {
         "n:100 lobo 2020|": {
@@ -11039,7 +11616,7 @@
         }
       },
       "gruposRevisados": {
-        "Kids": "2026-11-24T16:01:29.064Z"
+        "Kids": "2026-11-25T04:40:16.680Z"
       },
       "fichasSerie": {
         "7 chances para": {
@@ -11096,7 +11673,201 @@
         }
       },
       "criadoEm": "2026-11-24T01:05:48.749Z",
-      "tmdbPedidoEm": "2026-11-24T01:08:02.188Z"
+      "tmdbPedidoEm": "2026-11-24T01:08:02.188Z",
+      "revisados": {
+        "n:a corrida maluca s01e01|": "2026-11-25",
+        "n:a corrida maluca s01e02|": "2026-11-25",
+        "n:a corrida maluca s01e03|": "2026-11-25",
+        "n:a corrida maluca s01e04|": "2026-11-25",
+        "n:a corrida maluca s01e05|": "2026-11-25",
+        "n:a corrida maluca s01e06|": "2026-11-25",
+        "n:a corrida maluca s01e07|": "2026-11-25",
+        "n:a corrida maluca s01e08|": "2026-11-25",
+        "n:a corrida maluca s01e09|": "2026-11-25",
+        "n:a corrida maluca s01e10|": "2026-11-25",
+        "n:a corrida maluca s01e11|": "2026-11-25",
+        "n:a corrida maluca s01e12|": "2026-11-25",
+        "n:a corrida maluca s01e13|": "2026-11-25",
+        "n:a corrida maluca s01e14|": "2026-11-25",
+        "n:a corrida maluca s01e15|": "2026-11-25",
+        "n:a corrida maluca s01e16|": "2026-11-25",
+        "n:a corrida maluca s01e17|": "2026-11-25",
+        "n:a corrida maluca s01e18|": "2026-11-25",
+        "n:a corrida maluca s01e19|": "2026-11-25",
+        "n:a corrida maluca s01e20|": "2026-11-25",
+        "n:a corrida maluca s01e21|": "2026-11-25",
+        "n:a corrida maluca s01e22|": "2026-11-25",
+        "n:a corrida maluca s01e23|": "2026-11-25",
+        "n:a corrida maluca s01e24|": "2026-11-25",
+        "n:a corrida maluca s01e25|": "2026-11-25",
+        "n:a corrida maluca s01e26|": "2026-11-25",
+        "n:a corrida maluca s01e27|": "2026-11-25",
+        "n:a corrida maluca s01e28|": "2026-11-25",
+        "n:a corrida maluca s01e29|": "2026-11-25",
+        "n:a corrida maluca s01e30|": "2026-11-25",
+        "n:a corrida maluca s01e31|": "2026-11-25",
+        "n:a corrida maluca s01e32|": "2026-11-25",
+        "n:a corrida maluca s01e33|": "2026-11-25",
+        "n:a corrida maluca s01e34|": "2026-11-25",
+        "n:a corrida maluca s01e35|": "2026-11-25",
+        "n:a corrida maluca s01e36|": "2026-11-25",
+        "n:a corrida maluca s01e37|": "2026-11-25",
+        "n:a corrida maluca s01e38|": "2026-11-25",
+        "n:a corrida maluca s01e39|": "2026-11-25",
+        "n:a corrida maluca s01e40|": "2026-11-25",
+        "n:a corrida maluca s02e01|": "2026-11-25",
+        "n:a corrida maluca s02e02|": "2026-11-25",
+        "n:a corrida maluca s02e03|": "2026-11-25",
+        "n:a corrida maluca s02e04|": "2026-11-25",
+        "n:a corrida maluca s02e05|": "2026-11-25",
+        "n:a corrida maluca s02e06|": "2026-11-25",
+        "n:a corrida maluca s02e07|": "2026-11-25",
+        "n:a corrida maluca s02e08|": "2026-11-25",
+        "n:a corrida maluca s02e09|": "2026-11-25",
+        "n:a corrida maluca s02e10|": "2026-11-25",
+        "n:a corrida maluca s02e11|": "2026-11-25",
+        "n:a corrida maluca s02e12|": "2026-11-25",
+        "n:a corrida maluca s02e13|": "2026-11-25",
+        "n:a corrida maluca s02e14|": "2026-11-25",
+        "n:a corrida maluca s02e15|": "2026-11-25",
+        "n:a corrida maluca s02e16|": "2026-11-25",
+        "n:a corrida maluca s02e17|": "2026-11-25",
+        "n:a corrida maluca s02e18|": "2026-11-25",
+        "n:a corrida maluca s02e19|": "2026-11-25",
+        "n:a corrida maluca s02e20|": "2026-11-25",
+        "n:a corrida maluca s02e21|": "2026-11-25",
+        "n:a corrida maluca s02e22|": "2026-11-25",
+        "n:a corrida maluca s02e23|": "2026-11-25",
+        "n:a corrida maluca s02e24|": "2026-11-25",
+        "n:a corrida maluca s02e25|": "2026-11-25",
+        "n:a corrida maluca s02e26|": "2026-11-25",
+        "n:a corrida maluca s02e27|": "2026-11-25",
+        "n:a corrida maluca s02e28|": "2026-11-25",
+        "n:a corrida maluca s02e29|": "2026-11-25",
+        "n:a corrida maluca s02e30|": "2026-11-25",
+        "n:a corrida maluca s02e31|": "2026-11-25",
+        "n:a corrida maluca s02e32|": "2026-11-25",
+        "n:a corrida maluca s02e33|": "2026-11-25",
+        "n:a corrida maluca s02e34|": "2026-11-25",
+        "n:a corrida maluca s02e35|": "2026-11-25",
+        "n:a corrida maluca s02e36|": "2026-11-25",
+        "n:a corrida maluca s02e37|": "2026-11-25",
+        "n:a corrida maluca s02e38|": "2026-11-25",
+        "n:a era do gelo 2002|": "2026-11-25",
+        "n:a elefanta do magico 2023|": "2026-11-25",
+        "n:a era do gelo 2 2006|": "2026-11-25",
+        "n:a era do gelo 3 2009|": "2026-11-25",
+        "n:a era do gelo 4 2012|": "2026-11-25",
+        "n:a era do gelo a grande cacada aos ovos de pascoa|": "2026-11-25",
+        "n:a escola de susto do gasparzinho|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e01|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e02|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e03|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e04|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e05|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e06|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e07|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e08|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e09|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e10|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e11|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e12|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e13|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e14|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e15|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e16|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e17|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e18|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e19|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e20|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e21|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e22|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e23|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e24|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e25|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e26|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e27|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e28|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e29|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e30|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e31|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e32|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e33|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e34|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e35|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e36|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e37|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e38|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e39|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e40|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e41|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e42|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e43|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e44|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e45|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e46|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e47|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e48|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e49|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e50|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e51|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s01e52|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e01|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e02|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e03|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e04|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e05|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e06|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e07|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e08|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e09|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e10|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e11|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e12|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e13|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e14|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e15|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e16|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e17|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e18|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e19|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e20|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e21|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e22|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e23|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e24|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e25|": "2026-11-25",
+        "n:a escola de susto do gasparzinho s02e26|": "2026-11-25",
+        "n:a espada era a lei 1963|": "2026-11-25",
+        "n:a espada magica a lenda de camelot 1998|": "2026-11-25",
+        "n:a estranha vida de timothy green 2012|": "2026-11-25",
+        "n:a estrela de belem 2017|": "2026-11-25",
+        "n:a estrelinha magica|": "2026-11-25",
+        "n:a extraordinaria garota chamada estrela|": "2026-11-25",
+        "n:a fabulosa gilly hopkins|": "2026-11-25",
+        "n:a fada do dente 2022|": "2026-11-25",
+        "n:a familia addams 2 pe na estrada 2021|": "2026-11-25",
+        "n:a familia buscape 1993|": "2026-11-25",
+        "n:a familia do futuro 2007|": "2026-11-25",
+        "n:a familia mitchell e a revolta das maquinas 2021|": "2026-11-25",
+        "n:a familia noel|": "2026-11-25",
+        "n:a familia radical o filme|": "2026-11-25",
+        "n:a fantastica fabrica de chocolate 2005|": "2026-11-25",
+        "n:a felicidade nao se compra 1946|": "2026-11-25",
+        "n:a fera|": "2026-11-25",
+        "n:a fera 2018|": "2026-11-25",
+        "n:a fera 2022|": "2026-11-25",
+        "n:a fera do mar 2022|": "2026-11-25",
+        "n:a festa do garfield|": "2026-11-25",
+        "n:a fita cassete 2021|": "2026-11-25",
+        "n:a forja o poder da transformacao|": "2026-11-25",
+        "n:a fuga das galinhas 2000|": "2026-11-25",
+        "n:a fuga das galinhas a ameaca dos nuggets 2023|": "2026-11-25",
+        "n:a fuga do planeta terra 2013|": "2026-11-25",
+        "n:a galinha turuleca 2020|": "2026-11-25",
+        "n:a garota invisivel 2020|": "2026-11-25",
+        "n:a grande aventura de blue na cidade 2022|": "2026-11-25"
+      }
     },
     {
       "id": "saimo-animes",
