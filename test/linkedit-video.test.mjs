@@ -247,3 +247,16 @@ test('✂ Separar por tipo: filmes e episódios por regra; o que foi escolhido �
     const g = L.analisarGrupos(cs.map(c => L.aplicarAjustesEnvio(c, e)), e, config.colecoes)[0];
     assert.equal(g.nRegra, 2); assert.equal(g.nManual, 1);
 });
+
+test('✂ 4 "A Bela e a Fera" separadas: as com o mesmo TMDB (ou mesmo título+ano) se juntam sozinhas', () => {
+    const config = { colecoes: [{ id: 'filmes', nome: 'Filmes', tipo: 'video', fonteCloud: { nome: 'F', tipo: 'vod_json' } }] };
+    const ler = (u) => L.lerLista('#EXTM3U\n#EXTINF:-1,A Bela e a Fera\n' + u + '\n', 'x').canais[0];
+    const cs = ['http://a/1.mp4', 'http://a/2.mp4', 'http://b/3.mp4', 'http://b/4.mp4', 'http://c/5.mp4', 'http://c/6.mp4'].map(ler);
+    const sep = { 'http://a/1.mp4': { tmdb: 'movie/321612' }, 'http://b/3.mp4': { tmdb: 'movie/321612' },
+        'http://a/2.mp4': { tmdb: 'movie/10020' }, 'http://b/4.mp4': { tmdb: 'movie/10020' },
+        'http://c/5.mp4': { ano: 1946, titulo: 'A Bela e a Fera' }, 'http://c/6.mp4': { ano: 1946 } };
+    const e = Object.assign(L.envioPadrao({ id: 'x', nome: 'X', destino: { colecao: 'filmes' } }), { _sep: sep });
+    const j = JSON.parse(L.gerarJSON(L.montarSidechain([{ envio: e, canais: cs }], config).saidas[0].itens));
+    assert.equal(j.length, 3);                                  // Disney 2017 · Disney 1991 · francês 1946
+    assert.ok(j.every(x => (x.mirrors || []).length === 1));
+});
