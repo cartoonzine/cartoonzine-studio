@@ -145,7 +145,8 @@
                 pais: String(pega(o, 'country', 'pais', 'tvgCountry')).trim(),
                 idioma: String(pega(o, 'language', 'idioma', 'lang', 'tvgLanguage')).trim(),
                 headers: Object.assign({}, o.headers || {}, o.userAgent || o.user_agent ? { 'User-Agent': o.userAgent || o.user_agent } : {}, o.referer || o.referrer ? { Referer: o.referer || o.referrer } : {}),
-                lista: dadosDaLista(o) || undefined
+                lista: dadosDaLista(o) || undefined,
+                generosLista: (() => { const g = o.genre || o.genres || o.generos; return g ? [].concat(g).map(String).filter(Boolean) : undefined; })()   // 🎭 gênero que a lista trouxe (só para filtrar)
             });
             const ult = canais[canais.length - 1];
             if (!ult.lista) delete ult.lista;
@@ -1357,6 +1358,12 @@
     // Filtrar
     // ------------------------------------------------------------------
     /** f = { busca, idiomas:Set, tipos:Set, paises:Set, status:Set, semLogo, duplicados, soVivos } */
+    /** gêneros do item: os que a lista trouxe + os do TMDB (para filtrar "só Animação" etc.) */
+    function generosDe(c) {
+        const v = c.video || {}, d = v.dados || {}, l = c.lista || {};
+        const out = [].concat(l.generos || [], c.generosLista || [], d.generos || [], v.genero ? [v.genero] : []).map(x => String(x).trim()).filter(Boolean);
+        const vistos = new Set(); return out.filter(x => { const k = norm(x); if (vistos.has(k)) return false; vistos.add(k); return true; });
+    }
     function filtrar(canais, f = {}, contagemChave) {
         const busca = norm(f.busca || '');
         const partes = busca ? busca.split(' ') : [];
@@ -1366,6 +1373,8 @@
             if (!tem(f.idiomas, c.idioma || '?')) return false;
             if (!tem(f.tipos, c.tipo)) return false;
             if (!tem(f.naturezas, c.natureza || 'canal')) return false;
+            if (f.grupos && f.grupos.size && !f.grupos.has(grupoDe(c))) return false;
+            if (f.generos && f.generos.size) { const gs = generosDe(c); if (!(gs.length ? gs.some(g => f.generos.has(g)) : f.generos.has('?'))) return false; }
             if (!tem(f.paises, c.pais || '?')) return false;
             if (f.status && f.status.size && !f.status.has((c.teste && c.teste.status) || 'nao-testado')) return false;
             if (f.soVivos && !(c.teste && (c.teste.status === 'vivo' || c.teste.status === 'lento'))) return false;
@@ -1378,9 +1387,9 @@
     }
     /** Quantos canais em cada valor (para os chips de filtro): { idiomas: Map, tipos: Map, paises: Map, status: Map } */
     function contar(canais) {
-        const r = { idiomas: new Map(), tipos: new Map(), paises: new Map(), status: new Map(), chaves: new Map(), naturezas: new Map() };
+        const r = { idiomas: new Map(), tipos: new Map(), paises: new Map(), status: new Map(), chaves: new Map(), naturezas: new Map(), grupos: new Map(), generos: new Map() };
         const mais = (m, k) => m.set(k, (m.get(k) || 0) + 1);
-        canais.forEach(c => { mais(r.idiomas, c.idioma || '?'); mais(r.tipos, c.tipo); mais(r.paises, c.pais || '?'); mais(r.status, (c.teste && c.teste.status) || 'nao-testado'); mais(r.chaves, c.chave); mais(r.naturezas, c.natureza || 'canal'); });
+        canais.forEach(c => { mais(r.idiomas, c.idioma || '?'); mais(r.tipos, c.tipo); mais(r.paises, c.pais || '?'); mais(r.status, (c.teste && c.teste.status) || 'nao-testado'); mais(r.chaves, c.chave); mais(r.naturezas, c.natureza || 'canal'); mais(r.grupos, grupoDe(c)); const gs = generosDe(c); if (gs.length) gs.forEach(g => mais(r.generos, g)); else mais(r.generos, '?'); });
         return r;
     }
 
@@ -1501,7 +1510,7 @@
         arvoreSeries, mapaStudio, jaNaStudio, arrumarNome,
         chaveTMDB, pedidoTMDB, dadosDoTMDB, aplicarTMDB,
         NATUREZAS, dadosDaLista, analisarVideo, naturezaDe, ehVideo, colecaoVideo, detectarVideo, ajustarVideo, videoTexto,
-        CAMPOS_FICHA_SC, juntarFicha, chaveSerie, aplicarAjustesEnvio,
+        CAMPOS_FICHA_SC, juntarFicha, chaveSerie, aplicarAjustesEnvio, generosDe,
         SEM_GRUPO, grupoDe, mapaGrupos, sugerirGrupo, analisarGrupos, aplicarSugestoes, moverGrupo,
         colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
         agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, objetosJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
