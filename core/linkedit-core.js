@@ -723,7 +723,8 @@
         const fx = {}; ['capa', 'banner'].forEach(k => { if (sp[k]) fx[k] = sp[k]; }); if (Object.keys(fx).length) c.ficha = juntarFicha(c.ficha, fx);   // capa/banner escolhidos à mão
         if (sp.principal) c.fixo = true;               // ⭐ escolhida no 🧬 Conferir: vai primeiro para o app (as outras viram reserva)
         if (sp.grupo) c._obra = sp.grupo;              // ✓ "mesmo filme" no Conferir: as cópias que ficaram no grupo continuam juntas
-        else if (!sp.soDados) c._obra = sp.tmdb ? 't:' + String(sp.tmdb).replace(/^.*?(movie|tv)\//, '$1/') : 'u:' + (c.natureza === 'episodio' ? envio.id + ':' + chaveSerie(c) : c.url);
+        // separada: TMDB igual = mesma obra (as cópias se juntam sozinhas); sem TMDB, título + ano iguais também juntam; sem nada, fica sozinha
+        else if (!sp.soDados) c._obra = sp.tmdb ? 't:' + String(sp.tmdb).replace(/^.*?(movie|tv)\//, '$1/') : sp.ano ? 'a:' + norm(sp.titulo || (c.video && (c.video.serie || c.video.titulo)) || c.nome) + '|' + sp.ano : 'u:' + (c.natureza === 'episodio' ? envio.id + ':' + chaveSerie(c) : c.url);
     }
     function ajustarVideo(c, aj) {
         if (!aj) return c;
