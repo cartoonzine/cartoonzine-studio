@@ -260,3 +260,14 @@ test('✂ 4 "A Bela e a Fera" separadas: as com o mesmo TMDB (ou mesmo título+a
     assert.equal(j.length, 3);                                  // Disney 2017 · Disney 1991 · francês 1946
     assert.ok(j.every(x => (x.mirrors || []).length === 1));
 });
+
+test('🎭 filtro por gênero (lista/TMDB) e por grupo da lista original', () => {
+    const cs = L.lerLista(JSON.stringify([
+        { name: 'Toy Story', url: 'http://k/1.mp4', group: 'Kids', genre: 'Animação', year: 1995 },
+        { name: 'Naruto S01E01', url: 'http://k/2.mp4', group: 'Animes', serie: 'Naruto', season: 1, episode: 1, genre: 'Animação' },
+        { name: 'Esqueceram de Mim', url: 'http://k/3.mp4', group: 'Kids', genre: 'Comédia' }]), 't').canais;
+    const C = L.contar(cs);
+    assert.equal(C.generos.get('Animação'), 2); assert.equal(C.grupos.get('Kids'), 2);
+    assert.equal(L.filtrar(cs, { generos: new Set(['Animação']) }).length, 2);
+    assert.equal(L.filtrar(cs, { generos: new Set(['Animação']), grupos: new Set(['Kids']) }).length, 1);
+});

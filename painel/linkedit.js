@@ -24,7 +24,7 @@
         canais: [],            // todos os canais de todas as listas (c.lista = id da lista)
         sel: new Set(),        // ids selecionados
         foco: null,            // id do canal no visualizador
-        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), naturezas: new Set(), soVivos: false, semLogo: false, semGuia: false, semCategoria: false, duplicados: false, quarentena: false },
+        f: { busca: '', idiomas: new Set(), tipos: new Set(), paises: new Set(), status: new Set(), naturezas: new Set(), grupos: new Set(), generos: new Set(), soVivos: false, semLogo: false, semGuia: false, semCategoria: false, duplicados: false, quarentena: false },
         nova: { nome: 'Lista nova', itens: [] },
         desfazer: [],
         scan: null,            // { total, feitos, parar, modo }
@@ -2756,10 +2756,11 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         filtrados();
         const C = E.cont;
         const grupo = (rot, campo, mapa, rotulos = {}) => {
-            const ops = [...mapa.entries()].sort((a, b) => b[1] - a[1]).slice(0, 14);
+            const ops = [...mapa.entries()].sort((a, b) => b[1] - a[1]).slice(0, campo === 'grupos' ? 30 : campo === 'generos' ? 24 : 14);
             if (ops.length < 2 && !E.f[campo].size) return '';
             return `<div style="margin-bottom:10px"><div class="le-dica" style="margin-bottom:5px">${esc(rot)}</div><div class="le-chips">${ops.map(([k, n]) => `<button class="le-chip ${E.f[campo].has(k) ? 'on' : ''}" data-f="${campo}" data-v="${esc(k)}">${esc(rotulos[k] || (k === '?' ? 'sem info' : k))}<small>${n}</small></button>`).join('')}</div></div>`;
         };
+        const topo = (m, n) => { if (!m) return new Map(); const arr = [...m].sort((a, b) => b[1] - a[1]); const keep = arr.slice(0, n); arr.slice(n).forEach(x => { if (E.f.generos.has(x[0]) || E.f.grupos.has(x[0])) keep.push(x); }); return new Map(keep); };
         el.innerHTML = `
           <div class="le-chips" style="margin-bottom:10px">
             <button class="le-chip rosa ${E.f.soVivos ? 'on' : ''}" data-t="soVivos">Só vivos</button>
@@ -2770,7 +2771,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             <button class="le-chip ${E.f.quarentena ? 'on' : ''}" data-t="quarentena">Quarentena</button>
             <button class="le-chip ${E.f.naStudio ? 'on' : ''}" data-t="naStudio" title="O que já está cadastrado na Studio (no app ficaria dobrado)">Já na Studio</button>
           </div>
-          ${grupo('Tipo de item', 'naturezas', C.naturezas, Object.fromEntries(L.NATUREZAS.map(([k, ic, n]) => [k, ic + ' ' + n])))}${grupo('Idioma', 'idiomas', C.idiomas)}${grupo('Tipo', 'tipos', C.tipos)}${grupo('País', 'paises', C.paises)}${grupo('Status', 'status', C.status, ROTULO_STATUS)}`;
+          ${grupo('Tipo de item', 'naturezas', C.naturezas, Object.fromEntries(L.NATUREZAS.map(([k, ic, n]) => [k, ic + ' ' + n])))}${grupo('🎭 Gênero (da lista e do TMDB)', 'generos', topo(C.generos, 24))}${grupo('📂 Grupo da lista original', 'grupos', topo(C.grupos, 30))}${grupo('Idioma', 'idiomas', C.idiomas)}${grupo('Tipo', 'tipos', C.tipos)}${grupo('País', 'paises', C.paises)}${grupo('Status', 'status', C.status, ROTULO_STATUS)}`;
     }
     let pedidoTabela = 0;
     function agendarTabela() { if (pedidoTabela) return; pedidoTabela = requestAnimationFrame(() => { pedidoTabela = 0; desenharTabela(); }); }
