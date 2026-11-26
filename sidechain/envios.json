@@ -2456,7 +2456,7 @@
       "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/filmes.json",
       "listas": [],
       "ativo": true,
-      "tipoLista": "unica",
+      "tipoLista": "mista",
       "destino": {
         "colecao": "filmes"
       },
@@ -2522,7 +2522,17 @@
       "tmdbFundo": true,
       "pularStudio": true,
       "desvios": {},
-      "regras": [],
+      "regras": [
+        {
+          "natureza": "filme",
+          "contem": "",
+          "campo": "tudo",
+          "porTipo": true,
+          "para": {
+            "colecao": "filmes"
+          }
+        }
+      ],
       "ajustes": {
         "n:natal|": {
           "ficha": {
