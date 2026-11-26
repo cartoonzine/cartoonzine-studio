@@ -3643,7 +3643,10 @@
       "id": "saimo-series",
       "nome": "Saimo Séries",
       "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/series.json",
-      "listas": [],
+      "listas": [
+        "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/series-2.json",
+        "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/series-3.json"
+      ],
       "ativo": true,
       "tipoLista": "unica",
       "destino": {
@@ -3685,7 +3688,7 @@
       "gruposRevisados": {},
       "fichasSerie": {},
       "criadoEm": "2026-11-23T01:34:32.756Z",
-      "tmdbPedidoEm": "2026-11-23T05:18:49.352Z"
+      "tmdbPedidoEm": "2026-11-26T05:30:05.061Z"
     },
     {
       "id": "saimo-doramas",
