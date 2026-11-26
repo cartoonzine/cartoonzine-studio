@@ -733,3 +733,5 @@ select.le-card-rota.misto { color: #fbbf24; border-color: #a16207; }
 .le-cards-barra { height: 44px; box-sizing: border-box; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
 .le-cards-barra small { overflow: hidden; text-overflow: ellipsis; }
 .le-card:hover .le-card-capa { transform: none; }
+.le-card-caixa { cursor: pointer; width: 24px; height: 24px; line-height: 21px; }
+.le-card-caixa:hover { border-color: #22d3ee; }
