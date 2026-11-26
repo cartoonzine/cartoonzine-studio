@@ -2805,7 +2805,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             const cols = SC.modo ? colsSC() : colsVideo();
             const nat = NAT[c.natureza || 'canal'] || NAT.canal, grp = [...new Set(g.itens.map(x => x.grupo || ''))];
             const temps = g.serie ? [...new Set(g.itens.map(x => x.video && x.video.temporada || 1))].length : 0;
-            return `<div class="le-card${todos ? ' on' : nSel ? ' meio' : ''}${g.itens.some(x => x.id === E.foco) ? ' foco' : ''}" data-card="${i}" title="Clique: marca/desmarca ${g.serie ? 'todos os ' + g.itens.length + ' episódios' : 'o item'} · Duplo clique: ficha">
+            return `<div class="le-card${todos ? ' on' : nSel ? ' meio' : ''}${g.itens.some(x => x.id === E.foco) ? ' foco' : ''}" data-card="${i}" title="Clique: vê na prévia · caixinha (ou Ctrl+clique): marca ${g.serie ? 'todos os ' + g.itens.length + ' episódios' : 'o item'} · Shift+clique: marca o trecho · Duplo clique: ficha">
               <div class="le-card-capa">${ehImagem(img) ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : `<span>${g.serie ? '🎞' : '🎬'}</span>`}
                 <span class="le-card-caixa">${todos ? '✓' : nSel ? '–' : ''}</span>${tRev ? '<b class="le-card-rv" title="Todos revisados">✔</b>' : ''}
                 <span class="le-card-tipo" title="${esc(g.serie ? 'Série (' + g.itens.length + ' episódios)' : nat.nome)}">${g.serie ? '🎞 Série' : nat.ic + ' ' + esc(nat.nome.split(' ')[0])}</span>
@@ -2872,13 +2872,17 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         if (ev.target.closest('select')) return;            // trocar a rota no card não marca/desmarca
         const el = ev.target.closest('[data-card]'); if (!el) return;
         const idx = +el.dataset.card, g = cardsVisiveis[idx]; if (!g) return;
-        if (ev.shiftKey && cardDoFoco() >= 0) { const i0 = cardDoFoco(), [a, b] = i0 < idx ? [i0, idx] : [idx, i0]; for (let x = a; x <= b; x++) alternarCard(cardsVisiveis[x], true); }   // Shift+clique: marca o trecho
-        else alternarCard(g);
+        // como na lista: clique no card = foco + prévia · caixinha (ou Ctrl+clique) = marca/desmarca · Shift+clique = marca o trecho
+        if (ev.shiftKey && cardDoFoco() >= 0) { const i0 = cardDoFoco(), [a, b] = i0 < idx ? [i0, idx] : [idx, i0]; for (let x = a; x <= b; x++) alternarCard(cardsVisiveis[x], true); }
+        else if (ev.target.closest('.le-card-caixa') || ev.ctrlKey || ev.metaKey) { alternarCard(g); desenharCards(); if (SC.modo) pintarBarraSC(); return contarSelCards(); }
         // série: o 1º episódio (menor temporada/episódio) vai para a tela de prévia; filme: ele mesmo
         const ord = (x) => ((x.video && x.video.temporada) || 1) * 100000 + ((x.video && x.video.episodio) || 0);
         const prim = g.itens.reduce((a, b) => ord(b) < ord(a) ? b : a, g.itens[0]);
         E.foco = prim.id; pintarFicha(prim); atualizarLupa(prim); tocar(prim);
         desenharCards(); if (SC.modo) pintarBarraSC();
+        contarSelCards();
+    }
+    function contarSelCards() {
         const r = $('#le-rodape'); if (r) { const sel = r.querySelector('.le-cards-sel') || r.appendChild(Object.assign(document.createElement('span'), { className: 'le-cards-sel' })); sel.innerHTML = `<b>${E.sel.size}</b> marcados`; }
     }
     function desenharTabela() {
