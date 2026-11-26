@@ -549,7 +549,7 @@
             ['Clique na caixinha', 'marca / desmarca'], ['Shift + clique', 'marca o trecho inteiro (caixinha ou linha)'], ['Ctrl + clique na linha', 'marca / desmarca sem abrir'],
             ['X', 'marca / desmarca o canal do visualizador'], ['Ctrl + A', 'marca todos os visíveis'], ['Esc', 'desmarca tudo (ou fecha a janela)'],
             ['Espaço', 'tocar e testar'], ['T', 'scan dos marcados (ou dos visíveis)'], ['→', 'canal pra lista nova'], ['Enter', 'marcados pra lista nova'],
-            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['R', '✔ revisado (Sidechain: marca/desmarca o item ou os marcados)'], ['🗂 Cards: ← → ↑ ↓', 'anda de card em card (Shift marca o caminho) · Espaço/X marca a série inteira · Shift+clique marca o trecho · botão direito: menu · sem nada marcado, as letras agem no card em foco inteiro'], ['U', '🔍 lupa da capa (janela flutuante)'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
+            ['Del', 'quarentena do canal'], ['Shift + Del', 'quarentena dos marcados'], ['L', 'logo do canal'], ['R', '✔ revisado (Sidechain: marca/desmarca o item ou os marcados)'], ['O', '🗂 organizar na ficha da coleção (Sidechain: tira da lista principal; de novo devolve)'], ['🗂 Cards: ← → ↑ ↓', 'anda de card em card (Shift marca o caminho) · Espaço/X marca a série inteira · Shift+clique marca o trecho · botão direito: menu · sem nada marcado, as letras agem no card em foco inteiro'], ['U', '🔍 lupa da capa (janela flutuante)'], ['I', 'idioma (do canal, ou de todos os marcados)'], ['C', 'categoria (do canal, ou dos marcados)'], ['G', 'guia de programação (do canal, ou dos marcados)'], ['B', 'Assets: logos e guias'], ['M · + −', 'som · volume'],
             ['/', 'buscar'], ['Ctrl + S', 'salvar a lista nova'], ['Ctrl + Z', 'desfazer'], ['Botão direito · Menu · Shift+F10', 'menu com tudo o que dá para fazer com os marcados'], ['Y', 'tipo do item: canal, filme, episódio ou rádio'], ['V', 'dados de vídeo: série, temporada, episódio, ano, áudio, qualidade, coleção'], ['?', 'esta ajuda']];
         janela(`<h3>Atalhos do teclado</h3><div class="le-atalhos">${A.map(([k, t]) => `<kbd>${esc(k)}</kbd><span>${esc(t)}</span>`).join('')}</div>`);
     }
@@ -986,7 +986,7 @@
     // O "sidechain" abre a lista no próprio editor: marque itens e mande para outra coleção (ou ignore). Cada desvio
     // fica salvo pela chave do item; o robô (tools/sidechain.mjs, a cada 6 h) refaz as listas e publica para o Cloud.
     const ARQ_SC = 'sidechain/envios.json', ARQ_SC_ESTADO = 'sidechain/estado.json', GUARDA_SC_VISTO = 'czs-sidechain-visto';
-    const SC = { envios: null, estado: null, atual: null, sujo: false, modo: null, filtro: '', canais: new Map(), sugestoes: [] };
+    const SC = { envios: null, estado: null, atual: null, sujo: false, modo: null, filtro: '', ficha: '', canais: new Map(), sugestoes: [] };
     const colsSC = () => L.colecoesSidechain(S.config && S.config());
     const colSC = (id) => colsSC().find(c => c.id === id);
     const comPais = (col) => !!col && (col.tipo === 'canal' || col.tipo === 'radio');
@@ -1819,7 +1819,7 @@
         const id = 'sc-' + e.id;
         E.listas = [{ id, nome: '🔀 ' + e.nome + (grupo ? ' · ' + grupo : ''), formato: 'sidechain', epg: '', url: e.url }];
         E.canais = canais.map((c, i) => Object.assign(c, { lista: id, id: id + '-' + i }));
-        E.sel.clear(); E.foco = null; E.f.busca = ''; SC.filtro = '';
+        E.sel.clear(); E.foco = null; E.f.busca = ''; SC.filtro = ''; SC.ficha = '';
         const b = $('#le-busca'); if (b) b.value = '';
         desenharTudo(); pintarBarraSC();
         // continua de onde parou: o último item em foco desta lista/grupo
@@ -1832,13 +1832,49 @@
         const g = SC.modo.guarda, e = SC.modo.envio;
         pararVideo();
         E.listas = g.listas; E.canais = g.canais; E.sel = new Set(g.sel); E.foco = g.foco; E.f.busca = g.busca || '';
-        SC.modo = null; SC.filtro = '';
+        SC.modo = null; SC.filtro = ''; SC.ficha = '';
         const b = $('#le-busca'); if (b) b.value = E.f.busca;
         pintarBarraSC(); desenharTudo();
         if (voltarJanela) abrirSidechain(e.id);
     }
     function rotaSC(c) { return SC.modo ? L.rotaDe(c, SC.modo.envio) : null; }
+    // ---------- 🗂 FICHÁRIO: o que você já direcionou e "guardou na ficha" sai da lista principal ----------
+    // A ficha de um item é a coleção da rota ATUAL dele: trocou a rota, ele muda de ficha sozinho;
+    // ficou sem rota (esperando), volta para a lista principal. Gravado no envio (fichario: { chave: data }).
+    function fichaDe(c) { const r = rotaSC(c); if (!r || r.motivo === 'pendente' || !r.destino) return ''; return r.destino === 'ignorar' ? 'ignorar' : (r.destino.colecao || ''); }
+    function naFicha(c) { const f = SC.modo && SC.modo.envio.fichario; return !!(f && f[L.chaveSC(c)]) && !!fichaDe(c); }
+    const nomeFicha = (k) => { if (k === 'ignorar') return '🚫 Fora'; const c = colsSC().find(x => x.id === k); return c ? ((c.icone ? c.icone + ' ' : '') + c.nome) : k; };
+    const corFicha = (k) => COR_ROTA[k] || '#94a3b8';
+    function organizarNaFicha(lista, sim) {
+        const e = SC.modo && SC.modo.envio; if (!e) return;
+        const f = e.fichario = e.fichario || {}, rv = e.revisados = e.revisados || {}, hoje = new Date().toISOString().slice(0, 10);
+        const vao = sim ? lista.filter(c => fichaDe(c)) : lista;
+        if (sim && !vao.length) return S.aviso('Escolha a rota (para onde vai) antes de guardar na ficha.', 'ruim');
+        vao.forEach(c => { const k = L.chaveSC(c); if (sim) { f[k] = hoje; rv[k] = hoje; } else delete f[k]; });
+        SC.sujo = true; E.sel.clear();
+        const fs = [...new Set(vao.map(fichaDe))];
+        S.aviso(sim ? `🗂 ${vao.length} guardado(s) na ficha ${fs.map(nomeFicha).join(', ')}${lista.length > vao.length ? ` · ${lista.length - vao.length} sem rota ficaram na lista` : ''}. Use 💾 Salvar progresso para guardar.`
+            : `↩ ${vao.length} voltaram para a lista principal.`, 'ok');
+        desenharTabela(); pintarBarraSC();
+    }
+    function pintarFichario() {
+        const el = $('#le-fichario'); if (!el) return;
+        if (!SC.modo) { el.hidden = true; el.innerHTML = ''; return; }
+        const n = new Map(); let principal = 0;
+        E.canais.forEach(c => { if (naFicha(c)) { const k = fichaDe(c); n.set(k, (n.get(k) || 0) + 1); } else principal++; });
+        if (SC.ficha && SC.ficha !== '*' && !n.has(SC.ficha)) n.set(SC.ficha, 0);
+        const ordem = colsSC().map(c => c.id).concat('ignorar').filter(k => n.has(k)).concat([...n.keys()].filter(k => k !== 'ignorar' && !colsSC().some(c => c.id === k)));
+        const aba = (k, rot, num, cor, dica) => `<button class="le-ficha${SC.ficha === k ? ' on' : ''}" role="tab" aria-selected="${SC.ficha === k}" data-ficha="${esc(k)}" style="--fc:${cor}" title="${esc(dica)}">${rot} <b>${numSC(num)}</b></button>`;
+        el.hidden = false;
+        el.innerHTML = aba('', principal ? '📥 A organizar' : '✅ Tudo organizado', principal, '#e5e7eb', 'Lista principal: tudo que ainda não foi guardado numa ficha')
+            + ordem.map(k => aba(k, esc(nomeFicha(k)), n.get(k), corFicha(k), 'Itens guardados na ficha ' + nomeFicha(k) + ' (botão direito → ↩ Devolver à lista principal)')).join('')
+            + aba('*', '∑ Tudo', E.canais.length, '#64748b', 'Todos os itens, organizados ou não')
+            + (principal || !n.size ? '' : '<span class="le-ficha-ok">🎉 lista principal vazia: tudo no lugar!</span>')
+            + '<small class="le-dica">Botão direito nos marcados → 🗂 Organizar na ficha (ou tecla O)</small>';
+        el.onclick = (ev) => { const b = ev.target.closest('[data-ficha]'); if (!b) return; SC.ficha = b.dataset.ficha; E.sel.clear(); const corpo = $('#le-corpo'); if (corpo) corpo.scrollTop = 0; const box = $('#le-cards'); if (box) box.scrollTop = 0; desenharTabela(); pintarFichario(); };
+    }
     function filtroSC(lista) {
+        if (SC.modo && SC.ficha !== '*') lista = lista.filter(c => SC.ficha ? (naFicha(c) && fichaDe(c) === SC.ficha) : !naFicha(c));
         if (!SC.modo || !SC.filtro) return lista;
         if (SC.filtro === 'revisar' || SC.filtro === 'revisados') { const rv = SC.modo.envio.revisados || {}; return lista.filter(c => SC.filtro === 'revisados' ? !!rv[L.chaveSC(c)] : !rv[L.chaveSC(c)]); }
         return lista.filter(c => { const r = rotaSC(c); return SC.filtro === 'novos' ? r.novo : SC.filtro === 'pendentes' ? r.motivo === 'pendente' : SC.filtro === 'desviados' ? (r.motivo === 'manual' || r.motivo === 'regra' || r.motivo === 'ignorar') : SC.filtro === 'padrao' ? (r.motivo === 'padrao' || r.motivo === 'rota' || r.motivo === 'sugestao') : true; });
@@ -1851,7 +1887,7 @@
         return `${rv ? `<b class="le-sc-rv" title="Revisado em ${esc(rv)}">✔</b>` : ''}${r.novo ? '<b class="le-sc-novo">NOVO</b>' : ''}<span class="le-sc-tag ${cls}" title="${r.motivo === 'regra' ? 'Por regra: ' + esc(r.regra.contem) : r.motivo === 'manual' ? 'Desviado por você' : r.motivo === 'padrao' ? 'Destino do envio' : r.motivo === 'rota' ? 'Rota do grupo "' + esc(L.grupoDe(c)) + '"' : r.motivo === 'sugestao' ? 'Sugestão (grupo novo)' : r.grupoNovo ? 'Grupo novo, sem rota: escolha no passo 3' : ''}">${esc(txt)}</span>`;
     }
     function pintarBarraSC() {
-        const el = $('#le-sc-barra'); if (!el) return;
+        const el = $('#le-sc-barra'); pintarFichario(); if (!el) return;
         if (!SC.modo) { el.hidden = true; el.innerHTML = ''; return; }
         const e = SC.modo.envio, cols = colsSC();
         const n = { novos: 0, pendentes: 0, desviados: 0 };
@@ -2575,6 +2611,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-serie-t{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:#cbd5e1;padding:3px 0 0 4px}.le-nm-prev{max-height:220px;overflow:auto;font-size:12px;display:flex;flex-direction:column;gap:3px}.le-nm-prev s{color:var(--s)}
 .le-tmdb{display:flex;gap:10px;margin:4px 0 2px;font-size:12px;color:#cbd5e1}.le-tmdb img{width:58px;height:86px;object-fit:cover;border-radius:6px;flex-shrink:0}.le-tmdb p{margin:3px 0 0;color:var(--s);line-height:1.4}.le-tmdb small{color:#fbbf24}
 .le-sc-mais{margin-top:6px;padding:8px 10px;border-radius:10px;background:#0d1016;border:1px solid #2a3140;font-size:12.5px}.le-sc-mais summary{cursor:pointer;font-weight:800;color:#cbd5e1}.le-sc-mais[open] summary{margin-bottom:6px}
+.le-fichario{display:flex;flex-wrap:wrap;align-items:flex-end;gap:4px 6px;padding:8px 14px 0;border-bottom:2px solid #1f2937;background:#0a0f17}.le-fichario[hidden]{display:none}.le-ficha{--fc:#94a3b8;position:relative;padding:6px 12px 5px;border:1px solid #273244;border-bottom:none;border-radius:9px 9px 0 0;background:#111827;color:#9ca3af;font-size:12px;cursor:pointer;margin-bottom:-2px;box-shadow:inset 0 3px 0 var(--fc)}.le-ficha b{color:var(--fc);font-variant-numeric:tabular-nums;margin-left:3px}.le-ficha:hover{color:#e5e7eb;background:#162032}.le-ficha.on{background:#0d121b;color:#fff;border-color:var(--fc);border-bottom:2px solid #0d121b;box-shadow:inset 0 3px 0 var(--fc),0 -4px 14px color-mix(in srgb,var(--fc) 30%,transparent)}.le-ficha:focus-visible{outline:2px solid var(--fc);outline-offset:1px}.le-ficha-ok{color:#4ade80;font-size:12px;font-weight:700;padding:0 6px 6px}.le-fichario .le-dica{margin-left:auto;padding-bottom:6px}
 .le-sc-barra{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:9px 14px;background:linear-gradient(90deg,#2a0b1c,#0b1d24);border-bottom:1px solid var(--r);font-size:12.5px}.le-sc-barra>b{color:#ff7ac0;letter-spacing:.12em}.le-sc-barra .le-chips{margin:0}
 .le-sc-sug{display:flex;flex-wrap:wrap;gap:6px;width:100%;align-items:center;font-size:12px}
 .le-sc-tag{margin-right:8px;font-size:11px;font-weight:800;padding:2px 7px;border-radius:99px;background:#102a31;color:#67e8f9;white-space:nowrap}.le-sc-tag.desv{background:#2a0b1c;color:#ff7ac0}.le-sc-tag.ign{background:#1c1c22;color:#9aa3ad;text-decoration:line-through}.le-sc-tag.pend{background:#2a2108;color:#fbbf24}.le-sc-tag.pad{opacity:.6}
@@ -2703,6 +2740,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               </div>
               <div class="le-sc-barra" id="le-sc-barra" hidden></div>
               <div class="le-scan" id="le-scan-barra" hidden></div>
+              <div class="le-fichario" id="le-fichario" role="tablist" aria-label="Fichário: itens organizados por coleção" hidden></div>
               <div class="le-cab" role="row"><button class="le-caixa" id="le-cab-todos" title="Marcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span title="Guia de programação (EPG)">Guia</span><span>Status</span><span>Abre em</span></div>
               <div id="le-corpo" role="table" aria-label="Canais"><div id="le-alto" style="position:relative"></div></div>
               <div id="le-cards" class="le-cards" hidden></div>
@@ -3406,6 +3444,10 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
         if (SC.modo) {
             const e = SC.modo.envio, cols = colsSC();
             itens.push(['🔀 Sidechain · ' + qual, null]);
+            const fichas = [...new Set(lista.map(fichaDe).filter(Boolean))], soltos = lista.filter(c => fichaDe(c) && !naFicha(c)), guardados = lista.filter(naFicha);
+            if (soltos.length) itens.push([`🗂 Organizar na ficha ${fichas.length === 1 ? '"' + nomeFicha(fichas[0]) + '"' : '(' + fichas.map(nomeFicha).join(' · ') + ')'} (O)`, () => organizarNaFicha(lista, true)]);
+            else if (!guardados.length) itens.push(['🗂 Organizar na ficha (escolha a rota antes)', null]);
+            if (guardados.length) itens.push([`↩ Devolver à lista principal${guardados.length > 1 ? ' (' + guardados.length + ')' : ''}`, () => organizarNaFicha(guardados, false)]);
             itens.push(['Enviar para… (país, idioma, categoria)', () => escolherDestinoSC(lista)]);
             cols.filter(c => !comPais(c)).forEach(c => { if (e.destino.colecao !== c.id) itens.push([`→ ${c.nome}`, () => desviarSC(lista, { colecao: c.id })]); });
             itens.push(['🚫 Ignorar', () => desviarSC(lista, 'ignorar')], ['↩ Voltar ao padrão (' + L.destinoTexto(e.destino, cols) + ')', () => desviarSC(lista, null)]);
@@ -3600,6 +3642,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
             else if (!ctrl && k === 'f' && c && L.ehVideo(c)) { e.preventDefault(); abrirFichaItem(c); }
             else if (!ctrl && k === 'y' && (c || E.sel.size)) { e.preventDefault(); escolherNatureza(E.sel.size > 1 ? null : c); }
             else if (!ctrl && k === 'u') { e.preventDefault(); alternarLupa(); }
+            else if (!ctrl && k === 'o' && SC.modo && (c || E.sel.size)) { e.preventDefault(); const l = E.sel.size ? selecionados() : [c]; organizarNaFicha(l, !l.every(naFicha)); }
             else if (!ctrl && k === 'r' && SC.modo && (c || E.sel.size)) { e.preventDefault(); const l = E.sel.size ? selecionados() : [c]; const rv = SC.modo.envio.revisados || {}; marcarRevisados(l, !l.every(x => rv[L.chaveSC(x)])); }
             else if (!ctrl && k === 'm') { e.preventDefault(); $('#le-mudo').click(); }
             else if (!ctrl && (k === '+' || k === '=')) { e.preventDefault(); mudarSom({ vol: E.som.vol + 0.1 }); }
