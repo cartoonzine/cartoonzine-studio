@@ -735,3 +735,7 @@ select.le-card-rota.misto { color: #fbbf24; border-color: #a16207; }
 .le-card:hover .le-card-capa { transform: none; }
 .le-card-caixa { cursor: pointer; width: 24px; height: 24px; line-height: 21px; }
 .le-card-caixa:hover { border-color: #22d3ee; }
+/* 🗂 foco do card: contorno fino e suave · marcado: o contorno forte de sempre */
+.le-card.foco .le-card-capa { border-color: rgba(103, 232, 249, .45); box-shadow: 0 0 0 1px rgba(103, 232, 249, .18); }
+.le-card.foco .le-card-nome { color: #a5f3fc; }
+.le-card.on .le-card-capa, .le-card.on.foco .le-card-capa { border-color: #22d3ee; box-shadow: 0 0 0 2px rgba(34,211,238,.35); }
