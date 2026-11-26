@@ -3648,7 +3648,7 @@
         "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/series-3.json"
       ],
       "ativo": true,
-      "tipoLista": "unica",
+      "tipoLista": "mista",
       "destino": {
         "colecao": "series"
       },
@@ -3682,13 +3682,149 @@
       "tmdbModo": "falta",
       "tmdbFundo": true,
       "pularStudio": true,
-      "desvios": {},
+      "desvios": {
+        "n:3 palavrinhas s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e09|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s02e10|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e01|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e02|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e03|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e04|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e05|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e06|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e07|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e08|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e09|": {
+          "colecao": "cartoons"
+        },
+        "n:3 palavrinhas s03e10|": {
+          "colecao": "cartoons"
+        }
+      },
       "regras": [],
       "ajustes": {},
-      "gruposRevisados": {},
-      "fichasSerie": {},
+      "gruposRevisados": {
+        "Séries": "2026-11-26T05:52:36.852Z"
+      },
+      "fichasSerie": {
+        "009 1": {
+          "fundoImagem": "banner",
+          "posFundo": 6,
+          "bannerOk": true
+        },
+        "3 palavrinhas": {
+          "fundoImagem": "banner",
+          "posFundo": 33,
+          "bannerOk": true
+        }
+      },
       "criadoEm": "2026-11-23T01:34:32.756Z",
-      "tmdbPedidoEm": "2026-11-26T05:30:05.061Z"
+      "tmdbPedidoEm": "2026-11-26T05:30:05.061Z",
+      "revisados": {
+        "n:3 palavrinhas s01e01|": "2026-11-26",
+        "n:3 palavrinhas s01e02|": "2026-11-26",
+        "n:3 palavrinhas s01e03|": "2026-11-26",
+        "n:3 palavrinhas s01e04|": "2026-11-26",
+        "n:3 palavrinhas s01e05|": "2026-11-26",
+        "n:3 palavrinhas s01e06|": "2026-11-26",
+        "n:3 palavrinhas s01e07|": "2026-11-26",
+        "n:3 palavrinhas s01e08|": "2026-11-26",
+        "n:3 palavrinhas s01e09|": "2026-11-26",
+        "n:3 palavrinhas s01e10|": "2026-11-26",
+        "n:3 palavrinhas s02e01|": "2026-11-26",
+        "n:3 palavrinhas s02e02|": "2026-11-26",
+        "n:3 palavrinhas s02e03|": "2026-11-26",
+        "n:3 palavrinhas s02e04|": "2026-11-26",
+        "n:3 palavrinhas s02e05|": "2026-11-26",
+        "n:3 palavrinhas s02e06|": "2026-11-26",
+        "n:3 palavrinhas s02e07|": "2026-11-26",
+        "n:3 palavrinhas s02e08|": "2026-11-26",
+        "n:3 palavrinhas s02e09|": "2026-11-26",
+        "n:3 palavrinhas s02e10|": "2026-11-26",
+        "n:3 palavrinhas s03e01|": "2026-11-26",
+        "n:3 palavrinhas s03e02|": "2026-11-26",
+        "n:3 palavrinhas s03e03|": "2026-11-26",
+        "n:3 palavrinhas s03e04|": "2026-11-26",
+        "n:3 palavrinhas s03e05|": "2026-11-26",
+        "n:3 palavrinhas s03e06|": "2026-11-26",
+        "n:3 palavrinhas s03e07|": "2026-11-26",
+        "n:3 palavrinhas s03e08|": "2026-11-26",
+        "n:3 palavrinhas s03e09|": "2026-11-26",
+        "n:3 palavrinhas s03e10|": "2026-11-26"
+      }
     },
     {
       "id": "saimo-doramas",
