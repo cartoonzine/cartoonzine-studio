@@ -23836,13 +23836,6 @@
           "grupos": [
             "Animes"
           ]
-        },
-        {
-          "id": "rmwx3kfgh1",
-          "destino": {
-            "colecao": "filmes"
-          },
-          "grupos": []
         }
       ],
       "gruposNovos": "esperar",
