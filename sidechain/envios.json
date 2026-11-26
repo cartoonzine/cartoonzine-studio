@@ -6055,13 +6055,6 @@
           "grupos": [
             "Kids"
           ]
-        },
-        {
-          "id": "rmwx3uktt1",
-          "destino": {
-            "colecao": "filmes"
-          },
-          "grupos": []
         }
       ],
       "gruposNovos": "esperar",
