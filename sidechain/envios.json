@@ -23819,7 +23819,9 @@
       "id": "saimo-animes",
       "nome": "Saimo Animes",
       "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/animes.json",
-      "listas": [],
+      "listas": [
+        "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/animes-2.json"
+      ],
       "ativo": true,
       "tipoLista": "mista",
       "destino": {
@@ -23855,7 +23857,1490 @@
       "tmdbModo": "falta",
       "tmdbFundo": true,
       "pularStudio": true,
-      "desvios": {},
+      "desvios": {
+        "n:as aventuras de jimmy neutron o menino genio s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e12|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e13|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e14|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e15|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e16|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e17|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e18|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e19|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s01e20|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e09|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e10|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e11|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e12|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e13|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e14|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e15|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e16|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e17|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e18|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e19|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e20|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e21|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e22|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e23|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e24|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e25|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s02e26|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e01|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e02|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e03|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e04|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e05|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e06|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e07|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e08|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e09|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e10|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e11|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e12|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e13|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e14|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e15|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e16|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e17|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e18|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e19|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e20|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e21|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e22|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e23|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e24|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e25|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e26|": {
+          "colecao": "cartoons"
+        },
+        "n:as aventuras de jimmy neutron o menino genio s03e27|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:as irmas grimm s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e12|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e13|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e14|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e15|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e16|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s01e17|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e09|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e10|": {
+          "colecao": "cartoons"
+        },
+        "n:as novas aventuras do batman s02e11|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e09|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s02e10|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e01|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e02|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e03|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e04|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e05|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e06|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e07|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e08|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e09|": {
+          "colecao": "cartoons"
+        },
+        "n:4 contra o apocalipse s03e10|": {
+          "colecao": "cartoons"
+        },
+        "n:a corrida dos 100 metros 2025|": {
+          "colecao": "filmes"
+        },
+        "n:a garota que conquistou o tempo|": {
+          "colecao": "filmes"
+        },
+        "n:a ilha da caveira s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a ilha da caveira s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a ilha da caveira s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a ilha da caveira s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a ilha da caveira s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a ilha da caveira s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a ilha da caveira s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a ilha da caveira s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:agente p disfarcado s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e12|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s01e13|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a turma do charlie brown e snoopy s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e12|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e13|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e14|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e15|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s01e16|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a tia e top s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s03e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s03e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s03e03|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s03e04|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s03e05|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s03e06|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s04e01|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s04e02|": {
+          "colecao": "cartoons"
+        },
+        "n:a saga wingfeather s04e03|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:academia unicornio segredos revelados s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s01e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e13|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e14|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e15|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e16|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e17|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e18|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e19|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e20|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e21|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e22|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e23|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e24|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e25|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e26|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e27|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s02e28|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e13|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e14|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e15|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e16|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e17|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e18|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e19|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e20|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e21|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e22|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e23|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e24|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e25|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e26|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e27|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e28|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e29|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e30|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e31|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e32|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e33|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e34|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e35|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e36|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e37|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e38|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e39|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s03e40|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e13|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e14|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e15|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e16|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e17|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e18|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e19|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e20|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e21|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e22|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e23|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e24|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e25|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e26|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e27|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e28|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e29|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e30|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e31|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e32|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e33|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e34|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e35|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e36|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s04e37|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e13|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e14|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e15|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e16|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e17|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e18|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e19|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e20|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e21|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e22|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e23|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e24|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e25|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e26|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e27|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e28|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e29|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e30|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e31|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e32|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e33|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e34|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e35|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e36|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s05e37|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e13|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e14|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e15|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e16|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e17|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e18|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e19|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e20|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e21|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e22|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e23|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e24|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e25|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e26|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e27|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s06e28|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e13|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e14|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e15|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e16|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e17|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e18|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e19|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e20|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e21|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e22|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e23|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e24|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e25|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e26|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e27|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e28|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e29|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e30|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e31|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e32|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e33|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e34|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e35|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s07e36|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e01|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e02|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e03|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e04|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e05|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e06|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e07|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e08|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e09|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e10|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e11|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e12|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e13|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e14|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e15|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e16|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e17|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e18|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e19|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e20|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e21|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e22|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e23|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e24|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e25|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e26|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e27|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e28|": {
+          "colecao": "cartoons"
+        },
+        "n:apenas um show regular show s08e29|": {
+          "colecao": "cartoons"
+        },
+        "n:batman ninja 2018|": {
+          "colecao": "filmes"
+        },
+        "n:batman ninja vs liga da yakuza 2025|": {
+          "colecao": "filmes"
+        },
+        "n:batman o cavaleiro de gotham|": {
+          "colecao": "filmes"
+        },
+        "n:batman a mascara do fantasma|": {
+          "colecao": "filmes"
+        },
+        "n:atriz 2023|": {
+          "colecao": "filmes"
+        },
+        "n:attack on titan parte 2 asas da liberadade 2015|": {
+          "colecao": "filmes"
+        },
+        "n:attack on titan o ultimo ataque 2024|": {
+          "colecao": "filmes"
+        },
+        "n:aya e a bruxa|": {
+          "colecao": "filmes"
+        },
+        "n:aya to majo|": {
+          "colecao": "filmes"
+        }
+      },
       "regras": [],
       "ajustes": {
         "n:des encanto s01e01|": {
@@ -28556,7 +30041,7 @@
         }
       },
       "gruposRevisados": {
-        "Animes": "2026-11-24T04:43:36.967Z"
+        "Animes": "2026-11-26T05:11:30.926Z"
       },
       "fichasSerie": {
         "a mansao foster para amigos imaginarios": {
@@ -29015,7 +30500,503 @@
         }
       },
       "criadoEm": "2026-11-24T01:43:00.783Z",
-      "tmdbPedidoEm": "2026-11-24T03:13:12.595Z"
+      "tmdbPedidoEm": "2026-11-24T03:13:12.595Z",
+      "revisados": {
+        "n:as aventuras de jimmy neutron o menino genio s01e01|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e02|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e03|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e04|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e05|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e06|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e07|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e08|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e09|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e10|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e11|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e12|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e13|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e14|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e15|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e16|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e17|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e18|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e19|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s01e20|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e01|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e02|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e03|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e04|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e05|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e06|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e07|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e08|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e09|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e10|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e11|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e12|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e13|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e14|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e15|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e16|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e17|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e18|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e19|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e20|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e21|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e22|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e23|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e24|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e25|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s02e26|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e01|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e02|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e03|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e04|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e05|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e06|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e07|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e08|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e09|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e10|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e11|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e12|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e13|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e14|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e15|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e16|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e17|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e18|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e19|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e20|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e21|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e22|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e23|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e24|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e25|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e26|": "2026-11-26",
+        "n:as aventuras de jimmy neutron o menino genio s03e27|": "2026-11-26",
+        "n:as irmas grimm s01e01|": "2026-11-26",
+        "n:as irmas grimm s01e02|": "2026-11-26",
+        "n:as irmas grimm s01e03|": "2026-11-26",
+        "n:as irmas grimm s01e04|": "2026-11-26",
+        "n:as irmas grimm s01e05|": "2026-11-26",
+        "n:as irmas grimm s01e06|": "2026-11-26",
+        "n:as irmas grimm s02e01|": "2026-11-26",
+        "n:as irmas grimm s02e02|": "2026-11-26",
+        "n:as irmas grimm s02e03|": "2026-11-26",
+        "n:as irmas grimm s02e04|": "2026-11-26",
+        "n:as irmas grimm s02e05|": "2026-11-26",
+        "n:as irmas grimm s02e06|": "2026-11-26",
+        "n:as novas aventuras do batman s01e01|": "2026-11-26",
+        "n:as novas aventuras do batman s01e02|": "2026-11-26",
+        "n:as novas aventuras do batman s01e03|": "2026-11-26",
+        "n:as novas aventuras do batman s01e04|": "2026-11-26",
+        "n:as novas aventuras do batman s01e05|": "2026-11-26",
+        "n:as novas aventuras do batman s01e06|": "2026-11-26",
+        "n:as novas aventuras do batman s01e07|": "2026-11-26",
+        "n:as novas aventuras do batman s01e08|": "2026-11-26",
+        "n:as novas aventuras do batman s01e09|": "2026-11-26",
+        "n:as novas aventuras do batman s01e10|": "2026-11-26",
+        "n:as novas aventuras do batman s01e11|": "2026-11-26",
+        "n:as novas aventuras do batman s01e12|": "2026-11-26",
+        "n:as novas aventuras do batman s01e13|": "2026-11-26",
+        "n:as novas aventuras do batman s01e14|": "2026-11-26",
+        "n:as novas aventuras do batman s01e15|": "2026-11-26",
+        "n:as novas aventuras do batman s01e16|": "2026-11-26",
+        "n:as novas aventuras do batman s01e17|": "2026-11-26",
+        "n:as novas aventuras do batman s02e01|": "2026-11-26",
+        "n:as novas aventuras do batman s02e02|": "2026-11-26",
+        "n:as novas aventuras do batman s02e03|": "2026-11-26",
+        "n:as novas aventuras do batman s02e04|": "2026-11-26",
+        "n:as novas aventuras do batman s02e05|": "2026-11-26",
+        "n:as novas aventuras do batman s02e06|": "2026-11-26",
+        "n:as novas aventuras do batman s02e07|": "2026-11-26",
+        "n:as novas aventuras do batman s02e08|": "2026-11-26",
+        "n:as novas aventuras do batman s02e09|": "2026-11-26",
+        "n:as novas aventuras do batman s02e10|": "2026-11-26",
+        "n:as novas aventuras do batman s02e11|": "2026-11-26",
+        "n:4 contra o apocalipse s01e01|": "2026-11-26",
+        "n:4 contra o apocalipse s01e02|": "2026-11-26",
+        "n:4 contra o apocalipse s01e03|": "2026-11-26",
+        "n:4 contra o apocalipse s01e04|": "2026-11-26",
+        "n:4 contra o apocalipse s01e05|": "2026-11-26",
+        "n:4 contra o apocalipse s01e06|": "2026-11-26",
+        "n:4 contra o apocalipse s01e07|": "2026-11-26",
+        "n:4 contra o apocalipse s01e08|": "2026-11-26",
+        "n:4 contra o apocalipse s01e09|": "2026-11-26",
+        "n:4 contra o apocalipse s01e10|": "2026-11-26",
+        "n:4 contra o apocalipse s01e11|": "2026-11-26",
+        "n:4 contra o apocalipse s02e01|": "2026-11-26",
+        "n:4 contra o apocalipse s02e02|": "2026-11-26",
+        "n:4 contra o apocalipse s02e03|": "2026-11-26",
+        "n:4 contra o apocalipse s02e04|": "2026-11-26",
+        "n:4 contra o apocalipse s02e05|": "2026-11-26",
+        "n:4 contra o apocalipse s02e06|": "2026-11-26",
+        "n:4 contra o apocalipse s02e07|": "2026-11-26",
+        "n:4 contra o apocalipse s02e08|": "2026-11-26",
+        "n:4 contra o apocalipse s02e09|": "2026-11-26",
+        "n:4 contra o apocalipse s02e10|": "2026-11-26",
+        "n:4 contra o apocalipse s03e01|": "2026-11-26",
+        "n:4 contra o apocalipse s03e02|": "2026-11-26",
+        "n:4 contra o apocalipse s03e03|": "2026-11-26",
+        "n:4 contra o apocalipse s03e04|": "2026-11-26",
+        "n:4 contra o apocalipse s03e05|": "2026-11-26",
+        "n:4 contra o apocalipse s03e06|": "2026-11-26",
+        "n:4 contra o apocalipse s03e07|": "2026-11-26",
+        "n:4 contra o apocalipse s03e08|": "2026-11-26",
+        "n:4 contra o apocalipse s03e09|": "2026-11-26",
+        "n:4 contra o apocalipse s03e10|": "2026-11-26",
+        "n:a corrida dos 100 metros 2025|": "2026-11-26",
+        "n:a garota que conquistou o tempo|": "2026-11-26",
+        "n:a ilha da caveira s01e01|": "2026-11-26",
+        "n:a ilha da caveira s01e02|": "2026-11-26",
+        "n:a ilha da caveira s01e03|": "2026-11-26",
+        "n:a ilha da caveira s01e04|": "2026-11-26",
+        "n:a ilha da caveira s01e05|": "2026-11-26",
+        "n:a ilha da caveira s01e06|": "2026-11-26",
+        "n:a ilha da caveira s01e07|": "2026-11-26",
+        "n:a ilha da caveira s01e08|": "2026-11-26",
+        "n:agente p disfarcado s01e01|": "2026-11-26",
+        "n:agente p disfarcado s01e02|": "2026-11-26",
+        "n:agente p disfarcado s01e03|": "2026-11-26",
+        "n:agente p disfarcado s01e04|": "2026-11-26",
+        "n:agente p disfarcado s01e05|": "2026-11-26",
+        "n:agente p disfarcado s01e06|": "2026-11-26",
+        "n:agente p disfarcado s01e07|": "2026-11-26",
+        "n:agente p disfarcado s01e08|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e01|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e02|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e03|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e04|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e05|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e06|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e07|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e08|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e09|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e10|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e11|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e12|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s01e13|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s02e01|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s02e02|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s02e03|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s02e04|": "2026-11-26",
+        "n:a turma do charlie brown e snoopy s02e05|": "2026-11-26",
+        "n:a tia e top s01e01|": "2026-11-26",
+        "n:a tia e top s01e02|": "2026-11-26",
+        "n:a tia e top s01e03|": "2026-11-26",
+        "n:a tia e top s01e04|": "2026-11-26",
+        "n:a tia e top s01e05|": "2026-11-26",
+        "n:a tia e top s01e06|": "2026-11-26",
+        "n:a tia e top s01e07|": "2026-11-26",
+        "n:a tia e top s01e08|": "2026-11-26",
+        "n:a tia e top s01e09|": "2026-11-26",
+        "n:a tia e top s01e10|": "2026-11-26",
+        "n:a tia e top s01e11|": "2026-11-26",
+        "n:a tia e top s01e12|": "2026-11-26",
+        "n:a tia e top s01e13|": "2026-11-26",
+        "n:a tia e top s01e14|": "2026-11-26",
+        "n:a tia e top s01e15|": "2026-11-26",
+        "n:a tia e top s01e16|": "2026-11-26",
+        "n:a tia e top s02e01|": "2026-11-26",
+        "n:a tia e top s02e02|": "2026-11-26",
+        "n:a tia e top s02e03|": "2026-11-26",
+        "n:a tia e top s02e04|": "2026-11-26",
+        "n:a tia e top s02e05|": "2026-11-26",
+        "n:a tia e top s02e06|": "2026-11-26",
+        "n:a tia e top s02e07|": "2026-11-26",
+        "n:a tia e top s02e08|": "2026-11-26",
+        "n:a saga wingfeather s01e01|": "2026-11-26",
+        "n:a saga wingfeather s01e02|": "2026-11-26",
+        "n:a saga wingfeather s01e03|": "2026-11-26",
+        "n:a saga wingfeather s01e04|": "2026-11-26",
+        "n:a saga wingfeather s01e05|": "2026-11-26",
+        "n:a saga wingfeather s01e06|": "2026-11-26",
+        "n:a saga wingfeather s02e01|": "2026-11-26",
+        "n:a saga wingfeather s02e02|": "2026-11-26",
+        "n:a saga wingfeather s02e03|": "2026-11-26",
+        "n:a saga wingfeather s02e04|": "2026-11-26",
+        "n:a saga wingfeather s02e05|": "2026-11-26",
+        "n:a saga wingfeather s02e06|": "2026-11-26",
+        "n:a saga wingfeather s02e07|": "2026-11-26",
+        "n:a saga wingfeather s03e01|": "2026-11-26",
+        "n:a saga wingfeather s03e02|": "2026-11-26",
+        "n:a saga wingfeather s03e03|": "2026-11-26",
+        "n:a saga wingfeather s03e04|": "2026-11-26",
+        "n:a saga wingfeather s03e05|": "2026-11-26",
+        "n:a saga wingfeather s03e06|": "2026-11-26",
+        "n:a saga wingfeather s04e01|": "2026-11-26",
+        "n:a saga wingfeather s04e02|": "2026-11-26",
+        "n:a saga wingfeather s04e03|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e01|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e02|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e03|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e04|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e05|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e06|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e07|": "2026-11-26",
+        "n:academia unicornio segredos revelados s01e08|": "2026-11-26",
+        "n:academia unicornio segredos revelados s02e01|": "2026-11-26",
+        "n:academia unicornio segredos revelados s02e02|": "2026-11-26",
+        "n:academia unicornio segredos revelados s02e03|": "2026-11-26",
+        "n:academia unicornio segredos revelados s02e04|": "2026-11-26",
+        "n:apenas um show regular show s01e01|": "2026-11-26",
+        "n:apenas um show regular show s01e02|": "2026-11-26",
+        "n:apenas um show regular show s01e03|": "2026-11-26",
+        "n:apenas um show regular show s01e04|": "2026-11-26",
+        "n:apenas um show regular show s01e05|": "2026-11-26",
+        "n:apenas um show regular show s01e06|": "2026-11-26",
+        "n:apenas um show regular show s01e07|": "2026-11-26",
+        "n:apenas um show regular show s01e08|": "2026-11-26",
+        "n:apenas um show regular show s01e09|": "2026-11-26",
+        "n:apenas um show regular show s01e10|": "2026-11-26",
+        "n:apenas um show regular show s01e11|": "2026-11-26",
+        "n:apenas um show regular show s01e12|": "2026-11-26",
+        "n:apenas um show regular show s02e01|": "2026-11-26",
+        "n:apenas um show regular show s02e02|": "2026-11-26",
+        "n:apenas um show regular show s02e03|": "2026-11-26",
+        "n:apenas um show regular show s02e04|": "2026-11-26",
+        "n:apenas um show regular show s02e05|": "2026-11-26",
+        "n:apenas um show regular show s02e06|": "2026-11-26",
+        "n:apenas um show regular show s02e07|": "2026-11-26",
+        "n:apenas um show regular show s02e08|": "2026-11-26",
+        "n:apenas um show regular show s02e09|": "2026-11-26",
+        "n:apenas um show regular show s02e10|": "2026-11-26",
+        "n:apenas um show regular show s02e11|": "2026-11-26",
+        "n:apenas um show regular show s02e12|": "2026-11-26",
+        "n:apenas um show regular show s02e13|": "2026-11-26",
+        "n:apenas um show regular show s02e14|": "2026-11-26",
+        "n:apenas um show regular show s02e15|": "2026-11-26",
+        "n:apenas um show regular show s02e16|": "2026-11-26",
+        "n:apenas um show regular show s02e17|": "2026-11-26",
+        "n:apenas um show regular show s02e18|": "2026-11-26",
+        "n:apenas um show regular show s02e19|": "2026-11-26",
+        "n:apenas um show regular show s02e20|": "2026-11-26",
+        "n:apenas um show regular show s02e21|": "2026-11-26",
+        "n:apenas um show regular show s02e22|": "2026-11-26",
+        "n:apenas um show regular show s02e23|": "2026-11-26",
+        "n:apenas um show regular show s02e24|": "2026-11-26",
+        "n:apenas um show regular show s02e25|": "2026-11-26",
+        "n:apenas um show regular show s02e26|": "2026-11-26",
+        "n:apenas um show regular show s02e27|": "2026-11-26",
+        "n:apenas um show regular show s02e28|": "2026-11-26",
+        "n:apenas um show regular show s03e01|": "2026-11-26",
+        "n:apenas um show regular show s03e02|": "2026-11-26",
+        "n:apenas um show regular show s03e03|": "2026-11-26",
+        "n:apenas um show regular show s03e04|": "2026-11-26",
+        "n:apenas um show regular show s03e05|": "2026-11-26",
+        "n:apenas um show regular show s03e06|": "2026-11-26",
+        "n:apenas um show regular show s03e07|": "2026-11-26",
+        "n:apenas um show regular show s03e08|": "2026-11-26",
+        "n:apenas um show regular show s03e09|": "2026-11-26",
+        "n:apenas um show regular show s03e10|": "2026-11-26",
+        "n:apenas um show regular show s03e11|": "2026-11-26",
+        "n:apenas um show regular show s03e12|": "2026-11-26",
+        "n:apenas um show regular show s03e13|": "2026-11-26",
+        "n:apenas um show regular show s03e14|": "2026-11-26",
+        "n:apenas um show regular show s03e15|": "2026-11-26",
+        "n:apenas um show regular show s03e16|": "2026-11-26",
+        "n:apenas um show regular show s03e17|": "2026-11-26",
+        "n:apenas um show regular show s03e18|": "2026-11-26",
+        "n:apenas um show regular show s03e19|": "2026-11-26",
+        "n:apenas um show regular show s03e20|": "2026-11-26",
+        "n:apenas um show regular show s03e21|": "2026-11-26",
+        "n:apenas um show regular show s03e22|": "2026-11-26",
+        "n:apenas um show regular show s03e23|": "2026-11-26",
+        "n:apenas um show regular show s03e24|": "2026-11-26",
+        "n:apenas um show regular show s03e25|": "2026-11-26",
+        "n:apenas um show regular show s03e26|": "2026-11-26",
+        "n:apenas um show regular show s03e27|": "2026-11-26",
+        "n:apenas um show regular show s03e28|": "2026-11-26",
+        "n:apenas um show regular show s03e29|": "2026-11-26",
+        "n:apenas um show regular show s03e30|": "2026-11-26",
+        "n:apenas um show regular show s03e31|": "2026-11-26",
+        "n:apenas um show regular show s03e32|": "2026-11-26",
+        "n:apenas um show regular show s03e33|": "2026-11-26",
+        "n:apenas um show regular show s03e34|": "2026-11-26",
+        "n:apenas um show regular show s03e35|": "2026-11-26",
+        "n:apenas um show regular show s03e36|": "2026-11-26",
+        "n:apenas um show regular show s03e37|": "2026-11-26",
+        "n:apenas um show regular show s03e38|": "2026-11-26",
+        "n:apenas um show regular show s03e39|": "2026-11-26",
+        "n:apenas um show regular show s03e40|": "2026-11-26",
+        "n:apenas um show regular show s04e01|": "2026-11-26",
+        "n:apenas um show regular show s04e02|": "2026-11-26",
+        "n:apenas um show regular show s04e03|": "2026-11-26",
+        "n:apenas um show regular show s04e04|": "2026-11-26",
+        "n:apenas um show regular show s04e05|": "2026-11-26",
+        "n:apenas um show regular show s04e06|": "2026-11-26",
+        "n:apenas um show regular show s04e07|": "2026-11-26",
+        "n:apenas um show regular show s04e08|": "2026-11-26",
+        "n:apenas um show regular show s04e09|": "2026-11-26",
+        "n:apenas um show regular show s04e10|": "2026-11-26",
+        "n:apenas um show regular show s04e11|": "2026-11-26",
+        "n:apenas um show regular show s04e12|": "2026-11-26",
+        "n:apenas um show regular show s04e13|": "2026-11-26",
+        "n:apenas um show regular show s04e14|": "2026-11-26",
+        "n:apenas um show regular show s04e15|": "2026-11-26",
+        "n:apenas um show regular show s04e16|": "2026-11-26",
+        "n:apenas um show regular show s04e17|": "2026-11-26",
+        "n:apenas um show regular show s04e18|": "2026-11-26",
+        "n:apenas um show regular show s04e19|": "2026-11-26",
+        "n:apenas um show regular show s04e20|": "2026-11-26",
+        "n:apenas um show regular show s04e21|": "2026-11-26",
+        "n:apenas um show regular show s04e22|": "2026-11-26",
+        "n:apenas um show regular show s04e23|": "2026-11-26",
+        "n:apenas um show regular show s04e24|": "2026-11-26",
+        "n:apenas um show regular show s04e25|": "2026-11-26",
+        "n:apenas um show regular show s04e26|": "2026-11-26",
+        "n:apenas um show regular show s04e27|": "2026-11-26",
+        "n:apenas um show regular show s04e28|": "2026-11-26",
+        "n:apenas um show regular show s04e29|": "2026-11-26",
+        "n:apenas um show regular show s04e30|": "2026-11-26",
+        "n:apenas um show regular show s04e31|": "2026-11-26",
+        "n:apenas um show regular show s04e32|": "2026-11-26",
+        "n:apenas um show regular show s04e33|": "2026-11-26",
+        "n:apenas um show regular show s04e34|": "2026-11-26",
+        "n:apenas um show regular show s04e35|": "2026-11-26",
+        "n:apenas um show regular show s04e36|": "2026-11-26",
+        "n:apenas um show regular show s04e37|": "2026-11-26",
+        "n:apenas um show regular show s05e01|": "2026-11-26",
+        "n:apenas um show regular show s05e02|": "2026-11-26",
+        "n:apenas um show regular show s05e03|": "2026-11-26",
+        "n:apenas um show regular show s05e04|": "2026-11-26",
+        "n:apenas um show regular show s05e05|": "2026-11-26",
+        "n:apenas um show regular show s05e06|": "2026-11-26",
+        "n:apenas um show regular show s05e07|": "2026-11-26",
+        "n:apenas um show regular show s05e08|": "2026-11-26",
+        "n:apenas um show regular show s05e09|": "2026-11-26",
+        "n:apenas um show regular show s05e10|": "2026-11-26",
+        "n:apenas um show regular show s05e11|": "2026-11-26",
+        "n:apenas um show regular show s05e12|": "2026-11-26",
+        "n:apenas um show regular show s05e13|": "2026-11-26",
+        "n:apenas um show regular show s05e14|": "2026-11-26",
+        "n:apenas um show regular show s05e15|": "2026-11-26",
+        "n:apenas um show regular show s05e16|": "2026-11-26",
+        "n:apenas um show regular show s05e17|": "2026-11-26",
+        "n:apenas um show regular show s05e18|": "2026-11-26",
+        "n:apenas um show regular show s05e19|": "2026-11-26",
+        "n:apenas um show regular show s05e20|": "2026-11-26",
+        "n:apenas um show regular show s05e21|": "2026-11-26",
+        "n:apenas um show regular show s05e22|": "2026-11-26",
+        "n:apenas um show regular show s05e23|": "2026-11-26",
+        "n:apenas um show regular show s05e24|": "2026-11-26",
+        "n:apenas um show regular show s05e25|": "2026-11-26",
+        "n:apenas um show regular show s05e26|": "2026-11-26",
+        "n:apenas um show regular show s05e27|": "2026-11-26",
+        "n:apenas um show regular show s05e28|": "2026-11-26",
+        "n:apenas um show regular show s05e29|": "2026-11-26",
+        "n:apenas um show regular show s05e30|": "2026-11-26",
+        "n:apenas um show regular show s05e31|": "2026-11-26",
+        "n:apenas um show regular show s05e32|": "2026-11-26",
+        "n:apenas um show regular show s05e33|": "2026-11-26",
+        "n:apenas um show regular show s05e34|": "2026-11-26",
+        "n:apenas um show regular show s05e35|": "2026-11-26",
+        "n:apenas um show regular show s05e36|": "2026-11-26",
+        "n:apenas um show regular show s05e37|": "2026-11-26",
+        "n:apenas um show regular show s06e01|": "2026-11-26",
+        "n:apenas um show regular show s06e02|": "2026-11-26",
+        "n:apenas um show regular show s06e03|": "2026-11-26",
+        "n:apenas um show regular show s06e04|": "2026-11-26",
+        "n:apenas um show regular show s06e05|": "2026-11-26",
+        "n:apenas um show regular show s06e06|": "2026-11-26",
+        "n:apenas um show regular show s06e07|": "2026-11-26",
+        "n:apenas um show regular show s06e08|": "2026-11-26",
+        "n:apenas um show regular show s06e09|": "2026-11-26",
+        "n:apenas um show regular show s06e10|": "2026-11-26",
+        "n:apenas um show regular show s06e11|": "2026-11-26",
+        "n:apenas um show regular show s06e12|": "2026-11-26",
+        "n:apenas um show regular show s06e13|": "2026-11-26",
+        "n:apenas um show regular show s06e14|": "2026-11-26",
+        "n:apenas um show regular show s06e15|": "2026-11-26",
+        "n:apenas um show regular show s06e16|": "2026-11-26",
+        "n:apenas um show regular show s06e17|": "2026-11-26",
+        "n:apenas um show regular show s06e18|": "2026-11-26",
+        "n:apenas um show regular show s06e19|": "2026-11-26",
+        "n:apenas um show regular show s06e20|": "2026-11-26",
+        "n:apenas um show regular show s06e21|": "2026-11-26",
+        "n:apenas um show regular show s06e22|": "2026-11-26",
+        "n:apenas um show regular show s06e23|": "2026-11-26",
+        "n:apenas um show regular show s06e24|": "2026-11-26",
+        "n:apenas um show regular show s06e25|": "2026-11-26",
+        "n:apenas um show regular show s06e26|": "2026-11-26",
+        "n:apenas um show regular show s06e27|": "2026-11-26",
+        "n:apenas um show regular show s06e28|": "2026-11-26",
+        "n:apenas um show regular show s07e01|": "2026-11-26",
+        "n:apenas um show regular show s07e02|": "2026-11-26",
+        "n:apenas um show regular show s07e03|": "2026-11-26",
+        "n:apenas um show regular show s07e04|": "2026-11-26",
+        "n:apenas um show regular show s07e05|": "2026-11-26",
+        "n:apenas um show regular show s07e06|": "2026-11-26",
+        "n:apenas um show regular show s07e07|": "2026-11-26",
+        "n:apenas um show regular show s07e08|": "2026-11-26",
+        "n:apenas um show regular show s07e09|": "2026-11-26",
+        "n:apenas um show regular show s07e10|": "2026-11-26",
+        "n:apenas um show regular show s07e11|": "2026-11-26",
+        "n:apenas um show regular show s07e12|": "2026-11-26",
+        "n:apenas um show regular show s07e13|": "2026-11-26",
+        "n:apenas um show regular show s07e14|": "2026-11-26",
+        "n:apenas um show regular show s07e15|": "2026-11-26",
+        "n:apenas um show regular show s07e16|": "2026-11-26",
+        "n:apenas um show regular show s07e17|": "2026-11-26",
+        "n:apenas um show regular show s07e18|": "2026-11-26",
+        "n:apenas um show regular show s07e19|": "2026-11-26",
+        "n:apenas um show regular show s07e20|": "2026-11-26",
+        "n:apenas um show regular show s07e21|": "2026-11-26",
+        "n:apenas um show regular show s07e22|": "2026-11-26",
+        "n:apenas um show regular show s07e23|": "2026-11-26",
+        "n:apenas um show regular show s07e24|": "2026-11-26",
+        "n:apenas um show regular show s07e25|": "2026-11-26",
+        "n:apenas um show regular show s07e26|": "2026-11-26",
+        "n:apenas um show regular show s07e27|": "2026-11-26",
+        "n:apenas um show regular show s07e28|": "2026-11-26",
+        "n:apenas um show regular show s07e29|": "2026-11-26",
+        "n:apenas um show regular show s07e30|": "2026-11-26",
+        "n:apenas um show regular show s07e31|": "2026-11-26",
+        "n:apenas um show regular show s07e32|": "2026-11-26",
+        "n:apenas um show regular show s07e33|": "2026-11-26",
+        "n:apenas um show regular show s07e34|": "2026-11-26",
+        "n:apenas um show regular show s07e35|": "2026-11-26",
+        "n:apenas um show regular show s07e36|": "2026-11-26",
+        "n:apenas um show regular show s08e01|": "2026-11-26",
+        "n:apenas um show regular show s08e02|": "2026-11-26",
+        "n:apenas um show regular show s08e03|": "2026-11-26",
+        "n:apenas um show regular show s08e04|": "2026-11-26",
+        "n:apenas um show regular show s08e05|": "2026-11-26",
+        "n:apenas um show regular show s08e06|": "2026-11-26",
+        "n:apenas um show regular show s08e07|": "2026-11-26",
+        "n:apenas um show regular show s08e08|": "2026-11-26",
+        "n:apenas um show regular show s08e09|": "2026-11-26",
+        "n:apenas um show regular show s08e10|": "2026-11-26",
+        "n:apenas um show regular show s08e11|": "2026-11-26",
+        "n:apenas um show regular show s08e12|": "2026-11-26",
+        "n:apenas um show regular show s08e13|": "2026-11-26",
+        "n:apenas um show regular show s08e14|": "2026-11-26",
+        "n:apenas um show regular show s08e15|": "2026-11-26",
+        "n:apenas um show regular show s08e16|": "2026-11-26",
+        "n:apenas um show regular show s08e17|": "2026-11-26",
+        "n:apenas um show regular show s08e18|": "2026-11-26",
+        "n:apenas um show regular show s08e19|": "2026-11-26",
+        "n:apenas um show regular show s08e20|": "2026-11-26",
+        "n:apenas um show regular show s08e21|": "2026-11-26",
+        "n:apenas um show regular show s08e22|": "2026-11-26",
+        "n:apenas um show regular show s08e23|": "2026-11-26",
+        "n:apenas um show regular show s08e24|": "2026-11-26",
+        "n:apenas um show regular show s08e25|": "2026-11-26",
+        "n:apenas um show regular show s08e26|": "2026-11-26",
+        "n:apenas um show regular show s08e27|": "2026-11-26",
+        "n:apenas um show regular show s08e28|": "2026-11-26",
+        "n:apenas um show regular show s08e29|": "2026-11-26",
+        "n:batman ninja 2018|": "2026-11-26",
+        "n:batman ninja vs liga da yakuza 2025|": "2026-11-26",
+        "n:batman o cavaleiro de gotham|": "2026-11-26",
+        "n:batman a mascara do fantasma|": "2026-11-26",
+        "n:atriz 2023|": "2026-11-26",
+        "n:attack on titan parte 2 asas da liberadade 2015|": "2026-11-26",
+        "n:attack on titan o ultimo ataque 2024|": "2026-11-26",
+        "n:aya e a bruxa|": "2026-11-26",
+        "n:aya to majo|": "2026-11-26"
+      }
     }
   ]
 }
