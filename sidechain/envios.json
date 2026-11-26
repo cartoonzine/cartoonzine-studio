@@ -2456,7 +2456,7 @@
       "url": "https://raw.githubusercontent.com/cartoonzine/cz-fire/refs/heads/main/listas/filmes.json",
       "listas": [],
       "ativo": true,
-      "tipoLista": "mista",
+      "tipoLista": "unica",
       "destino": {
         "colecao": "filmes"
       },
