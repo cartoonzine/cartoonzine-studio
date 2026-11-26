@@ -3767,6 +3767,13 @@
           "grupos": [
             "Kids"
           ]
+        },
+        {
+          "id": "rmwx3uktt1",
+          "destino": {
+            "colecao": "filmes"
+          },
+          "grupos": []
         }
       ],
       "gruposNovos": "esperar",
@@ -13153,7 +13160,17 @@
           "colecao": "filmes"
         }
       },
-      "regras": [],
+      "regras": [
+        {
+          "natureza": "filme",
+          "contem": "",
+          "campo": "tudo",
+          "porTipo": true,
+          "para": {
+            "colecao": "filmes"
+          }
+        }
+      ],
       "ajustes": {
         "n:100 lobo 2020|": {
           "ficha": {
