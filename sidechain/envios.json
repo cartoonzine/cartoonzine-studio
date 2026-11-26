@@ -23836,6 +23836,13 @@
           "grupos": [
             "Animes"
           ]
+        },
+        {
+          "id": "rmwx3kfgh1",
+          "destino": {
+            "colecao": "filmes"
+          },
+          "grupos": []
         }
       ],
       "gruposNovos": "esperar",
@@ -25341,7 +25348,17 @@
           "colecao": "filmes"
         }
       },
-      "regras": [],
+      "regras": [
+        {
+          "natureza": "filme",
+          "contem": "",
+          "campo": "tudo",
+          "porTipo": true,
+          "para": {
+            "colecao": "filmes"
+          }
+        }
+      ],
       "ajustes": {
         "n:des encanto s01e01|": {
           "serie": "(Des)encanto",
