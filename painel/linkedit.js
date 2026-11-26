@@ -133,14 +133,18 @@
             if (r.erro) throw new Error(r.erro);
             return r.texto;
         }
-        if (nuvem()) {                              // online com o testador na nuvem: sem bloqueio de CORS
-            const r = await (await fetch(urlNuvem('/lista', new URLSearchParams({ url })))).json();
-            if (r.erro) throw new Error(r.erro);
-            return r.texto;
+        // online: primeiro direto (GitHub, pages.dev e muitos sites liberam CORS — e lista grande não cabe no worker grátis);
+        // só se o site bloquear, pelo testador na nuvem
+        let erroDireto;
+        try { const r = await fetch(url); if (r.ok) return await r.text(); erroDireto = new Error('HTTP ' + r.status); if (r.status === 404) throw erroDireto; }
+        catch (e) { erroDireto = erroDireto || e; if (/HTTP 404/.test(e.message)) throw e; }
+        if (nuvem()) {
+            const r = await fetch(urlNuvem('/lista', new URLSearchParams({ url })));
+            if (!r.ok) throw new Error('o testador na nuvem não conseguiu (HTTP ' + r.status + ')' + (r.status >= 500 ? ' — lista grande demais para o plano grátis? use o painel do PC' : ''));
+            const j = await r.json(); if (j.erro) throw new Error(j.erro);
+            return j.texto;
         }
-        const r = await fetch(url);                 // online: só funciona se o site liberar (CORS)
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.text();
+        throw erroDireto;
     }
 
     /** Campo de link: aceita link de LISTA (M3U/JSON/TXT) ou de CANAL (.m3u8, .ts, .mp4...), um ou vários de uma vez. */
