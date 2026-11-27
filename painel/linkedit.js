@@ -2632,6 +2632,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
 .le-serie-t{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:#cbd5e1;padding:3px 0 0 4px}.le-nm-prev{max-height:220px;overflow:auto;font-size:12px;display:flex;flex-direction:column;gap:3px}.le-nm-prev s{color:var(--s)}
 .le-tmdb{display:flex;gap:10px;margin:4px 0 2px;font-size:12px;color:#cbd5e1}.le-tmdb img{width:58px;height:86px;object-fit:cover;border-radius:6px;flex-shrink:0}.le-tmdb p{margin:3px 0 0;color:var(--s);line-height:1.4}.le-tmdb small{color:#fbbf24}
 .le-sc-mais{margin-top:6px;padding:8px 10px;border-radius:10px;background:#0d1016;border:1px solid #2a3140;font-size:12.5px}.le-sc-mais summary{cursor:pointer;font-weight:800;color:#cbd5e1}.le-sc-mais[open] summary{margin-bottom:6px}
+.le-marcar-tipo{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:7px 14px;background:#0b111a;border-bottom:1px solid #1f2937;font-size:12px}.le-marcar-tipo[hidden]{display:none}.le-marcar-tipo .le-chips{margin:0}.le-marcar-tipo .le-chip b{color:#22d3ee;margin-left:2px}.le-marcar-tipo .le-chip.on b{color:inherit}.le-marcar-tipo small{opacity:.8}
 .le-fichario{display:flex;flex-wrap:wrap;align-items:flex-end;gap:4px 6px;padding:8px 14px 0;border-bottom:2px solid #1f2937;background:#0a0f17}.le-fichario[hidden]{display:none}.le-ficha{--fc:#94a3b8;position:relative;padding:6px 12px 5px;border:1px solid #273244;border-bottom:none;border-radius:9px 9px 0 0;background:#111827;color:#9ca3af;font-size:12px;cursor:pointer;margin-bottom:-2px;box-shadow:inset 0 3px 0 var(--fc)}.le-ficha b{color:var(--fc);font-variant-numeric:tabular-nums;margin-left:3px}.le-ficha:hover{color:#e5e7eb;background:#162032}.le-ficha.on{background:#0d121b;color:#fff;border-color:var(--fc);border-bottom:2px solid #0d121b;box-shadow:inset 0 3px 0 var(--fc),0 -4px 14px color-mix(in srgb,var(--fc) 30%,transparent)}.le-ficha:focus-visible{outline:2px solid var(--fc);outline-offset:1px}.le-ficha-rv{margin:0 0 5px 8px;padding:4px 10px;font-size:11.5px;border-color:#4ade80;color:#bbf7d0}.le-ficha-ok{color:#4ade80;font-size:12px;font-weight:700;padding:0 6px 6px}.le-fichario .le-dica{margin-left:auto;padding-bottom:6px}
 .le-sc-barra{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:9px 14px;background:linear-gradient(90deg,#2a0b1c,#0b1d24);border-bottom:1px solid var(--r);font-size:12.5px}.le-sc-barra>b{color:#ff7ac0;letter-spacing:.12em}.le-sc-barra .le-chips{margin:0}
 .le-sc-sug{display:flex;flex-wrap:wrap;gap:6px;width:100%;align-items:center;font-size:12px}
@@ -2761,6 +2762,7 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
               </div>
               <div class="le-sc-barra" id="le-sc-barra" hidden></div>
               <div class="le-scan" id="le-scan-barra" hidden></div>
+              <div class="le-marcar-tipo" id="le-marcar-tipo" hidden></div>
               <div class="le-fichario" id="le-fichario" role="tablist" aria-label="Fichário: itens organizados por coleção" hidden></div>
               <div class="le-cab" role="row"><button class="le-caixa" id="le-cab-todos" title="Marcar todos os visíveis (Ctrl+A)" aria-label="Marcar todos os visíveis"></button><span>Logo</span><span>Canal</span><span>Grupo</span><span>Idioma</span><span title="Guia de programação (EPG)">Guia</span><span>Status</span><span>Abre em</span></div>
               <div id="le-corpo" role="table" aria-label="Canais"><div id="le-alto" style="position:relative"></div></div>
@@ -2948,9 +2950,34 @@ button.le-logo-c{border:0;padding:0;cursor:zoom-in}button.le-logo-c:hover,button
     function contarSelCards() {
         const r = $('#le-rodape'); if (r) { const sel = r.querySelector('.le-cards-sel') || r.appendChild(Object.assign(document.createElement('span'), { className: 'le-cards-sel' })); sel.innerHTML = `<b>${E.sel.size}</b> marcados`; }
     }
+    // ---------- ☑ MARCAR POR TIPO: todos os filmes, todos os episódios (séries), canais… do que está na tela ----------
+    function pintarMarcarTipo() {
+        const el = $('#le-marcar-tipo'); if (!el) return;
+        if (!E.canais.length || !E.visiveis.length) { el.hidden = true; el.innerHTML = ''; return; }
+        const por = new Map();
+        for (const c of E.visiveis) { const k = c.natureza || 'canal'; if (!por.has(k)) por.set(k, []); por.get(k).push(c); }
+        const series = (lista) => new Set(lista.map(c => (c.video && c.video.serie) || c.nome)).size;
+        el.hidden = false;
+        el.innerHTML = `<span class="le-dica">☑ Marcar de uma vez:</span>`
+            + L.NATUREZAS.filter(([k]) => por.has(k)).map(([k, ic, nome]) => {
+                const l = por.get(k), todos = l.every(c => E.sel.has(c.id));
+                const rot = k === 'episodio' ? `${ic} Séries <b>${numSC(series(l))}</b> <small>(${numSC(l.length)} ep.)</small>` : `${ic} ${esc(nome.split(' /')[0])}s <b>${numSC(l.length)}</b>`;
+                return `<button class="le-chip${todos ? ' on' : ''}" data-marcar-tipo="${k}" title="${todos ? 'Desmarcar' : 'Marcar'} todos os itens deste tipo que estão na tela (respeita a busca, os filtros e a ficha aberta)">${rot}</button>`;
+            }).join('')
+            + (E.sel.size ? `<button class="le-chip" data-marcar-tipo="" title="Desmarcar tudo">✕ Desmarcar (${numSC(E.sel.size)})</button><small class="le-dica">${SC.modo ? 'Agora: rota num card, botão direito → coleção, ou "Enviar marcados para…"' : 'Agora: botão direito → 🎬 Vai para… ou ➜ Jogar na lista nova'}</small>` : '');
+        el.onclick = (ev) => {
+            const b = ev.target.closest('[data-marcar-tipo]'); if (!b) return;
+            const k = b.dataset.marcarTipo;
+            if (!k) E.sel.clear();
+            else { const l = E.visiveis.filter(c => (c.natureza || 'canal') === k), todos = l.every(c => E.sel.has(c.id)); l.forEach(c => { if (todos) E.sel.delete(c.id); else E.sel.add(c.id); }); }
+            desenharTabela(); if (SC.modo) pintarBarraSC(); if (vista.modo === 'cards') contarSelCards();
+            S.aviso(`${numSC(E.sel.size)} marcado(s).`, 'ok');
+        };
+    }
     function desenharTabela() {
         const corpo = $('#le-corpo'), alto = $('#le-alto'); if (!corpo || !alto) return;
         E.visiveis = filtrados();
+        pintarMarcarTipo();
         alto.style.height = E.visiveis.length * ALTURA_LINHA + 'px';
         pintarJanela();
         if (vista.modo === 'cards') desenharCards();
