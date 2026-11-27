@@ -1194,12 +1194,51 @@
     };
 
     const colDoCaminho = c => estado.config.colecoes.find(x => x.id === String(c).split('/')[1]);
+
+    // ---------- 🔀 obras do SIDECHAIN na Vitrine ----------
+    // O que passa pelo Sidechain vai direto para o Cloud (listas/sc-*.json), sem virar item do Studio.
+    // O robô escreve um índice leve (listas/vitrine-sidechain.json) e aqui cada obra vira um item "virtual"
+    // com caminho sidechain/<coleção>/<chave>.json. Pôr no banner grava sidechain/destaques.json, e o robô
+    // marca destaque: true nessas obras na próxima rodada (os itens do Studio continuam do jeito de sempre).
+    const ARQ_DEST_SC = 'sidechain/destaques.json';
+    vit.sc = { estado: 'nada', itens: [], porCaminho: new Map(), em: '' };
+    const ehSC = c => String(c).startsWith('sidechain/');
+    const caminhoSC = (col, k) => 'sidechain/' + col + '/' + encodeURIComponent(k) + '.json';
+    async function carregarVitrineSC() {
+        if (vit.sc.estado !== 'nada') return;
+        vit.sc.estado = 'lendo';
+        try {
+            const [ind, dest] = await Promise.all([
+                estado.repo.ler('listas/vitrine-sidechain.json'),
+                estado.repo.ler(ARQ_DEST_SC).catch(() => ({ itens: [] }))
+            ]);
+            const ordem = new Map(((dest && dest.itens) || []).map(d => [caminhoSC(d.colecao, d.k), d.ordem || 1e6]));
+            const img = (x) => (x && x[0] === '~' ? (ind.img || 'https://image.tmdb.org/t/p/') + x.slice(1) : x) || undefined;
+            vit.sc.itens = (ind.itens || []).map(([k, col, nome, ano, im, temBanner, eps]) => {
+                const caminho = caminhoSC(col, k), o = ordem.get(caminho);
+                return { caminho, nome, ano: ano || undefined, capa: img(im), banner: temBanner ? img(im) : undefined, eps: eps || undefined,
+                    destaque: o ? true : undefined, destaqueOrdem: o && o < 1e6 ? o : undefined, _sc: { k, col } };
+            });
+            vit.sc.porCaminho = new Map(vit.sc.itens.map(i => [i.caminho, i]));
+            // destaque gravado de uma obra que sumiu das listas: continua na Vitrine (para dar para tirar)
+            for (const d of (dest && dest.itens) || []) {
+                const c = caminhoSC(d.colecao, d.k);
+                if (!vit.sc.porCaminho.has(c)) { const v = { caminho: c, nome: d.nome || d.k, destaque: true, destaqueOrdem: d.ordem, _sc: { k: d.k, col: d.colecao, sumiu: true } }; vit.sc.itens.push(v); vit.sc.porCaminho.set(c, v); }
+            }
+            vit.sc.em = ind.em || '';
+            vit.sc.estado = 'ok';
+        } catch (e) { vit.sc.estado = 'sem'; vit.sc.erro = e.message; }
+        if (estado.tela === 'vitrine' && !mudancasVitrine().length) { vit.lista = null; desenharVitrine(); }
+        else if (estado.tela === 'vitrine') desenharResultadosVitrine();
+    }
+    const indiceVit = () => vit.sc.itens.length ? estado.indice.concat(vit.sc.itens) : estado.indice;
+    const itemVit = c => vit.sc.porCaminho.get(c) || estado.indice.find(i => i.caminho === c);
     const colsVitrine = () => estado.config.colecoes.filter(c => TIPOS_VITRINE.includes(c.tipo));
     const naVitrine = i => { const c = colDoCaminho(i.caminho); return !!c && TIPOS_VITRINE.includes(c.tipo); };
     const ordemVitrine = (a, b) => (a.destaqueOrdem || 1e9) - (b.destaqueOrdem || 1e9) || String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true });
 
     function lerVitrineDoIndice() {
-        const dest = estado.indice.filter(i => i.destaque && naVitrine(i)).sort(ordemVitrine);
+        const dest = indiceVit().filter(i => i.destaque && naVitrine(i)).sort(ordemVitrine);
         vit.lista = dest.map(i => i.caminho);
         vit.base = new Map(dest.map(i => [i.caminho, i.destaqueOrdem || null]));
     }
@@ -1249,7 +1288,7 @@
             <section class="painel vit-bloco vit-lista-bloco">
               <h2 class="vit-h">No banner agora</h2>
               <div class="vit-rolagem" id="vit-lista-box"></div>
-              <p class="dica vit-lista-dica">Arraste ou use ↑ ↓ para mudar a ordem. Destaques escritos à mão no DB legacy (no seu PC) não aparecem aqui, mas continuam no banner.</p>
+              <p class="dica vit-lista-dica">Arraste ou use ↑ ↓ para mudar a ordem. Destaques escritos à mão no DB legacy (no seu PC) não aparecem aqui, mas continuam no banner. Obras 🔀 do Sidechain entram no banner na próxima rodada do robô do Sidechain.</p>
             </section>
             </div>
             <section class="painel vit-bloco">
@@ -1260,6 +1299,11 @@
                   <option value="">Todas as coleções</option>
                   ${cols.map(c => `<option value="${esc(c.id)}" ${vit.col === c.id ? 'selected' : ''}>${esc(c.icone || '')} ${esc(c.nome)}</option>`).join('')}
                 </select>
+                <select class="campo" id="vit-origem" aria-label="De onde" title="Itens do Studio, obras do Sidechain (as que vão direto para o Cloud) ou os dois">
+                  <option value="" ${!vit.origem ? 'selected' : ''}>Studio + Sidechain</option>
+                  <option value="studio" ${vit.origem === 'studio' ? 'selected' : ''}>Só do Studio</option>
+                  <option value="sc" ${vit.origem === 'sc' ? 'selected' : ''}>🔀 Só do Sidechain</option>
+                </select>
                 <label class="check"><input type="checkbox" id="vit-sobanner" ${vit.soBanner ? 'checked' : ''}> só com imagem de banner</label>
               </div>
               <div id="vit-resultados"></div>
@@ -1268,6 +1312,7 @@
         const busca = $('#vit-busca');
         busca.addEventListener('input', () => { vit.busca = busca.value; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); });
         $('#vit-col').onchange = e => { vit.col = e.target.value; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); };
+        $('#vit-origem').onchange = e => { vit.origem = e.target.value; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); };
         $('#vit-sobanner').onchange = e => { vit.soBanner = e.target.checked; vit.mostrar = PASSO_VITRINE; desenharResultadosVitrine(); };
         $('#vp-mostrar').onclick = () => {
             vit.prev.mostrar = !vit.prev.mostrar; guardar.gravar('czs-vit-previa', vit.prev.mostrar);
@@ -1283,7 +1328,8 @@
         if (!vit.lista || !mudancasVitrine().length) lerVitrineDoIndice();
         if (!$('#vit-raiz')) montarVitrine();
         desenharCabVitrine();
-        const porCaminho = new Map(estado.indice.map(i => [i.caminho, i]));
+        carregarVitrineSC();
+        const porCaminho = new Map(indiceVit().map(i => [i.caminho, i]));
         if (vit.aberto && !vit.lista.includes(vit.aberto)) vit.aberto = null;
         const linha = (c, i) => {
             const it = porCaminho.get(c) || { caminho: c, nome: c.split('/').pop().replace(/\.json$/, '') };
@@ -1293,8 +1339,8 @@
                 <span class="vit-pos">${String(i + 1).padStart(2, '0')}</span>
                 ${partesLinha(c, it)}
                 <span class="vit-acoes">
-                  <button type="button" class="btn mini ${aberto ? 'principal' : 'fantasma'}" data-ajustar="${esc(c)}" title="Aparência no banner: imagem, logo, vídeo, skin e efeito" aria-expanded="${aberto}">🎛</button>
-                  <button type="button" class="btn mini fantasma" data-editar="${esc(c)}" title="Editar o item completo">✎</button>
+                  ${ehSC(c) ? `<span class="vit-sc-selo" title="Obra do Sidechain: vai para o banner na próxima rodada do robô do Sidechain. Imagem e dados vêm da lista (para mudar: Link Edit → Sidechain)">🔀 Sidechain</span>` : `<button type="button" class="btn mini ${aberto ? 'principal' : 'fantasma'}" data-ajustar="${esc(c)}" title="Aparência no banner: imagem, logo, vídeo, skin e efeito" aria-expanded="${aberto}">🎛</button>
+                  <button type="button" class="btn mini fantasma" data-editar="${esc(c)}" title="Editar o item completo">✎</button>`}
                   <button type="button" class="btn mini" data-sobe="${i}" ${i === 0 ? 'disabled' : ''} title="Subir" aria-label="Subir ${esc(it.nome)}">↑</button>
                   <button type="button" class="btn mini" data-desce="${i}" ${i === vit.lista.length - 1 ? 'disabled' : ''} title="Descer" aria-label="Descer ${esc(it.nome)}">↓</button>
                   <button type="button" class="btn mini perigo" data-tirar="${esc(c)}" title="Tirar do banner" aria-label="Tirar ${esc(it.nome)} do banner">✕</button>
@@ -1413,14 +1459,14 @@
         const temBanner = vit.originais.has(c) ? !!valorAjuste(c, 'banner') : !!it.banner;
         const img = (vit.originais.has(c) && valorAjuste(c, 'banner')) || it.banner || it.capa;
         const ajustado = vit.ajustes.has(c);
-        const meta = [esc(col.icone || '') + ' ' + esc(col.nome || ''), it.ano, it.console].filter(Boolean).join(' · ');
+        const meta = [esc(col.icone || '') + ' ' + esc(col.nome || ''), it.ano, it.console, it.eps && ehSC(c) ? it.eps + ' ep.' : ''].filter(Boolean).join(' · ') + (it._sc && it._sc.sumiu ? ' · <span class="vit-alerta">não está mais nas listas do Sidechain</span>' : '');
         return `<span class="vit-img">${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</span>
                 <span class="vit-txt"><b>${esc(it.nome)}</b><small>${meta}${!temBanner ? ' · <span class="vit-alerta">sem imagem de banner</span>' : ''}${!vit.base.has(c) ? ' · <span class="vit-novo">novo</span>' : ''}${ajustado ? ' · <span class="vit-ajustado">aparência alterada</span>' : ''}</small></span>`;
     }
     function atualizarPartesLinha(c) {
         const li = $(`.vit-linha[data-caminho="${CSS.escape(c)}"]`);
         if (!li) return;
-        const it = estado.indice.find(i => i.caminho === c) || { nome: c };
+        const it = itemVit(c) || { nome: c };
         const tmp = document.createElement('div');
         tmp.innerHTML = partesLinha(c, it);
         li.querySelector('.vit-img').replaceWith(tmp.children[0]);
@@ -1527,14 +1573,17 @@
         if (!box) return;
         const alvo = C.normText(vit.busca);
         const MAX = vit.mostrar || PASSO_VITRINE;
-        const achados = estado.indice
+        const achados = indiceVit()
             .filter(i => naVitrine(i) && !i.rascunho)
+            .filter(i => vit.origem !== 'studio' || !ehSC(i.caminho))
+            .filter(i => vit.origem !== 'sc' || ehSC(i.caminho))
             .filter(i => !vit.col || colDoCaminho(i.caminho).id === vit.col)
             .filter(i => !vit.soBanner || i.banner)
             .filter(i => !alvo || C.normText(i.nome).includes(alvo) || C.normText(i.caminho).includes(alvo))
             .sort((a, b) => String(a.nome).localeCompare(String(b.nome), 'pt', { numeric: true }));
         const naLista = new Set(vit.lista);
-        box.innerHTML = !achados.length ? `<div class="vazio" style="margin-top:12px">Nada encontrado${vit.busca ? ' para "' + esc(vit.busca) + '"' : ''}.</div>` : `
+        const stSC = vit.sc.estado === 'lendo' ? '<p class="dica">🔀 Lendo as obras do Sidechain…</p>' : vit.sc.estado === 'sem' ? '<p class="dica">🔀 Obras do Sidechain ainda não disponíveis (o robô do Sidechain cria listas/vitrine-sidechain.json na próxima rodada).</p>' : '';
+        box.innerHTML = stSC + (!achados.length ? `<div class="vazio" style="margin-top:12px">Nada encontrado${vit.busca ? ' para "' + esc(vit.busca) + '"' : ''}.</div>` : `
           <div class="grade vit-grade">${achados.slice(0, MAX).map(i => {
               const col = colDoCaminho(i.caminho) || {};
               const img = i.banner || i.capa;
@@ -1542,10 +1591,10 @@
               return `<button type="button" class="card largo vit-card ${on ? 'on' : ''}" data-alternar="${esc(i.caminho)}" aria-pressed="${on}" title="${on ? 'Tirar do banner' : 'Colocar no banner'}">
                 <span class="vit-marca" aria-hidden="true">${on ? '✓' : ''}</span>
                 <div class="img">${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : esc(col.icone || '🎬')}</div>
-                <div class="info"><div class="t">${esc(i.nome)}</div><div class="m">${esc([col.nome, i.ano].filter(Boolean).join(' · '))}${!i.banner ? ' · sem banner' : ''}</div></div>
+                <div class="info"><div class="t">${ehSC(i.caminho) ? '<span class="vit-sc-mini" title="Do Sidechain">🔀</span> ' : ''}${esc(i.nome)}</div><div class="m">${esc([col.nome, i.ano, i.eps && ehSC(i.caminho) ? i.eps + ' ep.' : ''].filter(Boolean).join(' · '))}${!i.banner ? ' · sem banner' : ''}</div></div>
               </button>`;
           }).join('')}</div>
-          ${achados.length > MAX ? `<p class="dica" id="vit-mais">Mostrando ${MAX} de ${achados.length} · role para carregar mais…</p>` : ''}`;
+          ${achados.length > MAX ? `<p class="dica" id="vit-mais">Mostrando ${MAX} de ${achados.length} · role para carregar mais…</p>` : ''}`);
         rolarParaMais($('#vit-mais', box), () => { vit.mostrar = MAX + PASSO_VITRINE; desenharResultadosVitrine(); }, 'vitrine');
         $$('[data-alternar]', box).forEach(b => b.onclick = () => {
             const c = b.dataset.alternar;
@@ -1561,10 +1610,11 @@
         if (!muds.length) return;
         const botao = $('#vit-publicar');
         botao.disabled = true; botao.textContent = 'Preparando…';
-        let mudancas;
+        let mudancas, mudsSC = [];
         try {
             // muda SÓ o destaque/ordem de cada arquivo; o resto do item fica exatamente como estava
-            mudancas = await Promise.all(muds.map(async m => {
+            mudsSC = muds.filter(m => ehSC(m.caminho));
+            mudancas = await Promise.all(muds.filter(m => !ehSC(m.caminho)).map(async m => {
                 const bruto = await estado.repo.ler(m.caminho);
                 const novo = Object.assign({}, bruto);
                 if (m.ordem) { novo.destaque = true; novo.destaqueOrdem = m.ordem; }
@@ -1572,6 +1622,14 @@
                 if (m.aj) for (const [k, v] of Object.entries(m.aj)) { if (v) novo[k] = v; else delete novo[k]; }
                 return { caminho: m.caminho, conteudo: C.serializar(novo) };
             }));
+            // 🔀 obras do Sidechain: um arquivo só com todas as que estão no banner (na ordem da lista)
+            if (mudsSC.length) {
+                const itens = vit.lista.map((c, i) => [c, i + 1]).filter(([c]) => ehSC(c)).map(([c, ordem]) => {
+                    const v = vit.sc.porCaminho.get(c) || {}; const sc = v._sc || {};
+                    return { colecao: sc.col, k: sc.k, nome: v.nome, ordem };
+                }).filter(d => d.colecao && d.k);
+                mudancas.push({ caminho: ARQ_DEST_SC, conteudo: JSON.stringify({ versao: 1, em: new Date().toISOString(), itens }, null, 1) + '\n' });
+            }
         } catch (e) {
             aviso('Não consegui ler os itens: ' + e.message, 'ruim');
             botao.disabled = false; botao.textContent = 'Publicar vitrine';
@@ -1582,7 +1640,14 @@
         try {
             vit.lista = null;                                         // depois de salvar, a lista volta a espelhar o índice
             vit.ajustes = new Map();
-            await gravar(mudancas, `Studio: vitrine do banner (${fica} ${fica === 1 ? 'destaque' : 'destaques'}, ${mudancas.length} ${mudancas.length === 1 ? 'item alterado' : 'itens alterados'})`, botao);
+            // as obras do Sidechain não estão no índice do Studio: atualiza o destaque delas aqui
+            const scAntes = vit.sc.itens.map(v => [v, v.destaque, v.destaqueOrdem]);
+            antes.forEach((c, i) => { const v = vit.sc.porCaminho.get(c); if (v) { v.destaque = true; v.destaqueOrdem = i + 1; } });
+            vit.sc.itens.forEach(v => { if (!antes.includes(v.caminho)) { v.destaque = undefined; v.destaqueOrdem = undefined; } });
+            try {
+                await gravar(mudancas, `Studio: vitrine do banner (${fica} ${fica === 1 ? 'destaque' : 'destaques'}, ${mudancas.length} ${mudancas.length === 1 ? 'item alterado' : 'itens alterados'})`, botao);
+            } catch (e) { scAntes.forEach(([v, d, o]) => { v.destaque = d; v.destaqueOrdem = o; }); throw e; }
+            if (mudsSC.length) aviso(`🔀 ${mudsSC.length} obra(s) do Sidechain: o banner muda no app depois da próxima rodada do robô do Sidechain (e do Cloud).`, 'ok');
         } catch (e) {
             vit.lista = antes; vit.ajustes = ajustesAntes; vit.aberto = abertoAntes;   // não salvou: tudo continua na tela
         }
@@ -1609,13 +1674,21 @@
             _jogo: col.tipo === 'jogo'
         });
     }
+    /** obra do Sidechain na prévia: só o que o índice leve traz (nome, ano, imagem) */
+    function itemSCParaApp(c, i) {
+        const v = vit.sc.porCaminho.get(c); if (!v) return null;
+        const col = colDoCaminho(c) || {};
+        return { id: 'sc:' + v._sc.k, slug: 'sc-' + i, title: v.nome, year: v.ano, cat: col.nome, thumb: v.capa, bannerThumb: v.banner || v.capa,
+            categoryType: col.tipo === 'canal24h' ? 'live' : (v.eps ? 'series' : 'vod'), serie: v.eps ? v.nome : undefined, destaque: true, destaqueOrdem: i + 1 };
+    }
     async function itensParaPrevia() {
         const lista = vit.lista.slice();
         const lidos = await Promise.all(lista.map(async c => {
+            if (ehSC(c)) return null;
             if (!vit.cache.has(c)) vit.cache.set(c, estado.repo.ler(c).catch(() => null));
             return vit.cache.get(c);
         }));
-        return lista.map((c, i) => (lidos[i] ? itemParaApp(c, comAjustes(c, lidos[i]), i) : null)).filter(Boolean);
+        return lista.map((c, i) => (ehSC(c) ? itemSCParaApp(c, i) : lidos[i] ? itemParaApp(c, comAjustes(c, lidos[i]), i) : null)).filter(Boolean);
     }
 
     function criarTelaPrevia() {

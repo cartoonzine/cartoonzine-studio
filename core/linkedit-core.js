@@ -1433,6 +1433,14 @@
     }
     function gerarJSON(canais) { return JSON.stringify(objetosJSON(canais), null, 2) + '\n'; }
     /** os itens no formato do JSON do app (o gerarJSON é isto, com indentação) */
+    /** 🎬 Vitrine: a chave de uma OBRA na saída do Sidechain (série = todos os episódios; filme pelo TMDB, senão nome+ano).
+     *  É o que o Studio grava em sidechain/destaques.json e o robô procura para marcar destaque. */
+    function chaveVitrineSC(o) {
+        if (!o) return '';
+        if (o.serie) return 's|' + norm(o.serie);
+        if (o.tmdbId) return 'f|tmdb' + o.tmdbId;
+        return 'f|' + norm(o.title || o.name) + '|' + (o.year || '');
+    }
     function objetosJSON(canais) {
         return canais.map(c => {
             const o = { name: c.nome, url: c.url };
@@ -1513,6 +1521,6 @@
         CAMPOS_FICHA_SC, juntarFicha, chaveSerie, aplicarAjustesEnvio, generosDe,
         SEM_GRUPO, grupoDe, mapaGrupos, sugerirGrupo, analisarGrupos, aplicarSugestoes, moverGrupo,
         colecoesSidechain, envioPadrao, linksDoEnvio, passaFiltros, idEnvio, chaveSC, mesmoDestino, destinoTexto, passaRegra, rotaDe, itemNoDestino, saidaDe, montarSidechain, fonteDaSaida, sugerirRegras, marcarVistos, categoriaSugerida, definirCategoria, nomeEPG, chavesEPG, dataXMLTV, canaisXMLTV, programasXMLTV, acharNoGuia, ligarGuia, guiasDaLista, lerLista, lerM3U, lerJSON, lerTexto, ehStreamHLS, ehLinkDeCanal, linkDireto, nomeDoLink, canalDoLink, completar, limparNome, qualidadeDe, paisDe, idiomaDe, tipoDe, formatoDe, chaveDe, idDe,
-        agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, objetosJSON, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
+        agrupar, nota, filtrar, contar, gerarM3U, gerarJSON, objetosJSON, chaveVitrineSC, gerarTXT, canalComReservas, norm, TIPOS: TIPOS.map(t => t[0]).concat('Variados')
     };
 });

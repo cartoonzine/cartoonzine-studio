@@ -260,6 +260,8 @@ code { background: var(--vidro-forte); padding: 1px 6px; border-radius: 6px; fon
 .vit-txt small { color: var(--suave); font-size: 12.5px; }
 .vit-alerta { color: var(--amarelo); }
 .vit-novo { color: var(--verde); font-weight: 600; }
+.vit-sc-selo { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; color: #ff7ac0; border: 1px solid rgba(255,122,192,.45); background: rgba(255,46,138,.1); white-space: nowrap; cursor: help; }
+.vit-sc-mini { color: #ff7ac0; }
 .vit-acoes { display: flex; gap: 6px; }
 .vit-acoes .btn { min-width: 34px; }
 .vit-filtros { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }

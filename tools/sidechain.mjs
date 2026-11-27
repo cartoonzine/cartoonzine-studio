@@ -186,13 +186,36 @@ if (buscasTmdb) console.log(`\n🔎 TMDB: ${buscasTmdb} busca(s) nesta rodada`);
 console.log(`\n📦 montando as listas… (${passou()})`);
 const { saidas, relatorios, avulsas, reservasStudio, copias } = L.montarSidechain(lotes, config, { studio: mapaStudio });
 const fontes = [];
+// 🎬 Vitrine: as obras do Sidechain que você pôs no banner (Studio → Vitrine grava sidechain/destaques.json)
+const destaquesSC = new Map();          // colecao → Map(chave → ordem)
+for (const d of (lerJSON(path.join(RAIZ, 'sidechain', 'destaques.json'), {}) || {}).itens || []) {
+    if (!d || !d.colecao || !d.k) continue;
+    if (!destaquesSC.has(d.colecao)) destaquesSC.set(d.colecao, new Map());
+    destaquesSC.get(d.colecao).set(d.k, d.ordem || null);
+}
+const vitrineSC = new Map();            // obra → linha do índice leve que a Vitrine do Studio lê (listas/vitrine-sidechain.json)
+const TMDB_IMG = 'https://image.tmdb.org/t/p/';
+let nDestaques = 0;
 // lista grande vira PARTES de até ~35 MB (o GitHub recusa arquivo de mais de 100 MB). Uma série nunca é partida ao meio.
 // JSON compacto, um item por linha (o git guarda só as linhas que mudaram). M3U só onde o Cloud usa (Desenhos 24H).
 const MAX_PARTE = parseFloat(args['mb-parte'] || '35') * 1e6;
 const arquivos = [];        // { chave, json, m3u? }
 for (const s of saidas) {
     const col = cols.find(c => c.id === s.colecao);
-    const objs = L.objetosJSON(s.itens).map((o, i) => ({ o, i, txt: JSON.stringify(o), grupo: o.serie ? 's|' + o.serie : 'i|' + i }));
+    const dSC = destaquesSC.get(s.colecao);
+    const naVitrine = ['video', 'canal24h'].includes(col.tipo);
+    const objs = L.objetosJSON(s.itens).map((o, i) => {
+        const k = L.chaveVitrineSC(o);
+        if (dSC && dSC.has(k)) { o.destaque = true; if (dSC.get(k)) o.destaqueOrdem = dSC.get(k); nDestaques++; }
+        if (naVitrine) {
+            const vk = s.colecao + '|' + k, img = o.bannerThumb || o.thumb || '';
+            const v = vitrineSC.get(vk);
+            if (v) { if (o.serie) v[6]++; if (!v[4] && img) { v[4] = img.replace(TMDB_IMG, '~'); v[5] = o.bannerThumb ? 1 : 0; } }
+            // [chave, coleção, nome, ano, imagem (banner ou capa; "~" = TMDB), tem banner, episódios]
+            else vitrineSC.set(vk, [k, s.colecao, o.serie || o.title || o.name, o.year || 0, img.replace(TMDB_IMG, '~'), o.bannerThumb ? 1 : 0, o.serie ? 1 : 0]);
+        }
+        return { o, i, txt: JSON.stringify(o), grupo: o.serie ? 's|' + o.serie : 'i|' + i };
+    });
     const grupos = new Map(); objs.forEach(x => { if (!grupos.has(x.grupo)) grupos.set(x.grupo, []); grupos.get(x.grupo).push(x); });
     const partes = [[]]; let tam = 0;
     for (const g of grupos.values()) {
@@ -225,6 +248,9 @@ for (const a of arquivos) {
 for (const f of fs.readdirSync(SAIDA)) { const k = f.replace(/\.(json|m3u)$/, ''); if (/^sc-/.test(k) && !feitos.has(k)) antigas.add(k); }
 for (const k of antigas) if (/^sc-/.test(k)) { fs.rmSync(path.join(SAIDA, k + '.json'), { force: true }); fs.rmSync(path.join(SAIDA, k + '.m3u'), { force: true }); }
 fs.writeFileSync(path.join(SAIDA, 'sidechain-fontes.json'), JSON.stringify(fontes, null, 2) + '\n');
+// 🎬 índice leve das obras para a Vitrine do Studio (buscar e pôr no banner sem baixar as listas inteiras)
+fs.writeFileSync(path.join(SAIDA, 'vitrine-sidechain.json'), JSON.stringify({ v: 1, em: new Date().toISOString(), img: TMDB_IMG, itens: [...vitrineSC.values()] }) + '\n');
+if (destaquesSC.size) console.log(`  🎬 ${nDestaques} item(ns) marcados como destaque do banner (sidechain/destaques.json)`);
 // 🧬 o que já estava cadastrado na Studio não some: os links viram reserva do item de lá (o build da Studio junta)
 fs.writeFileSync(path.join(SAIDA, 'sc-reservas.json'), JSON.stringify(reservasStudio || {}, null, 1) + '\n');
 // 🧬 relatório de cópias (informativo): o painel mostra em Sidechain → 🧬 Cópias e nos cards da Saída
