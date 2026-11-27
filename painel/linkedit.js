@@ -1000,8 +1000,9 @@
     /** TMDB que o robô já buscou (arquivo à parte, lido só quando a Saída precisa) */
     async function lerTmdbRobo(forcar) {
         if (SC.tmdb && !forcar) return SC.tmdb;
-        try { SC.tmdb = (await S.ler('sidechain/tmdb.json')) || {}; } catch (x) { SC.tmdb = {}; }
-        return SC.tmdb;
+        if (SC._tmdbP && !forcar) return SC._tmdbP;              // já está lendo (o arquivo tem dezenas de MB): espera a mesma leitura
+        SC._tmdbP = (async () => { try { SC.tmdb = (await S.ler('sidechain/tmdb.json')) || {}; } catch (x) { SC.tmdb = {}; } SC._tmdbP = null; return SC.tmdb; })();
+        return SC._tmdbP;
     }
     async function lerSidechain(forcar) {
         if (!S.ler) { SC.envios = SC.envios || []; SC.estado = SC.estado || {}; return; }
@@ -1293,7 +1294,10 @@
     // ---------- 🧬 CÓPIAS entre listas (informativo: o robô já junta — a 1ª vira o item e as outras viram reserva) ----------
     async function lerCopiasSC(forcar) {
         if (SC.copias && !forcar) return SC.copias;
+        if (SC._copP && !forcar) return SC._copP;
+        let fim; SC._copP = new Promise(r => { fim = r; });
         try { SC.copias = (await S.ler('sidechain/copias.json')) || { colecoes: {} }; } catch (x) { SC.copias = { colecoes: {} }; }
+        SC._copP = null; setTimeout(() => fim(SC.copias), 0);
         SC.copiasMapa = {};
         for (const [col, arr] of Object.entries(SC.copias.colecoes || {})) { const m = SC.copiasMapa[col] = new Map(); arr.forEach(x => { m.set(x.k, x); m.set('n|' + normCP(x.nome), x); }); }
         return SC.copias;
@@ -1559,8 +1563,13 @@
         const e = SC.envios.find(x => x.id === SC.atual) || null;
         if (e && !SC.passo) SC.passo = e.url ? 4 : 1;
         const rolagem = [...document.querySelectorAll('.le-jan, .le-sc-gtab')].map(x => x.scrollTop);
-        if (e && SC.passo === 4 && (e.tmdb || e.tmdbPedidoEm) && !SC.tmdb) await lerTmdbRobo();
-        if ((SC.atual === '__copias' || (e && SC.passo === 4)) && !SC.copias) await lerCopiasSC();
+        // ⚡ tmdb.json e copias.json são grandes (dezenas de MB): antes a página esperava os dois para abrir.
+        // Agora só espera quando a Saída vai usar (lista já lida); senão lê em segundo plano e a página abre na hora.
+        const listaPronta = !!(e && SC.canais.has(e.id) && SC.canais.get(e.id).url === L.linksDoEnvio(e).join('\n'));
+        const precisaTmdb = !!(e && SC.passo === 4 && (e.tmdb || e.tmdbPedidoEm) && !SC.tmdb), precisaCop = !!(e && SC.passo === 4 && !SC.copias);
+        if (SC.atual === '__copias' && !SC.copias) { janela('<h3>🧬 Cópias entre listas</h3><p class="le-dica" style="padding:30px 0">⏳ Carregando o relatório de cópias…</p>', 'pagina'); await lerCopiasSC(); }
+        else if (listaPronta) { if (precisaTmdb) await lerTmdbRobo(); if (precisaCop) await lerCopiasSC(); }
+        else if (precisaTmdb || precisaCop) Promise.all([precisaTmdb ? lerTmdbRobo() : null, precisaCop ? lerCopiasSC() : null]).then(() => { SC.saidaVer = (SC.saidaVer || 0) + 1; });
         if (e) { const st = SC.estado.envios && SC.estado.envios[e.id]; if (st) { const v = vistoSC(); v[e.id] = st.em; try { localStorage.setItem(GUARDA_SC_VISTO, JSON.stringify(v)); } catch (x) { /* */ } } }
         const cols = colsSC();
         const st = e && SC.estado.envios ? SC.estado.envios[e.id] : null;
