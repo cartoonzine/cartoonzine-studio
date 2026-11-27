@@ -53248,7 +53248,28 @@
           "audio": "dublado",
           "qualidade": "",
           "colecao": "series",
-          "genero": "Animação"
+          "genero": "Animação",
+          "ficha": {
+            "capa": "",
+            "banner": "",
+            "previa": "",
+            "fundoImagem": "banner",
+            "posFundo": 45,
+            "bannerOk": true,
+            "descricao": "",
+            "generos": "",
+            "classificacao": "",
+            "bannerLogo": "",
+            "bannerVideo": "",
+            "bannerSkin": "",
+            "bannerFx": "",
+            "destaque": "",
+            "imdb": "",
+            "notaImdb": "",
+            "votosImdb": "",
+            "tmdb": "",
+            "nota": ""
+          }
         },
         "n:aqua teen esquadrao forca total s01e01|": {
           "colecao": "series",
@@ -54280,6 +54301,16 @@
         "abominavel e a cidade escondida": {
           "fundoImagem": "banner",
           "posFundo": 5,
+          "bannerOk": true
+        },
+        "american dad": {
+          "fundoImagem": "banner",
+          "posFundo": 64,
+          "bannerOk": true
+        },
+        "a melhor familia feliz dos eua": {
+          "fundoImagem": "banner",
+          "posFundo": 34,
           "bannerOk": true
         }
       },
