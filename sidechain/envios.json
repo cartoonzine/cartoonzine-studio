@@ -35276,36 +35276,16 @@
         "n:a casa magica da gabby s13e05|": {
           "colecao": "cartoons"
         },
-        "n:a casa do mickey mouse mais s01e01|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e02|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e03|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e04|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e05|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e06|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e07|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e08|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e09|": {
-          "colecao": "cartoons"
-        },
-        "n:a casa do mickey mouse mais s01e10|": {
-          "colecao": "cartoons"
-        },
+        "n:a casa do mickey mouse mais s01e01|": "ignorar",
+        "n:a casa do mickey mouse mais s01e02|": "ignorar",
+        "n:a casa do mickey mouse mais s01e03|": "ignorar",
+        "n:a casa do mickey mouse mais s01e04|": "ignorar",
+        "n:a casa do mickey mouse mais s01e05|": "ignorar",
+        "n:a casa do mickey mouse mais s01e06|": "ignorar",
+        "n:a casa do mickey mouse mais s01e07|": "ignorar",
+        "n:a casa do mickey mouse mais s01e08|": "ignorar",
+        "n:a casa do mickey mouse mais s01e09|": "ignorar",
+        "n:a casa do mickey mouse mais s01e10|": "ignorar",
         "n:a casa do mickey mouse s01e01|": {
           "colecao": "cartoons"
         },
@@ -46997,16 +46977,16 @@
         "n:a casa magica da gabby s13e03|": "2026-11-25",
         "n:a casa magica da gabby s13e04|": "2026-11-25",
         "n:a casa magica da gabby s13e05|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e01|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e02|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e03|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e04|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e05|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e06|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e07|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e08|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e09|": "2026-11-25",
-        "n:a casa do mickey mouse mais s01e10|": "2026-11-25",
+        "n:a casa do mickey mouse mais s01e01|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e02|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e03|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e04|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e05|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e06|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e07|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e08|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e09|": "2026-11-27",
+        "n:a casa do mickey mouse mais s01e10|": "2026-11-27",
         "n:a casa do mickey mouse s01e01|": "2026-11-25",
         "n:a casa do mickey mouse s01e02|": "2026-11-25",
         "n:a casa do mickey mouse s01e03|": "2026-11-25",
