@@ -54276,6 +54276,11 @@
           "posFundo": 14,
           "bannerOk": true,
           "tmdb": "tv/65928"
+        },
+        "abominavel e a cidade escondida": {
+          "fundoImagem": "banner",
+          "posFundo": 5,
+          "bannerOk": true
         }
       },
       "criadoEm": "2026-11-24T01:43:00.783Z",
