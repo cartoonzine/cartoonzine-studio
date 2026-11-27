@@ -1851,7 +1851,15 @@
     // A ficha de um item é a coleção da rota ATUAL dele: trocou a rota, ele muda de ficha sozinho;
     // ficou sem rota (esperando), volta para a lista principal. Gravado no envio (fichario: { chave: data }).
     function fichaDe(c) { const r = rotaSC(c); if (!r || r.motivo === 'pendente' || !r.destino) return ''; return r.destino === 'ignorar' ? 'ignorar' : (r.destino.colecao || ''); }
-    function naFicha(c) { const f = SC.modo && SC.modo.envio.fichario; return !!(f && f[L.chaveSC(c)]) && !!fichaDe(c); }
+    // Automático: o item que VOCÊ direcionou (Enviar para / rota no card / 🚫 Ignorar / "Vai para") já entra na ficha.
+    // fichario[k] = data → guardado à mão · fichario[k] = 0 → você devolveu à lista principal (fica lá mesmo direcionado)
+    function naFicha(c) {
+        if (!SC.modo) return false;
+        const e = SC.modo.envio, k = L.chaveSC(c), v = e.fichario && e.fichario[k];
+        if (v === 0) return false;
+        const direcionado = !!(e.desvios && e.desvios[k]) || !!c.colecaoManual;
+        return (!!v || direcionado) && !!fichaDe(c);
+    }
     const nomeFicha = (k) => { if (k === 'ignorar') return '🚫 Fora'; const c = colsSC().find(x => x.id === k); return c ? ((c.icone ? c.icone + ' ' : '') + c.nome) : k; };
     const corFicha = (k) => COR_ROTA[k] || '#94a3b8';
     function organizarNaFicha(lista, sim) {
@@ -1859,7 +1867,7 @@
         const f = e.fichario = e.fichario || {}, rv = e.revisados = e.revisados || {}, hoje = new Date().toISOString().slice(0, 10);
         const vao = sim ? lista.filter(c => fichaDe(c)) : lista;
         if (sim && !vao.length) return S.aviso('Escolha a rota (para onde vai) antes de guardar na ficha.', 'ruim');
-        vao.forEach(c => { const k = L.chaveSC(c); if (sim) { f[k] = hoje; rv[k] = hoje; } else delete f[k]; });
+        vao.forEach(c => { const k = L.chaveSC(c); if (sim) { f[k] = hoje; rv[k] = hoje; } else f[k] = 0; });
         SC.sujo = true; E.sel.clear();
         const fs = [...new Set(vao.map(fichaDe))];
         S.aviso(sim ? `🗂 ${vao.length} guardado(s) na ficha ${fs.map(nomeFicha).join(', ')}${lista.length > vao.length ? ` · ${lista.length - vao.length} sem rota ficaram na lista` : ''}. Use 💾 Salvar progresso para guardar.`
@@ -1966,9 +1974,9 @@
     function desviarSC(marcados, d) {
         const e = SC.modo.envio;
         const hoje = new Date().toISOString().slice(0, 10); e.revisados = e.revisados || {};
-        marcados.forEach(c => { const k = L.chaveSC(c); if (d == null) delete e.desvios[k]; else { e.desvios[k] = d; e.revisados[k] = hoje; } });
+        marcados.forEach(c => { const k = L.chaveSC(c); if (d == null) delete e.desvios[k]; else { e.desvios[k] = d; e.revisados[k] = hoje; if (e.fichario && e.fichario[k] === 0) delete e.fichario[k]; } });
         SC.sujo = true; E.sel.clear();
-        S.aviso(d == null ? `${marcados.length} voltaram ao destino do envio.` : `${marcados.length} → ${L.destinoTexto(d, colsSC())}. Clique em ✓ Concluir e depois em 💾 Salvar.`, 'ok');
+        S.aviso(d == null ? `${marcados.length} voltaram ao destino do envio.` : `${marcados.length} → ${L.destinoTexto(d, colsSC())} 🗂 já na ficha ${nomeFicha(d === 'ignorar' ? 'ignorar' : d.colecao)}. Use 💾 Salvar progresso para guardar.`, 'ok');
         desenharTabela(); pintarBarraSC();
     }
 
